@@ -1,2 +1,6 @@
+term xterm
+altscreen on
+autodetach on
+startup_message off
 escape ^z^z
 hardstatus alwayslastline '%{=ub m.}%H%{-} %L=%-w%45L>%{=b b.}%n %t%{-}%+w %-17<%=%{= .y}(%l)'

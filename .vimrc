@@ -8,6 +8,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplcache-snippets_complete'
+Bundle 'altercation/vim-colors-solarized'
 
 filetype plugin on
 
@@ -18,6 +19,11 @@ set softtabstop=0
 set shiftwidth=2
 
 map <F2> :NERDTreeToggle<CR>
+
+syntax enable
+set background=dark
+set t_Co=16
+colorscheme solarized
 
 " 補完ウィンドウの設定
 set completeopt=menuone
