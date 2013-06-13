@@ -23,6 +23,8 @@ map <F2> :NERDTreeToggle<CR>
 syntax enable
 set background=dark
 set t_Co=16
+"let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 colorscheme solarized
 
 " 補完ウィンドウの設定
