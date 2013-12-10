@@ -17,6 +17,7 @@ set smartindent
 set tabstop=2
 set softtabstop=0
 set shiftwidth=2
+set ambiwidth=double
 
 map <F2> :NERDTreeToggle<CR>
 
