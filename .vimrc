@@ -1,16 +1,23 @@
-set nocompatible
-filetype off
+if has('vim_starting')
+  set nocompatible
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-set rtp+=~/.vim/vundle/
-call vundle#rc()
+call neobundle#rc(expand('~/.vim/bundle/'))
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neocomplcache-snippets_complete'
-Bundle 'altercation/vim-colors-solarized'
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-filetype plugin on
+NeoBundle 'Shougo/vimproc'
+
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'altercation/vim-colors-solarized'
+
+filetype plugin indent on
+
+NeoBundleCheck
 
 set expandtab
 set smartindent
