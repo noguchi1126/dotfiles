@@ -14,6 +14,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'thinca/vim-ref'
 
 filetype plugin indent on
 
@@ -57,6 +58,7 @@ if !exists('g:neocomplcache_keyword_patterns')
     let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+let g:ref_phpmanual_path = $HOME . '/.vim/php_manual_ja'
 " スニペットを展開する。スニペットが関係しないところでは行末まで削除
 imap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"
 smap <expr><C-k> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : "\<C-o>D"

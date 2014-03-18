@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Thread クラス</title>
+
+ </head>
+ <body><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="threaded.wait.html">Threaded::wait</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="thread.detach.html">Thread::detach</a></div>
+ <div class="up"><a href="book.pthreads.html">pthreads</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div><hr /><div id="class.thread" class="reference">
+
+ <h1 class="title">Thread クラス</h1>
+ 
+
+ <div class="partintro"><p class="verinfo">(PECL pthreads &gt;= 2.0.0)</p>
+
+
+  <div class="section" id="thread.intro">
+   <h2 class="title">導入</h2>
+   <p class="para">
+    スレッドを実装するには、このクラスを継承して run メソッドを実装しなければいけません。
+    このオブジェクトの start メソッドが呼ばれると、run メソッドのコードが個別のスレッドで実行されます。
+   </p>
+  </div>
+
+
+  <div class="section" id="thread.synopsis">
+   <h2 class="title">クラス概要</h2>
+
+
+   <div class="classsynopsis">
+    <div class="ooclass"></div>
+
+
+    <div class="classsynopsisinfo">
+     <span class="ooclass">
+      <strong class="classname">Thread</strong>
+     </span>
+     {</div>
+
+    
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="thread.detach.html" class="methodname">detach</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="type">long</span> <span class="methodname"><a href="thread.getcreatorid.html" class="methodname">getCreatorId</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">Thread</span> <span class="methodname"><a href="thread.getcurrentthread.html" class="methodname">getCurrentThread</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">integer</span> <span class="methodname"><a href="thread.getcurrentthreadid.html" class="methodname">getCurrentThreadId</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="type">long</span> <span class="methodname"><a href="thread.getthreadid.html" class="methodname">getThreadId</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="thread.isjoined.html" class="methodname">isJoined</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="thread.isstarted.html" class="methodname">isStarted</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="thread.join.html" class="methodname">join</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="thread.kill.html" class="methodname">kill</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">final</span> <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="thread.start.html" class="methodname">start</a></span>
+    ([ <span class="methodparam"><span class="type"><span class="type long">long</span></span> <code class="parameter">$options</code></span>
+  ] )</div>
+
+   }</div>
+
+
+  </div>
+
+ </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="thread.detach.html">Thread::detach</a> — Execution</li><li><a href="thread.getcreatorid.html">Thread::getCreatorId</a> — 識別</li><li><a href="thread.getcurrentthread.html">Thread::getCurrentThread</a> — Identification</li><li><a href="thread.getcurrentthreadid.html">Thread::getCurrentThreadId</a> — Identification</li><li><a href="thread.getthreadid.html">Thread::getThreadId</a> — 識別</li><li><a href="thread.isjoined.html">Thread::isJoined</a> — 状態を検出する</li><li><a href="thread.isstarted.html">Thread::isStarted</a> — 状態を検出する</li><li><a href="thread.join.html">Thread::join</a> — 同期処理</li><li><a href="thread.kill.html">Thread::kill</a> — Execution</li><li><a href="thread.start.html">Thread::start</a> — 実行する</li></ul>
+</div>
+<hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="prev" style="text-align: left; float: left;"><a href="threaded.wait.html">Threaded::wait</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="thread.detach.html">Thread::detach</a></div>
+ <div class="up"><a href="book.pthreads.html">pthreads</a></div>
+ <div class="home"><a href="index.html">PHP Manual</a></div>
+</div></body></html>
