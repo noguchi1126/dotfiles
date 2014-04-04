@@ -9,7 +9,7 @@ fi
 
 umask 002
 
-. ./cdd/cdd
+. ~/cdd/cdd
 cd() {
   builtin cd "$@"
   local ret=$?
