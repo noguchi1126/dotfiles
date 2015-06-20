@@ -13,8 +13,10 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'tpope/vim-obsession'
 
 filetype plugin indent on
 
