@@ -53,6 +53,8 @@ set tabstop=2
 set softtabstop=0
 set shiftwidth=2
 set ambiwidth=double
+set hlsearch
+set incsearch
 
 map <F2> :NERDTreeToggle<CR>
 
