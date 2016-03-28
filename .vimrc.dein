@@ -55,6 +55,7 @@ set shiftwidth=2
 set ambiwidth=double
 set hlsearch
 set incsearch
+set backspace=indent,eol,start
 
 map <F2> :NERDTreeToggle<CR>
 
