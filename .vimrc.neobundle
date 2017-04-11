@@ -94,3 +94,7 @@ inoremap <expr><C-h> pumvisible() ? neocomplcache#close_popup() : "\<C-h>"
 inoremap <expr><C-y> neocomplcache#close_popup()
 " 現在選択している候補をキャンセルし、ポップアップを閉じます
 inoremap <expr><C-e> neocomplcache#cancel_popup()
+" see https://github.com/cohama/lexima.vim/issues/65
+let g:lexima_no_default_rules = 1
+call lexima#set_default_rules()
+call lexima#insmode#map_hook('before', '<CR>', '')
