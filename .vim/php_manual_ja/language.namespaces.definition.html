@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="language.namespaces.definition" class="sect1">
   <h2 class="title">名前空間の定義</h2>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p>
   <p class="para">
    PHP のコードならなんでも名前空間に含めることができますが、
    実際に名前空間の影響を受けるのはクラス (抽象クラスやトレイトを含む) とインターフェイス、関数、そして定数だけです。
@@ -21,11 +21,11 @@
    名前空間を宣言するには、キーワード <em>namespace</em>
    を使用します。名前空間を含むファイルでは、他のコードより前にファイルの先頭で名前空間を宣言しなければなりません。
    ただし <a href="control-structures.declare.html" class="xref">declare</a> キーワードは例外です。
-   <div class="example" id="example-234">
+   <div class="example" id="example-242">
     <p><strong>例1 名前空間の宣言</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">MyProject</span><span style="color: #007700">;<br /><br />const&nbsp;</span><span style="color: #0000BB">CONNECT_OK&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />class&nbsp;</span><span style="color: #0000BB">Connection&nbsp;</span><span style="color: #007700">{&nbsp;</span><span style="color: #FF8000">/*&nbsp;...&nbsp;*/&nbsp;</span><span style="color: #007700">}<br />function&nbsp;</span><span style="color: #0000BB">connect</span><span style="color: #007700">()&nbsp;{&nbsp;</span><span style="color: #FF8000">/*&nbsp;...&nbsp;*/&nbsp;&nbsp;</span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">namespace&nbsp;</span><span style="color: #0000BB">MyProject</span><span style="color: #007700">;<br /><br />const&nbsp;</span><span style="color: #0000BB">CONNECT_OK&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />class&nbsp;</span><span style="color: #0000BB">Connection&nbsp;</span><span style="color: #007700">{&nbsp;</span><span style="color: #FF8000">/*&nbsp;...&nbsp;*/&nbsp;</span><span style="color: #007700">}<br />function&nbsp;</span><span style="color: #0000BB">connect</span><span style="color: #007700">()&nbsp;{&nbsp;</span><span style="color: #FF8000">/*&nbsp;...&nbsp;*/&nbsp;</span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -34,7 +34,7 @@
    名前空間の宣言より前に書くことが許されているコードは
    <em>declare</em> 文のみです。ソースファイルのエンコーディングを定義するために使用します。
    さらに、PHP コード以外であっても名前空間の宣言の前に記述することはできません (スペースも同様です)。
-   <div class="example" id="example-235">
+   <div class="example" id="example-243">
     <p><strong>例2 名前空間の宣言</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">

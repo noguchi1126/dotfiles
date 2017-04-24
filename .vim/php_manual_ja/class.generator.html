@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="closure.bindto.html">Closure::bindTo</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="closure.fromcallable.html">Closure::fromCallable</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="generator.current.html">Generator::current</a></div>
  <div class="up"><a href="reserved.interfaces.html">定義済みのインターフェイスとクラス</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -15,7 +15,7 @@
  <h1 class="title">Generator クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p>
 
 
   <div class="section" id="generator.intro">
@@ -59,6 +59,10 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="generator.getreturn.html" class="methodname">getReturn</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="generator.key.html" class="methodname">key</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -76,7 +80,7 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="generator.throw.html" class="methodname">throw</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.exception.html" class="type Exception">Exception</a></span> <code class="parameter">$exception</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$exception</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="generator.valid.html" class="methodname">valid</a></span>
@@ -109,7 +113,6 @@
 
 
 
-
  
 
 
@@ -158,11 +161,19 @@
 
 
 
+ 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="generator.current.html">Generator::current</a> — yield した値を取得する</li><li><a href="generator.key.html">Generator::key</a> — yield したキーを取得する</li><li><a href="generator.next.html">Generator::next</a> — ジェネレータを続行する</li><li><a href="generator.rewind.html">Generator::rewind</a> — イテレータを巻き戻す</li><li><a href="generator.send.html">Generator::send</a> — 値をジェネレータに送る</li><li><a href="generator.throw.html">Generator::throw</a> — 例外をジェネレータにスローする</li><li><a href="generator.valid.html">Generator::valid</a> — イテレータが終了したかどうかを調べる</li><li><a href="generator.wakeup.html">Generator::__wakeup</a> — シリアライズのコールバック</li></ul>
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="generator.current.html">Generator::current</a> — yield した値を取得する</li><li><a href="generator.getreturn.html">Generator::getReturn</a> — Get the return value of a generator</li><li><a href="generator.key.html">Generator::key</a> — yield したキーを取得する</li><li><a href="generator.next.html">Generator::next</a> — ジェネレータを続行する</li><li><a href="generator.rewind.html">Generator::rewind</a> — イテレータを巻き戻す</li><li><a href="generator.send.html">Generator::send</a> — 値をジェネレータに送る</li><li><a href="generator.throw.html">Generator::throw</a> — 例外をジェネレータにスローする</li><li><a href="generator.valid.html">Generator::valid</a> — イテレータが終了したかどうかを調べる</li><li><a href="generator.wakeup.html">Generator::__wakeup</a> — シリアライズのコールバック</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="closure.bindto.html">Closure::bindTo</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="closure.fromcallable.html">Closure::fromCallable</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="generator.current.html">Generator::current</a></div>
  <div class="up"><a href="reserved.interfaces.html">定義済みのインターフェイスとクラス</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

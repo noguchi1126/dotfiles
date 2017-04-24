@@ -22,9 +22,12 @@
    </p>
 
    <p class="para">
-    使われ方によって変化する自動的に定義される定数（マジカル定数）が 8 つあります。
+    使われ方によって変化する自動的に定義される定数（マジカル定数）が 9 つあります。
     例えば、<strong><code>__LINE__</code></strong>はスクリプト上において
-    呼び出された行番号です。特別定数は大文字小文字を区別しません。
+    呼び出された行番号です。
+    All these &quot;magical&quot; constants are resolved
+    at compile time, unlike regular constants thats resolved at runtime.
+    特別定数は大文字小文字を区別しません。
     内容は以下のとおりです:
    </p>
    <p class="para">
@@ -50,11 +53,8 @@
        <tr id="constant.file">
         <td><strong><code>__FILE__</code></strong></td>
         <td>
-         ファイルのフルパスとファイル名。インクルードされるファイルの
-         中で使用された場合、インクルードされるファイルの名前が返されます。
-         PHP 4.0.2 以降では <strong><code>__FILE__</code></strong>
-         は常に絶対パスで、シンボリックリンクは解決されます。
-         それより前のバージョンでは、場合によっては相対パスが返されることもあります。
+         ファイルのフルパスとファイル名 (シンボリックリンクを解決した後のもの)。
+         インクルードされるファイルの中で使用された場合、インクルードされるファイルの名前が返されます。
         </td>
        </tr>
 
@@ -64,26 +64,21 @@
          そのファイルの存在するディレクトリ。include の中で使用すると、
          インクルードされるファイルの存在するディレクトリを返します。
          つまり、これは <em>dirname(__FILE__)</em> と同じ意味です。
-         ルートディレクトリである場合を除き、ディレクトリ名の末尾にスラッシュはつきません
-         (PHP 5.3.0 で追加されました)。
+         ルートディレクトリである場合を除き、ディレクトリ名の末尾にスラッシュはつきません。
         </td>
        </tr>
 
        <tr id="constant.function">
         <td><strong><code>__FUNCTION__</code></strong></td>
         <td>
-         関数名（PHP4.3.0で追加されました）。
-         PHP 5以降、この定数は宣言時の関数名(ケース依存)を返します。
-         PHP 4では、この値は常に小文字で返されました。
+         関数名。
         </td>
        </tr>
 
        <tr id="constant.class">
         <td><strong><code>__CLASS__</code></strong></td>
         <td>
-         クラス名（PHP4.3.0で追加されました）。
-         PHP 5以降、この定数は宣言時のクラス名(ケース依存)を返します。
-         PHP 4では、この値は常に小文字で返されました。
+         クラス名。
          クラス名には、そのクラスが宣言されている名前空間も含みます
          (例 <em>Foo\Bar</em>)。
          PHP 5.4 以降では、__CLASS__ がトレイトでも使えることに注意しましょう。トレイトのメソッド内で
@@ -94,27 +89,31 @@
        <tr id="constant.trait">
         <td><strong><code>__TRAIT__</code></strong></td>
         <td>
-         トレイト名 (PHP 5.4.0 で追加されました)。PHP 5.4 以降では、
-         この定数はトレイト名を宣言時のままで返します (大文字小文字を区別します)。
+         トレイト名
          トレイト名には、宣言された名前空間も含みます
          (例 <em>Foo\Bar</em>)。
         </td>
        </tr>
 
-       
        <tr id="constant.method">
         <td><strong><code>__METHOD__</code></strong></td>
         <td>
-         クラスのメソッド名（PHP5.0.0で追加されました）。
-         メソッド名は宣言時と同じ(ケース依存)を返します。
+         クラスのメソッド名。
         </td>
        </tr>
 
        <tr id="constant.namespace">
         <td><strong><code>__NAMESPACE__</code></strong></td>
         <td>
-         現在の名前空間の名前 (大文字小文字を区別します)。
-         この定数はコンパイル時に定義されます (PHP 5.3.0 で追加されました)。
+         現在の名前空間の名前。
+        </td>
+       </tr>
+
+       <tr id="constant.coloncolonclass">
+        <td><strong><code>ClassName::class</code></strong></td>
+        <td>
+         The fully qualified class name. See also 
+         <a href="language.oop5.basic.html#language.oop5.basic.class.class" class="link">::class</a>.
         </td>
        </tr>
 
@@ -123,13 +122,86 @@
     </table>
 
    </p>
+   
    <p class="para">
     <span class="function"><a href="function.get-class.html" class="function">get_class()</a></span>,
     <span class="function"><a href="function.get-object-vars.html" class="function">get_object_vars()</a></span>,
     <span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span>,
     <span class="function"><a href="function.function-exists.html" class="function">function_exists()</a></span>も参照してください。
    </p>
+   
+   <div class="sect2" id="language.constants.predefined.changelog">
+    <h3 class="title">変更履歴</h3>
 
+    <p class="para">
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>バージョン</th>
+         <th>説明</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td>5.5.0</td>
+         <td>
+          <strong><code>::class</code></strong> が追加されました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>5.4.0</td>
+         <td>
+          <strong><code>__TRAIT__</code></strong> が追加されました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>5.3.0</td>
+         <td>
+          <strong><code>__DIR__</code></strong> と <strong><code>__NAMESPACE__</code></strong> が追加されました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>5.0.0</td>
+         <td>
+          <strong><code>__METHOD__</code></strong> が追加されました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>5.0.0</td>
+         <td>
+          これより前のバージョンでは、マジック定数のうちのいくつかが、常に小文字化されていました。
+          このバージョン以降は、すべて大文字小文字を区別する (宣言したとおりに設定される) ようになります。
+         </td>
+        </tr>
+
+        <tr>
+         <td>4.3.0</td>
+         <td>
+          <strong><code>__FUNCTION__</code></strong> と <strong><code>__CLASS__</code></strong> が追加されました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>4.0.2</td>
+         <td>
+          <strong><code>__FILE__</code></strong> に常に絶対パスを含め、シンボリックリンクも解決するようになりました。
+          これより前のバージョンでは、場合によっては相対パスが含まれていることもありました。
+         </td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+    </p>
+   </div>
   </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.constants.syntax.html">構文</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="language.expressions.html">式</a></div>

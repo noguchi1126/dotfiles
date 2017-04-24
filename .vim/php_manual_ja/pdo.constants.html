@@ -571,7 +571,7 @@
      ドライバ名を返します。
     </span>
     <p class="para">
-     <div class="example" id="example-902"><p><strong>例1 <strong><code>PDO::ATTR_DRIVER_NAME</code></strong> の使用例</strong></p>
+     <div class="example" id="example-984"><p><strong>例1 <strong><code>PDO::ATTR_DRIVER_NAME</code></strong> の使用例</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_DRIVER_NAME</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #DD0000">'mysql'</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"mysql&nbsp;上で動作しています。何か&nbsp;mysql&nbsp;固有のことをここで行います\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -1224,6 +1224,23 @@
     <span class="simpara">
      バインドパラメータの登録時に発生するイベント。
      これにより、ドライバがパラメータ名を正規化できるようになります。
+    </span>
+   </dd>
+
+  
+  
+   <dt id="pdo.constants.sqlite_deterministic">
+    <strong><code>PDO::SQLITE_DETERMINISTIC</code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+      Specifies that a function created with <span class="function"><a href="pdo.sqlitecreatefunction.html" class="function">PDO::sqliteCreateFunction()</a></span>
+      is deterministic, i.e. it always returns the same result given the same inputs within
+      a single SQL statement. 
+      (PHP 7.1.4 以降で使用可能です)
     </span>
    </dd>
 

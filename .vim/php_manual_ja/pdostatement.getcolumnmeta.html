@@ -13,7 +13,7 @@
 </div><hr /><div id="pdostatement.getcolumnmeta" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::getColumnMeta</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::getColumnMeta</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.0)</p><p class="refpurpose"><span class="refname">PDOStatement::getColumnMeta</span> &mdash; <span class="dc-title">
    結果セットのカラムに対するメタデータを返す
   </span></p>
 
@@ -26,12 +26,7 @@
    )</div>
 
 
-  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は、
-<em class="emphasis">実験的</em> なものです。この関数の動作・
-名前・その他ドキュメントに書かれている事項は、予告なく、将来的な PHP
-のリリースにおいて変更される可能性があります。
-この関数は自己責任で使用してください。</p></div>
-  <p class="para">
+  <p class="para rdfs-comment">
    結果セットの 0 から始まるカラムに対するメタデータを連想配列で取得します。
   </p>
   <div class="warning"><strong class="warning">警告</strong>
@@ -40,6 +35,14 @@
     をサポートしているわけではありません。
    </p>
   </div>
+
+  <p class="para">以下のドライバがこのメソッドをサポートします。</p>
+  <ul class="itemizedlist">
+   <li class="listitem"><span class="simpara"><a href="ref.pdo-dblib.html" class="link">PDO_DBLIB</a></span></li>
+   <li class="listitem"><span class="simpara"><a href="ref.pdo-mysql.html" class="link">PDO_MYSQL</a></span></li>
+   <li class="listitem"><span class="simpara"><a href="ref.pdo-pgsql.html" class="link">PDO_PGSQL</a></span></li>
+   <li class="listitem"><span class="simpara"><a href="ref.pdo-sqlite.html" class="link">PDO_SQLITE</a></span></li>
+  </ul>
 
  </div>
 
@@ -161,6 +164,11 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.4.0</td>
+       <td><a href="ref.pdo-dblib.html" class="link">PDO_DBLIB</a> ドライバのサポートが追加されました</td>
+      </tr>
+
+      <tr>
        <td>5.2.3</td>
        <td><em>table</em> フィールド</td>
       </tr>
@@ -176,7 +184,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.getcolumnmeta-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-962">
+   <div class="example" id="example-1045">
     <p><strong>例1 カラムのメタデータを取得する</strong></p>
     <div class="example-contents"><p>
      以下の例は、PDO_SQLITE ドライバでの関数 (COUNT)

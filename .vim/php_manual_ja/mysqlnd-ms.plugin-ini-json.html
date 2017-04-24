@@ -7,18 +7,31 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.configuration.html">実行時設定</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.plugin-ini-v1.html">Plugin configuration file (&lt;= 1.0.x)</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.constants.html">定義済み定数</a></div>
  <div class="up"><a href="mysqlnd-ms.setup.html">インストール/設定</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mysqlnd-ms.plugin-ini-json" class="section">
   <h2 class="title">Plugin configuration file (&gt;=1.1.x)</h2>
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <strong>Changelog: Feature was added in PECL/mysqlnd_ms 1.1.0-beta</strong><br />
-   <p class="para">
-    The below description applies to PECL/mysqlnd_ms &gt;= 1.1.0-beta.
-    It is not valid for prior versions.
-   </p>
-  </p></blockquote>
+
+  <p class="para">
+   The following documentation applies to PECL/mysqlnd_ms &gt;= 1.1.0-beta.
+   It is not valid for prior versions. For documentation covering earlier
+   versions, see the configuration documentation
+   for <a href="mysqlnd-ms.plugin-ini-json.html#mysqlnd-ms.plugin-ini-v1" class="link">mysqlnd_ms 1.0.x and below</a>.
+  </p>
+
+  <div class="section" id="mysqlnd-ms.plugin-ini-json-introduction">
+   <h2 class="title">Introduction</h2>
+
+
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <strong>Changelog: Feature was added in PECL/mysqlnd_ms 1.1.0-beta</strong><br />
+    <p class="para">
+     The below description applies to PECL/mysqlnd_ms &gt;= 1.1.0-beta.
+     It is not valid for prior versions.
+    </p>
+   </p></blockquote>
+
   <p class="para">
    The plugin uses its own configuration file. The configuration file
    holds information about the MySQL replication master server,
@@ -46,7 +59,7 @@
    <var class="filename">php.ini</var> format.
   </p>
   <p class="para">
-   <div class="example" id="example-1816">
+   <div class="example" id="example-2040">
     <p><strong>例1 Converting a PHP array (hash) into JSON format</strong></p>
     <div class="example-contents"><p>
      Or alternatively, a developer may be more familiar with the PHP <span class="type"><a href="language.types.array.html" class="type array">array</a></span>
@@ -101,7 +114,7 @@ Dumping file contents...
    section name match, then the plugin will load the settings for that section.
   </p>
   <p class="para" id="mysqlnd-ms.plugin-ini-json.using-section">
-   <div class="example" id="example-1817">
+   <div class="example" id="example-2041">
     <p><strong>例2 Using section names example</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -186,7 +199,7 @@ Dumping file contents...
    for slave and master servers may be used.
   </p>
   <p class="para">
-   <div class="example" id="example-1818">
+   <div class="example" id="example-2042">
     <p><strong>例3 List of anonymous slaves</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">&quot;slave&quot;: [
@@ -210,7 +223,7 @@ Dumping file contents...
    of a server list, and done so using the <em>JSON object</em> type.
   </p>
   <p class="para">
-   <div class="example" id="example-1819">
+   <div class="example" id="example-2043">
     <p><strong>例4 Master list using symbolic names</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">&quot;master&quot;: {
@@ -241,7 +254,7 @@ Dumping file contents...
    keyword. All other settings are optional.
   </p>
   <p class="para">
-   <div class="example" id="example-1820">
+   <div class="example" id="example-2044">
     <p><strong>例5 Keywords to configure a server</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -287,12 +300,12 @@ Dumping file contents...
   </p>
   <p class="para">
    Filters replace the
-   <a href="mysqlnd-ms.plugin-ini-v1.html#ini.mysqlnd-ms-plugin-config.pick" class="link"><em>pick[]</em></a>
+   <a href="mysqlnd-ms.plugin-ini-json.html#ini.mysqlnd-ms-plugin-config.pick" class="link"><em>pick[]</em></a>
    setting from prior versions. The new <em>random</em> and
    <em>roundrobin</em> provide the same functionality.
   </p>
   <p class="para">
-   <div class="example" id="example-1821">
+   <div class="example" id="example-2045">
     <p><strong>例6 New <em>roundrobin</em> filter, old functionality</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -331,7 +344,7 @@ Dumping file contents...
    filter. Some filters accept parameters. The <em>user</em> filter
    requires and accepts a mandatory <em>callback</em> parameter
    to set the callback previously set through the function <span class="function"><a href="function.mysqlnd-ms-set-user-pick-server.html" class="function">mysqlnd_ms_set_user_pick_server()</a></span>.
-   <div class="example" id="example-1822">
+   <div class="example" id="example-2046">
     <p><strong>例7 The <em>user</em> filter replaces <span class="function"><a href="function.mysqlnd-ms-set-user-pick-server.html" class="function">mysqlnd_ms_set_user_pick_server()</a></span></strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">&quot;filters&quot;: {
@@ -353,7 +366,7 @@ Dumping file contents...
    This problem has been cured in version 1.5.0.
   </p>
   <p class="para">
-   <div class="example" id="example-1823">
+   <div class="example" id="example-2047">
     <p><strong>例8 Common error message in case of configuration file issues (upto version 1.5.0)</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -383,8 +396,8 @@ Fatal error: Call to a member function fetch_assoc() on a non-object in Command 
    to set the error type used to display buffered errors. By default an error
    of type <em>E_WARNING</em> will be emitted.
  </p>
- <p class="para">
-   <div class="example" id="example-1824">
+  <p class="para">
+   <div class="example" id="example-2048">
     <p><strong>例9 Improved configuration file validation since 1.5.0</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -408,7 +421,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) (mysqlnd_ms) Failed to parse config file
    help detecting misspelled section names.
   </p>
   <p class="para">
-   <div class="example" id="example-1825">
+   <div class="example" id="example-2049">
     <p><strong>例10 Possibly more precise error due to <em>mysqlnd_ms.force_config_usage=1</em></strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">mysqlnd_ms.force_config_usage=1</pre>
@@ -431,6 +444,11 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
 
    </div>
   </p>
+  </div>
+
+  <div class="section" id="mysqlnd-ms.plugin-ini-json-reference">
+   <h2 class="title">Configuration Directives</h2>
+
   <p class="para">
    Here is a short explanation of the configuration directives that can be used.
   </p>
@@ -718,7 +736,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
           <td>Since 1.2.0.</td>
           </tr>
 
-          <tr>
+         <tr>
           <td>
            <em>wait_for_gtid_timeout</em>
           </td>
@@ -778,7 +796,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
         strategy to choose among them. Other strategies are currently not available.
       </p>
       <p class="para">
-       <div class="example" id="example-1826">
+       <div class="example" id="example-2050">
         <p><strong>例11 Minimum pluging configuration for use with MySQL Fabric</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -866,7 +884,7 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
        range is from 0 to 65535. The setting exists since version 1.6.
       </p>
       <p class="para">
-       <div class="example" id="example-1827">
+       <div class="example" id="example-2051">
         <p><strong>例12 Optional timeout for communication with Fabric</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -893,24 +911,20 @@ Warning: mysqli::mysqli(): (mysqlnd_ms) Exclusive usage of configuration enforce
        between servers for the duration of a transaction. When using Fabric and
        sharding the user may (erroneously) start a local transaction on one share and
        then attempt to switch to a different shard using either
-       <a href="function.mysqlnd-ms-fabric-select-shard.html" class="link">
-       <span class="function"><a href="function.mysqlnd-ms-fabric-select-shard.html" class="function">mysqlnd_ms_fabric_select_shard()</a></span></a> or
-       <a href="function.mysqlnd-ms-fabric-select-global.html" class="link">
-       <span class="function"><a href="function.mysqlnd-ms-fabric-select-global.html" class="function">mysqlnd_ms_fabric_select_global()</a></span></a>. In this case, the
+       <span class="function"><a href="function.mysqlnd-ms-fabric-select-shard.html" class="function">mysqlnd_ms_fabric_select_shard()</a></span> or
+       <span class="function"><a href="function.mysqlnd-ms-fabric-select-global.html" class="function">mysqlnd_ms_fabric_select_global()</a></span>. In this case, the
        plugin will not reject the request to switch servers in the middle of a transaction
        but allow the user to switch to another server regardless of the transaction
        stickiness setting used. It is clearly a user error to write such code.
       </p>
       <p class="para">
        If transaction stickiness is enabled and you would like to get an error of type
-       warning when calling  <a href="function.mysqlnd-ms-fabric-select-shard.html" class="link">
-       <span class="function"><a href="function.mysqlnd-ms-fabric-select-shard.html" class="function">mysqlnd_ms_fabric_select_shard()</a></span></a> or
-       <a href="function.mysqlnd-ms-fabric-select-global.html" class="link">
-       <span class="function"><a href="function.mysqlnd-ms-fabric-select-global.html" class="function">mysqlnd_ms_fabric_select_global()</a></span></a>,
+       warning when calling <span class="function"><a href="function.mysqlnd-ms-fabric-select-shard.html" class="function">mysqlnd_ms_fabric_select_shard()</a></span> or
+       <span class="function"><a href="function.mysqlnd-ms-fabric-select-global.html" class="function">mysqlnd_ms_fabric_select_global()</a></span>,
        set the boolean flag <em>trx_warn_server_list_changes</em>.
       </p>
-<p class="para">
-       <div class="example" id="example-1828">
+      <p class="para">
+       <div class="example" id="example-2052">
         <p><strong>例13 Warnings about the violation of transaction boundaries</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -964,7 +978,7 @@ PHP Warning: mysqlnd_ms_fabric_select_global(): (mysqlnd_ms) Fabric server excha
        servers for executing a given statement. Filters can be chained.
        The <em>random</em> and <em>roundrobin</em> filter
        replace the
-       <a href="mysqlnd-ms.plugin-ini-v1.html#ini.mysqlnd-ms-plugin-config.pick" class="link"><em>pick[]</em></a>
+       <a href="mysqlnd-ms.plugin-ini-json.html#ini.mysqlnd-ms-plugin-config.pick" class="link"><em>pick[]</em></a>
        directive used in prior version to select a load balancing policy.
        The <em>user</em> filter replaces the
        <span class="function"><a href="function.mysqlnd-ms-set-user-pick-server.html" class="function">mysqlnd_ms_set_user_pick_server()</a></span> function.
@@ -994,7 +1008,7 @@ PHP Warning: mysqlnd_ms_fabric_select_global(): (mysqlnd_ms) Fabric server excha
        handle.
       </p>
       <p class="para">
-       <div class="example" id="example-1829">
+       <div class="example" id="example-2053">
         <p><strong>例14 Invalid filter sequence</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1050,7 +1064,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
       <p class="para">
         The <em>random</em> filter features the random and random once
         load balancing policies, set through the
-        <a href="mysqlnd-ms.plugin-ini-v1.html#ini.mysqlnd-ms-plugin-config.pick" class="link"><em>pick[]</em></a>
+        <a href="mysqlnd-ms.plugin-ini-json.html#ini.mysqlnd-ms-plugin-config.pick" class="link"><em>pick[]</em></a>
         directive in older versions.
       </p>
       <p class="para">
@@ -1065,7 +1079,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        stands for random load balancing policy.
       </p>
       <p class="para">
-       <div class="example" id="example-1830">
+       <div class="example" id="example-2054">
         <p><strong>例15 Random load balancing with <em>random</em> filter</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1102,7 +1116,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        load balancing strategy.
       </p>
       <p class="para">
-       <div class="example" id="example-1831">
+       <div class="example" id="example-2055">
         <p><strong>例16 Random once load balancing with <em>random</em> filter</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1127,7 +1141,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        to reference servers for assigning a priority with <em>weight</em>.
       </p>
       <p class="para">
-       <div class="example" id="example-1832">
+       <div class="example" id="example-2056">
         <p><strong>例17 Referencing error</strong></p>
         <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -1145,7 +1159,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        all servers is one.
       </p>
       <p class="para">
-       <div class="example" id="example-1833">
+       <div class="example" id="example-2057">
         <p><strong>例18 Assigning a <em>weight</em> for load balancing</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1282,7 +1296,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        configured slave server.
       </p>
       <p class="para">
-       <div class="example" id="example-1834">
+       <div class="example" id="example-2058">
         <p><strong>例19 <em>roundrobin</em> filter</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1401,7 +1415,7 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        the plugin to prevent an endless loop.
       </p>
       <p class="para">
-       <div class="example" id="example-1835">
+       <div class="example" id="example-2059">
         <p><strong>例20 Setting a callback</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1571,8 +1585,8 @@ PHP Warning:  mysqli::query(): Couldn&#039;t fetch mysqli in filter_warning.php 
        
       </table>
 
-     <p class="para">
-      <div class="example" id="example-1836">
+      <p class="para">
+       <div class="example" id="example-2060">
         <p><strong>例21 Using a callback</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1658,14 +1672,14 @@ User has connected to &#039;myapp&#039;...
       </p>
       <p class="para">
        The return value of the callback set for <em>user_multi</em> must
-       be an an array with two elements. The first element holds a list of selected master
+       be an array with two elements. The first element holds a list of selected master
        servers. The second element contains a list of selected slave servers. The
        lists shall contain the keys of the slave and master servers as found in
        the slave and master lists passed to the callback. The below example returns
        random master and slave lists extracted from the functions input.
       </p>
       <p class="para">
-      <div class="example" id="example-1837">
+      <div class="example" id="example-2061">
         <p><strong>例22 Returning random masters and slaves</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -1705,7 +1719,6 @@ User has connected to &#039;myapp&#039;...
 
     
 
-
     
      <dt id="ini.mysqlnd-ms-plugin-config-v2.filter-node-groups">
       Filter: <code class="parameter">node_groups</code>
@@ -1724,7 +1737,7 @@ User has connected to &#039;myapp&#039;...
        must be followed by other filters to reduce the number of candidates
        down to one for statement execution.
       </p>
-       <table class="doctable informaltable">
+      <table class="doctable informaltable">
        
         <col width="1*" />
         <col width="7*" />
@@ -1740,10 +1753,10 @@ User has connected to &#039;myapp&#039;...
 
         <tbody class="tbody">
          <tr>
-           <td>
-             <em>user defined node group name</em>
-           </td>
-           <td>
+          <td>
+           <em>user defined node group name</em>
+          </td>
+          <td>
             <p class="para">
              One or more node groups must be defined. A node group can have an
              arbitrary user defined name. The name is used in combination with
@@ -1775,7 +1788,7 @@ User has connected to &#039;myapp&#039;...
              <em>(mysqlnd_ms) Unknown master &#039;server_alias_name&#039; (section &#039;name_of_group&#039;) in &#039;node_groups&#039; filter configuration</em>.
             </p>
             <p class="para">
-             <div class="example" id="example-1838">
+             <div class="example" id="example-2062">
                <p><strong>例23 Manual partitioning</strong></p>
                 <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -1916,7 +1929,7 @@ User has connected to &#039;myapp&#039;...
               emit a warning.
             </p>
             <p class="para">
-             <div class="example" id="example-1839">
+             <div class="example" id="example-2063">
                <p><strong>例24 Global limit on slave lag</strong></p>
                 <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2001,6 +2014,7 @@ User has connected to &#039;myapp&#039;...
      </dd>
 
     
+
     
      <dt id="ini.mysqlnd-ms-plugin-config-v2.failover">
       <code class="parameter">failover</code>
@@ -2038,7 +2052,7 @@ User has connected to &#039;myapp&#039;...
        pitfalls and risks of using <em>failover=master</em>.
       </p>
       <p class="para">
-       <div class="example" id="example-1840">
+       <div class="example" id="example-2064">
         <p><strong>例25 Optional master failover when failing to connect to slave (PECL/mysqlnd_ms &lt; 1.4.0)</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2067,7 +2081,7 @@ User has connected to &#039;myapp&#039;...
        object.
       </p>
       <p class="para">
-       <div class="example" id="example-1841">
+       <div class="example" id="example-2065">
         <p><strong>例26 New syntax since 1.4.0</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2197,6 +2211,7 @@ User has connected to &#039;myapp&#039;...
      </dd>
 
     
+
     
      <dt id="ini.mysqlnd-ms-plugin-config-v2.lazy-connections">
       <code class="parameter">lazy_connections</code>
@@ -2229,7 +2244,7 @@ User has connected to &#039;myapp&#039;...
        connections are opened.
       </p>
       <p class="para">
-       <div class="example" id="example-1842">
+       <div class="example" id="example-2066">
         <p><strong>例27 Disabling lazy connection</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2261,6 +2276,7 @@ User has connected to &#039;myapp&#039;...
      </dd>
 
     
+
     
      <dt id="ini.mysqlnd-ms-plugin-config-v2.server-charset">
       <code class="parameter">server_charset</code>
@@ -2324,7 +2340,7 @@ User has connected to &#039;myapp&#039;...
        <em>set_charset</em> is of no meaning anymore.
       </p>
       <p class="para">
-       <div class="example" id="example-1843">
+       <div class="example" id="example-2067">
         <p><strong>例28 String escaping on a lazy connection handle</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2359,6 +2375,7 @@ User has connected to &#039;myapp&#039;...
      </dd>
 
     
+
     
      <dt id="ini.mysqlnd-ms-plugin-config-v2.master-on-write">
       <code class="parameter">master_on_write</code>
@@ -2382,7 +2399,7 @@ User has connected to &#039;myapp&#039;...
        <em>INSERT</em> yet.
       </p>
       <p class="para">
-       <div class="example" id="example-1844">
+       <div class="example" id="example-2068">
         <p><strong>例29 Master on write for consistent reads</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2419,6 +2436,7 @@ User has connected to &#039;myapp&#039;...
      </dd>
 
     
+
     
      <dt id="ini.mysqlnd-ms-plugin-config-v2.trx-stickiness">
       <code class="parameter">trx_stickiness</code>
@@ -2477,7 +2495,7 @@ User has connected to &#039;myapp&#039;...
        a transaction.
       </p>
       <p class="para">
-       <div class="example" id="example-1845">
+       <div class="example" id="example-2069">
         <p><strong>例30 Using master to execute transactions</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2515,7 +2533,7 @@ User has connected to &#039;myapp&#039;...
        Those errors will be generated by the failing query function.
       </p>
       <p class="para">
-       <div class="example" id="example-1846">
+       <div class="example" id="example-2070">
         <p><strong>例31 No automatic failover, error handling pitfall</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -2575,7 +2593,7 @@ User has connected to &#039;myapp&#039;...
        forwarded to the application by the end of the loop.
       </p>
       <p class="para">
-       <div class="example" id="example-1847">
+       <div class="example" id="example-2071">
         <p><strong>例32 Retry loop for transient errors</strong></p>
         <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -2681,13 +2699,1105 @@ User has connected to &#039;myapp&#039;...
 
     
 
+    
+     <dt id="ini.mysqlnd-ms-plugin-config-v2.xa">
+       <code class="parameter">xa</code>
+       <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       The setting has been introduced in 1.6.0.
+      </p>
+      <p class="para">
+       <blockquote class="note"><p><strong class="note">注意</strong>: 
+        <strong>Experimental</strong><br />
+        <p class="para">
+         The feature is currently under development. There may be issues and/or
+         feature limitations. Do not use in production environments.
+        </p>
+       </p></blockquote>
+      </p>
+      <dl>
+
+       
+        <dt>
+state_store</dt>
+
+        <dd>
+
+           <dl>
+
+            
+             <dt>
+record_participant_credentials</dt>
+
+             <dd>
+
+              <p class="para">
+               Whether to store the username and password of a global transaction
+               participant in the participants table. If disabled, the garbage
+               collection will use the default username and password when connecting
+               to the participants. Unless you are using a different username and
+               password for each of your MySQL servers, you can use the default
+               and avoid storing the sensible information in state store.
+              </p>
+              <p class="para">
+               Please note, username and password are stored in clear text when using
+               the MySQL state store, which is the only one available. It is in your
+               responsibility to protect this sensible information.
+              </p>
+              <p class="para">
+               Default: <em>false</em>
+              </p>
+             </dd>
+
+            
+            
+             <dt>
+participant_localhost_ip</dt>
+
+             <dd>
+
+              <p class="para">
+               During XA garbage collection the plugin may find a participant server
+               for which the host <em>localhost</em>
+               has been recorded. If the garbage collection takes place on another host
+               but the host that has written the participant record to the state store,
+               the host name <em>localhost</em> now resolves to a different
+               host. Therefore, when recording a participant servers host name
+               in the state store, a value of <em>localhost</em> must
+               be replaced with the actual IP address of <em>localhost</em>.
+              </p>
+              <p class="para">
+               Setting <em>participant_localhost_ip</em> should be considered
+               only if using <em>localhost</em> cannot be avoided.
+               From a garbage collection point of view only, it is preferrable not to
+               configure any socket connection but to provide an IP address and port
+               for a node.
+              </p>
+             </dd>
+
+            
+            
+             <dt>
+mysql</dt>
+
+             <dd>
+
+              <p class="para">
+               The MySQL state store is the only state store available.
+              </p>
+              <dl>
+
+               
+                <dt>
+global_trx_table</dt>
+
+                <dd>
+
+                 <p class="para">
+                  Name of the MySQL table used to store the state of an ongoing or aborted
+                  global transaction. Use the below SQL statement to create the table.
+                  Make sure to edit the table name to match your configuration.
+                 </p>
+                 <p class="para">
+                  Default: <em>mysqlnd_ms_xa_trx</em>
+                 </p>
+                 <p class="para">
+                  <div class="example" id="example-2072">
+                   <p><strong>例33 SQL definition for the MySQL state store transaction table</strong></p>
+                   <div class="example-contents">
+<div class="sqlcode"><pre class="sqlcode">CREATE TABLE mysqlnd_ms_xa_trx (
+  store_trx_id int(11) NOT NULL AUTO_INCREMENT,
+  gtrid int(11) NOT NULL,
+  format_id int(10) unsigned NOT NULL DEFAULT &#039;1&#039;,
+  state enum(&#039;XA_NON_EXISTING&#039;,&#039;XA_ACTIVE&#039;,&#039;XA_IDLE&#039;,&#039;XA_PREPARED&#039;,&#039;XA_COMMIT&#039;,&#039;XA_ROLLBACK&#039;) NOT NULL DEFAULT &#039;XA_NON_EXISTING&#039;,
+  intend enum(&#039;XA_NON_EXISTING&#039;,&#039;XA_ACTIVE&#039;,&#039;XA_IDLE&#039;,&#039;XA_PREPARED&#039;,&#039;XA_COMMIT&#039;,&#039;XA_ROLLBACK&#039;) DEFAULT &#039;XA_NON_EXISTING&#039;,
+  finished enum(&#039;NO&#039;,&#039;SUCCESS&#039;,&#039;FAILURE&#039;) NOT NULL DEFAULT &#039;NO&#039;,
+  modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  started datetime DEFAULT NULL,
+  timeout datetime DEFAULT NULL,
+  PRIMARY KEY (store_trx_id),
+  KEY idx_xa_id (gtrid,format_id,finished),
+  KEY idx_state (state)
+) ENGINE=InnoDB</pre>
+</div>
+                   </div>
+
+                  </div>
+                 </p>
+                </dd>
+
+               
+                 
+                  <dt>
+participant_table</dt>
+
+                  <dd>
+
+                   <p class="para">
+                    Name of the MySQL table used to store participants of an ongoing or aborted
+                    global transaction. Use the below SQL statement to create the table.
+                    Make sure to edit the table name to match your configuration.
+                   </p>
+                   <p class="para">
+                    Storing credentials can be enabled and disabled using
+                    <em>record_participant_credentials</em>
+                   </p>
+                   <p class="para">
+                    Default: <em>mysqlnd_ms_xa_participants</em>
+                   </p>
+                   <div class="example" id="example-2073">
+                    <p><strong>例34 SQL definition for the MySQL state store transaction table</strong></p>
+                    <div class="example-contents">
+<div class="sqlcode"><pre class="sqlcode">CREATE TABLE mysqlnd_ms_xa_participants (
+  fk_store_trx_id int(11) NOT NULL,
+  bqual varbinary(64) NOT NULL DEFAULT &#039;&#039;,
+  participant_id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  server_uuid varchar(127) DEFAULT NULL,
+  scheme varchar(1024) NOT NULL,
+  host varchar(127) DEFAULT NULL,
+  port smallint(5) unsigned DEFAULT NULL,
+  socket varchar(127) DEFAULT NULL,
+  user varchar(127) DEFAULT NULL,
+  password varchar(127) DEFAULT NULL,
+  state enum(&#039;XA_NON_EXISTING&#039;,&#039;XA_ACTIVE&#039;,&#039;XA_IDLE&#039;,&#039;XA_PREPARED&#039;,&#039;XA_COMMIT&#039;,&#039;XA_ROLLBACK&#039;)
+   NOT NULL DEFAULT &#039;XA_NON_EXISTING&#039;,
+  health enum(&#039;OK&#039;,&#039;GC_DONE&#039;,&#039;CLIENT ERROR&#039;,&#039;SERVER ERROR&#039;) NOT NULL DEFAULT &#039;OK&#039;,
+  connection_id int(10) unsigned DEFAULT NULL,
+  client_errno smallint(5) unsigned DEFAULT NULL,
+  client_error varchar(1024) DEFAULT NULL,
+  modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (participant_id),
+  KEY idx_xa_bqual (bqual),
+  KEY idx_store_trx (fk_store_trx_id),
+  CONSTRAINT mysqlnd_ms_xa_participants_ibfk_1 FOREIGN KEY (fk_store_trx_id)
+    REFERENCES mysqlnd_ms_xa_trx (store_trx_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB</pre>
+</div>
+                    </div>
+
+                  </div>
+                 </dd>
+
+                
+                
+                 <dt>
+garbage_collection_table</dt>
+
+                 <dd>
+
+                  <p class="para">
+                   Name of the MySQL table used to track and synchronize garbage collection runs.
+                   Use the below SQL statement to create the table.
+                   Make sure to edit the table name to match your configuration.
+                  </p>
+                  <p class="para">
+                   Default: <em>mysqlnd_ms_xa_gc</em>
+                  </p>
+                  <div class="example" id="example-2074">
+                   <p><strong>例35 SQL definition for the MySQL state store garbage collection table</strong></p>
+                   <div class="example-contents">
+<div class="sqlcode"><pre class="sqlcode">CREATE TABLE mysqlnd_ms_xa_gc (
+  gc_id int(10) unsigned NOT NULL AUTO_INCREMENT,
+  gtrid int(11) NOT NULL,
+  format_id int(10) unsigned NOT NULL DEFAULT &#039;1&#039;,
+  fk_store_trx_id int(11) DEFAULT NULL,
+  modified timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  attempts smallint(5) unsigned NOT NULL DEFAULT &#039;0&#039;,
+  PRIMARY KEY (gc_id),
+  KEY idx_store_trx (gtrid,format_id,fk_store_trx_id)
+) ENGINE=InnoDB</pre>
+</div>
+                   </div>
+
+                  </div>
+                 </dd>
+
+                
+               
+                <dt>
+host</dt>
+
+                <dd>
+
+                 <p class="para">
+                  Host name of the MySQL server.
+                 </p>
+                </dd>
+
+               
+               
+                <dt>
+user</dt>
+
+                <dd>
+
+                 <p class="para">
+                  Name of the user used to connect to the MySQL server.
+                 </p>
+                </dd>
+
+               
+               
+                <dt>
+password</dt>
+
+                <dd>
+
+                 <p class="para">
+                  Password for the MySQL server user.
+                 </p>
+                </dd>
+
+               
+               
+                <dt>
+db</dt>
+
+                <dd>
+
+                 <p class="para">
+                  Database that holds the garbage collection tables.
+                  Please note, you have to create the garbage collection
+                  tables prior to using the plugin. The tables will not be
+                  created implicitly during runtime but garbage collection
+                  will fail if the tables to not exist.
+                 </p>
+                </dd>
+
+               
+               
+                <dt>
+port</dt>
+
+                <dd>
+
+                 <p class="para">
+                  Port of the MySQL server.
+                 </p>
+                </dd>
+
+               
+               
+                <dt>
+socket</dt>
+
+                <dd>
+
+                 <p class="para">
+                  Unix domain socket of the MySQL server. Please note,
+                  if you have multiple PHP servers each of them will
+                  try to carry out garbage collection and need to be able
+                  to connect to the state store. In this case, you may
+                  prefer configuring an IP address and a port for
+                  the MySQL state store server to ensure all PHP servers
+                  can reach it.
+                 </p>
+                </dd>
+
+               
+              </dl>
+
+             </dd>
+
+            
+           </dl>
+
+          </dd>
+
+         
+         
+          <dt>
+rollback_on_close</dt>
+
+          <dd>
+
+           <p class="para">
+            Whether to automatically rollback an open global transaction when
+            a connection is closed. If enabled, it mimics the default behaviour
+            of local transactions. Should a client disconnect, the server rolls
+            back any open and unfinished transactions.
+           </p>
+           <p class="para">
+            Default: <em>true</em>
+           </p>
+          </dd>
+
+         
+         
+          <dt id="ini.mysqlnd-ms-plugin-config-v2.xa.gc">garbage_collection</dt>
+
+          <dd>
+
+           <dl>
+
+            
+             <dt>
+max_retries</dt>
+
+             <dd>
+
+              <p class="para">
+               Maximum number of garbage collection runs before giving up.
+               Allowed values are from <em>0</em> to <em>100</em>.
+               A setting of <em>0</em> means no limit, unless
+               the state store enforces a limit. Should the state store enforce a limit,
+               it can be supposed to be significantly higher than <em>100</em>.
+               Available since 1.6.0.
+              </p>
+              <p class="para">
+               Please note, it is important to end failed XA
+               transactions within reasonable time to make participating servers
+               free resources bound to the transaction. The built-in garbage
+               collection is not expected to fail for a long period as
+               long as crashed servers become available again quickly.
+               Still, a situation may arise where a human is required to
+               act because the built-in garbage collection stopped or failed.
+               In this case, you may first want to check if the transaction still
+               cannot be fixed by forcing <span class="function"><a href="function.mysqlnd-ms-xa-gc.html" class="function">mysqlnd_ms_xa_gc()</a></span>
+               to ignore the setting, prior to handling it manually.
+              </p>
+              <p class="para">
+               Default: <em>5</em>
+              </p>
+             </dd>
+
+            
+            
+             <dt>
+probability</dt>
+
+             <dd>
+
+              <p class="para">
+               Garbage collection probability.
+               Allowed values are from <em>0</em> to <em>1000</em>.
+               A setting of <em>0</em> disables automatic background
+               garbage collection. Despite a setting of <em>0</em> it is
+               still possible to trigger garbage collection by calling
+               <span class="function"><strong>mysqlnd_ms_gc()</strong></span>.
+               Available since 1.6.0.
+              </p>
+              <p class="para">
+               The automatic garbage collection of stalled XA transaction is only
+               available if a state store have been configured. The state store
+               is responsible to keep track of XA transactions. Based on its recordings
+               it can find blocked XA transactions where the client has crashed,
+               connect to the participants and rollback the unfinished transactions.
+              </p>
+              <p class="para">
+               The garbage collection is triggered as part of PHP&#039;s request shutdown
+               procedure at the end of a web request. That is after your PHP script
+               has finished working. Do decide whether to run the garbage collection
+               a random value between <em>0</em> and <em>1000</em>
+               is computed. If the <em>probability</em> value is higher
+               or equal to the random value, the state stores garbage collection routines
+               are invoked.
+              </p>
+              <p class="para">
+               Default: <em>5</em>
+              </p>
+             </dd>
+
+            
+            
+             <dt>
+max_transactions_per_run</dt>
+
+             <dd>
+
+              <p class="para">
+               Maximum number of unfinished XA transactions considered
+               by the garbage collection during one run.
+               Allowed values are from <em>1</em> to <em>32768</em>.
+               Available since 1.6.0.
+              </p>
+              <p class="para">
+               Cleaning up an unfinished XA transaction takes considerable
+               amounts of time and resources. The garbage collection routine
+               may have to connect to several participants of a failed global
+               transaction to issue the SQL commands for rolling back
+               the unfinished tranaction.
+              </p>
+              <p class="para">
+               Default: <em>100</em>
+              </p>
+             </dd>
+
+            
+           </dl>
+
+          </dd>
+
+         
+        </dl>
+
+       </dd>
+
+      
+     </dl>
+
+    </p>
+   </div>
+
+ <div class="section" id="mysqlnd-ms.plugin-ini-v1">
+  <h2 class="title">Plugin configuration file (&lt;= 1.0.x)</h2>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    The below description applies to PECL/mysqlnd_ms &lt; 1.1.0-beta.
+    It is not valid for later versions.
+   </p>
+  </p></blockquote>
+  <p class="para">
+   The plugin is using its own configuration file. The configuration file
+   holds information on the MySQL replication master server,
+   the MySQL replication slave servers, the server pick (load balancing) policy,
+   the failover strategy and the use of lazy connections.
+  </p>
+  <p class="para">
+   The PHP configuration directive
+   <a href="mysqlnd-ms.configuration.html#ini.mysqlnd-ms.ini-file" class="link"><em>mysqlnd_ms.ini_file</em></a>
+   is used to set the plugins configuration file.
+  </p>
+  <p class="para">
+   The configuration file mimics standard the <em>php.ini</em> format.
+   It consists of one or more sections. Every section defines its own unit
+   of settings. There is no global section for setting defaults.
+  </p>
+  <p class="para">
+   Applications reference sections by their name. Applications use section names
+   as the host (server) parameter to the various connect methods of the
+   <a href="ref.mysqli.html" class="link">mysqli</a>,
+   <a href="ref.mysql.html" class="link">mysql</a> and
+   <a href="ref.pdo-mysql.html" class="link">PDO_MYSQL</a> extensions. Upon connect
+   the <a href="book.mysqlnd.html" class="link">mysqlnd</a> plugin compares the hostname
+   with all section names from the plugin configuration file. If hostname and
+   section name match, the plugin will load the sections settings.
+  </p>
+  <p class="para">
+   <div class="example" id="example-2075">
+    <p><strong>例36 Using section names example</strong></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">[myapp]
+master[] = localhost
+slave[] = 192.168.2.27
+slave[] = 192.168.2.28:3306
+[localhost]
+master[] = localhost:/tmp/mysql/mysql.sock
+slave[] = 192.168.3.24:3305
+slave[] = 192.168.3.65:3309</pre>
+</div>
+    </div>
+
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;All&nbsp;of&nbsp;the&nbsp;following&nbsp;connections&nbsp;will&nbsp;be&nbsp;load&nbsp;balanced&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pdo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #DD0000">'mysql:host=myapp;dbname=database'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'username'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'password'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$mysql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   Section names are strings. It is valid to use a section name such as
+   <em>192.168.2.1</em>, <em>127.0.0.1</em> or
+   <em>localhost</em>. If, for example, an application
+   connects to <em>localhost</em> and a plugin
+   configuration section <em>[localhost]</em> exists, the
+   semantics of the connect operation are changed. The application will
+   no longer only use the MySQL server running on the host
+   <em>localhost</em> but the plugin will start to load balance
+   MySQL queries following the rules from the <em>[localhost]</em>
+   configuration section. This way you can load balance queries from
+   an application without changing the applications source code.
+  </p>
+  <p class="para">
+   The <em>master[]</em>, <em>slave[]</em>
+   and <em>pick[]</em> configuration directives use a list-like syntax.
+   Configuration directives supporting list-like syntax may appear multiple
+   times in a configuration section. The plugin maintains the order in
+   which entries appear when interpreting them. For example,
+   the below example shows two <em>slave[]</em> configuration
+   directives in the configuration section <em>[myapp]</em>.
+   If doing round-robin load balancing for read-only queries, the plugin
+   will send the first read-only query to the MySQL server
+   <em>mysql_slave_1</em> because it is the first in the list.
+   The second read-only query will be send to the MySQL server
+   <em>mysql_slave_2</em> because it is the second in the list.
+   Configuration directives supporting list-like syntax result are ordered
+   from top to bottom in accordance to their appearance within a configuration
+   section.
+  </p>
+  <p class="para">
+   <div class="example" id="example-2076">
+    <p><strong>例37 List-like syntax</strong></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">[myapp]
+master[] = mysql_master_server
+slave[] = mysql_slave_1
+slave[] = mysql_slave_2</pre>
+</div>
+    </div>
+
+    </div>
+  </p>
+  <p class="para">
+   Here is a short explanation of the configuration directives that can be used.
+  </p>
+  <p class="para">
+  <dl>
+
+   
+     <dt id="ini.mysqlnd-ms-plugin-config.master">
+      <code class="parameter">master[]</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       URI of a MySQL replication master server. The URI follows the syntax
+       <em>hostname[:port|unix_domain_socket]</em>.
+      </p>
+      <p class="para">
+       The plugin supports using only one master server.
+      </p>
+      <p class="para">
+       Setting a master server is mandatory. The plugin will report a
+       warning upon connect if the user has failed to provide a master
+       server for a configuration section.
+       The warning may read
+       <em>(mysqlnd_ms) Cannot find master section in config</em>.
+       Furthermore the plugin may set an error code for the connection handle such as
+       <em>HY000/2000 (CR_UNKNOWN_ERROR)</em>. The corresponding error
+       message depends on your language settings.
+      </p>
+     </dd>
+
+    
+    
+    <dt id="ini.mysqlnd-ms-plugin-config.slave">
+      <code class="parameter">slave[]</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       URI of one or more MySQL replication slave servers. The URI follows the syntax
+       <em>hostname[:port|unix_domain_socket]</em>.
+      </p>
+      <p class="para">
+       The plugin supports using one or more slave servers.
+      </p>
+      <p class="para">
+       Setting a slave server is mandatory. The plugin will report a
+       warning upon connect if the user has failed to provide at least one slave
+       server for a configuration section. The warning may read
+       <em>(mysqlnd_ms) Cannot find slaves section in config</em>.
+       Furthermore the plugin may set an error code for the connection handle such as
+       <em>HY000/2000 (CR_UNKNOWN_ERROR)</em>. The corresponding error
+       message depends on your language settings.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.mysqlnd-ms-plugin-config.pick">
+      <code class="parameter">pick[]</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Load balancing (server picking) policy. Supported policies:
+       <em>random</em>, <em>random_once</em> (default),
+       <em>roundrobin</em>, <em>user</em>.
+      </p>
+      <p class="para">
+       If no load balancing policy is set, the plugin will default to
+       <em>random_once</em>. The <em>random_once</em>
+       policy picks a random slave server when running the first read-only
+       statement. The slave server will be used for all read-only
+       statements until the PHP script execution ends.
+      </p>
+     <p class="para">
+       The <em>random</em> policy will pick a random server whenever
+       a read-only statement is to be executed.
+     </p>
+     <p class="para">
+       If using
+       <em>roundrobin</em> the plugin iterates over the list of
+       configured slave servers to pick a server for statement execution.
+       If the plugin reaches the end of the list, it wraps around to the beginning
+       of the list and picks the first configured slave server.
+      </p>
+      <p class="para">
+       Setting more than one load balancing policy for a configuration
+       section makes only sense in conjunction with <em>user</em>
+       and <span class="function"><a href="function.mysqlnd-ms-set-user-pick-server.html" class="function">mysqlnd_ms_set_user_pick_server()</a></span>. If the
+       user defined callback fails to pick a server, the plugin falls
+       back to the second configured load balancing policy.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.mysqlnd-ms-plugin-config.failover">
+      <code class="parameter">failover</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Failover policy. Supported policies:
+       <em>disabled</em> (default), <em>master</em>.
+      </p>
+      <p class="para">
+       If no failover policy is set, the plugin will not do any
+       automatic failover (<em>failover=disabled</em>). Whenever
+       the plugin fails to connect a server it will emit a warning and
+       set the connections error code and message. Thereafter it is up to
+       the application to handle the error and, for example, resent the
+       last statement to trigger the selection of another server.
+      </p>
+      <p class="para">
+       If using <em>failover=master</em> the plugin will implicitly
+       failover to a slave, if available. Please check the
+       concepts documentation to learn about potential
+       pitfalls and risks of using <em>failover=master</em>.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.mysqlnd-ms-plugin-config.lazy-connections">
+      <code class="parameter">lazy_connections</code>
+      <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Controls the use of lazy connections. Lazy connections
+       are connections which are not opened before the client sends the first
+       connection.
+      </p>
+      <p class="para">
+       It is strongly recommended to use lazy connections.
+       Lazy connections help to keep the number of open connections low.
+       If you disable lazy connections and, for example, configure one MySQL
+       replication master server and two MySQL replication slaves, the
+       plugin will open three connections upon the first call to a
+       connect function although the application might use the master
+       connection only.
+      </p>
+      <p class="para">
+       Lazy connections bare a risk if you make heavy use of actions
+       which change the state of a connection. The plugin does not dispatch
+       all state changing actions to all connections from the connection pool.
+       The few dispatched actions are applied to already opened connections
+       only. Lazy connections opened in the future are not affected.
+       If, for example, the connection character set is changed using a
+       PHP MySQL API call, the plugin will change the character set of all
+       currently opened connection. It will not remember the character set
+       change to apply it on lazy connections opened in the future. As a
+       result the internal connection pool would hold connections using
+       different character sets. This is not desired. Remember that character
+       sets are taken into account for escaping.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.mysqlnd-ms-plugin-config.master-on-write">
+      <code class="parameter">master_on_write</code>
+      <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       If set, the plugin will use the master server only after the
+       first statement has been executed on the master. Applications
+       can still send statements to the slaves using SQL hints to
+       overrule the automatic decision.
+      </p>
+      <p class="para">
+       The setting may help with replication lag. If an application runs
+       an <em>INSERT</em> the plugin will, by default, use the
+       master to execute all following statements, including
+       <em>SELECT</em> statements. This helps to avoid problems
+       with reads from slaves which have not replicated the
+       <em>INSERT</em> yet.
+      </p>
+     </dd>
+
+    
+    
+     <dt id="ini.mysqlnd-ms-plugin-config.trx-stickiness">
+      <code class="parameter">trx_stickiness</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       Transaction stickiness policy. Supported policies:
+       <em>disabled</em> (default), <em>master</em>.
+      </p>
+      <p class="para">
+       Experimental feature.
+      </p>
+      <p class="para">
+       The setting requires 5.4.0 or newer. If used with PHP older than 5.4.0,
+       the plugin will emit a warning like
+       <em>(mysqlnd_ms) trx_stickiness strategy is not supported before PHP 5.3.99</em>.
+      </p>
+      <p class="para">
+       If no transaction stickiness policy is set or,
+       if setting <em>trx_stickiness=disabled</em>,
+       the plugin is not transaction aware. Thus, the plugin may load balance
+       connections and switch connections in the middle of a transaction.
+       The plugin is not transaction safe. SQL hints must be used
+       avoid connection switches during a transaction.
+      </p>
+      <p class="para">
+       As of PHP 5.4.0 the mysqlnd library allows the plugin to monitor
+       the <em>autocommit</em> mode set by calls to the
+       libraries <em>trx_autocommit()</em> function.
+       If setting <em>trx_stickiness=master</em> and
+       <em>autocommit</em> gets disabled by a PHP MySQL extension
+       invoking the <em>mysqlnd</em> library internal
+       function call <em>trx_autocommit()</em>, the plugin is made
+       aware of the begin of a transaction. Then, the plugin stops load balancing
+       and directs all statements to the master server until
+       <em>autocommit</em> is enabled. Thus, no SQL hints are required.
+      </p>
+      <p class="para">
+       An example of a PHP MySQL API function calling the <em>mysqlnd</em>
+       library internal function call <em>trx_autocommit()</em> is
+       <span class="function"><a href="mysqli.autocommit.html" class="function">mysqli_autocommit()</a></span>.
+      </p>
+      <p class="para">
+       Although setting <em>trx_stickiness=master</em>, the plugin
+       cannot be made aware of <em>autocommit</em> mode changes caused
+       by SQL statements such as <em>SET AUTOCOMMIT=0</em>.
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
+ </div>
 
-</div><hr /><div class="manualnavbar" style="text-align: center;">
+ <div class="section" id="mysqlnd-ms.testing">
+  <h2 class="title">Testing</h2>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    The section applies to mysqlnd_ms 1.1.0 or newer, not the 1.0 series.
+   </p>
+  </p></blockquote>
+  <p class="para">
+   The PECL/mysqlnd_ms test suite is in the <var class="filename">tests/</var>
+   directory of the source distribution. The test suite consists of standard
+   phpt tests, which are described on the PHP Quality Assurance Teams website.
+  </p>
+  <p class="para">
+   Running the tests requires setting up one to four MySQL servers. Some tests don&#039;t
+   connect to MySQL at all. Others require one server for testing. Some require
+   two distinct servers. In some cases two servers are used to emulate a
+   replication setup. In other cases a master and a slave of an existing MySQL replication
+   setup are required for testing. The tests will try to detect how many servers
+   and what kind of servers are given. If the required servers are not found, the
+   test will be skipped automatically.
+  </p>
+  <p class="para">
+   Before running the tests, edit <var class="filename">tests/config.inc</var> to
+   configure the MySQL servers to be used for testing.
+  </p>
+  <p class="para">
+   The most basic configuration is as follows.
+   <div class="example-contents">
+<div class="cdata"><pre>
+ putenv(&quot;MYSQL_TEST_HOST=localhost&quot;);
+ putenv(&quot;MYSQL_TEST_PORT=3306&quot;);
+ putenv(&quot;MYSQL_TEST_USER=root&quot;);
+ putenv(&quot;MYSQL_TEST_PASSWD=&quot;);
+ putenv(&quot;MYSQL_TEST_DB=test&quot;);
+ putenv(&quot;MYSQL_TEST_ENGINE=MyISAM&quot;);
+ putenv(&quot;MYSQL_TEST_SOCKET=&quot;);
+
+ putenv(&quot;MYSQL_TEST_SKIP_CONNECT_FAILURE=1&quot;);
+ putenv(&quot;MYSQL_TEST_CONNECT_FLAGS=0&quot;);
+ putenv(&quot;MYSQL_TEST_EXPERIMENTAL=0&quot;);
+
+ /* replication cluster emulation */
+ putenv(&quot;MYSQL_TEST_EMULATED_MASTER_HOST=&quot;. getenv(&quot;MYSQL_TEST_HOST&quot;));
+ putenv(&quot;MYSQL_TEST_EMULATED_SLAVE_HOST=&quot;. getenv(&quot;MYSQL_TEST_HOST&quot;));
+
+ /* real replication cluster */
+ putenv(&quot;MYSQL_TEST_MASTER_HOST=&quot;. getenv(&quot;MYSQL_TEST_EMULATED_MASTER_HOST&quot;));
+ putenv(&quot;MYSQL_TEST_SLAVE_HOST=&quot;. getenv(&quot;MYSQL_TEST_EMULATED_SLAVE_HOST&quot;));
+</pre></div>
+     </div>
+
+   </p>
+   <p class="para">
+    <em>MYSQL_TEST_HOST</em>, <em>MYSQL_TEST_PORT</em> and
+    <em>MYSQL_TEST_SOCKET</em> define the hostname,
+    TCP/IP port and Unix domain socket of the default database server.
+    <em>MYSQL_TEST_USER</em> and <em>MYSQL_TEST_PASSWD</em>
+    contain the user and password needed to connect to the database/schema
+    configured with <em>MYSQL_TEST_DB</em>. All configured
+    servers must  have the same database user configured to give access to
+    the test database.
+   </p>
+   <p class="para">
+    Using <em>host</em>, <em>host:port</em> or <em>host:/path/to/socket</em>
+    syntax one can set an alternate  host, host and port or host and socket for any
+    of the servers.
+   <div class="example-contents">
+<div class="cdata"><pre>
+putenv(&quot;MYSQL_TEST_SLAVE_HOST=192.168.78.136:3307&quot;));
+putenv(&quot;MYSQL_TEST_MASTER_HOST=myserver_hostname:/path/to/socket&quot;));
+</pre></div>
+     </div>
+
+   </p>
+ </div>
+
+ <div class="section" id="mysqlnd-ms.debugging">
+  <h2 class="title">Debugging and Tracing</h2>
+  <p class="para">
+   The mysqlnd debug log can be used to debug and trace the actitivities of
+   PECL/mysqlnd_ms. As a mysqlnd PECL/mysqlnd_ms adds trace information to the
+   mysqlnd library debug file. Please, see the
+   <a href="mysqlnd.config.html#ini.mysqlnd.debug" class="link"><em>mysqlnd.debug</em></a>
+   PHP configuration directive documentation for a detailed description
+   on how to configure the debug log.
+  </p>
+  <p class="para">
+  Configuration setting example to activate the debug log:
+  <div class="example-contents">
+<div class="cdata"><pre>
+mysqlnd.debug=d:t:x:O,/tmp/mysqlnd.trace
+</pre></div>
+  </div>
+
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     This feature is only available with a debug build of PHP. Works
+     on Microsoft Windows if using a debug build of PHP and PHP was
+     built using Microsoft Visual C version 9 and above.
+    </p>
+   </p></blockquote>
+  </p>
+  <p class="para">
+   The debug log shows mysqlnd library and PECL/mysqlnd_ms plugin function calls,
+   similar to a trace log. Mysqlnd library calls are usually prefixed with
+   <em>mysqlnd_</em>. PECL/mysqlnd internal calls begin with
+   <em>mysqlnd_ms</em>.
+  </p>
+  <p class="para">
+   Example excerpt from the debug log (connect):
+   <div class="example-contents">
+<div class="cdata"><pre>
+[...]
+&gt;mysqlnd_connect
+| info : host=myapp user=root db=test port=3306 flags=131072
+| &gt;mysqlnd_ms::connect
+| | &gt;mysqlnd_ms_config_json_section_exists
+| | | info : section=[myapp] len=[5]
+| | | &gt;mysqlnd_ms_config_json_sub_section_exists
+| | | | info : section=[myapp] len=[5]
+| | | | info : ret=1
+| | | &lt;mysqlnd_ms_config_json_sub_section_exists
+| | | info : ret=1
+| | &lt;mysqlnd_ms_config_json_section_exists
+[...]
+</pre></div>
+   </div>
+
+  </p>
+  <p class="para">
+   The debug log is not only useful for plugin developers but also to find the
+   cause of user errors. For example, if your application does not do proper
+   error handling and fails to record error messages, checking the debug
+   and trace log may help finding the cause. Use of the debug log
+   to debug application issues should be considered only if no other
+   option is available. Writing the debug log to disk is a slow
+   operation and may have negative impact on the application
+   performance.
+  </p>
+  <p class="para">
+   Example excerpt from the debug log (connection failure):
+   <div class="example-contents">
+<div class="cdata"><pre>
+[...]
+| | | | | | | info : adding error [Access denied for user &#039;root&#039;@&#039;localhost&#039; (using password: YES)] to the list
+| | | | | | | info : PACKET_FREE(0)
+| | | | | | | info : PACKET_FREE(0x7f3ef6323f50)
+| | | | | | | info : PACKET_FREE(0x7f3ef6324080)
+| | | | | | &lt;mysqlnd_auth_handshake
+| | | | | | info : switch_to_auth_protocol=n/a
+| | | | | | info : conn-&gt;error_info.error_no = 1045
+| | | | | &lt;mysqlnd_connect_run_authentication
+| | | | | info : PACKET_FREE(0x7f3ef63236d8)
+| | | | | &gt;mysqlnd_conn::free_contents
+| | | | | | &gt;mysqlnd_net::free_contents
+| | | | | | &lt;mysqlnd_net::free_contents
+| | | | | | info : Freeing memory of members
+| | | | | | info : scheme=unix:///tmp/mysql.sock
+| | | | | | &gt;mysqlnd_error_list_pdtor
+| | | | | | &lt;mysqlnd_error_list_pdtor
+| | | | | &lt;mysqlnd_conn::free_contents
+| | | | &lt;mysqlnd_conn::connect
+[...]
+</pre></div>
+   </div>
+
+  </p>
+  <p class="para">
+   The trace log can also be used to verify correct behaviour
+   of PECL/mysqlnd_ms itself, for example, to check which server has been
+   selected for query execution and why.
+  </p>
+  <p class="para">
+   Example excerpt from the debug log (plugin decision):
+   <div class="example-contents">
+<div class="cdata"><pre>
+[...]
+&gt;mysqlnd_ms::query
+| info : query=DROP TABLE IF EXISTS test
+| &gt;_mysqlnd_plugin_get_plugin_connection_data
+| | info : plugin_id=5
+| &lt;_mysqlnd_plugin_get_plugin_connection_data
+| &gt;mysqlnd_ms_pick_server_ex
+| | info : conn_data=0x7fb6a7d3e5a0 *conn_data=0x7fb6a7d410d0
+| | &gt;mysqlnd_ms_select_servers_all
+| | &lt;mysqlnd_ms_select_servers_all
+| | &gt;mysqlnd_ms_choose_connection_rr
+| | | &gt;mysqlnd_ms_query_is_select
+[...]
+| | | &lt;mysqlnd_ms_query_is_select
+[...]
+| | | info : Init the master context
+| | | info : list(0x7fb6a7d3f598) has 1
+| | | info : Using master connection
+| | | &gt;mysqlnd_ms_advanced_connect
+| | | | &gt;mysqlnd_conn::connect
+| | | | | info : host=localhost user=root db=test port=3306 flags=131072 persistent=0 state=0
+</pre></div>
+   </div>
+
+  </p>
+  <p class="para">
+   In this case the statement <em>DROP TABLE IF EXISTS test</em> has been
+   executed. Note that the statement string is shown in the log file. You may want
+   to take measures to restrict access to the log for security considerations.
+  </p>
+  <p class="para">
+    The statement has been load balanced using round robin policy,
+    as you can easily guess from the functions name <em>&gt;mysqlnd_ms_choose_connection_rr</em>.
+    It has been sent to a master server running on
+    <em>host=localhost user=root db=test port=3306 flags=131072 persistent=0 state=0</em>.
+  </p>
+ </div>
+
+ <div class="section" id="mysqlnd-ms.monitoring">
+  <h2 class="title">Monitoring</h2>
+  <p class="para">
+   Plugin activity can be monitored using the mysqlnd trace log,
+   mysqlnd statistics, mysqlnd_ms plugin statistics and external PHP debugging tools.
+   Use of the trace log should be limited to debugging. It is recommended
+   to use the plugins statistics for monitoring.
+  </p>
+  <p class="para">
+   Writing a trace log is a slow operation. If using an external PHP debugging tool,
+   please refer to the vendors manual about its performance impact and the
+   type of information collected. In many cases, external debugging tools will
+   provide call stacks. Often, a call stack or a trace log is more difficult to interpret
+   than the statistics provided by the plugin.
+  </p>
+  <p class="para">
+   Plugin statistics tell how often which kind of cluster node has been used (slave or master),
+   why the node was used, if lazy connections have been used and if global transaction
+   ID injection has been performed. The monitoring information provided enables
+   user to verify plugin decisions and to plan their cluster resources based on usage pattern.
+   The function <span class="function"><a href="function.mysqlnd-ms-get-stats.html" class="function">mysqlnd_ms_get_stats()</a></span>
+   is used to access the statistics. Please, see the functions description for a list
+   of available statistics.
+  </p>
+  <p class="para">
+   Statistics are collected on a per PHP process basis. Their scope is a PHP process.
+   Depending on the PHP deployment model a process may serve one or multiple web requests.
+   If using CGI model, a PHP process serves one web request. If using FastCGI or
+   pre-fork web server models, a PHP process usually serves multiple web requests.
+   The same is the case with a threaded web server. Please, note that threads running
+   in parallel can update the statistics in parallel. Thus, if using a threaded PHP
+   deployment model, statistics can be changed by more than one script at a time. A
+   script cannot rely on the fact that it sees only its own changes to statistics.
+  </p>
+  <p class="para">
+   <div class="example" id="example-2077">
+    <p><strong>例38 Verify plugin activity in a non-threaded deployment model</strong></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">mysqlnd_ms.enable=1
+mysqlnd_ms.collect_statistics=1</pre>
+</div>
+    </div>
+
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;Load&nbsp;balanced&nbsp;following&nbsp;"myapp"&nbsp;section&nbsp;rules&nbsp;from&nbsp;the&nbsp;plugins&nbsp;config&nbsp;file&nbsp;(not&nbsp;shown)&nbsp;*/<br /></span><span style="color: #0000BB">$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"myapp"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"username"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"database"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">())<br />&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;Of&nbsp;course,&nbsp;your&nbsp;error&nbsp;handling&nbsp;is&nbsp;nicer...&nbsp;*/<br />&nbsp;&nbsp;</span><span style="color: #007700">die(</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"[%d]&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mysqli_connect_errno</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">mysqli_connect_error</span><span style="color: #007700">()));<br /><br /></span><span style="color: #0000BB">$stats_before&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqlnd_ms_get_stats</span><span style="color: #007700">();<br />if&nbsp;(</span><span style="color: #0000BB">$res&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;'Read&nbsp;request'&nbsp;FROM&nbsp;DUAL"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$res</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetch_all</span><span style="color: #007700">());<br />}<br /></span><span style="color: #0000BB">$stats_after&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysqlnd_ms_get_stats</span><span style="color: #007700">();<br />if&nbsp;(</span><span style="color: #0000BB">$stats_after</span><span style="color: #007700">[</span><span style="color: #DD0000">'use_slave'</span><span style="color: #007700">]&nbsp;&lt;=&nbsp;</span><span style="color: #0000BB">$stats_before</span><span style="color: #007700">[</span><span style="color: #DD0000">'use_slave'</span><span style="color: #007700">])&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"According&nbsp;to&nbsp;the&nbsp;statistics&nbsp;the&nbsp;read&nbsp;request&nbsp;has&nbsp;not&nbsp;been&nbsp;run&nbsp;on&nbsp;a&nbsp;slave!"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   Statistics are aggregated for all plugin activities and all connections handled by
+   the plugin. It is not possible to tell how much a certain connection handle has
+   contributed to the overall statistics.
+  </p>
+  <p class="para">
+   Utilizing PHPs <span class="function"><a href="function.register-shutdown-function.html" class="function">register_shutdown_function()</a></span> function or the
+   <em>auto_append_file</em> PHP configuration directive it is
+   easily possible to dump statistics into, for example, a log file when a script
+   finishes. Instead of using a log file it is also possible to send the statistics
+   to an external monitoring tool for recording and display.
+  </p>
+  <p class="para">
+   <div class="example" id="example-2078">
+    <p><strong>例39 Recording statistics during shutdown</strong></p>
+    <div class="example-contents">
+<div class="inicode"><pre class="inicode">mysqlnd_ms.enable=1
+mysqlnd_ms.collect_statistics=1
+error_log=/tmp/php_errors.log</pre>
+</div>
+    </div>
+
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">check_stats</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$msg&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #DD0000">"-"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">80</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$msg&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #0000BB">var_export</span><span style="color: #007700">(</span><span style="color: #0000BB">mysqlnd_ms_get_stats</span><span style="color: #007700">(),&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$msg&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #0000BB">str_repeat</span><span style="color: #007700">(</span><span style="color: #DD0000">"-"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">80</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">error_log</span><span style="color: #007700">(</span><span style="color: #0000BB">$msg</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">register_shutdown_function</span><span style="color: #007700">(</span><span style="color: #DD0000">"check_stats"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+  </div>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.configuration.html">実行時設定</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.plugin-ini-v1.html">Plugin configuration file (&lt;= 1.0.x)</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.constants.html">定義済み定数</a></div>
  <div class="up"><a href="mysqlnd-ms.setup.html">インストール/設定</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

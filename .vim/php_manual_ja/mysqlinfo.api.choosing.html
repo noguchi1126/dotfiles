@@ -21,7 +21,7 @@
     そして、クエリを実行してユーザーにあいさつします。
    </p>
    <p class="para">
-    <div class="example" id="example-1564">
+    <div class="example" id="example-1781">
      <p><strong>例1 三種類の MySQL 用 API の比較</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -39,7 +39,7 @@
     <a href="book.mysqli.html" class="link">mysqli</a>
     か <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> のどちらかを使うことをおすすめします。
     古い <a href="ref.mysql.html" class="link">mysql</a> 拡張モジュールを新規開発で使うのはおすすめしません。
-    というのも、これは PHP 5.5.0 で非推奨となり、将来的に削除される予定だからです。
+    というのも、これは PHP 5.5.0 で非推奨となり、PHP 7 で削除されたからです。
     詳しい機能比較を以下に示します。全体的なパフォーマンスは、どれもほぼ同じです。
     拡張モジュール自体のパフォーマンスが PHP のウェブリクエストの実行時間に及ぼす影響はごくわずかで、
     たいていは 0.1% 程度に過ぎません。
@@ -75,17 +75,24 @@
       </tr>
 
       <tr>
+       <td>PHP 7.x に同梱されているか</td>
+       <td>Yes</td>
+       <td>Yes</td>
+       <td>No</td>
+      </tr>
+
+      <tr>
        <td>開発状況</td>
        <td>進行中</td>
        <td>進行中</td>
-       <td>保守対応のみ</td>
+       <td>5.x では保守対応のみ、7.x では削除</td>
       </tr>
 
       <tr>
        <td>ライフサイクル</td>
        <td>活動中</td>
        <td>活動中</td>
-       <td>非推奨</td>
+       <td>5.x で非推奨、7.x で削除</td>
       </tr>
 
       <tr>

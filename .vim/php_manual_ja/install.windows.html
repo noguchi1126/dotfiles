@@ -7,89 +7,50 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="install.macosx.compile.html">Mac OS X 上での PHP のコンパイル</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="install.windows.manual.html">手動でのインストール</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.windows.requirements.html">インストール要件</a></div>
  <div class="up"><a href="install.html">インストールと設定</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="install.windows" class="chapter">
-   <h1>Windows システムへのインストール</h1>
-<h2>目次</h2><ul class="chunklist chunklist_chapter"><li><a href="install.windows.manual.html">手動でのインストール</a></li><li><a href="install.windows.iis.html">Microsoft IIS</a></li><li><a href="install.windows.iis6.html">Microsoft IIS 5.1 および IIS 6.0</a></li><li><a href="install.windows.iis7.html">Microsoft IIS 7.0 以降</a></li><li><a href="install.windows.apache1.html">Apache 1.3.x （Microsoft Windows 用）</a></li><li><a href="install.windows.apache2.html">Apache 2.x （Microsoft Windows 用）</a></li><li><a href="install.windows.sun.html">Sun, iPlanet, Netscape サーバー（Microsoft Windows 用）</a></li><li><a href="install.windows.sambar.html">Sambar サーバー（Microsoft Windows 用）</a></li><li><a href="install.windows.xitami.html">Xitami（Microsoft Windows 用）</a></li><li><a href="install.windows.building.html">ソースからのビルド</a></li><li><a href="install.windows.extensions.html">Windows 用 PHP 拡張モジュール</a></li><li><a href="install.windows.commandline.html">Microsoft Windows のコマンドラインでの PHP</a></li></ul>
+  <h1>Windows システムへのインストール</h1>
+<h2>目次</h2><ul class="chunklist chunklist_chapter"><li><a href="install.windows.requirements.html">インストール要件</a></li><li><a href="install.windows.pecl.html">PECL</a></li><li><a href="install.windows.tools.html">Windows 上での PHP インストーラ</a></li><li><a href="install.windows.recommended.html">Windows でのおすすめの構成</a></li><li><a href="install.windows.manual.html">Windows 上での PHP の手動インストール</a></li><li><a href="install.windows.troubleshooting.html">Windows 上での PHP のトラブルシューティング</a></li><li><a href="install.windows.legacy.index.html">古い Windows システムへのインストール</a></li></ul>
 
-   <p class="para">
-    本章は、Windows 98/Me および Windows NT/2000/XP に適用されます。
-    PHP は、Windows 3.1 などの 16 ビットのプラットフォームでは動作しません。
-    PHP がサポートする Windows プラットフォーム を Win32 と呼ぶことがあります。
-   </p>
-   <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <p class="para">
+    最近の Microsoft Windows システムへのインストール方法と、一般的なウェブサーバー用の推奨構成を説明します。
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
     <p class="para">
-     Windows 98/Me/NT4 は、PHP 5.3.0 以降サポートされなくなりました。
+      Windows XP, 2003, 98 や Apache 1.x などの古いバージョンに関する情報は、<a href="install.windows.legacy.index.html" class="link">旧バージョンの情報</a> を参照ください。
     </p>
-   </p></blockquote>
-   <blockquote class="note"><p><strong class="note">注意</strong>: 
-    <p class="para">
-     Windows 95 は、PHP 4.3.0 以降サポートされなくなりました。
-    </p>
-   </p></blockquote>
-   <p class="para">
-    Microsoft Visual Studio などの開発環境を持っていれば、オリジナルのソースコードから
-    PHP を <a href="install.windows.building.html" class="link">ビルドする</a> ことも可能です。
-   </p>
-   <p class="para">
-    Windows システムに PHP をインストールした後、機能を追加するために
-    <a href="install.windows.extensions.html" class="link">拡張モジュールのロード</a>
-    が必要な場合があります。
-   </p>
-   
-   
+  </p></blockquote>
+
+  <p class="para">
+    Windows 版の PHP の公式リリースは、実運用環境でも使えるものです。しかし、PHP をソースからビルドすることもできます。
+    そのためには Visual Studio の環境が必要です。詳細は <a href="https://wiki.php.net/internals/windows/stepbystepbuild" class="link external">&raquo;&nbsp;Step by Step Build Instructions</a> を参照ください。
+  </p>
+  <p class="para">
+    <ul class="itemizedlist">
+      <li class="listitem">
+        <p class="para">
+          <a href="install.windows.legacy.index.html#install.windows.legacy.commandline" class="link">Windows コマンドラインでの PHP の使用法</a>
+        </p>
+      </li>
+      <li class="listitem">
+        <p class="para">
+          <a href="install.cloud.azure.html" class="link">Azure App Services (aka Microsoft Azure, Windows Azure, (Windows) Azure Web Apps) 上での PHP のインストール</a>
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  
+
+  
+
+  
+  
 
 
 
-   
-
-
-
-   
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-   
-   
-
-
-
-   
-
-
-
-   
-
-
-
-   
-
-
-
-   
 
 
 
@@ -97,49 +58,32 @@
 
 
 
-   
+
+
+  
 
 
 
-   
 
 
-
-   
-
-
-
-   
-
-
-
-   
+  
 
 
 
 
 
 
-
-   
-
+  
 
 
-   
+  
 
 
 
-   
-
-
-   
-
-
-
-  </div>
+</div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="install.macosx.compile.html">Mac OS X 上での PHP のコンパイル</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="install.windows.manual.html">手動でのインストール</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="install.windows.requirements.html">インストール要件</a></div>
  <div class="up"><a href="install.html">インストールと設定</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

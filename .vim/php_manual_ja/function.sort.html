@@ -13,7 +13,7 @@
 </div><hr /><div id="function.sort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sort</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">sort</span> &mdash; <span class="dc-title">配列をソートする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">sort</span> &mdash; <span class="dc-title">配列をソートする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.sort-description">
@@ -28,6 +28,12 @@
    この関数は配列をソートします。この関数が正常に終了すると、
    各要素が小さい順に並び変わった状態になります。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+ <p class="para">
+  比較結果が等しくなる二つの要素があった場合、ソートした配列におけるそれらの並び順は不定となります。
+ </p>
+</p></blockquote>
+
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.sort-parameters">
@@ -74,7 +80,6 @@
          <span class="simpara">
           <strong><code>SORT_LOCALE_STRING</code></strong> - は、現在のロケールに基づいて比較します。
           比較に使うロケールは、<span class="function"><a href="function.setlocale.html" class="function">setlocale()</a></span> で変更できます。
-          
          </span>
         </li>
         <li class="listitem">
@@ -146,7 +151,7 @@
  <div class="refsect1 examples" id="refsect1-function.sort-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5046">
+   <div class="example" id="example-5654">
     <p><strong>例1 <span class="function"><strong>sort()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -170,7 +175,7 @@ fruits[3] = orange
    fruits はアルファベットの昇順にソートされました。
   </p>
   <p class="para">
-   <div class="example" id="example-5047">
+   <div class="example" id="example-5655">
     <p><strong>例2 <span class="function"><strong>sort()</strong></span> で、大文字小文字を区別せずに自然順での並べ替えを行う例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

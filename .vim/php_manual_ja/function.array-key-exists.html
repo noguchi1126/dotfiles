@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-key-exists" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_key_exists</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5)</p><p class="refpurpose"><span class="refname">array_key_exists</span> &mdash; <span class="dc-title">指定したキーまたは添字が配列にあるかどうかを調べる</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_key_exists</span> &mdash; <span class="dc-title">指定したキーまたは添字が配列にあるかどうかを調べる</span></p>
 
  </div>
  
@@ -73,13 +73,19 @@
   <p class="para">
    成功した場合に <strong><code>TRUE</code></strong> を、失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <span class="function"><strong>array_key_exists()</strong></span> は、最初のレベルのキーだけを捜します。
+    多次元配列のネストされたキーは、この関数では見つけられません。
+   </p>
+  </p></blockquote>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.array-key-exists-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4968">
+   <div class="example" id="example-5575">
     <p><strong>例1 <span class="function"><strong>array_key_exists()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -90,7 +96,7 @@
 
    </div>
   </p>
-  <div class="example" id="example-4969">
+  <div class="example" id="example-5576">
    <p><strong>例2 <span class="function"><strong>array_key_exists()</strong></span> 対 <span class="function"><a href="function.isset.html" class="function">isset()</a></span></strong></p>
    <div class="example-contents"><p>
     <span class="function"><a href="function.isset.html" class="function">isset()</a></span> は <strong><code>NULL</code></strong> 値を持つ配列キーに対して
@@ -110,12 +116,6 @@
 
  <div class="refsect1 notes" id="refsect1-function.array-key-exists-notes">
   <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">
-    下位互換のために、次の非推奨別名を使用してもいいでしょう。
-    <span class="function"><a href="function.key-exists.html" class="function">key_exists()</a></span>
-   </p>
-  </p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
     <p class="para">
      過去との互換性を保つため、<code class="parameter">key</code>

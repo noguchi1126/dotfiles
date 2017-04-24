@@ -13,7 +13,7 @@
 </div><hr /><div id="function.is-float" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">is_float</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">is_float</span> &mdash; <span class="dc-title">変数の型が float かどうか調べる</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">is_float</span> &mdash; <span class="dc-title">変数の型が float かどうか調べる</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.is-float-description">
@@ -68,19 +68,18 @@
  <div class="refsect1 examples" id="refsect1-function.is-float-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5273">
+   <div class="example" id="example-6135">
     <p><strong>例1 <span class="function"><strong>is_float()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">is_float</span><span style="color: #007700">(</span><span style="color: #0000BB">27.25</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"float&nbsp;です\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"float&nbsp;ではありません\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">is_float</span><span style="color: #007700">(</span><span style="color: #DD0000">'abc'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">is_float</span><span style="color: #007700">(</span><span style="color: #0000BB">23</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">is_float</span><span style="color: #007700">(</span><span style="color: #0000BB">23.5</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">is_float</span><span style="color: #007700">(</span><span style="color: #0000BB">1e7</span><span style="color: #007700">));&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;科学記法<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">is_float</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
+var_dump(is_float(27.25));<br />var_dump(is_float('abc'));<br />var_dump(is_float(23));<br />var_dump(is_float(23.5));<br />var_dump(is_float(1e7));&nbsp;&nbsp;//&nbsp;科学記法<br />var_dump(is_float(true));<br />?&gt;</span>
 </code></div>
     </div>
 
     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-float です
+bool(true)
 bool(false)
 bool(false)
 bool(true)

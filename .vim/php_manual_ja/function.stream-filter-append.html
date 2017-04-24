@@ -13,7 +13,7 @@
 </div><hr /><div id="function.stream-filter-append" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_filter_append</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">stream_filter_append</span> &mdash; <span class="dc-title">ストリームにフィルタを付加する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_filter_append</span> &mdash; <span class="dc-title">ストリームにフィルタを付加する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-filter-append-description">
@@ -107,9 +107,14 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-filter-append-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   リソースを返します。
+   成功した場合にリソース、失敗した場合に <strong><code>FALSE</code></strong> を返します。
    このリソースは、<span class="function"><a href="function.stream-filter-remove.html" class="function">stream_filter_remove()</a></span>
    をコールする際にこのフィルタインスタンスを参照するために使用可能です。
+  </p>
+
+  <p class="para">
+   <strong><code>FALSE</code></strong> が返されるのは、<code class="parameter">stream</code> がリソースではない場合や
+   <code class="parameter">filtername</code> が見つからない場合です。
   </p>
  </div>
 
@@ -147,7 +152,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-filter-append-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4038">
+   <div class="example" id="example-4605">
     <p><strong>例1 フィルタの適用される場所を制御する</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

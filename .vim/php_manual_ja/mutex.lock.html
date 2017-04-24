@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>ミューテックスを確保する</title>
+  <title>Acquire Mutex</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,8 +13,16 @@
 </div><hr /><div id="mutex.lock" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Mutex::lock</h1>
-  <p class="verinfo">(PECL pthreads &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Mutex::lock</span> &mdash; <span class="dc-title">ミューテックスを確保する</span></p>
+  <p class="verinfo">(PECL pthreads &lt; 3.0.0)</p><p class="refpurpose"><span class="refname">Mutex::lock</span> &mdash; <span class="dc-title">Acquire Mutex</span></p>
 
+ </div>
+
+ <div id="mutex.lock-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    The <a href="class.mutex.html" class="classname">Mutex</a> class has been removed in pthreads v3.
+   </p>
+  </div>
  </div>
 
  <div class="refsect1 description" id="refsect1-mutex.lock-description">
@@ -31,8 +39,8 @@
   </span>
    )</div>
 
-  <p class="para rdfs-comment">呼び出し元用に、ミューテックスのロックを試みます。</p>
- <p class="para">他のスレッドが所有する (ロックしている) ミューテックスをロックしようとすると、ブロックされます。</p>
+  <p class="para rdfs-comment">Attempt to lock the Mutex for the caller.</p>
+ <p class="para">An attempt to lock a Mutex owned (locked) by another Thread will result in blocking.</p>
  </div>
 
 
@@ -46,7 +54,7 @@
 
     <dd>
 
-     <p class="para"><span class="function"><a href="mutex.create.html" class="function">Mutex::create()</a></span> を呼んで取得したハンドル。</p>
+     <p class="para">A handle returned by a previous call to <span class="function"><a href="mutex.create.html" class="function">Mutex::create()</a></span>.</p>
     </dd>
 
    
@@ -57,24 +65,18 @@
 
  <div class="refsect1 returnvalues" id="refsect1-mutex.lock-returnvalues">
   <h3 class="title">返り値</h3>
-  <p class="para">成功したかどうかを返します。</p>
- </div>
-
-
- <div class="refsect1 returnvalues" id="refsect1-mutex.lock-returnvalues">
-  <h3 class="title">返り値</h3>
-  <p class="para">新しく作り、オプションでロックしたミューテックスのハンドルを返します。</p>
+  <p class="para">A boolean indication of success.</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-mutex.lock-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3735">
-    <p><strong>例1 ミューテックスのロックとアンロック</strong></p>
+   <div class="example" id="example-4270">
+    <p><strong>例1 Mutex Locking and Unlocking</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;"new"&nbsp;キーワードは使えません。Mutex&nbsp;は&nbsp;PHP&nbsp;のオブジェクトではありません&nbsp;**/<br /></span><span style="color: #0000BB">$mutex&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/**&nbsp;ミューテックスのロックが、どんなコンテキストでもできるようになりました&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">lock</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">/**&nbsp;ロックしたミューテックスは破棄できません&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">unlock</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">/**&nbsp;自分が作ったミューテックスは、常に破棄します&nbsp;**/<br /></span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;You&nbsp;cannot&nbsp;use&nbsp;the&nbsp;"new"&nbsp;keyword,&nbsp;a&nbsp;Mutex&nbsp;is&nbsp;not&nbsp;a&nbsp;PHP&nbsp;object&nbsp;**/<br /></span><span style="color: #0000BB">$mutex&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/**&nbsp;You&nbsp;can&nbsp;now&nbsp;lock&nbsp;the&nbsp;mutex&nbsp;in&nbsp;any&nbsp;context&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">lock</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">/**&nbsp;It&nbsp;is&nbsp;invalid&nbsp;to&nbsp;attempt&nbsp;to&nbsp;destroy&nbsp;a&nbsp;locked&nbsp;Mutex&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">unlock</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">/**&nbsp;Always&nbsp;destroy&nbsp;mutex&nbsp;you&nbsp;have&nbsp;created&nbsp;**/<br /></span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

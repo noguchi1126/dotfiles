@@ -13,7 +13,7 @@
 </div><hr /><div id="function.iconv-strpos" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">iconv_strpos</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">iconv_strpos</span> &mdash; <span class="dc-title">文字列が最初に現れる場所を見つける</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">iconv_strpos</span> &mdash; <span class="dc-title">文字列が最初に現れる場所を見つける</span></p>
 
  </div>
  
@@ -79,6 +79,7 @@
       <p class="para">
        オプションの <code class="parameter">offset</code> パラメータは
        検索を開始する位置を指定します。
+       負のオフセットは、文字列の末尾からのオフセットと解釈されます。
       </p>
      </dd>
 
@@ -124,6 +125,33 @@
 セクションを参照してください。この関数の返り値を調べるには
 <a href="language.operators.comparison.html" class="link">===演算子</a> を
 使用してください。</p></div>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.iconv-strpos-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.1.0</td>
+      <td>
+       負の <code class="parameter">offset</code> をサポートするようになりました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

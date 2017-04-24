@@ -17,7 +17,7 @@
 
   <p class="para">
    このセクションでは PHP のインストール方法に関する一般的な質問を扱います。
-   PHP は(OSX 以前の MacOS を除けば)、ほとんど全ての OS とウェブサーバーで
+   PHP は、ほとんど全ての OS とウェブサーバーで
    利用可能です。
   </p>
   <p class="para">
@@ -500,7 +500,7 @@ cgi error:
       読み込まれているか否かを示しています。ディレクトリパスだけが
       表示されている場合は、読み込まれていないということなので、
       そのディレクトリに <var class="filename">php.ini</var> を置いてください。
-      <var class="filename">php.ini</var> が PATH にある場合それが読み込まれます。
+      <var class="filename">php.ini</var> が <span class="envar">PATH</span> にある場合それが読み込まれます。
      </p>
      <p class="para">
       <var class="filename">php.ini</var> が読み込まれていてかつ PHP をモジュールとして実行
@@ -516,18 +516,16 @@ cgi error:
    <dl class="qandaentry" id="faq.installation.addtopath">
     <dt><strong>
      
-      Windows で PHP のディレクトリを <var class="varname"><var class="varname">PATH</var></var>
+      Windows で PHP のディレクトリを <span class="envar">PATH</span>
       に追加するにはどうすればいいのですか?
      
     </strong></dt>
     <dd class="answer">
      <p class="para">
-      Windows NT 以降および Windows Server 2000 以降では、
+      Windows 7, XP, Vista, 2008, 2012 以降では、
       <ul class="itemizedlist">
        <li class="listitem"><p class="para">
-        コントロールパネルのシステムアイコンを選択します（スタート -&gt; 設定
-        -&gt; コントロールパネル -&gt; システム、あるいは Windows XP/2003 以降では
-        単に スタート -&gt; コントロールパネル -&gt; システム）。
+        コントロールパネルのシステムアイコンを選択します（スタート → コントロールパネル）。
        </p></li>
        <li class="listitem"><p class="para">
         詳細設定タブに移動します。
@@ -557,7 +555,7 @@ cgi error:
       Windows 98/Me では、<var class="filename">autoexec.bat</var> を編集する必要があります。
       <ul class="itemizedlist">
        <li class="listitem"><p class="para">
-        メモ帳を開きます（スタート -&gt; ファイル名を指定して実行 で、
+        メモ帳を開きます（スタート → ファイル名を指定して実行 で、
         notepad と入力します）。
        </p></li>
        <li class="listitem"><p class="para">
@@ -575,14 +573,14 @@ cgi error:
      <blockquote class="note"><p><strong class="note">注意</strong>: 
       <span class="simpara">
        上の作業を行った後は、必ずコンピュータを再起動し、
-       <var class="varname"><var class="varname">PATH</var></var> の変更が適用されていることを確認しましょう。
+       <span class="envar">PATH</span> の変更が適用されていることを確認しましょう。
       </span>
      </p></blockquote>
-     <p class="para"> 
+     <p class="para">
       PHP マニュアルでは、これまでファイルを Windows のシステムディレクトリに
       コピーするよう推奨してきました。なぜなら、このディレクトリ
       （<var class="filename">C:\Windows</var>、<var class="filename">C:\WINNT</var>、など）
-      にはデフォルトでシステムの PATH が通っていたからです。ファイルを
+      にはデフォルトでシステムの <span class="envar">PATH</span> が通っていたからです。ファイルを
       Windows のシステムディレクトリにコピーすることはずいぶん昔に非推奨と
       なっており、これはさまざまな問題のもととなりえます。
      </p>
@@ -598,17 +596,17 @@ cgi error:
     <dd class="answer">
      <p class="para">
       いくつかの方法があります。Apache を使用しているのなら、Apache
-      固有のインストール手順（<a href="install.windows.apache1.html" class="link">Apache 1</a>、<a href="install.windows.apache2.html" class="link">Apache 2</a>）を参照ください。
+      固有のインストール手順（<a href="install.windows.legacy.index.html#install.windows.legacy.apache1" class="link">Apache 1</a>、<a href="install.windows.legacy.index.html#install.windows.legacy.apache2" class="link">Apache 2</a>）を参照ください。
       それ以外の場合は、環境変数 <var class="varname"><var class="varname">PHPRC</var></var> を指定する
       必要があります。
      </p>
      <p class="para">
-      Windows NT、2000、XP および 2003 では、
+      Windows では、
       <ul class="itemizedlist">
        <li class="listitem"><p class="para">
-        コントロールパネルのシステムアイコンを選択します（スタート -&gt; 設定
-        -&gt; コントロールパネル -&gt; システム、あるいは Windows XP/2003 では
-        単に スタート -&gt; コントロールパネル -&gt; システム）。
+        コントロールパネルのシステムアイコンを選択します（スタート → 設定
+        → コントロールパネル → システム、あるいは
+        単に スタート → コントロールパネル → システム）。
        </p></li>
        <li class="listitem"><p class="para">
         詳細設定タブに移動します。
@@ -632,7 +630,7 @@ cgi error:
       Windows 98/Me では、<var class="filename">autoexec.bat</var> を編集する必要があります。
       <ul class="itemizedlist">
        <li class="listitem"><p class="para">
-        メモ帳を開きます（スタート -&gt; ファイル名を指定して実行 で、
+        メモ帳を開きます（スタート → ファイル名を指定して実行 で、
         notepad と入力します）。
        </p></li>
        <li class="listitem"><p class="para">

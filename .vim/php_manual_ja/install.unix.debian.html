@@ -43,7 +43,7 @@
     次に、パッケージをインストールする前にはパッケージ一覧を最新に更新しておくようにしましょう。
     これは、<strong class="command">apt-get update</strong> コマンドで行います。
    </p>
-   <div class="example" id="install.unix.debian.apt.example">
+   <div class="example" id="install.unix.nginx.configure.pathinfo">
     <p><strong>例1 Debian で Apache 2 と組み合わせるインストール例</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode"># apt-get install php5-common libapache2-mod-php5 php5-cli</pre>
@@ -55,7 +55,7 @@
     APT により、Apache 2 用の PHP 5 モジュールとその依存モジュールが自動的にインストールされます。
     インストール中に Apache を再起動する旨が表示されなかった場合は、手動で再起動する必要があります。
    </p>
-   <div class="example" id="install.unix.debian.apt.example2">
+   <div class="example" id="install.unix.nginx.modify.phpfpm">
     <p><strong>例2 PHP インストール後に Apache を停止・起動させる</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode"># /etc/init.d/apache2 stop
@@ -76,7 +76,7 @@
     などの追加モジュールもインストールしたくなることでしょう。
     これらも <em>apt-get</em> コマンドでインストールすることができます。
    </p>
-   <div class="example" id="install.unix.debian.config.example">
+   <div class="example" id="install.unix.nginx.modify.phpfpm.usergroup">
     <p><strong>例3 追加の PHP 5 パッケージを探す方法</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode"># apt-cache search php5
@@ -94,7 +94,7 @@
     Debian は依存性のチェックを行うので、たとえば MySQL と cURL
     をインストールする場合はこのようになります。
    </p>
-   <div class="example" id="install.unix.debian.config.example2">
+   <div class="example" id="install.unix.nginx.start.phpfpm">
     <p><strong>例4 PHP と MySQL、cURL のインストール</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode"># apt-get install php5-mysql php5-curl</pre>

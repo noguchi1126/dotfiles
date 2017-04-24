@@ -26,26 +26,15 @@
    <var class="varname"><var class="varname">PHP_AUTH_TYPE</var></var> にそれぞれユーザー名、
    パスワード、認証型が代入された状態で呼ばれます。
    定義済みの変数は、配列
-   <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var></var> および
-   <var class="varname"><var class="varname">$HTTP_SERVER_VARS</var></var> でアクセス可能です。
+   <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var></var> でアクセス可能です。
    &quot;Basic&quot; 認証および &quot;Digest&quot; 認証 (PHP 5.1.0 以降)
    の両者がサポートされています。詳細は、
    <span class="function"><a href="function.header.html" class="function">header()</a></span>を参照ください。
   </p>
 
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <strong>PHP バージョンに関する注意</strong><br />
-   <p class="para">
-    <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var></var> のような
-    <a href="language.variables.superglobals.html" class="link">スーパーグローバル</a>は、
-    PHP <a href="http://www.php.net/releases/4_1_0.php" class="link external">&raquo;&nbsp;4.1.0</a>
-    以降で利用可能となりました。
-   </p>
-  </p></blockquote>
-
   <p class="para">
    ページ上でクライアント認証を強制するスクリプトの例を以下に示します。
-   <div class="example" id="example-351">
+   <div class="example" id="example-376">
     <p><strong>例1 Basic HTTP 認証の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -58,7 +47,7 @@
   </p>
 
   <p class="para">
-   <div class="example" id="example-352">
+   <div class="example" id="example-377">
     <p><strong>例2 Digest HTTP 認証の例</strong></p>
     <div class="example-contents"><p>
      この例は、シンプルな Digest HTTP 認証スクリプトをどの様に実装するか
@@ -106,7 +95,7 @@
   </p>
 
   <p class="simpara">
-   PHP 4.3.0 以降、誰かが従来の外部機構による認証を行ってきたページの
+   誰かが従来の外部機構による認証を行ってきたページの
    パスワードを暴くようなスクリプトを書くことを防ぐために、
    特定のページに関して外部認証が可能でかつ <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">セーフモード</a> が有効の場合、
    PHP_AUTH 変数はセットされません。
@@ -135,7 +124,7 @@
    ユーザー名とパスワードを再入力させることができます。この機能は、
    &quot;タイムアウト&quot; 付きのログインや、&quot;ログアウト&quot; ボタンに適用されています。
   </p>
-  <div class="example" id="example-353">
+  <div class="example" id="example-378">
    <p><strong>例3 新規に名前 / パスワードを入力させる HTTP 認証の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,19 +143,10 @@
    しかし、ユーザーは <em>&#039;_&#039;</em> キーを押すことにより認証情報をクリアすることが可能です。
   </p>
   <p class="simpara">
-   PHP4.3.3 までは、Microsoft の IIS サーバーと CGI 版の PHP の組み合わせでは、
-   この機能は、IIS の制約により使用することができなかったことにも
-   注意してください。PHP 4.3.3 以降においてこの機能を使用するには、
+   IIS サーバーと CGI 版の PHP の組み合わせで HTTP 認証を使うには、
    IIS の設定の &quot;<em>ディレクトリセキュリティ</em>&quot; の &quot;<em>編集</em>&quot; ボタンを押して
    &quot;<em>匿名アクセス</em>&quot; のみをオンにしてください。
    その他のフィールドはオフのままにしてください。
-  </p>
-  <p class="simpara">
-   他の制限としては、IIS モジュール (ISAPI) と PHP 4 を使用している場合に、
-   <em>PHP_AUTH_*</em> 変数が使用できないことがあります。
-   しかし、代わりに<em>HTTP_AUTHORIZATION</em> を使うことができます。
-   例えば、次のようなコードを考慮してください。<em>list($user, $pw) = explode(&#039;:&#039;,
-   base64_decode(substr($_SERVER[&#039;HTTP_AUTHORIZATION&#039;], 6)));</em>
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <strong>IIS に関する注意:</strong><br />

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ldap-get-option" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_get_option</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">ldap_get_option</span> &mdash; <span class="dc-title">指定したオプションの現在の値を得る</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_get_option</span> &mdash; <span class="dc-title">指定したオプションの現在の値を得る</span></p>
 
  </div>
  
@@ -133,6 +133,96 @@
            <td>array</td>
           </tr>
 
+          <tr>
+           <td><strong><code>LDAP_OPT_X_KEEPALIVE_IDLE</code></strong></td>
+           <td>int</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_KEEPALIVE_PROBES</code></strong></td>
+           <td>int</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_KEEPALIVE_INTERVAL</code></strong></td>
+           <td>int</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_CACERTDIR</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_CACERTFILE</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_CERTFILE</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_CIPHER_SUITE</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_CRLCHECK</code></strong></td>
+           <td>integer</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_CRLFILE</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_DHFILE</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_KEYILE</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_PACKAGE</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_PROTOCOL_MIN</code></strong></td>
+           <td>integer</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_RANDOM_FILE</code></strong></td>
+           <td>string</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
+          <tr>
+           <td><strong><code>LDAP_OPT_X_TLS_REQUIRE_CERT</code></strong></td>
+           <td>integer</td>
+           <td class="empty">&nbsp;</td>
+          </tr>
+
          </tbody>
         
        </table>
@@ -170,7 +260,7 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-get-option-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4409">
+   <div class="example" id="example-4946">
     <p><strong>例1 プロトコルのバージョンを調べる</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

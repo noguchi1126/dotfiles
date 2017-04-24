@@ -43,7 +43,7 @@
      <dd>
 
       <p class="para">
-       A SolrParam object. It is recommended to use SolrQuery for advanced queries.
+       A <span class="type"><a href="class.solrparams.html" class="type SolrParams">SolrParams</a></span> object. It is recommended to use <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span> for advanced queries.
       </p>
      </dd>
 
@@ -57,7 +57,18 @@
  <div class="refsect1 returnvalues" id="refsect1-solrclient.query-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns a SolrQueryResponse object on success and throws a SolrClientException object on failure.
+   Returns a <span class="type"><a href="class.solrqueryresponse.html" class="type SolrQueryResponse">SolrQueryResponse</a></span> object on success and throws an exception on failure.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 errors" id="refsect1-solrclient.query-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   Throws <a href="class.solrclientexception.html" class="classname">SolrClientException</a> if the client had failed, or there was a connection issue.
+  </p>
+  <p class="para">
+    Throws <a href="class.solrserverexception.html" class="classname">SolrServerException</a> if the Solr Server had failed to satisfy the query.
   </p>
  </div>
 
@@ -65,7 +76,7 @@
  <div class="refsect1 examples" id="refsect1-solrclient.query-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4739">
+   <div class="example" id="example-5298">
     <p><strong>例1 <span class="methodname"><strong>SolrClient::query()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

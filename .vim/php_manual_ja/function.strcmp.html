@@ -13,7 +13,7 @@
 </div><hr /><div id="function.strcmp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strcmp</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strcmp</span> &mdash; <span class="dc-title">バイナリセーフな文字列比較</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strcmp</span> &mdash; <span class="dc-title">バイナリセーフな文字列比較</span></p>
 
  </div>
  
@@ -73,6 +73,23 @@
    よりも小さければ &lt; 0 を、<code class="parameter">str1</code>が
    <code class="parameter">str2</code>よりも大きければ &gt; 0 を、
    等しければ 0 を返します。
+  </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.strcmp-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-5501">
+    <p><strong>例1 <span class="function"><strong>strcmp()</strong></span> の例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$var1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Hello"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$var2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">;<br />if&nbsp;(</span><span style="color: #0000BB">strcmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$var1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$var2</span><span style="color: #007700">)&nbsp;!==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'$var1&nbsp;is&nbsp;not&nbsp;equal&nbsp;to&nbsp;$var2&nbsp;in&nbsp;a&nbsp;case&nbsp;sensitive&nbsp;string&nbsp;comparison'</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
   </p>
  </div>
 

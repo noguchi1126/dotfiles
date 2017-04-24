@@ -13,7 +13,7 @@
 </div><hr /><div id="function.gd-info" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gd_info</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">gd_info</span> &mdash; <span class="dc-title">現在インストールされているGDライブラリに関する情報を取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gd_info</span> &mdash; <span class="dc-title">現在インストールされているGDライブラリに関する情報を取得する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.gd-info-description">
@@ -134,7 +134,7 @@
  <div class="refsect1 examples" id="refsect1-function.gd-info-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3187">
+   <div class="example" id="example-3486">
     <p><strong>例1 <span class="function"><strong>gd_info()</strong></span> の使用法</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -147,9 +147,9 @@
 たとえば以下のようになります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-array(9) {
+array(10) {
   [&quot;GD Version&quot;]=&gt;
-  string(24) &quot;bundled (2.0 compatible)&quot;
+  string(24) &quot;bundled (2.1.0 compatible)&quot;
   [&quot;FreeType Support&quot;]=&gt;
   bool(false)
   [&quot;T1Lib Support&quot;]=&gt;
@@ -165,6 +165,8 @@ array(9) {
   [&quot;WBMP Support&quot;]=&gt;
   bool(true)
   [&quot;XBM Support&quot;]=&gt;
+  bool(false)
+  [&quot;WebP Support&quot;]=&gt;
   bool(false)
 }
 </pre></div>
@@ -189,7 +191,7 @@ array(9) {
 
      <tbody class="tbody">
       <tr>
-       <td>5.5.0</td>
+       <td>5.6.12</td>
        <td>
         <em>WebP Support</em> が追加されました。
        </td>
@@ -219,6 +221,7 @@ array(9) {
     <li class="member"><span class="function"><a href="function.imagejpeg.html" class="function" rel="rdfs-seeAlso">imagejpeg()</a> - 画像をブラウザあるいはファイルに出力する</span></li>
     <li class="member"><span class="function"><a href="function.imagegif.html" class="function" rel="rdfs-seeAlso">imagegif()</a> - 画像をブラウザあるいはファイルに出力する</span></li>
     <li class="member"><span class="function"><a href="function.imagewbmp.html" class="function" rel="rdfs-seeAlso">imagewbmp()</a> - 画像をブラウザあるいはファイルに出力する</span></li>
+    <li class="member"><span class="function"><a href="function.imagewebp.html" class="function" rel="rdfs-seeAlso">imagewebp()</a> - WebP 画像をブラウザあるいはファイルに出力する</span></li>
     <li class="member"><span class="function"><a href="function.imagetypes.html" class="function" rel="rdfs-seeAlso">imagetypes()</a> - この PHP がサポートしている画像形式を返す</span></li>
    </ul>
   </p>

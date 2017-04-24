@@ -13,7 +13,7 @@
 </div><hr /><div id="function.set-include-path" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">set_include_path</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">set_include_path</span> &mdash; <span class="dc-title">include_path 設定オプションをセットする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">set_include_path</span> &mdash; <span class="dc-title">include_path 設定オプションをセットする</span></p>
 
  </div>
  
@@ -67,11 +67,11 @@
  <div class="refsect1 examples" id="refsect1-function.set-include-path-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-519">
+   <div class="example" id="example-564">
     <p><strong>例1 <span class="function"><strong>set_include_path()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;PHP&nbsp;4.3.0&nbsp;以降で動作します<br /></span><span style="color: #0000BB">set_include_path</span><span style="color: #007700">(</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;すべてのバージョンの&nbsp;PHP&nbsp;で動作します<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />set_include_path</span><span style="color: #007700">(</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;または&nbsp;ini_set&nbsp;を使用します<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/usr/lib/pear'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -79,7 +79,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-520">
+   <div class="example" id="example-565">
     <p><strong>例2 include path の追加</strong></p>
     <div class="example-contents"><p>
      <strong><code>PATH_SEPARATOR</code></strong> 定数を利用することで、

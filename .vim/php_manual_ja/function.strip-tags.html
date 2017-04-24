@@ -13,7 +13,7 @@
 </div><hr /><div id="function.strip-tags" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strip_tags</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strip_tags</span> &mdash; <span class="dc-title">文字列から HTML および PHP タグを取り除く</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strip_tags</span> &mdash; <span class="dc-title">文字列から HTML および PHP タグを取り除く</span></p>
 
  </div>
  
@@ -67,13 +67,20 @@
       </p></blockquote>
       <blockquote class="note"><p><strong class="note">注意</strong>: 
        <p class="para">
-        このパラメータには空白文字を含めてはいけません。
-        <span class="function"><strong>strip_tags()</strong></span> はタグの大文字小文字を区別せず、
-        <em>&lt;</em> から始まって最初に空白文字か
-        <em>&gt;</em> があらわれるまでをタグとみなします。
-        つまり、<em>strip_tags(&quot;&lt;br/&gt;&quot;, &quot;&lt;br&gt;&quot;)</em>
-        は空文字列を返すということです。
+        PHP 5.3.4 以降では、<code class="parameter">allowable_tags</code> で使えるのは自己終了型でない XHTML タグだけになりました。
+        自己終了型の XHTML タグは無視されます。たとえば、
+        <em>&lt;br&gt;</em> と
+        <em>&lt;br/&gt;</em> の両方を許可したい場合は、以下のようにしなければいけません。
        </p>
+       <div class="informalexample">
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />strip_tags</span><span style="color: #007700">(</span><span style="color: #0000BB">$input</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'&lt;br&gt;'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+       </div>
       </p></blockquote>
      </dd>
 
@@ -107,16 +114,17 @@
 
      <tbody class="tbody">
       <tr>
-       <td>5.0.0</td>
+       <td>5.3.4</td>
        <td>
-        <span class="function"><strong>strip_tags()</strong></span> がバイナリセーフとなりました。
+        <span class="function"><strong>strip_tags()</strong></span> は、
+        <code class="parameter">allowable_tags</code> 内の自己終了型 XHTML タグを無視するようになりました。
        </td>
       </tr>
 
       <tr>
-       <td>4.3.0</td>
+       <td>5.0.0</td>
        <td>
-        HTML のコメントも除去するようになりました。
+        <span class="function"><strong>strip_tags()</strong></span> がバイナリセーフとなりました。
        </td>
       </tr>
 
@@ -131,7 +139,7 @@
  <div class="refsect1 examples" id="refsect1-function.strip-tags-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4900">
+   <div class="example" id="example-5503">
     <p><strong>例1 <span class="function"><strong>strip_tags()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -17,7 +17,7 @@
     関数は次のような構文で定義されます。
    </p>
    <p class="para">
-    <div class="example" id="example-150">
+    <div class="example" id="example-132">
      <p><strong>例1 関数の使用法を説明するための擬似コード</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -30,8 +30,8 @@
    </p>
      
    <p class="simpara">
-    関数の中では、他の関数や <a href="keyword.class.html" class="link">クラス</a> 定義
-    を含む PHP のあらゆる有効なコードを使用することができます。
+    関数の中では、他の関数や <a href="language.oop5.basic.html#language.oop5.basic.class" class="link">クラス</a>
+    定義を含む PHP のあらゆる有効なコードを使用することができます。
    </p>
    <p class="para">
     関数名は、PHP の他のラベルと同じ規則に従います。関数名として有効な
@@ -53,7 +53,7 @@
     行われていなければなりません。
    </p>
    <p class="para">
-    <div class="example" id="example-151">
+    <div class="example" id="example-133">
      <p><strong>例2 条件つきの関数</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -65,7 +65,7 @@
     </div>
    </p>
    <p class="para">
-    <div class="example" id="example-152">
+    <div class="example" id="example-134">
      <p><strong>例3 関数の中の関数</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -103,10 +103,8 @@
    </p>
    
    <p class="para">
-    PHP では、関数を再帰的にコールすることが可能です。ただし、100 から 200
-    を超えるような再帰呼び出しは避けてください。そんなことをすると、
-    スタックが破壊され、スクリプトが異常終了してしまいます。
-    <div class="example" id="example-153">
+    PHP では、関数を再帰的にコールすることが可能です。
+    <div class="example" id="example-135">
      <p><strong>例4 再帰的な関数</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -116,6 +114,13 @@
      </div>
 
     </div>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <span class="simpara">
+     100 から 200 を超えるようなレベルの再帰呼び出しは避けてください。そんなことをすると、
+     スタックが破壊され、スクリプトが異常終了してしまいます。
+     無限に続くような再帰処理は、プログラミングの間違いでしょう。
+    </span>
+   </p></blockquote>
    </p>
 
   </div><hr /><div class="manualnavbar" style="text-align: center;">

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imap-fetch-overview" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_fetch_overview</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imap_fetch_overview</span> &mdash; <span class="dc-title">指定したメッセージのヘッダ情報の概要を読む</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_fetch_overview</span> &mdash; <span class="dc-title">指定したメッセージのヘッダ情報の概要を読む</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-fetch-overview-description">
@@ -164,14 +164,47 @@ imap_stream</code></dt>
       <em>draft</em> -  草稿フラグが立てられています
      </span>
     </li>
+    <li class="listitem">
+     <span class="simpara">
+      <em>update</em> - 受信日時の UNIX タイムスタンプ
+     </span>
+    </li>
    </ul>
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imap-fetch-overview-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>5.3.3</td>
+      <td>
+       <em>update</em> プロパティが追加されました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imap-fetch-overview-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3374">
+   <div class="example" id="example-3901">
     <p><strong>例1 <span class="function"><strong>imap_fetch_overview()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

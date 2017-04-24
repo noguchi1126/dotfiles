@@ -36,6 +36,11 @@
    (0 は白、50 はグレー、100 は黒)。sharpen を <strong><code>TRUE</code></strong>
    にするとコントラストを強め、それ以外にするとコントラストを弱めます。
   </p>
+  <p class="para">
+   <a href="url.imagemagick.usage.color_mods.sigmoidal" class="link external">&raquo;&nbsp;ImageMagick
+   v6 Examples - Image Transformations — Sigmoidal Non-linearity Contrast</a>
+   も参照ください。
+  </p>
  </div>
 
 
@@ -51,6 +56,7 @@
      <dd>
 
       <p class="para">
+       If true increase the contrast, if false decrease the contrast.
       </p>
      </dd>
 
@@ -62,6 +68,7 @@
      <dd>
 
       <p class="para">
+       The amount of contrast to apply. 1 is very little, 5 is a significant amount, 20 is extreme.
       </p>
      </dd>
 
@@ -73,6 +80,7 @@
      <dd>
 
       <p class="para">
+       Where the midpoint of the gradient will be. This value should be in the range 0 to 1 - mutliplied by the quantum value for ImageMagick.
       </p>
      </dd>
 
@@ -84,6 +92,7 @@
      <dd>
 
       <p class="para">
+       Which color channels the contrast will be applied to.
       </p>
      </dd>
 
@@ -98,6 +107,26 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    成功した場合に <strong><code>TRUE</code></strong> を返します。
+  </p>
+ </div>
+
+ 
+<div class="refsect1 examples" id="refsect1-imagick.sigmoidalcontrastimage-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-3786">
+    <p><strong>例1 
+     <span class="function"><strong>Imagick::sigmoidalContrastImage()</strong></span> によるグラデーションの作成
+     (ふたつの画像を、$contrast と $midpoint の定義でブレンドする)
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">generateBlendImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$contrast&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$midpoint&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0.5</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newPseudoImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'gradient:black-white'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$quanta&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getQuantumRange</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">sigmoidalContrastImage</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$contrast</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$midpoint&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$quanta</span><span style="color: #007700">[</span><span style="color: #DD0000">"quantumRangeLong"</span><span style="color: #007700">]);<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">;&nbsp;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
   </p>
  </div>
 

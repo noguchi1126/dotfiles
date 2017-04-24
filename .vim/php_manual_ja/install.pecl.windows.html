@@ -24,12 +24,12 @@
   </p>
   <p class="para">
    コンパイル時に拡張モジュールを PHP に組み込む方法については、
-   <a href="install.windows.building.html" class="link">ソースからのビルド</a>
+   <a href="install.windows.legacy.index.html#install.windows.legacy.building" class="link">ソースからのビルド</a>
    に関するドキュメントを参照ください。
   </p>
   <p class="para">
    単体の拡張モジュール (DLL ファイル) をコンパイルする方法については
-   <a href="install.windows.building.html" class="link">ソースからのビルド</a>
+   <a href="install.windows.legacy.index.html#install.windows.legacy.building" class="link">ソースからのビルド</a>
    に関するドキュメントを参照ください。
    PHP の配布パッケージにも PECL にも DLL ファイルが存在しなければ、
    まずコンパイルをしないとその拡張モジュールは使えないでしょう。
@@ -39,7 +39,7 @@
    <h3 class="title">拡張モジュールの探し方は？</h3>
    <p class="para">
     PHP の拡張モジュールは、通常は &quot;php_*.dll&quot; (* の部分に拡張モジュールの名前が入ります)
-    という名前で &quot;PHP\ext&quot; (PHP 4 の場合は &quot;PHP\extensions&quot;) フォルダに存在します。
+    という名前で &quot;PHP\ext&quot; フォルダに存在します。
    </p>
    <p class="para">
     PHP には、大半の開発者にとって有用である拡張モジュールが同梱されています。
@@ -58,7 +58,8 @@
     そうすれば、彼らからフィードバックを得たり (うまくいけば)
     感謝の言葉をもらえたり、バグレポートやバグ修正パッチをもらえたりするかもしれません。
     自作の拡張モジュールを PECL で公開したい場合は
-    http://pecl.php.net/package-new.php を参照ください。
+    <a href="http://pecl.php.net/package-new.php" class="link external">&raquo;&nbsp;PECL submit</a>
+    を参照ください。
    </p>
   </div>
 
@@ -101,7 +102,7 @@
     <em class="emphasis">すべての</em> 設定を取得することができます。
    </p>
    <p class="para">
-    <div class="example" id="example-62">
+    <div class="example" id="example-35">
      <p><strong>例1 <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span> のコール</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

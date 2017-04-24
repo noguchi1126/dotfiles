@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ini-get-all" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ini_get_all</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">ini_get_all</span> &mdash; <span class="dc-title">すべての設定オプションを得る</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ini_get_all</span> &mdash; <span class="dc-title">すべての設定オプションを得る</span></p>
 
  </div>
  
@@ -96,6 +96,16 @@
   </p></blockquote>
  </div>
 
+ 
+ <div class="refsect1 notes" id="refsect1-function.ini-get-all-notes">
+  <h3 class="title">注意</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <span class="function"><strong>ini_get_all()</strong></span> は、&quot;配列&quot; 形式の ini オプション (pdo.dsn.* など) を無視します。
+   </p>
+  </p></blockquote>
+ </div>
+
 
  <div class="refsect1 changelog" id="refsect1-function.ini-get-all-changelog">
   <h3 class="title">変更履歴</h3>
@@ -129,7 +139,7 @@
  <div class="refsect1 examples" id="refsect1-function.ini-get-all-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-499">
+   <div class="example" id="example-544">
     <p><strong>例1 <span class="function"><strong>ini_get_all()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -181,7 +191,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-500">
+   <div class="example" id="example-545">
     <p><strong>例2 <code class="parameter">details</code> を無効にする例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

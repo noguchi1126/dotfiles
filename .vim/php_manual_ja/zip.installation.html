@@ -13,46 +13,7 @@
 </div><hr /><div id="zip.installation" class="section">
  <h2 class="title">インストール手順</h2>
 
- <div class="section" id="zip.old.installation">
-  <h2 class="title">PHP 4</h2>
-
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">
-    PHP 4.1.0 以前の Zip サポートは実験的なものです。
-   </p>
-  </p></blockquote>
-
-  <div class="warning"><strong class="warning">警告</strong>
-   <p class="para">
-    PHP 4 の zip 拡張モジュールはメンテナンスされていませんので、
-    私たちはバンドルされているものよりも PECL
-    拡張モジュールの利用を推奨します。
-   </p>
-  </div>
-
-  <div class="section" id="zip.installation.old.linux">
-   <h2 class="title">Linux システム</h2>
-   <p class="para">
-    これらの関数を使用するには、zip サポートを有効にして PHP
-    をコンパイルしなければなりません。そのためには、設定オプション
-    <strong class="option configure">--with-zip[=DIR]</strong>
- を使用します。
-    [DIR] は、<a href="http://zziplib.sourceforge.net/" class="link external">&raquo;&nbsp;ZZIPlib</a>
-    ライブラリのインストールされている場所です。
-   </p>
-  </div>
-
-  <div class="section" id="zip.installation.old.windows">
-   <h2 class="title">Windows</h2>
-   <p class="para">
-    Windows ユーザーは、これらの関数を使用するために <var class="filename">php.ini</var>
-    内の <var class="filename">php_zip.dll</var> を有効にする必要があります。
-   </p>
-  </div>
- </div>
-
  <div class="section" id="zip.installation.new">
-  <h2 class="title">PHP 5.2.0 以降</h2>
 
   <div class="section" id="zip.installation.new.linux">
    <h2 class="title">Linux systems</h2>
@@ -62,12 +23,19 @@
  を使用して
     zip サポートを有効にして PHP をコンパイルしなければなりません。
    </p>
+   <p class="para">
+    PHP 5.6.0 からは、<strong class="option configure">--with-libzip=DIR</strong>
+
+    オプションが追加されました。これを指定すると、システムにインストールされた libzip を利用します。
+    libzip 0.11 以降が必要です。0.11.2 以降を推奨します。
+   </p>
   </div>
 
   <div class="section" id="zip.installation.new.windows">
    <h2 class="title">Windows</h2>
    <p class="para">
-    Windows ユーザーは、これらの関数を使用するために <var class="filename">php.ini</var>
+    PHP 5.3 以降には、この拡張モジュールが標準で組み込まれています。
+    それより前のバージョンでは、Windows ユーザーは、これらの関数を使用するために <var class="filename">php.ini</var>
     内の <var class="filename">php_zip.dll</var> を有効にする必要があります。
    </p>
   </div>
@@ -82,17 +50,6 @@ PECL 拡張モジュールのインストール</a> という章にあります�
 新規リリース・ダウンロード・ソースファイル・管理者情報・CHANGELOG
 といった関連する情報については、次の場所にあります。
    <a href="http://pecl.php.net/package/zip" class="link external">&raquo;&nbsp;http://pecl.php.net/package/zip</a>.
-  </p>
-  <p class="para">
-   この <acronym title="PHP Extension and Application Repository">PECL</acronym>
-拡張モジュールの <acronym title="Dynamic Link Library">DLL</acronym> は、現在存在しません。
-<a href="install.windows.building.html" class="link">Windows でのビルド</a>
-も参照ください
-  </p>
-  <p class="para">
-   PHP 4 の場合、この <acronym title="Dynamic Link Library">DLL</acronym> は
-PHP の Windows ダウンロードバイナリの <var class="filename">extensions/</var> ディレクトリ
-にあります。
   </p>
  </div>
 

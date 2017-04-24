@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagefilter" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagefilter</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">imagefilter</span> &mdash; <span class="dc-title">画像にフィルタを適用する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagefilter</span> &mdash; <span class="dc-title">画像にフィルタを適用する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagefilter-description">
@@ -69,7 +69,7 @@ image</code></dt>
         <li class="listitem">
          <span class="simpara">
           <strong><code>IMG_FILTER_BRIGHTNESS</code></strong>: 画像の輝度を変更します。
-          輝度レベルを <code class="parameter">arg1</code> で設定します。
+          輝度レベルを <code class="parameter">arg1</code> で設定します。輝度の範囲は -255 から 255 までです。
          </span>
         </li>
         <li class="listitem">
@@ -283,7 +283,7 @@ image</code></dt>
  <div class="refsect1 examples" id="refsect1-function.imagefilter-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3249">
+   <div class="example" id="example-3554">
     <p><strong>例1 <span class="function"><strong>imagefilter()</strong></span> グレースケールの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -295,7 +295,7 @@ image</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3250">
+   <div class="example" id="example-3555">
     <p><strong>例2 <span class="function"><strong>imagefilter()</strong></span> 輝度の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -307,7 +307,7 @@ image</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3251">
+   <div class="example" id="example-3556">
     <p><strong>例3 <span class="function"><strong>imagefilter()</strong></span> 単色化の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -319,7 +319,7 @@ image</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3252">
+   <div class="example" id="function-name.example.basic">
     <p><strong>例4 <span class="function"><strong>imagefilter()</strong></span> での打ち消しの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -331,7 +331,7 @@ image</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3253">
+   <div class="example" id="example-3558">
     <p><strong>例5 <span class="function"><strong>imagefilter()</strong></span> でのモザイク処理の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

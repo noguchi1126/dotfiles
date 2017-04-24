@@ -13,7 +13,7 @@
 </div><hr /><div id="function.token-get-all" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">token_get_all</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">token_get_all</span> &mdash; <span class="dc-title">指定したソースを PHP トークンに分割する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">token_get_all</span> &mdash; <span class="dc-title">指定したソースを PHP トークンに分割する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.token-get-all-description">
@@ -21,7 +21,8 @@
   <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><strong>token_get_all</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$source</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>token_get_all()</strong></span> は指定した文字列
@@ -52,6 +53,26 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       以下のフラグが使えます。
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara">
+          <strong><code>TOKEN_PARSE</code></strong> -
+          特定のコンテキストで予約語を使った場合に、それを認識する。
+         </span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -60,27 +81,11 @@
  <div class="refsect1 returnvalues" id="refsect1-function.token-get-all-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   トークン ID の配列を返します。配列の各要素には、1 文字単位の文字列
+   トークン ID の配列を返します。配列の各要素には、一文字単位の文字列
    (例: <em>;</em>、<em>.</em>、
    <em>&gt;</em>、<em>!</em> など...)、
    またはトークンのインデックスを 0 番目の要素、トークンの文字列表現を 1 番目の要素、
    行番号を 2 番目の要素とする配列が含まれます。
-  </p>
- </div>
-
- <div class="refsect1 examples" id="refsect1-function.token-get-all-examples">
-  <h3 class="title">例</h3>
-  <p class="para">
-   <div class="example" id="example-4099">
-    <p><strong>例1 <span class="function"><strong>token_get_all()</strong></span> の例</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$tokens&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">token_get_all</span><span style="color: #007700">(</span><span style="color: #DD0000">'&lt;?php&nbsp;echo;&nbsp;?&gt;'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">/*&nbsp;=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(T_OPEN_TAG,&nbsp;'&lt;?php'),&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(T_ECHO,&nbsp;'echo'),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(T_CLOSE_TAG,&nbsp;'?&gt;')&nbsp;);&nbsp;*/<br /><br />/*&nbsp;以下の例では、文字列が&nbsp;T_COMMENT&nbsp;(PHP&nbsp;&lt;5&nbsp;では&nbsp;T_ML_COMMENT)<br />&nbsp;&nbsp;&nbsp;ではなく&nbsp;T_INLINE_HTML&nbsp;とパースされていることに注意しましょう。<br />&nbsp;&nbsp;&nbsp;これは、指定した&nbsp;"code"&nbsp;の中に開始タグ/終了タグが含まれていないからです。<br />&nbsp;&nbsp;&nbsp;通常のファイルで、コメントを&nbsp;&lt;?php&nbsp;?&gt;&nbsp;タグの外部に書いた場合にも同じようになります。&nbsp;*/<br /></span><span style="color: #0000BB">$tokens&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">token_get_all</span><span style="color: #007700">(</span><span style="color: #DD0000">'/*&nbsp;comment&nbsp;*/'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;=&gt;&nbsp;array(array(T_INLINE_HTML,&nbsp;'/*&nbsp;comment&nbsp;*/'));<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
   </p>
  </div>
 
@@ -99,8 +104,17 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.0.0</td>
+       <td>
+        オプションの <code class="parameter">flags</code> パラメータと
+        <strong><code>TOKEN_PARSE</code></strong> フラグが導入されました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.2.2</td>
-       <td>2 番目の要素として行番号を返すようになりました。
+       <td>
+        二番目の要素として行番号を返すようになりました。
        </td>
       </tr>
 
@@ -108,6 +122,97 @@
     
    </table>
 
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.token-get-all-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-4666">
+    <p><strong>例1 <span class="function"><strong>token_get_all()</strong></span> の例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$tokens&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">token_get_all</span><span style="color: #007700">(</span><span style="color: #DD0000">'&lt;?php&nbsp;echo;&nbsp;?&gt;'</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$tokens&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$token</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$token</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Line&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$token</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]}</span><span style="color: #DD0000">:&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">token_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$token</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]),&nbsp;</span><span style="color: #DD0000">"&nbsp;('</span><span style="color: #007700">{</span><span style="color: #0000BB">$token</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]}</span><span style="color: #DD0000">')"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Line 1: T_OPEN_TAG (&#039;&lt;?php &#039;)
+Line 1: T_ECHO (&#039;echo&#039;)
+Line 1: T_WHITESPACE (&#039; &#039;)
+Line 1: T_CLOSE_TAG (&#039;?&gt;&#039;)
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-4667">
+    <p><strong>例2 <span class="function"><strong>token_get_all()</strong></span> の間違った使いかた</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$tokens&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">token_get_all</span><span style="color: #007700">(</span><span style="color: #DD0000">'/*&nbsp;comment&nbsp;*/'</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$tokens&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$token</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$token</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Line&nbsp;</span><span style="color: #007700">{</span><span style="color: #0000BB">$token</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]}</span><span style="color: #DD0000">:&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">token_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$token</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]),&nbsp;</span><span style="color: #DD0000">"&nbsp;('</span><span style="color: #007700">{</span><span style="color: #0000BB">$token</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]}</span><span style="color: #DD0000">')"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Line 1: T_INLINE_HTML (&#039;/* comment */&#039;)
+</pre></div>
+    </div>
+   </div>
+   先ほどの例では、文字列が <strong><code>T_COMMENT</code></strong>
+   ではなく <strong><code>T_INLINE_HTML</code></strong> とパースされていたことに注意しましょう。
+   これは、指定した &quot;code&quot; の中に開始タグが含まれていないからです。
+   通常のファイルで、コメントを PHP タグの外部に書いた場合にも同じようになります。
+  </p>
+  <p class="para">
+   <div class="example" id="example-4668">
+    <p><strong>例3 
+     予約語を使ったクラスでの <span class="function"><strong>token_get_all()</strong></span> の例
+    </strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$source&nbsp;</span><span style="color: #007700">=&nbsp;&lt;&lt;&lt;'code'<br /></span><span style="color: #DD0000">&lt;?php<br /><br />class&nbsp;A<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;PUBLIC&nbsp;=&nbsp;1;<br />}<br /></span><span style="color: #007700">code;<br /><br /></span><span style="color: #0000BB">$tokens&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">token_get_all</span><span style="color: #007700">(</span><span style="color: #0000BB">$source</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">TOKEN_PARSE</span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$tokens&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$token</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$token</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">token_name</span><span style="color: #007700">(</span><span style="color: #0000BB">$token</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">])&nbsp;,&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+T_OPEN_TAG
+T_WHITESPACE
+T_CLASS
+T_WHITESPACE
+T_STRING
+T_CONST
+T_WHITESPACE
+T_STRING
+T_LNUMBER
+</pre></div>
+    </div>
+   </div>
+   <strong><code>TOKEN_PARSE</code></strong> フラグを指定しなければ、最後から二番目のトークン
+   (<strong><code>T_STRING</code></strong>) が
+   <strong><code>T_PUBLIC</code></strong> と解釈されてしまいます。
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.token-get-all-seealso">
+  <h3 class="title">参考</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.token-name.html" class="function" rel="rdfs-seeAlso">token_name()</a> - 指定した PHP トークンのシンボル名を取得する</span></li>
+   </ul>
   </p>
  </div>
 

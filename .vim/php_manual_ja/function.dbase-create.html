@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>データベースを作成する</title>
+  <title>Creates a database</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,20 +13,23 @@
 </div><hr /><div id="function.dbase-create" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">dbase_create</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">dbase_create</span> &mdash; <span class="dc-title">データベースを作成する</span></p>
+  <p class="verinfo">(PHP 5 &lt; 5.3.0, dbase 5, dbase 7)</p><p class="refpurpose"><span class="refname">dbase_create</span> &mdash; <span class="dc-title">Creates a database</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.dbase-create-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><strong>dbase_create</strong></span>
+   <span class="type">resource</span> <span class="methodname"><strong>dbase_create</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = DBASE_TYPE_DBASE</span></span>
    )</div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>dbase_create()</strong></span> は、指定された定義で
-   dBase データベースを作成します。
+   <span class="function"><strong>dbase_create()</strong></span> creates a dBase database with the given
+   definition.
+   If the file already exists, it is not truncated.
+   <span class="function"><a href="function.dbase-pack.html" class="function">dbase_pack()</a></span> can be called to force truncation.
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara"><a href="features.safe-mode.html" class="link">
 セーフモード</a> が有効の場合、PHP は操作を行うファイル／ディレクトリが実行するスクリプトと
@@ -46,8 +49,8 @@
      <dd>
 
       <p class="para">
-       データベースの名前。dBase がデータを格納するファイルの
-       相対パスあるいは絶対パス。
+       The name of the database. It can be a relative or absolute path to
+       the file where dBase will store your data.
       </p>
      </dd>
 
@@ -59,13 +62,33 @@
      <dd>
 
       <p class="para">
-       配列の配列で、各配列はデータベースにおけるひとつのフィールドの
-       フォーマットを記述します。各フィールドは、名前・フィールド型を
-       示す文字・長さ（オプション）・精度（オプション）から構成されます。
+       An array of arrays, each array describing the format of one field of the
+       database. Each field consists of a name, a character indicating the field
+       type, and optionally, a length, a precision and a nullable flag.
+       The supported field types are listed in the <a href="intro.dbase.html" class="link">introduction section</a>.
       </p>
       <blockquote class="note"><p><strong class="note">注意</strong>: 
        <p class="para">
-        フィールド名の長さは、10 文字までに制限されています。
+        The fieldnames are limited in length and must not exceed 10 chars.
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">type</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The type of database to be created. Either
+       <strong><code>DBASE_TYPE_DBASE</code></strong> or
+       <strong><code>DBASE_TYPE_FOXPRO</code></strong>.
+      </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        The fieldnames are limited in length and must not exceed 10 chars.
        </p>
       </p></blockquote>
      </dd>
@@ -79,19 +102,48 @@
  <div class="refsect1 returnvalues" id="refsect1-function.dbase-create-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   データベースの作成に成功した場合にリンク ID 、エラーが発生した場合に
-   <strong><code>FALSE</code></strong> を返します。
+   Returns a database link identifier if the database is successfully created,
+   or <strong><code>FALSE</code></strong> if an error occurred.
   </p>
  </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.dbase-create-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>dbase 7.0.0</td>
+      <td>
+       The return value is now a <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span> instead of an
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
 
  <div class="refsect1 examples" id="refsect1-function.dbase-create-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1100">
-    <p><strong>例1 dBase データベースファイルの作成</strong></p>
+   <div class="example" id="example-1184">
+    <p><strong>例1 Creating a dBase database file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;データベースの定義<br /></span><span style="color: #0000BB">$def&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"date"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"D"</span><span style="color: #007700">),<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"name"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"C"</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">),<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"age"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"N"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">),<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"email"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"C"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">128</span><span style="color: #007700">),<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"ismember"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"L"</span><span style="color: #007700">)<br />);<br /><br /></span><span style="color: #FF8000">//&nbsp;作成<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">dbase_create</span><span style="color: #007700">(</span><span style="color: #DD0000">'/tmp/test.dbf'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$def</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error,&nbsp;can't&nbsp;create&nbsp;the&nbsp;database\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;database&nbsp;"definition"<br /></span><span style="color: #0000BB">$def&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"date"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"D"</span><span style="color: #007700">),<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"name"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"C"</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #0000BB">50</span><span style="color: #007700">),<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"age"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"N"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">),<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"email"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"C"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">128</span><span style="color: #007700">),<br />&nbsp;&nbsp;array(</span><span style="color: #DD0000">"ismember"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"L"</span><span style="color: #007700">)<br />);<br /><br /></span><span style="color: #FF8000">//&nbsp;creation<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">dbase_create</span><span style="color: #007700">(</span><span style="color: #DD0000">'/tmp/test.dbf'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$def</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error,&nbsp;can't&nbsp;create&nbsp;the&nbsp;database\n"</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -104,8 +156,8 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.dbase-open.html" class="function" rel="rdfs-seeAlso">dbase_open()</a> - データベースをオープンする</span></li>
-    <li class="member"><span class="function"><a href="function.dbase-close.html" class="function" rel="rdfs-seeAlso">dbase_close()</a> - データベースを閉じる</span></li>
+    <li class="member"><span class="function"><a href="function.dbase-open.html" class="function" rel="rdfs-seeAlso">dbase_open()</a> - Opens a database</span></li>
+    <li class="member"><span class="function"><a href="function.dbase-close.html" class="function" rel="rdfs-seeAlso">dbase_close()</a> - Closes a database</span></li>
    </ul>
   </p>
  </div>

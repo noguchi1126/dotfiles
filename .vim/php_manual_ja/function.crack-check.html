@@ -16,7 +16,7 @@
   <p class="verinfo">(PECL crack &gt;= 0.1)</p><p class="refpurpose"><span class="refname">crack_check</span> &mdash; <span class="dc-title">指定したパスワードに関して強度チェックを行う</span></p>
 
  </div>
- <div class="refsect1 unknown-notet" id="refsect1-function.crack-check-unknown-notet">
+ <div class="refsect1 unknown-returnvaluet" id="refsect1-function.crack-check-unknown-returnvaluet">
   <h3 class="title">辞書</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>crack_check</strong></span>
@@ -27,10 +27,14 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>crack_check</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$gecos</code><span class="initializer"> = &quot;&quot;</span></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dictionary</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
    )</div>
 
   <p class="para rdfs-comment">
    指定した辞書を用いて指定したパスワードの強度チェックを行います。
+   もうひとつのシグネチャは、ユーザー名と GECOS 情報も考慮します。
   </p>
   <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は、
 <em class="emphasis">実験的</em> なものです。この関数の動作・
@@ -64,7 +68,31 @@
      <dd>
 
       <p class="para">
-       チェックされるパスワード
+       チェックするパスワード。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">username</code></dt>
+
+     <dd>
+
+      <p class="para">
+       そのパスワードを使うアカウントのユーザー名。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">gecos</code></dt>
+
+     <dd>
+
+      <p class="para">
+       ユーザーアカウントに関連づけられた GECOS 情報。
       </p>
      </dd>
 
@@ -81,6 +109,37 @@
    <strong><code>TRUE</code></strong>、それ以外の場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.crack-check-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>0.3</td>
+       <td>
+        <code class="parameter">username</code>、<code class="parameter">gecos</code> そして
+        <code class="parameter">dictionary</code> パラメータを追加したもうひとつのシグネチャが用意されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="ref.crack.html">Crack 関数</a></div>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.strftime" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strftime</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strftime</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strftime</span> &mdash; <span class="dc-title">
    ロケールの設定に基づいてローカルな日付・時間をフォーマットする
   </span></p>
 
@@ -116,7 +116,7 @@
           <tr>
            <td><em>%u</em></td>
            <td>ISO-8601 数値表現であらわした曜日</td>
-           <td><em>1</em> (月曜日) から <em>7</em> (土曜日)</td>
+           <td><em>1</em> (月曜日) から <em>7</em> (日曜日)</td>
           </tr>
 
           <tr>
@@ -231,7 +231,7 @@
 
           <tr>
            <td><em>%k</em></td>
-           <td>2 桁であらわした 24 時間制の時間で、1 桁の場合は先頭にスペースをつけたもの</td>
+           <td>24 時間制の時間で、1 桁の場合は先頭にスペースをつけたもの</td>
            <td><em> 0</em> から <em>23</em></td>
           </tr>
 
@@ -489,7 +489,7 @@
   <h3 class="title">例</h3>
   <p class="para">
    この例は、それぞれのロケールがシステムにインストールされている場合にのみ動作します。
-   <div class="example" id="example-2336">
+   <div class="example" id="example-2572">
     <p><strong>例1 <span class="function"><strong>strftime()</strong></span> のロケールの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -501,7 +501,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2337">
+   <div class="example" id="example-2573">
     <p><strong>例2 ISO 8601:1988 の週番号の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -513,7 +513,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2338">
+   <div class="example" id="example-2574">
     <p><strong>例3 <em>%e</em> 修飾子を使う、クロスプラットフォーム対応の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -525,7 +525,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2339">
+   <div class="example" id="example-2575">
     <p><strong>例4 すべての書式の表示</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -581,7 +581,7 @@ Unknown format : &#039;f&#039;
 Unknown format : &#039;g&#039;                       ( Two digit representation of the year going by ISO-8601:1988 standards (see %V) )
 Unknown format : &#039;h&#039;                       ( Abbreviated month name, based on the locale (an alias of %b) )
 Unknown format : &#039;i&#039;
-Unknown format : &#039;k&#039;
+Unknown format : &#039;k&#039;                       ( Hour in 24-hour format, with a space preceding single digits )
 Unknown format : &#039;l&#039;                       ( Hour in 12-hour format, with a space preceding single digits )
 Unknown format : &#039;n&#039;                       ( A newline character (&quot;\n&quot;) )
 Unknown format : &#039;o&#039;

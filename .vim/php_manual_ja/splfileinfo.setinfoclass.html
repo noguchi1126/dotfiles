@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>getFileInfo および getPathInfo で使用するクラスを設定する</title>
+  <title>SplFileInfo::getFileInfo および SplFileInfo::getPathInfo で使用するクラスを設定する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="splfileinfo.setinfoclass" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SplFileInfo::setInfoClass</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.2)</p><p class="refpurpose"><span class="refname">SplFileInfo::setInfoClass</span> &mdash; <span class="dc-title">getFileInfo および getPathInfo で使用するクラスを設定する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7)</p><p class="refpurpose"><span class="refname">SplFileInfo::setInfoClass</span> &mdash; <span class="dc-title"><span class="methodname"><a href="splfileinfo.getfileinfo.html" class="methodname">SplFileInfo::getFileInfo()</a></span> および <span class="methodname"><a href="splfileinfo.getpathinfo.html" class="methodname">SplFileInfo::getPathInfo()</a></span> で使用するクラスを設定する</span></p>
 
  </div>
 
@@ -21,13 +21,15 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>SplFileInfo::setInfoClass</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = &quot;SplFileInfo&quot;</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
-   このメソッドで、getFileInfo
-   および getPathInfo がコールされた際に使用するカスタムクラスを設定します。
-   このメソッドに渡すクラスは、SplFileInfo の派生クラスでなければなりません。
+   このメソッドで、
+   <span class="methodname"><a href="splfileinfo.getfileinfo.html" class="methodname">SplFileInfo::getFileInfo()</a></span> および
+   <span class="methodname"><a href="splfileinfo.getpathinfo.html" class="methodname">SplFileInfo::getPathInfo()</a></span>
+   がコールされた際に使用するカスタムクラスを設定します。
+   このメソッドに渡すクラス名は、<a href="class.splfileinfo.html" class="classname">SplFileInfo</a> あるいはその派生クラスのものでなければいけません。
   </p>
  </div>
 
@@ -44,7 +46,9 @@
      <dd>
 
       <p class="para">
-       使用するクラス名。
+       <span class="methodname"><a href="splfileinfo.getfileinfo.html" class="methodname">SplFileInfo::getFileInfo()</a></span> および
+       <span class="methodname"><a href="splfileinfo.getpathinfo.html" class="methodname">SplFileInfo::getPathInfo()</a></span>
+       がコールされた際に使用するクラス名。
       </p>
      </dd>
 
@@ -67,7 +71,7 @@
  <div class="refsect1 examples" id="refsect1-splfileinfo.setinfoclass-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3966">
+   <div class="example" id="example-4532">
     <p><strong>例1 <span class="function"><a href="splfileinfo.setfileclass.html" class="function">SplFileInfo::setFileClass()</a></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

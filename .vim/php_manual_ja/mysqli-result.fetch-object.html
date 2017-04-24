@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli_result::fetch_object</h1>
   <h1 class="refname">mysqli_fetch_object</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli_result::fetch_object</span> -- <span class="refname">mysqli_fetch_object</span> &mdash; <span class="dc-title">結果セットの現在の行をオブジェクトとして返す</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli_result::fetch_object</span> -- <span class="refname">mysqli_fetch_object</span> &mdash; <span class="dc-title">結果セットの現在の行をオブジェクトとして返す</span></p>
 
  </div>
 
@@ -23,7 +23,7 @@
   <p class="para">オブジェクト指向型</p>
   <div class="methodsynopsis dc-description">
    <span class="type">object</span> <span class="methodname"><strong>mysqli_result::fetch_object</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = &quot;stdClass&quot;</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code></span>
   ]] )</div>
 
@@ -31,7 +31,7 @@
   <div class="methodsynopsis dc-description">
    <span class="type">object</span> <span class="methodname"><strong>mysqli_fetch_object</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span> <code class="parameter">$result</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = &quot;stdClass&quot;</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code></span>
   ]] )</div>
 
@@ -105,38 +105,9 @@ NULL フィールドに PHPの <strong><code>NULL</code></strong> 値を設定�
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-mysqli-result.fetch-object-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        さまざまな型のオブジェクトで結果を返せるようになりました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-mysqli-result.fetch-object-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1748">
+  <div class="example" id="example-1912">
    <p><strong>例1 オブジェクト指向型</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -146,7 +117,7 @@ NULL フィールドに PHPの <strong><code>NULL</code></strong> 値を設定�
    </div>
 
   </div>
-  <div class="example" id="example-1749">
+  <div class="example" id="example-1913">
    <p><strong>例2 手続き型</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

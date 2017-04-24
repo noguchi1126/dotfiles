@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-sum" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_sum</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">array_sum</span> &mdash; <span class="dc-title">配列の中の値の合計を計算する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_sum</span> &mdash; <span class="dc-title">配列の中の値の合計を計算する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-sum-description">
@@ -56,43 +56,14 @@
   <p class="para">
    値の合計を整数または
    float として返します。
-  </p>
- </div>
-
- <div class="refsect1 changelog" id="refsect1-function.array-sum-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.2.1</td>
-       <td>
-        4.2.1 より前のバージョンの PHP は、渡された配列自体を修正し、
-        文字列を数値 (これは値にもよるが多くの場合ゼロとなります)
-        に変換していました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
+   <code class="parameter">array</code> が空の場合は <em>0</em> を返します。
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.array-sum-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4999">
+   <div class="example" id="example-5606">
     <p><strong>例1 <span class="function"><strong>array_sum()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

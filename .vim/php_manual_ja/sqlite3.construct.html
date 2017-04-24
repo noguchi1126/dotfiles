@@ -13,7 +13,7 @@
 </div><hr /><div id="sqlite3.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SQLite3::__construct</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">SQLite3::__construct</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">SQLite3::__construct</span> &mdash; <span class="dc-title">
    SQLite3 オブジェクトを作成し、SQLite 3 データベースをオープンする
   </span></p>
 
@@ -24,8 +24,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>SQLite3::__construct</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encryption_key</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encryption_key</code><span class="initializer"> = null</span></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
@@ -48,6 +48,9 @@
 
       <p class="para">
        SQLite データベースへのパス。インメモリデータベースを使う場合は <em>:memory:</em> を指定します。
+       If <code class="parameter">filename</code> is an empty string, then a private, temporary on-disk
+       database will be created. This private database will be automatically
+       deleted as soon as the database connection is closed.
       </p>
      </dd>
 
@@ -94,6 +97,7 @@
 
       <p class="para">
        オプションの暗号キー。SQLite データベースの暗号化と復号に使用します。
+       暗号化モジュールがインストールされていない場合は、このパラメータは何の影響も及ぼしません。
       </p>
      </dd>
 
@@ -121,10 +125,38 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-sqlite3.construct-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.0.10</td>
+      <td>
+       The <code class="parameter">filename</code> can now be empty to use a private,
+       temporary on-disk database.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-sqlite3.construct-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2174">
+   <div class="example" id="example-2398">
     <p><strong>例1 <span class="function"><strong>SQLite3::__construct()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

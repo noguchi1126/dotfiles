@@ -2,31 +2,31 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>OCI8 and DTrace Dynamic Tracing</title>
+  <title>OCI8 および DTrace 動的トレーシング</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="oci8.fan.html">OCI8 Fast Application Notification (FAN) Support</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="oci8.fan.html">OCI8 高速アプリケーション通知 (FAN) サポート</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="oci8.datatypes.html">ドライバでサポートされるデータ型</a></div>
  <div class="up"><a href="book.oci8.html">OCI8</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="oci8.dtrace" class="chapter">
- <h1>OCI8 and DTrace Dynamic Tracing</h1>
+ <h1>OCI8 および DTrace 動的トレーシング</h1>
 
  <div class="section">
   <p class="para">
-   OCI8 2.0 introduced static DTrace probes that can be used on
-   operating systems that support DTrace.
-   See <a href="features.dtrace.html" class="link">DTrace Dynamic Tracing</a>
-   for an overview of PHP and DTrace.
+   OCI8 2.0 では、DTrace をサポートする OS 上で使用できる
+   静的な DTrace プローブが導入されました。
+   PHP および DTrace の概要については、<a href="features.dtrace.html" class="link">DTrace 動的トレーシング</a> をご覧ください。
   </p>
  </div>
 
 <div class="section">
- <h2 class="title">Installing OCI8 with DTrace Support</h2>
+ <h2 class="title">DTrace サポート付きで OCI8 をインストール</h2>
   <p class="para">
-   To enable DTrace support in PHP OCI8, build OCI8 as a shared
-   extension after setting <em>PHP_DTRACE</em>.
+   PHP OCI8 で DTrace のサポートを有効にするには、
+   <em>PHP_DTRACE</em> を設定後、
+   OCI8 を共用拡張モジュールとしてビルドします。
   </p>
   <p class="para">
    <div class="informalexample">
@@ -39,10 +39,10 @@ $ pecl install oci8
    </div>
   </p>
   <p class="para">
-   Edit php.ini,
-   set <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> to the
-   directory with the created <var class="filename">oci8.so</var> and also
-   enable the extension by adding:
+   php.ini を編集し、作成された <var class="filename">oci8.so</var> がある
+   ディレクトリを <a href="ini.core.html#ini.extension-dir" class="link">extension_dir</a> に
+   設定します。
+   さらに以下のように追加してその拡張モジュールを有効にします。
   </p>
   <p class="para">
    <div class="informalexample">
@@ -54,30 +54,31 @@ extension=oci8.so
    </div>
   </p>
   <p class="para">
-   If you install PHP OCI8 2.0 from PECL using <var class="filename">phpize</var> and
-   <var class="filename">configure</var> (instead
-   of <var class="filename">pecl</var>), you will still need to set
-   <em>PHP_DTRACE=yes</em>. This is because
-   the <em>--enable-dtrace</em> option will be ignored by the
-   limited <var class="filename">configure</var> script of a PECL bundle.
+   もし、<var class="filename">phpize</var> および <var class="filename">configure</var> を
+   （ <var class="filename">pecl</var> の代わりに）
+   使用して PECL から PHP OCI8 2.0 をインストールする場合、
+   さらに <em>PHP_DTRACE=yes</em> を設定する必要があります。
+   それは、<em>--enable-dtrace</em> オプションが、PECL バンドルの
+   制限された <var class="filename">configure</var> スクリプトにより
+   無視されるからです。
   </p>
 
   <p class="para">
-   See <a href="install.pecl.html" class="link">Installation of PECL
-   extensions</a> for general PECL installation instructions.
+   一般的な PECL インストール手順については、<a href="install.pecl.html" class="link">PECL 拡張モジュールのインストール</a>
+   をご覧ください。
   </p>
  </div>
 
  <div class="section">
-  <h2 class="title">DTrace Static Probes in PHP OCI8</h2>
+  <h2 class="title">PHP OCI8 の DTrace 静的プローブ</h2>
   <table class="doctable table">
-   <caption><strong>The following static probes are available in PHP OCI8</strong></caption>
+   <caption><strong>PHP OCI8 では、以下の静的プローブが使用できます</strong></caption>
    
     <thead>
      <tr>
-      <th>Probe Name</th>
-      <th>Probe Description</th>
-      <th>Probe Arguments</th>
+      <th>プローブ名</th>
+      <th>プローブの説明</th>
+      <th>プローブの引数</th>
      </tr>
 
     </thead>
@@ -85,43 +86,43 @@ extension=oci8.so
     <tbody class="tbody">
      <tr>
       <td><em>oci8-connect-entry</em></td>
-      <td>Initiated by oci_connect(), oci_pconnect() and oci_new_connect(). Fires before database connection is established.</td>
+      <td>oci_connect()、oci_pconnect() および oci_new_connect() により開始されます。データベース接続が確立する前に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">username</var></var>, char *<var class="varname"><var class="varname">dbname</var></var>, char *<var class="varname"><var class="varname">charset</var></var>, long <var class="varname"><var class="varname">session_mode</var></var>, int <var class="varname"><var class="varname">persistent</var></var>, int <var class="varname"><var class="varname">exclusive</var></var></td>
      </tr>
 
      <tr>
       <td><em>oci8-connect-return</em></td>
-      <td>Fires at the end of connection.</td>
+      <td>接続終了時に発射されます。</td>
       <td>void *<var class="varname"><var class="varname">connection</var></var></td>
      </tr>
 
      <tr>
       <td><em>oci8-check-connection</em></td>
-      <td>Fires if an Oracle error might have caused the connection to become invalid.</td>
+      <td>Oracle のエラーにより、接続が不正になったかもしれない場合に発射されます。</td>
       <td>void *<var class="varname"><var class="varname">connection</var></var>, char *<var class="varname"><var class="varname">client_id</var></var>, int <var class="varname"><var class="varname">is_open</var></var>, long <var class="varname"><var class="varname">errcode</var></var>, unsigned long <var class="varname"><var class="varname">server_status</var></var></td>
      </tr>
 
      <tr>
       <td><em>oci8-sqltext</em></td>
-      <td>Fires when oci_parse() is executed.</td>
+      <td>oci_parse() が実行された際に発射されます。</td>
       <td>void *<var class="varname"><var class="varname">connection</var></var>, char *<var class="varname"><var class="varname">client_id</var></var>, void *<var class="varname"><var class="varname">statement</var></var>, char *<var class="varname"><var class="varname">sql</var></var></td>
      </tr>
 
      <tr>
       <td><em>oci8-connection-close</em></td>
-      <td>Fires when the connection to the database is completely destroyed.</td>
+      <td>データベースへの接続が完全に破壊された際に発射されます。</td>
       <td>void *<var class="varname"><var class="varname">connection</var></var></td>
      </tr>
 
      <tr>
       <td><em>oci8-error</em></td>
-      <td>Fires if an Oracle error occurs.</td>
+      <td>Oracle のエラーが生じた場合に発射されます。</td>
       <td>int <var class="varname"><var class="varname">status</var></var>, long <var class="varname"><var class="varname">errcode</var></var></td>
      </tr>
 
      <tr>
       <td><em>oci8-execute-mode</em></td>
-      <td>Fires at <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span> to show the execution mode.</td>
+      <td>実行モードを示す <span class="function"><a href="function.oci-execute.html" class="function">oci_execute()</a></span> のたびに発射されます。</td>
       <td>void *<var class="varname"><var class="varname">connection</var></var>, char *<var class="varname"><var class="varname">client_id</var></var>, void *<var class="varname"><var class="varname">statement</var></var>, unsigned int <var class="varname"><var class="varname">mode</var></var></td>
      </tr>
 
@@ -130,21 +131,18 @@ extension=oci8.so
   </table>
 
   <p class="para">
-   These probes are useful for tracing OCI8 scripts.
+   これらのプローブは、OCI8 スクリプトのトレーシングで有用です。
   </p>
 
   <p class="para">
-   The <var class="varname"><var class="varname">connection</var></var> and <var class="varname"><var class="varname">statement</var></var>
-   are the pointers to internal structures used for tracking PHP
-   connections and executed statements.
+   <var class="varname"><var class="varname">connection</var></var> および <var class="varname"><var class="varname">statement</var></var> は、
+   PHP の接続および実行されたステートメントを追跡するために使用される内部構造への
+   ポインタです。
   </p>
 
   <p class="para">
-    The <var class="varname"><var class="varname">client_id</var></var> is the value set
-    by <span class="function"><a href="function.oci-set-client-identifier.html" class="function">oci_set_client_identifier()</a></span>.
-  </p>
-
-  <p class="para">
+    <var class="varname"><var class="varname">client_id</var></var> は、
+    <span class="function"><a href="function.oci-set-client-identifier.html" class="function">oci_set_client_identifier()</a></span> により設定される値です。
   </p>
 
   <p class="para">
@@ -153,19 +151,22 @@ extension=oci8.so
   <p class="para">
   </p>
 
+  <p class="para">
+  </p>
+
 
   <p class="para">
-   Core PHP also has static probes.
-   See <a href="features.dtrace.dtrace.html#features.dtrace.static-probes" class="link">DTrace Static
-   Probes in Core PHP</a>.
+   コア PHP にも静的プローブがあります。
+   <a href="features.dtrace.dtrace.html#features.dtrace.static-probes" class="link">コア PHP の DTrace 静的プローブ</a>
+    をご覧ください。
   </p>
 
   <table class="doctable table">
-   <caption><strong>Internal Debugging DTrace Probes in OCI8</strong></caption>
+   <caption><strong>OCI8 の DTrace プローブ内部デバッギング</strong></caption>
    
     <thead>
      <tr>
-      <th>Probe Name</th>
+      <th>プローブ名</th>
      </tr>
 
     </thead>
@@ -208,14 +209,16 @@ extension=oci8.so
   </table>
 
   <p class="para">
-   These probes are useful for OCI8 maintainers.  Refer to the OCI8 source code for arguments and to see when the will fire.
+   これらのプローブは、OCI8 メンテナにとって有用です。
+   引数およびいつ発射されるかについては、OCI8 のソースコードを参照してください。
   </p>
  </div>
 
  <div class="section">
-  <h2 class="title">Listing DTrace Static Probes in PHP OCI8</h2>
+  <h2 class="title">PHP OCI8 の DTrace 静的プローブ一覧</h2>
   <p class="para">
-   To list available probes, start a PHP process and then run:
+   使用できるプローブを一覧表示するには、
+   PHP プロセスを開始して以下のように実行します。
    <div class="informalexample">
     <div class="example-contents">
 <div class="cdata"><pre>
@@ -227,7 +230,7 @@ extension=oci8.so
   </p>
   
   <p class="para">
-   The output will be similar to:
+   出力は以下のようになります。
    <div class="informalexample">
     <div class="example-contents">
 <div class="cdata"><pre>
@@ -255,26 +258,27 @@ extension=oci8.so
   </p>
 
    <p class="para">
-    The Provider column values consist of <em>phpoci</em> and
-    the process id of the currently running PHP process.
+    PROVIDER 列の値は、<em>phpoci</em> および
+    現在実行中の PHP プロセスのプロセス ID から構成されます。
    </p>
 
    <p class="para">
-    The Function column refers to PHP&#039;s internal C implementation
-    function names where each provider is located.
+    FUNCTION 列は、各プロバイダが配置された PHP 内部の C 実装関数名を参照します。
    </p>
 
    <p class="para">
-    If a PHP process is not running, then no PHP probes will be shown.
+    PHP プロセスが実行されていない場合、PHP プローブは表示されません。
    </p>
  </div>
 
  <div class="section">
-  <h2 class="title">DTrace with PHP OCI8 Example</h2>
+  <h2 class="title">PHP OCI8 についての DTrace の例</h2>
   <p class="para">
-   This example shows the basics of the DTrace D scripting language.
-   <div class="example" id="example-1958">
-    <p><strong>例1 <var class="filename">user_oci8_probes.d</var> for tracing all user-level PHP OCI8 Static Probes with DTrace</strong></p>
+   この例では、DTrace の D スクリプト言語の基本を示します。
+   <div class="example" id="example-2186">
+    <p><strong>例1 DTrace を使用して
+    すべてのユーザーレベルの PHP OCI8 静的プローブをトレースするための
+     <var class="filename">user_oci8_probes.d</var></strong></p>
     <div class="example-contents">
 <div class="cdata"><pre>
 #!/usr/sbin/dtrace -Zs
@@ -344,24 +348,27 @@ php*:::oci8-execute-mode
   </p>
 
   <p class="para">
-   This script uses the <em>-Z</em> option to
-   <var class="filename">dtrace</var>, allowing it to be run when there is no
-   PHP process executing.  If this option were omitted the script
-   would immediately terminate when no PHP executable was running
-   because it knows none of the probes to be monitored are in
-   existence.
+   このスクリプトは、<var class="filename">dtrace</var> に対して
+   <em>-Z</em> オプションを使用します。
+   それにより、実行中の PHP プロセスがない場合に実行できるようになります。
+   もしこのオプションが書き落とされた場合、
+   モニターされているプローブがどれも存在しないことがわかっているので、
+   PHP の実行可能ファイルが実行されていない場合、
+   スクリプトは即座に終了します。
   </p>
 
   <p class="para">
-   On multi-CPU machines the probe ordering might not appear to be
-   sequential. This depends on which CPU was processing the probes,
-   and how threads migrate across CPUs.  Displaying probe time stamps
-   helps reduce confusion.
+   マルチ CPU マシンでは、プローブの順序は規則的に連続して表示されないことがあります。
+   これは、どの CPU がプローブを処理し、
+   CPU の間をスレッドがどのように移動したかに依存します。
+   プローブのタイムスタンプを表示すると、
+   混乱を減らすことができます。
   </p>
 
   <p class="para">
-   The script traces all user-level PHP OCI8 static probe points
-   throughout the duration of a running PHP script. Run the D script:
+   スクリプトは、PHP スクリプト実行中の期間全体にわたって、
+   すべてのユーザーレベルの PHP OCI8 静的プローブ・ポイントをトレースします。
+   D スクリプトを実行します。
    <div class="informalexample">
     <div class="example-contents">
 <div class="cdata"><pre>
@@ -373,10 +380,11 @@ php*:::oci8-execute-mode
   </p>
 
   <p class="para">
-   Run a PHP script or application.  The monitoring D script will
-   output each probe&#039;s arguments as it fires.  For example, a simple
-   PHP script that queries a table might produce the following trace
-   output:
+   PHP スクリプトまたはアプリケーションを実行します。
+   モニタリングの D スクリプトは、各プローブが発射されるたびに
+   その引数を出力します。
+   例えば、テーブルを照会する単純な PHP スクリプトにより
+   以下のトレース出力がもたらされるでしょう。
    <div class="informalexample">
     <div class="example-contents">
 <div class="cdata"><pre>
@@ -407,22 +415,22 @@ php*:::oci8-execute-mode
   </p>
   
   <p class="para">
-   When monitoring is complete, the D script can be terminated with a
-   <em>^C</em>.
+   モニタリングが完了した際には、<em>^C</em>を使用して
+   D スクリプトを終わらせることができます。
   </p>
 
  </div>
 
  <div class="section">
- <h2 class="title">See Also</h2>
+ <h2 class="title">関連項目</h2>
  <ul class="simplelist">
-  <li class="member"><a href="features.dtrace.html" class="link">DTrace Dynamic Tracing</a></li>
+  <li class="member"><a href="features.dtrace.html" class="link">DTrace 動的トレーシング</a></li>
  </ul>
 </div>
 
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="oci8.fan.html">OCI8 Fast Application Notification (FAN) Support</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="oci8.fan.html">OCI8 高速アプリケーション通知 (FAN) サポート</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="oci8.datatypes.html">ドライバでサポートされるデータ型</a></div>
  <div class="up"><a href="book.oci8.html">OCI8</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

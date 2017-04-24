@@ -116,6 +116,19 @@
 
   
   
+   <dt id="constant.xsl-secpref-none">
+    <strong><code>XSL_SECPREF_NONE</code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">セキュリティに関する制限をすべて無効化します。
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.xsl-secpref-read-file">
     <strong><code>XSL_SECPREF_READ_FILE</code></strong>
     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
@@ -124,6 +137,7 @@
    <dd>
 
     <span class="simpara">
+     ファイルの読み込みを拒否します。
     </span>
    </dd>
 
@@ -137,6 +151,7 @@
    <dd>
 
     <span class="simpara">
+     ファイルへの書き込みを拒否します。
     </span>
    </dd>
 
@@ -150,6 +165,7 @@
    <dd>
 
     <span class="simpara">
+     ディレクトリの作成を拒否します。
     </span>
    </dd>
 
@@ -163,6 +179,7 @@
    <dd>
 
     <span class="simpara">
+     ネットワークファイルの読み込みを拒否します。
     </span>
    </dd>
 
@@ -176,6 +193,24 @@
    <dd>
 
     <span class="simpara">
+     ネットワークファイルへの書き込みを拒否します。
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.xsl-secpref-default">
+    <strong><code>XSL_SECPREF_DEFAULT</code></strong>
+    (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     すべての書き込みアクセスを拒否します。つまり、
+     <strong><code>XSL_SECPREF_WRITE_NETWORK</code></strong> |
+     <strong><code>XSL_SECPREF_CREATE_DIRECTORY</code></strong> |
+     <strong><code>XSL_SECPREF_WRITE_FILE</code></strong> と同等です。
     </span>
    </dd>
 

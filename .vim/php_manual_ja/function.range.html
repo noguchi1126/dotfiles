@@ -13,7 +13,7 @@
 </div><hr /><div id="function.range" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">range</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">range</span> &mdash; <span class="dc-title">ある範囲の整数を有する配列を作成する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">range</span> &mdash; <span class="dc-title">ある範囲の整数を有する配列を作成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.range-description">
@@ -86,69 +86,30 @@
   </p>
  </div>
 
- <div class="refsect1 changelog" id="refsect1-function.range-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        オプションのパラメータ <code class="parameter">step</code> が追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.1.0 から 4.3.2</td>
-       <td>
-        PHP 4.1.0 から 4.3.2 までは、<span class="function"><strong>range()</strong></span>
-        は数値文字を文字 (string) として認識し、数値 (integer) としては認識しません。
-        その代わり、文字列シーケンスが使用されます。例えば、
-        <em>&quot;4242&quot;</em> は <em>&quot;4&quot;</em> として扱われます。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.1.0</td>
-       <td>
-        4.1.0 より前のバージョンでは、<span class="function"><strong>range()</strong></span> 関数は、
-        昇順の整数配列のみを生成しました。
-        文字シーケンス及び降順の配列のサポートが 4.1.0 で追加されました。
-        文字のシーケンスは一文字のみに限定されます。それより長い文字が指定された場合は、
-        最初の文字のみが使用されます。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
  <div class="refsect1 examples" id="refsect1-function.range-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5042">
+   <div class="example" id="example-5650">
     <p><strong>例1 <span class="function"><strong>range()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;array(0,&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;10,&nbsp;11,&nbsp;12)<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;step&nbsp;引数は&nbsp;PHP&nbsp;5.0.0&nbsp;以降で使用できます<br />//&nbsp;array(0,&nbsp;10,&nbsp;20,&nbsp;30,&nbsp;40,&nbsp;50,&nbsp;60,&nbsp;70,&nbsp;80,&nbsp;90,&nbsp;100)<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;文字列シーケンスは&nbsp;PHP&nbsp;4.1.0&nbsp;以降で使用できます<br />//&nbsp;array('a',&nbsp;'b',&nbsp;'c',&nbsp;'d',&nbsp;'e',&nbsp;'f',&nbsp;'g',&nbsp;'h',&nbsp;'i');<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'i'</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$letter</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$letter</span><span style="color: #007700">;<br />}<br /></span><span style="color: #FF8000">//&nbsp;array('c',&nbsp;'b',&nbsp;'a');<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #DD0000">'c'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$letter</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$letter</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;array(0,&nbsp;1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5,&nbsp;6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;10,&nbsp;11,&nbsp;12)<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">12</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;step&nbsp;引数は<br />//&nbsp;array(0,&nbsp;10,&nbsp;20,&nbsp;30,&nbsp;40,&nbsp;50,&nbsp;60,&nbsp;70,&nbsp;80,&nbsp;90,&nbsp;100)<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">100</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">10</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;文字列シーケンス<br />//&nbsp;array('a',&nbsp;'b',&nbsp;'c',&nbsp;'d',&nbsp;'e',&nbsp;'f',&nbsp;'g',&nbsp;'h',&nbsp;'i');<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'i'</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$letter</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$letter</span><span style="color: #007700">;<br />}<br /></span><span style="color: #FF8000">//&nbsp;array('c',&nbsp;'b',&nbsp;'a');<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #DD0000">'c'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">)&nbsp;as&nbsp;</span><span style="color: #0000BB">$letter</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$letter</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
   </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.range-notes">
+  <h3 class="title">注意</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    文字列シーケンスは、長さが 1 のものだけに限られます。
+    2 文字以上を指定した場合は、最初の 1 文字だけを使います。
+   </p>
+  </p></blockquote>
  </div>
 
  <div class="refsect1 seealso" id="refsect1-function.range-seealso">

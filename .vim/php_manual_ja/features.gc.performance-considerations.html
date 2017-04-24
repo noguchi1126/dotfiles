@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="features.gc.collecting-cycles.html">循環の収集</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.html">DTrace Dynamic Tracing</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.html">DTrace 動的トレーシング</a></div>
  <div class="up"><a href="features.gc.html">ガベージコレクション</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="features.gc.performance-considerations" class="sect1">
@@ -36,11 +36,11 @@
      (ただし)起動時に PHP 自身が使用する基底メモリを除きます。
     </p>
     <p class="para">
-     <div class="example" id="example-396">
+     <div class="example" id="example-421">
       <p><strong>例1 メモリ使用量の例</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'3.1415962654'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$baseMemory&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">memory_get_usage</span><span style="color: #007700">();<br /><br />for&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">100000</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++&nbsp;)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">self&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">500&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'%8d:&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">memory_get_usage</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">$baseMemory</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'3.14159265359'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">$baseMemory&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">memory_get_usage</span><span style="color: #007700">();<br /><br />for&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">100000</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++&nbsp;)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">self&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">%&nbsp;</span><span style="color: #0000BB">500&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">0&nbsp;</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'%8d:&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">memory_get_usage</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">$baseMemory</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -82,11 +82,11 @@
      2つ目のスクリプトはこれです。
     </p>
     <p class="para">
-     <div class="example" id="example-397">
+     <div class="example" id="example-422">
       <p><strong>例2 GC パフォーマンスの影響</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'3.1415962654'</span><span style="color: #007700">;<br />}<br /><br />for&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">1000000</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++&nbsp;)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">self&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">memory_get_peak_usage</span><span style="color: #007700">(),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;</span><span style="color: #0000BB">$var&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'3.14159265359'</span><span style="color: #007700">;<br />}<br /><br />for&nbsp;(&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">1000000</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">++&nbsp;)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">self&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">memory_get_peak_usage</span><span style="color: #007700">(),&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
@@ -98,7 +98,7 @@
      設定をオンにし、次はオフにします。
     </p>
     <p class="para">
-     <div class="example" id="example-398">
+     <div class="example" id="example-423">
       <p><strong>例3 上記のスクリプトを実行</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">time php -dzend.enable_gc=0 -dmemory_limit=-1 -n example2.php
@@ -134,7 +134,7 @@ time php -dzend.enable_gc=1 -dmemory_limit=-1 -n example2.php</pre>
      以下の順序で目的に達するでしょう。
     </p>
     <p class="para">
-     <div class="example" id="example-399">
+     <div class="example" id="example-424">
       <p><strong>例4 GC ベンチマーキングを使用可能にするために PHP を再コンパイル</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">export CFLAGS=-DGC_BENCH=1
@@ -151,7 +151,7 @@ make</pre>
      PHP の実行終了後に、下記が表示されているでしょう。
     </p>
     <p class="para">
-     <div class="example" id="example-400">
+     <div class="example" id="example-425">
       <p><strong>例5 GC 統計</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">GC Statistics
@@ -204,7 +204,7 @@ ZOBJ  28506264   1527980     677581   1025731</pre>
    </div>
   </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="features.gc.collecting-cycles.html">循環の収集</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.html">DTrace Dynamic Tracing</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.html">DTrace 動的トレーシング</a></div>
  <div class="up"><a href="features.gc.html">ガベージコレクション</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

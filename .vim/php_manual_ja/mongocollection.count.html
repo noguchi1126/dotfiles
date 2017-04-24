@@ -22,9 +22,8 @@
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><strong>MongoCollection::count</strong></span>
     ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$query</code><span class="initializer"> = array()</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$skip</code><span class="initializer"> = 0</span></span>
-  ]]] )</div>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+  ]] )</div>
 
  </div>
 
@@ -47,35 +46,76 @@
       </p>
      </dd>
 
-       
+    
     
      <dt>
 
-      <code class="parameter">limit</code>
+      <code class="parameter">options</code>
      </dt>
 
      <dd>
 
       <p class="para">
-       返す件数の上限を指定します。
+       インデックス作成用のオプションの配列。現在使えるオプションは、以下のとおりです。
+       <table class="doctable informaltable">
+        
+         <thead>
+          <tr>
+           <th>名前</th>
+           <th>型</th>
+           <th>説明</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><var class="varname"><var class="varname">hint</var></var></td>
+           <td><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></td>
+           <td>
+            <p class="para">
+             クエリに用いるインデックス。文字列を渡すと、インデックス名として扱います。
+             配列やオブジェクトを渡した場合は、インデックスの作成に使う仕様
+             (<span class="function"><a href="mongocollection.createindex.html" class="function">MongoCollection::createIndex()</a></span> の最初の引数)
+             に対応します。
+            </p>
+            <span class="simpara">このオプションは、MongoDB 2.6 以降で使えます。</span>
+           </td>
+          </tr>
+
+          <tr>
+           <td><var class="varname"><var class="varname">limit</var></var></td>
+           <td><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span></td>
+           <td>マッチしたドキュメントを返す件数の上限。</td>
+          </tr>
+
+          <tr>
+           <td><var class="varname"><var class="varname">maxTimeMS</var></var></td>
+           <td><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span></td>
+           <td>
+            <p class="para">
+             累積処理時間 (待ち時間は含まない) の上限を、ミリ秒単位で指定します。
+             この時間内に処理が完了しなかった場合は、
+             <a href="class.mongoexecutiontimeoutexception.html" class="classname">MongoExecutionTimeoutException</a> をスローします。
+            </p>
+            <span class="simpara">このオプションは、MongoDB 2.6 以降で使えます。</span>
+           </td>
+          </tr>
+
+          <tr>
+           <td><var class="varname"><var class="varname">skip</var></var></td>
+           <td><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span></td>
+           <td>マッチしたドキュメントのうち、結果を返す前に読み飛ばすドキュメントの数。</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
       </p>
      </dd>
 
-       
     
-     <dt>
-
-      <code class="parameter">skip</code>
-     </dt>
-
-     <dd>
-
-      <p class="para">
-       数え始めるまでに読み飛ばす結果の数を指定します。
-      </p>
-     </dd>
-
-       
    </dl>
 
   </p>
@@ -86,6 +126,19 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    query にマッチするドキュメントの数を返します。
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongocollection.count-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   エラーが発生してサーバーがコマンドを実行できなかった場合は
+   <a href="class.mongoresultexception.html" class="classname">MongoResultException</a> をスローします。
+  </p>
+  <p class="para">
+   <var class="varname"><var class="varname">maxTimeMS</var></var> を超えたためにコマンドが失敗した場合は
+   <a href="class.mongoexecutiontimeoutexception.html" class="classname">MongoExecutionTimeoutException</a> をスローします。
   </p>
  </div>
 
@@ -105,9 +158,19 @@
 
      <tbody class="tbody">
       <tr>
+       <td>1.6.0</td>
+       <td>
+        二番目のパラメータが配列 <code class="parameter">options</code> に変わりました。
+        <code class="parameter">limit</code> や <code class="parameter">skip</code>
+        を二番目、三番目のパラメータとして渡す方法は、非推奨になりました。
+       </td>
+      </tr>
+
+      <tr>
        <td>1.0.7</td>
        <td>
-        パラメータ <code class="parameter">limit</code> および <code class="parameter">skip</code> が追加されました。
+        <code class="parameter">limit</code> および <code class="parameter">skip</code> が
+        それぞれ二番目、三番目のパラメータとして追加されました。
        </td>
       </tr>
 
@@ -121,7 +184,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.count-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1444">
+  <div class="example" id="example-1536">
    <p><strong>例1 <span class="function"><strong>MongoCollection::count()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

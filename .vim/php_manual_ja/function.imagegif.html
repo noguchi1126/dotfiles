@@ -6,14 +6,14 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="function.imagegd.html">imagegd</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagegetclip.html">imagegetclip</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.imagegrabscreen.html">imagegrabscreen</a></div>
  <div class="up"><a href="ref.image.html">GD および Image 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.imagegif" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagegif</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagegif</span> &mdash; <span class="dc-title">画像をブラウザあるいはファイルに出力する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagegif</span> &mdash; <span class="dc-title">画像をブラウザあるいはファイルに出力する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagegif-description">
@@ -21,12 +21,12 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>imagegif</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$to</code></span>
   ] )</div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>imagegif()</strong></span> は画像 <code class="parameter">image</code>
-   から <acronym title="Graphic Interchange Format">GIF</acronym> ファイル filename を作成します。
+   から <code class="parameter">to</code> に <acronym title="Graphic Interchange Format">GIF</acronym> ファイルを作成します。
    引数 <code class="parameter">image</code> は
    <span class="function"><a href="function.imagecreate.html" class="function">imagecreate()</a></span> あるいは <em>imagecreatefrom*</em>
    関数から返されたものです。
@@ -52,11 +52,11 @@ image</code></dt>
 
     
      <dt>
-<code class="parameter">filename</code></dt>
+<code class="parameter">to</code></dt>
 
      <dd>
 
-      <p class="para">ファイルの保存先のパス。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
+      <p class="para">ファイル保存先のパスあるいはオープン中のリソース (この関数が値を戻した後で自動的にクローズされます)。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
      </dd>
 
     
@@ -72,10 +72,41 @@ image</code></dt>
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagegif-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        ストリームリソースを
+        <code class="parameter">to</code> に渡せるようになりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagegif-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3267">
+   <div class="example" id="example-3573">
     <p><strong>例1 <span class="function"><strong>imagegif()</strong></span> による画像の出力</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -85,7 +116,7 @@ image</code></dt>
     </div>
 
    </div>
-   <div class="example" id="example-3268">
+   <div class="example" id="example-3574">
     <p><strong>例2 <span class="function"><strong>imagegif()</strong></span> による PNG 画像から GIF への変換</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -127,9 +158,8 @@ image</code></dt>
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
-    4.0.2 以降では、種々のイメージ関数の
-    サポートを調べるために <span class="function"><a href="function.function-exists.html" class="function">function_exists()</a></span> の
-    代わりに関数 <span class="function"><a href="function.imagetypes.html" class="function">imagetypes()</a></span> を使用することが可能です。
+    種々のイメージ関数のサポートを調べるために 
+    関数 <span class="function"><a href="function.imagetypes.html" class="function">imagetypes()</a></span> を使用することが可能です。
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -156,7 +186,7 @@ image</code></dt>
  </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="function.imagegd.html">imagegd</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="function.imagegetclip.html">imagegetclip</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.imagegrabscreen.html">imagegrabscreen</a></div>
  <div class="up"><a href="ref.image.html">GD および Image 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

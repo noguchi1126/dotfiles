@@ -30,6 +30,16 @@
    <a href="class.eventbufferevent.html" class="classname">EventBufferEvent</a>
    object which represents buffer event that the connection is using.
   </p>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    The reference counter of the returned object will be incremented by one to
+    protect internal structures against premature destruction when the method
+    is called from a user callback. So the
+    <a href="class.eventbufferevent.html" class="classname">EventBufferEvent</a> object should be freed explicitly
+    with <span class="methodname"><a href="eventbufferevent.free.html" class="methodname">EventBufferEvent::free()</a></span> method.
+    Otherwise memory will leak.
+   </p>
+  </div>
  </div>
 
  <div class="refsect1 parameters" id="refsect1-eventhttprequest.getbufferevent-parameters">

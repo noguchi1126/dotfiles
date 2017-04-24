@@ -13,7 +13,7 @@
 </div><hr /><div id="pdo.commit" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::commit</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::commit</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::commit</span> &mdash; <span class="dc-title">
    トランザクションをコミットする
   </span></p>
 
@@ -43,10 +43,19 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-pdo.commit-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   有効なトランザクションがない場合に <a href="class.pdoexception.html" class="classname">PDOException</a> をスローします。
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">例外は、<strong><code>PDO::ATTR_ERRMODE</code></strong> 属性が <strong><code>PDO::ERRMODE_EXCEPTION</code></strong> ではない場合でも発生します。</span></p></blockquote>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdo.commit-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-920">
+   <div class="example" id="example-1002">
     <p><strong>例1 基本的なトランザクションをコミットする</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -58,7 +67,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-921">
+   <div class="example" id="example-1003">
     <p><strong>例2 DDL トランザクションをコミットする</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -33,6 +33,27 @@
 
       </div>
      </p>
+  <p class="para">
+   角括弧形式のデリミタを使うこともできます。
+   これは、開き角括弧と閉じ角括弧がそれぞれ開始デリミタ、終了デリミタを表す形式です。
+   <em>()</em>、
+   <em>{}</em>、<em>[]</em> そして <em>&lt;&gt;</em>
+   はどれも、角括弧形式のデリミタとして有効です。
+   <div class="informalexample">
+    <div class="example-contents">
+<div class="cdata"><pre>
+(this [is] a (pattern))
+{this [is] a (pattern)}
+[this [is] a (pattern)]
+&lt;this [is] a (pattern)&gt;
+</pre></div>
+    </div>
+
+   </div>
+   角括弧形式のデリミタを使う場合は、パターン内でメタ文字を使うときのエスケープは不要です。
+   しかし、他のデリミタと同様、(メタ文字としてではなく) リテラルとして扱う場合は、
+   エスケープする必要があります。
+  </p>
      <p class="para">
       パターンの中でデリミタ文字をマッチさせたい場合は、バックスラッシュでエスケープしなければなりません。
       パターン内でデリミタが頻繁にあらわれる場合は、
@@ -48,18 +69,6 @@
       </div>
       <span class="function"><a href="function.preg-quote.html" class="function">preg_quote()</a></span> 関数を使うと、パターンに使う文字列をエスケープすることができます。
       オプションの二番目のパラメータで、エスケープするデリミタを指定します。
-     </p>
-     <p class="para">
-      前述のデリミタのほかに、角括弧形式のデリミタを使うこともできます。
-      これは、開き角括弧と閉じ角括弧がそれぞれ開始デリミタ、終了デリミタを表す形式です。
-      <div class="informalexample">
-       <div class="example-contents">
-<div class="cdata"><pre>
-{this is a pattern}
-</pre></div>
-       </div>
-
-      </div>
      </p>
      <p class="para">
       終了デリミタの後に <a href="reference.pcre.pattern.modifiers.html" class="link">

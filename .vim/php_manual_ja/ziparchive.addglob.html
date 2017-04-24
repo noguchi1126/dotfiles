@@ -13,7 +13,7 @@
 </div><hr /><div id="ziparchive.addglob" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ZipArchive::addGlob</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PECL zip &gt;= 1.9.0)</p><p class="refpurpose"><span class="refname">ZipArchive::addGlob</span> &mdash; <span class="dc-title">ディレクトリから、glob パターンを使ってファイルを追加する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL zip &gt;= 1.9.0)</p><p class="refpurpose"><span class="refname">ZipArchive::addGlob</span> &mdash; <span class="dc-title">ディレクトリから、glob パターンを使ってファイルを追加する</span></p>
 
  </div>
 
@@ -29,6 +29,7 @@
   <p class="para rdfs-comment">
    ディレクトリから、glob <code class="parameter">pattern</code> にマッチするファイルを追加します。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">ポータビリティを考慮して、ZIP ファイル名のディレクトリ区切り文字には常にスラッシュ (<em>/</em>) を使うことを推奨します。</span></p></blockquote>
  </div>
 
 
@@ -116,7 +117,7 @@
 
  <div class="refsect1 examples" id="refsect1-ziparchive.addglob-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="ziparchive.addglob.example.basic">
+  <div class="example" id="example-846">
    <p><strong>例1 <span class="methodname"><strong>ZipArchive::addGlob()</strong></span> の例</strong></p>
    <div class="example-contents"><p>
      現在の作業ディレクトリにある、すべての PHP スクリプトとテキストファイルを追加します。

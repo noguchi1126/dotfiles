@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mail" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mail</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mail</span> &mdash; <span class="dc-title">メールを送信する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mail</span> &mdash; <span class="dc-title">メールを送信する</span></p>
 
  </div>
 
@@ -121,8 +121,15 @@
       <p class="para">
        通常、これは追加のヘッダ（From、Cc、Bcc）のために用いられます。
        複数のヘッダを追加する場合は CRLF（\r\n）で区切ります。
-       Validate parameter not to be injected unwanted headers by attackers.
+       外部からのデータを用いてヘッダを組み立てる際には、想定外のヘッダが注入されることを防ぐための処理が必要です。
       </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        <code class="parameter">additional_headers</code> は、メールヘッダインジェクション対策を行っていません。
+        したがって、指定したヘッダが安全なものであり、ヘッダ以外のものを含まないようにするのはユーザー側の役目となります。
+        複数の改行文字を置くことでメール本文を始めたりしてはいけません。
+       </p>
+      </p></blockquote>      
       <blockquote class="note"><p><strong class="note">注意</strong>: 
        <p class="para">
         メールを送信する際には、<em class="emphasis">必ず</em> 
@@ -166,15 +173,17 @@
        エンベロープの sender アドレスを設定する際に使用できます。
       </p>
       <p class="para">
-       This parameter is escaped by <span class="function"><a href="function.escapeshellcmd.html" class="function">escapeshellcmd()</a></span> internally
-       to prevent command execution. <span class="function"><a href="function.escapeshellcmd.html" class="function">escapeshellcmd()</a></span> prevents
-       command execution, but allows to add addtional parameters. For security reason,
-       this parameter should be validated.
+       このパラメータはコマンドの実行を防止するために内部的に <span class="function"><a href="function.escapeshellcmd.html" class="function">escapeshellcmd()</a></span>
+       によってエスケープされます。 <span class="function"><a href="function.escapeshellcmd.html" class="function">escapeshellcmd()</a></span> はコマンドの実行を防止しますが、
+       別のパラメータを追加することは許してしまいます。セキュリティ上の理由から、
+       シェルコマンドへの望ましくないパラメータの追加を避けるために、
+       ユーザーはこのパラメータを適切に処理することが推奨されます。
       </p>
       <p class="para">
-       Since <span class="function"><a href="function.escapeshellcmd.html" class="function">escapeshellcmd()</a></span> is applied automatically, some characters
-       that are allowed as email addresses by internet RFCs cannot be used. Programs
-       that are required to use these characters <span class="function"><strong>mail()</strong></span> cannot be used.
+       <span class="function"><a href="function.escapeshellcmd.html" class="function">escapeshellcmd()</a></span> が自動的に適用されるため、
+       インターネット RFC でメールアドレスとして許可さているいくつかの文字を使用することができません。
+       <span class="function"><strong>mail()</strong></span> はそうした文字を許可しないため、プログラム中でそうした文字の使用が必須である場合、
+       メール送信の代替手段（フレームワークやライブラリの使用など）が推奨されます。
       </p>
       <p class="para">
        この方法でエンベロープの sender ヘッダ（-f）を設定する際は、
@@ -220,30 +229,12 @@
 
      <tbody class="tbody">
       <tr>
-       <td>4.3.0（Windows のみ）</td>
-       <td>
-        すべてのカスタムヘッダ（From、Cc、Bcc や Date など）がサポート
-        されるようになり、大文字・小文字を区別しないようになりました
-        （カスタムヘッダは MTA でパースされるのではなく PHP でパースされます。
-        PHP &lt; 4.3 では Cc ヘッダのみがサポートされており、大文字・小文字が
-        区別されていました）。
-       </td>
-      </tr>
-
-      <tr>
        <td>4.2.3</td>
        <td>
         <a href="ini.sect.safe-mode.html#ini.safe-mode" class="link">safe_mode</a> 時には
         <code class="parameter">additional_parameters</code> パラメータを無効に
         しました。もし用いられた場合には <span class="function"><strong>mail()</strong></span> 関数は
         警告メッセージを出して <strong><code>FALSE</code></strong> を返します。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.5</td>
-       <td>
-        <code class="parameter">additional_parameters</code> パラメータが追加されました。
        </td>
       </tr>
 
@@ -258,7 +249,7 @@
  <div class="refsect1 examples" id="refsect1-function.mail-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3398">
+   <div class="example" id="example-3925">
     <p><strong>例1 メールを送信する</strong></p>
     <div class="example-contents"><p>
      <span class="function"><strong>mail()</strong></span> を用いて単純なメールを送信する。
@@ -271,7 +262,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3399">
+   <div class="example" id="example-3926">
     <p><strong>例2 追加ヘッダを付加してメールを送信する</strong></p>
     <div class="example-contents"><p>
      基本ヘッダに加え、MUA に From および Reply-To アドレスを通知する。
@@ -284,7 +275,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3400">
+   <div class="example" id="example-3927">
     <p><strong>例3 追加ヘッダ及び追加コマンドラインパラメータを指定してメールを送信する</strong></p>
     <div class="example-contents"><p>
      <em>sendmail_path</em> を用いてメールを送信する際に利用する
@@ -299,7 +290,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3401">
+   <div class="example" id="example-3928">
     <p><strong>例4 HTML メールを送信する</strong></p>
     <div class="example-contents"><p>
      <span class="function"><strong>mail()</strong></span> を用いて HTML メールを送信することも可能です。

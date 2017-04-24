@@ -2,67 +2,71 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Introduction to PHP and DTrace</title>
+  <title>PHP および DTrace への入門</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="features.dtrace.html">DTrace Dynamic Tracing</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.dtrace.html">Using PHP and DTrace</a></div>
- <div class="up"><a href="features.dtrace.html">DTrace Dynamic Tracing</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="features.dtrace.html">DTrace 動的トレーシング</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.dtrace.html">PHP および DTrace の使用</a></div>
+ <div class="up"><a href="features.dtrace.html">DTrace 動的トレーシング</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="features.dtrace.introduction" class="sect1">
-  <h2 class="title">Introduction to PHP and DTrace</h2>
+  <h2 class="title">PHP および DTrace への入門</h2>
 
   <p class="para">
-   DTrace is an always-available, low overhead, tracing framework
-   available on a number of platforms including Solaris, Mac OS X,
-   Oracle Linux and BSD.  DTrace can trace operating system behavior
-   and user program execution. It can display argument values and be
-   used to infer performance statistics.  Probes are monitored by user
-   created scripts written in the DTrace D scripting language. This
-   allows efficient analysis of data points.
+   DTrace は、常に使用可能で、オーバーヘッドが少なく、
+   Solaris、Mac OS X、Oracle Linux および BSD を含む
+   多数のプラットフォーム上で使用可能なトレーシング・フレームワークです。
+   DTrace は、OS の挙動およびユーザー・プログラムの実行を追跡できます。
+   それは、引数の値を表示したり、パフォーマンス統計を推定することに使用できます。
+   プローブは、DTrace D スクリプト言語で書かれた
+   ユーザー作成のスクリプトによりモニターされます。
+   これにより、データ・ポイントの効率的な分析が可能になります。
   </p>
 
   <p class="para">
-   PHP probes that are not being actively monitored by a user&#039;s DTrace
-   D script do not contain instrumented code so there is no
-   performance degradation during normal application execution.
-   Probes that are being monitored incur an overhead low enough to
-   generally allow DTrace monitoring on live production systems.
+   ユーザーの DTrace D スクリプトによりアクティブにモニターされていない
+   PHP プローブには計装化コードを含みません。
+   それは、通常のアプリケーション実行中は、パフォーマンス低下がないからです。
+   モニターされているプローブのオーバーヘッド負荷は、
+   一般的に作業中の本番システム上で DTrace をモニターしてもよいほど十分な低さです。
   </p>
 
   <p class="para">
-   PHP incorporates &quot;User-level Statically Defined Tracing&quot; (USDT)
-   probes that are triggered at runtime. For example, when a D script
-   is monitoring PHP&#039;s <em>function-entry</em> probe, then,
-   every time a PHP script function is called, this probe is fired and
-   the associated D script action code is executed.  This action code
-   could, for example, print probe arguments such as the source file
-   location of the PHP function. Or the action could aggregate data
-   such as the number of times each function is called.
+   PHP は、ランタイムで駆動された
+   &quot;User-level Statically Defined Tracing (USDT。ユーザーレベルの静的に定義されたトレーシング)&quot;
+   プローブを組み入れます。
+   例えば、D スクリプトが PHP の <em>function-entry</em> プローブをモニター中の場合、
+   PHP スクリプトの関数が呼ばれるたびにこのプローブは発射され、
+   関連付けられた D スクリプトの実行コードが実行されます。
+   この実行コードは、例えば PHP 関数のソースファイルの場所のような、
+   プローブの引数を印刷したり、
+   各関数が呼ばれる回数のようなデータを集計できるでしょう。
   </p>
 
   <p class="para">
-   Only the PHP USDT probes are described here.  Refer to external
-   general and operating system-specific DTrace literature to see how
-   DTrace can be used to trace arbitrary functions, and how it can be
-   used to trace operating system behavior.  Note not all DTrace
-   features are available in all DTrace implementations.
+   PHP USDT プローブの記述はここだけです。
+   任意の関数をトレースするために DTrace を使用する方法、
+   および OS の挙動をトレースするための使用方法については、
+   外部の一般および OS 固有の DTrace の文献を参照ください。
+   すべての DTrace の機能がすべての DTrace 実装で使用可能とは
+   限らないことに注意してください。
   </p>
 
   <p class="para">
-   DTrace static probes are included in PHP 5.4.  Prior to this they
-   were available via a <a href="http://pecl.php.net/" class="link external">&raquo;&nbsp;PECL</a> extension, which is now
-   obsolete.
+   DTrace 静的プローブは、PHP 5.4 で含まれます。
+   これより前は、<a href="http://pecl.php.net/" class="link external">&raquo;&nbsp;PECL</a> 拡張モジュールを通じて使用可能でした。
+   これは現在では廃止されました。
   </p>
 
   <p class="para">
-   The static DTrace probes in PHP can alternatively be used with the
-   SystemTap facility on some Linux distributions.
+   PHP での静的な DTrace プローブは、
+   一部の Linux ディストリビューションの SystemTap 機能に対して
+   代わりに使用できます。
   </p>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="features.dtrace.html">DTrace Dynamic Tracing</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.dtrace.html">Using PHP and DTrace</a></div>
- <div class="up"><a href="features.dtrace.html">DTrace Dynamic Tracing</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="features.dtrace.html">DTrace 動的トレーシング</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.dtrace.html">PHP および DTrace の使用</a></div>
+ <div class="up"><a href="features.dtrace.html">DTrace 動的トレーシング</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

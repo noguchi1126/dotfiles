@@ -289,6 +289,21 @@
 
   
   
+   <dt id="constant.filter-validate-mac">
+    <strong><code>FILTER_VALIDATE_MAC</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     &quot;validate_mac_address&quot; フィルタの ID。
+     (PHP 5.5.0 以降で使用可能)
+    </span>
+   </dd>
+
+  
+  
    <dt id="constant.filter-default">
     <strong><code>FILTER_DEFAULT</code></strong>
      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
@@ -297,7 +312,8 @@
    <dd>
 
     <span class="simpara">
-     デフォルト (&quot;string&quot;) フィルタの ID。
+     デフォルト (&quot;unsafe_raw&quot;) フィルタの ID。
+     これは <strong><code>FILTER_UNSAFE_RAW</code></strong> と同等です。
     </span>
    </dd>
 
@@ -705,6 +721,21 @@
 
     <span class="simpara">
      &quot;validate_ip&quot; フィルタでプライベートアドレスを拒否します。
+    </span>
+   </dd>
+
+  
+  
+   <dt id="constant.filter-flag-email-unicode">
+    <strong><code>FILTER_FLAG_EMAIL_UNICODE</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     Accepts Unicode characters in the local part in &quot;validate_email&quot; filter.
+     (PHP 7.1.0 以降で利用可能)
     </span>
    </dd>
 

@@ -20,7 +20,7 @@
  <div class="refsect1 description" id="refsect1-imagick.textureimage-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><strong>Imagick::textureImage</strong></span>
+   <span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <span class="methodname"><strong>Imagick::textureImage</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <code class="parameter">$texture_wand</code></span>
    )</div>
 
@@ -42,6 +42,7 @@
      <dd>
 
       <p class="para">
+       テクスチャ画像として使用する Imagick オブジェクト
       </p>
      </dd>
 
@@ -55,7 +56,7 @@
  <div class="refsect1 returnvalues" id="refsect1-imagick.textureimage-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   成功した場合に <strong><code>TRUE</code></strong> を返します。
+   Returns a new Imagick object that has the repeated texture applied.
   </p>
  </div>
 
@@ -64,6 +65,25 @@
   <h3 class="title">エラー / 例外</h3>
   <p class="para">
    エラー時に ImagickException をスローします。
+  </p>
+ </div>
+
+
+
+
+ <div class="refsect1 examples" id="refsect1-imagick.textureimage-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+    <div class="example" id="example-3801">
+      <p><strong>例1  <span class="function"><strong>Imagick::textureImage()</strong></span></strong></p>
+      <div class="example-contents">
+      <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">textureImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$image&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newImage</span><span style="color: #007700">(</span><span style="color: #0000BB">640</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">480</span><span style="color: #007700">,&nbsp;new&nbsp;\</span><span style="color: #0000BB">ImagickPixel</span><span style="color: #007700">(</span><span style="color: #DD0000">'pink'</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setImageFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">"jpg"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$texture&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">(</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagePath</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$texture</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scaleimage</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getimagewidth</span><span style="color: #007700">()&nbsp;/&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getimageheight</span><span style="color: #007700">()&nbsp;/&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$image&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">textureImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$texture</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type:&nbsp;image/jpg"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+    </div>
   </p>
  </div>
 

@@ -14,7 +14,7 @@
 </div><hr /><div id="function.grapheme-extract" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">grapheme_extract</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">grapheme_extract</span> &mdash; <span class="dc-title">デフォルトの書記素クラスタシーケンスをテキストバッファから取り出す関数。
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">grapheme_extract</span> &mdash; <span class="dc-title">デフォルトの書記素クラスタシーケンスをテキストバッファから取り出す関数。
    テキストは UTF-8 でエンコードされている必要があります</span></p>
 
  </div>
@@ -95,6 +95,7 @@
       <p class="para">
        $haystack 内での開始位置をバイト数で指定します。
        指定する場合は、0 から $haystack のバイト数までの値でなければなりません。
+       負の値を指定すると、$haystack の末尾からバイト数を数えます。
        $start が指す位置が UTF-8 文字の先頭バイトでない場合は、
        その次の文字の先頭から開始します。
       </p>
@@ -132,9 +133,36 @@
  </div>
 
  
+ <div class="refsect1 changelog" id="refsect1-function.grapheme-extract-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.1.0</td>
+      <td>
+       負の <code class="parameter">start</code> をサポートするようになりました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.grapheme-extract-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-2696">
+  <div class="example" id="example-2936">
    <p><strong>例1 <span class="function"><strong>grapheme_extract()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

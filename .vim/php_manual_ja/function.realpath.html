@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>絶対パス名を返す</title>
+  <title>正規化された絶対パス名を返す</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.realpath" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">realpath</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">realpath</span> &mdash; <span class="dc-title">絶対パス名を返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">realpath</span> &mdash; <span class="dc-title">正規化された絶対パス名を返す</span></p>
 
  </div>
  
@@ -27,7 +27,7 @@
   <p class="para rdfs-comment">
    <span class="function"><strong>realpath()</strong></span> は、
    入力 <code class="parameter">path</code> のシンボリックリンクをすべて展開し、
-   「/./」「/../」「/」などの参照をすべて解決することにより、正規化した絶対パスを返します。
+   「/./」「/../」「/」などの参照をすべて解決することにより、正規化された絶対パスを返します。
   </p>
  </div>
 
@@ -64,8 +64,9 @@
  <div class="refsect1 returnvalues" id="refsect1-function.realpath-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   成功した場合は正規化した絶対パス名を返します。
+   成功した場合は、正規化された絶対パス名を返します。
    返されるパスはシンボリックリンクや「/./」「/../」要素を含みません。
+   パスの末尾の区切り文字 (\ や / など) は削除されます。
   </p>
   <p class="para">
    <span class="function"><strong>realpath()</strong></span> は、
@@ -76,6 +77,12 @@
     指定した階層にあるすべてのディレクトリに対して、
     実行中のスクリプトからの実行権限が必要です。もし権限がなければ
     <span class="function"><strong>realpath()</strong></span> は <strong><code>FALSE</code></strong> を返します。
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    大文字小文字を区別しないファイルシステムの場合は、<span class="function"><strong>realpath()</strong></span>
+    が大文字小文字をどちらかにそろえるかもしれないし、そろえないかもしれません。
    </p>
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">
@@ -112,10 +119,10 @@
       </tr>
 
       <tr>
-       <td>5.0.0</td>
+       <td>5.2.1</td>
        <td>
-        これより前のバージョンでは、<code class="parameter">path</code> に空白や <strong><code>NULL</code></strong>
-        を指定すると <span class="function"><strong>realpath()</strong></span> はスクリプトディレクトリ名を返していました。
+        これより前のバージョンでは、<code class="parameter">path</code> が空文字列あるいは <strong><code>NULL</code></strong> の場合に
+        <span class="function"><strong>realpath()</strong></span> は <strong><code>FALSE</code></strong> を返していました。
        </td>
       </tr>
 
@@ -131,11 +138,11 @@
  <div class="refsect1 examples" id="refsect1-function.realpath-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2444">
+   <div class="example" id="example-2681">
     <p><strong>例1 <span class="function"><strong>realpath()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />chdir</span><span style="color: #007700">(</span><span style="color: #DD0000">'/var/www/'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">'./../../etc/passwd'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />chdir</span><span style="color: #007700">(</span><span style="color: #DD0000">'/var/www/'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">'./../../etc/passwd'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">'/tmp/'</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -144,10 +151,11 @@
     <div class="example-contents screen">
 <div class="cdata"><pre>
 /etc/passwd
+/tmp
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2445">
+   <div class="example" id="example-2682">
     <p><strong>例2 Windows 上での <span class="function"><strong>realpath()</strong></span></strong></p>
     <div class="example-contents"><p>
      Windows 上で <span class="function"><strong>realpath()</strong></span>
@@ -155,7 +163,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">'/windows/system32'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">'/windows/system32'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">realpath</span><span style="color: #007700">(</span><span style="color: #DD0000">'C:\Program&nbsp;Files\\'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -164,6 +172,7 @@
     <div class="example-contents screen">
 <div class="cdata"><pre>
 C:\WINDOWS\System32
+C:\Program Files
 </pre></div>
     </div>
    </div>

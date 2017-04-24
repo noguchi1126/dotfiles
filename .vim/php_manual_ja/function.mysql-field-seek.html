@@ -20,7 +20,7 @@
  <div id="function.mysql-field-seek-refsynopsisdiv">
   <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
-この拡張モジュールは PHP 5.5.0 で非推奨になりました。将来のバージョンで削除される予定です。
+この拡張モジュールは PHP 5.5.0 で非推奨になり、PHP 7.0.0 で削除されました。
 <a href="book.mysqli.html" class="link">MySQLi</a> あるいは
 <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> を使うべきです。詳細な情報は
 <a href="mysqlinfo.api.choosing.html" class="link">MySQL: API の選択</a> や
@@ -28,8 +28,11 @@
 この関数の代替として、これらが使えます。</p>
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mysqli-result.field-seek.html" class="function">mysqli_field_seek()</a></span></li>
-    
-    <li class="member"><span class="methodname"><a href="pdostatement.fetch.html" class="methodname">PDOStatement::fetch()</a></span> でオプションのパラメータを使う</li>
+    <li class="member">
+     <span class="methodname"><a href="pdostatement.fetch.html" class="methodname">PDOStatement::fetch()</a></span> で
+     <code class="parameter">cursor_orientation</code> パラメータおよび
+     <code class="parameter">offset</code> パラメータを使う
+    </li>
    </ul>
   </div>
  </div>

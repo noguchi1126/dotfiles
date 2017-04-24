@@ -6,14 +6,14 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="pdo.sqlitecreateaggregate.html">PDO::sqliteCreateAggregate</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.sqlitecreatecollation.html">PDO::sqliteCreateCollation</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="ref.pdo-4d.html">4D (PDO)</a></div>
  <div class="up"><a href="ref.pdo-sqlite.html">SQLite (PDO)</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="pdo.sqlitecreatefunction" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::sqliteCreateFunction</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo_sqlite &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">PDO::sqliteCreateFunction</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo_sqlite &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">PDO::sqliteCreateFunction</span> &mdash; <span class="dc-title">
    SQL 文で使用するユーザー定義関数 (UDF) を登録する
   </span></p>
 
@@ -25,8 +25,9 @@
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>PDO::sqliteCreateFunction</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$function_name</code></span>
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$num_args</code></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$num_args</code><span class="initializer"> = -1</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+  ]] )</div>
 
   <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は、
 <em class="emphasis">実験的</em> なものです。この関数の動作・
@@ -90,8 +91,24 @@
      <dd>
 
       <p class="para">
-       コールバック関数があらかじめ定義済みの引数を受け取る場合に、
-       SQLite のパーサに渡すヒント。
+       The number of arguments that the SQL function takes. If
+       this parameter is <em>-1</em>, then the SQL function may take
+       any number of arguments.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A bitwise conjunction of flags. Currently, only
+       <strong><code>PDO::SQLITE_DETERMINISTIC</code></strong> is supported, which specifies
+       that the function always returns the same result given the same inputs
+       within a single SQL statement.
       </p>
      </dd>
 
@@ -110,10 +127,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-pdo.sqlitecreatefunction-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>PHP 7.1.4</td>
+      <td>
+       <code class="parameter">flags</code> が追加されました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdo.sqlitecreatefunction-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-995">
+   <div class="example" id="example-1079">
     <p><strong>例1 <span class="function"><strong>PDO::sqliteCreateFunction()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -163,7 +207,7 @@
 
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="pdo.sqlitecreateaggregate.html">PDO::sqliteCreateAggregate</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="pdo.sqlitecreatecollation.html">PDO::sqliteCreateCollation</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="ref.pdo-4d.html">4D (PDO)</a></div>
  <div class="up"><a href="ref.pdo-sqlite.html">SQLite (PDO)</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

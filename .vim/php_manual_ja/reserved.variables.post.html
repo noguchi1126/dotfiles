@@ -14,14 +14,16 @@
  <div class="refnamediv">
   <h1 class="refname">$_POST</h1>
   <h1 class="refname">$HTTP_POST_VARS [非推奨]</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">$_POST</span> -- <span class="refname">$HTTP_POST_VARS [非推奨]</span> &mdash; <span class="dc-title">HTTP POST 変数</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">$_POST</span> -- <span class="refname">$HTTP_POST_VARS [非推奨]</span> &mdash; <span class="dc-title">HTTP POST 変数</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-reserved.variables.post-description">
   <h3 class="title">説明</h3>
   <p class="para">
-   HTTP POST メソッドで現在のスクリプトに渡された変数の連想配列です。
+   Content-Type に <em>application/x-www-form-urlencoded</em>
+   あるいは <em>multipart/form-data</em> を用いた HTTP リクエストで、
+   HTTP POST メソッドから現在のスクリプトに渡された変数の連想配列です。
   </p>
 
   <p class="simpara">
@@ -69,7 +71,7 @@
  <div class="refsect1 examples" id="refsect1-reserved.variables.post-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="variable.post.basic">
+   <div class="example" id="example-296">
     <p><strong>例1 <var class="varname"><var class="varname">$_POST</var></var> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

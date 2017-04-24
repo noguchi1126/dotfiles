@@ -14,7 +14,7 @@
 </div><hr /><div id="function.proc-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">proc_close</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">proc_close</span> &mdash; <span class="dc-title"><span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> で開かれたプロセスを閉じ、
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">proc_close</span> &mdash; <span class="dc-title"><span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> で開かれたプロセスを閉じ、
   そのプロセスの終了コードを返す</span></p>
 
  </div>
@@ -68,6 +68,12 @@
    実行していたプロセスの終了状態を返します。
    エラーが発生した場合は <em>-1</em> を返します。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+ <p class="para">
+  PHP のコンパイル時に --enable-sigchild を指定した場合は、この関数の返り値は未定義となります。
+ </p>
+</p></blockquote>
+
  </div>
 
 

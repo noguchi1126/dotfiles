@@ -13,7 +13,7 @@
 </div><hr /><div id="function.json-last-error" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">json_last_error</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">json_last_error</span> &mdash; <span class="dc-title">直近に発生したエラーを返す</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">json_last_error</span> &mdash; <span class="dc-title">直近に発生したエラーを返す</span></p>
 
  </div>
 
@@ -113,6 +113,19 @@
       <td>PHP 5.5.0</td>
      </tr>
 
+     
+     <tr>
+      <td><strong><code>JSON_ERROR_INVALID_PROPERTY_NAME</code></strong></td>
+      <td>A property name that cannot be encoded was given</td>
+      <td>PHP 7.0.0</td>
+     </tr>
+
+     <tr>
+      <td><strong><code>JSON_ERROR_UTF16</code></strong></td>
+      <td>Malformed UTF-16 characters, possibly incorrectly encoded</td>
+      <td>PHP 7.0.0</td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -123,7 +136,7 @@
  <div class="refsect1 examples" id="refsect1-function.json-last-error-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3785">
+   <div class="example" id="example-4348">
     <p><strong>例1 <span class="function"><strong>json_last_error()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -142,7 +155,7 @@ Decoding: {&#039;Organization&#039;: &#039;PHP Documentation Team&#039;} - Synta
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3786">
+   <div class="example" id="example-4349">
     <p><strong>例2 <span class="function"><strong>json_last_error()</strong></span> と <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span> の組み合わせ</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

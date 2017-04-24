@@ -13,7 +13,7 @@
 </div><hr /><div id="function.number-format" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">number_format</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">number_format</span> &mdash; <span class="dc-title">数字を千位毎にグループ化してフォーマットする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">number_format</span> &mdash; <span class="dc-title">数字を千位毎にグループ化してフォーマットする</span></p>
 
  </div>
  
@@ -29,8 +29,8 @@
    <span class="type">string</span> <span class="methodname"><strong>number_format</strong></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$number</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$decimals</code><span class="initializer"> = 0</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dec_point</code><span class="initializer"> = &#039;.&#039;</span></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$thousands_sep</code><span class="initializer"> = &#039;,&#039;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$dec_point</code><span class="initializer"> = &quot;.&quot;</span></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$thousands_sep</code><span class="initializer"> = &quot;,&quot;</span></span>
    )</div>
 
   <p class="para rdfs-comment">
@@ -159,12 +159,12 @@
  <div class="refsect1 examples" id="refsect1-function.number-format-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4867">
+   <div class="example" id="example-5468">
     <p><strong>例1 <span class="function"><strong>number_format()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      例えばフランスの表記法では、通常カンマ (&#039;,&#039;)
      を小数の区切りとした二桁の小数と、千位毎の区切りとしてスペース
-      (&#039; &#039;) を用います。これを実現するには次のようにします。
+      (&#039; &#039;) を用います。数値を書式設定するさまざまな方法を次の例で示します。
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

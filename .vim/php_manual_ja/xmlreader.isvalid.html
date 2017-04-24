@@ -13,7 +13,7 @@
 </div><hr /><div id="xmlreader.isvalid" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">XMLReader::isValid</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">XMLReader::isValid</span> &mdash; <span class="dc-title">パースしているドキュメントの妥当性を示す</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">XMLReader::isValid</span> &mdash; <span class="dc-title">パースしているドキュメントの妥当性を示す</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-xmlreader.isvalid-description">
@@ -38,17 +38,26 @@
  <div class="refsect1 examples" id="refsect1-xmlreader.isvalid-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5549">
+   <div class="example" id="example-6387">
     <p><strong>例1 XML の妥当性の検証</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$xml&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">XMLReader</span><span style="color: #007700">::</span><span style="color: #0000BB">open</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.xml'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;これを使用しなければなりません<br /></span><span style="color: #0000BB">$xml</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setParserProperty</span><span style="color: #007700">(</span><span style="color: #0000BB">XMLReader</span><span style="color: #007700">::</span><span style="color: #0000BB">VALIDATE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isValid</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$xml&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">XMLReader</span><span style="color: #007700">::</span><span style="color: #0000BB">open</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.xml'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;validate&nbsp;オプションを有効にしておかないと、<br />//&nbsp;このメソッドは正しく動作しません<br /></span><span style="color: #0000BB">$xml</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setParserProperty</span><span style="color: #007700">(</span><span style="color: #0000BB">XMLReader</span><span style="color: #007700">::</span><span style="color: #0000BB">VALIDATE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isValid</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
   </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-xmlreader.isvalid-notes">
+  <h3 class="title">注意</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    このメソッドは、現在のノードだけをチェックします。ドキュメント全体をチェックするわけではありません。
+   </span>
+  </p></blockquote>
  </div>
 
  <div class="refsect1 seealso" id="refsect1-xmlreader.isvalid-seealso">

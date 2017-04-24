@@ -29,10 +29,11 @@
     ここでの動作としては、関数 <var class="varname"><var class="varname">foo</var></var> の
     <var class="varname"><var class="varname">$var</var></var> はコール側の <var class="varname"><var class="varname">$bar</var></var>
     と関連付けられますが、<var class="varname"><var class="varname"><a href="reserved.variables.globals.html" class="classname">$GLOBALS["baz"]</a></var></var>
-    に再結合されるといったものになります。<var class="varname"><var class="varname">$bar</var></var>
-    は関数 <var class="varname"><var class="varname">foo</var></var> で利用できないため、
-    リファレンス以外にはコール側の変数スコープにある
-    <var class="varname"><var class="varname">$bar</var></var> を何かに結合する手段はありません
+    に再結合されるといったものになります。
+    コール側のスコープにある <var class="varname"><var class="varname">$bar</var></var> を、
+    リファレンスを使って関数内の何かに結合することはできません。
+    なぜなら、<var class="varname"><var class="varname">$bar</var></var> は関数
+    <var class="varname"><var class="varname">foo</var></var> からは利用できないからです
     （この変数は <var class="varname"><var class="varname">$var</var></var> として表されていますが、
     <var class="varname"><var class="varname">$var</var></var> はその変数の内容のみを有しており、
     コール側のシンボルテーブルで名前と変数を結合したものではありません）。

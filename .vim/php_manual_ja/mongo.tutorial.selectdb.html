@@ -15,7 +15,7 @@
    <p class="para">
     データベースを選択するには次のようにします。
    </p>
-   <div class="example" id="mongo.tutorial.selectdb-example">
+   <div class="example" id="example-1443">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$connection&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">dbname</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -34,7 +34,7 @@
     <em>name</em> を
     <em>anme</em> と書き間違えています)。
 
-    <div class="example" id="mongo.tutorial.selectdb.typo">
+    <div class="example" id="example-1444">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$connection&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mybiglongdbname</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;何かをします<br /><br /></span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$connection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mybiglongdbanme</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;これは別のデータベースに接続してしまいます!<br /></span><span style="color: #0000BB">?&gt;</span>

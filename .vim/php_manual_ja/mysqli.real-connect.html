@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::real_connect</h1>
   <h1 class="refname">mysqli_real_connect</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli::real_connect</span> -- <span class="refname">mysqli_real_connect</span> &mdash; <span class="dc-title">mysql サーバーとの接続をオープンする</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::real_connect</span> -- <span class="refname">mysqli_real_connect</span> &mdash; <span class="dc-title">mysql サーバーとの接続をオープンする</span></p>
 
  </div>
 
@@ -223,6 +223,15 @@ link</code></dt>
          <td>SSL (暗号化) を使用します。</td>
         </tr>
 
+        <tr>
+         <td><strong><code>MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT</code></strong></td>
+         <td>
+          <strong><code>MYSQLI_CLIENT_SSL</code></strong> と似ていますが、
+          SSL 証明書の検証は行いません。
+          これは、MySQL Native Driver と MySQL 5.6 以降の組み合わせでのみ使えます。
+         </td>
+        </tr>
+
         </tbody>
        
       </table>
@@ -242,6 +251,35 @@ link</code></dt>
   </p>
  </div>
 
+ 
+ <div class="refsect1 changelog" id="refsect1-mysqli.real-connect-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.6.16</td>
+       <td>
+        MySQL Native Driver 用の <strong><code>MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT</code></strong> フラグが追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
 
  <div class="refsect1 returnvalues" id="refsect1-mysqli.real-connect-returnvalues">
   <h3 class="title">返り値</h3>
@@ -253,7 +291,7 @@ link</code></dt>
 
  <div class="refsect1 examples" id="refsect1-mysqli.real-connect-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1689">
+  <div class="example" id="example-1853">
    <p><strong>例1 <span class="methodname"><strong>mysqli::real_connect()</strong></span> の例</strong></p>
    <div class="example-contents"><p>オブジェクト指向型</p></div>
    <div class="example-contents">

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.stream-filter-prepend" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_filter_prepend</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">stream_filter_prepend</span> &mdash; <span class="dc-title">フィルタをストリームに付加する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_filter_prepend</span> &mdash; <span class="dc-title">フィルタをストリームに付加する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-filter-prepend-description">
@@ -109,9 +109,14 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-filter-prepend-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   リソースを返します。このリソースは
-   <span class="function"><a href="function.stream-filter-remove.html" class="function">stream_filter_remove()</a></span> のコール時にこの
-   フィルタのインスタンスを指定するために使用可能です。
+   成功した場合にリソース、失敗した場合に <strong><code>FALSE</code></strong> を返します。
+   このリソースは、<span class="function"><a href="function.stream-filter-remove.html" class="function">stream_filter_remove()</a></span>
+   をコールする際にこのフィルタインスタンスを参照するために使用可能です。
+  </p>
+
+  <p class="para">
+   <strong><code>FALSE</code></strong> が返されるのは、<code class="parameter">stream</code> がリソースではない場合や
+   <code class="parameter">filtername</code> が見つからない場合です。
   </p>
  </div>
 

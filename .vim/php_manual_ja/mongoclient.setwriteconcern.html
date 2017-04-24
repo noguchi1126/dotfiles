@@ -17,6 +17,12 @@
 
  </div>
 
+ <div id="mongoclient.setwriteconcern-soft-deprecation-notice" class="soft-deprecation-notice">
+  <p class="para">このメソッドを定義している拡張モジュールは非推奨です。
+かわりに <a href="set.mongodb.html" class="link">MongoDB</a> 拡張モジュールを使うべきです。
+このメソッドの代替は、新しい拡張モジュールには存在しません。</p>
+ </div>
+
  <div class="refsect1 description" id="refsect1-mongoclient.setwriteconcern-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -34,11 +40,11 @@
 <dt>
 <code class="parameter">w</code></dt>
 <dd>
-<p class="para">The write concern. This may be an integer denoting the number of servers required to acknowledge the write, or a string mode (e.g. &quot;majority&quot;).</p></dd>
+<p class="para">書き込み確認。何台のサーバーに書き込めたら成功とみなすのかを表す整数値、あるいは文字列 (&quot;majority&quot; など) でモードを指定します。</p></dd>
 <dt>
 <code class="parameter">wtimeout</code></dt>
 <dd>
-<p class="para">The maximum number of milliseconds to wait for the server to satisfy the write concern.</p></dd>
+<p class="para">サーバーが書き込み確認を待つ最大ミリ秒数。</p></dd>
 </dl>
 
  </div>
@@ -46,19 +52,19 @@
 
  <div class="refsect1 returnvalues" id="refsect1-mongoclient.setwriteconcern-returnvalues">
   <h3 class="title">返り値</h3>
-  <p class="para">Returns <strong><code>TRUE</code></strong> on success, or <strong><code>FALSE</code></strong> otherwise.</p>
+  <p class="para">成功した場合に <strong><code>TRUE</code></strong>、それ以外の場合に <strong><code>FALSE</code></strong> を返します。</p>
  </div>
 
 
  <div class="refsect1 errors" id="refsect1-mongoclient.setwriteconcern-errors">
   <h3 class="title">エラー / 例外</h3>
-  <p class="para">Emits <strong><code>E_WARNING</code></strong> if the <em>w</em> parameter is not an integer or string value.</p>
+  <p class="para"><em>w</em> が整数値あるいは文字列でない場合に <strong><code>E_WARNING</code></strong> が発生します。</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-mongoclient.setwriteconcern-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1414">
+  <div class="example" id="mongoclient.intro-example">
    <p><strong>例1 <span class="methodname"><strong>MongoClient::setWriteConcern()</strong></span> example</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

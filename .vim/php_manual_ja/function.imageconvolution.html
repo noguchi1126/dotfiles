@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imageconvolution" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imageconvolution</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">imageconvolution</span> &mdash; <span class="dc-title">div および offset の係数を使用し、3x3 の畳み込み配列を適用する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">imageconvolution</span> &mdash; <span class="dc-title">div および offset の係数を使用し、3x3 の畳み込み配列を適用する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imageconvolution-description">
@@ -95,7 +95,7 @@ image</code></dt>
  <div class="refsect1 examples" id="refsect1-function.imageconvolution-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3218">
+   <div class="example" id="example-3520">
     <p><strong>例1 PHP.net ロゴのエンボス加工</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -112,7 +112,7 @@ image</code></dt>
      </div>
     </div>
    </div>
-   <div class="example" id="example-3219">
+   <div class="example" id="example-3521">
     <p><strong>例2 ガウス分布のぼかし</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -134,8 +134,9 @@ image</code></dt>
 
  <div class="refsect1 notes" id="refsect1-function.imageconvolution-notes">
   <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は、PHP がバンドル版の GD ライブラリで
-コンパイルされている場合のみ使用可能です。</span></p></blockquote>
+  <p class="para">
+   この関数は GD 2.1.0 以降を必要とします。
+  </p>
  </div>
 
  <div class="refsect1 seealso" id="refsect1-function.imageconvolution-seealso">

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.gmmktime" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmmktime</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">gmmktime</span> &mdash; <span class="dc-title">GMT 日付から Unix タイムスタンプを取得する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gmmktime</span> &mdash; <span class="dc-title">GMT 日付から Unix タイムスタンプを取得する</span></p>
 
  </div>
 
@@ -143,6 +143,11 @@
        常に GMT 日付を表すので、<code class="parameter">is_dst</code>
        は結果に影響を及ぼしません。
       </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        このパラメータは PHP 7.0.0 で削除されました。
+       </p>
+      </p></blockquote>
      </dd>
 
     
@@ -175,6 +180,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">is_dst</code> パラメータが削除されました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.1.0</td>
        <td>
         PHP 5.1.0 で、<code class="parameter">is_dst</code> パラメータは廃止されました。
@@ -193,7 +205,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmmktime-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2326">
+   <div class="example" id="example-2562">
     <p><strong>例1 <span class="function"><strong>gmmktime()</strong></span> の基本的な例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

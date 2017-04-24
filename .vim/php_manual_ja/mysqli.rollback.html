@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::rollback</h1>
   <h1 class="refname">mysqli_rollback</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli::rollback</span> -- <span class="refname">mysqli_rollback</span> &mdash; <span class="dc-title">現在のトランザクションをロールバックする</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::rollback</span> -- <span class="refname">mysqli_rollback</span> &mdash; <span class="dc-title">現在のトランザクションをロールバックする</span></p>
 
  </div>
 
@@ -124,7 +124,7 @@ link</code></dt>
 
  <div class="refsect1 examples" id="refsect1-mysqli.rollback-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1691">
+  <div class="example" id="example-1855">
    <p><strong>例1 <span class="methodname"><strong>mysqli::rollback()</strong></span> の例</strong></p>
    <div class="example-contents"><p>オブジェクト指向型</p></div>
    <div class="example-contents">
@@ -160,7 +160,7 @@ link</code></dt>
     <li class="member"><span class="function"><a href="mysqli.begin-transaction.html" class="function" rel="rdfs-seeAlso">mysqli_begin_transaction()</a> - トランザクションを開始する</span></li>
     <li class="member"><span class="function"><a href="mysqli.commit.html" class="function" rel="rdfs-seeAlso">mysqli_commit()</a> - 現在のトランザクションをコミットする</span></li>
     <li class="member"><span class="function"><a href="mysqli.autocommit.html" class="function" rel="rdfs-seeAlso">mysqli_autocommit()</a> - データベース更新の自動コミットをオンまたはオフにする</span></li>
-    <li class="member"><span class="function"><a href="mysqli.release-savepoint.html" class="function" rel="rdfs-seeAlso">mysqli_release_savepoint()</a> - 指定したセーブポイントまで、トランザクションをロールバックする</span></li>
+    <li class="member"><span class="function"><a href="mysqli.release-savepoint.html" class="function" rel="rdfs-seeAlso">mysqli_release_savepoint()</a> - 現在のトランザクションのセーブポイント群から、指定した名前のセーブポイントを削除する</span></li>
    </ul>
   </p>
  </div>

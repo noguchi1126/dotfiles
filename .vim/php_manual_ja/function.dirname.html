@@ -13,7 +13,7 @@
 </div><hr /><div id="function.dirname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">dirname</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">dirname</span> &mdash; <span class="dc-title">親ディレクトリのパスを返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">dirname</span> &mdash; <span class="dc-title">親ディレクトリのパスを返す</span></p>
 
  </div>
  
@@ -22,11 +22,12 @@
   <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><strong>dirname</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$levels</code><span class="initializer"> = 1</span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    ファイルあるいはディレクトリへのパスを含む文字列を受け取って、
-   親ディレクトリのパスを返します。
+   カレントディレクトリから <code class="parameter">levels</code> レベルさかのぼった親ディレクトリのパスを返します。
   </p>
  </div>
 
@@ -49,6 +50,21 @@
        Windows では、スラッシュ(<em>/</em>)とバックスラッシュ
        (<em>\</em>)の両方がディレクトリ区切り文字として使われます。
        その他の環境ではスラッシュ(<em>/</em>)になります。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">levels</code></dt>
+
+     <dd>
+
+      <p class="para">
+       親ディレクトリをどこまでさかのぼるか。
+      </p>
+      <p class="para">
+       正の整数でなければいけません。
       </p>
      </dd>
 
@@ -87,16 +103,16 @@
 
      <tbody class="tbody">
       <tr>
-       <td>5.0.0</td>
+       <td>7.0.0</td>
        <td>
-        <span class="function"><strong>dirname()</strong></span> がバイナリセーフとなりました。
+        オプションのパラメータ <code class="parameter">levels</code> が追加されました。
        </td>
       </tr>
 
       <tr>
-       <td>4.0.3</td>
+       <td>5.0.0</td>
        <td>
-        <span class="function"><strong>dirname()</strong></span> が POSIX 準拠となりました。
+        <span class="function"><strong>dirname()</strong></span> がバイナリセーフとなりました。
        </td>
       </tr>
 
@@ -111,15 +127,25 @@
  <div class="refsect1 examples" id="refsect1-function.dirname-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2371">
+   <div class="example" id="example-2607">
     <p><strong>例1 <span class="function"><strong>dirname()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"1)&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">"/etc/passwd"</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;1)&nbsp;/etc<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"2)&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">"/etc/"</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;2)&nbsp;/&nbsp;(Windows&nbsp;の場合は&nbsp;\)<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"3)&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">"."</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;3)&nbsp;.<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">"/etc/passwd"</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">"/etc/"</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">"."</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">dirname</span><span style="color: #007700">(</span><span style="color: #DD0000">"/usr/local/lib"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+/etc
+/ (Windows の場合は \)
+.
+/usr
+</pre></div>
+    </div>
    </div>
   </p>
  </div>
@@ -169,7 +195,7 @@
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.basename.html" class="function" rel="rdfs-seeAlso">basename()</a> - パスの最後にある名前の部分を返す</span></li>
     <li class="member"><span class="function"><a href="function.pathinfo.html" class="function" rel="rdfs-seeAlso">pathinfo()</a> - ファイルパスに関する情報を返す</span></li>
-    <li class="member"><span class="function"><a href="function.realpath.html" class="function" rel="rdfs-seeAlso">realpath()</a> - 絶対パス名を返す</span></li>
+    <li class="member"><span class="function"><a href="function.realpath.html" class="function" rel="rdfs-seeAlso">realpath()</a> - 正規化された絶対パス名を返す</span></li>
    </ul>
   </p>
  </div>

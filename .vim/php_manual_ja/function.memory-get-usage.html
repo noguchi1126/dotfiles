@@ -13,7 +13,7 @@
 </div><hr /><div id="function.memory-get-usage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">memory_get_usage</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5)</p><p class="refpurpose"><span class="refname">memory_get_usage</span> &mdash; <span class="dc-title">PHP に割り当てられたメモリの量を返す </span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">memory_get_usage</span> &mdash; <span class="dc-title">PHP に割り当てられたメモリの量を返す </span></p>
 
  </div>
  
@@ -42,9 +42,8 @@
      <dd>
 
       <p class="para">
-       これを <strong><code>TRUE</code></strong> に設定すると、システムが割り当てた実際のメモリの大きさを取得します。
-       省略したり <strong><code>FALSE</code></strong> を設定したりすると、
-       <em>emalloc()</em> が使用するメモリのみを報告します。
+       これを <strong><code>TRUE</code></strong> に設定すると、システムが割り当てた実際のメモリの大きさ (未使用のページも含むもの) を取得します。
+       省略したり <strong><code>FALSE</code></strong> を設定したりすると、使用したモリのみを報告します。
       </p>
      </dd>
 
@@ -52,6 +51,9 @@
    </dl>
 
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">PHP は、<em>emalloc()</em> が割り当てたメモリ以外のメモリは追跡しません。</p>
+  </p></blockquote>
  </div>
 
 
@@ -104,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-function.memory-get-usage-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-504">
+   <div class="example" id="example-549">
     <p><strong>例1 <span class="function"><strong>memory_get_usage()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

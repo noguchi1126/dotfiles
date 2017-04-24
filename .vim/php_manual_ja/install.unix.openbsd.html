@@ -13,7 +13,7 @@
 </div><hr /><div id="install.unix.openbsd" class="sect1">
  <h2 class="title">OpenBSD へのインストール</h2>
  <p class="para">
- このセクションでは、PHP を <a href="http://www.openbsd.org/" class="link external">&raquo;&nbsp;OpenBSD 3.6</a> に
+ このセクションでは、PHP を <a href="http://www.openbsd.org/" class="link external">&raquo;&nbsp;OpenBSD 5.8</a> に
  インストールする場合に固有の注意事項とヒントについて説明します。
  </p>
  <div class="sect2" id="install.unix.openbsd.packages">
@@ -26,30 +26,29 @@
     必要なファイルを見つけることができます。
    </p>
    <p class="simpara">
-    インストールに必要なメインのパッケージは <var class="filename">php4-core-4.3.8.tgz</var>
+    インストールに必要なメインのパッケージは <var class="filename">php</var>
     です。これには基本エンジン (と gettext と iconv) が含まれています。次に、
-    <var class="filename">php4-mysql-4.3.8.tgz</var> や
-    <var class="filename">php4-imap-4.3.8.tgz</var> のようなモジュールパッケージを
+    <var class="filename">php-mysql</var> や
+    <var class="filename">php-imap</var> のようなモジュールパッケージを
     探してください。これらのモジュールを <var class="filename">php.ini</var> 上で有効/無効にするには
     <strong class="command">phpxs</strong> コマンドを使用する必要があります。
    </p>
-   <div class="example" id="install.unix.openbsd.ports.example">
+   <div class="example" id="install.unix.nginx.configure.ini">
     <p><strong>例1 OpenBSD パッケージインストールの例</strong></p>
     <div class="example-contents">
-<div class="shellcode"><pre class="shellcode"># pkg_add php4-core-4.3.8.tgz
-# /usr/local/sbin/phpxs -s
-# cp /usr/local/share/doc/php4/php.ini-recommended /var/www/conf/php.ini
-  (add in mysql)
-# pkg_add php4-mysql-4.3.8.tgz
-# /usr/local/sbin/phpxs -a mysql
-  (add in imap)
-# pkg_add php4-imap-4.3.8.tgz
-# /usr/local/sbin/phpxs -a imap
-  (remove mysql as a test)
-# pkg_delete php4-mysql-4.3.8
-# /usr/local/sbin/phpxs -r mysql
+<div class="shellcode"><pre class="shellcode"># pkg_add php
+# pkg_add php-fpm
+# pkg_add php-mysql
   (install the PEAR libraries)
-# pkg_add php4-pear-4.3.8.tgz</pre>
+# pkg_add pear
+
+Follow the instructions shown with each package!
+
+  (to remove packages)
+# pkg_delete php
+# pkg_delete php-fpm
+# pkg_delete php-mysql
+# pkg_delete pear</pre>
 </div>
     </div>
 
@@ -78,8 +77,15 @@
   <h3 class="title">一般的な問題点</h3>
   <ul class="itemizedlist">
    <li class="listitem">
+     <span class="simpara">
+      Apache や Nginx は OpenBSD のデフォルトサーバーではなくなりましたが、ports や packages
+      で簡単に導入できます。新しいデフォルトサーバーの名前は
+      &#039;httpd&#039; です。
+    </span>
+   </li>
+   <li class="listitem">
     <span class="simpara">
-      Apache は、デフォルトインストールでは、
+      httpd は、デフォルトインストールでは、
       <a href="http://www.openbsd.org/cgi-bin/man.cgi?query=chroot" class="link external">&raquo;&nbsp;chroot(2) jail</a> 内で実行されます。
       これにより、PHP は、<var class="filename">/var/www</var> 以下のファイルにしか
       アクセスできないように制限されます。そのため、セッションを使用するには、
@@ -89,16 +95,15 @@
       ネットワーク関数を使用する場合は、<var class="filename">/etc</var> 内のファイル、たとえば
       <var class="filename">/etc/resolv.conf</var> や <var class="filename">/etc/services</var> を、
       <var class="filename">/var/www/etc</var> に移動させる必要があります。
-      OpenBSD の PEAR パッケージは、適切な chroot 内のディレクトリに自動的にインストールされますので、
-      特に修正は必要ありません。OpenBSD における Apache についての詳細は
-      <a href="http://www.openbsd.org/faq/faq10.html#httpdchroot" class="link external">&raquo;&nbsp;OpenBSD FAQ</a> を参照してください。
+      OpenBSD の PEAR パッケージは、適切な chroot 内のディレクトリに自動的にインストールされます。
     </span>
    </li>
    <li class="listitem">
     <span class="simpara">
-    OpenBSD 3.6 においては、<a href="http://www.libgd.org/" class="link external">&raquo;&nbsp;gd</a> 拡張モジュールのパッケージは
-    XFree86 のインストールを必要とします。X11 が必要となるいくつかのフォント機能を使わない場合は、
-    代わりに <var class="filename">php4-gd-4.3.8-no_x11.tgz</var> パッケージをインストールしてください。
+    OpenBSD 5.7+ においては、<a href="http://www.libgd.org/" class="link external">&raquo;&nbsp;gd</a> 拡張モジュールのパッケージは
+    XFree86 のインストールを必要とします。これは、
+    post-installation (OpenBSD FAQ#4 を参照ください) で追加できます。
+    <var class="filename">xbase.tgz</var> ファイルを指定しましょう。
     </span>
    </li>
   </ul>

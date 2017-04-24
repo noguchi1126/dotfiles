@@ -13,7 +13,7 @@
 </div><hr /><div id="function.shuffle" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shuffle</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">shuffle</span> &mdash; <span class="dc-title">配列をシャッフルする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shuffle</span> &mdash; <span class="dc-title">配列をシャッフルする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.shuffle-description">
@@ -25,7 +25,14 @@
 
   <p class="para rdfs-comment">
    この関数は、配列をシャッフル (要素の順番をランダムに) します。
+   この関数が使う疑似乱数生成器は、暗号学的な使い方には適していません。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+ <p class="para">
+  比較結果が等しくなる二つの要素があった場合、ソートした配列におけるそれらの並び順は不定となります。
+ </p>
+</p></blockquote>
+
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.shuffle-parameters">
@@ -57,22 +64,6 @@
   </p>
  </div>
 
- <div class="refsect1 examples" id="refsect1-function.shuffle-examples">
-  <h3 class="title">例</h3>
-  <p class="para">
-   <div class="example" id="example-5045">
-    <p><strong>例1 <span class="function"><strong>shuffle()</strong></span> の例</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$numbers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">shuffle</span><span style="color: #007700">(</span><span style="color: #0000BB">$numbers</span><span style="color: #007700">);<br />foreach&nbsp;(</span><span style="color: #0000BB">$numbers&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$number</span><span style="color: #DD0000">&nbsp;"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
-  </p>
- </div>
-
  <div class="refsect1 changelog" id="refsect1-function.shuffle-changelog">
   <h3 class="title">変更履歴</h3>
   <p class="para">
@@ -87,13 +78,33 @@
      </thead>
 
      <tbody class="tbody">
-      <tr><td>4.2.0</td><td>
-乱数生成器が自動的にシードを生成するようになりました。</td></tr>
+      <tr>
+       <td>7.1.0</td>
+       <td>
+        <a href="migration71.incompatible.html#migration71.incompatible.rand-srand-aliases" class="link">The internal randomization algorithm has been changed to use the <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html" class="link external">&raquo;&nbsp;Mersenne Twister</a> Random Number Generator instead of the libc rand function.</a>
+       </td>
+      </tr>
 
      </tbody>
     
    </table>
 
+  </p>
+ </div>
+
+ <div class="refsect1 examples" id="refsect1-function.shuffle-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-5653">
+    <p><strong>例1 <span class="function"><strong>shuffle()</strong></span> の例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$numbers&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">range</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">shuffle</span><span style="color: #007700">(</span><span style="color: #0000BB">$numbers</span><span style="color: #007700">);<br />foreach&nbsp;(</span><span style="color: #0000BB">$numbers&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$number</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$number</span><span style="color: #DD0000">&nbsp;"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
   </p>
  </div>
 

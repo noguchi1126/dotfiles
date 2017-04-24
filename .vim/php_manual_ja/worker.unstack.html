@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="worker.stack.html">Worker::stack</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="pthreads.modifiers.html">Modifiers</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.collectable.html">Collectable</a></div>
  <div class="up"><a href="class.worker.html">Worker</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="worker.unstack" class="refentry">
@@ -20,12 +20,12 @@
  <div class="refsect1 description" id="refsect1-worker.unstack-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">final</span> <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><strong>Worker::unstack</strong></span>
-    ([ <span class="methodparam"><span class="type"><span class="type Stackable">Stackable</span></span> <code class="parameter">$work</code></span>
+   <span class="modifier">public</span> <span class="type">integer</span> <span class="methodname"><strong>Worker::unstack</strong></span>
+    ([ <span class="methodparam"><span class="type"><a href="class.threaded.html" class="type Threaded">Threaded</a></span> <code class="parameter reference">&$work</code></span>
   ] )</div>
 
   <p class="para rdfs-comment">
-   指定した Stackable (パラメータを省略した場合は、すべての Stackable)
+   指定したオブジェクト (パラメータを省略した場合は、すべてのオブジェクト)
    を、ワーカーのスタックから削除します。
   </p>
  </div>
@@ -42,7 +42,7 @@
     <dd>
 
      <p class="para">
-      Stackable 型のオブジェクト。
+      事前に Worker に積んだ Threaded オブジェクト。
      </p>
     </dd>
 
@@ -63,11 +63,11 @@
  <div class="refsect1 examples" id="refsect1-worker.unstack-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3726">
-    <p><strong>例1 ワーカーからの Stackable の削除</strong></p>
+   <div class="example" id="example-4260">
+    <p><strong>例1 ワーカーのスタックからのオブジェクトの削除</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Work&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Stackable&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />class&nbsp;</span><span style="color: #0000BB">My&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Worker&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**&nbsp;...&nbsp;**/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />}<br /></span><span style="color: #0000BB">$my&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">My</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$work&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Work</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$my</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stack</span><span style="color: #007700">(</span><span style="color: #0000BB">$work</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$my</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unstack</span><span style="color: #007700">(</span><span style="color: #0000BB">$work</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Work&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Threaded&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$my&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Worker</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$work&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Work</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$my</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stack</span><span style="color: #007700">(</span><span style="color: #0000BB">$work</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$my</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">unstack</span><span style="color: #007700">(</span><span style="color: #0000BB">$work</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -85,7 +85,7 @@ int(0)
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="worker.stack.html">Worker::stack</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="pthreads.modifiers.html">Modifiers</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="class.collectable.html">Collectable</a></div>
  <div class="up"><a href="class.worker.html">Worker</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

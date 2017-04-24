@@ -15,14 +15,14 @@
  <h1 class="title">CURLFile クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p>
 
 
   <div class="section" id="curlfile.intro">
    <h2 class="title">導入</h2>
    <p class="para">
-    <strong class="classname">CURLFile</strong> を使うと、
-    <strong><code>CURLOPT_POSTFIELDS</code></strong> でファイルのアップロードができます。
+    <strong><code>CURLOPT_POSTFIELDS</code></strong> でファイルのアップロードをするには、
+    <strong class="classname">CURLFile</strong> を使わなければいけません。
    </p>
   </div>
 
@@ -107,7 +107,7 @@
 
      <dd>
 
-      <p class="para"/>
+      <p class="para">アップロードするファイルの名前。</p>
      </dd>
 
     
@@ -116,7 +116,7 @@
 
      <dd>
 
-      <p class="para"/>
+      <p class="para">ファイルの MIME タイプ (デフォルトは <em>application/octet-stream</em>)。</p>
      </dd>
 
     
@@ -125,7 +125,7 @@
 
      <dd>
 
-      <p class="para"/>
+      <p class="para">アップロードするデータの中のファイルの名前 (デフォルトは <var class="varname"><var class="varname">name</var></var> プロパティ)。</p>
      </dd>
 
     
@@ -133,6 +133,17 @@
 
   </div>
 
+
+  <div class="section" id="curlfile.seealso">
+   <h2 class="title">参考</h2>
+   <p class="para">
+    <ul class="simplelist">
+     <li class="member">
+      <span class="function"><a href="function.curl-setopt.html" class="function">curl_setopt()</a></span>
+     </li>
+    </ul>
+   </p>
+  </div>
 
 
  </div>

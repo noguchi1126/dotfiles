@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.types.string.html">文字列</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="language.types.object.html">オブジェクト</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.types.iterable.html">Iterables</a></div>
  <div class="up"><a href="language.types.html">型</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="language.types.array" class="sect1">
@@ -67,7 +67,7 @@ array(
     <em>array()</em> の代わりに <em>[]</em> を使えるようになりました。
    </p>
    
-   <div class="example" id="example-83">
+   <div class="example" id="example-56">
     <p><strong>例1 シンプルな配列定義</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -129,7 +129,7 @@ array(
     最後に指定したものがそれまでの値を上書きします。
    </p>
    
-   <div class="example" id="example-84">
+   <div class="example" id="example-57">
     <p><strong>例2 型のキャストと値の上書きの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -159,7 +159,7 @@ array(1) {
     同じ配列で整数のインデックスと文字列のインデックスを同時に使えます。
    </p>
    
-   <div class="example" id="example-85">
+   <div class="example" id="example-58">
     <p><strong>例3 整数と文字列のキーの混在例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -190,7 +190,7 @@ array(4) {
     はこれまでに使われた整数のキーの中で最大のものに 1 を加えた値を使います。
    </p>
    
-   <div class="example" id="example-86">
+   <div class="example" id="example-59">
     <p><strong>例4 数値添字配列でキーを省略する例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -220,7 +220,7 @@ array(4) {
     一部の要素にだけキーを指定することもできます。
    </p>
    
-   <div class="example" id="example-87">
+   <div class="example" id="example-60">
     <p><strong>例5 一部の要素にだけキーを指定する例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -259,7 +259,7 @@ array(4) {
     配列の要素へのアクセスには <em>array[key]</em> 構文を使います。
    </p>
    
-   <div class="example" id="example-88">
+   <div class="example" id="example-61">
     <p><strong>例6 配列の要素へのアクセス</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -295,7 +295,7 @@ string(3) &quot;foo&quot;
     PHP 5.5 以降では、配列リテラルをデリファレンスできるようになりました。
    </p>
    
-   <div class="example" id="example-89">
+   <div class="example" id="example-62">
     <p><strong>例7 配列のデリファレンス</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -312,6 +312,13 @@ string(3) &quot;foo&quot;
       未定義の変数にアクセスしたときと同じです。
       <strong><code>E_NOTICE</code></strong> メッセージが発行され、
       返される結果は <strong><code>NULL</code></strong> となります。
+    </p>
+   </p></blockquote>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     配列で文字列以外のスカラー値をデリファレンスした場合は、
+     返される結果は <strong><code>NULL</code></strong> となります。
+     何もエラーは発生しません。
     </p>
    </p></blockquote>
   </div>
@@ -331,10 +338,10 @@ string(3) &quot;foo&quot;
    
    <pre class="synopsis">
 $arr[<span class="replaceable">キー</span>] = <span class="replaceable">値</span>;
-$arr[] = <span class="replaceable">value</span>;
+$arr[] = <span class="replaceable">値</span>;
 // <span class="replaceable">キー</span> は <span class="type"><span class="type 文字列">文字列</span></span> または
-// 非負の<span class="type"><span class="type 整数">整数</span></span>のどちらかです。
-// <span class="replaceable">値</span> は何でもかまいません
+// <span class="type"><span class="type 整数">整数</span></span>のどちらかです。
+// <span class="replaceable">値</span> の型は、何でもかまいません。
    </pre>
    
    <p class="para">
@@ -348,6 +355,13 @@ $arr[] = <span class="replaceable">value</span>;
     を表してしまうからです。
     変数を初期化するときには、直接代入するほうがよいでしょう。
    </p>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <span class="simpara">
+     PHP 7.1.0 以降では、文字列に空のインデックス演算子を適用すると
+     fatal エラーが発生するようになりました。
+     これまでのバージョンではエラーにならず、文字列が配列に変換されていました。
+    </span>
+   </p></blockquote>
 
    <p class="para">
     ある値を変更するには、
@@ -724,7 +738,7 @@ Good: 2
 
   </div>
 
-  <div class="example" id="example-90">
+  <div class="example" id="example-63">
    <p><strong>例8 array() の使用例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -736,7 +750,7 @@ Good: 2
 
   </div>
 
-  <div class="example" id="language.types.array.examples.loop">
+  <div class="example" id="example-64">
    <p><strong>例9 コレクション</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -761,7 +775,7 @@ Do you like yellow?
    それ以前のバージョンでは、以下のような回避策が必要です。
   </p>
 
-  <div class="example" id="language.types.array.examples.changeloop">
+  <div class="example" id="example-65">
    <p><strong>例10 ループ内での要素の変更</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -788,7 +802,7 @@ Array
    この例は、1 から始まる配列を作成します。
   </p>
 
-  <div class="example" id="example-93">
+  <div class="example" id="example-66">
    <p><strong>例11 1 から始まる添字</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -810,7 +824,7 @@ Array
    </div>
   </div>
 
-  <div class="example" id="example-94">
+  <div class="example" id="example-67">
    <p><strong>例12 配列に代入する</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -828,7 +842,7 @@ Array
    配列の要素数を数えることが可能です。
   </p>
 
-  <div class="example" id="example-95">
+  <div class="example" id="example-68">
    <p><strong>例13 配列のソート</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -844,7 +858,7 @@ Array
    これにより、再帰的な配列や多次元の配列を作成することが可能です。
   </p>
 
-  <div class="example" id="example-96">
+  <div class="example" id="example-69">
    <p><strong>例14 再帰および多次元配列</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -874,7 +888,7 @@ Array
  </div>
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.types.string.html">文字列</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="language.types.object.html">オブジェクト</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.types.iterable.html">Iterables</a></div>
  <div class="up"><a href="language.types.html">型</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

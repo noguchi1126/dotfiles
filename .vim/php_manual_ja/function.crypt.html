@@ -13,7 +13,7 @@
 </div><hr /><div id="function.crypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">crypt</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">crypt</span> &mdash; <span class="dc-title">文字列の一方向のハッシュ化を行う</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">crypt</span> &mdash; <span class="dc-title">文字列の一方向のハッシュ化を行う</span></p>
 
  </div>
 
@@ -32,7 +32,7 @@
   </p>
   <p class="para">
    <code class="parameter">salt</code> パラメータは必須ではありませんが、これを省略すると
-   <span class="function"><strong>crypt()</strong></span> が作るパスワードが弱いものになってしまいます。
+   <span class="function"><strong>crypt()</strong></span> が作るハッシュが弱いものになってしまいます。
    PHP 5.6 以降は、このパラメータを省略した場合に E_NOTICE が発生するようになりました。
    十分に強いソルトを指定して、セキュリティを確保しましょう。
   </p>
@@ -154,8 +154,6 @@
        <p class="para">
         <strong><code>CRYPT_BLOWFISH</code></strong> を使うと、
         <code class="parameter">str</code> が最大 72 文字までに切り詰められます。
-        このアルゴリズムを使い、同じソルトで 72 バイトを超える文字列のハッシュを計算すると、
-        同じ結果になってしまいます。
        </p>
       </div>
      </dd>
@@ -186,6 +184,14 @@
    ハッシュした文字列を返します。
    失敗した場合は、salt とは異なることが保証されている 13 文字未満の文字列を返します。
   </p>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="simpara">
+    パスワードを検証するときの文字列比較関数は、
+    タイミング攻撃に対して脆弱ではないものでなければいけません。
+    これをもちいて、<span class="function"><strong>crypt()</strong></span> の出力と既知のハッシュとを比較します。
+    PHP 5.6 以降には、このために使える <span class="function"><a href="function.hash-equals.html" class="function">hash_equals()</a></span> 関数が追加されました。
+   </p>
+  </div>
  </div>
 
 
@@ -204,9 +210,27 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.6.5</td>
+       <td>
+        <code class="parameter">salt</code> として &quot;*0&quot; が渡されたときに、
+        他の crypt の実装にあわせて &quot;*1&quot; を返すようになりました。
+        これより前のバージョンの PHP 5.6 では、間違った DES ハッシュを返していました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.6.0</td>
        <td>
         <code class="parameter">salt</code> を省略下場合に E_NOTICE が発生するようになりました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.5.21</td>
+       <td>
+        <code class="parameter">salt</code> として &quot;*0&quot; が渡されたときに、
+        他の crypt の実装にあわせて &quot;*1&quot; を返すようになりました。
+        これより前のバージョンの PHP では、間違った DES ハッシュを返していました。
        </td>
       </tr>
 
@@ -255,11 +279,11 @@
  <div class="refsect1 examples" id="refsect1-function.crypt-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4838">
+   <div class="example" id="example-5439">
     <p><strong>例1 <span class="function"><strong>crypt()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$hashed_password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #DD0000">'mypassword'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;saltを自動的に生成させます<br /><br />/*&nbsp;異なったハッシュアルゴリズムが使用された際の問題を避けるために<br />&nbsp;&nbsp;&nbsp;crypt()の結果全体をパスワード比較用のsaltとして渡す必要があります。<br />&nbsp;&nbsp;&nbsp;(上記のように標準DESに基づくパスワードハッシュは2文字のsaltを使用します<br />&nbsp;&nbsp;&nbsp;が、MD5に基づくハッシュは12文字のsaltを使用します)&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #0000BB">$user_input</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$hashed_password</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #0000BB">$hashed_password</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Password&nbsp;verified!"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$hashed_password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #DD0000">'mypassword'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;saltを自動的に生成させます<br /><br />/*&nbsp;異なったハッシュアルゴリズムが使用された際の問題を避けるために<br />&nbsp;&nbsp;&nbsp;crypt()の結果全体をパスワード比較用のsaltとして渡す必要があります。<br />&nbsp;&nbsp;&nbsp;(上記のように標準DESに基づくパスワードハッシュは2文字のsaltを使用します<br />&nbsp;&nbsp;&nbsp;が、MD5に基づくハッシュは12文字のsaltを使用します)&nbsp;*/<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">hash_equals</span><span style="color: #007700">(</span><span style="color: #0000BB">$hashed_password</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">crypt</span><span style="color: #007700">(</span><span style="color: #0000BB">$user_input</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$hashed_password</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Password&nbsp;verified!"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -267,7 +291,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4839">
+   <div class="example" id="example-5440">
     <p><strong>例2 <span class="function"><strong>crypt()</strong></span> を htpasswd で使用する例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -279,7 +303,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4840">
+   <div class="example" id="example-5441">
     <p><strong>例3 異なるハッシュ形式を用いた <span class="function"><strong>crypt()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -320,6 +344,7 @@ SHA-512:      $6$rounds=5000$usesomesillystri$D4IrlXatmP7rx3P3InaxBeoomnAihCKRVQ
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.hash-equals.html" class="function" rel="rdfs-seeAlso">hash_equals()</a> - Timing attack safe string comparison</span></li>
     <li class="member"><span class="function"><a href="function.password-hash.html" class="function" rel="rdfs-seeAlso">password_hash()</a> - パスワードハッシュを作る</span></li>
     <li class="member"><span class="function"><a href="function.md5.html" class="function" rel="rdfs-seeAlso">md5()</a> - 文字列のmd5ハッシュ値を計算する</span></li>
     <li class="member"><a href="ref.mcrypt.html" class="link">mcrypt</a> 拡張モジュール</li>

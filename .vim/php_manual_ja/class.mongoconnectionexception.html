@@ -117,9 +117,8 @@
       Red Hat 系の OS のデフォルト設定では Apache からネットワーク接続を作成できないようになっているので、
       デフォルトでこれが発生します。この設定を書き換えるには、
       <div class="example-contents">
-<div class="cdata"><pre>
-$ /usr/sbin/setsebool -P httpd_can_network_connect 1
-</pre></div>
+<div class="shellcode"><pre class="shellcode">$ /usr/sbin/setsebool -P httpd_can_network_connect 1</pre>
+</div>
       </div>
 
       を実行してから Apache を再起動します。

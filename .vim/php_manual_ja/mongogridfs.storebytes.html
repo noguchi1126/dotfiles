@@ -30,80 +30,81 @@
 
 
  <div class="refsect1 parameters" id="refsect1-mongogridfs.storebytes-parameters">
- <h3 class="title">パラメータ</h3>
- <p class="para">
-  <dl>
+  <h3 class="title">パラメータ</h3>
+  <p class="para">
+   <dl>
 
-   
-    <dt>
+    
+     <dt>
 
-     <code class="parameter">bytes</code>
-    </dt>
+      <code class="parameter">bytes</code>
+     </dt>
 
-    <dd>
+     <dd>
 
-     <p class="para">
-      格納したいバイト列。
-     </p>
-    </dd>
+      <p class="para">
+       格納したいバイト列。
+      </p>
+     </dd>
 
-   
-   
-    <dt>
+    
+    
+     <dt>
 
-     <code class="parameter">metadata</code>
-    </dt>
+      <code class="parameter">metadata</code>
+     </dt>
 
-    <dd>
+     <dd>
 
-     <p class="para">
-      格納するファイルに含めるその他のメタデータフィールド。
-     </p>
-     <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">これらのフィールドは、ドライバが自動生成したフィールドも上書きします。詳しい説明は、MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/core/gridfs/#the-files-collection" class="link external">&raquo;&nbsp;files collection</a> を参照ください。この挙動の現実的な使い道としては、ファイルの <em>chunkSize</em> や <em>_id</em> を独自に指定する場合などがあります。</p></p></blockquote>
-    </dd>
+      <p class="para">
+       格納するファイルに含めるその他のメタデータフィールド。
+      </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">これらのフィールドは、ドライバが自動生成したフィールドも上書きします。詳しい説明は、MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/core/gridfs/#the-files-collection" class="link external">&raquo;&nbsp;files collection</a> を参照ください。この挙動の現実的な使い道としては、ファイルの <em>chunkSize</em> や <em>_id</em> を独自に指定する場合などがあります。</p></p></blockquote>
+     </dd>
 
-   
-   
-    <dt>
+    
+    
+     <dt>
 
-     <code class="parameter">options</code>
-    </dt>
+      <code class="parameter">options</code>
+     </dt>
 
-    <dd>
+     <dd>
 
-     <p class="para">
-      格納時のオプション。
-      <ul class="itemizedlist">
-       <li class="listitem">
-<p class="para"><em>&quot;w&quot;</em></p>
-<p class="para"><a href="mongo.writeconcerns.html" class="link">WriteConcerns</a> を参照ください。<a href="class.mongoclient.html" class="classname">MongoClient</a> でのデフォルト値は <em>1</em> です。
-</p></li>
-      </ul>
-     </p>
-    </dd>
+      <p class="para">
+       <em>chunks</em> および <em>files</em>
+       コレクションに対して追加操作を実行するときの、オプションの配列。
+       オプションの意味については、<span class="function"><a href="mongocollection.insert.html" class="function">MongoCollection::insert()</a></span>
+       を参照ください。
+      </p>
+     </dd>
 
-   
-  </dl>
+    
+   </dl>
 
- </p>
+  </p>
  </div>
 
 
  <div class="refsect1 returnvalues" id="refsect1-mongogridfs.storebytes-returnvalues">
   <h3 class="title">返り値</h3>
-  <p class="para">格納したファイルドキュメントの <em>_id</em> を返します。<code class="parameter">extra</code> パラメータで <em>_id</em> を明示的に指定していない場合は、自動生成した <a href="class.mongoid.html" class="classname">MongoId</a> となります。</p>
+  <p class="para">格納したファイルドキュメントの <em>_id</em> を返します。<code class="parameter">metadata</code> パラメータで <em>_id</em> を明示的に指定していない場合は、自動生成した <a href="class.mongoid.html" class="classname">MongoId</a> となります。</p>
  </div>
 
 
  <div class="refsect1 errors" id="refsect1-mongogridfs.storebytes-errors">
   <h3 class="title">エラー / 例外</h3>
-  <p class="para">&quot;w&quot; オプションが設定されていて書き込みが失敗した場合に <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> をスローします。</p><p class="para">&quot;w&quot; オプションの値が 1 より大きく設定されていて、操作の完了までの時間が <var class="varname"><var class="varname">MongoCursor::$timeout</var></var> ミリ秒をこえた場合に <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。サーバー上での操作は止めません。これはクライアント側でのタイムアウトです。<em>MongoCollection::$wtimeout</em> はミリ秒です。</p>
+  <p class="para">
+   <em>chunks</em> あるいは <em>files</em>
+   コレクションへの追加に失敗した場合に
+   <a href="class.mongogridfsexception.html" class="classname">MongoGridFSException</a> をスローします。
+  </p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-mongogridfs.storebytes-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1516">
+  <div class="example" id="example-1624">
    <p><strong>例1 <span class="function"><strong>MongoGridFS::storeBytes()</strong></span> でのメタデータの追加</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -141,7 +142,7 @@ array(7) {
    <li class="member"><span class="function"><a href="mongogridfs.put.html" class="function" rel="rdfs-seeAlso">MongoGridFS::put()</a> - ファイルをデータベースに格納する</span></li>
    <li class="member"><span class="function"><a href="mongogridfs.storefile.html" class="function" rel="rdfs-seeAlso">MongoGridFS::storeFile()</a> - ファイルをデータベースに格納する</span></li>
    <li class="member"><span class="function"><a href="mongogridfs.storeupload.html" class="function" rel="rdfs-seeAlso">MongoGridFS::storeUpload()</a> - アップロードされたファイルをデータベースに格納する</span></li>
-   <li class="member">MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/core/gridfs/" class="link external">&raquo;&nbsp;GridFS</a></li>
+   <li class="member">MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/core/gridfs/" class="link external">&raquo;&nbsp;GridFS</a></li>
   </ul>
  </div>
 

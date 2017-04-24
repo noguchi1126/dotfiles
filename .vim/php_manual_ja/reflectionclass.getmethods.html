@@ -13,7 +13,7 @@
 </div><hr /><div id="reflectionclass.getmethods" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::getMethods</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">ReflectionClass::getMethods</span> &mdash; <span class="dc-title">メソッドの配列を取得する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::getMethods</span> &mdash; <span class="dc-title">メソッドの配列を取得する</span></p>
 
  </div>
 
@@ -53,7 +53,14 @@
        <strong><code>ReflectionMethod::IS_ABSTRACT</code></strong>、
        <strong><code>ReflectionMethod::IS_FINAL</code></strong>
        の任意の組み合わせ。
+       指定した属性の <em class="emphasis">いずれか</em> を持つすべてのメソッドを返します。
       </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <span class="simpara">
+        その他のビット演算 (<em>~</em> など) は期待通りの挙動にはなりません。
+        つまり、たとえば static ではないメソッドをすべて取得するなどといったことはできません。
+       </span>
+      </p></blockquote>
      </dd>
 
     
@@ -74,7 +81,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionclass.getmethods-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5205">
+   <div class="example" id="example-6045">
     <p><strong>例1 <span class="methodname"><strong>ReflectionClass::getMethods()</strong></span> の基本的な使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -114,7 +121,7 @@ array(3) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5206">
+   <div class="example" id="example-6046">
     <p><strong>例2 <span class="methodname"><strong>ReflectionClass::getMethods()</strong></span> のフィルタリング</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,6 +161,7 @@ array(2) {
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="methodname"><a href="reflectionclass.getmethod.html" class="methodname" rel="rdfs-seeAlso">ReflectionClass::getMethod()</a> - クラスメソッドの ReflectionMethod を取得する</span></li>
+    <li class="member"><span class="function"><a href="function.get-class-methods.html" class="function" rel="rdfs-seeAlso">get_class_methods()</a> - クラスメソッドの名前を取得する</span></li>
    </ul>
   </p>
  </div>

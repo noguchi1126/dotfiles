@@ -22,7 +22,8 @@
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><strong>MongoDB::command</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$command</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$hash</code></span>
+  ]] )</div>
 
   <p class="para rdfs-comment">
    CRUD 操作以外のほとんどすべての操作は、データベースコマンドで行います。
@@ -70,14 +71,37 @@
      <dd>
 
       <p class="para">
-       <em>array(&quot;オプション名&quot; =&gt; &lt;boolean&gt;, ...)</em>
-       形式の連想配列です。現在サポートするオプションは次のとおりです。
+       インデックスを作るオプションの配列です。現在サポートするオプションは次のとおりです。
        <ul class="itemizedlist">
-        <li class="listitem"><p class="para"><em>&quot;timeout&quot;</em></p>
-<p class="para">整数で、デフォルトは <em>MongoCursor::$timeout</em> です。
-確認付き書き込みを使っている場合、これはクライアントがデータベースからのレスポンスを待ち続ける時間 (ミリ秒) を表します。
-この時間内にデータベースからの反応がなければ、<a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。</p></li>
+        <li class="listitem"><p class="para"><em>&quot;socketTimeoutMS&quot;</em></p><p class="para">このオプションは、ソケット通信の制限時間を、ミリ秒単位で指定します。この時間内にサーバーからの反応がなければ、<a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。この場合、サーバー側で書き込み処理が行われたのかどうかを判断できなくなります。<em>-1</em> を指定すると、永遠にブロックします。<a href="class.mongoclient.html" class="classname">MongoClient</a> のデフォルト値は <em>30000</em> (30 秒) です。</p></li>
        </ul>
+      </p>
+      <p class="para">
+       以下のオプションは非推奨で、使ってはいけません。
+       <ul class="itemizedlist">
+        <li class="listitem"><p class="para"><em>&quot;timeout&quot;</em></p><p class="para">非推奨。<em>&quot;socketTimeoutMS&quot;</em> のエイリアス。</p></li>
+       </ul>
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">hash</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       コマンドを実行するサーバーの接続ハッシュを設定します。
+       コマンドの結果が
+       <a href="class.mongocommandcursor.html" class="classname">MongoCommandCursor</a> の作成に適したものである場合、このハッシュは
+       <span class="function"><a href="mongocommandcursor.createfromdocument.html" class="function">MongoCommandCursor::createFromDocument()</a></span> に渡されます。
+      </p>
+      <p class="para">
+       このハッシュは、
+       <span class="function"><a href="mongoclient.getconnections.html" class="function">MongoClient::getConnections()</a></span> が返す接続に対応しています。
       </p>
      </dd>
 
@@ -102,6 +126,20 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>1.5.0</td>
+       <td>
+        <p class="para">
+         オプション <em>&quot;timeout&quot;</em> の名前が
+         <em>&quot;socketTimeoutMS&quot;</em> に変わりました。
+         <em>&quot;wtimeout&quot;</em> を使うと、<strong><code>E_DEPRECATED</code></strong> が発生します。
+        </p>
+        <p class="para">
+         参照渡しの <em>hash</em> パラメータが追加されました。
+        </p>
+       </td>
+      </tr>
+
       <tr>
        <td>1.2.0</td>
        <td>
@@ -133,7 +171,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb.command-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1416">
+  <div class="example" id="example-1505">
    <p><strong>例1 <span class="function"><strong>MongoDB::command()</strong></span> による &quot;distinct&quot; の例</strong></p>
    <div class="example-contents"><p>
     あるキーの、すべての異なる値を探します。
@@ -153,7 +191,7 @@
 87<br />
    </div>
   </div>
-  <div class="example" id="example-1417">
+  <div class="example" id="example-1506">
    <p><strong>例2 <span class="function"><strong>MongoDB::command()</strong></span> での &quot;distinct&quot; の例</strong></p>
    <div class="example-contents"><p>
     重複を排除したすべての値をキーから取得します。条件は、値が 18 以上であることです。
@@ -173,7 +211,7 @@
    </div>
   </div>
 
-  <div class="example" id="example-1418">
+  <div class="example" id="example-1507">
    <p><strong>例3 <span class="function"><strong>MongoDB::command()</strong></span> での MapReduce の例</strong></p>
    <div class="example-contents"><p>
     &quot;sale&quot; イベント上のすべてのユーザーと、各ユーザーが何回販売したかを取得します。
@@ -201,7 +239,7 @@ User 4af467e4fd543cce7b0ea8e2 had 1 sale(s).<br />
      クライアントサイドの変数を MapReduce 関数で使いたい場合は、
      データベースコマンドでオプションの scope フィールドを使って
      グローバルスコープに追加してください。詳細な情報は
-     <a href="http://docs.mongodb.org/manual/core/map-reduce/" class="link external">&raquo;&nbsp;MapReduce のドキュメント</a>
+     <a href="https://docs.mongodb.com/manual/core/map-reduce/" class="link external">&raquo;&nbsp;MapReduce のドキュメント</a>
      を参照ください。
     </p>
    </p></blockquote>
@@ -212,91 +250,14 @@ User 4af467e4fd543cce7b0ea8e2 had 1 sale(s).<br />
      MapReduce の結果はテンポラリコレクションに書き出されます。これは、
      接続が閉じるときに削除されます。1.8.0 以降では <em>out</em>
      引数が必須となります。詳細な情報は
-     <a href="http://docs.mongodb.org/manual/core/map-reduce/" class="link external">&raquo;&nbsp;MapReduce のドキュメント</a>
+     <a href="https://docs.mongodb.com/manual/core/map-reduce/" class="link external">&raquo;&nbsp;MapReduce のドキュメント</a>
      を参照ください。
     </p>
    </p></blockquote>
-   <div class="example-contents"><p>
-    MapReduce を使いたい人たちのために、Prajwal Tuladhar が Mongo PHP
-    ユーザー用の API を作成しました。これは、生のコマンドよりもよいインターフェイスを提供します。
-    <a href="http://technosophos.com/content/os-x-installing-mongodb-and-php-mongo-driver" class="link external">&raquo;&nbsp;Github</a> からダウンロードしましょう。
-    使いかたは
-    <a href="http://prajwal-tuladhar.net.np/2009/11/15/496/mapreduce-api-for-mongodb/" class="link external">&raquo;&nbsp;blog の記事</a>
-    を参照ください。
-   </p></div>
   </div>
 
-  <div class="example" id="example-1419">
-   <p><strong>例4 <span class="function"><strong>MongoDB::command()</strong></span> での &quot;textSearch&quot; の例</strong></p>
-   <div class="example-contents"><p>
-    MongoDB 2.4 以降では、&quot;text search&quot; 機能を使った全文検索ができます。
-   </p></div>
-   <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$d&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">demo</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">planets</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"Mercury"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"desc"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"Mercury&nbsp;is&nbsp;the&nbsp;smallest&nbsp;and&nbsp;closest&nbsp;to&nbsp;the&nbsp;Sun"</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"Venus"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"desc"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"Venus&nbsp;is&nbsp;the&nbsp;second&nbsp;planet&nbsp;from&nbsp;the&nbsp;Sun,&nbsp;orbiting&nbsp;it&nbsp;every&nbsp;224.7&nbsp;Earth&nbsp;days."</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"Earth"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"desc"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"Earth&nbsp;is&nbsp;the&nbsp;the&nbsp;densest&nbsp;of&nbsp;the&nbsp;eight&nbsp;planets&nbsp;in&nbsp;the&nbsp;Solar&nbsp;System."</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"Mars"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"desc"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"Mars&nbsp;is&nbsp;named&nbsp;after&nbsp;the&nbsp;Roman&nbsp;god&nbsp;of&nbsp;war."</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$c</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ensureIndex</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'desc'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'text'</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">$r&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$d</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">command</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"text"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"planets"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'search'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"sun"&nbsp;</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$r</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-   </div>
-
-   <div class="example-contents"><p>上の例の出力は、
-たとえば以下のようになります。</p></div>
-   <div class="example-contents screen"><br />
-Array<br />
-(<br />
-    [queryDebugString] =&gt; sun||||||<br />
-    [language] =&gt; english<br />
-    [results] =&gt; Array<br />
-        (<br />
-            [0] =&gt; Array<br />
-                (<br />
-                    [score] =&gt; 0.625<br />
-                    [obj] =&gt; Array<br />
-                        (<br />
-                            [_id] =&gt; MongoId Object<br />
-                                (<br />
-                                    [$id] =&gt; 517549d944670a4a5cb3059a<br />
-                                )<br />
-<br />
-                            [name] =&gt; Mercury<br />
-                            [desc] =&gt; Mercury is the smallest and closest to the Sun<br />
-                        )<br />
-<br />
-                )<br />
-<br />
-            [1] =&gt; Array<br />
-                (<br />
-                    [score] =&gt; 0.55<br />
-                    [obj] =&gt; Array<br />
-                        (<br />
-                            [_id] =&gt; MongoId Object<br />
-                                (<br />
-                                    [$id] =&gt; 517549d944670a4a5cb3059b<br />
-                                )<br />
-<br />
-                            [name] =&gt; Venus<br />
-                            [desc] =&gt; Venus is the second planet from the Sun, orbiting it every 224.7 Earth days.<br />
-                        )<br />
-<br />
-                )<br />
-<br />
-        )<br />
-<br />
-    [stats] =&gt; Array<br />
-        (<br />
-            [nscanned] =&gt; 2<br />
-            [nscannedObjects] =&gt; 0<br />
-            [n] =&gt; 2<br />
-            [nfound] =&gt; 2<br />
-            [timeMicros] =&gt; 95<br />
-        )<br />
-<br />
-    [ok] =&gt; 1<br />
-)<br />
-   </div>
-  </div>
-
-  <div class="example" id="example-1420">
-   <p><strong>例5 <span class="function"><strong>MongoDB::command()</strong></span> での &quot;geoNear&quot; の例</strong></p>
+  <div class="example" id="example-1508">
+   <p><strong>例4 <span class="function"><strong>MongoDB::command()</strong></span> での &quot;geoNear&quot; の例</strong></p>
    <div class="example-contents"><p>
     この例は、geoNear コマンドの使い方を示すものです。
    </p></div>
@@ -321,13 +282,7 @@ Array<br />
    </ul>
   </p>
   <p class="para">
-   MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/reference/command/" class="link external">&raquo;&nbsp;database commands</a>
-   そして各コマンドのドキュメント
-   <a href="http://docs.mongodb.org/manual/reference/command/findAndModify/" class="link external">&raquo;&nbsp;findAndModify</a>、
-   <a href="http://docs.mongodb.org/manual/reference/command/getLastError/" class="link external">&raquo;&nbsp;getLastError</a> および
-   <a href="http://docs.mongodb.org/manual/reference/command/repairDatabase/" class="link external">&raquo;&nbsp;repairDatabase</a>
-   (他にもたくさんあります。これは単なる例です)
-   を参照ください。
+   MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/reference/command/" class="link external">&raquo;&nbsp;database commands</a>
   </p>
  </div>
 

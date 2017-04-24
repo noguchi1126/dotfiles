@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imageftbbox" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imageftbbox</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5)</p><p class="refpurpose"><span class="refname">imageftbbox</span> &mdash; <span class="dc-title">freetype2 によるフォントを用いたテキストを囲む箱を取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imageftbbox</span> &mdash; <span class="dc-title">freetype2 によるフォントを用いたテキストを囲む箱を取得する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imageftbbox-description">
@@ -190,7 +190,7 @@
  <div class="refsect1 examples" id="refsect1-function.imageftbbox-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3260">
+   <div class="example" id="example-3565">
     <p><strong>例1 <span class="function"><strong>imageftbbox()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -205,7 +205,6 @@
 
  <div class="refsect1 notes" id="refsect1-function.imageftbbox-notes">
   <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は、GD 2.0.1 以降を必要とします (2.0.28 以降を推奨します)。</span></p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は、PHP が FreeType サポート
 (<strong class="option configure">--with-freetype-dir=DIR</strong>
 )
@@ -213,31 +212,14 @@
 </span></p></blockquote>
  </div>
 
- <div class="refsect1 changelog" id="refsect1-function.imageftbbox-changelog">
-  <h3 class="title">変更履歴</h3>
+
+ <div class="refsect1 seealso" id="refsect1-function.imageftbbox-seealso">
+  <h3 class="title">参考</h3>
   <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.5</td>
-       <td>
-        <code class="parameter">extrainfo</code> がオプションになりました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.imagefttext.html" class="function" rel="rdfs-seeAlso">imagefttext()</a> - FreeType 2 によるフォントを用いてイメージにテキストを描画する</span></li>
+    <li class="member"><span class="function"><a href="function.imagettfbbox.html" class="function" rel="rdfs-seeAlso">imagettfbbox()</a> - TypeType フォントを使用したテキストの bounding box を生成する</span></li>
+   </ul>
   </p>
  </div>
 

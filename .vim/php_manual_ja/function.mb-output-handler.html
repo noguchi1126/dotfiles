@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mb-output-handler" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_output_handler</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_output_handler</span> &mdash; <span class="dc-title">出力バッファ内で文字エンコーディングを変換するコールバック関数</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_output_handler</span> &mdash; <span class="dc-title">出力バッファ内で文字エンコーディングを変換するコールバック関数</span></p>
  
  </div>
    
@@ -133,7 +133,7 @@
  <div class="refsect1 examples" id="refsect1-function.mb-output-handler-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2734">
+   <div class="example" id="example-3033">
     <p><strong>例1 <span class="function"><strong>mb_output_handler()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -151,7 +151,6 @@
   <h3 class="title">注意</h3>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
-    PHP 4.3.0 以降において、
     イメージのようなバイナリデータを出力したい場合、
     バイナリデータを送信する前に <span class="function"><a href="function.header.html" class="function">header()</a></span> により
     Content-Type: ヘッダ(例：header(&quot;Content-Type: image/png&quot;))を
@@ -162,11 +161,6 @@
     &#039;Content-Type: text/*&#039;
     を送信した場合には、テキストが送信されるとみなし、文字コード設定に
     基づいて出力文字コード変換を行います。
-   </p>
-   <p class="para">
-    なお、PHP 4.2.x あるいはそれ以前のバージョンで画像のようなバイナリデータを
-    出力する場合には、<span class="function"><a href="function.mb-http-output.html" class="function">mb_http_output()</a></span> を用いて
-    出力エンコーディングを &quot;pass&quot; に設定する必要があります。
    </p>
   </p></blockquote>
  </div>

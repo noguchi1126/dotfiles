@@ -13,7 +13,7 @@
 </div><hr /><div id="function.openssl-seal" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_seal</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">openssl_seal</span> &mdash; <span class="dc-title">データをシール(暗号化)する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_seal</span> &mdash; <span class="dc-title">データをシール(暗号化)する</span></p>
 
  </div>
  
@@ -25,12 +25,12 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$sealed_data</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$env_keys</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$pub_key_ids</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code><span class="initializer"> = &quot;RC4&quot;</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>openssl_seal()</strong></span> は、ランダムに生成された秘密鍵により 
-   RC4 を使用して <code class="parameter">data</code> をシール(暗号化)
+   <span class="function"><strong>openssl_seal()</strong></span> は、ランダムに生成された秘密鍵
+   および指定した <code class="parameter">method</code> を使用して <code class="parameter">data</code> をシール(暗号化)
    します。このキーは、<code class="parameter">pub_key_ids</code> を ID とする
    公開鍵で暗号化されます。これは、暗号化されたデータを複数の受信者に
    送信できることを意味します（この際、各受信者は送信側に公開鍵を
@@ -52,6 +52,7 @@
      <dd>
 
       <p class="para">
+       シールするデータ。
       </p>
      </dd>
 
@@ -63,6 +64,7 @@
      <dd>
 
       <p class="para">
+       シール済みのデータ。
       </p>
      </dd>
 
@@ -74,6 +76,7 @@
      <dd>
 
       <p class="para">
+       暗号化したキーの配列。
       </p>
      </dd>
 
@@ -85,6 +88,19 @@
      <dd>
 
       <p class="para">
+       公開鍵リソース ID の配列。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">method</code></dt>
+
+     <dd>
+
+      <p class="para">
+       暗号化の手法。
       </p>
      </dd>
 
@@ -109,7 +125,7 @@
  <div class="refsect1 examples" id="refsect1-function.openssl-seal-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-871">
+   <div class="example" id="example-945">
     <p><strong>例1 <span class="function"><strong>openssl_seal()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -120,6 +136,33 @@
 
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.openssl-seal-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>5.3.0</td>
+      <td>
+       <code class="parameter">method</code> パラメータが追加されました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

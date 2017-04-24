@@ -13,14 +13,14 @@
 </div><hr /><div id="function.set-time-limit" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">set_time_limit</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">set_time_limit</span> &mdash; <span class="dc-title">実行時間の最大値を制限する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">set_time_limit</span> &mdash; <span class="dc-title">実行時間の最大値を制限する</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.set-time-limit-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>set_time_limit</strong></span>
+   <span class="type">bool</span> <span class="methodname"><strong>set_time_limit</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$seconds</code></span>
    )</div>
 
@@ -68,7 +68,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.set-time-limit-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   値を返しません。
+   成功した場合に <strong><code>TRUE</code></strong>、失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 

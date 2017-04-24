@@ -13,7 +13,7 @@
 </div><hr /><div id="simplexmlelement.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SimpleXMLElement::__construct</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.0.1)</p><p class="refpurpose"><span class="refname">SimpleXMLElement::__construct</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.0.1, PHP 7)</p><p class="refpurpose"><span class="refname">SimpleXMLElement::__construct</span> &mdash; <span class="dc-title">
    新しい SimpleXMLElement オブジェクトを作成する
   </span></p>
 
@@ -64,6 +64,13 @@
        オプションで、<a href="libxml.constants.html" class="link">追加の
        Libxml パラメータ</a>を指定するために使用します。
       </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        深くネストされた XML や巨大なテキストノードを処理する際には
+        <strong><code><a href="libxml.constants.html#constant.libxml-parsehuge" class="link">LIBXML_PARSEHUGE</a></code></strong>
+        を指定することになるでしょう。
+       </p>
+      </p></blockquote>
      </dd>
 
     
@@ -147,7 +154,7 @@
      の最初のサンプルにある XML 文字列を参照しています。
     </p>
    </p></blockquote>
-   <div class="example" id="example-5517">
+   <div class="example" id="example-6355">
     <p><strong>例1 SimpleXMLElement オブジェクトの作成</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -165,7 +172,7 @@ PHP: Behind the Parser
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5518">
+   <div class="example" id="example-6356">
     <p><strong>例2 URL からの SimpleXMLElement オブジェクトの作成</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

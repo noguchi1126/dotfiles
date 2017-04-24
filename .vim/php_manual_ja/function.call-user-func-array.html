@@ -13,7 +13,7 @@
 </div><hr /><div id="function.call-user-func-array" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">call_user_func_array</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">call_user_func_array</span> &mdash; <span class="dc-title">パラメータの配列を指定してコールバック関数をコールする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">call_user_func_array</span> &mdash; <span class="dc-title">パラメータの配列を指定してコールバック関数をコールする</span></p>
 
  </div>
  
@@ -110,7 +110,7 @@
  <div class="refsect1 examples" id="refsect1-function.call-user-func-array-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5109">
+   <div class="example" id="example-5952">
     <p><strong>例1 <span class="function"><strong>call_user_func_array()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -128,7 +128,7 @@ foo::bar got three and four
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5110">
+   <div class="example" id="example-5953">
     <p><strong>例2 <span class="function"><strong>call_user_func_array()</strong></span> での名前空間の使用法</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -146,7 +146,7 @@ Hello Philip!
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5111">
+   <div class="example" id="example-5954">
     <p><strong>例3 ラムダ関数の使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -159,6 +159,23 @@ Hello Philip!
     <div class="example-contents screen">
 <div class="cdata"><pre>
 int(8)
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-5955">
+    <p><strong>例4 値の参照渡し</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">mega</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">){<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">55</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"function&nbsp;mega&nbsp;\$a=</span><span style="color: #0000BB">$a</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">77</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'mega'</span><span style="color: #007700">,array(&amp;</span><span style="color: #0000BB">$bar</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #DD0000">"global&nbsp;\$bar=</span><span style="color: #0000BB">$bar</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+function mega $a=55
+global $bar=55
 </pre></div>
     </div>
    </div>
@@ -182,7 +199,7 @@ int(8)
     参照渡しを期待しているところに値で渡すと警告が発生し、
     <span class="function"><a href="function.call-user-func.html" class="function">call_user_func()</a></span> は <strong><code>FALSE</code></strong> を返します
     (これには例外があります。参照カウンタが 1、つまりリテラルなどの場合です。
-    というのも、値を参照に変えても悪影響はないし、
+    というのも、値を参照に変えても悪影響はなく、
     値に書き込んでも何の効果もないからです。しかし、この例外に頼ってはいけません。
     参照カウンタというのはあくまでも内部実装レベルの話であり、
     今後もずっとそうであるとは限らないからです)。

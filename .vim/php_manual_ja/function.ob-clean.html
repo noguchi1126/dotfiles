@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ob-clean" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_clean</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">ob_clean</span> &mdash; <span class="dc-title">出力バッファをクリア(消去)する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_clean</span> &mdash; <span class="dc-title">出力バッファをクリア(消去)する</span></p>
 
  </div>
  
@@ -30,6 +30,11 @@
   <p class="para">
    この関数は、<span class="function"><a href="function.ob-end-clean.html" class="function">ob_end_clean()</a></span>
    のように出力バッファを破棄するわけではありません。
+  </p>
+  <p class="para">
+   出力バッファを開始するときに、
+   <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> で <a href="outcontrol.constants.html#constant.php-output-handler-cleanable" class="link">PHP_OUTPUT_HANDLER_CLEANABLE</a>
+   フラグを指定する必要があります。指定しなければ、<span class="function"><strong>ob_clean()</strong></span> は動作しません。
   </p>
  </div>
 

@@ -13,7 +13,7 @@
 </div><hr /><div id="errorexception.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ErrorException::__construct</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">ErrorException::__construct</span> &mdash; <span class="dc-title">例外を作成する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">ErrorException::__construct</span> &mdash; <span class="dc-title">例外を作成する</span></p>
 
  </div>
  
@@ -23,7 +23,7 @@
    <span class="modifier">public</span> <span class="methodname"><strong>ErrorException::__construct</strong></span>
     ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code><span class="initializer"> = &quot;&quot;</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$code</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$severity</code><span class="initializer"> = 1</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$severity</code><span class="initializer"> = E_ERROR</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code><span class="initializer"> = __FILE__</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$lineno</code><span class="initializer"> = __LINE__</span></span>
    [, <span class="methodparam"><span class="type"><a href="class.exception.html" class="type Exception">Exception</a></span> <code class="parameter">$previous</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
@@ -73,6 +73,12 @@
       <p class="para">
        例外の深刻度。
       </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        任意の <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> を設定できますが、ここでは
+        <a href="errorfunc.constants.html" class="link">エラー定数</a> を用いることを想定しています。
+       </p>
+      </p></blockquote>
      </dd>
 
     

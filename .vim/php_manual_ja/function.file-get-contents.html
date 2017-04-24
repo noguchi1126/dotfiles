@@ -13,7 +13,7 @@
 </div><hr /><div id="function.file-get-contents" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">file_get_contents</h1> 
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">file_get_contents</span> &mdash; <span class="dc-title">ファイルの内容を全て文字列に読み込む</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">file_get_contents</span> &mdash; <span class="dc-title">ファイルの内容を全て文字列に読み込む</span></p>
 
  </div>
 
@@ -24,7 +24,7 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = false</span></span>
    [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = -1</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$maxlen</code></span>
   ]]]] )</div>
 
@@ -79,7 +79,6 @@
         から探すことができます。
        </p>
       </p></blockquote>
-      
      </dd>
 
     
@@ -105,6 +104,7 @@
 
       <p class="para">
        元のストリーム上で、読み込みを開始するオフセット位置。
+       負のオフセットは、ストリームの末尾からのオフセットと解釈されます。
       </p>
       <p class="para">
        リモートファイルに対するシーク (<code class="parameter">offset</code> 指定) はサポートしていません。
@@ -161,7 +161,7 @@
  <div class="refsect1 examples" id="refsect1-function.file-get-contents-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2383">
+   <div class="example" id="example-2619">
     <p><strong>例1 とあるウェブサイトのホームページのソースの取得と出力</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -171,7 +171,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-2384">
+   <div class="example" id="example-2620">
     <p><strong>例2 include_path の検索</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -181,7 +181,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-2385">
+   <div class="example" id="example-2621">
     <p><strong>例3 ファイルの一部の読み込み</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -198,7 +198,7 @@ string(14) &quot;lle Bjori Ro&quot;
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-2386">
+   <div class="example" id="example-2622">
     <p><strong>例4 ストリームコンテキストの使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -226,19 +226,18 @@ string(14) &quot;lle Bjori Ro&quot;
      </thead>
 
      <tbody class="tbody">
-      
+      <tr>
+       <td>7.1.0</td>
+       <td>
+        負の <code class="parameter">offset</code> をサポートするようになりました。
+       </td>
+      </tr>
+
       <tr>
        <td>5.1.0</td>
        <td>
         <code class="parameter">offset</code> と
         <code class="parameter">maxlen</code> パラメータが追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        コンテキストサポートが追加されました。
        </td>
       </tr>
 
@@ -263,7 +262,7 @@ URL を使用することができます。ファイル名の指定方法に関�
 対応してない Web サーバーは、PHP に警告を発生させるような手順でデータを送信します。
 このようなサーバーを使用する場合は、<a href="errorfunc.configuration.html#ini.error-reporting" class="link">
 error_reporting</a> を警告を発生しないレベルまで小さくする必要があります。
-PHP 4.3.7 以降では、<em>https://</em> ラッパーでストリームをオープンする際に
+PHP では、<em>https://</em> ラッパーでストリームをオープンする際に
 バグがある IIS サーバーソフトウエアを検出することができ、この警告を抑制することができます。
 あなたが <em>ssl://</em> ソケットを作成するために  <span class="function"><a href="function.fsockopen.html" class="function">fsockopen()</a></span> を使用している場合、
 自らこの警告を検出し、抑制する必要があります。</p></div>

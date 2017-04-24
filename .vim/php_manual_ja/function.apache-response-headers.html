@@ -13,7 +13,7 @@
 </div><hr /><div id="function.apache-response-headers" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">apache_response_headers</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">apache_response_headers</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">apache_response_headers</span> &mdash; <span class="dc-title">
    HTTPレスポンスヘッダを全て取得する
   </span></p>
 
@@ -65,16 +65,8 @@
        <td>5.4.0</td>
        <td>
         この関数は、FastCGI で使用可能になりました。
-        以前は、PHP が Apache モジュールとしてインストールされた時だけサポートされました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.3</td>
-       <td>
-        <p class="para">
-Netscape/iPlanet/SunONE Web サーバーの<a href="book.nsapi.html" class="link">
-NSAPI サーバーモジュール</a> でもこの関数を使用できます。</p>
+        以前は、PHP が Apache モジュールあるいは
+        Netscape/iPlanet/SunONE の <a href="book.nsapi.html" class="link">NSAPI サーバーモジュール</a> としてインストールされた時だけサポートされました。
        </td>
       </tr>
 
@@ -89,7 +81,7 @@ NSAPI サーバーモジュール</a> でもこの関数を使用できます。
  <div class="refsect1 examples" id="refsect1-function.apache-response-headers-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4771">
+   <div class="example" id="example-5364">
     <p><strong>例1 <span class="function"><strong>apache_response_headers()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

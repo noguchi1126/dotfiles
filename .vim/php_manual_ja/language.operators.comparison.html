@@ -87,6 +87,17 @@
        <td><var class="varname"><var class="varname">$a</var></var> が <var class="varname"><var class="varname">$b</var></var> より多いか等しい時に <strong><code>TRUE</code></strong>。</td>
       </tr>
 
+      <tr>
+       <td>$a &lt;=&gt; $b</td>
+       <td>宇宙船</td>
+       <td>
+        <var class="varname"><var class="varname">$a</var></var> が <var class="varname"><var class="varname">$b</var></var> より小さいときに負の値、
+        <var class="varname"><var class="varname">$b</var></var> と等しいときに 0、
+        <var class="varname"><var class="varname">$b</var></var> より大きいときに正の値。
+        PHP 7 以降で使用可能。
+       </td>
+      </tr>
+
      </tbody>
     
    </table>
@@ -106,11 +117,19 @@
 </code></div>
      </div>
 
-    </div> 
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;&nbsp;<br /></span><span style="color: #FF8000">//&nbsp;Integer<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;0<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;-1<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br />&nbsp;<br />//&nbsp;Float<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">1.5&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">1.5</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;0<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">1.5&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">2.5</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;-1<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">2.5&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">1.5</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br />&nbsp;<br />//&nbsp;文字列<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;0<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;-1<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"b"&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #DD0000">"a"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br />&nbsp;<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #DD0000">"aa"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;-1<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"zz"&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #DD0000">"aa"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br />&nbsp;<br />//&nbsp;配列<br /></span><span style="color: #007700">echo&nbsp;[]&nbsp;&lt;=&gt;&nbsp;[];&nbsp;</span><span style="color: #FF8000">//&nbsp;0<br /></span><span style="color: #007700">echo&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">]&nbsp;&lt;=&gt;&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;0<br /></span><span style="color: #007700">echo&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">]&nbsp;&lt;=&gt;&nbsp;[];&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br /></span><span style="color: #007700">echo&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">]&nbsp;&lt;=&gt;&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br /></span><span style="color: #007700">echo&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">]&nbsp;&lt;=&gt;&nbsp;[</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;-1<br />&nbsp;<br />//&nbsp;オブジェクト<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;[</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">];&nbsp;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;[</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">];&nbsp;<br />echo&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;0<br />&nbsp;<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;[</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">];&nbsp;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;[</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"c"</span><span style="color: #007700">];&nbsp;<br />echo&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;-1<br />&nbsp;<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;[</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"c"</span><span style="color: #007700">];&nbsp;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;[</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">];&nbsp;<br />echo&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br />&nbsp;<br />//&nbsp;値だけを比較します<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;[</span><span style="color: #DD0000">"a"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">];&nbsp;<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;[</span><span style="color: #DD0000">"b"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">];&nbsp;<br />echo&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">&lt;=&gt;&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;1<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      
+     </div>
+
+    </div>
    </p>
 
    <p class="para">
-    多くの型では、以下の表に（上から順に）したがって比較が行われます。
+    多くの型では、以下の表にしたがって（上から順に）比較が行われます。
    </p>
    <table id="language.operators.comparison.types" class="doctable table">
     <caption><strong>さまざまな型の比較</strong></caption>
@@ -178,7 +197,7 @@
 
 
    <p class="para">
-    <div class="example" id="example-121">
+    <div class="example" id="example-101">
      <p><strong>例1 Boolean/null comparison</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -192,7 +211,7 @@
 
 
    <p class="para">
-    <div class="example" id="example-122">
+    <div class="example" id="example-102">
      <p><strong>例2 一般的な配列の比較</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -229,7 +248,7 @@
     <h3 class="title">三項演算子</h3>
     <p class="para">
      もうひとつの条件演算子として &quot;?:&quot;（あるいは三項）演算子があります。
-     <div class="example" id="example-123">
+     <div class="example" id="example-103">
       <p><strong>例3 デフォルト値を設定する</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -257,7 +276,7 @@
       ことに注意してください。演算結果をリファレンスとして返したい場合に、
       これを知っておくことが大切です。結果をリファレンスとして返す関数で
       <em>return $var == 42 ? $a : $b;</em> とすることはできず、
-      新しいバージョンの PHP では警告を発生します。
+      警告が発生します。
      </span>
     </p></blockquote>
     <blockquote class="note"><p><strong class="note">注意</strong>: 
@@ -265,7 +284,7 @@
       三項演算子を &quot;積み重ねて&quot; 使用することは避けましょう。
       ひとつの文の中で複数の三項演算子を使用した際の PHP の振る舞いは、
       少々わかりにくいものです。
-      <div class="example" id="example-124">
+      <div class="example" id="example-104">
        <p><strong>例4 三項演算子のわかりにくい挙動</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -278,7 +297,54 @@
      </p>
     </p></blockquote>
    </div>
+   
+   <div class="sect2" id="language.operators.comparison.coalesce">
+    <h3 class="title">Null 合体演算子</h3>
+    <p class="para">
+     PHP 7 以降ではさらに、&quot;??&quot; 演算子 (null 合体演算子) が使えるようになりました。
+     <div class="example" id="example-105">
+      <p><strong>例5 デフォルト値の代入</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Null&nbsp;合体演算子の使用例<br /></span><span style="color: #0000BB">$action&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'action'</span><span style="color: #007700">]&nbsp;??&nbsp;</span><span style="color: #DD0000">'default'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;上の文は、この&nbsp;if/else&nbsp;文と同じ意味です<br /></span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'action'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$action&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'action'</span><span style="color: #007700">];<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$action&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'default'</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
 
+     </div>
+     式 <em>(expr1) ?? (expr2)</em> は、
+     <span class="replaceable">expr1</span> が <strong><code>NULL</code></strong> である場合は <span class="replaceable">expr2</span>
+     と評価され、それ以外の場合は <span class="replaceable">expr1</span> と評価されます。
+    </p>
+    <p class="para">
+     この演算子は、左側の値が存在しない場合でも notice が発生しません。
+     <span class="function"><a href="function.isset.html" class="function">isset()</a></span> と同じ挙動です。
+     これは、配列のキーを扱う場合に便利です。
+    </p>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <span class="simpara">
+      Null 合体演算子は式であることに注意しましょう。変数として評価されるのではなく、式の結果として評価されます。
+      変数を参照で返そうとするときには、これを意識しておくことが重要です。
+      参照返しの関数で <em>return $foo ?? $bar;</em> のように書いてもうまく動かずに、
+      警告が発生します。
+     </span>
+    </p></blockquote>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <p class="para">
+      Null 合体演算子はネストさせることもできます。
+      <div class="example" id="example-106">
+       <p><strong>例6 Null 合体演算子のネスト</strong></p>
+       <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$baz&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$qux&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">??&nbsp;</span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">??&nbsp;</span><span style="color: #0000BB">$baz&nbsp;</span><span style="color: #007700">??&nbsp;</span><span style="color: #0000BB">$qux</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;出力は&nbsp;1&nbsp;です<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+       </div>
+
+      </div>
+     </p>
+    </p></blockquote>
+   </div> 
   </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.operators.bitwise.html">ビット演算子</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="language.operators.errorcontrol.html">エラー制御演算子</a></div>

@@ -13,7 +13,7 @@
 </div><hr /><div id="pdostatement.fetchobject" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::fetchObject</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.2.4)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchObject</span> &mdash; <span class="dc-title">次の行を取得し、それをオブジェクトとして返す</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.2.4)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchObject</span> &mdash; <span class="dc-title">次の行を取得し、それをオブジェクトとして返す</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-pdostatement.fetchobject-description">
@@ -30,6 +30,10 @@
    <span class="function"><a href="pdostatement.fetch.html" class="function">PDOStatement::fetch()</a></span> で
    <strong><code>PDO::FETCH_CLASS</code></strong> あるいは
    <strong><code>PDO::FETCH_OBJ</code></strong> を指定することの代替関数となります。
+  </p>
+  <p class="para">
+   オブジェクトを取得する際には、各カラムの値を対応するプロパティに代入してから、
+   そのコンストラクタを実行します。
   </p>
 
  </div>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.log" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">log</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">log</span> &mdash; <span class="dc-title">自然対数</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">log</span> &mdash; <span class="dc-title">自然対数</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.log-description">
@@ -73,38 +73,6 @@
   <p class="para">
    <code class="parameter">base</code> を指定した場合はそれを底とする
    <code class="parameter">arg</code> の対数、指定しない場合は自然対数を返します。
-  </p>
- </div>
-
-<div class="refsect1 changelog" id="refsect1-function.log-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        オプションのパラメータ <code class="parameter">base</code> が使用可能となりました。
-        これ以前のバージョンでも <em>b</em> を底とする <em>n</em>
-        の対数を計算することが可能です。しかし、数学の等式
-        log<sub class="subscript">b</sub>(n) = log(n)/log(b)
-        を使用する必要があります。ここで、log は自然対数です。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 

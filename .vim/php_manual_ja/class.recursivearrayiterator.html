@@ -14,7 +14,7 @@
  <h1 class="title">RecursiveArrayIterator クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p>
 
 
   <div class="section" id="recursivearrayiterator.intro">
@@ -50,6 +50,14 @@
      </span>
 
      {</div>
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 定数 */</div>
+    <div class="fieldsynopsis">
+     <span class="modifier">const</span>
+     <span class="type">integer</span>
+      <var class="fieldsynopsis_varname"><a href="class.recursivearrayiterator.html#recursivearrayiterator.constants.child-arrays-only"><var class="varname">CHILD_ARRAYS_ONLY</var></a></var>
+     <span class="initializer"> = 4</span>
+    ;</div>
+
 
 
     
@@ -166,6 +174,55 @@
 
    }</div>
 
+  </div>
+
+  <div class="section" id="recursivearrayiterator.constants">
+   <h2 class="title">定義済み定数</h2>
+   <div class="section" id="recursivearrayiterator.constants.flags">
+    <h2 class="title">RecursiveArrayIterator フラグ</h2>
+    <dl>
+
+     
+      <dt id="recursivearrayiterator.constants.child-arrays-only"><strong><code>RecursiveArrayIterator::CHILD_ARRAYS_ONLY</code></strong></dt>
+
+      <dd>
+
+       
+       <p class="para">Treat only arrays (not objects) as having children for recursive iteration.</p>
+      </dd>
+
+     
+    </dl>
+
+   </div>
+  </div>
+
+  <div class="section">
+   <h2 class="title">変更履歴</h2>
+   <p class="para">
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>バージョン</th>
+        <th>説明</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>5.3.0</td>
+        <td>
+         <strong><code>CHILD_ARRAYS_ONLY</code></strong> フラグが追加されました。
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
   </div>
 
 

@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>このクエリをセカンダリ上で完了できるかどうかを設定する</title>
+  <title>このクエリをセカンダリ上で完了できるかどうかを設定する [非推奨]</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="mongocursor.slaveokay" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">MongoCursor::slaveOkay</h1>
-  <p class="verinfo">(PECL mongo &gt;=0.9.4)</p><p class="refpurpose"><span class="refname">MongoCursor::slaveOkay</span> &mdash; <span class="dc-title">このクエリをセカンダリ上で完了できるかどうかを設定する</span></p>
+  <p class="verinfo">(PECL mongo &gt;=0.9.4)</p><p class="refpurpose"><span class="refname">MongoCursor::slaveOkay</span> &mdash; <span class="dc-title">このクエリをセカンダリ上で完了できるかどうかを設定する [非推奨]</span></p>
 
  </div>
 
@@ -24,7 +24,13 @@
     ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$okay</code><span class="initializer"> = true</span></span>
   ] )</div>
 
-  <p class="para rdfs-comment">
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    このメソッドは、バージョン 1.5.0 以降で非推奨になりました。かわりに
+    <span class="methodname"><a href="mongocursor.setreadpreference.html" class="methodname">MongoCursor::setReadPreference()</a></span> と <a href="mongo.readpreferences.html" class="xref">優先読み込み</a> を使いましょう。
+   </p>
+  </div>
+  <p class="para">
    このメソッドをコールすると、以下の条件を満たす場合にドライバが読み込みをセカンダリに回すようになります。
    <ul class="itemizedlist">
     <li class="listitem">
@@ -109,7 +115,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocursor.slaveokay-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1495">
+  <div class="example" id="mongocursor.intro-example">
    <p><strong>例1 <span class="function"><strong>MongoCursor::slaveOkay()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -131,6 +137,35 @@
   </ul>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-mongocursor.slaveokay-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>1.5.0</td>
+       <td>
+        このメソッドは非推奨になりました。かわりに
+        <span class="methodname"><a href="mongocursor.setreadpreference.html" class="methodname">MongoCursor::setReadPreference()</a></span> と <a href="mongo.readpreferences.html" class="xref">優先読み込み</a> を使いましょう。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
 
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">

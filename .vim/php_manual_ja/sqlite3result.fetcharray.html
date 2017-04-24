@@ -13,7 +13,7 @@
 </div><hr /><div id="sqlite3result.fetcharray" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SQLite3Result::fetchArray</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">SQLite3Result::fetchArray</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">SQLite3Result::fetchArray</span> &mdash; <span class="dc-title">
    結果の行を、連想配列あるいは数値添字配列あるいはその両方で取得する
   </span></p>
 
@@ -87,6 +87,14 @@
   <p class="para">
    結果の行を、連想配列あるいは数値添字配列あるいはその両方で取得します。
    行がない場合は <strong><code>FALSE</code></strong> を返します。
+  </p>
+  <p class="para">
+   The types of the values of the returned array are mapped from SQLite3 types
+   as follows: integers are mapped to <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> if they fit into the
+   range <strong><code>PHP_INT_MIN</code></strong>..<strong><code>PHP_INT_MAX</code></strong>, and
+   to <span class="type"><a href="language.types.string.html" class="type string">string</a></span> otherwise. Floats are mapped to <span class="type"><a href="language.types.float.html" class="type float">float</a></span>,
+   <em>NULL</em> values are mapped to <span class="type"><a href="language.types.null.html" class="type null">null</a></span>, and strings
+   and blobs are mapped to <span class="type"><a href="language.types.string.html" class="type string">string</a></span>.
   </p>
  </div>
 

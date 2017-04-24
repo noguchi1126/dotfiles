@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagewbmp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagewbmp</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5)</p><p class="refpurpose"><span class="refname">imagewbmp</span> &mdash; <span class="dc-title">画像をブラウザあるいはファイルに出力する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagewbmp</span> &mdash; <span class="dc-title">画像をブラウザあるいはファイルに出力する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagewbmp-description">
@@ -21,7 +21,7 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>imagewbmp</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$to</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$foreground</code></span>
   ]] )</div>
 
@@ -46,11 +46,11 @@ image</code></dt>
 
     
      <dt>
-<code class="parameter">filename</code></dt>
+<code class="parameter">to</code></dt>
 
      <dd>
 
-      <p class="para">ファイルの保存先のパス。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
+      <p class="para">ファイル保存先のパスあるいはオープン中のリソース (この関数が値を戻した後で自動的にクローズされます)。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
      </dd>
 
     
@@ -80,10 +80,41 @@ image</code></dt>
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagewbmp-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        ストリームリソースを
+        <code class="parameter">to</code> に渡せるようになりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagewbmp-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3306">
+   <div class="example" id="example-3614">
     <p><strong>例1 WBMP 画像の出力</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -95,7 +126,7 @@ image</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3307">
+   <div class="example" id="example-3615">
     <p><strong>例2 WBMP 画像の保存</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -107,7 +138,7 @@ image</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3308">
+   <div class="example" id="example-3616">
     <p><strong>例3 別の前景での画像の出力</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -120,15 +151,6 @@ image</code></dt>
   </p>
  </div>
 
- <div class="refsect1 notes" id="refsect1-function.imagewbmp-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">
-    WBMP サポートは、PHP を GD-1.8 以降と組み合わせてコンパイルした
-    場合にのみ利用可能です。
-   </p>
-  </p></blockquote>
- </div>
 
  <div class="refsect1 seealso" id="refsect1-function.imagewbmp-seealso">
   <h3 class="title">参考</h3>

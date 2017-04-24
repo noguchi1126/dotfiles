@@ -142,9 +142,20 @@
       <em>^</em> をコロンの後に続けます。たとえば
       <em>[12[:^digit:]]</em> は &quot;1&quot;、&quot;2&quot;、あるいは任意の非数値にマッチします。
      </p>
-     <p class="para">
-      UTF-8 モードでは、128 より大きなコードはどの POSIX 文字クラスにもマッチしません。
-     </p>
+  <p class="para">
+   UTF-8 モードでは、128 より大きなコードはどの POSIX 文字クラスにもマッチしません。
+   PHP 5.3.0 と libpcre 8.10 の組み合わせ以降では、
+   いくつかの文字クラスが Unicode 文字プロパティを使うように変わりました。
+   それらの文字クラスでは、ここに挙げた制約はあてはまりません。
+   詳細は、<a href="http://www.pcre.org/pcre.txt" class="link external">&raquo;&nbsp;PCRE(3) のマニュアル</a>
+   を参照ください。
+  </p>
+  <p class="para">
+   Unicode 文字プロパティは、文字クラスに含めることができます。
+   しかし、範囲指定に含めることはできません。
+   マイナス (ハイフン) を Unicode 文字クラスの後に続けた場合は、その文字としてマッチします。
+   範囲指定を Unicode 文字プロパティで終えようとすると、警告が発生します。
+  </p>
     </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="regexp.reference.dot.html">ドット</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="regexp.reference.alternation.html">選択肢</a></div>

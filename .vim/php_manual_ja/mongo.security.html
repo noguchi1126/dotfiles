@@ -17,9 +17,9 @@
  <div class="section">
   <h2 class="title">リクエストインジェクション攻撃</h2>
   <p class="para">
-   クエリに <em>$_GET</em> パラメータを渡している場合は、
+   クエリに <em>$_GET</em> (あるいは <em>$_POST</em>) パラメータを渡している場合は、
    まず最初にそれを文字列にキャストすることを忘れないようにしましょう。
-   GET リクエストには連想配列を入れることもでき、
+   GET リクエストや POST リクエストには連想配列を入れることもでき、
    そのまま使うと期待通りのクエリにはなりません。
   </p>
 
@@ -41,7 +41,7 @@
   </p>
 
   <p class="para">
-   この攻撃を防ぐのはきわめて簡単です。$_GET パラメータが期待通りの型であることを確かめてから
+   この攻撃を防ぐのはきわめて簡単です。$_GET パラメータや $_POST パラメータが期待通りの型であることを確かめてから
    データベースにリクエストを送ればよいのです (この場合は、文字列にキャストすることになります)。
   </p>
 
@@ -51,11 +51,11 @@
   </p>
 
   <p class="para">
-   <a href="http://www.idontplaydarts.com/2010/07/mongodb-is-vulnerable-to-sql-injection-in-php-at-least/" class="link external">&raquo;&nbsp;Phil</a> の指摘に感謝します。
+   <a href="https://www.idontplaydarts.com/2010/07/mongodb-is-vulnerable-to-sql-injection-in-php-at-least/" class="link external">&raquo;&nbsp;Phil</a> の指摘に感謝します。
   </p>
 
   <p class="para">
-   <a href="http://docs.mongodb.org/manual/security/" class="link external">&raquo;&nbsp;メインドキュメント</a>
+   <a href="https://docs.mongodb.com/manual/security/" class="link external">&raquo;&nbsp;メインドキュメント</a>
    には、MongoDB における SQL インジェクション風の問題に関する詳細な情報があります。
   </p>
  </div>
@@ -125,17 +125,10 @@
    関数をユーザーの入力に対して決して使ってはいけません。
   </p>
   <div class="example-contents">
-<div class="cdata"><pre>
-&lt;?php
-
-// これはやっちゃだめ!
-
-// $jsShellInput は &quot;db.users.drop();&quot; です
-$scope = array(&quot;input&quot; =&gt; $jsShellInput);
-$db-&gt;execute(new MongoCode(&quot;eval(input);&quot;, $scope));
-
-?&gt;
-</pre></div>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;これはやっちゃだめ!<br /><br />//&nbsp;$jsShellInput&nbsp;は&nbsp;"db.users.drop();"&nbsp;です<br /></span><span style="color: #0000BB">$scope&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"input"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$jsShellInput</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">MongoCode</span><span style="color: #007700">(</span><span style="color: #DD0000">"eval(input);"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$scope</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
   </div>
 
   <p class="para">

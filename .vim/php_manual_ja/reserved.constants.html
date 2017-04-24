@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="reserved.classes.html">定義済のクラス</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="resource.html">リソース型の一覧</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="reserved.other-reserved-words.html">その他の予約語の一覧</a></div>
  <div class="up"><a href="reserved.html">予約語の一覧</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="reserved.constants" class="sect1">
@@ -173,7 +173,25 @@
      <dd>
 
       <span class="simpara">
+       The operating system PHP was built for.
+      </span>
+     </dd>
 
+    
+    
+     <dt id="constant.php-os-family">
+      <strong><code>PHP_OS_FAMILY</code></strong> 
+      (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       The operating system family PHP was built for. Either of
+       <em>&#039;Windows&#039;</em>, <em>&#039;BSD&#039;</em>,
+       <em>&#039;OSX&#039;</em>, <em>&#039;Solaris&#039;</em>,
+       <em>&#039;Linux&#039;</em> or <em>&#039;Unknown&#039;</em>.
+       PHP 7.2.0 以降で利用可能。
       </span>
      </dd>
 
@@ -188,7 +206,6 @@
 
       <span class="simpara">
        この PHP のサーバー API。
-       PHP 4.2.0 以降で利用可能。
        <span class="function"><a href="function.php-sapi-name.html" class="function">php_sapi_name()</a></span> も参照ください。
       </span>
      </dd>
@@ -204,7 +221,7 @@
 
       <span class="simpara">
        このプラットフォームの行末文字。
-       PHP 4.3.10 および PHP 5.0.2 以降で利用可能。
+       PHP 5.0.2 以降で利用可能。
       </span>
      </dd>
 
@@ -219,7 +236,24 @@
 
       <span class="simpara">
        この PHP がサポートする整数型の最大値。通常は int(2147483647)。
-       PHP 4.4.0 および PHP 5.0.5 以降で利用可能。
+       PHP 5.0.5 以降で利用可能。
+      </span>
+     </dd>
+
+    
+    
+     <dt id="constant.php-int-min">
+      <strong><code>PHP_INT_MIN</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       この PHP がサポートする整数型の最小値。通常は、32ビットシステムなら int(-2147483648)、
+       64ビットシステムなら int(-9223372036854775808)。
+       PHP 7.0.0 以降で利用可能。
+       通常は PHP_INT_MIN === ~PHP_INT_MAX となる。
       </span>
      </dd>
 
@@ -233,7 +267,68 @@
      <dd>
 
       <span class="simpara">
-       PHP 4.4.0 および PHP 5.0.5 以降で利用可能
+       この PHP ビルドにおける整数型のサイズ (バイト数)。
+       PHP 5.0.5 以降で利用可能。
+      </span>
+     </dd>
+
+    
+    
+     <dt id="constant.php-float-dig">
+      <strong><code>PHP_FLOAT_DIG</code></strong> 
+      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       float への丸めやその逆操作の際に精度を維持できる数値の桁数。
+       PHP 7.2.0 以降で利用可能。
+      </span>
+     </dd>
+
+    
+    
+     <dt id="constant.php-float-epsilon">
+      <strong><code>PHP_FLOAT_EPSILON</code></strong> 
+      (<span class="type"><a href="language.types.float.html" class="type float">float</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       <em>x + 1.0 != 1.0</em> となる正の数 x のうちで、浮動小数点数値として表せる最小の数。
+       PHP 7.2.0 以降で利用可能。
+      </span>
+     </dd>
+
+    
+    
+     <dt id="constant.php-float-min">
+      <strong><code>PHP_FLOAT_MIN</code></strong> 
+      (<span class="type"><a href="language.types.float.html" class="type float">float</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       浮動小数点数値として表せる最小の数。
+       PHP 7.2.0 以降で利用可能。
+      </span>
+     </dd>
+
+    
+    
+     <dt id="constant.php-float-max">
+      <strong><code>PHP_FLOAT_MAX</code></strong> 
+      (<span class="type"><a href="language.types.float.html" class="type float">float</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       浮動小数点数値として表せる最大の数。
+       PHP 7.2.0 以降で利用可能。
       </span>
      </dd>
 
@@ -304,7 +399,6 @@
 
       <span class="simpara">
        configure 時に設定された &quot;--prefix&quot; の値。
-       PHP 4.3.0 以降で利用可能。
       </span>
      </dd>
 
@@ -448,7 +542,21 @@
       <span class="simpara">
        このプラットフォームの共有ライブラリの拡張子。&quot;so&quot; (多くの Unix 系 OS)
        や &quot;dll&quot; (Windows) など。
-       PHP 4.3.0 以降で利用可能。
+      </span>
+     </dd>
+
+    
+    
+     <dt id="constant.php-fd-setsize">
+      <strong><code>PHP_FD_SETSIZE</code></strong>
+      (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>)
+     </dt>
+
+     <dd>
+
+      <span class="simpara">
+       select システムコール用のファイルディスクリプタの最大数。
+       PHP 7.1.0 以降で使用可能です。
       </span>
      </dd>
 
@@ -658,7 +766,7 @@
      <dd>
 
       <span class="simpara">
-       PHP 5.0.0 以降で利用可能
+
       </span>
      </dd>
 
@@ -708,7 +816,7 @@
     
      <dt id="constant.null">
       <strong><code>NULL</code></strong>
-      (<span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>)
+      (<span class="type"><a href="language.types.null.html" class="type null">null</a></span>)
      </dt>
 
      <dd>
@@ -745,7 +853,7 @@
 
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="reserved.classes.html">定義済のクラス</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="resource.html">リソース型の一覧</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="reserved.other-reserved-words.html">その他の予約語の一覧</a></div>
  <div class="up"><a href="reserved.html">予約語の一覧</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

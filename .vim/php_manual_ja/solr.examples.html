@@ -17,7 +17,7 @@
     <p class="para">
         PHP で Apache Solr エクステンションを使用する方法の例
     </p>
-    <div class="example" id="example-4718">
+    <div class="example" id="zookeeper.create.example.basic">
         <p><strong>例1 ブートストラップ・ファイルの内容</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -29,7 +29,7 @@
 
     </div>
 
- <div class="example" id="example-4719">
+ <div class="example" id="zookeeper.delete.example.basic">
   <p><strong>例2 インデックスに文書を追加</strong></p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -55,7 +55,7 @@ SolrObject Object
   </div>
  </div>
  
- <div class="example" id="example-4720">
+ <div class="example" id="zookeeper.exists.example.basic">
   <p><strong>例3 ある文書を他の文書にマージ</strong></p>
   <div class="example-contents">
    <div class="phpcode"><code><span style="color: #000000">
@@ -118,7 +118,7 @@ Array
  </div>
  
  
- <div class="example" id="example-4721">
+ <div class="example" id="zookeeper.get.example.basic">
   <p><strong>例4 文書を検索 - SolrObject レスポンス</strong></p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -194,7 +194,7 @@ SolrObject Object
                                     [3] =&gt; Comprehensive HTML Administration Interfaces
                                     [4] =&gt; Scalability - Efficient Replication to other Solr Search Servers
                                     [5] =&gt; Flexible and Adaptable with XML configuration and Schema
-                                    [6] =&gt; Good unicode support: héllo (hello with an accent over the e)
+                                    [6] =&gt; Good unicode support: hello (hello with an accent over the e)
                                 )
 
                             [id] =&gt; SOLR1000
@@ -210,7 +210,7 @@ SolrObject Object
   </div>
  </div>
  
- <div class="example" id="example-4722">
+ <div class="example" id="zookeeper.getacl.example.basic">
   <p><strong>例5 文書を検索 - SolrDocument レスポンス</strong></p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -272,7 +272,7 @@ SolrObject Object
   </div>
  </div>
     
- <div class="example" id="example-4723">
+ <div class="example" id="zookeeper.set.example.basic">
         <p><strong>例6 簡単な TermsComponent 例 - 基本</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -317,7 +317,7 @@ SolrObject Object
         </div>
  </div>
     
-<div class="example" id="example-4724">
+<div class="example" id="zookeeper.setacl.example.basic">
     <p><strong>例7 簡単な TermsComponent 例 - 接頭辞を使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -355,7 +355,7 @@ SolrObject Object
     </div>
 </div>
     
-<div class="example" id="example-4725">
+<div class="example" id="zookeeper.setdebuglevel.example.basic">
     <p><strong>例8 簡単な TermsComponent 例 - 最小の頻度を指定</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -391,7 +391,7 @@ SolrObject Object
     </div>
 </div>
     
-<div class="example" id="example-4726">
+<div class="example" id="example-5279">
 <p><strong>例9 簡単なファセット例</strong></p>
 <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -458,7 +458,7 @@ SolrObject Object
 </div>
 </div>
     
-<div class="example" id="example-4727">
+<div class="example" id="example-5280">
     <p><strong>例10 簡単なファセット例 - mincount を越える任意の項目と共に</strong></p>
     <div class="example-contents">
         <div class="phpcode"><code><span style="color: #000000">
@@ -499,7 +499,7 @@ SolrObject Object
     </div>
 </div>
 
-<div class="example" id="example-4728">
+<div class="example" id="example-5281">
 <p><strong>例11 Facet Date の例</strong></p>
 <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -533,7 +533,7 @@ SolrObject Object
 </div>
 </div>
 
-<div class="example" id="example-4729">
+<div class="example" id="example-5282">
         <p><strong>例12 SSL 対応サーバーに接続</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -574,6 +574,322 @@ SolrObject Object
         </div>
     </div>
     
+
+    <div class="example" id="example-5283">
+        <p><strong>例13 Collapsing a <span class="type"><a href="class.solrquery.html" class="type SolrQuery">SolrQuery</a></span></strong></p>
+        <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">include&nbsp;</span><span style="color: #DD0000">"bootstrap.php"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">=&nbsp;array<br />(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'hostname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_HOSTNAME</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_USERNAME</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'password'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_PASSWORD</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_PORT</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'path'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_PATH<br /></span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$client&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SolrClient</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SolrQuery</span><span style="color: #007700">(</span><span style="color: #DD0000">'*:*'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$collapseFunction&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SolrCollapseFunction</span><span style="color: #007700">(</span><span style="color: #DD0000">'manu_id_s'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$collapseFunction<br /></span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setSize</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">)<br />-&gt;</span><span style="color: #0000BB">setNullPolicy</span><span style="color: #007700">(</span><span style="color: #0000BB">SolrCollapseFunction</span><span style="color: #007700">::</span><span style="color: #0000BB">NULLPOLICY_IGNORE</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$query<br /></span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">collapse</span><span style="color: #007700">(</span><span style="color: #0000BB">$collapseFunction</span><span style="color: #007700">)<br />-&gt;</span><span style="color: #0000BB">setRows</span><span style="color: #007700">(</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$queryResponse&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$client</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$queryResponse</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getResponse</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$response</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+        </div>
+
+        <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+        <div class="example-contents screen">
+            <div class="cdata"><pre>
+SolrObject Object
+(
+    [responseHeader] =&gt; SolrObject Object
+        (
+            [status] =&gt; 0
+            [QTime] =&gt; 1
+            [params] =&gt; SolrObject Object
+                (
+                    [q] =&gt; *:*
+                    [indent] =&gt; on
+                    [fq] =&gt; {!collapse field=manu_id_s size=2 nullPolicy=ignore}
+                    [rows] =&gt; 4
+                    [version] =&gt; 2.2
+                    [wt] =&gt; xml
+                )
+
+        )
+
+    [response] =&gt; SolrObject Object
+        (
+            [numFound] =&gt; 14
+            [start] =&gt; 0
+            [docs] =&gt; Array
+                (
+                    [0] =&gt; SolrObject Object
+                        (
+                            [id] =&gt; SP2514N
+                            [name] =&gt; Array
+                                (
+                                    [0] =&gt; Samsung SpinPoint P120 SP2514N - hard drive - 250 GB - ATA-133
+                                )
+
+                            [manu] =&gt; Array
+                                (
+                                    [0] =&gt; Samsung Electronics Co. Ltd.
+                                )
+
+                            [manu_id_s] =&gt; samsung
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; electronics
+                                    [1] =&gt; hard drive
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; 7200RPM, 8MB cache, IDE Ultra ATA-133
+                                    [1] =&gt; NoiseGuard, SilentSeek technology, Fluid Dynamic Bearing (FDB) motor
+                                )
+
+                            [price] =&gt; Array
+                                (
+                                    [0] =&gt; 92
+                                )
+
+                            [popularity] =&gt; Array
+                                (
+                                    [0] =&gt; 6
+                                )
+
+                            [inStock] =&gt; Array
+                                (
+                                    [0] =&gt; 1
+                                )
+
+                            [manufacturedate_dt] =&gt; 2006-02-13T15:26:37Z
+                            [store] =&gt; Array
+                                (
+                                    [0] =&gt; 35.0752,-97.032
+                                )
+
+                            [_version_] =&gt; 1510294336412057600
+                        )
+
+                    [1] =&gt; SolrObject Object
+                        (
+                            [id] =&gt; 6H500F0
+                            [name] =&gt; Array
+                                (
+                                    [0] =&gt; Maxtor DiamondMax 11 - hard drive - 500 GB - SATA-300
+                                )
+
+                            [manu] =&gt; Array
+                                (
+                                    [0] =&gt; Maxtor Corp.
+                                )
+
+                            [manu_id_s] =&gt; maxtor
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; electronics
+                                    [1] =&gt; hard drive
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; SATA 3.0Gb/s, NCQ
+                                    [1] =&gt; 8.5ms seek
+                                    [2] =&gt; 16MB cache
+                                )
+
+                            [price] =&gt; Array
+                                (
+                                    [0] =&gt; 350
+                                )
+
+                            [popularity] =&gt; Array
+                                (
+                                    [0] =&gt; 6
+                                )
+
+                            [inStock] =&gt; Array
+                                (
+                                    [0] =&gt; 1
+                                )
+
+                            [store] =&gt; Array
+                                (
+                                    [0] =&gt; 45.17614,-93.87341
+                                )
+
+                            [manufacturedate_dt] =&gt; 2006-02-13T15:26:37Z
+                            [_version_] =&gt; 1510294336449806336
+                        )
+
+                    [2] =&gt; SolrObject Object
+                        (
+                            [id] =&gt; F8V7067-APL-KIT
+                            [name] =&gt; Array
+                                (
+                                    [0] =&gt; Belkin Mobile Power Cord for iPod w/ Dock
+                                )
+
+                            [manu] =&gt; Array
+                                (
+                                    [0] =&gt; Belkin
+                                )
+
+                            [manu_id_s] =&gt; belkin
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; electronics
+                                    [1] =&gt; connector
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; car power adapter, white
+                                )
+
+                            [weight] =&gt; Array
+                                (
+                                    [0] =&gt; 4
+                                )
+
+                            [price] =&gt; Array
+                                (
+                                    [0] =&gt; 19.95
+                                )
+
+                            [popularity] =&gt; Array
+                                (
+                                    [0] =&gt; 1
+                                )
+
+                            [inStock] =&gt; Array
+                                (
+                                    [0] =&gt; 
+                                )
+
+                            [store] =&gt; Array
+                                (
+                                    [0] =&gt; 45.18014,-93.87741
+                                )
+
+                            [manufacturedate_dt] =&gt; 2005-08-01T16:30:25Z
+                            [_version_] =&gt; 1510294336458194944
+                        )
+
+                    [3] =&gt; SolrObject Object
+                        (
+                            [id] =&gt; MA147LL/A
+                            [name] =&gt; Array
+                                (
+                                    [0] =&gt; Apple 60 GB iPod with Video Playback Black
+                                )
+
+                            [manu] =&gt; Array
+                                (
+                                    [0] =&gt; Apple Computer Inc.
+                                )
+
+                            [manu_id_s] =&gt; apple
+                            [cat] =&gt; Array
+                                (
+                                    [0] =&gt; electronics
+                                    [1] =&gt; music
+                                )
+
+                            [features] =&gt; Array
+                                (
+                                    [0] =&gt; iTunes, Podcasts, Audiobooks
+                                    [1] =&gt; Stores up to 15,000 songs, 25,000 photos, or 150 hours of video
+                                    [2] =&gt; 2.5-inch, 320x240 color TFT LCD display with LED backlight
+                                    [3] =&gt; Up to 20 hours of battery life
+                                    [4] =&gt; Plays AAC, MP3, WAV, AIFF, Audible, Apple Lossless, H.264 video
+                                    [5] =&gt; Notes, Calendar, Phone book, Hold button, Date display, Photo wallet, Built-in games, JPEG photo playback, Upgradeable firmware, USB 2.0 compatibility, Playback speed control, Rechargeable capability, Battery level indication
+                                )
+
+                            [includes] =&gt; Array
+                                (
+                                    [0] =&gt; earbud headphones, USB cable
+                                )
+
+                            [weight] =&gt; Array
+                                (
+                                    [0] =&gt; 5.5
+                                )
+
+                            [price] =&gt; Array
+                                (
+                                    [0] =&gt; 399
+                                )
+
+                            [popularity] =&gt; Array
+                                (
+                                    [0] =&gt; 10
+                                )
+
+                            [inStock] =&gt; Array
+                                (
+                                    [0] =&gt; 1
+                                )
+
+                            [store] =&gt; Array
+                                (
+                                    [0] =&gt; 37.7752,-100.0232
+                                )
+
+                            [manufacturedate_dt] =&gt; 2005-10-12T08:00:00Z
+                            [_version_] =&gt; 1510294336562003968
+                        )
+
+                )
+
+        )
+
+)
+</pre></div>
+        </div>
+    </div>
+
+      <div class="example" id="example-5284">
+   <p><strong>例14 Solr Real Time Get (RTG) の例 <span class="function"><a href="solrclient.getbyid.html" class="function">SolrClient::getById()</a></span></strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">include&nbsp;</span><span style="color: #DD0000">"bootstrap.php"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$options&nbsp;</span><span style="color: #007700">=&nbsp;array<br />(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'hostname'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_HOSTNAME</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'login'&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_USERNAME</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'password'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_PASSWORD</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'port'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_PORT</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'path'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">SOLR_SERVER_PATH<br /></span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$client&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SolrClient</span><span style="color: #007700">(</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$response&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$client</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getById</span><span style="color: #007700">(</span><span style="color: #DD0000">'GB18030TEST'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$response</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getResponse</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+SolrObject Object
+(
+    [doc] =&gt; SolrObject Object
+        (
+            [id] =&gt; GB18030TEST
+            [name] =&gt; Array
+                (
+                    [0] =&gt; Test with some GB18030 encoded characters
+                )
+
+            [features] =&gt; Array
+                (
+                    [0] =&gt; No accents here
+                    [1] =&gt; (訳注:ここに記載されている中国語文字列は、英語版マニュアルでご確認ください)
+                    [2] =&gt; This is a feature (translated)
+                    [3] =&gt; (訳注:ここに記載されている中国語文字列は、英語版マニュアルでご確認ください)
+                    [4] =&gt; This document is very shiny (translated)
+                )
+
+            [price] =&gt; Array
+                (
+                    [0] =&gt; 0
+                )
+
+            [inStock] =&gt; Array
+                (
+                    [0] =&gt; 1
+                )
+
+            [_version_] =&gt; 1510294336239042560
+        )
+
+)
+</pre></div>
+   </div>
+  </div>
+
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.solr-get-version.html">solr_get_version</a></div>

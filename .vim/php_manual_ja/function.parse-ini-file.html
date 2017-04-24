@@ -13,7 +13,7 @@
 </div><hr /><div id="function.parse-ini-file" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">parse_ini_file</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">parse_ini_file</span> &mdash; <span class="dc-title">設定ファイルをパースする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">parse_ini_file</span> &mdash; <span class="dc-title">設定ファイルをパースする</span></p>
 
  </div>
  
@@ -79,6 +79,14 @@
        <strong><code>INI_SCANNER_RAW</code></strong>。<strong><code>INI_SCANNER_RAW</code></strong>
        を指定すると、オプションの値はパースされません。
       </p>
+      <p class="para">
+    PHP 5.6.1 以降では <strong><code>INI_SCANNER_TYPED</code></strong> も指定できるようになりました。
+    このモードでは、boolean や null そして integer の型を、可能な限り維持します。
+    文字列 <em>&quot;true&quot;</em>、<em>&quot;on&quot;</em> そして <em>&quot;yes&quot;</em>
+    は <strong><code>TRUE</code></strong> に変換されます。<em>&quot;false&quot;</em>、<em>&quot;off&quot;</em>、<em>&quot;no&quot;</em>
+    そして <em>&quot;none&quot;</em> は <strong><code>FALSE</code></strong> だとみなされます。このモードでは、<em>&quot;null&quot;</em> は <strong><code>NULL</code></strong>
+    に変換されます。また数値形式の文字列も、可能な限り integer 型に変換されます。
+   </p>
      </dd>
 
     
@@ -112,6 +120,20 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+         ハッシュマーク (<em>#</em>) をコメントとみなさないようになりました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.6.1</td>
+       <td>
+         <strong><code>INI_SCANNER_TYPED</code></strong> モードが新たに追加されました。
+       </td>
+      </tr>
+
       <tr>
        <td>5.3.0</td>
        <td>
@@ -166,7 +188,7 @@
  <div class="refsect1 examples" id="refsect1-function.parse-ini-file-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2432">
+   <div class="example" id="example-2668">
     <p><strong>例1 <var class="filename">sample.ini</var> の内容</strong></p>
     <div class="example-contents">
 <div class="cdata"><pre>
@@ -187,11 +209,14 @@ phpversion[] = &quot;5.0&quot;
 phpversion[] = &quot;5.1&quot;
 phpversion[] = &quot;5.2&quot;
 phpversion[] = &quot;5.3&quot;
+
+urls[svn] = &quot;http://svn.php.net&quot;
+urls[git] = &quot;http://git.php.net&quot;
 </pre></div>
     </div>
 
    </div>
-   <div class="example" id="example-2433">
+   <div class="example" id="example-2669">
     <p><strong>例2 <span class="function"><strong>parse_ini_file()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      <a href="language.constants.html" class="link">定数</a>も ini ファイル上でパースされます。
@@ -225,6 +250,12 @@ Array
             [3] =&gt; 5.3
         )
 
+    [urls] =&gt; Array
+        (
+            [svn] =&gt; http://svn.php.net
+            [git] =&gt; http://git.php.net
+        )
+
 )
 Array
 (
@@ -251,6 +282,12 @@ Array
                     [3] =&gt; 5.3
                 )
 
+            [urls] =&gt; Array
+                (
+                    [svn] =&gt; http://svn.php.net
+                    [git] =&gt; http://git.php.net
+                )
+
         )
 
 )
@@ -259,7 +296,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2434">
+   <div class="example" id="example-2670">
     <p><strong>例3 <span class="function"><strong>parse_ini_file()</strong></span> による php.ini ファイルのパース</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -300,10 +337,21 @@ Array
    <span class="simpara">
     ini ファイル上でキーとして使ってはいけない単語があります。
     null, yes, no, true, false, on, off, none などです。
-    null, no および false は &quot;&quot; となり、yes および true は &quot;1&quot; となります。
-    次の文字 <em>?{}|&amp;~![()^&quot;</em> は、キーで使ってはいけません。
+    null, off, no および false は &quot;&quot; となり、on, yes および true は &quot;1&quot; となります。
+    ただし、<strong><code>INI_SCANNER_TYPED</code></strong> モードを使っている場合 (PHP 5.6.1 以降) は別です。
+    次の文字 <em>?{}|&amp;~!()^&quot;</em> は、キーで使ってはいけません。
     また、値の中で特別な意味を持ちます。
    </span>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    等号が含まれないエントリは無視されます。
+    つまり、&quot;foo&quot; というエントリは無視されますが、
+    &quot;bar =&quot; は、空の値を持つエントリとして追加されます。
+    たとえば MySQL の <var class="filename">my.cnf</var> には
+    &quot;no-auto-rehash&quot; という設定項目がありますが、この項目には何も値を設定しません。
+    そのため、この項目は無視されます。
+   </p>
   </p></blockquote>
  </div>
 

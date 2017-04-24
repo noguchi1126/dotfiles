@@ -13,7 +13,7 @@
 </div><hr /><div id="function.dba-open" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">dba_open</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">dba_open</span> &mdash; <span class="dc-title">データベースをオープンする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">dba_open</span> &mdash; <span class="dc-title">データベースをオープンする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.dba-open-description">
@@ -228,30 +228,6 @@
         リソース自体ではなくこの接続がロックされます。このような場合、
         このリソースに関してのロック処理は単に無視されることになり、
         他の解決策を見付ける必要があることに留意する必要があります。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        ロック処理と <code class="parameter">mode</code> 修正子
-        <em>&quot;l&quot;</em>, <em>&quot;d&quot;</em>, <em>&quot;-&quot;</em>,
-        <em>&quot;t&quot;</em>
-        が追加されました。
-        以前のバージョンの PHP では、GDBM 以外のデータベースハンドラで
-        同時データベースアクセスに対する保護を行うためには、セマフォを
-        使用する必要がありました。
-        <a href="book.sem.html" class="link">System V セマフォサポート</a> を参照ください。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.5</td>
-       <td>
-        オープンモード <em>&quot;c&quot;</em> はいくつかの内部ハンドラでは正常に動作せず、
-        既存のデータベースにデータを追加するのではなく、データベースを
-        切り捨ててしまっていました。また、<em>dbm</em> と <em>ndbm</em> は典型的な設定で
-        モード <em>&quot;c&quot;</em> の処理が正常に動作しません（これは修正できません）。
        </td>
       </tr>
 

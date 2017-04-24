@@ -13,7 +13,7 @@
 </div><hr /><div id="function.get-meta-tags" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_meta_tags</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">get_meta_tags</span> &mdash; <span class="dc-title">ファイル上のすべてのメタタグ情報を配列に展開する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_meta_tags</span> &mdash; <span class="dc-title">ファイル上のすべてのメタタグ情報を配列に展開する</span></p>
 
  </div>
 
@@ -49,7 +49,7 @@
        ローカルファイルのほか <acronym title="Uniform Resource Locator">URL</acronym> も指定できます。
       </p>
       <p class="para">
-       <div class="example" id="example-4105">
+       <div class="example" id="example-4674">
         <p><strong>例1 <span class="function"><strong>get_meta_tags()</strong></span> が何をパースするのか</strong></p>
         <div class="example-contents">
 <div class="htmlcode"><pre class="htmlcode">&lt;meta name=&quot;author&quot; content=&quot;name&quot;&gt;
@@ -103,39 +103,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.get-meta-tags-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.0.5</td>
-       <td>
-        クォートされていない HTML 属性もサポートするようになりました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.get-meta-tags-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4106">
+   <div class="example" id="example-4675">
     <p><strong>例2 <span class="function"><strong>get_meta_tags()</strong></span> が何を返すのか</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,6 +125,7 @@
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
     name 属性がついているメタタグのみがパースの対象となります。
+    クォートは不要です。
    </p>
   </p></blockquote>
  </div>

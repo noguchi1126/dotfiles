@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mb-substr" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_substr</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_substr</span> &mdash; <span class="dc-title">文字列の一部を得る</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_substr</span> &mdash; <span class="dc-title">文字列の一部を得る</span></p>
 
  </div>
    
@@ -60,7 +60,15 @@
      <dd>
 
       <p class="para">
-       <code class="parameter">str</code> の中から最初に取り出す文字の位置。
+       <code class="parameter">start</code> が非負である場合に返される文字列は、
+       <code class="parameter">str</code> の <code class="parameter">start</code> <em class="emphasis">バイト</em>目以降の文字列となります (ゼロから数えます)。
+       たとえば、文字列 &#039;<em>abcdef</em>&#039; の
+       <em>0</em> バイト目は &#039;<em>a</em>&#039; で、
+       <em>2</em> バイト目は &#039;<em>c</em>&#039; のようになります。
+      </p>
+      <p class="para">
+       <code class="parameter">start</code> が負の数の場合に返される文字列は、
+       <code class="parameter">str</code> の後ろから数えて <code class="parameter">start</code> バイト目以降となります。
       </p>
      </dd>
 
@@ -103,6 +111,37 @@
    <span class="function"><strong>mb_substr()</strong></span> は、<code class="parameter">start</code>
    および <code class="parameter">length</code> パラメータで指定した
    <code class="parameter">str</code> の一部を返します。
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-substr-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.8</td>
+       <td>
+        <code class="parameter">length</code> に <em>NULL</em>
+        を渡すと、文字列の末尾までのすべてのバイトを取り出すようになりました。
+        これより前のバージョンでは、<em>NULL</em> は <em>0</em> と同じ扱いでした。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

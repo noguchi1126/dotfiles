@@ -13,7 +13,7 @@
 </div><hr /><div id="function.pg-fetch-object" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_fetch_object</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">pg_fetch_object</span> &mdash; <span class="dc-title">行をオブジェクトとして得る</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_fetch_object</span> &mdash; <span class="dc-title">行をオブジェクトとして得る</span></p>
 
  </div>
 
@@ -139,57 +139,10 @@ NULL フィールドに PHPの <strong><code>NULL</code></strong> 値を設定�
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.pg-fetch-object-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        <code class="parameter">class_name</code> と <code class="parameter">params</code>
-        が追加されました。<code class="parameter">result_type</code>
-        を用いた古い形式は、過去のバージョンとの互換性を保つために残されています。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        <code class="parameter">result_type</code> のデフォルト値が、
-        <strong><code>PGSQL_BOTH</code></strong> から <strong><code>PGSQL_ASSOC</code></strong>
-        に変わりました。数値インデックスが使用できないためです。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.1.0</td>
-       <td>
-        <code class="parameter">row</code> パラメータがオプションとなりました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.pg-fetch-object-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2085">
+   <div class="example" id="example-2309">
     <p><strong>例1 <span class="function"><strong>pg_fetch_object()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

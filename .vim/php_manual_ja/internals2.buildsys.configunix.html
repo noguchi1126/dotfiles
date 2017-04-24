@@ -33,7 +33,7 @@
    </p>
   </div>
   
-  <div class="example" id="internals2.buildsys.configunix.sample-config">
+  <div class="example" id="example-6406">
    <p><strong>例1 config.m4 ファイルの例</strong></p>
    <div class="example-contents"><div class="autoconfcode"><pre class="autoconfcode">dnl $Id$
 dnl config.m4 for extension example</pre>
@@ -152,7 +152,7 @@ fi</pre>
     一方、単なるフラグとして使用するオプションの場合は
     <span class="function"><strong>PHP_ARG_ENABLE()</strong></span> を使用します。
    </p>
-   <div class="example" id="internals2.buildsys.configunix.php-arg.configure-out">
+   <div class="example" id="xsl.examples-errors.capture">
     <p><strong>例2 configure の出力例</strong></p>
     <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -222,7 +222,7 @@ checking for extra libraries for example... /another/library/path
      <strong class="option configure">--with-example</strong>
  だけしか指定しなかった場合は、
      このコードは <strong class="command">$php_shtool path $EXAMPLE_CONFIG</strong>
-     を実行します。これは、そのユーザーの現在の <em>PATH</em>
+     を実行します。これは、そのユーザーの現在の <span class="envar">PATH</span>
      を使用して <strong class="command">example-config</strong> の場所を探します。
      どちらにしても、次に行うのは <em>EXAMPLE_PATH</em>
      が通常の実行可能ファイルであるかどうか、
@@ -361,7 +361,7 @@ checking for extra libraries for example... /another/library/path
     外部のライブラリや同梱されているライブラリを使わない場合は、
     このようにしておくことをお勧めします。
    </p>
-   <div class="example" id="internals2.buildsys.configunix.counter.configunix">
+   <div class="example" id="example-6408">
     <p><strong>例3 counter の config.m4 ファイル</strong></p>
     <div class="example-contents">
 <div class="autoconfcode"><pre class="autoconfcode">dnl</pre>

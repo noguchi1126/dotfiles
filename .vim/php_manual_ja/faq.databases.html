@@ -35,18 +35,6 @@
       廃止されちゃうんですか? 私はいったいどうすればいいの?
       今までのコードはどうなるの?
      
-    </a></li><li><a href="#faq.databases.mysql.php5">
-     
-      PHP 5 では MySQL クライアントライブラリがバンドルされません。これは
-      私にとってどのような意味がありますか? PHP を MySQL とともに使用する
-      ことはできるのですか? MySQL を使用しようとすると
-      &quot;function undefined&quot; エラーが出るのですが、どうしたらいいのですか?
-     
-    </a></li><li><a href="#faq.databases.shared-mysql">
-     
-      共有 MySQL サポートをインストールしたら、libphp4 がロードされると
-      同時に Apache がコアダンプします。直りますか？
-     
     </a></li><li><a href="#faq.databases.mysqlresource">
      
       &quot;Warning: 0 is not a MySQL
@@ -64,16 +52,14 @@
     </strong></dt>
     <dd class="answer">
      <p class="para">
-      Windows マシン上では、ODBC サポートと適切な ODBC ドライバを
-      使用すればよいだけです。
+      Unix マシン上では、<a href="ref.pdo-odbc.html" class="link">PDO_ODBC</a>
+      や <a href="book.uodbc.html" class="link">Unified ODBC API</a> が使えます。
      </p>
      <p class="para">
-      Unix マシン上では、Sybase-CT ドライバを使って Microsoft SQL Server
-      にアクセスすることができます。なぜなら(ほとんど完全に)プロトコル
-      互換だからです。Sybase は
-      <a href="http://www.php.net/extra/ctlib-linux-elf.tar.gz" class="link external">&raquo;&nbsp;必要な Linux 用ライブラリのフリーな実装</a>
-      を作成しました。他の Unix システムでは適切なライブラリを手に入れるために
-      Sybase と連絡を取る必要があります。
+      Windows マシン上では、<a href="ref.pdo-sqlsrv.html" class="link">PDO_SQLSRV</a>
+      や <a href="book.sqlsrv.html" class="link">SQLSRV</a> も使えます。
+     </p>
+     <p class="para">
       次の質問に対する回答も参照してください。
      </p>
     </dd>
@@ -217,8 +203,7 @@
      <p class="para">
       現在、MySQL 用の拡張モジュールは 3 種類用意されています。
       <a href="mysqlinfo.api.choosing.html" class="link">MySQL API の選択</a> にあるとおりです。
-      古い API は使ってはいけません。いつの日か非推奨になり、最終的には PHP から削除されます。
-      広く使われている拡張モジュールなので、ある日突然消えてしまうなどということはないでしょう。
+      古い API は使ってはいけません。PHP 5.5.0 以降では非推奨になっており、PHP 7.0.0 から本体に同梱されなくなって PECL に移ります。
       でも、今後新しく書くコードでは <a href="book.mysqli.html" class="link">mysqli</a> か
       <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> を使うことを強く推奨します。
      </p>
@@ -231,94 +216,6 @@
       複数の拡張モジュールを混ぜて使うことはできません。つまり、
       たとえば mysqli のコネクションを
       PDO_MySQL や ext/mysql に渡しても動作しないということです。
-     </p>
-    </dd>
-   </dl>
-
-   <dl class="qandaentry" id="faq.databases.mysql.php5">
-    <dt><strong>
-     
-      PHP 5 では MySQL クライアントライブラリがバンドルされません。これは
-      私にとってどのような意味がありますか? PHP を MySQL とともに使用する
-      ことはできるのですか? MySQL を使用しようとすると
-      &quot;function undefined&quot; エラーが出るのですが、どうしたらいいのですか?
-     
-    </strong></dt>
-    <dd class="answer">
-     <p class="para">
-      はい。どのような意味においても PHP は常に MySQL をサポートしています。
-      PHP 5 で変わったことといえば、クライアントライブラリをバンドルしなく
-      なったということだけです。以下に、順不同で理由を挙げます。
-     </p>
-     <ul class="itemizedlist">
-      <li class="listitem">
-       <p class="para">
-        最近のシステムにはすでにクライアントライブラリがインストールされています。
-       </p>
-      </li>
-      <li class="listitem">
-       <p class="para">
-        上と関連して、複数バージョンのライブラリを共存させると環境がおかしく
-        なりがちです。たとえば、mod_auth_mysql と PHP をそれぞれ別のバージョンの
-        ライブラリとリンクさせ、Apache でそれら両方を有効にすると、いとも簡単に
-        クラッシュすることでしょう。また、バンドルされているライブラリが
-        インストールされているサーバーとうまく動作するとは限りません。もっとも
-        ありがちな症状は、Unix ドメインソケットのファイル mysql.socket
-        を探す場所の不一致です。
-       </p>
-      </li>
-      <li class="listitem">
-       <p class="para">
-        保守がとどこおりがちで、現在リリースされているバージョンに
-        どんどん遅れをとってしまいます。
-       </p>
-      </li>
-      <li class="listitem">
-       <p class="para">
-        将来のバージョンのライブラリは GPL の元で配布されます。そのため、
-        私たちはアップグレードの手段を提供することができません。なぜなら
-        私たちのような BSD/Apache スタイルのライセンスを採用している
-        プロジェクトは、GPL のライブラリをバンドルできないからです。
-        PHP 5 でバンドルをやめたことは最善の方法だと考えます。
-       </p>
-      </li>
-     </ul>
-     <p class="para">
-      このことがそんなに多くの人々に影響することはないでしょう。
-      Unix ユーザー、少なくとも自分が何をしているかを把握している人たちは、
-      PHP をビルドする際には常に  <strong class="option configure">--with-mysql=/usr</strong>
-
-      してシステムの libmysqlclient ライブラリを使用するようにしているでしょう。
-      Windows ユーザーは、<var class="filename">php.ini</var> で <var class="filename">php_mysql.dll</var>
-      を有効にしていることでしょう。
-      インストール手順の詳細は、<a href="ref.mysql.html" class="link">MySQL リファレンス</a>
-      を参照ください。また、<var class="filename">libmysql.dll</var> が
-      システムの PATH が通った場所にあることを確認してください。その方法に
-      ついては、FAQ の <a href="faq.installation.html#faq.installation.addtopath" class="link">Windows のシステム
-      PATH を設定する</a> を参照ください。
-      <var class="filename">libmysql.dll</var>（やその他多くの PHP 関連ファイル）が
-      PHP フォルダにあることから、このフォルダをシステムの PATH に追加
-      したくなるかもしれません。
-     </p>
-    </dd>
-   </dl>
-
-   <dl class="qandaentry" id="faq.databases.shared-mysql">
-    <dt><strong>
-     
-      共有 MySQL サポートをインストールしたら、libphp4 がロードされると
-      同時に Apache がコアダンプします。直りますか？
-     
-    </strong></dt>
-    <dd class="answer">
-     <p class="para">
-      もしあなたのシステムの MySQL ライブラリが pthreads とリンクされて
-      いる場合にはこの現象が発生します。ldd コマンドを使用してチェック
-      してください。もし pthreads がリンクされている場合は、MySQL の tarball
-      を展開してソースからコンパイルしなおしてください。もしくは SRPM の
-      SPEC ファイルのスレッドクライアントコードの箇所を削除してコンパイル
-      しなおしてください。いずれかの方法で問題を解決できます。その後、
-      PHP を新しい MySQL ライブラリでコンパイルしなおしてください。
      </p>
     </dd>
    </dl>

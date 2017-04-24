@@ -71,7 +71,7 @@
    not lagging more seconds behind the master than allowed.
   </p>
   <p class="para">
-   Filters can accept parameters to change their behaviour.
+   Filters can accept parameters to change their behavior.
    The <em>random</em> filter accepts an optional
    <em>sticky</em> parameter. If set to true, the filter changes
    load balancing from random to random once. Random picks a random server
@@ -82,7 +82,7 @@
   <p class="para">
    One of the biggest strength of the filter concept is the possibility to
    chain filters. This strength does not become immediately visible because
-   tje <em>random</em>, <em>roundrobin</em> and
+   the <em>random</em>, <em>roundrobin</em> and
    <em>user</em> filters  are supposed to output no more than one server.
    If a filter reduces the list of candidates for running a statement to
    only one server, it  makes little sense to use that one server as

@@ -23,7 +23,7 @@
     </p>
 
     <p class="para">
-     <div class="example" id="example-108">
+     <div class="example" id="example-86">
       <p><strong>例1 簡単なHTMLフォーム</strong></p>
       <div class="example-contents">
 <div class="htmlcode"><pre class="htmlcode">&lt;form action=&quot;foo.php&quot; method=&quot;post&quot;&gt;
@@ -38,23 +38,38 @@
     </p>
 
     <p class="para">
-     特定の設定や個別の設定に依存し、HTMLフォームからのデータにアクセス
-     する手段は多くあります。いくつかの例を以下に示します。
+     PHP 5.4.0 以降、HTML フォームからデータにアクセスする方法は二種類だけとなります。
+     現在使える方法を、以下にまとめます。
     </p>
 
-    
     <p class="para">
-     <div class="example" id="example-109">
+     <div class="example" id="example-87">
       <p><strong>例2 簡単なPOST HTMLフォームからのデータにアクセスする</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php&nbsp;<br /></span><span style="color: #FF8000">//&nbsp;PHP&nbsp;4.1.0以降で利用可能<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$_REQUEST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">import_request_variables</span><span style="color: #007700">(</span><span style="color: #DD0000">'p'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'p_'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$p_username</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;PHP&nbsp;5.0.0&nbsp;以降、これらの長い形式の定義済み変数は<br />//&nbsp;register_long_arrays&nbsp;ディレクティブで無効化できます。<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$HTTP_POST_VARS</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;PHPディレクティブregister_globals&nbsp;=&nbsp;onの場合に利用可能。<br />//&nbsp;PHP&nbsp;4.2.0以降、register_globalsのデフォルト値はoffとなっています。<br />//&nbsp;この方法の使用/依存は推奨されません。<br /><br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php&nbsp;<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br />echo&nbsp;</span><span style="color: #0000BB">$_REQUEST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
       </div>
 
      </div>
     </p>
+
+    <p class="para">
+     古いバージョンの PHP では、これら以外にもユーザーの入力にアクセスする方法がありました。 
+     それを以下にまとめます。詳細は、最後の変更履歴を参照ください。
+     <div class="example" id="example-88">
+      <p><strong>例3 ユーザーの入力にアクセスするための古い方法</strong></p>
+      <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;注意：これらの方法は、現在はサポートされていません。<br />//&nbsp;現在使えるのは、先ほどの方法だけです。<br /><br />//&nbsp;import_request_variables()&nbsp;を使う方法：この関数は&nbsp;PHP&nbsp;5.4.0&nbsp;で削除されました<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">import_request_variables</span><span style="color: #007700">(</span><span style="color: #DD0000">'p'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'p_'</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$p_username</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;長い形式の定義済み変数を使う方法：この変数は&nbsp;PHP&nbsp;5.4.0&nbsp;で削除されました<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$HTTP_POST_VARS</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;register_globals&nbsp;を使う方法：この機能は&nbsp;PHP&nbsp;5.4.0&nbsp;で削除されました<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$username</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+      </div>
+
+     </div>
+    </p>
+
     <p class="para">
      GETフォームを使用した場合も同じですが、かわりに適当な定義済みの
      GET変数を使用するところが異なります。
@@ -63,45 +78,14 @@
      <em>http://www.example.com/test.php?id=3</em>には、
      <var class="varname"><var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET['id']</a></var></var>によりアクセス可能なGETデータ
      が含まれます。
-     <var class="varname"><var class="varname"><a href="reserved.variables.request.html" class="classname">$_REQUEST</a></var></var> および 
-     <span class="function"><a href="function.import-request-variables.html" class="function">import_request_variables()</a></span>も参照ください。
+     <var class="varname"><var class="varname"><a href="reserved.variables.request.html" class="classname">$_REQUEST</a></var></var> も参照ください。
     </p>
-
-    <blockquote class="note"><p><strong class="note">注意</strong>: 
-     <p class="para">
-      <var class="varname"><var class="varname"><a href="reserved.variables.post.html" class="classname">$_POST</a></var></var>および<var class="varname"><var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var></var>のような
-      <a href="language.variables.superglobals.html" class="link">スーパーグローバル
-       配列</a>がPHP 4.1.0で利用可能となっています。
-     </p>
-    </p></blockquote>
 
     <blockquote class="note"><p><strong class="note">注意</strong>: 
      <p class="para">
       変数名のドットやスペースはアンダースコアに変換されます。
       たとえば <em>&lt;input name=&quot;a.b&quot; /&gt;</em> は
       <em>$_REQUEST[&quot;a_b&quot;]</em> となります。
-     </p>
-    </p></blockquote>
-
-    <p class="para">
-     前記のようにPHP 4.2.0より前のバージョンでは、
-     <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>
-     のデフォルト値は<em class="emphasis">on</em>でした。
-     PHPコミュニティは、このディレクティブに依存しないことを推奨し、
-     このオプションが<em class="emphasis">off</em>でのコードの動作を仮定
-     することを推奨しています。
-    </p>
-
-    <blockquote class="note"><p><strong class="note">注意</strong>: 
-     <p class="para">
-      <a href="info.configuration.html#ini.magic-quotes-gpc" class="link">magic_quotes_gpc</a>の設定
-      はGET、POSTそしてCookieの値に影響します。onになっていると (It&#039;s
-      &quot;PHP!&quot;) という値は自動的に (It\&#039;s \&quot;PHP!\&quot;) となります。
-      十年ほど前は、DB にデータを追加するときにはこれを使ってデータをエスケープしないといけないと言われていました。
-      しかしこれは過去の遺産であり、今や無効にしておくべき機能です。
-      <span class="function"><a href="function.addslashes.html" class="function">addslashes()</a></span>、
-      <span class="function"><a href="function.stripslashes.html" class="function">stripslashes()</a></span>そして<a href="sybase.configuration.html#ini.magic-quotes-sybase" class="link">magic_quotes_sybase</a>も
-      参照してください。
      </p>
     </p></blockquote>
 
@@ -113,8 +97,8 @@
     </p>
 
     <p class="para">
-     <div class="example" id="example-110">
-      <p><strong>例3 より複雑なフォーム変数</strong></p>
+     <div class="example" id="example-89">
+      <p><strong>例4 より複雑なフォーム変数</strong></p>
       <div class="example-contents">
 <div class="cdata"><pre>
 &lt;?php
@@ -180,8 +164,7 @@ if ($_POST) {
      ることができます。Cookieは、HTTP ヘッダの一部なので、SetCookie
      関数をブラウザに何かを出力する前にコールする必要があります。
      この制約は、<span class="function"><a href="function.header.html" class="function">header()</a></span> 関数のものと同じです。
-     Cookieのデータは、<var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var>, 
-     <var class="varname"><var class="varname">$HTTP_COOKIE_VARS</var></var>のような適当なCookieデータ
+     Cookieのデータは、<var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var> のような適当なCookieデータ
      配列で参照可能です。また、 <var class="varname"><var class="varname"><a href="reserved.variables.request.html" class="classname">$_REQUEST</a></var></var>でも
      参照可能です。詳細および例については、
      <span class="function"><a href="function.setcookie.html" class="function">setcookie()</a></span>のマニュアルページを参照してください。
@@ -219,8 +202,8 @@ if ($_POST) {
      これは、次のようになります。
     </p>
 
-    <div class="example" id="example-111">
-     <p><strong>例4 <span class="function"><a href="function.setcookie.html" class="function">setcookie()</a></span>の例</strong></p>
+    <div class="example" id="example-90">
+     <p><strong>例5 <span class="function"><a href="function.setcookie.html" class="function">setcookie()</a></span>の例</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(isset(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">'count'</span><span style="color: #007700">]&nbsp;+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$count&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">'count'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$count</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"Cart[</span><span style="color: #0000BB">$count</span><span style="color: #DD0000">]"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$item</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()+</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -273,7 +256,66 @@ if ($_POST) {
      <a href="language.types.html" class="link">型</a>の章も参照ください。
     </p>
    </div>
-   
+
+   <div class="sect2" id="language.variables.external.changelog">
+    <h3 class="title">変更履歴</h3>
+
+    <p class="para">
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>バージョン</th>
+         <th>説明</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td>5.4.0</td>
+         <td>
+          <a href="security.globals.html" class="link">グローバル変数の登録機能</a>、
+          <a href="security.magicquotes.html" class="link">マジッククォート</a>および
+          <a href="ini.core.html#ini.register-long-arrays" class="link">register_long_arrays</a>
+          が削除されました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>5.3.0</td>
+         <td>
+          <a href="security.globals.html" class="link">グローバル変数の登録機能</a>、
+          <a href="security.magicquotes.html" class="link">マジッククォート</a>および
+          <a href="ini.core.html#ini.register-long-arrays" class="link">register_long_arrays</a>
+          が非推奨となりました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>4.2.0</td>
+         <td>
+          <a href="ini.core.html#ini.register-globals" class="link">register_globals</a>
+          のデフォルトが <em class="emphasis">off</em> になりました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>4.1.0</td>
+         <td>
+          <a href="language.variables.superglobals.html" class="link">スーパーグローバル配列</a>、
+          つまり <var class="varname"><var class="varname"><a href="reserved.variables.post.html" class="classname">$_POST</a></var></var> や <var class="varname"><var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var></var>
+          が使えるようになりました。
+         </td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+    </p>
+   </div>
+
   </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.variables.variable.html">可変変数</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="language.constants.html">定数</a></div>

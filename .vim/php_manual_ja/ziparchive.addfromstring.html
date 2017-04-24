@@ -13,7 +13,7 @@
 </div><hr /><div id="ziparchive.addfromstring" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ZipArchive::addFromString</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">ZipArchive::addFromString</span> &mdash; <span class="dc-title">内容を指定して、ファイルを ZIP アーカイブに追加する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PECL zip &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">ZipArchive::addFromString</span> &mdash; <span class="dc-title">内容を指定して、ファイルを ZIP アーカイブに追加する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-ziparchive.addfromstring-description">
@@ -27,6 +27,7 @@
   <p class="para rdfs-comment">
    内容を指定して、ファイルを ZIP アーカイブに追加します。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">ポータビリティを考慮して、ZIP ファイル名のディレクトリ区切り文字には常にスラッシュ (<em>/</em>) を使うことを推奨します。</span></p></blockquote>
  </div>
 
  <div class="refsect1 parameters" id="refsect1-ziparchive.addfromstring-parameters">
@@ -73,7 +74,7 @@
 
  <div class="refsect1 examples" id="refsect1-ziparchive.addfromstring-examples">
   <h3 class="title">例</h3>
-    <div class="example" id="example-782">
+    <div class="example" id="example-844">
      <p><strong>例1 新しいアーカイブへのエントリの追加</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -83,7 +84,7 @@
      </div>
 
     </div>
-    <div class="example" id="example-783">
+    <div class="example" id="example-845">
      <p><strong>例2 アーカイブ内のディレクトリへのファイルの追加</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

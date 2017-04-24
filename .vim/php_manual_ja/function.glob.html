@@ -13,7 +13,7 @@
 </div><hr /><div id="function.glob" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">glob</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">glob</span> &mdash; <span class="dc-title">パターンにマッチするパス名を探す</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">glob</span> &mdash; <span class="dc-title">パターンにマッチするパス名を探す</span></p>
 
  </div>
  
@@ -68,7 +68,7 @@
         <li class="listitem">
          <span class="simpara">
           <strong><code>GLOB_NOSORT</code></strong> - ディレクトリに存在するファイルを返します
-          (ソートはされません)
+          (ソートはされません)。このフラグを使わない場合は、パス名をアルファベット順にソートします。
          </span>
         </li>
         <li class="listitem">
@@ -147,14 +147,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>4.3.3</td>
-       <td>
-        <strong><code>GLOB_ONLYDIR</code></strong> が、
-        Windows やその他の GNU C ライブラリを使用しないシステムでも利用できるようになりました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -166,7 +158,7 @@
  <div class="refsect1 examples" id="refsect1-function.glob-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2416">
+   <div class="example" id="example-2652">
     <p><strong>例1 
      <span class="function"><strong>glob()</strong></span> が <span class="function"><a href="function.opendir.html" class="function">opendir()</a></span>
      と関連する関数群の代替策になるかを示す簡便な方法

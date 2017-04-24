@@ -13,7 +13,7 @@
 </div><hr /><div id="function.curl-multi-select" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_multi_select</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">curl_multi_select</span> &mdash; <span class="dc-title">curl_multi 接続のアクティビティを待つ</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">curl_multi_select</span> &mdash; <span class="dc-title">curl_multi 接続のアクティビティを待つ</span></p>
 
  </div>
  
@@ -66,6 +66,7 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    成功した場合は、記述子セットに含まれる記述子の数を返します。
+   どの記述子上にもアクティビティがなかった場合は、結果が 0 になることもあります。
    select に失敗した場合は -1 を返し、それ以外の失敗時は
    (select システムコールから) タイムアウトします。
   </p>

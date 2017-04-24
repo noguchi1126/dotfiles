@@ -13,7 +13,7 @@
 </div><hr /><div id="pdo.rollback" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::rollBack</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::rollBack</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::rollBack</span> &mdash; <span class="dc-title">
    トランザクションをロールバックする
   </span></p>
 
@@ -30,8 +30,6 @@
   <p class="para rdfs-comment">
    <span class="function"><a href="pdo.begintransaction.html" class="function">PDO::beginTransaction()</a></span> によって開始された
    現在のトランザクションをロールバックします。
-   有効なトランザクションがない場合は
-   <a href="class.pdoexception.html" class="classname">PDOException</a> をスローします。
   </p>
   <p class="para">
    データベースがオートコミットモードに設定されている場合、
@@ -56,10 +54,19 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-pdo.rollback-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   有効なトランザクションがない場合に <a href="class.pdoexception.html" class="classname">PDOException</a> をスローします。
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">例外は、<strong><code>PDO::ATTR_ERRMODE</code></strong> 属性が <strong><code>PDO::ERRMODE_EXCEPTION</code></strong> ではない場合でも発生します。</span></p></blockquote>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdo.rollback-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-936"><p><strong>例1 トランザクションをロールバックする</strong></p>
+   <div class="example" id="example-1018"><p><strong>例1 トランザクションをロールバックする</strong></p>
     <div class="example-contents"><p>
      以下の例は、トランザクションを開始し、
      変更をロールバックする前にデータベースを修正する

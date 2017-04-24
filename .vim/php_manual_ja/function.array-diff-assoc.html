@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-diff-assoc" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_diff_assoc</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">array_diff_assoc</span> &mdash; <span class="dc-title">追加された添字の確認を含めて配列の差を計算する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_diff_assoc</span> &mdash; <span class="dc-title">追加された添字の確認を含めて配列の差を計算する</span></p>
 
  </div>
  
@@ -99,7 +99,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-diff-assoc-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4951">
+   <div class="example" id="example-5557">
     <p><strong>例1 <span class="function"><strong>array_diff_assoc()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      この例で、<em>&quot;a&quot; =&gt; &quot;green&quot;</em> の組が両方の配列に現れており、
@@ -129,7 +129,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4952">
+   <div class="example" id="example-5558">
     <p><strong>例2 <span class="function"><strong>array_diff_assoc()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      <em class="emphasis">key =&gt; value</em> の組からの二つの値は、
@@ -169,6 +169,12 @@ Array
     とすることにより、より深い次元でチェックを行うことも可能です。
    </span>
   </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    同様の配列で、より多くのキーがあるものを比較するときには、引数を正しい順で渡すようにしましょう。
+    新しい配列が、リストの先頭になければいけません。
+   </span>
+  </p></blockquote>
  </div>
 
 
@@ -177,6 +183,12 @@ Array
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.array-diff.html" class="function" rel="rdfs-seeAlso">array_diff()</a> - 配列の差を計算する</span></li>
+    <li class="member"><span class="function"><a href="function.array-diff-uassoc.html" class="function" rel="rdfs-seeAlso">array_diff_uassoc()</a> - ユーザーが指定したコールバック関数を利用し、
+   追加された添字の確認を含めて配列の差を計算する</span></li>
+    <li class="member"><span class="function"><a href="function.array-udiff-assoc.html" class="function" rel="rdfs-seeAlso">array_udiff_assoc()</a> - データの比較にコールバック関数を用い、
+  追加された添字の確認を含めて配列の差を計算する</span></li>
+    <li class="member"><span class="function"><a href="function.array-udiff-uassoc.html" class="function" rel="rdfs-seeAlso">array_udiff_uassoc()</a> - データと添字の比較にコールバック関数を用い、
+  追加された添字の確認を含めて配列の差を計算する</span></li>
     <li class="member"><span class="function"><a href="function.array-intersect.html" class="function" rel="rdfs-seeAlso">array_intersect()</a> - 配列の共通項を計算する</span></li>
     <li class="member"><span class="function"><a href="function.array-intersect-assoc.html" class="function" rel="rdfs-seeAlso">array_intersect_assoc()</a> - 追加された添字の確認も含めて配列の共通項を確認する</span></li>
    </ul>

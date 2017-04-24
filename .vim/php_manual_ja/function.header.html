@@ -13,7 +13,7 @@
 </div><hr /><div id="function.header" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">header</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">header</span> &mdash; <span class="dc-title">生の HTTP ヘッダを送信する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">header</span> &mdash; <span class="dc-title">生の HTTP ヘッダを送信する</span></p>
 
  </div>
  
@@ -180,24 +180,10 @@
 
      <tbody class="tbody">
       <tr>
-       <td>4.4.2 および 5.1.2</td>
+       <td>5.1.2</td>
        <td>
         この関数は一度に複数のヘッダを送信できないようになりました。
         これは、ヘッダインジェクション攻撃への対策です。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        <code class="parameter">http_response_code</code> パラメータが追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.4</td>
-       <td>
-        <code class="parameter">replace</code> パラメータが追加されました。
        </td>
       </tr>
 
@@ -212,7 +198,7 @@
  <div class="refsect1 examples" id="refsect1-function.header-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4494">
+   <div class="example" id="example-5037">
     <p><strong>例1 ダウンロードダイアログ</strong></p>
     <div class="example-contents"><p>
      PDF ファイルを生成した場合など、
@@ -222,7 +208,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;PDFを出力します<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-type:&nbsp;application/pdf'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;downloaded.pdf&nbsp;という名前で保存させます<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Disposition:&nbsp;attachment;&nbsp;filename="downloaded.pdf"'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;もとの&nbsp;PDF&nbsp;ソースは&nbsp;original.pdf&nbsp;です<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">'original.pdf'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;PDFを出力します<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Type:&nbsp;application/pdf'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;downloaded.pdf&nbsp;という名前で保存させます<br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">'Content-Disposition:&nbsp;attachment;&nbsp;filename="downloaded.pdf"'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;もとの&nbsp;PDF&nbsp;ソースは&nbsp;original.pdf&nbsp;です<br /></span><span style="color: #0000BB">readfile</span><span style="color: #007700">(</span><span style="color: #DD0000">'original.pdf'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -230,7 +216,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4495">
+   <div class="example" id="example-5038">
     <p><strong>例2 キャッシュディレクティブ</strong></p>
     <div class="example-contents"><p>
      PHP スクリプトはしばしば動的に HTML を生成するため、クライアント
@@ -316,9 +302,10 @@
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
-    HTTP/1.1 では、スキーム、ホスト名、絶対パスを含む絶対
-    <acronym title="Uniform Resource Identifier">URI</acronym> が <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.30" class="link external">&raquo;&nbsp;Location:</a>
-    の引数として必要ですが、相対 URI を受け付けるクライアントもあります。
+    最近のクライアントの大半は
+    <a href="http://tools.ietf.org/html/rfc7231#section-7.1.2" class="link external">&raquo;&nbsp;Location:</a>
+    への引数として相対 <acronym title="Uniform Resource Identifier">URI</acronym> も受け付けますが、
+    古いクライアントの中にはスキームとホスト名そして絶対パスを含む絶対 URL しか受け付けないものもあります。
     通常は、相対 URI から絶対 URI を作成するためには
     <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['HTTP_HOST']</a></var></var>、
     <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER['PHP_SELF']</a></var></var> および

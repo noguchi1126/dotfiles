@@ -63,7 +63,7 @@ $copy_of_object = clone $object;
    必要な変更を行うことができます。
  </p>
  
- <div class="example" id="example-225">
+ <div class="example" id="language.oop5.traits.static.ex2">
   <p><strong>例1 オブジェクトのクローン作成</strong></p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -105,11 +105,32 @@ MyCloneable Object
 )
 </pre></div>
 
+   </div>
+
   </div>
 
- </div>
- 
-</div><hr /><div class="manualnavbar" style="text-align: center;">
+  <p class="para">
+   PHP 7.0.0 以降では、新しくクローンしたオブジェクトのメンバーに、作成したその式の中でもアクセスできるようになりました。
+  </p>
+  <div class="example" id="language.oop5.traits.properties.example">
+   <p><strong>例2 クローンしたオブジェクトのメンバーへのアクセス</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$dateTime&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateTime</span><span style="color: #007700">();<br />echo&nbsp;(clone&nbsp;</span><span style="color: #0000BB">$dateTime</span><span style="color: #007700">)-&gt;</span><span style="color: #0000BB">format</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+   <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+   <div class="example-contents screen">
+<div class="cdata"><pre>
+2016
+</pre></div>
+   </div>
+  </div>
+
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.oop5.final.html">finalキーワード</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="language.oop5.object-comparison.html">オブジェクトの比較</a></div>
  <div class="up"><a href="language.oop5.html">クラスとオブジェクト</a></div>

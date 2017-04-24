@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagecreatefromstring" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecreatefromstring</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">imagecreatefromstring</span> &mdash; <span class="dc-title">文字列の中のイメージストリームから新規イメージを作成する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecreatefromstring</span> &mdash; <span class="dc-title">文字列の中のイメージストリームから新規イメージを作成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecreatefromstring-description">
@@ -26,7 +26,7 @@
   <p class="para rdfs-comment">
    <span class="function"><strong>imagecreatefromstring()</strong></span> は、指定した <code class="parameter">image</code> から
    得られたイメージを表すイメージ ID を返します。もし、PHP が
-   JPEG, PNG, GIF, WBMP, GD2 をサポートするようビルドされている場合、
+   JPEG, PNG, GIF, BMP, WBMP, GD2 をサポートするようビルドされている場合、
    イメージの種類は自動的に判別されます。
   </p>
  </div>
@@ -62,10 +62,20 @@
   </p>
  </div>
 
+
+ <div class="refsect1 errors" id="refsect1-function.imagecreatefromstring-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   認識できない書式のデータを受け取った場合に、
+   <span class="function"><strong>imagecreatefromstring()</strong></span> は E_WARNING レベルのエラーを発酵します。
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagecreatefromstring-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3233">
+   <div class="example" id="example-3536">
     <p><strong>例1 <span class="function"><strong>imagecreatefromstring()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

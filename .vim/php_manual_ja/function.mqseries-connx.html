@@ -16,7 +16,7 @@
   <p class="verinfo">(PECL mqseries &gt;= 0.10.0)</p><p class="refpurpose"><span class="refname">mqseries_connx</span> &mdash; <span class="dc-title">MQSeries MQCONNX</span></p>
 
  </div>
-
+ 
  <div class="refsect1 description" id="refsect1-function.mqseries-connx-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -29,14 +29,20 @@
    )</div>
 
   <p class="para rdfs-comment">
+   The
    <span class="function"><strong>mqseries_connx()</strong></span>
-   (MQCONNX) をコールすると、アプリケーションプログラムをキューマネージャに接続します。
-   これによって取得した接続ハンドルを、
-   アプリケーション側でそれ以降のメッセージキューコールの際に使用します。
+   (MQCONNX) call connects an application program to a queue manager. It
+   provides a queue manager connection handle, which is used by the application
+   on subsequent MQ calls.
+  </p>
+  <p class="para">
+   The <span class="function"><strong>mqseries_connx()</strong></span> call is like the 
+   <span class="function"><a href="function.mqseries-conn.html" class="function">mqseries_conn()</a></span> (MQCONN) call, except that MQCONNX 
+   allows options to be specified to control the way that the call works.
   </p>
  </div>
 
-
+ 
  <div class="refsect1 parameters" id="refsect1-function.mqseries-connx-parameters">
   <h3 class="title">パラメータ</h3>
   <p class="para">
@@ -50,8 +56,8 @@
 
      <dd>
 
-      <p class="para">キューマネージャ名。</p>
-      <p class="para">アプリケーションが接続したいキューマネージャの名前。</p>
+      <p class="para">Name of queue manager.</p>
+      <p class="para">Name of the queue manager the application wishes to connect.</p>
      </dd>
 
     
@@ -63,12 +69,12 @@
 
      <dd>
 
-      <p class="para">関数の動作を制御するオプション。</p>
-      <p class="para">MQCNO 構造体を参照ください。</p>
+      <p class="para">Options that control the action of function</p>
+      <p class="para">See also the MQCNO structure.</p>
      </dd>
 
     
-
+    
     
      <dt>
 
@@ -77,8 +83,8 @@
 
      <dd>
 
-      <p class="para">接続ハンドル。</p>
-      <p class="para">このハンドルは、キューマネージャへの接続を表します。</p>
+      <p class="para">Connection handle.</p>
+      <p class="para">This handle represents the connection to the queue manager.</p>
      </dd>
 
     
@@ -90,7 +96,7 @@
 
      <dd>
 
-      <p class="para">完了コード。</p>
+      <p class="para">Completion code.</p>
      </dd>
 
     
@@ -102,7 +108,7 @@
 
      <dd>
 
-      <p class="para">compCode の原因を表すコード。</p>
+      <p class="para">Reason code qualifying the compCode.</p>
      </dd>
 
     
@@ -111,20 +117,20 @@
   </p>
  </div>
 
-
+ 
  <div class="refsect1 returnvalues" id="refsect1-function.mqseries-connx-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">値を返しません。</p>
  </div>
 
-
+ 
  <div class="refsect1 examples" id="refsect1-function.mqseries-connx-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4472">
+   <div class="example" id="example-5015">
     <p><strong>例1 
      <span class="function"><strong>mqseries_connx()</strong></span>
-     の例
+     example
     </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -134,10 +140,10 @@
     </div>
 
    </div>
-   <div class="example" id="example-4473">
+   <div class="example" id="example-5016">
     <p><strong>例2 
      <span class="function"><strong>mqseries_connx()</strong></span>
-     で SSL 接続と OCSP Responder URL を使う例 
+     example using SSL connection &amp; OCSP Responder URL
     </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +156,7 @@
   </p>
  </div>
 
-
+ 
  <div class="refsect1 seealso" id="refsect1-function.mqseries-connx-seealso">
   <h3 class="title">参考</h3>
   <p class="para">

@@ -30,6 +30,8 @@
 
   <p class="para rdfs-comment">
    ある画像を、別の画像の指定した位置に合成します。
+   合成アルゴリズムに指定する引数は、
+   setImageArtifact の第一パラメータに &#039;compose:args&#039;、第二パラメータにデータを渡す必要があります。
   </p>
  </div>
 
@@ -116,6 +118,36 @@
  </div>
 
 
+  <div class="refsect1 examples" id="refsect1-imagick.compositeimage-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-3656">
+    <p><strong>例1 <span class="function"><strong>Imagick::compositeImage()</strong></span> の利用例</strong></p>
+    <div class="example-contents"><p>
+     二つの画像を &#039;mathematics&#039; 方式で合成します。
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;これは、以下のコマンドを実行するのと同等の処理です<br />//&nbsp;convert&nbsp;src1.png&nbsp;src2.png&nbsp;-compose&nbsp;mathematics&nbsp;-define&nbsp;compose:args="1,0,-0.5,0.5"&nbsp;-composite&nbsp;output.png<br /><br /></span><span style="color: #0000BB">$src1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">(</span><span style="color: #DD0000">"./src1.png"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$src2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;\</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">(</span><span style="color: #DD0000">"./src2.png"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$src1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setImageVirtualPixelMethod</span><span style="color: #007700">(</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">VIRTUALPIXELMETHOD_TRANSPARENT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$src1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setImageArtifact</span><span style="color: #007700">(</span><span style="color: #DD0000">'compose:args'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"1,0,-0.5,0.5"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$src1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">compositeImage</span><span style="color: #007700">(</span><span style="color: #0000BB">$src2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">COMPOSITE_MATHEMATICS</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$src1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">writeImage</span><span style="color: #007700">(</span><span style="color: #DD0000">"./output.png"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 seealso" id="refsect1-imagick.compositeimage-seealso">
+  <h3 class="title">参考</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="imagick.setimageartifact.html" class="function" rel="rdfs-seeAlso">Imagick::setImageArtifact()</a> - 画像のアーチファクトを設定する</span></li>
+   </ul>
+  </p>
+ </div>
+
+ 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="imagick.compareimages.html">Imagick::compareImages</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="imagick.construct.html">Imagick::__construct</a></div>

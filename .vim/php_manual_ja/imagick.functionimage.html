@@ -27,9 +27,14 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-   代数演算、関係演算、論理演算などを画像に適用します。
-   これらの演算子を用いて、画像を明るくしたり暗くしたり、
-   コントラストの強弱を変更したり、画像の色を反転させたりします。
+   代数演算、関係演算、論理演算などを疑似画像に適用します。
+  </p>
+  <p class="para">
+   <a href="http://www.imagemagick.org/Usage/transform/#function" class="link external">&raquo;&nbsp;ImageMagick
+   v6 Examples - Image Transformations — Function, Multi-Argument Evaluate</a>
+   も参照ください。
+  </p>
+  <p class="para">
    このメソッドは、ImageMagick バージョン 6.4.9 以降で Imagick をコンパイルした場合に使用可能です。
   </p>
  </div>
@@ -84,6 +89,71 @@
    エラー時に ImagickException をスローします。
   </p>
  </div>
+
+
+ <div class="refsect1 examples" id="refsect1-imagick.functionimage-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-3675">
+    <p><strong>例1 シヌソイドの勾配の作成</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$imagick&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newPseudoImage</span><span style="color: #007700">(</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'gradient:black-white'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$arguments&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">90</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">functionImage</span><span style="color: #007700">(</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">FUNCTION_SINUSOID</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arguments</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type:&nbsp;image/png"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setImageFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">"png"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageBlob</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="mediaobject">
+     
+     <div class="imageobject">
+      <img src="images/c0d23d2d6769e53e24a1b3136c064577-functionImage_sinusoidal.png" alt="シヌソイドの勾配の出力" width="200" height="200" />
+     </div>
+    </div>
+   </div>
+   
+   <div class="example" id="example-3676">
+    <p><strong>例2 多項式 (4x^2 - 4x + 1) からの勾配の作成</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$imagick&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newPseudoImage</span><span style="color: #007700">(</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'gradient:black-white'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$arguments&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">functionImage</span><span style="color: #007700">(</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">FUNCTION_POLYNOMIAL</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arguments</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type:&nbsp;image/png"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setimageformat</span><span style="color: #007700">(</span><span style="color: #DD0000">"png"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$imagick</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageBlob</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="mediaobject">
+     
+     <div class="imageobject">
+      <img src="images/c0d23d2d6769e53e24a1b3136c064577-functionImage_polynomial.png" alt="多項式の勾配の出力" width="200" height="200" />
+     </div>
+    </div>
+   </div>
+
+   <div class="example" id="example-3677">
+    <p><strong>例3 多項式 (4x^2 - 4x^2 + 1) をシヌソイドの勾配で変調した、複雑な勾配の作成</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$imagick1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$imagick1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newPseudoImage</span><span style="color: #007700">(</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'gradient:black-white'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$arguments&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">9</span><span style="color: #007700">,&nbsp;-</span><span style="color: #0000BB">90</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$imagick1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">functionImage</span><span style="color: #007700">(</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">FUNCTION_SINUSOID</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arguments</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$imagick2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$imagick2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">newPseudoImage</span><span style="color: #007700">(</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'gradient:black-white'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$arguments&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$imagick2</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">functionImage</span><span style="color: #007700">(</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">FUNCTION_SINUSOID</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$arguments</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$imagick1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">compositeimage</span><span style="color: #007700">(</span><span style="color: #0000BB">$imagick2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">::</span><span style="color: #0000BB">COMPOSITE_MULTIPLY</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type:&nbsp;image/png"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$imagick1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setImageFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">"png"</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$imagick1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageBlob</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="mediaobject">
+     
+     <div class="imageobject">
+      <img src="images/c0d23d2d6769e53e24a1b3136c064577-functionImage_multiplied.png" alt="複雑な勾配の出力" width="200" height="200" />
+     </div>
+    </div>
+   </div>
+
+  </p>
+ </div>
+
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="imagick.frameimage.html">Imagick::frameImage</a></div>

@@ -2,32 +2,31 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>共有メモリブロックにデータを書き込む</title>
+  <title>Write data into shared memory block</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.shmop-size.html">shmop_size</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="refs.basic.other.html">その他の基本モジュール</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.sync.html">Sync</a></div>
  <div class="up"><a href="ref.shmop.html">共有メモリ関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.shmop-write" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shmop_write</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">shmop_write</span> &mdash; <span class="dc-title">共有メモリブロックにデータを書き込む</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shmop_write</span> &mdash; <span class="dc-title">Write data into shared memory block</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.shmop-write-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">int</span> <span class="methodname"><strong>shmop_write</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$shmid</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$shmid</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
    )</div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>shmop_write()</strong></span> は共有メモリブロックに文字列を
-   書き込みます。
+   <span class="function"><strong>shmop_write()</strong></span> will write a string into shared memory block.
   </p>
  </div>
 
@@ -43,8 +42,8 @@
      <dd>
 
       <p class="para">
+       The shared memory block identifier created by 
        <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span>
-       が作成した共有メモリブロックの識別子。
       </p>
      </dd>
 
@@ -56,7 +55,7 @@
      <dd>
 
       <p class="para">
-       共有メモリブロックに書き込む文字列。
+       A string to write into shared memory block 
       </p>
      </dd>
 
@@ -68,7 +67,8 @@
      <dd>
 
       <p class="para">
-       共有メモリセグメント内でデータを書き込み始める位置。
+       Specifies where to start writing data inside the shared memory
+       segment.
       </p>
      </dd>
 
@@ -81,16 +81,45 @@
  <div class="refsect1 returnvalues" id="refsect1-function.shmop-write-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   書き込んだ <code class="parameter">data</code> の大きさ、あるいは失敗した場合に
-   <strong><code>FALSE</code></strong> を返します。
+   The size of the written <code class="parameter">data</code>, or <strong><code>FALSE</code></strong> on 
+   failure.
   </p>
  </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.shmop-write-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.0.0</td>
+      <td>
+       The type of <code class="parameter">shmid</code> has been changed from
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span> to <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
 
  <div class="refsect1 examples" id="refsect1-function.shmop-write-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3750">
-    <p><strong>例1 共有メモリブロックに書き込む</strong></p>
+   <div class="example" id="example-4285">
+    <p><strong>例1 Writing to shared memory block</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$shm_bytes_written&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">shmop_write</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$my_string</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -101,9 +130,9 @@
    </div>
   </p>
   <p class="para">
-   この例は、共有メモリブロックに <em>$my_string</em> 内の
-   データを書き込みます。<em>$shm_bytes_written</em> には、
-   書き込んだバイト数が代入されます。
+   This example will write data inside <em>$my_string</em> into
+   shared memory block, <em>$shm_bytes_written</em> will contain
+   the number of bytes written.
   </p>
  </div>
 
@@ -111,14 +140,14 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.shmop-read.html" class="function" rel="rdfs-seeAlso">shmop_read()</a> - 共有メモリブロックからデータを読み込む</span></li>
+    <li class="member"><span class="function"><a href="function.shmop-read.html" class="function" rel="rdfs-seeAlso">shmop_read()</a> - Read data from shared memory block</span></li>
    </ul>
   </p>
  </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.shmop-size.html">shmop_size</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="refs.basic.other.html">その他の基本モジュール</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.sync.html">Sync</a></div>
  <div class="up"><a href="ref.shmop.html">共有メモリ関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

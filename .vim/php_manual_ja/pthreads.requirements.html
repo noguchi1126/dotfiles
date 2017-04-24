@@ -16,6 +16,15 @@
    pthreads を使うには、ビルド時に ZTS を有効 ( --enable-maintainer-zts、あるいは Windows なら --enable-zts )
    にする必要があります。
   </p>
+  <div class="caution"><strong class="caution">警告</strong>
+  <p class="para">
+   ZTS はビルド時の設定オプションです。ビルドした後で変更することはできません。
+  </p>
+  </div>
+  <p class="para">
+    pthreads は、Posix スレッドのヘッダファイル (pthread.h) と ZTS 版の PHP があればどこでもビルドできます。
+    Windows でもビルド可能で、その際には redhat の pthread-w32 プロジェクトを利用します。
+  </p>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="pthreads.setup.html">インストール/設定</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="pthreads.installation.html">インストール手順</a></div>

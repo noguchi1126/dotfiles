@@ -13,7 +13,7 @@
 </div><hr /><div id="function.openssl-encrypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_encrypt</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">openssl_encrypt</span> &mdash; <span class="dc-title">データを暗号化</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_encrypt</span> &mdash; <span class="dc-title">データを暗号化</span></p>
 
  </div>
 
@@ -23,20 +23,18 @@
    <span class="type">string</span> <span class="methodname"><strong>openssl_encrypt</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$iv</code><span class="initializer"> = &quot;&quot;</span></span>
-  ]] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$tag</code><span class="initializer"> = NULL</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$aad</code><span class="initializer"> = &quot;&quot;</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$tag_length</code><span class="initializer"> = 16</span></span>
+  ]]]]] )</div>
 
   <p class="para rdfs-comment">
    与えられた文字列を与えられたメソッドとキーで暗号化して、
    未加工の、または base64 エンコードされた文字列を返します。
   </p>
-
-  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は、
-現在のところ詳細な情報はありません。引数のリストのみが
-記述されています。</p></div>
-
  </div>
 
 
@@ -64,19 +62,20 @@
      <dd>
 
       <p class="para">
-       暗号メソッド
+       暗号メソッド。
+       使用可能なメソッドの一覧を取得するには、<span class="function"><a href="function.openssl-get-cipher-methods.html" class="function">openssl_get_cipher_methods()</a></span> を用います。
       </p>
      </dd>
 
     
     
      <dt>
-<code class="parameter">password</code></dt>
+<code class="parameter">key</code></dt>
 
      <dd>
 
       <p class="para">
-       パスワード
+       キー
       </p>
      </dd>
 
@@ -88,8 +87,8 @@
       <dd>
 
         <p class="para">
-          <strong><code>OPENSSL_RAW_DATA</code></strong> あるいは
-          <strong><code>OPENSSL_ZERO_PADDING</code></strong> のいずれか。
+          <strong><code>OPENSSL_RAW_DATA</code></strong> と
+          <strong><code>OPENSSL_ZERO_PADDING</code></strong> のビット OR。
         </p>
       </dd>
 
@@ -102,6 +101,42 @@
 
       <p class="para">
        NULL ではない初期化ベクター。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">tag</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The authentication tag passed by reference when using AEAD cipher mode (GCM or CCM).
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">aad</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Additional authentication data.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">tag_length</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The length of the authentication <code class="parameter">tag</code>. Its value can be between 4 and 16 for GCM mode.
       </p>
      </dd>
 
@@ -157,6 +192,14 @@
       <td>5.4.0</td>
       <td>
        <code class="parameter">raw_output</code> パラメータが <code class="parameter">options</code> に変わりました。
+      </td>
+     </tr>
+
+     <tr>
+      <td>7.1.0</td>
+      <td>
+       <code class="parameter">tag</code>、<code class="parameter">aad</code> および
+       <code class="parameter">tag_length</code> パラメータが追加されました。
       </td>
      </tr>
 

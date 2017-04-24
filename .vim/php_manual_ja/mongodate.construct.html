@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="class.mongodate.html">MongoDate</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mongodate.tostring.html">MongoDate::__toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongodate.todatetime.html">MongoDate::toDateTime</a></div>
  <div class="up"><a href="class.mongodate.html">MongoDate</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mongodate.construct" class="refentry">
@@ -15,6 +15,17 @@
   <h1 class="refname">MongoDate::__construct</h1>
   <p class="verinfo">(PECL mongo &gt;= 0.8.1)</p><p class="refpurpose"><span class="refname">MongoDate::__construct</span> &mdash; <span class="dc-title">新しい日付を作成する</span></p>
 
+ </div>
+
+ <div id="mongodate.construct-soft-deprecation-notice" class="soft-deprecation-notice">
+  <blockquote class="sidebar">
+   <p class="para">このメソッドを定義している拡張モジュールは非推奨です。
+かわりに <a href="set.mongodb.html" class="link">MongoDB</a> 拡張モジュールを使うべきです。
+このメソッドの代替として、以下が使えます。</p>
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="mongodb-bson-utcdatetime.construct.html" class="methodname">MongoDB\BSON\UTCDateTime::__construct()</a></span></li>
+   </ul>
+  </blockquote>
  </div>
 
  <div class="refsect1 description" id="refsect1-mongodate.construct-description">
@@ -45,7 +56,7 @@
      <dd>
 
       <p class="para">
-       1970年1月1日からの経過秒数。
+       エポック (1 Jan 1970 00:00:00.000 UTC) からの経過秒数。
       </p>
      </dd>
 
@@ -82,7 +93,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodate.construct-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1506">
+  <div class="example" id="example-1613">
    <p><strong>例1 <span class="function"><strong>MongoDate::__construct()</strong></span> の例</strong></p>
    <div class="example-contents"><p>この例は、現在時刻および指定した時刻で新しい日付を作成する方法を示すものです。</p></div>
    <div class="example-contents">
@@ -116,7 +127,7 @@
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="class.mongodate.html">MongoDate</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mongodate.tostring.html">MongoDate::__toString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongodate.todatetime.html">MongoDate::toDateTime</a></div>
  <div class="up"><a href="class.mongodate.html">MongoDate</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

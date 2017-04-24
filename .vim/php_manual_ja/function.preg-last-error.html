@@ -13,7 +13,7 @@
 </div><hr /><div id="function.preg-last-error" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_last_error</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">preg_last_error</span> &mdash; <span class="dc-title">直近の PCRE 正規表現処理のエラーコードを返す</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">preg_last_error</span> &mdash; <span class="dc-title">直近の PCRE 正規表現処理のエラーコードを返す</span></p>
 
  </div>
 
@@ -28,7 +28,7 @@
    直近の PCRE 正規表現処理のエラーコードを返します。
   </p>
   <p class="para">
-   <div class="example" id="example-4798">
+   <div class="example" id="example-5397">
     <p><strong>例1 <span class="function"><strong>preg_last_error()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -59,6 +59,7 @@ Backtrack limit was exhausted!
     <li class="member"><strong><code>PREG_RECURSION_LIMIT_ERROR</code></strong> (<a href="pcre.configuration.html#ini.pcre.recursion-limit" class="link">pcre.recursion_limit</a> も参照ください)</li>
     <li class="member"><strong><code>PREG_BAD_UTF8_ERROR</code></strong></li>
     <li class="member"><strong><code>PREG_BAD_UTF8_OFFSET_ERROR</code></strong> (PHP 5.3.0 以降)</li>
+    <li class="member"><strong><code>PREG_JIT_STACKLIMIT_ERROR</code></strong> (PHP 7.0.0 以降)</li>
    </ul>
   </p>
  </div>

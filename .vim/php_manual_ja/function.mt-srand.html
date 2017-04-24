@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mt-srand" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mt_srand</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mt_srand</span> &mdash; <span class="dc-title">改良型乱数生成器にシードを指定する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mt_srand</span> &mdash; <span class="dc-title">改良型乱数生成器にシードを指定する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.mt-srand-description">
@@ -29,7 +29,7 @@
    ランダムな値を設定します。
   </p>
 
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">PHP 4.2.0 以降、
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">
 <span class="function"><a href="function.srand.html" class="function">srand()</a></span> または
 <span class="function"><strong>mt_srand()</strong></span>
 によりランダム数生成器にシードを与える必要はありません。
@@ -49,7 +49,7 @@
      <dd>
 
       <p class="para">
-       オプションで指定するシード値。
+       任意の整数値で指定するシード値。
       </p>
      </dd>
 
@@ -83,14 +83,6 @@
 
      <tbody class="tbody">
       <tr>
-       <td>4.2.0</td>
-       <td>
-        <code class="parameter">seed</code> がオプションとなり、
-        省略した場合はデフォルトでランダムな値が設定されるようになりました。
-       </td>
-      </tr>
-
-      <tr>
        <td>5.2.1</td>
        <td>
         PHP の Mersenne Twister 実装は、Richard Wagner
@@ -111,11 +103,11 @@
  <div class="refsect1 examples" id="refsect1-function.mt-srand-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3486">
+   <div class="example" id="example-4018">
     <p><strong>例1 <span class="function"><strong>mt_srand()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;マイクロ秒でシードを指定します<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">make_seed</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;list(</span><span style="color: #0000BB">$usec</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sec</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">microtime</span><span style="color: #007700">());<br />&nbsp;&nbsp;return&nbsp;(float)&nbsp;</span><span style="color: #0000BB">$sec&nbsp;</span><span style="color: #007700">+&nbsp;((float)&nbsp;</span><span style="color: #0000BB">$usec&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">100000</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">mt_srand</span><span style="color: #007700">(</span><span style="color: #0000BB">make_seed</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">$randval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;マイクロ秒でシードを指定します<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">make_seed</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;list(</span><span style="color: #0000BB">$usec</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$sec</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(</span><span style="color: #DD0000">'&nbsp;'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">microtime</span><span style="color: #007700">());<br />&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$sec&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">$usec&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">1000000</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">mt_srand</span><span style="color: #007700">(</span><span style="color: #0000BB">make_seed</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">$randval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

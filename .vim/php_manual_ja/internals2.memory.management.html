@@ -162,7 +162,7 @@
   ユーザーのスクリプトからも呼べるようになります。
  </p>
  
- <div class="example" id="internals2.memory.management.example.leak">
+ <div class="example" id="example-6401">
   <p><strong>例1 リークの検出の実例</strong></p>
   <div class="example-contents">
 <div class="ccode"><pre class="ccode">ZEND_FUNCTION(leak)
@@ -193,6 +193,7 @@
   <span class="simpara">
    USE_ZEND_ALLOC=0 を指定するとメモリマネージャーの機能が停止し、
    すべてのメモリ管理をシステムのデフォルトのアロケーターに任せます。これは、リークのデバッグ時に便利です。
+   それ以外の場面で使うべきではありません。
   </span>
  </p></blockquote>
  

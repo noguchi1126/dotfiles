@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="install.unix" class="chapter">
    <h1>Unix システムへのインストール</h1>
-<h2>目次</h2><ul class="chunklist chunklist_chapter"><li><a href="install.unix.apache.html">Apache 1.3.x (Unix システム用)</a></li><li><a href="install.unix.apache2.html">Apache 2.x (Unixシステム用)</a></li><li><a href="install.unix.lighttpd-14.html">Lighttpd 1.4 (Unix システム用)</a></li><li><a href="install.unix.sun.html">Sun, iPlanet, Netscape サーバー（Sun Solaris 用）</a></li><li><a href="install.unix.commandline.html">CGI およびコマンドライン</a></li><li><a href="install.unix.hpux.html">HP-UX へのインストール</a></li><li><a href="install.unix.openbsd.html">OpenBSD へのインストール</a></li><li><a href="install.unix.solaris.html">Solaris へのインストール</a></li><li><a href="install.unix.debian.html">Debian GNU/Linux へのインストール</a></li></ul>
+<h2>目次</h2><ul class="chunklist chunklist_chapter"><li><a href="install.unix.apache.html">Apache 1.3.x (Unix システム用)</a></li><li><a href="install.unix.apache2.html">Apache 2.x (Unixシステム用)</a></li><li><a href="install.unix.nginx.html">Nginx 1.4.x on Unix systems</a></li><li><a href="install.unix.lighttpd-14.html">Lighttpd 1.4 (Unix システム用)</a></li><li><a href="install.unix.sun.html">Sun, iPlanet, Netscape サーバー（Sun Solaris 用）</a></li><li><a href="install.unix.litespeed.html">LiteSpeed Web Server/OpenLiteSpeed Web Server on Unix systems</a></li><li><a href="install.unix.commandline.html">CGI およびコマンドライン</a></li><li><a href="install.unix.hpux.html">HP-UX へのインストール</a></li><li><a href="install.unix.openbsd.html">OpenBSD へのインストール</a></li><li><a href="install.unix.solaris.html">Solaris へのインストール</a></li><li><a href="install.unix.debian.html">Debian GNU/Linux へのインストール</a></li></ul>
 
    <p class="para">
     本章では、UNIX 系のシステムへの PHP のインストールと設定に関する
@@ -94,8 +94,32 @@
      </li>
      <li class="listitem">
       <span class="simpara">
-       bison: バージョン 1.28 (推奨)、1.35 あるいは 1.75
+       bison:
       </span>
+      <ul class="itemizedlist">
+       <li class="listitem">
+        <span class="simpara">
+         PHP 5.4: 1.28, 1.35, 1.75, 1.875, 2.0, 2.1, 2.2, 2.3, 2.4, 2.4.1,
+         2.4.2, 2.4.3, 2.5, 2.5.1, 2.6, 2.6.1, 2.6.2, 2.6.4
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         PHP 5.5: 2.4, 2.4.1, 2.4.2, 2.4.3, 2.5, 2.5.1, 2.6, 2.6.1, 2.6.2,
+         2.6.3, 2.6.4, 2.6.5, 2.7
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         PHP 5.6: 2.4 以降、ただし 3.0 は除く (3.0.1 以降は OK)
+        </span>
+       </li>
+       <li class="listitem">
+        <span class="simpara">
+         PHP 7.0: 2.4 以降
+        </span>
+       </li>
+      </ul>
      </li>
     </ul>
    </p>
@@ -106,7 +130,7 @@
     <strong class="command">./configure --help</strong> とすると、
     オプションの一覧と簡単な解説が表示されます。
     本マニュアルでは、オプションの種類ごとに別けて解説されています。
-    PHP 本体のオプションの一覧は <a href="configure.html" class="link">付録</a> にまとめられています。
+    PHP 本体のオプションの一覧は <a href="configure.about.html" class="link">付録</a> にまとめられています。
     各拡張モジュール特有のオプションは、関数リファレンスのページに記述されています。
    </p>
 
@@ -119,35 +143,64 @@
     についての章を参照してください。
    </p>
 
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     Some Unix systems (such as OpenBSD and SELinux) may disallow mapping pages
+     both writable and executable for security reasons, what is called PaX
+     MPROTECT or W^X violation protection. This kind of memory mapping is,
+     however, necessary for PCRE&#039;s JIT support, so either PHP has to be built
+     <a href="pcre.installation.html" class="link">without PCRE&#039;s JIT support</a>, or the
+     binary has to be whitelisted by any means provided by the system.
+    </p>
+   </p></blockquote>
+
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <span class="simpara">
+     Android ツール群を使った ARM 向けのクロスコンパイルには、今のところ対応していません。
+    </span>
+   </p></blockquote>
+
    
-   
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
    
 
 
 
+
+
+
+
    
+
+
+
+
+
+
+
+   
+
+
+
+
+
+   
+
+
+
+
+
+
+   
+
+
+
+   
+
+
+
+   
+
+
 
 
 

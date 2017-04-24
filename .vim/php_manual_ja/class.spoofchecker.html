@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Spoofchecker クラス</title>
+  <title>The Spoofchecker class</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="class.spoofchecker" class="reference">
 
- <h1 class="title">Spoofchecker クラス</h1>
+ <h1 class="title">The Spoofchecker class</h1>
  
 
  <div class="partintro"><p class="verinfo">(PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)</p>
@@ -21,7 +21,15 @@
   <div class="section" id="spoofchecker.intro">
    <h2 class="title">導入</h2>
    <p class="para">
-
+    This class is provided because Unicode contains large number of characters
+    and incorporates the varied writing systems of the world and their incorrect
+    usage can expose programs or systems to possible security attacks using
+    characters similarity.
+   </p>
+   <p class="para">
+    Provided methods alllow to check whether an individual string is likely an attempt
+    at confusing the reader (<em>spoof detection</em>), such as  &quot;pаypаl&quot;
+    spelled with Cyrillic &#039;а&#039; characters.
    </p>
   </div>
 
@@ -40,7 +48,7 @@
      </span>
      {</div>
 
-    <div class="classsynopsisinfo classsynopsisinfo_comment">/* 定数 */</div>
+    <div class="classsynopsisinfo classsynopsisinfo_comment">/* Constants */</div>
     <div class="fieldsynopsis">
      <span class="modifier">const</span>
      <span class="type">integer</span>
@@ -94,8 +102,8 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="spoofchecker.areconfusable.html" class="methodname">areConfusable</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$s1</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$s2</code></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str1</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$str2</code></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$error</code></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
@@ -113,7 +121,7 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="spoofchecker.setchecks.html" class="methodname">setChecks</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$checks</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type long">long</span></span> <code class="parameter">$checks</code></span>
    )</div>
 
    }</div>
@@ -244,10 +252,7 @@
 
 
 
-
-
-
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="spoofchecker.areconfusable.html">Spoofchecker::areConfusable</a> — 指定したテキストに混同しやすい文字が含まれているかどうかを調べる</li><li><a href="spoofchecker.construct.html">Spoofchecker::__construct</a> — コンストラクタ</li><li><a href="spoofchecker.issuspicious.html">Spoofchecker::isSuspicious</a> — 指定したテキストに疑わしい文字が含まれているかどうかを調べる</li><li><a href="spoofchecker.setallowedlocales.html">Spoofchecker::setAllowedLocales</a> — チェック時に使うロケールを設定する</li><li><a href="spoofchecker.setchecks.html">Spoofchecker::setChecks</a> — 実行するチェックを設定する</li></ul>
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="spoofchecker.areconfusable.html">Spoofchecker::areConfusable</a> — Checks if given strings can be confused</li><li><a href="spoofchecker.construct.html">Spoofchecker::__construct</a> — Constructor</li><li><a href="spoofchecker.issuspicious.html">Spoofchecker::isSuspicious</a> — Checks if a given text contains any suspicious characters</li><li><a href="spoofchecker.setallowedlocales.html">Spoofchecker::setAllowedLocales</a> — チェック時に使うロケールを設定する</li><li><a href="spoofchecker.setchecks.html">Spoofchecker::setChecks</a> — 実行するチェックを設定する</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="resourcebundle.locales.html">ResourceBundle::getLocales</a></div>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.restore-include-path" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">restore_include_path</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">restore_include_path</span> &mdash; <span class="dc-title">include_path 設定オプションの値を元に戻す</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">restore_include_path</span> &mdash; <span class="dc-title">include_path 設定オプションの値を元に戻す</span></p>
 
  </div>
  
@@ -42,11 +42,11 @@
  <div class="refsect1 examples" id="refsect1-function.restore-include-path-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-518">
+   <div class="example" id="example-563">
     <p><strong>例1 <span class="function"><strong>restore_include_path()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;.:/usr/local/lib/php<br /><br /></span><span style="color: #0000BB">set_include_path</span><span style="color: #007700">(</span><span style="color: #DD0000">'/inc'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;/inc<br /><br />//&nbsp;PHP&nbsp;4.3.0&nbsp;以降で動作します<br /></span><span style="color: #0000BB">restore_include_path</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;すべてのバージョンの&nbsp;PHP&nbsp;で動作します<br /></span><span style="color: #0000BB">ini_restore</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;.:/usr/local/lib/php<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;.:/usr/local/lib/php<br /><br /></span><span style="color: #0000BB">set_include_path</span><span style="color: #007700">(</span><span style="color: #DD0000">'/inc'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;/inc<br /><br /></span><span style="color: #0000BB">restore_include_path</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;または&nbsp;ini_restore&nbsp;を使用します<br /></span><span style="color: #0000BB">ini_restore</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;.:/usr/local/lib/php<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

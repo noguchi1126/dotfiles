@@ -13,7 +13,7 @@
 </div><hr /><div id="function.escapeshellarg" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">escapeshellarg</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5)</p><p class="refpurpose"><span class="refname">escapeshellarg</span> &mdash; <span class="dc-title">シェル引数として使用される文字列をエスケープする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">escapeshellarg</span> &mdash; <span class="dc-title">シェル引数として使用される文字列をエスケープする</span></p>
 
  </div>
 
@@ -34,6 +34,11 @@
    <span class="function"><a href="function.system.html" class="function">system()</a></span>そして
    <a href="language.operators.execution.html" class="link">バックティック演算子</a>
    を含むシェル関数が含まれます。
+  </p>
+  <p class="para">
+   Windows では、<span class="function"><strong>escapeshellarg()</strong></span>
+   は、パーセント記号と感嘆符 (遅延環境変数の展開) とダブルクォートをスペースに置き換えます。
+   そして、文字列をダブルクォートで囲みます。
   </p>
  </div>
 
@@ -72,7 +77,7 @@
  <div class="refsect1 examples" id="refsect1-function.escapeshellarg-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3692">
+   <div class="example" id="example-4221">
     <p><strong>例1 <span class="function"><strong>escapeshellarg()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -82,6 +87,45 @@
     </div>
 
    </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.escapeshellarg-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      
+ <tr>
+  <td>5.6.0</td>
+  <td>
+   <code class="parameter">encoding</code> パラメータのデフォルト値が、
+   <a href="ini.core.html#ini.default-charset" class="link">default_charset</a> の設定値に変わりました。
+  </td>
+ </tr>
+
+
+      <tr>
+       <td>5.4.43, 5.5.27, 5.6.11</td>
+       <td>
+        感嘆符がスペースで置き換えられるようになりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

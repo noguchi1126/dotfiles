@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>CSV の区切り文字と囲み文字をセットする</title>
+  <title>CSV の区切り文字、囲み文字、エスケープ文字をセットする</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="splfileobject.setcsvcontrol" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SplFileObject::setCsvControl</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">SplFileObject::setCsvControl</span> &mdash; <span class="dc-title">CSV の区切り文字と囲み文字をセットする</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">SplFileObject::setCsvControl</span> &mdash; <span class="dc-title">CSV の区切り文字、囲み文字、エスケープ文字をセットする</span></p>
 
  </div>
 
@@ -27,7 +27,7 @@
   ]]] )</div>
 
   <p class="para rdfs-comment">
-   CSV フィールド処理用の区切り文字と囲み文字をセットします。
+   CSV フィールド処理用の区切り文字と囲み文字とエスケープ文字をセットします。
   </p>
  </div>
 
@@ -87,10 +87,39 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-splfileobject.setcsvcontrol-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.3.0</td>
+       <td>
+        <code class="parameter">escape</code> パラメータが追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-splfileobject.setcsvcontrol-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3994">
+   <div class="example" id="splfileobject.fread.examples.basic">
     <p><strong>例1 <span class="methodname"><strong>SplFileObject::setCsvControl()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -118,7 +147,7 @@ cherries|87
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="methodname"><a href="splfileobject.getcsvcontrol.html" class="methodname" rel="rdfs-seeAlso">SplFileObject::getCsvControl()</a> - CSV の区切りと囲み文字を取得する</span></li>
+    <li class="member"><span class="methodname"><a href="splfileobject.getcsvcontrol.html" class="methodname" rel="rdfs-seeAlso">SplFileObject::getCsvControl()</a> - CSV の区切り、囲み文字、エスケープ文字を取得する</span></li>
     <li class="member"><span class="methodname"><a href="splfileobject.fgetcsv.html" class="methodname" rel="rdfs-seeAlso">SplFileObject::fgetcsv()</a> - ファイルから行を取り出し CSV フィールドとして処理する</span></li>
    </ul>
   </p>

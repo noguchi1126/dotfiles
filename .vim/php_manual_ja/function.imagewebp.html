@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagewebp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagewebp</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0)</p><p class="refpurpose"><span class="refname">imagewebp</span> &mdash; <span class="dc-title">WebP 画像をブラウザあるいはファイルに出力する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">imagewebp</span> &mdash; <span class="dc-title">WebP 画像をブラウザあるいはファイルに出力する</span></p>
 
  </div>
 
@@ -22,8 +22,9 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>imagewebp</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   )</div>
+   , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$to</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$quality</code><span class="initializer"> = 80</span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    指定した <code class="parameter">image</code> を、WebP 形式で出力あるいは保存します。
@@ -45,11 +46,25 @@ image</code></dt>
 
     
      <dt>
-<code class="parameter">filename</code></dt>
+<code class="parameter">to</code></dt>
 
      <dd>
 
-      <p class="para">ファイルの保存先のパス。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
+      <p class="para">ファイル保存先のパスあるいはオープン中のリソース (この関数が値を戻した後で自動的にクローズされます)。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">quality</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <code class="parameter">quality</code> には、0 (品質は最低で、
+       ファイルサイズが小さくなる) から 100 (品質が最高で、ファイルサイズは大きくなる)
+       までの値を指定します。
+      </p>
      </dd>
 
     
@@ -67,10 +82,40 @@ image</code></dt>
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.imagewebp-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        ストリームリソースを
+        <code class="parameter">to</code> に渡せるようになりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagewebp-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3309">
+   <div class="example" id="example-3617">
     <p><strong>例1 WebP ファイルの保存</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

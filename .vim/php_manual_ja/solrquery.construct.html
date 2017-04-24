@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="solrquery.addstatsfield.html">SolrQuery::addStatsField</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="solrquery.collapse.html">SolrQuery::collapse</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="solrquery.destruct.html">SolrQuery::__destruct</a></div>
  <div class="up"><a href="class.solrquery.html">SolrQuery</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -61,9 +61,44 @@
   </p>
  </div>
 
+<div class="refsect1 errors" id="refsect1-solrquery.construct-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   無効なパラメータが渡されたときに <a href="class.solrillegalargumentexception.html" class="classname">SolrIllegalArgumentException</a> が発生します。
+  </p>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-solrquery.construct-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>2.0.0</td>
+       <td>
+        <code class="parameter">q</code> が無効な場合に
+        <a href="class.solrillegalargumentexception.html" class="classname">SolrIllegalArgumentException</a> が発生するようになりました。以前のバージョンではエラーになっていました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="solrquery.addstatsfield.html">SolrQuery::addStatsField</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="solrquery.collapse.html">SolrQuery::collapse</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="solrquery.destruct.html">SolrQuery::__destruct</a></div>
  <div class="up"><a href="class.solrquery.html">SolrQuery</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

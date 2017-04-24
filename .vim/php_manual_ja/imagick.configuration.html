@@ -44,6 +44,13 @@
       <td>Imagick 2.2.2 以降で使用可能</td>
      </tr>
 
+     <tr>
+      <td><a href="imagick.configuration.html#ini.imagick.skip-version-check" class="link">imagick.skip_version_check</a></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>Imagick 3.3.0 以降で使用可能</td>
+     </tr>
+     
     </tbody>
    
   </table>
@@ -88,7 +95,28 @@
     </dd>
 
    
+
+   
+    <dt id="ini.imagick.skip-version-check">
+     <code class="parameter">imagick.skip_version_check</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Imagick を読み込む際には、コンパイル時に使った ImageMagick のバージョン番号と現在インストールされている ImageMagick のバージョン番号をチェックして、
+      一致しない場合に警告を発します。この ini 設定を有効にすると、一致しない場合の警告を出さないようにできます。
+     </p>
+     <p class="para">
+      コンパイル時に使ったバージョンと異なる ImageMagick を利用することはお勧めしません。
+      たまたま動いているように見えるかもしれませんが、不意にクラッシュしたり予期せぬ振る舞いを起こしたりする可能性があります。
+     </p>
+    </dd>
+
+   
   </dl>
+
 
  </p>
 </div><hr /><div class="manualnavbar" style="text-align: center;">

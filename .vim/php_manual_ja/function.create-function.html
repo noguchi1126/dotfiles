@@ -13,8 +13,13 @@
 </div><hr /><div id="function.create-function" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">create_function</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5)</p><p class="refpurpose"><span class="refname">create_function</span> &mdash; <span class="dc-title">匿名関数 (ラムダ形式) を作成する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">create_function</span> &mdash; <span class="dc-title">匿名関数 (ラムダ形式) を作成する</span></p>
 
+ </div>
+
+ <div id="function.create-function-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は PHP 7.2.0 で
+<em class="emphasis">非推奨</em>になります。この関数に頼らないことを強く推奨します。</p></div>
  </div>
 
  <div class="refsect1 description" id="refsect1-function.create-function-description">
@@ -92,7 +97,7 @@
  <div class="refsect1 examples" id="refsect1-function.create-function-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5117">
+   <div class="example" id="example-5961">
     <p><strong>例1 
      <span class="function"><strong>create_function()</strong></span> による匿名関数の作成
     </strong></p>
@@ -113,7 +118,7 @@
    一般的なハンドラ関数を定義できます。
   </p>
   <p class="para">
-   <div class="example" id="example-5118">
+   <div class="example" id="example-5962">
     <p><strong>例2 
      <span class="function"><strong>create_function()</strong></span> による一般的な処理関数の作成
     </strong></p>
@@ -151,7 +156,7 @@ similar(a,b) = 11(45.833333333333%)
    などで使用します。
   </p>
   <p class="para">
-   <div class="example" id="example-5119">
+   <div class="example" id="example-5963">
     <p><strong>例3 コールバック関数としての匿名関数の使用法</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

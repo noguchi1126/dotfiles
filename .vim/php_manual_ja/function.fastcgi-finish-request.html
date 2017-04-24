@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Flushes all response data to the client</title>
+  <title>すべてのレスポンスデータをクライアントにフラッシュする</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.fastcgi-finish-request" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fastcgi_finish_request</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.3)</p><p class="refpurpose"><span class="refname">fastcgi_finish_request</span> &mdash; <span class="dc-title">Flushes all response data to the client</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.3, PHP 7)</p><p class="refpurpose"><span class="refname">fastcgi_finish_request</span> &mdash; <span class="dc-title">すべてのレスポンスデータをクライアントにフラッシュする</span></p>
 
  </div>
 
@@ -25,9 +25,10 @@
    )</div>
 
   <p class="para rdfs-comment">
-   This function flushes all response data to the client and finishes the
-   request. This allows for time consuming tasks to be performed without
-   leaving the connection to the client open.
+   この関数は、すべてのレスポンスデータをクライアントにフラッシュし、
+   リクエストを終わらせます。
+   これにより、クライアントへの接続を開いたままにすることなく、
+   時間のかかる処理を実行することができます。
   </p>
  </div>
 

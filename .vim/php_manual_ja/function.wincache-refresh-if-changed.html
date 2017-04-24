@@ -22,7 +22,7 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>wincache_refresh_if_changed</strong></span>
-    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$files</code></span>
+    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$files</code><span class="initializer"> = NULL</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
@@ -74,7 +74,7 @@
    アプリケーション側ではキャッシュにある以前の設定を利用するという状況も発生し得ます。 
    そのような場合は、ファイルが変更されたらすぐにキャッシュをリフレッシュすることを推奨します。 
    次の例は、これをどのように行うかを示すものです。
-   <div class="example" id="example-564">
+   <div class="example" id="example-626">
     <p><strong>例1 <span class="function"><strong>wincache_refresh_if_changed()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

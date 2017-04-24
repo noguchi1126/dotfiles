@@ -13,7 +13,7 @@
 </div><hr /><div id="function.func-get-arg" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">func_get_arg</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">func_get_arg</span> &mdash; <span class="dc-title">引数のリストから要素をひとつ返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">func_get_arg</span> &mdash; <span class="dc-title">引数のリストから要素をひとつ返す</span></p>
 
  </div>
  
@@ -118,19 +118,26 @@
  <div class="refsect1 examples" id="refsect1-function.func-get-arg-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5122">
+   <div class="example" id="example-5966">
     <p><strong>例1 <span class="function"><strong>func_get_arg()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$numargs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">func_num_args</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Number&nbsp;of&nbsp;arguments:&nbsp;</span><span style="color: #0000BB">$numargs</span><span style="color: #DD0000">&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$numargs&nbsp;</span><span style="color: #007700">&gt;=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"二番目の引数は&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">func_get_arg</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;です。&lt;br&nbsp;/&gt;\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">foo&nbsp;</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">()<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$numargs&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">func_num_args</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"引数の数は&nbsp;</span><span style="color: #0000BB">$numargs</span><span style="color: #DD0000">\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$numargs&nbsp;</span><span style="color: #007700">&gt;=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"二番目の引数は&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">func_get_arg</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"&nbsp;です。\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+引数の数は 3
+二番目の引数は 2 です。
+</pre></div>
+    </div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5123">
+   <div class="example" id="example-5967">
     <p><strong>例2 <span class="function"><strong>func_get_arg()</strong></span> の PHP 5.3 前後の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -161,7 +168,7 @@ false
   </p>
 
   <p class="para">
-   <div class="example" id="example-5124">
+   <div class="example" id="example-5968">
     <p><strong>例3 <span class="function"><strong>func_get_arg()</strong></span> での引数の参照渡しと値渡しの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -170,7 +177,14 @@ false
 </code></div>
     </div>
 
-     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents"><p>上の例の PHP 7 での出力は、このようになります。</p></div>
+    <div class="example-contents screen"><br />
+As passed     : &#039;bar&#039;<br />
+After change  : &#039;baz&#039;<br />
+As passed     : &#039;bar&#039;<br />
+After change  : &#039;baz&#039;<br />
+    </div>
+    <div class="example-contents"><p>上の例の PHP 5 での出力は、このようになります。</p></div>
     <div class="example-contents screen"><br />
 As passed     : &#039;bar&#039;<br />
 After change  : &#039;bar&#039;<br />
@@ -191,7 +205,8 @@ After change  : &#039;baz&#039;<br />
 もし、この値を渡さなければならない場合、戻り値を変数に割り当て、
 その変数を渡してください。</p></p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">
-引数を参照渡しにすると、その引数への変更がすべてこの関数の返り値に反映されます。</p></p></blockquote>
+引数を参照渡しにすると、その引数への変更がすべてこの関数の返り値に反映されます。
+PHP 7 からは、引数が値渡しされた場合には現在の値も返されるようになりました。</p></p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <span class="simpara">
     この関数は、渡された引数のみのコピーを返します。
@@ -205,8 +220,9 @@ After change  : &#039;baz&#039;<br />
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.func-get-args.html" class="function" rel="rdfs-seeAlso">func_get_args()</a> - 関数の引数リストを配列として返す</span></li>
-    <li class="member"><span class="function"><a href="function.func-num-args.html" class="function" rel="rdfs-seeAlso">func_num_args()</a> - 関数に渡された引数の数を返す</span></li>
+    <li class="member">PHP 5.6 以降の <a href="functions.arguments.html#functions.variable-arg-list.new" class="link"><em>...</em> 構文</a></li>
+    <li class="member"><span class="function"><a href="function.func-get-args.html" class="function">func_get_args()</a></span></li>
+    <li class="member"><span class="function"><a href="function.func-num-args.html" class="function">func_num_args()</a></span></li>
    </ul>
   </p>
  </div>

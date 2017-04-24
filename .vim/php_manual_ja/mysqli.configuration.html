@@ -101,6 +101,13 @@
      </tr>
 
      <tr>
+      <td><a href="mysqli.configuration.html#ini.mysqli.rollback-on-cached-plink" class="link">mysqli.rollback_on_cached_plink</a></td>
+      <td>TRUE</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 5.6.0 以降で使用可能です。</td>
+     </tr>
+
+     <tr>
       <td><a href="mysqli.configuration.html#ini.mysqli.cache-size" class="link">mysqli.cache_size</a></td>
       <td>&quot;2000&quot;</td>
       <td>PHP_INI_SYSTEM</td>
@@ -279,6 +286,24 @@
 
     <p class="para">
      接続が失われたときに自動的に再接続するかどうか。
+    </p>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <span class="simpara">mysqlnd ドライバは、この <var class="filename">php.ini</var> 設定項目を無視します。</span>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.mysqli.rollback-on-cached-plink">
+    <code class="parameter">mysqli.rollback_on_cached_plink</code>
+    <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     ロールバックした接続を持続的接続プールに戻すために用います。
     </p>
    </dd>
 

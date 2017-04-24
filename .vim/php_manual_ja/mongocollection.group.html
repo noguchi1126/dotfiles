@@ -114,6 +114,7 @@
          reduce 関数の最後の出力を受け取ります。
         </p>
        </li>
+       <li class="listitem"><p class="para"><em>&quot;maxTimeMS&quot;</em></p><p class="para">サーバー上で操作を行う累積時間の制限 (アイドル時間を含まない) を、ミリ秒単位で指定します。この時間内にサーバー側の操作が完了しなければ、<a href="class.mongoexecutiontimeoutexception.html" class="classname">MongoExecutionTimeoutException</a> をスローします。</p></li>
       </ul>
      </dd>
 
@@ -147,6 +148,11 @@
 
      <tbody class="tbody">
       <tr>
+       <td>1.5.0</td>
+       <td><em>&quot;maxTimeMS&quot;</em> オプションが追加されました。</td>
+      </tr>
+
+      <tr>
        <td>1.2.11</td>
        <td>
         <code class="parameter">options</code> が <span class="type"><span class="type scalar">scalar</span></span> のときに <strong><code>E_DEPRECATED</code></strong> を発行するようになりました。
@@ -163,7 +169,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.group-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1468">
+  <div class="example" id="example-1563">
    <p><strong>例1 <span class="function"><strong>MongoCollection::group()</strong></span> の例</strong></p>
    <div class="example-contents"><p>
     これは、ドキュメントをカテゴリー別にまとめて
@@ -185,7 +191,7 @@
    </div>
   </div>
 
-  <div class="example" id="example-1469">
+  <div class="example" id="example-1564">
    <p><strong>例2 <span class="function"><strong>MongoCollection::group()</strong></span> の例</strong></p>
    <div class="example-contents"><p>
     この例ではキーを使わないので、すべてのドキュメントがそれ自身のグループに属します。
@@ -223,7 +229,7 @@ array(4) {
    </div>
   </div>
 
-  <div class="example" id="example-1470">
+  <div class="example" id="example-1565">
    <p><strong>例3 <code class="parameter">keys</code> へ関数を渡す</strong></p>
    <div class="example-contents"><p>
     フィールド名以外の何かでグループ化したい場合は、

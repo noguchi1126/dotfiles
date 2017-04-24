@@ -15,7 +15,7 @@
  <h1 class="title">IteratorIterator クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p>
 
 
   <div class="section" id="iteratoriterator.intro">
@@ -86,7 +86,15 @@
 
 
   </div>
-
+ 
+  <div class="section">
+   <h2 class="title">注意</h2>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     このクラスは、内部のイテレータのメソッドへのアクセスを許可するために、マジックメソッド __call を利用します。
+    </p>
+   </p></blockquote>
+  </div>
  </div>
 
  

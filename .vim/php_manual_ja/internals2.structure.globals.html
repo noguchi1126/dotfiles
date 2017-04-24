@@ -56,7 +56,7 @@
     で値を保存するときにこんな風にしてしまいがちです。
    </p>
 
-   <div class="example" id="internals2.structure.globals.intro.wrong-way">
+   <div class="example" id="example-6415">
     <p><strong>例1 カウンタの基本インターフェイスで値を保存するときの間違った方法</strong></p>
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">/* ... */
@@ -105,7 +105,7 @@ PHP_FUNCTION(counter_get)
     <var class="filename">php_counter.h</var> でのグローバル構造体の宣言の例を示します。
    </p>
 
-   <div class="example" id="internals2.structure.globals.declaring.doth">
+   <div class="example" id="internals2.memory.management.example.leak">
     <p><strong>例2 counter モジュールのグローバル変数</strong></p>
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">ZEND_BEGIN_MODULE_GLOBALS(counter)
@@ -120,7 +120,7 @@ ZEND_END_MODULE_GLOBALS(counter)</pre>
     そして、これが <var class="filename">counter.c</var> での宣言です。
    </p>
 
-   <div class="example" id="internals2.structure.globals.declaring.dotc">
+   <div class="example" id="internals2.structure.globals.using.accessor2">
     <p><strong>例3 counter モジュールのグローバル構造体宣言</strong></p>
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">ZEND_DECLARE_MODULE_GLOBALS(counter)</pre>
@@ -143,7 +143,7 @@ ZEND_END_MODULE_GLOBALS(counter)</pre>
     ヘッダファイルのどこかに次のような宣言があります。
    </p>
 
-   <div class="example" id="internals2.structure.globals.using.accessor">
+   <div class="example" id="internals2.counter.examples.basic.ex">
     <p><strong>例4 モジュール単位のグローバルにアクセスするためのマクロ</strong></p>
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">#ifdef ZTS
@@ -198,7 +198,7 @@ ZEND_END_MODULE_GLOBALS(counter)</pre>
     <span class="function"><a href="internals2.counter.function.counter-get.html" class="function">counter_get()</a></span> の新しいバージョンはこのようになります。
    </p>
   
-   <div class="example" id="internals2.structure.globals.intro.right-way">
+   <div class="example" id="internals2.counter.examples.extended.ex">
     <p><strong>例5 正しい方法での基本カウンタインターフェイスの値の保存</strong></p>
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">/* php_counter.h */

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.enchant-dict-add-to-personal" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">enchant_dict_add_to_personal</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PECL enchant &gt;= 0.1.0 )</p><p class="refpurpose"><span class="refname">enchant_dict_add_to_personal</span> &mdash; <span class="dc-title">パーソナル単語リストに単語を追加する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL enchant &gt;= 0.1.0 )</p><p class="refpurpose"><span class="refname">enchant_dict_add_to_personal</span> &mdash; <span class="dc-title">パーソナル単語リストに単語を追加する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.enchant-dict-add-to-personal-description">
@@ -68,6 +68,20 @@
   <p class="para">
    成功した場合に <strong><code>TRUE</code></strong> を、失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-function.enchant-dict-add-to-personal-examples">
+   <div class="example" id="example-2722">
+    <p><strong>例1 PWL への単語の追加</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'./my_word_list.pwl'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$word&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Supercalifragilisticexpialidocious'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$broker&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">enchant_broker_init</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$dict&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">enchant_broker_request_pwl_dict</span><span style="color: #007700">(</span><span style="color: #0000BB">$broker</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">enchant_dict_add_to_personal</span><span style="color: #007700">(</span><span style="color: #0000BB">$dict</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$word</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">enchant_broker_free</span><span style="color: #007700">(</span><span style="color: #0000BB">$broker</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
  </div>
 
 

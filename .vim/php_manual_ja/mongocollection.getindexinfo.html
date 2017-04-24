@@ -48,7 +48,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.getindexinfo-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1464">
+  <div class="example" id="mongocollection.distinct.basic-embedded">
    <p><strong>例1 <span class="function"><strong>MongoCollection::getIndexInfo()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -61,42 +61,68 @@
 たとえば以下のようになります。</p></div>
    <div class="example-contents screen">
 <div class="cdata"><pre>
-array(
-  0 =&gt; array(
-    &quot;v&quot; =&gt; 1,
-    &quot;key&quot; =&gt; array(
-      &quot;_id&quot; =&gt; 1,
-    ),
-    &quot;ns&quot; =&gt; &quot;test.venues&quot;,
-    &quot;name&quot; =&gt; &quot;_id_&quot;,
-  ),
-  1 =&gt; array(
-    &quot;v&quot; =&gt; 1,
-    &quot;key&quot; =&gt; array(
-      &quot;name&quot; =&gt; 1,
-    ),
-    &quot;unique&quot; : true,
-    &quot;ns&quot; =&gt; &quot;test.venues&quot;,
-    &quot;name&quot; =&gt; &quot;name_1&quot;,
-  ),
-  2 =&gt; array(
-    &quot;v&quot; =&gt; 1,
-    &quot;key&quot; =&gt; array(
-      &quot;type&quot; =&gt; 1,
-      &quot;createdAt&quot; =&gt; -1,
-    ),
-    &quot;ns&quot; =&gt; &quot;test.venues&quot;,
-    &quot;name&quot; =&gt; &quot;type_1_createdAt_-1&quot;,
-  ),
-  3 =&gt; array(
-    &quot;v&quot; =&gt; 1,
-    &quot;key&quot; =&gt; array(
-      &quot;location&quot; =&gt; &quot;2d&quot;,
-    ),
-    &quot;ns&quot; =&gt; &quot;test.venues&quot;,
-    &quot;name&quot; =&gt; &quot;location_2d&quot;,
-  ),
-)
+array(4) {
+  [0]=&gt;
+  array(4) {
+    [&quot;v&quot;]=&gt;
+    int(1)
+    [&quot;key&quot;]=&gt;
+    array(1) {
+      [&quot;_id&quot;]=&gt;
+      int(1)
+    }
+    [&quot;name&quot;]=&gt;
+    string(4) &quot;_id_&quot;
+    [&quot;ns&quot;]=&gt;
+    string(11) &quot;test.venues&quot;
+  }
+  [1]=&gt;
+  array(4) {
+    [&quot;v&quot;]=&gt;
+    int(1)
+    [&quot;key&quot;]=&gt;
+    array(1) {
+      [&quot;name&quot;]=&gt;
+      float(1)
+    }
+    [&quot;name&quot;]=&gt;
+    string(6) &quot;name_1&quot;
+    [&quot;ns&quot;]=&gt;
+    string(11) &quot;test.venues&quot;
+  }
+  [2]=&gt;
+  array(4) {
+    [&quot;v&quot;]=&gt;
+    int(1)
+    [&quot;key&quot;]=&gt;
+    array(2) {
+      [&quot;type&quot;]=&gt;
+      float(1)
+      [&quot;createdAt&quot;]=&gt;
+      float(-1)
+    }
+    [&quot;name&quot;]=&gt;
+    string(19) &quot;type_1_createdAt_-1&quot;
+    [&quot;ns&quot;]=&gt;
+    string(11) &quot;test.venues&quot;
+  }
+  [3]=&gt;
+  array(5) {
+    [&quot;v&quot;]=&gt;
+    int(1)
+    [&quot;key&quot;]=&gt;
+    array(1) {
+      [&quot;location&quot;]=&gt;
+      string(8) &quot;2dsphere&quot;
+    }
+    [&quot;name&quot;]=&gt;
+    string(17) &quot;location_2dsphere&quot;
+    [&quot;ns&quot;]=&gt;
+    string(11) &quot;test.venues&quot;
+    [&quot;2dsphereIndexVersion&quot;]=&gt;
+    int(2)
+  }
+}
 </pre></div>
    </div>
   </div>
@@ -107,8 +133,8 @@ array(
   <h3 class="title">参考</h3>
   <p class="para">
    MongoDB コアドキュメントの
-   <a href="http://docs.mongodb.org/manual/indexes/" class="link external">&raquo;&nbsp;vanilla indexes</a> や
-   <a href="http://docs.mongodb.org/manual/applications/geospatial-indexes/" class="link external">&raquo;&nbsp;geospatial indexes</a> も参照ください。
+   <a href="https://docs.mongodb.com/manual/indexes/" class="link external">&raquo;&nbsp;vanilla indexes</a> や
+   <a href="https://docs.mongodb.com/manual/applications/geospatial-indexes/" class="link external">&raquo;&nbsp;geospatial indexes</a> も参照ください。
   </p>
  </div>
 

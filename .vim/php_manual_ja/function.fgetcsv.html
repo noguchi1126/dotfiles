@@ -13,7 +13,7 @@
 </div><hr /><div id="function.fgetcsv" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fgetcsv</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">fgetcsv</span> &mdash; <span class="dc-title">ファイルポインタから行を取得し、CSVフィールドを処理する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fgetcsv</span> &mdash; <span class="dc-title">ファイルポインタから行を取得し、CSVフィールドを処理する</span></p>
 
  </div>
  
@@ -23,9 +23,9 @@
    <span class="type">array</span> <span class="methodname"><strong>fgetcsv</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &#039;,&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;,&quot;</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &#039;&quot;&#039;</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &#039;\\&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &quot;\&quot;</span></span>
   ]]]] )</div>
 
   <p class="para rdfs-comment">
@@ -66,8 +66,12 @@
       <p class="para">
        (行末文字を考慮して) CSV
        ファイルにある最も長い行よりも大きい必要があります。
-       PHP 5 でオプションになりました。このパラメータを省略
-       (もしくは PHP 5.0.4 かそれ以降で 0 を設定) すると、
+       そうでない場合は、ひとつの行が <code class="parameter">length</code>
+       文字ずつのチャンクに分割されてしまいます。
+       ただし、フィールド囲いこみ文字の内部では、この分割は発生しません。
+      </p>
+      <p class="para">
+       このパラメータを省略 (もしくは PHP 5.1.0 以降で 0 を設定) すると、
        最大行長は制限されません。この場合、若干動作が遅くなります。
       </p>
      </dd>
@@ -80,7 +84,7 @@
      <dd>
 
       <p class="para">
-       フィールドのデリミタ (1 文字のみ) を設定します。
+       オプションの <code class="parameter">delimiter</code> パラメータで、フィールドのデリミタ (1 文字のみ) を設定します。
       </p>
      </dd>
 
@@ -92,7 +96,7 @@
      <dd>
 
       <p class="para">
-       フィールド囲いこみ文字 (1 文字のみ) を設定します。
+       オプションの <code class="parameter">enclosure</code> パラメータで、フィールド囲いこみ文字 (1 文字のみ) を設定します。
       </p>
      </dd>
 
@@ -104,7 +108,7 @@
      <dd>
 
       <p class="para">
-       エスケープ文字 (1 文字のみ) を設定します。
+       オプションの <code class="parameter">escape</code> パラメータで、エスケープ文字 (1 文字のみ) を設定します。
       </p>
      </dd>
 
@@ -162,16 +166,18 @@
       </tr>
 
       <tr>
-       <td>4.3.5</td>
+       <td>5.1.0</td>
        <td>
-        <span class="function"><strong>fgetcsv()</strong></span> はバイナリセーフとなりました。
+        <code class="parameter">length</code> が必須ではなくなりました。
+        デフォルトは <em>0</em> で、これは長さの制限がないことを表します。
+        
        </td>
       </tr>
 
       <tr>
-       <td>4.3.0</td>
+       <td>4.3.5</td>
        <td>
-        <code class="parameter">enclosure</code> パラメータが追加されました。
+        <span class="function"><strong>fgetcsv()</strong></span> はバイナリセーフとなりました。
        </td>
       </tr>
 
@@ -186,7 +192,7 @@
  <div class="refsect1 examples" id="refsect1-function.fgetcsv-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2379">
+   <div class="example" id="example-2615">
     <p><strong>例1 CSV ファイルの全てのコンテンツを読み込み、表示する</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

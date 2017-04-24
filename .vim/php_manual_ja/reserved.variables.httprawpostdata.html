@@ -19,10 +19,17 @@
  
  <div class="refsect1 description" id="refsect1-reserved.variables.httprawpostdata-description">
   <h3 class="title">説明</h3>
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は PHP 5.6.0 で <em class="emphasis">非推奨</em> となり、
+PHP 7.0.0 で <em class="emphasis">削除</em> されました。</p></div>
   <p class="para">
    <var class="varname"><var class="varname">$HTTP_RAW_POST_DATA</var></var> には生の POST データが格納されます。
    <a href="ini.core.html#ini.always-populate-raw-post-data" class="link">always_populate_raw_post_data</a>
    も参照ください。
+  </p>
+  <p class="para">
+   <var class="varname"><var class="varname">$HTTP_RAW_POST_DATA</var></var> の代わりに、
+   <a href="wrappers.php.html#wrappers.php.input" class="link"><em>php://input</em></a>
+   を使うべきです。
   </p>
  </div>
 

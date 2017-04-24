@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>ドット表記の (IPv4) IP アドレスを、適切なアドレスに変換する</title>
+  <title>ドット表記の (IPv4) IP アドレスを、長整数表現に変換する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ip2long" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ip2long</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ip2long</span> &mdash; <span class="dc-title">ドット表記の (IPv4) IP アドレスを、適切なアドレスに変換する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ip2long</span> &mdash; <span class="dc-title">ドット表記の (IPv4) IP アドレスを、長整数表現に変換する</span></p>
 
  </div>
  
@@ -26,7 +26,7 @@
 
   <p class="para rdfs-comment">
    関数 <span class="function"><strong>ip2long()</strong></span> は、インターネット標準形式
-   (ドット表記の文字列) 表現から IPv4 インターネットネットアドレスを生成します。
+   (ドット表記の文字列) 表現から、長整数表現の IPv4 インターネットネットアドレスを生成します。
   </p>
   <p class="para">
    <span class="function"><strong>ip2long()</strong></span> は不完全な形式の
@@ -63,7 +63,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ip2long-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   IPv4 アドレス、あるいは <code class="parameter">ip_address</code>
+   長整数値、あるいは <code class="parameter">ip_address</code>
    が不正な形式の場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
@@ -84,18 +84,18 @@
 
      <tbody class="tbody">
       <tr>
-       <td>5.2.10</td>
+       <td>5.5.0</td>
        <td>
-        このバージョンより前は、IPv4 のドット形式のアドレスでなくても
+        このバージョンより前は、Windows において、IPv4 のドット形式のアドレスでなくても
         <span class="function"><strong>ip2long()</strong></span> が有効な数値を返すことがありました。
        </td>
       </tr>
 
       <tr>
-       <td>5.0.0</td>
+       <td>5.2.10</td>
        <td>
-        このバージョンより前は、<span class="function"><strong>ip2long()</strong></span>
-        が失敗したときの返り値は -1 でした。
+        このバージョンより前は、IPv4 のドット形式のアドレスでなくても
+        <span class="function"><strong>ip2long()</strong></span> が有効な数値を返すことがありました。
        </td>
       </tr>
 
@@ -110,7 +110,7 @@
  <div class="refsect1 examples" id="refsect1-function.ip2long-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4501">
+   <div class="example" id="example-5045">
     <p><strong>例1 <span class="function"><strong>ip2long()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -122,12 +122,12 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4502">
+   <div class="example" id="example-5046">
     <p><strong>例2 IP アドレスの表示</strong></p>
     <div class="example-contents"><p>
-     2 番目の例は、<span class="function"><a href="function.printf.html" class="function">printf()</a></span>
-     関数で変換されたアドレスを出力する方法を示すものです。
-     PHP 4 と PHP 5 のどちらでも使えます。
+     2 番目の例は、変換されたアドレスを
+     <span class="function"><a href="function.printf.html" class="function">printf()</a></span>
+     関数で出力する方法を示すものです。
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -156,8 +156,7 @@
    <p class="para">
     PHP 5 &lt;= 5.0.2 では、IP <em>255.255.255.255</em>
     に対して <span class="function"><strong>ip2long()</strong></span> が <strong><code>FALSE</code></strong> を返します。
-    これは PHP 5.0.3 で <em>-1</em> を返すように修正されています
-    (PHP 4 と同じ動作です)。
+    これは PHP 5.0.3 で <em>-1</em> を返すように修正されています。
    </p>
   </p></blockquote>
  </div>
@@ -167,7 +166,7 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.long2ip.html" class="function" rel="rdfs-seeAlso">long2ip()</a> - (IPv4) インターネットアドレスをインターネット標準ドット表記に変換する</span></li>
+    <li class="member"><span class="function"><a href="function.long2ip.html" class="function" rel="rdfs-seeAlso">long2ip()</a> - 長整数評言のインターネットアドレスを (IPv4) インターネット標準ドット表記に変換する</span></li>
     <li class="member"><span class="function"><a href="function.sprintf.html" class="function" rel="rdfs-seeAlso">sprintf()</a> - フォーマットされた文字列を返す</span></li>
    </ul>
   </p>

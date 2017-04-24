@@ -13,7 +13,7 @@
 </div><hr /><div id="function.file" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">file</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">file</span> &mdash; <span class="dc-title">ファイル全体を読み込んで配列に格納する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">file</span> &mdash; <span class="dc-title">ファイル全体を読み込んで配列に格納する</span></p>
 
  </div>
  
@@ -113,7 +113,6 @@ URL を使用することができます。ファイル名の指定方法に関�
          </dd>
 
         
-        
        </dl>
 
       </p>
@@ -165,6 +164,14 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.file-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   ファイルが存在しない場合は <strong><code>E_WARNING</code></strong> レベルのエラーが発生します。
+  </p>
+ </div>
+
+ 
  <div class="refsect1 changelog" id="refsect1-function.file-changelog">
   <h3 class="title">変更履歴</h3>
   <p class="para">
@@ -179,23 +186,6 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
      </thead>
 
      <tbody class="tbody">
-      
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        <code class="parameter">context</code> パラメータが追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        PHP 5.0.0 より前のバージョンでは、パラメータ <code class="parameter">flags</code>
-        でカバーしているのは <a href="ini.core.html#ini.include-path" class="link">include_path</a>
-        の設定だけでした。これを有効にするには 1 を指定します。
-       </td>
-      </tr>
-
       <tr>
        <td>4.3.0</td>
        <td>
@@ -214,7 +204,7 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
  <div class="refsect1 examples" id="refsect1-function.file-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2389">
+   <div class="example" id="example-2625">
     <p><strong>例1 <span class="function"><strong>file()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -234,7 +224,7 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
 対応してない Web サーバーは、PHP に警告を発生させるような手順でデータを送信します。
 このようなサーバーを使用する場合は、<a href="errorfunc.configuration.html#ini.error-reporting" class="link">
 error_reporting</a> を警告を発生しないレベルまで小さくする必要があります。
-PHP 4.3.7 以降では、<em>https://</em> ラッパーでストリームをオープンする際に
+PHP では、<em>https://</em> ラッパーでストリームをオープンする際に
 バグがある IIS サーバーソフトウエアを検出することができ、この警告を抑制することができます。
 あなたが <em>ssl://</em> ソケットを作成するために  <span class="function"><a href="function.fsockopen.html" class="function">fsockopen()</a></span> を使用している場合、
 自らこの警告を検出し、抑制する必要があります。</p></div>

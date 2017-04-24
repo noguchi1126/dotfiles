@@ -13,8 +13,16 @@
 </div><hr /><div id="thread.detach" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Thread::detach</h1>
-  <p class="verinfo">(PECL pthreads &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Thread::detach</span> &mdash; <span class="dc-title">Execution</span></p>
+  <p class="verinfo">(PECL pthreads &lt; 3.0.0)</p><p class="refpurpose"><span class="refname">Thread::detach</span> &mdash; <span class="dc-title">Execution</span></p>
 
+ </div>
+
+ <div id="thread.detach-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    This method has been removed in pthreads v3.
+   </p>
+  </div>
  </div>
 
  <div class="refsect1 description" id="refsect1-thread.detach-description">
@@ -25,7 +33,7 @@
    )</div>
 
   <p class="para rdfs-comment">
- Detaches the referenced Thread from the calling context, dangerously!
+ Detaches the referenced Thread from the calling context, dangerous!
   </p>
   <div class="warning"><strong class="warning">警告</strong>
   <p class="para">

@@ -23,7 +23,8 @@
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><strong>OAuth::getAccessToken</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$access_token_url</code></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$verifier_token</code></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code></span>
+  ]] )</div>
 
   <p class="para rdfs-comment">
    アクセストークン、secret そして追加のレスポンスパラメータをサービスプロバイダから取得します。
@@ -84,6 +85,18 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">http_method</code></dt>
+
+     <dd>
+
+      <p class="para">
+       利用する HTTP メソッド。<em>GET</em> や <em>POST</em> など。
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -137,7 +150,7 @@
  <div class="refsect1 examples" id="refsect1-oauth.getaccesstoken-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5298">
+   <div class="example" id="example-6161">
     <p><strong>例1 <span class="function"><strong>OAuth::getAccessToken()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

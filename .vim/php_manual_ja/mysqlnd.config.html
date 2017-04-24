@@ -49,7 +49,7 @@
 
      <tr>
       <td><a href="mysqlnd.config.html#ini.mysqlnd.debug" class="link">mysqlnd.debug</a></td>
-      <td>&quot;0&quot;</td>
+      <td>&quot;&quot;</td>
       <td>PHP_INI_SYSTEM</td>
       <td>PHP 5.3.0 以降で利用可能。</td>
      </tr>
@@ -94,6 +94,13 @@
       <td>&quot;&quot;</td>
       <td>PHP_INI_PERDIR</td>
       <td>PHP 5.5.0 以降で利用可能。</td>
+     </tr>
+
+     <tr>
+      <td><a href="mysqlnd.config.html#ini.mysqlnd.fetch_data_copy" class="link">mysqlnd.fetch_data_copy</a></td>
+      <td>0</td>
+      <td>PHP_INI_ALL</td>
+      <td>PHP 5.6.0 以降で利用可能。</td>
      </tr>
 
     </tbody>
@@ -245,6 +252,11 @@
         x - このオプションはプロファイリングを有効にします。
        </p>
       </li>
+       <li class="listitem">
+       <p class="para">
+        m - 呼び出しに関連する、メモリの確保と解放をトレースします。
+       </p>
+      </li>
      </ul>
      <p class="para">
       利用例は、このようになります。
@@ -374,10 +386,6 @@ d:t:x:O,/tmp/mysqlnd.trace
      <p class="para">
       バッファのデフォルトサイズは、PHP 5.3.0 では 2048 バイトです。
       それより新しいバージョンでは、デフォルトが 4096 バイトになりました。
-      デフォルトを変更するには、<var class="filename">php.ini</var> で
-      <em>mysqlnd.net_cmd_buffer_size</em> を設定するか、あるいは
-      <em>mysqli_options(MYSQLI_OPT_NET_CMD_BUFFER_SIZE, int
-      size)</em> を使います。
      </p>
      <p class="para">
       バッファサイズを 4096 より小さくすることはおすすめしません。というのも、
@@ -450,6 +458,33 @@ d:t:x:O,/tmp/mysqlnd.trace
       <span class="function"><a href="mysqli.options.html" class="function">mysqli_options()</a></span> で鍵を指定します。
       RSA 公開鍵をクライアントから渡さなかった場合は、
       ここで指定した鍵を使って SHA-256 認証プラグインの認証手続きを進めます。
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.mysqlnd.fetch_data_copy">
+     <code class="parameter">mysqlnd.fetch_data_copy</code>
+     <span class="type"><span class="type long">long</span></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      デフォルトの参照とコピーオンライトのロジックを使わずに、
+      内部結果セットのバッファから PHP の変数に結果セットをコピーします。
+      詳細は
+      <a href="mysqlnd.memory.html" class="link">メモリ管理の実装についての説明</a>
+      を参照ください。
+     </p>
+     <p class="para">
+      結果セットを PHP の変数から参照させるのではなくコピーすることで、
+      PHP の変数に割り当てたメモリを早めに解放できます。
+      ユーザー API のコードやクエリの内容、そして結果セットの大きさにも依存しますが、
+      これは mysqlnd のメモリ使用量の削減につながります。
+     </p>
+     <p class="para">
+       PDO_MySQL を使う場合は設定しないでください。PDO_MySQL は、まだこの新しいフェッチモードに対応していません。
      </p>
     </dd>
 

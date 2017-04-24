@@ -13,7 +13,7 @@
 </div><hr /><div id="function.strpos" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strpos</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strpos</span> &mdash; <span class="dc-title">文字列内の部分文字列が最初に現れる場所を見つける</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strpos</span> &mdash; <span class="dc-title">文字列内の部分文字列が最初に現れる場所を見つける</span></p>
 
  </div>
  
@@ -71,8 +71,7 @@
 
       <p class="para">
        指定すると、文字列内での検索開始位置がその位置になります。
-       <span class="function"><a href="function.strrpos.html" class="function">strrpos()</a></span> や
-       <span class="function"><a href="function.strripos.html" class="function">strripos()</a></span> と異なり、負の数は指定できません。
+       負の数を指定すると、文字列の末尾からこの数だけ戻った場所から検索を開始します。
       </p>
      </dd>
 
@@ -102,10 +101,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.strpos-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.1.0</td>
+      <td>
+       負の <code class="parameter">offset</code> をサポートするようになりました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.strpos-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4909">
+   <div class="example" id="example-5512">
     <p><strong>例1 <em>===</em> の使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -116,7 +142,7 @@
 
    </div>
 
-   <div class="example" id="example-4910">
+   <div class="example" id="example-5513">
     <p><strong>例2 !== の使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -127,7 +153,7 @@
 
    </div>
 
-   <div class="example" id="example-4911">
+   <div class="example" id="example-5514">
     <p><strong>例3 オフセットの使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

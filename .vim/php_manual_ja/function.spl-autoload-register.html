@@ -13,7 +13,7 @@
 </div><hr /><div id="function.spl-autoload-register" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">spl_autoload_register</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.2)</p><p class="refpurpose"><span class="refname">spl_autoload_register</span> &mdash; <span class="dc-title">指定した関数を __autoload() の実装として登録する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7)</p><p class="refpurpose"><span class="refname">spl_autoload_register</span> &mdash; <span class="dc-title">指定した関数を __autoload() の実装として登録する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.spl-autoload-register-description">
@@ -26,12 +26,12 @@
   ]]] )</div>
 
   <p class="para rdfs-comment">
-   指定した関数を、spl が提供する __autoload スタックに登録します。
-   スタックがまだアクティブになっていない場合は、まずアクティブにします。
+   指定した関数を、spl が提供する __autoload キューに登録します。
+   キューがまだアクティブになっていない場合は、まずアクティブにします。
   </p>
   <p class="para">
    もしあなたのコード中に <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> 関数が存在するのなら、
-   それを明示的に __autoload スタックに登録しなければなりません。
+   それを明示的に __autoload キューに登録しなければなりません。
    なぜなら、<span class="function"><strong>spl_autoload_register()</strong></span> は、
    <span class="function"><a href="function.spl-autoload.html" class="function">spl_autoload()</a></span> あるいは <span class="function"><a href="function.spl-autoload-call.html" class="function">spl_autoload_call()</a></span> によって
    <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> 関数のエンジンキャッシュを効率的に置き換えるからです。
@@ -87,7 +87,7 @@
 
       <p class="para">
        true の場合、<span class="function"><strong>spl_autoload_register()</strong></span>
-       はスタックの最後の追加するのではなく先頭に追加します。
+       はキューの最後に追加するのではなく先頭に追加します。
       </p>
      </dd>
 
@@ -145,7 +145,7 @@
  <div class="refsect1 examples" id="refsect1-function.spl-autoload-register-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3940">
+   <div class="example" id="regexiterator.getpregflags.example.basic">
     <p><strong>例1 <span class="function"><strong>spl_autoload_register()</strong></span> を <span class="function"><a href="function.autoload.html" class="function">__autoload()</a></span> 関数の代わりに使う例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -155,7 +155,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3941">
+   <div class="example" id="regexiterator.setflags.example.basic">
     <p><strong>例2 <span class="function"><strong>spl_autoload_register()</strong></span> でクラスをロードしない例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

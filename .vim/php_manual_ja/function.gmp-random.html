@@ -6,21 +6,26 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="function.gmp-prob-prime.html">gmp_prob_prime</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.gmp-scan0.html">gmp_scan0</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="function.gmp-random-seed.html">gmp_random_seed</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gmp-root.html">gmp_root</a></div>
  <div class="up"><a href="ref.gmp.html">GMP 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.gmp-random" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmp_random</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">gmp_random</span> &mdash; <span class="dc-title">乱数を生成する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gmp_random</span> &mdash; <span class="dc-title">乱数を生成する</span></p>
 
  </div>
- 
+
+ <div id="function.gmp-random-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は PHP 7.2.0 で
+<em class="emphasis">非推奨</em>になります。この関数に頼らないことを強く推奨します。</p></div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.gmp-random-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type">resource</span> <span class="methodname"><strong>gmp_random</strong></span>
+   <span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <span class="methodname"><strong>gmp_random</strong></span>
     ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$limiter</code><span class="initializer"> = 20</span></span>
   ] )</div>
 
@@ -52,8 +57,7 @@
       <p class="para">
        リミッタ。
       </p>
-      <p class="para">GMP 数リソース、
-あるいは数値に変換可能な数値形式の文字列。</p> 
+      <p class="para">PHP 5.5 以前での GMP 数リソース、PHP 5.6 以降での <a href="class.gmp.html" class="classname">GMP</a> オブジェクト、あるいは数値に変換可能な数値形式の文字列。</p> 
      </dd>
 
     
@@ -74,7 +78,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-random-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3446">
+   <div class="example" id="example-3978">
     <p><strong>例1 <span class="function"><strong>gmp_random()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -96,8 +100,8 @@
 
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="function.gmp-prob-prime.html">gmp_prob_prime</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.gmp-scan0.html">gmp_scan0</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="function.gmp-random-seed.html">gmp_random_seed</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gmp-root.html">gmp_root</a></div>
  <div class="up"><a href="ref.gmp.html">GMP 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>ログレベルを取得する</title>
+  <title>現在記録されているログレベルを取得する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="mongolog.getlevel" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">MongoLog::getLevel</h1>
-  <p class="verinfo">(PECL mongo &gt;= 1.2.3)</p><p class="refpurpose"><span class="refname">MongoLog::getLevel</span> &mdash; <span class="dc-title">ログレベルを取得する</span></p>
+  <p class="verinfo">(PECL mongo &gt;= 1.2.3)</p><p class="refpurpose"><span class="refname">MongoLog::getLevel</span> &mdash; <span class="dc-title">現在記録されているログレベルを取得する</span></p>
 
  </div>
 
@@ -25,8 +25,10 @@
    )</div>
 
   <p class="para rdfs-comment">
-   これを使ってログレベルを調べることができます。
-   <a href="class.mongolog.html" class="classname">MongoLog</a> のセクションで説明した定数をビット演算子でつないでレベルを調べます。
+   この関数を使うと、現在有効になっているログのレベルを調べることができます。
+   返される整数値をビット演算子で
+   <a href="class.mongolog.html#mongolog.constants.level" class="link">MongoLog レベル定数</a>
+   と比較すると、ログレベルを判断できます。
   </p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -47,7 +49,7 @@
  <div class="refsect1 returnvalues" id="refsect1-mongolog.getlevel-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   現在のレベルを返します。
+   現在記録されているログレベルを返します。
   </p>
  </div>
 

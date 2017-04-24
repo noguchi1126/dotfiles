@@ -15,7 +15,7 @@
  <h1 class="title">ReflectionParameter クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7)</p>
 
 
   <div class="section" id="reflectionparameter.intro">
@@ -114,6 +114,14 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">ReflectionType</span> <span class="methodname"><a href="reflectionparameter.gettype.html" class="methodname">getType</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionparameter.hastype.html" class="methodname">hasType</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionparameter.isarray.html" class="methodname">isArray</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -135,6 +143,10 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionparameter.ispassedbyreference.html" class="methodname">isPassedByReference</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="reflectionparameter.isvariadic.html" class="methodname">isVariadic</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -327,7 +339,28 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionparameter.allowsnull.html">ReflectionParameter::allowsNull</a> — null を許可するかどうかを調べる</li><li><a href="reflectionparameter.canbepassedbyvalue.html">ReflectionParameter::canBePassedByValue</a> — このパラメータが値渡し可能かどうかを返す</li><li><a href="reflectionparameter.clone.html">ReflectionParameter::__clone</a> — クローンする</li><li><a href="reflectionparameter.construct.html">ReflectionParameter::__construct</a> — コンストラクタ</li><li><a href="reflectionparameter.export.html">ReflectionParameter::export</a> — エクスポートする</li><li><a href="reflectionparameter.getclass.html">ReflectionParameter::getClass</a> — タイプヒントつきのクラスを取得する</li><li><a href="reflectionparameter.getdeclaringclass.html">ReflectionParameter::getDeclaringClass</a> — 宣言しているクラスを取得する</li><li><a href="reflectionparameter.getdeclaringfunction.html">ReflectionParameter::getDeclaringFunction</a> — 宣言している関数を取得する</li><li><a href="reflectionparameter.getdefaultvalue.html">ReflectionParameter::getDefaultValue</a> — パラメータのデフォルト値を取得する</li><li><a href="reflectionparameter.getdefaultvalueconstantname.html">ReflectionParameter::getDefaultValueConstantName</a> — デフォルト値が定数あるいは null の場合に、その定数名を返す</li><li><a href="reflectionparameter.getname.html">ReflectionParameter::getName</a> — パラメータ名を取得する</li><li><a href="reflectionparameter.getposition.html">ReflectionParameter::getPosition</a> — パラメータの位置を取得する</li><li><a href="reflectionparameter.isarray.html">ReflectionParameter::isArray</a> — 配列を受け取るパラメータであるかどうかを調べる</li><li><a href="reflectionparameter.iscallable.html">ReflectionParameter::isCallable</a> — パラメータが callable かどうかを返す</li><li><a href="reflectionparameter.isdefaultvalueavailable.html">ReflectionParameter::isDefaultValueAvailable</a> — デフォルト値が存在するかどうかを調べる</li><li><a href="reflectionparameter.isdefaultvalueconstant.html">ReflectionParameter::isDefaultValueConstant</a> — このパラメータのデフォルト値が定数かどうかを返す</li><li><a href="reflectionparameter.isoptional.html">ReflectionParameter::isOptional</a> — 省略可能であるかどうかを調べる</li><li><a href="reflectionparameter.ispassedbyreference.html">ReflectionParameter::isPassedByReference</a> — 参照渡しかどうかを調べる</li><li><a href="reflectionparameter.tostring.html">ReflectionParameter::__toString</a> — 文字列に変換する</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="reflectionparameter.allowsnull.html">ReflectionParameter::allowsNull</a> — null を許可するかどうかを調べる</li><li><a href="reflectionparameter.canbepassedbyvalue.html">ReflectionParameter::canBePassedByValue</a> — このパラメータが値渡し可能かどうかを返す</li><li><a href="reflectionparameter.clone.html">ReflectionParameter::__clone</a> — クローンする</li><li><a href="reflectionparameter.construct.html">ReflectionParameter::__construct</a> — コンストラクタ</li><li><a href="reflectionparameter.export.html">ReflectionParameter::export</a> — エクスポートする</li><li><a href="reflectionparameter.getclass.html">ReflectionParameter::getClass</a> — タイプヒントつきのクラスを取得する</li><li><a href="reflectionparameter.getdeclaringclass.html">ReflectionParameter::getDeclaringClass</a> — 宣言しているクラスを取得する</li><li><a href="reflectionparameter.getdeclaringfunction.html">ReflectionParameter::getDeclaringFunction</a> — 宣言している関数を取得する</li><li><a href="reflectionparameter.getdefaultvalue.html">ReflectionParameter::getDefaultValue</a> — パラメータのデフォルト値を取得する</li><li><a href="reflectionparameter.getdefaultvalueconstantname.html">ReflectionParameter::getDefaultValueConstantName</a> — デフォルト値が定数あるいは null の場合に、その定数名を返す</li><li><a href="reflectionparameter.getname.html">ReflectionParameter::getName</a> — パラメータ名を取得する</li><li><a href="reflectionparameter.getposition.html">ReflectionParameter::getPosition</a> — パラメータの位置を取得する</li><li><a href="reflectionparameter.gettype.html">ReflectionParameter::getType</a> — Gets a parameter's type</li><li><a href="reflectionparameter.hastype.html">ReflectionParameter::hasType</a> — Checks if parameter has a type</li><li><a href="reflectionparameter.isarray.html">ReflectionParameter::isArray</a> — 配列を受け取るパラメータであるかどうかを調べる</li><li><a href="reflectionparameter.iscallable.html">ReflectionParameter::isCallable</a> — パラメータが callable かどうかを返す</li><li><a href="reflectionparameter.isdefaultvalueavailable.html">ReflectionParameter::isDefaultValueAvailable</a> — デフォルト値が存在するかどうかを調べる</li><li><a href="reflectionparameter.isdefaultvalueconstant.html">ReflectionParameter::isDefaultValueConstant</a> — このパラメータのデフォルト値が定数かどうかを返す</li><li><a href="reflectionparameter.isoptional.html">ReflectionParameter::isOptional</a> — 省略可能であるかどうかを調べる</li><li><a href="reflectionparameter.ispassedbyreference.html">ReflectionParameter::isPassedByReference</a> — 参照渡しかどうかを調べる</li><li><a href="reflectionparameter.isvariadic.html">ReflectionParameter::isVariadic</a> — Checks if the parameter is variadic</li><li><a href="reflectionparameter.tostring.html">ReflectionParameter::__toString</a> — 文字列に変換する</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="reflectionobject.export.html">ReflectionObject::export</a></div>

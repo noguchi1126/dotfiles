@@ -13,7 +13,7 @@
 </div><hr /><div id="reflectionclass.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::__construct</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">ReflectionClass::__construct</span> &mdash; <span class="dc-title">ReflectionClass を作成する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::__construct</span> &mdash; <span class="dc-title">ReflectionClass を作成する</span></p>
 
  </div>
 
@@ -27,11 +27,6 @@
   <p class="para rdfs-comment">
    新しい <a href="class.reflectionclass.html" class="classname">ReflectionClass</a> オブジェクトを作成します。
   </p>
-
-  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は、
-現在のところ詳細な情報はありません。引数のリストのみが
-記述されています。</p></div>
-
  </div>
 
 
@@ -61,7 +56,15 @@
  <div class="refsect1 returnvalues" id="refsect1-reflectionclass.construct-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   値を返しません。
+   Returns constructed <a href="class.reflectionclass.html" class="classname">ReflectionClass</a> instance.
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-reflectionclass.construct-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   Throws <a href="class.reflectionexception.html" class="classname">ReflectionException</a> if the class to reflect does not exist.
   </p>
  </div>
 
@@ -69,7 +72,7 @@
  <div class="refsect1 examples" id="refsect1-reflectionclass.construct-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5194">
+   <div class="example" id="example-6034">
     <p><strong>例1 ReflectionClass の基本的な使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

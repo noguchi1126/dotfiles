@@ -39,9 +39,9 @@
 
      <tr>
       <td><a href="opcache.configuration.html#ini.opcache.enable-cli" class="link">opcache.enable_cli</a></td>
-      <td>&quot;0&quot;</td>
+      <td>&quot;1&quot;</td>
       <td>PHP_INI_SYSTEM</td>
-      <td class="empty">&nbsp;</td>
+      <td>PHP 7.1.2 以降デフォルトで有効</td>
      </tr>
 
      <tr>
@@ -55,7 +55,7 @@
       <td><a href="opcache.configuration.html#ini.opcache.interned-strings-buffer" class="link">opcache.interned_strings_buffer</a></td>
       <td>&quot;4&quot;</td>
       <td>PHP_INI_SYSTEM</td>
-      <td>PHP 5.3.0 以降で使用可能です。</td>
+      <td class="empty">&nbsp;</td>
      </tr>
 
      <tr>
@@ -212,6 +212,55 @@
       <td class="empty">&nbsp;</td>
      </tr>
 
+     <tr>
+      <td><a href="opcache.configuration.html#ini.opcache.restrict-api" class="link">opcache.restrict_api</a></td>
+      <td>&quot;&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td class="empty">&nbsp;</td>
+     </tr>
+
+     <tr>
+      <td><a href="opcache.configuration.html#ini.opcache.file-cache" class="link">opcache.file_cache</a></td>
+      <td>NULL</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 7.0.0 以降で利用可能</td>
+     </tr>
+
+     <tr>
+      <td><a href="opcache.configuration.html#ini.opcache.file-cache-only" class="link">opcache.file_cache_only</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 7.0.0 以降で利用可能</td>
+     </tr>
+
+     <tr>
+      <td><a href="opcache.configuration.html#ini.opcache.file-cache-consistency-checks" class="link">opcache.file_cache_consistency_checks</a></td>
+      <td>&quot;1&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 7.0.0 以降で利用可能</td>
+     </tr>
+
+     <tr>
+      <td><a href="opcache.configuration.html#ini.opcache.file-cache-fallback" class="link">opcache.file_cache_fallback</a></td>
+      <td>&quot;1&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 7.0.0 以降で利用可能</td>
+     </tr>
+
+     <tr>
+      <td><a href="opcache.configuration.html#ini.opcache.validate-permission" class="link">opcache.validate_permission</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 7.0.14 以降で利用可能</td>
+     </tr>
+
+     <tr>
+      <td><a href="opcache.configuration.html#ini.opcache.validate-root" class="link">opcache.validate_root</a></td>
+      <td>&quot;0&quot;</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 7.0.14 以降で利用可能</td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -237,6 +286,9 @@
      <p class="para">
       オペコード・キャッシュを有効にします。
       無効にした場合、コードは最適化もキャッシュもされません。
+      <em>opcache.enable</em> の設定を、実行時に
+      <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span> で有効化することはできません。
+      実行時にできるのは、無効化だけです。スクリプト内で有効化しようとすると、警告が発生します。
      </p>
     </dd>
 
@@ -251,7 +303,6 @@
 
      <p class="para">
       PHP の CLI 版に対してオペコード・キャッシュを有効にします。
-      主にテストとデバッギングに役立ちます。
      </p>
     </dd>
 
@@ -296,9 +347,9 @@
      <p class="para">
       OPcache ハッシュテーブルのキー（すなわちスクリプト）の最大数。
       使用される現時点の値は、
-      設定値より大きい素数の集合 <em>{ 223, 463, 983, 1979, 3907, 7963, 16229, 32531, 65407, 130987 }</em> のうち、
-      最初の数値です。
-      200 から 100000 までの間の数値のみが許されています。
+      素数の集合 <em>{ 223, 463, 983, 1979, 3907, 7963, 16229, 32531, 65407, 130987 }</em> のうち、
+      設定値以上の最初の数値です。
+      最小値は 200 です。最大値は、PHP 5.5.6 より前のバージョンでは 100000、PHP 5.5.6 以降では 1000000 となります。
      </p>
     </dd>
 
@@ -444,12 +495,12 @@
     <dd>
 
      <p class="para">
-      有効にすると、オペコード・キャッシュは <span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span>、
+      有効にすると、<span class="function"><a href="function.file-exists.html" class="function">file_exists()</a></span>、
       <span class="function"><a href="function.is-file.html" class="function">is_file()</a></span> および <span class="function"><a href="function.is-readable.html" class="function">is_readable()</a></span> が呼ばれた際に、
-      ファイルが既にキャッシュ済みかどうかチェックします。
-      これは、PHP スクリプトの存在と読みやすさをチェックするアプリケーションでパフォーマンスを増大するかもしれません。
-      しかし、<a href="opcache.configuration.html#ini.opcache.validate-timestamps" class="link">opcache.validate_timestamps</a> を無効にすると、
-      陳腐化したデータを返す危険があります。
+      ファイルが既にキャッシュ済みかどうかをオペコード・キャッシュからチェックします。
+      これは、PHP スクリプトの存在および読み込み可能かをチェックするアプリケーションのパフォーマンスを改善させるかもしれません。
+      しかし、<a href="opcache.configuration.html#ini.opcache.validate-timestamps" class="link">opcache.validate_timestamps</a> が無効な場合に、
+      陳腐化した結果を返す危険があります。
      </p>
     </dd>
 
@@ -582,7 +633,7 @@
      </p>
      <p class="para">
       <a href="opcache.configuration.html#ini.opcache.log-verbosity-level" class="link">opcache.log_verbosity_level</a> が
-      3 以上の場合、エラー発生時にエラーログに記録されます。
+      2 以上の場合、警告発生時にエラーログに記録されます。
      </p>
     </dd>
 
@@ -666,6 +717,111 @@
       Windows 上で共有メモリ・セグメントに使用される基底。
       すべての PHP 処理は、共有メモリを同じアドレス空間にマップしなければいけません。
       このディレクティブを使用すると、&quot;Unable to reattach to base address&quot; （基底アドレスに再アタッチできません） というエラーを修復できます。
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.opcache.restrict-api">
+     <code class="parameter">opcache.restrict_api</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      OPcache API 関数の呼び出しを、指定した文字列から始まるパス上の PHP スクリプトからだけに制限します。
+      デフォルトは &quot;&quot; で、これは、何も制限しないことを意味します。
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.opcache.file-cache">
+     <code class="parameter">opcache.file_cache</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      ファイルベースのセカンドレベル opcode キャッシュを有効にし、そのディレクトリを設定します。
+      これは共有メモリ上の opcode キャッシュがいっぱいの時やサーバ再起動時、
+      もしくは共有メモリ上の opcode キャッシュをリセットした場合のパフォーマンスを向上させます。
+      デフォルトは &quot;&quot; で、これはファイルベースのキャッシュを無効にします。
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.opcache.file-cache-only">
+     <code class="parameter">opcache.file_cache_only</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      共有メモリ内でのオペコード・キャッシュを有効あるいは無効にします。
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.opcache.file-cache-consistency-checks">
+     <code class="parameter">opcache.file_cache_consistency_checks</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      ファイルキャッシュから読み込んだスクリプトのチェックサムの検証を有効あるいは無効にします。
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.opcache.file-cache-fallback">
+     <code class="parameter">opcache.file_cache_fallback</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      共有メモリへの再アタッチに失敗するプロセスについて、
+      opcache.file_cache_only=1 であるものとみなします (Windows のみ)。
+      ファイルキャッシュを明示的に有効にする必要があります。
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.opcache.validate-permission">
+     <code class="parameter">opcache.validate_permission</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Validates the cached file permissions against the current user.
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.opcache.validate-root">
+     <code class="parameter">opcache.validate_root</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      Prevents name collisions in chroot&#039;ed environments. This should be enabled in
+      all chroot&#039;ed environments to prevent access to files outside the chroot.
      </p>
     </dd>
 

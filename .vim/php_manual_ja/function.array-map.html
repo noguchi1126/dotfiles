@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-map" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_map</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">array_map</span> &mdash; <span class="dc-title">指定した配列の要素にコールバック関数を適用する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_map</span> &mdash; <span class="dc-title">指定した配列の要素にコールバック関数を適用する</span></p>
 
  </div>
  
@@ -67,7 +67,7 @@
     
     
      <dt>
-<code class="parameter">array</code></dt>
+<code class="parameter">...</code></dt>
 
      <dd>
 
@@ -96,7 +96,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-map-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4971">
+   <div class="example" id="example-5578">
     <p><strong>例1 <span class="function"><strong>array_map()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -123,7 +123,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4972">
+   <div class="example" id="function.array-fill.example.basic">
     <p><strong>例2 <span class="function"><strong>array_map()</strong></span> でラムダ関数を使用する例 (PHP 5.3.0 以降)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -147,7 +147,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4973">
+   <div class="example" id="example-5580">
     <p><strong>例3 <span class="function"><strong>array_map()</strong></span> - もっと配列を使ってみる例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -216,7 +216,7 @@ Array
    <strong><code>NULL</code></strong> を使用することにより、簡単に実行できるものです。
   </p>
   <p class="para">
-   <div class="example" id="example-4974">
+   <div class="example" id="example-5581">
     <p><strong>例4 配列の配列を生成する</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -271,12 +271,11 @@ Array
    </div>
   </p>
   <p class="para">
-   配列引数に文字列のキーが含まれる場合は、
-   渡した配列がひとつだけなら返される配列に文字列キーが含まれることになります。
-   複数の引数を渡した場合は、返される配列は常に整数キーとなります。
+   引数で渡した配列のキーがそのまま維持されるのは、渡した配列がひとつだけである場合のみです。
+   複数の配列を渡した場合は、返り値の配列のキーは整数値が振り直されます。
   </p>
   <p class="para">
-   <div class="example" id="example-4975">
+   <div class="example" id="example-5582">
     <p><strong>例5 <span class="function"><strong>array_map()</strong></span> - 文字列キーの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -330,7 +329,7 @@ array(1) {
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.array-filter.html" class="function" rel="rdfs-seeAlso">array_filter()</a> - コールバック関数を使用して、配列の要素をフィルタリングする</span></li>
     <li class="member"><span class="function"><a href="function.array-reduce.html" class="function" rel="rdfs-seeAlso">array_reduce()</a> - コールバック関数を用いて配列を普通の値に変更することにより、配列を再帰的に減らす</span></li>
-    <li class="member"><span class="function"><a href="function.array-walk.html" class="function" rel="rdfs-seeAlso">array_walk()</a> - 配列の全ての要素にユーザー関数を適用する</span></li>
+    <li class="member"><span class="function"><a href="function.array-walk.html" class="function" rel="rdfs-seeAlso">array_walk()</a> - 配列の全ての要素にユーザー定義の関数を適用する</span></li>
     <li class="member"><a href="language.pseudo-types.html#language.types.callback" class="link">callback</a> 型に関する情報</li>
    </ul>
   </p>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.hash-init" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">hash_init</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PECL hash &gt;= 1.1)</p><p class="refpurpose"><span class="refname">hash_init</span> &mdash; <span class="dc-title">段階的なハッシュコンテキストを初期化する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7, PECL hash &gt;= 1.1)</p><p class="refpurpose"><span class="refname">hash_init</span> &mdash; <span class="dc-title">段階的なハッシュコンテキストを初期化する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.hash-init-description">
@@ -92,10 +92,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.hash-init-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>Usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.hash-init-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-836">
+   <div class="example" id="example-907">
     <p><strong>例1 段階的なハッシュの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

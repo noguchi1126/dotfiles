@@ -99,7 +99,18 @@
  <div class="refsect1 returnvalues" id="refsect1-solrclient.adddocuments-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-    Returns a <span class="type"><a href="class.solrupdateresponse.html" class="type SolrUpdateResponse">SolrUpdateResponse</a></span> object or throws a <span class="type"><a href="class.solrclientexception.html" class="type SolrClientException">SolrClientException</a></span> on failure.
+    Returns a <span class="type"><a href="class.solrupdateresponse.html" class="type SolrUpdateResponse">SolrUpdateResponse</a></span> object or throws an exception on failure.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 errors" id="refsect1-solrclient.adddocuments-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   Throws <a href="class.solrclientexception.html" class="classname">SolrClientException</a> if the client had failed, or there was a connection issue.
+  </p>
+  <p class="para">
+   Throws <a href="class.solrserverexception.html" class="classname">SolrServerException</a> if the Solr Server had failed to process the request.
   </p>
  </div>
 
@@ -107,7 +118,7 @@
  <div class="refsect1 examples" id="refsect1-solrclient.adddocuments-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4735">
+   <div class="example" id="example-5292">
     <p><strong>例1 <span class="methodname"><strong>SolrClient::addDocuments()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

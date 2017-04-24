@@ -33,10 +33,12 @@
    )</div>
 
   <p class="para rdfs-comment">
+   The
    <span class="function"><strong>mqseries_get()</strong></span>
-   (MQGET) は、
+   (MQGET) call retrieves a message from a local queue that has been opened
+   using the
    <span class="function"><a href="function.mqseries-open.html" class="function">mqseries_open()</a></span>
-   (MQOPEN) を使用してオープンしたローカルキューからメッセージを取得します。
+   (MQOPEN) call
   </p>
  </div>
 
@@ -54,8 +56,8 @@
 
      <dd>
 
-      <p class="para">接続ハンドル。</p>
-      <p class="para">このハンドルは、キューマネージャへの接続を表します。</p>
+      <p class="para">Connection handle.</p>
+      <p class="para">This handle represents the connection to the queue manager.</p>
      </dd>
 
     
@@ -67,8 +69,8 @@
 
      <dd>
 
-      <p class="para">オブジェクトハンドル。</p>
-      <p class="para">このハンドルは、使用するオブジェクトを表します。</p>
+      <p class="para">Object handle.</p>
+      <p class="para">This handle represents the object to be used.</p>
      </dd>
 
     
@@ -80,7 +82,7 @@
 
      <dd>
 
-      <p class="para">メッセージ記述子 (MQMD)。</p>
+      <p class="para">Message descriptor (MQMD).</p>
      </dd>
 
     
@@ -92,7 +94,7 @@
 
      <dd>
 
-      <p class="para">Get メッセージのオプション (MQGMO)。</p>
+      <p class="para">Get message options (MQGMO).</p>
      </dd>
 
     
@@ -104,7 +106,7 @@
 
      <dd>
 
-      <p class="para">想定する結果バッファの長さ。</p>
+      <p class="para">Expected length of the result buffer</p>
      </dd>
 
     
@@ -117,7 +119,7 @@
      <dd>
 
       <p class="para">
-       オブジェクトから取得したメッセージを保持するバッファ。
+       Buffer holding the message that was retrieved from the object.
       </p>
      </dd>
 
@@ -130,7 +132,7 @@
 
      <dd>
 
-      <p class="para">実際のバッファの長さ。</p>
+      <p class="para">Actual buffer length</p>
      </dd>
 
     
@@ -142,7 +144,7 @@
 
      <dd>
 
-      <p class="para">完了コード。</p>
+      <p class="para">Completion code.</p>
      </dd>
 
     
@@ -154,7 +156,7 @@
 
      <dd>
 
-      <p class="para">compCode の原因を表すコード。</p>
+      <p class="para">Reason code qualifying the compCode.</p>
      </dd>
 
     
@@ -173,14 +175,14 @@
  <div class="refsect1 examples" id="refsect1-function.mqseries-get-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4475">
+   <div class="example" id="example-5018">
     <p><strong>例1 
      <span class="function"><strong>mqseries_get()</strong></span>
-     の例
+     example
     </strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;キューマネージャへの接続をオープンします<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_conn</span><span style="color: #007700">(</span><span style="color: #DD0000">'WMQ1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;これで、$conn&nbsp;がキューマネージャへの接続を指すようになります<br /><br />//&nbsp;testq&nbsp;キューへの接続をオープンします<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_open</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'ObjectName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'TESTQ'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_INPUT_AS_Q_DEF&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_FAIL_IF_QUIESCING&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_OUTPUT</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;これで、$obj&nbsp;はオブジェクト&nbsp;(TESTQ)&nbsp;を指すようになります<br /><br />//&nbsp;空のメッセージ記述子を用意します<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mdg&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;メッセージのオプションを設定します<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$gmo&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Options'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">MQSERIES_MQGMO_FAIL_IF_QUIESCING&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MQSERIES_MQGMO_WAIT</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'WaitInterval'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">3000</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;メッセージをキューから取得します<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mdg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$gmo</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data_length</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$comp_code&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">MQSERIES_MQCC_OK</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"GET&nbsp;CompCode:%d&nbsp;Reason:%d&nbsp;Text:%s&lt;br&gt;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mqseries_strerror</span><span style="color: #007700">(</span><span style="color: #0000BB">$reason</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;</span><span style="color: #FF8000">//&nbsp;キューマネージャへの接続をオープンします<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_conn</span><span style="color: #007700">(</span><span style="color: #DD0000">'WMQ1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;これで、$conn&nbsp;がキューマネージャへの接続を指すようになります<br /><br />//&nbsp;testq&nbsp;キューへの接続をオープンします<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_open</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'ObjectName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'TESTQ'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_INPUT_AS_Q_DEF&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_FAIL_IF_QUIESCING&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_OUTPUT</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;これで、$obj&nbsp;はオブジェクト&nbsp;(TESTQ)&nbsp;を指すようになります<br />&nbsp;&nbsp;&nbsp;&nbsp;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;open&nbsp;connection&nbsp;to&nbsp;the&nbsp;queue&nbsp;manager<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_conn</span><span style="color: #007700">(</span><span style="color: #DD0000">'WMQ1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;$conn&nbsp;now&nbsp;hold&nbsp;the&nbsp;reference&nbsp;to&nbsp;the&nbsp;connection&nbsp;to&nbsp;the&nbsp;queue&nbsp;manager.<br /><br />//&nbsp;open&nbsp;the&nbsp;connection&nbsp;to&nbsp;the&nbsp;testq&nbsp;queue<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_open</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'ObjectName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'TESTQ'</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_INPUT_AS_Q_DEF&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_FAIL_IF_QUIESCING&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MQSERIES_MQOO_OUTPUT</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;$obj&nbsp;now&nbsp;holds&nbsp;the&nbsp;reference&nbsp;to&nbsp;the&nbsp;object&nbsp;(TESTQ)<br /><br />//&nbsp;setup&nbsp;empty&nbsp;message&nbsp;descriptor.<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mdg&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #FF8000">//&nbsp;setup&nbsp;get&nbsp;message&nbsp;options&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$gmo&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Options'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">MQSERIES_MQGMO_FAIL_IF_QUIESCING&nbsp;</span><span style="color: #007700">|&nbsp;</span><span style="color: #0000BB">MQSERIES_MQGMO_WAIT</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'WaitInterval'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">3000</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;get&nbsp;the&nbsp;message&nbsp;from&nbsp;the&nbsp;queueu&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_get</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mdg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$gmo</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$msg</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data_length</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$comp_code&nbsp;</span><span style="color: #007700">!==&nbsp;</span><span style="color: #0000BB">MQSERIES_MQCC_OK</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"GET&nbsp;CompCode:%d&nbsp;Reason:%d&nbsp;Text:%s&lt;br&gt;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mqseries_strerror</span><span style="color: #007700">(</span><span style="color: #0000BB">$reason</span><span style="color: #007700">));<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;<br /></span><span style="color: #FF8000">//&nbsp;close&nbsp;the&nbsp;object&nbsp;reference&nbsp;$obj&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">MQSERIES_MQCO_NONE</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;disconnect&nbsp;from&nbsp;the&nbsp;queue&nbsp;manager.&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mqseries_disc</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$comp_code</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$reason</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

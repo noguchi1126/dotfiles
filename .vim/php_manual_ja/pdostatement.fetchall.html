@@ -13,7 +13,7 @@
 </div><hr /><div id="pdostatement.fetchall" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::fetchAll</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchAll</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDOStatement::fetchAll</span> &mdash; <span class="dc-title">
    全ての結果行を含む配列を返す
   </span></p>
 
@@ -51,7 +51,7 @@
       <p class="para">
        結果セットから単一カラムの全ての値を含む配列を返す場合、
        <strong><code>PDO::FETCH_COLUMN</code></strong> を指定します。
-       <code class="parameter">column-index</code> パラメータにどのカラムを返すかを
+       <code class="parameter">fetch_argument</code> パラメータにどのカラムを返すかを
        指定することができます。
       </p>
       <p class="para">
@@ -141,7 +141,7 @@
  <div class="refsect1 examples" id="refsect1-pdostatement.fetchall-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-956"><p><strong>例1 結果セットに残っている全ての行をフェッチする</strong></p>
+   <div class="example" id="example-1039"><p><strong>例1 結果セットに残っている全ての行をフェッチする</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$sth&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;name,&nbsp;colour&nbsp;FROM&nbsp;fruit"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">/*&nbsp;結果セットに残っている全ての行をフェッチする&nbsp;*/<br /></span><span style="color: #007700">print(</span><span style="color: #DD0000">"Fetch&nbsp;all&nbsp;of&nbsp;the&nbsp;remaining&nbsp;rows&nbsp;in&nbsp;the&nbsp;result&nbsp;set:\n"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$sth</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -158,17 +158,25 @@ Array
 (
     [0] =&gt; Array
         (
-            [NAME] =&gt; pear
-            [0] =&gt; pear
-            [COLOUR] =&gt; green
-            [1] =&gt; green
+            [name] =&gt; apple
+            [0] =&gt; apple
+            [colour] =&gt; red
+            [1] =&gt; red
         )
 
     [1] =&gt; Array
         (
-            [NAME] =&gt; watermelon
+            [name] =&gt; pear
+            [0] =&gt; pear
+            [colour] =&gt; green
+            [1] =&gt; green
+        )
+
+    [2] =&gt; Array
+        (
+            [name] =&gt; watermelon
             [0] =&gt; watermelon
-            [COLOUR] =&gt; pink
+            [colour] =&gt; pink
             [1] =&gt; pink
         )
 
@@ -176,7 +184,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-957"><p><strong>例2 結果セットから単一カラムの全ての値を取得する</strong></p>
+   <div class="example" id="example-1040"><p><strong>例2 結果セットから単一カラムの全ての値を取得する</strong></p>
     <div class="example-contents"><p>
      以下の例は、
      SQL ステートメント自身が行毎に複数のカラムを返す場合において、
@@ -206,7 +214,7 @@ Array(3)
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-958"><p><strong>例3 単一カラムによる全ての値のグループ化</strong></p>
+   <div class="example" id="example-1041"><p><strong>例3 単一カラムによる全ての値のグループ化</strong></p>
     <div class="example-contents"><p>
      以下の例は、どのように結果セット中の特定のカラムの値によって
      グループ化された連想配列を返すかを例示しています。
@@ -245,14 +253,14 @@ array(3) {
   [&quot;watermelon&quot;]=&gt;
   array(1) {
     [0]=&gt;
-    string(5) &quot;green&quot;
+    string(5) &quot;pink&quot;
   }
 }
 
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-959"><p><strong>例4 各結果用のクラスのインスタンス作成</strong></p>
+   <div class="example" id="example-1042"><p><strong>例4 各結果用のクラスのインスタンス作成</strong></p>
     <div class="example-contents"><p>
      次の例は、
      <strong><code>PDO::FETCH_CLASS</code></strong> の振る舞いを示すものです。
@@ -290,11 +298,25 @@ array(3) {
     [&quot;colour&quot;]=&gt;
     string(4) &quot;pink&quot;
   }
+  [3]=&gt;
+  object(fruit)#4 (2) {
+    [&quot;name&quot;]=&gt;
+    string(5) &quot;apple&quot;
+    [&quot;colour&quot;]=&gt;
+    string(3) &quot;red&quot;
+  }
+  [4]=&gt;
+  object(fruit)#5 (2) {
+    [&quot;name&quot;]=&gt;
+    string(4) &quot;pear&quot;
+    [&quot;colour&quot;]=&gt;
+    string(5) &quot;green&quot;
+  }
 }
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-960"><p><strong>例5 各結果に対する関数コール</strong></p>
+   <div class="example" id="example-1043"><p><strong>例5 各結果に対する関数コール</strong></p>
     <div class="example-contents"><p>
      次の例は、
      <strong><code>PDO::FETCH_FUNC</code></strong> の振る舞いを示すものです。
@@ -317,6 +339,10 @@ array(3) {
   string(12) &quot;pear: yellow&quot;
   [2]=&gt;
   string(16) &quot;watermelon: pink&quot;
+  [3]=&gt;
+  string(10) &quot;apple: red&quot;
+  [4]=&gt;
+  string(11) &quot;pear: green&quot;
 }
 </pre></div>
     </div>

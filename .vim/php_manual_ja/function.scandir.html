@@ -13,7 +13,7 @@
 </div><hr /><div id="function.scandir" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">scandir</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">scandir</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">scandir</span> &mdash; <span class="dc-title">
    指定されたパスのファイルとディレクトリのリストを取得する
   </span></p>
 
@@ -137,45 +137,11 @@
  <div class="refsect1 examples" id="refsect1-function.scandir-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2359">
+   <div class="example" id="example-2596">
     <p><strong>例1 <span class="function"><strong>scandir()</strong></span> の簡単な例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$dir&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'/tmp'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$files1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">scandir</span><span style="color: #007700">(</span><span style="color: #0000BB">$dir</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$files2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">scandir</span><span style="color: #007700">(</span><span style="color: #0000BB">$dir</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$files1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$files2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-    <div class="example-contents"><p>上の例の出力は、
-たとえば以下のようになります。</p></div>
-    <div class="example-contents screen">
-<div class="cdata"><pre>
-Array
-(
-    [0] =&gt; .
-    [1] =&gt; ..
-    [2] =&gt; bar.php
-    [3] =&gt; foo.txt
-    [4] =&gt; somedir
-)
-Array
-(
-    [0] =&gt; somedir
-    [1] =&gt; foo.txt
-    [2] =&gt; bar.php
-    [3] =&gt; ..
-    [4] =&gt; .
-)
-</pre></div>
-    </div>
-   </div>
-  </p>
-  <p class="para">
-   <div class="example" id="example-2360">
-    <p><strong>例2 PHP 4 での <span class="function"><strong>scandir()</strong></span> の代用方法</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$dir&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"/tmp"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$dh&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">opendir</span><span style="color: #007700">(</span><span style="color: #0000BB">$dir</span><span style="color: #007700">);<br />while&nbsp;(</span><span style="color: #0000BB">false&nbsp;</span><span style="color: #007700">!==&nbsp;(</span><span style="color: #0000BB">$filename&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">readdir</span><span style="color: #007700">(</span><span style="color: #0000BB">$dh</span><span style="color: #007700">)))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$files</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">;<br />}<br /><br /></span><span style="color: #0000BB">sort</span><span style="color: #007700">(</span><span style="color: #0000BB">$files</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$files</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">rsort</span><span style="color: #007700">(</span><span style="color: #0000BB">$files</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$files</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

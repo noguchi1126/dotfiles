@@ -13,7 +13,7 @@
 </div><hr /><div id="function.openssl-decrypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_decrypt</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">openssl_decrypt</span> &mdash; <span class="dc-title">データを復号</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_decrypt</span> &mdash; <span class="dc-title">データを復号</span></p>
 
  </div>
 
@@ -23,10 +23,12 @@
    <span class="type">string</span> <span class="methodname"><strong>openssl_decrypt</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code></span>
-   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$iv</code><span class="initializer"> = &quot;&quot;</span></span>
-  ]] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$tag</code><span class="initializer"> = &quot;&quot;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$aad</code><span class="initializer"> = &quot;&quot;</span></span>
+  ]]]] )</div>
 
   <p class="para rdfs-comment">
    未加工の、または base64 エンコードされた文字列を受け入れて、
@@ -71,12 +73,12 @@
     
     
      <dt>
-<code class="parameter">password</code></dt>
+<code class="parameter">key</code></dt>
 
      <dd>
 
       <p class="para">
-       パスワード
+       キー
       </p>
      </dd>
 
@@ -102,6 +104,30 @@
 
       <p class="para">
        NULL ではない初期化ベクター。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">tag</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The authentication tag in AEAD cipher mode. If it is incorrect, the authentication fails and the function returns <strong><code>FALSE</code></strong>.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">aad</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Additional authentication data.
       </p>
      </dd>
 
@@ -158,6 +184,11 @@
       <td>
        <code class="parameter">raw_output</code> パラメータが <code class="parameter">options</code> に変わりました。
       </td>
+     </tr>
+
+     <tr>
+      <td>7.1.0</td>
+      <td><code class="parameter">tag</code> および <code class="parameter">aad</code> パラメータが追加されました。</td>
      </tr>
 
     </tbody>

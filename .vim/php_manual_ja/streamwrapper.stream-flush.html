@@ -13,7 +13,7 @@
 </div><hr /><div id="streamwrapper.stream-flush" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">streamWrapper::stream_flush</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5)</p><p class="refpurpose"><span class="refname">streamWrapper::stream_flush</span> &mdash; <span class="dc-title">出力をフラッシュする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">streamWrapper::stream_flush</span> &mdash; <span class="dc-title">出力をフラッシュする</span></p>
 
  </div>
 
@@ -25,7 +25,8 @@
    )</div>
 
   <p class="para rdfs-comment">
-   このメソッドは、<span class="function"><a href="function.fflush.html" class="function">fflush()</a></span> に対応してコールされます。
+   このメソッドがコールされるのは、<span class="function"><a href="function.fflush.html" class="function">fflush()</a></span> への対応をする場合やストリームを閉じる場合です。
+   フラッシュしていないデータが残っていれば、それを書き出します。
   </p>
   <p class="para">
    データをストリームにキャッシュした状態でまだストレージに格納していないのなら、

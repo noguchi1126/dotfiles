@@ -13,7 +13,7 @@
 </div><hr /><div id="function.exec" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">exec</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">exec</span> &mdash; <span class="dc-title">外部プログラムを実行する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">exec</span> &mdash; <span class="dc-title">外部プログラムを実行する</span></p>
 
  </div>
 
@@ -106,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-function.exec-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3694">
+   <div class="example" id="example-4223">
     <p><strong>例1 <span class="function"><strong>exec()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -130,6 +130,9 @@
 バックグラウンドで処理を続けさせるには、
 プログラムの出力をファイルや別の出力ストリームにリダイレクトする必要があります。
 そうしないと、プログラムが実行を終えるまで PHP はハングしてしまいます。</p></p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">On Windows <span class="function"><strong>exec()</strong></span>
+will first start cmd.exe to launch the command. If you want to start an external program without starting cmd.exe
+use <span class="function"><a href="function.proc-open.html" class="function">proc_open()</a></span> with the <code class="parameter">bypass_shell</code> option set.</p></p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara"><a href="features.safe-mode.html" class="link">
 セーフモード</a> が有効な場合、<a href="ini.sect.safe-mode.html#ini.safe-mode-exec-dir" class="link">
 safe_mode_exec_dir</a>の中にある実行プログラムのみ実行可能です。

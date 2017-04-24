@@ -13,7 +13,7 @@
 </div><hr /><div id="pdo.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::__construct</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::__construct</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::__construct</span> &mdash; <span class="dc-title">
    データベースへの接続を表す PDO インスタンスを生成する
   </span></p>
 
@@ -25,7 +25,7 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$dsn</code></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$username</code></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$driver_options</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
   ]]] )</div>
 
   <p class="para rdfs-comment">
@@ -133,7 +133,7 @@ password</dt>
 
     
     <dt>
-driver_options</dt>
+options</dt>
 
      <dd>
 
@@ -170,16 +170,16 @@ driver_options</dt>
  <div class="refsect1 examples" id="refsect1-pdo.construct-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-922"><p><strong>例1 ドライバ呼び出しにより PDO インスタンスを生成する</strong></p>
+   <div class="example" id="example-1004"><p><strong>例1 ドライバ呼び出しにより PDO インスタンスを生成する</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;ドライバ呼び出しを使用して&nbsp;ODBC&nbsp;データベースに接続する&nbsp;*/<br /></span><span style="color: #0000BB">$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql:dbname=testdb;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbuser'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbpass'</span><span style="color: #007700">;<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Connection&nbsp;failed:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;ドライバ呼び出しを使用して&nbsp;MySQL&nbsp;データベースに接続する&nbsp;*/<br /></span><span style="color: #0000BB">$dsn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'mysql:dbname=testdb;host=127.0.0.1'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$user&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbuser'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'dbpass'</span><span style="color: #007700">;<br /><br />try&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PDO</span><span style="color: #007700">(</span><span style="color: #0000BB">$dsn</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$user</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$password</span><span style="color: #007700">);<br />}&nbsp;catch&nbsp;(</span><span style="color: #0000BB">PDOException&nbsp;$e</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Connection&nbsp;failed:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$e</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getMessage</span><span style="color: #007700">();<br />}<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-   <div class="example" id="example-923"><p><strong>例2 URI 呼び出しにより PDO インスタンスを生成する</strong></p>
+   <div class="example" id="example-1005"><p><strong>例2 URI 呼び出しにより PDO インスタンスを生成する</strong></p>
     <div class="example-contents"><p>
      以下の例では、ファイル <var class="filename">/usr/local/dbconnect</var> が存在し、
      PHP がこのファイルを読み込む権限を有していることを仮定します。
@@ -203,7 +203,7 @@ odbc:DSN=SAMPLE;UID=john;PWD=mypass
     </div>
 
    </div>
-   <div class="example" id="example-924"><p><strong>例3 エイリアスにより PDO インスタンスを生成する</strong></p>
+   <div class="example" id="example-1006"><p><strong>例3 エイリアスにより PDO インスタンスを生成する</strong></p>
     <div class="example-contents"><p>
      以下の例では、<var class="filename">php.ini</var> にエイリアス <em>mydb</em> のみで
      MySQL データベースに接続できるようにするための以下のエントリが含まれることを

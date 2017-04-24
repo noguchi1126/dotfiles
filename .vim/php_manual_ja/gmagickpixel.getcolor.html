@@ -21,12 +21,12 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>GmagickPixel::getcolor</strong></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$as_array</code></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$normalize_array</code></span>
+    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$as_array</code><span class="initializer"> = false</span></span>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$normalize_array</code><span class="initializer"> = false</span></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
-   GmagickPixel オブジェクトの色を配列で返します。
+   GmagickPixel オブジェクトの色を文字列あるいは配列で返します。
    透明度が設定されているときは、リストの四番目の値として返します。
   </p>
 
@@ -47,7 +47,7 @@
      <dd>
 
       <p class="para">
-       True にすると、返り値を文字列ではなく配列にします。
+       <strong><code>TRUE</code></strong> にすると、返り値を文字列ではなく配列にします。
       </p>
      </dd>
 
@@ -59,7 +59,7 @@
      <dd>
 
       <p class="para">
-       色の値を正規化します。
+       <strong><code>TRUE</code></strong> にすると、色の値を正規化します。
       </p>
      </dd>
 
@@ -73,7 +73,7 @@
  <div class="refsect1 returnvalues" id="refsect1-gmagickpixel.getcolor-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   各チャネルの値を配列で返します。パラメータで指定されている場合は正規化をします。エラー時には GmagickPixelException をスローします。
+   各チャネルの値を文字列あるいは配列で返します。<code class="parameter">normalize_array</code> に <strong><code>TRUE</code></strong> を市得治した場合は正規化をします。エラー時には <strong class="classname">GmagickPixelException</strong> をスローします。
   </p>
  </div>
 

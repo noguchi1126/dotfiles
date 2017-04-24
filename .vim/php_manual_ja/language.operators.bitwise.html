@@ -89,8 +89,21 @@
     はまずビット演算を行ってから等価かどうかを評価します。
    </p>
    <p class="para">
-    データ型の変換に注意しましょう。両辺のパラメータが文字列の場合、
-    ビット演算子は文字の ASCII コードで演算を行います。
+    <em>&amp;</em>、<em>|</em> そして
+    <em>^</em> 演算子の左右のオペランドが文字列の場合、その演算は、
+    文字列を構成する文字の ASCII 値を使って行います。その結果は文字列になります。
+    それ以外の場合は、左右のオペランドを
+    <a href="language.types.integer.html#language.types.integer.casting" class="link">integer に変換</a>
+    し、結果も integer になります。
+   </p>
+   <p class="para">
+    <em>~</em> 演算子のオペランドが文字列の場合、その演算は、
+    文字列を構成する文字の ASCII 値を使って行います。その結果は文字列になります。
+    それ以外の場合は、オペランドや演算結果を integer として扱います。
+   </p>
+   <p class="para">
+    <em>&lt;&lt;</em> および
+    <em>&gt;&gt;</em> 演算子のオペランドとその結果は、常に integer として扱います。
    </p>
    <p class="para">
     <div class="informalexample">
@@ -148,7 +161,7 @@ error_reporting を使って、特定のビットを立てる処理の例を見�
     </div>
    </p>
    <p class="para">
-    <div class="example" id="example-118">
+    <div class="example" id="example-98">
      <p><strong>例1 整数値におけるビット AND、OR および XOR 演算</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -188,7 +201,7 @@ error_reporting を使って、特定のビットを立てる処理の例を見�
     </div>
    </p>
    <p class="para">
-    <div class="example" id="example-119">
+    <div class="example" id="example-99">
      <p><strong>例2 文字列でのビット XOR 演算</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -200,7 +213,7 @@ error_reporting を使って、特定のビットを立てる処理の例を見�
     </div>
    </p>
    <p class="para">
-    <div class="example" id="example-120">
+    <div class="example" id="example-100">
      <p><strong>例3 整数値のビットシフト</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -483,9 +496,13 @@ Expression: 0 = -4 &lt;&lt; 62
    </p>
    <div class="warning"><strong class="warning">警告</strong>
     <p class="para">
-     32 ビットシステムでは 32 ビット以上の右シフトは行わないでください。
-     また、結果が 32 ビットを超えてしまうような左シフトも行わないでください。
-     PHP_INT_MAX を超える数のビット演算には、gmp 拡張モジュールの関数を使用します。
+     システムの long 型で扱える範囲以上の整数値をシフトした場合の結果は未定義です。
+     32ビットシステム上では、32ビット以上の値をシフトしないようにしましょう。
+     同様に、64ビットシステム上では、64ビット以上の値をシフトしないようにしましょう。
+    </p>
+    <p class="para">
+     <em>PHP_INT_MAX</em> を超える数のビット演算には、
+     <a href="book.gmp.html" class="link">gmp</a> 拡張モジュールの関数を使いましょう。
     </p>
    </div>
    <p class="para">

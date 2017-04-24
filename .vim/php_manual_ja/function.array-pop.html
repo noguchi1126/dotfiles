@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-pop" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_pop</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">array_pop</span> &mdash; <span class="dc-title">配列の末尾から要素を取り除く</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_pop</span> &mdash; <span class="dc-title">配列の末尾から要素を取り除く</span></p>
 
  </div>
  
@@ -28,10 +28,6 @@
    <span class="function"><strong>array_pop()</strong></span> は配列 <code class="parameter">array</code>
    の最後の値を取り出して返します。
    配列 <code class="parameter">array</code> は、要素一つ分短くなります。
-   <code class="parameter">array</code> が空 (または、配列でない) の場合、
-   <strong><code>NULL</code></strong> が返されます。配列でない場合は、それに加えてさらに
-   <a href="" class="link">警告</a>
-   が発生します。
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は、
 入力配列のポインタを、使用した後にリセット
@@ -73,10 +69,19 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.array-pop-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   配列以外を指定して呼び出した場合、この関数は <a href="errorfunc.constants.html" class="link">
+   E_WARNING</a> レベルのエラーとなります。
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.array-pop-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4985">
+   <div class="example" id="example-5592">
     <p><strong>例1 <span class="function"><strong>array_pop()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

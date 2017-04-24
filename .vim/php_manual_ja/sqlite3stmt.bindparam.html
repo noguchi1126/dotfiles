@@ -13,7 +13,7 @@
 </div><hr /><div id="sqlite3stmt.bindparam" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SQLite3Stmt::bindParam</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">SQLite3Stmt::bindParam</span> &mdash; <span class="dc-title">パラメータを変数にバインドする</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">SQLite3Stmt::bindParam</span> &mdash; <span class="dc-title">パラメータを変数にバインドする</span></p>
 
  </div>
 
@@ -21,7 +21,7 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>SQLite3Stmt::bindParam</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$sql_param</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$sql_param</code></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter reference">&$param</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
   ] )</div>
@@ -44,7 +44,7 @@
      <dd>
 
       <p class="para">
-       パラメータをどの変数にバインドするかを表す文字列。
+       パラメータをどの変数にバインドするかを表す文字列あるいは整数値。
       </p>
      </dd>
 

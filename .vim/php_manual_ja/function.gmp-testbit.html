@@ -13,7 +13,7 @@
 </div><hr /><div id="function.gmp-testbit" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmp_testbit</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">gmp_testbit</span> &mdash; <span class="dc-title">ビットが設定されているかどうかを調べる</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">gmp_testbit</span> &mdash; <span class="dc-title">ビットが設定されているかどうかを調べる</span></p>
 
  </div>
 
@@ -21,7 +21,7 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>gmp_testbit</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$a</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$a</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
    )</div>
 
@@ -42,8 +42,7 @@
 
      <dd>
 
-      <p class="para">GMP 数リソース、
-あるいは数値に変換可能な数値形式の文字列。</p> 
+      <p class="para">PHP 5.5 以前での GMP 数リソース、PHP 5.6 以降での <a href="class.gmp.html" class="classname">GMP</a> オブジェクト、あるいは数値に変換可能な数値形式の文字列。</p> 
      </dd>
 
     
@@ -86,7 +85,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-testbit-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3457">
+   <div class="example" id="example-3989">
     <p><strong>例1 <span class="function"><strong>gmp_testbit()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.rand" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">rand</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">rand</span> &mdash; <span class="dc-title">乱数を生成する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">rand</span> &mdash; <span class="dc-title">乱数を生成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.rand-description">
@@ -37,6 +37,7 @@
    例えば、5 から 15 まで（両端を含む）の乱数を得たい場合、
    <em>rand(5, 15)</em> とします。
   </p>
+  <div class="caution"><strong class="caution">警告</strong><p class="para">この関数が生成する値は、暗号学的に安全ではありません。そのため、これを暗号として使ってはいけません。暗号学的に安全な値が必要な場合は、<span class="function"><a href="function.random-int.html" class="function">random_int()</a></span> か <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> あるいは <span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span> を使いましょう。</p></div>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <span class="simpara">
     （Windows のような）いくつかのプラットフォームでは、<span class="function"><a href="function.getrandmax.html" class="function">getrandmax()</a></span>
@@ -46,6 +47,16 @@
     これより大きな範囲の乱数を生成することができます。
     もしくは、
     <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span> をかわりに使用してみてください。
+   </span>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    
+    PHP 7.1.0 以降、<span class="function"><strong>rand()</strong></span> uses the same
+    random number generator as <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span>. To preserve
+    backwards compatibility <span class="function"><strong>rand()</strong></span> allows
+    <code class="parameter">min</code> to be smaller than <code class="parameter">max</code>
+    as opposed to returning <strong><code>FALSE</code></strong> as <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span>.
    </span>
   </p></blockquote>
  </div>
@@ -107,8 +118,13 @@
      </thead>
 
      <tbody class="tbody">
-      <tr><td>4.2.0</td><td>
-乱数生成器が自動的にシードを生成するようになりました。</td></tr>
+      <tr>
+       <td>7.1.0</td>
+       <td>
+        
+        <a href="migration71.incompatible.html#migration71.incompatible.rand-srand-aliases" class="link"><span class="function"><strong>rand()</strong></span> has been made an alias of <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span>.</a>
+       </td>
+      </tr>
 
      </tbody>
     
@@ -120,7 +136,7 @@
  <div class="refsect1 examples" id="refsect1-function.rand-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3491">
+   <div class="example" id="example-4023">
     <p><strong>例1 <span class="function"><strong>rand()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -142,10 +158,22 @@
   </p>
  </div>
 
+
  <div class="refsect1 notes" id="refsect1-function.rand-notes">
   <h3 class="title">注意</h3>
-  <div class="caution"><strong class="caution">警告</strong><p class="para">この関数が生成する値は、暗号学的に安全ではありません。そのため、これを暗号として使ってはいけません。暗号学的に安全な値が必要な場合は、<span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span> を使いましょう。</p></div>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    <code class="parameter">min</code> から <code class="parameter">max</code>
+    までの幅を <span class="function"><a href="function.mt-getrandmax.html" class="function">mt_getrandmax()</a></span> の範囲内におさめる必要があります。
+    つまり、(<code class="parameter">max</code> -
+    <code class="parameter">min</code>) &lt;= <span class="function"><a href="function.mt-getrandmax.html" class="function">mt_getrandmax()</a></span>
+    でなければいけないということです。この範囲をこえてしまうと、
+    <span class="function"><strong>rand()</strong></span> が返す値のランダム性が、
+    低品質になってしまいます。
+   </p>
+  </div>
  </div>
+
 
  <div class="refsect1 seealso" id="refsect1-function.rand-seealso">
   <h3 class="title">参考</h3>
@@ -154,6 +182,8 @@
     <li class="member"><span class="function"><a href="function.srand.html" class="function" rel="rdfs-seeAlso">srand()</a> - 乱数ジェネレータを初期化する</span></li>
     <li class="member"><span class="function"><a href="function.getrandmax.html" class="function" rel="rdfs-seeAlso">getrandmax()</a> - 乱数の最大値を取得する</span></li>
     <li class="member"><span class="function"><a href="function.mt-rand.html" class="function" rel="rdfs-seeAlso">mt_rand()</a> - よりよい乱数値を生成する</span></li>
+    <li class="member"><span class="function"><a href="function.random-int.html" class="function" rel="rdfs-seeAlso">random_int()</a> - Generates cryptographically secure pseudo-random integers</span></li>
+    <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Generates cryptographically secure pseudo-random bytes</span></li>
     <li class="member"><span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function" rel="rdfs-seeAlso">openssl_random_pseudo_bytes()</a> - 疑似乱数のバイト文字列を生成する</span></li>
    </ul>
   </p>

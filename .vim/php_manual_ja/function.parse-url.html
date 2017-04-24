@@ -13,7 +13,7 @@
 </div><hr /><div id="function.parse-url" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">parse_url</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">parse_url</span> &mdash; <span class="dc-title">URL を解釈し、その構成要素を返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">parse_url</span> &mdash; <span class="dc-title">URL を解釈し、その構成要素を返す</span></p>
 
  </div>
 
@@ -196,11 +196,11 @@
  <div class="refsect1 examples" id="refsect1-function.parse-url-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4111">
+   <div class="example" id="example-4680">
     <p><strong>例1 <span class="function"><strong>parse_url()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$url&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'http://username:password@hostname/path?arg=value#anchor'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">));<br /><br />echo&nbsp;</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_PATH</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$url&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'http://username:password@hostname:9090/path?arg=value#anchor'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_SCHEME</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_USER</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_PASS</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_HOST</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_PORT</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_PATH</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_QUERY</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">parse_url</span><span style="color: #007700">(</span><span style="color: #0000BB">$url</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PHP_URL_FRAGMENT</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -208,23 +208,38 @@
     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-Array
-(
-    [scheme] =&gt; http
-    [host] =&gt; hostname
-    [user] =&gt; username
-    [pass] =&gt; password
-    [path] =&gt; /path
-    [query] =&gt; arg=value
-    [fragment] =&gt; anchor
-)
-/path
+array(8) {
+  [&quot;scheme&quot;]=&gt;
+  string(4) &quot;http&quot;
+  [&quot;host&quot;]=&gt;
+  string(8) &quot;hostname&quot;
+  [&quot;port&quot;]=&gt;
+  int(9090)
+  [&quot;user&quot;]=&gt;
+  string(8) &quot;username&quot;
+  [&quot;pass&quot;]=&gt;
+  string(8) &quot;password&quot;
+  [&quot;path&quot;]=&gt;
+  string(5) &quot;/path&quot;
+  [&quot;query&quot;]=&gt;
+  string(9) &quot;arg=value&quot;
+  [&quot;fragment&quot;]=&gt;
+  string(6) &quot;anchor&quot;
+}
+string(4) &quot;http&quot;
+string(8) &quot;username&quot;
+string(8) &quot;password&quot;
+string(8) &quot;hostname&quot;
+int(9090)
+string(5) &quot;/path&quot;
+string(9) &quot;arg=value&quot;
+string(6) &quot;anchor&quot;
 </pre></div>
     </div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4112">
+   <div class="example" id="example-4681">
     <p><strong>例2 <span class="function"><strong>parse_url()</strong></span> でスキームを省略した例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -276,7 +291,6 @@ array(3) {
     <li class="member"><span class="function"><a href="function.pathinfo.html" class="function" rel="rdfs-seeAlso">pathinfo()</a> - ファイルパスに関する情報を返す</span></li>
     <li class="member"><span class="function"><a href="function.parse-str.html" class="function" rel="rdfs-seeAlso">parse_str()</a> - 文字列を処理し、変数に代入する</span></li>
     <li class="member"><span class="function"><a href="function.http-build-query.html" class="function" rel="rdfs-seeAlso">http_build_query()</a> - URL エンコードされたクエリ文字列を生成する</span></li>
-    <li class="member"><span class="function"><a href="function.http-build-url.html" class="function" rel="rdfs-seeAlso">http_build_url()</a> - URL を組み立てる</span></li>
     <li class="member"><span class="function"><a href="function.dirname.html" class="function" rel="rdfs-seeAlso">dirname()</a> - 親ディレクトリのパスを返す</span></li>
     <li class="member"><span class="function"><a href="function.basename.html" class="function" rel="rdfs-seeAlso">basename()</a> - パスの最後にある名前の部分を返す</span></li>
     <li class="member"><a href="http://www.faqs.org/rfcs/rfc3986" class="link external">&raquo;&nbsp;RFC 3986</a></li>

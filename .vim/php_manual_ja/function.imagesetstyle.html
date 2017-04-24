@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagesetstyle" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagesetstyle</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">imagesetstyle</span> &mdash; <span class="dc-title">線描画用のスタイルを設定する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagesetstyle</span> &mdash; <span class="dc-title">線描画用のスタイルを設定する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagesetstyle-description">
@@ -56,6 +56,7 @@ image</code></dt>
        はピクセルの配列です。定数
        <strong><code>IMG_COLOR_TRANSPARENT</code></strong>
        を使用すると、透明なピクセルを追加できます。
+       <code class="parameter">style</code> は空の配列にしてはいけません。
       </p>
      </dd>
 
@@ -76,7 +77,7 @@ image</code></dt>
   <h3 class="title">例</h3>
   <p class="para">
    以下の例は、キャンバスの左上から右下隅に破線を描画するスクリプトです。
-   <div class="example" id="example-3295">
+   <div class="example" id="example-3603">
     <p><strong>例1 <span class="function"><strong>imagesetstyle()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

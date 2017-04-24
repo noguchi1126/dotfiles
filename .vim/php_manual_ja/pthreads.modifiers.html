@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="worker.unstack.html">Worker::unstack</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="collectable.setgarbage.html">Collectable::setGarbage</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="class.pool.html">Pool</a></div>
  <div class="up"><a href="book.pthreads.html">pthreads</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -17,9 +17,9 @@
  <p class="para">
   pthreads は、メソッドのアクセス修飾子 protected および private の機能を上書きし、
   マルチスレッド環境のオブジェクトにより適した機能を追加します。
-  pthreads は、Thread や Worker そして Stackable のオブジェクトを作るときにこの機能追加を行います。
+  pthreads は、すべての Threaded オブジェクトの作成時にこの機能追加を行います。
  </p>
- <div class="example" id="example-3727">
+ <div class="example" id="example-4261">
   <p><strong>例1 protected メソッドの例。protected メソッドは、同時に複数のスレッドから実行できないようにする</strong></p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -29,8 +29,8 @@
   </div>
 
  </div>
- <div class="example" id="example-3728">
-  <p><strong>例2 private メソッドの例。private メソッドは、その Thread、Worker あるいは Stackable の実行中にしか実行されないようにする</strong></p>
+ <div class="example" id="example-4262">
+  <p><strong>例2 private メソッドの例。private メソッドは、その Threaded オブジェクトの実行中にしか実行されないようにする</strong></p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">ExampleThread&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">Thread&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">run</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;thread&nbsp;code&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insideonly</span><span style="color: #007700">())&nbsp;{<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;</span><span style="color: #0000BB">insideonly</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;private&nbsp;method&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">}<br />}<br /><br /></span><span style="color: #0000BB">$thread&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ExampleThread</span><span style="color: #007700">();<br />if&nbsp;(</span><span style="color: #0000BB">$thread</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">start</span><span style="color: #007700">())&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$thread</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insideonly</span><span style="color: #007700">();<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -41,7 +41,7 @@
  </div>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="worker.unstack.html">Worker::unstack</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="collectable.setgarbage.html">Collectable::setGarbage</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="class.pool.html">Pool</a></div>
  <div class="up"><a href="book.pthreads.html">pthreads</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

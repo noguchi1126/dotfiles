@@ -13,7 +13,18 @@
 </div><hr /><div id="function.md5" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">md5</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">md5</span> &mdash; <span class="dc-title">文字列のmd5ハッシュ値を計算する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">md5</span> &mdash; <span class="dc-title">文字列のmd5ハッシュ値を計算する</span></p>
+
+ </div>
+ <div id="function.md5-refsynopsisdiv">
+  
+<div class="warning"><strong class="warning">警告</strong>
+ <p class="para">
+  パスワードを守るためにこの関数を使うことはおすすめしません。
+  ハッシュアルゴリズムの高速性がその理由です。
+  詳細とベストプラクティスについては、<a href="faq.passwords.html#faq.passwords.fasthash" class="link">パスワードハッシュ FAQ</a>を参照ください。
+ </p>
+</div>
 
  </div>
  
@@ -78,39 +89,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.md5-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        <code class="parameter">raw_output</code> パラメータが追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.md5-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4860">
+   <div class="example" id="example-5461">
     <p><strong>例1 <span class="function"><strong>md5()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -123,20 +105,6 @@
   </p>
  </div>
 
- 
-  <div class="refsect1 notes" id="refsect1-function.md5-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
- <strong>安全なパスワードハッシュ</strong><br />
- <p class="para">
-  パスワードを守るためにこの関数を使うことはおすすめしません。
-  ハッシュアルゴリズムの高速性がその理由です。
-  詳細は<a href="faq.passwords.html#faq.passwords.fasthash" class="link">ここ</a>を参照ください。
- </p>
-</p></blockquote>
-
- </div>
-
 
  <div class="refsect1 seealso" id="refsect1-function.md5-seealso">
   <h3 class="title">参考</h3>
@@ -147,6 +115,8 @@
     <li class="member"><span class="function"><a href="function.crc32.html" class="function" rel="rdfs-seeAlso">crc32()</a> - 文字列の crc32 多項式計算を行う</span></li>
     <li class="member"><span class="function"><a href="function.sha1.html" class="function" rel="rdfs-seeAlso">sha1()</a> - 文字列の sha1 ハッシュを計算する</span></li>
     <li class="member"><span class="function"><a href="function.hash.html" class="function" rel="rdfs-seeAlso">hash()</a> - ハッシュ値 (メッセージダイジェスト) を生成する</span></li>
+    <li class="member"><span class="function"><a href="function.crypt.html" class="function" rel="rdfs-seeAlso">crypt()</a> - 文字列の一方向のハッシュ化を行う</span></li>
+    <li class="member"><span class="function"><a href="function.password-hash.html" class="function" rel="rdfs-seeAlso">password_hash()</a> - パスワードハッシュを作る</span></li>
    </ul>
   </p>
  </div>

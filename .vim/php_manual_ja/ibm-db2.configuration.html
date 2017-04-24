@@ -161,19 +161,34 @@
 
      <p class="para">
       このオプションは、i5 スキーマコレクションで使用するコミットモードを
-      PHP アプリケーションで使用する際のモードを制御します。
+      PHP アプリケーションで使用する際のモードを制御します (オーバーライドについては (see <code class="parameter">i5_commit</code> を参照ください)。
       <ul class="itemizedlist">
        <li class="listitem">
         <p class="para">
-         0 はコミットしません (オーバーライドについては <code class="parameter">i5_commit</code> を参照ください)。
+         0 - コミット制御を使いません。
         </p>
        </li>
        <li class="listitem">
         <p class="para">
-         1 はコミットを許可します (オーバーライドについては <code class="parameter">i5_commit</code> を参照ください)。
+         1 - read uncommitted。ダーティリードの可能性があります。
         </p>
        </li>
-      </ul>
+         <li class="listitem">
+        <p class="para">
+         2 - read committed。ダーティリードは発生しません。
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         3 - repeatable read。ダーティリードや非再現リードは発生しません。
+        </p>
+       </li>
+       <li class="listitem">
+        <p class="para">
+         4 - serializeable。ダーティリードや非再現リードやファントムリードは発生しません。
+        </p>
+       </li>
+    </ul>
      </p>
     </dd>
 

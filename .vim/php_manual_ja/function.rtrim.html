@@ -13,7 +13,7 @@
 </div><hr /><div id="function.rtrim" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">rtrim</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">rtrim</span> &mdash; <span class="dc-title">文字列の最後から空白 (もしくはその他の文字) を取り除く</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">rtrim</span> &mdash; <span class="dc-title">文字列の最後から空白 (もしくはその他の文字) を取り除く</span></p>
 
  </div>
  
@@ -26,7 +26,7 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-   この関数は文字列 <code class="parameter">str</code> の最後から空白文字を取り除き、
+   この関数は文字列 <code class="parameter">str</code> の最後から空白文字 (あるいはその他の文字) を取り除き、
    取り除かれた文字列を返します。
   </p>
   <p class="para">
@@ -121,39 +121,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.rtrim-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.1.0</td>
-       <td>
-        <code class="parameter">character_mask</code> パラメータが追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.rtrim-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4871">
+   <div class="example" id="example-5472">
     <p><strong>例1 <span class="function"><strong>rtrim()</strong></span> の使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.substr-compare" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">substr_compare</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">substr_compare</span> &mdash; <span class="dc-title">指定した位置から指定した長さの 2 つの文字列について、バイナリ対応で比較する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">substr_compare</span> &mdash; <span class="dc-title">指定した位置から指定した長さの 2 つの文字列について、バイナリ対応で比較する</span></p>
 
  </div>
  
@@ -120,7 +120,7 @@
    <code class="parameter">str</code> より大きい場合に正の数、
    等しい場合に 0 を返します。<code class="parameter">offset</code> が
    <code class="parameter">main_str</code> の長さ以上であるか、あるいは <code class="parameter">length</code>
-   が設定されていて 1 未満である場合、<span class="function"><strong>substr_compare()</strong></span>
+   が設定されていて 1 未満である場合 (PHP 5.5.11 より前のバージョン)、<span class="function"><strong>substr_compare()</strong></span>
    は警告を表示して <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
@@ -141,6 +141,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.5.11</td>
+       <td>
+        <code class="parameter">length</code> を <em>0</em> にもできるようになりました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.1.0</td>
        <td>
         負の <code class="parameter">offset</code> を使用できるようになりました。
@@ -158,7 +165,7 @@
  <div class="refsect1 examples" id="refsect1-function.substr-compare-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4927">
+   <div class="example" id="example-5529">
     <p><strong>例1 <span class="function"><strong>substr_compare()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

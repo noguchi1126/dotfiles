@@ -13,10 +13,9 @@
 </div><hr /><div id="function.session-set-save-handler" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">session_set_save_handler</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">session_set_save_handler</span> &mdash; <span class="dc-title">ユーザー定義のセッション保存関数を設定する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_set_save_handler</span> &mdash; <span class="dc-title">ユーザー定義のセッション保存関数を設定する</span></p>
 
  </div>
-
  <div class="refsect1 description" id="refsect1-function.session-set-save-handler-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -27,7 +26,10 @@
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$write</code></span>
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$destroy</code></span>
    , <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$gc</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$create_sid</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$validate_sid</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$update_timestamp</code></span>
+  ]]] )</div>
 
   <p class="para rdfs-comment">
    PHP 5.4 以降は次のプロトタイプでも登録できます。
@@ -41,9 +43,9 @@
   <p class="para rdfs-comment">
    <span class="function"><strong>session_set_save_handler()</strong></span> は、セッションに
    関連するデータを保存および取得するために使用されるユーザー定義の
-   セッション保存関数を設定します。この関数は、セッションデータを
-   ローカルデータベースに保存する場合のように PHP セッションにより
+   セッション保存関数を設定します。この関数は、PHP セッションにより
    提供されるもの以外の保存方法を使用したい場合に有用です。
+   例えば、セッションデータをローカルデータベースに保存します。
   </p>
  </div>
 
@@ -210,6 +212,19 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">create_sid()</code></dt>
+
+     <dd>
+
+      <p class="para">
+       このコールバックは、新しいセッション ID が必要になったときに実行されます。
+       パラメータは不要です。返り値は、使っているハンドラで有効なセッション ID を表す文字列となります。
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -227,7 +242,7 @@
  <div class="refsect1 examples" id="refsect1-function.session-set-save-handler-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4784">
+   <div class="example" id="example-5381">
     <p><strong>例1 
      自作のセッションハンドラ: 完全なコードは <a href="class.sessionhandlerinterface.html" class="classname">SessionHandlerInterface</a> を参照
     </strong></p>
@@ -249,7 +264,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-4785">
+   <div class="example" id="example-5382">
     <p><strong>例2 セッション保存ハンドラでオブジェクトを使う例</strong></p>
     <div class="example-contents"><p>
      このコードは、PHP 5.4.0 より前のバージョンで動作します。
@@ -336,6 +351,13 @@
 
     <tbody class="tbody">
      <tr>
+      <td>5.5.1</td>
+      <td>
+       オプションのパラメータ <code class="parameter">create_sid</code> が追加されました。
+      </td>
+     </tr>
+
+     <tr>
       <td>5.4.0</td>
       <td>
        <span class="interfacename"><a href="class.sessionhandlerinterface.html" class="interfacename">SessionHandlerInterface</a></span> でセッションハンドラを実装したり、
@@ -362,6 +384,10 @@
     </li>
     <li class="member"><span class="function"><a href="function.register-shutdown-function.html" class="function" rel="rdfs-seeAlso">register_shutdown_function()</a> - シャットダウン時に実行する関数を登録する</span></li>
     <li class="member"><span class="function"><a href="function.session-register-shutdown.html" class="function" rel="rdfs-seeAlso">session_register_shutdown()</a> - セッションのシャットダウン関数</span> (PHP 5.4.0 以降)</li>
+    <li class="member">
+     Refer to <a href="https://github.com/php/php-src/blob/master/ext/session/tests/save_handler.inc" class="link external">&raquo;&nbsp;save_handler.inc</a>
+     for a full procedural reference implementation
+    </li>
    </ul>
   </p>
  </div>

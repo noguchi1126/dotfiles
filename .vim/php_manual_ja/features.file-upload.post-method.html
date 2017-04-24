@@ -45,7 +45,7 @@
    </p>
 
    <p class="para">
-    <div class="example" id="example-356">
+    <div class="example" id="example-381">
      <p><strong>例1 ファイルアップロード用のフォーム</strong></p>
      <div class="example-contents"><p>
       ファイルアップロード画面は、次のような特別なフォームを作成すること
@@ -90,16 +90,8 @@
    </p></blockquote>
 
    <p class="para">
-    オートグローバル <var class="varname"><var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES</a></var></var>
-    は、PHP 4.1.0 以降に存在します
-    (<var class="varname"><var class="varname">$HTTP_POST_FILES</var></var> は、これ以前のバージョンに存在します)。
-    これらの配列には、全てアップロードされたファイルの情報が
-    含まれています。
-   </p>
-
-   <p class="para">
-    <var class="varname"><var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES</a></var></var>
-    の内容は次のようになります。ここでは、上の例のスクリプトで使われたように、
+    グローバルの <var class="varname"><var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES</a></var></var> には、アップロードされたファイルの情報が含まれます。
+    サンプルのフォームからの内容は次のようになります。ここでは、上の例のスクリプトで使われたように、
     アップロードファイルの名前として <em class="emphasis">userfile</em> を
     使用することを仮定していることに注意してください。
     実際にはどんな名前にすることもできます。
@@ -166,7 +158,6 @@
        <p class="para">
         このファイルアップロードに関する
         <a href="features.file-upload.errors.html" class="link">エラーコード</a>
-        <em class="emphasis">[&#039;error&#039;]</em>は、PHP 4.2.0 で追加されました。
        </p>
       </dd>
 
@@ -184,7 +175,7 @@
     <span class="function"><a href="function.putenv.html" class="function">putenv()</a></span> 関数により設定しても上手くいきません。
     この環境変数は、アップロードされたファイルに他の処理を行う際にも
     同様に使用することが可能です。
-    <div class="example" id="example-357">
+    <div class="example" id="example-382">
      <p><strong>例2 ファイルのアップロードを検証する</strong></p>
      <div class="example-contents"><p>
       詳細については、<span class="function"><a href="function.is-uploaded-file.html" class="function">is_uploaded_file()</a></span>
@@ -211,7 +202,7 @@
     これはあくまでいくつかのチェックの中のひとつとしてのみ実行するように
     してください。なぜなら、この値を設定するのはあくまでもクライアントであり、
     PHP 側では何もチェックしていないからです。
-    PHP 4.2.0 以降、
+    また、
     <var class="varname"><var class="varname"><a href="reserved.variables.files.html" class="classname">$_FILES['userfile']['error']</a></var></var> を使用することができ、
     <a href="features.file-upload.errors.html" class="link">エラーコード</a>
     に基づき、ロジックを構成することができます。
@@ -228,7 +219,7 @@
     移動または名前の変更が行われていない場合、リクエストの終了時に
     そのファイルはテンポラリディレクトリから削除されます。
    </p>
-    <div class="example" id="example-358">
+    <div class="example" id="example-383">
      <p><strong>例3 ファイルの配列をアップロードする</strong></p>
      <div class="example-contents"><p>
       PHP はファイルについても
@@ -249,7 +240,7 @@
 
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"error"</span><span style="color: #007700">]&nbsp;as&nbsp;</span><span style="color: #0000BB">$key&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$error</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$error&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">UPLOAD_ERR_OK</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tmp_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"tmp_name"</span><span style="color: #007700">][</span><span style="color: #0000BB">$key</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"name"</span><span style="color: #007700">][</span><span style="color: #0000BB">$key</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">move_uploaded_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$tmp_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"data/</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">foreach&nbsp;(</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"error"</span><span style="color: #007700">]&nbsp;as&nbsp;</span><span style="color: #0000BB">$key&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$error</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$error&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">UPLOAD_ERR_OK</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$tmp_name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"tmp_name"</span><span style="color: #007700">][</span><span style="color: #0000BB">$key</span><span style="color: #007700">];<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;basename()&nbsp;で、ひとまずファイルシステムトラバーサル攻撃は防げるでしょう。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;ファイル名についてのその他のバリデーションも、適切に行いましょう。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">basename</span><span style="color: #007700">(</span><span style="color: #0000BB">$_FILES</span><span style="color: #007700">[</span><span style="color: #DD0000">"pictures"</span><span style="color: #007700">][</span><span style="color: #DD0000">"name"</span><span style="color: #007700">][</span><span style="color: #0000BB">$key</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">move_uploaded_file</span><span style="color: #007700">(</span><span style="color: #0000BB">$tmp_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"data/</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">"</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>

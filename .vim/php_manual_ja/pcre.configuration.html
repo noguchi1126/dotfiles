@@ -44,6 +44,13 @@
       <td>PHP 5.2.0 以降で使用可能</td>
      </tr>
 
+     <tr>
+      <td><a href="pcre.configuration.html#ini.pcre.jit" class="link">pcre.jit</a></td>
+      <td>&quot;1&quot;</td>
+      <td>PHP_INI_ALL</td>
+      <td>PHP 7.0.0 以降で使用可能</td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -86,6 +93,20 @@
       使用可能なプロセススタックを使い切ってしまい、
       (OS のスタックサイズの制限値に達して) PHP
       をクラッシュさせてしまうことに注意しましょう。
+     </p>
+    </dd>
+
+   
+   
+    <dt id="ini.pcre.jit">
+     <code class="parameter">pcre.jit</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      PCRE の just-in-time コンパイルを利用するかどうか。
      </p>
     </dd>
 

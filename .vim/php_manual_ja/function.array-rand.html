@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-rand" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_rand</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">array_rand</span> &mdash; <span class="dc-title">配列から一つ以上の要素をランダムに取得する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_rand</span> &mdash; <span class="dc-title">配列から一つ以上の要素をランダムに取得する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-rand-description">
@@ -27,6 +27,7 @@
   <p class="para rdfs-comment">
    一つ以上のランダムなエントリを配列から取り出し、
    取り出したエントリのキーを返します。
+   この関数が使う疑似乱数生成器は、暗号学的な使い方には適していません。
   </p>
  </div>
 
@@ -91,14 +92,18 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.1.0</td>
+       <td>
+        <a href="migration71.incompatible.html#migration71.incompatible.rand-srand-aliases" class="link">The internal randomization algorithm has been changed to use the <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html" class="link external">&raquo;&nbsp;Mersenne Twister</a> Random Number Generator instead of the libc rand function.</a>
+       </td>
+      </tr>
+
+      <tr>
        <td>5.2.10</td>
        <td>
         結果の配列のキーがシャッフルされなくなりました。
        </td>
       </tr>
-
-      <tr><td>4.2.0</td><td>
-乱数生成器が自動的にシードを生成するようになりました。</td></tr>
 
      </tbody>
     
@@ -110,7 +115,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-rand-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4988">
+   <div class="example" id="example-5595">
     <p><strong>例1 <span class="function"><strong>array_rand()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -125,7 +130,7 @@
 
  <div class="refsect1 notes" id="refsect1-function.array-rand-notes">
   <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">PHP 4.2.0 以降、
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">
 <span class="function"><a href="function.srand.html" class="function">srand()</a></span> または
 <span class="function"><a href="function.mt-srand.html" class="function">mt_srand()</a></span>
 によりランダム数生成器にシードを与える必要はありません。

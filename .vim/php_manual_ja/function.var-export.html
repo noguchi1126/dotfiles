@@ -13,7 +13,7 @@
 </div><hr /><div id="function.var-export" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">var_export</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">var_export</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">var_export</span> &mdash; <span class="dc-title">
    変数の文字列表現を出力または返す
   </span></p>
 
@@ -124,7 +124,7 @@
  <div class="refsect1 examples" id="refsect1-function.var-export-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5293">
+   <div class="example" id="example-6156">
     <p><strong>例1 <span class="function"><strong>var_export()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -164,7 +164,7 @@ array (
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5294">
+   <div class="example" id="example-6157">
     <p><strong>例2 PHP 5.1.0 以降でのクラスのエクスポート</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -184,7 +184,7 @@ A::__set_state(array(
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5295">
+   <div class="example" id="example-6158">
     <p><strong>例3 <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a> の使用法 (PHP 5.1.0 以降)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -228,9 +228,16 @@ object(A)#2 (2) {
   <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
     <span class="function"><strong>var_export()</strong></span> でオブジェクトをエクスポートするときに、
-    名前空間を指定したクラスの名前の先頭にあるスラッシュは含めません。これは互換性を高めるためです。
+    名前空間を指定したクラスの名前の先頭にあるバックスラッシュは含めません。これは互換性を高めるためです。
    </p>
   </div>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <span class="function"><strong>var_export()</strong></span> が生成する PHP を評価できるようにするためには、
+    処理対象のすべてのオブジェクトがマジックメソッド <a href="language.oop5.magic.html#object.set-state" class="link">__set_state</a> を実装している必要があります。
+    StdClass は __set_state() を実装していないことに注意しましょう。
+   </p>
+  </p></blockquote>
  </div>
 
 

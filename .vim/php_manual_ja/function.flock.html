@@ -13,7 +13,7 @@
 </div><hr /><div id="function.flock" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">flock</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">flock</span> &mdash; <span class="dc-title">汎用のファイルロックを行う</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">flock</span> &mdash; <span class="dc-title">汎用のファイルロックを行う</span></p>
 
  </div>
  
@@ -40,7 +40,7 @@
    (これは、アクセスする全プログラムが同一のロックの方法を使用する必要があり、
    そうでない場合は動作しないことを意味します)。
    デフォルトでは、要求したロックが確保されるまでこの関数はブロックします。
-   (非 Windows プラットフォームでは) 以下で説明する <strong><code>LOCK_NB</code></strong>
+   以下で説明する <strong><code>LOCK_NB</code></strong>
    オプションでこの挙動を制御することができます。
   </p>
  </div>
@@ -96,8 +96,7 @@
       </p>
       <p class="para">
        上の操作のいずれかに <strong><code>LOCK_NB</code></strong> をビットマスクとして追加すれば、
-       ロック中に <span class="function"><strong>flock()</strong></span> でブロックを行わないことができます
-       (Windows ではサポートされていません)。
+       ロック中に <span class="function"><strong>flock()</strong></span> でブロックを行わないことができます。
       </p>
      </dd>
 
@@ -144,21 +143,17 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.5.22, 5.6.6</td>
+       <td>
+        <code class="parameter">wouldblock</code> パラメータを、Windows でもサポートするようになりました。
+       </td>
+      </tr>
+      
+      <tr>
        <td>5.3.2</td>
        <td>
         ファイルのリソースハンドルを閉じたときにロックを自動的に解放する機能が削除されました。
         ロックの解放は、常に手動で行わなければなりません。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.1</td>
-       <td>
-        定数 <em>LOCK_XXX</em> が追加されました。以前のバージョンでは
-        <strong><code>LOCK_SH</code></strong> のかわりに 1、
-        <strong><code>LOCK_EX</code></strong> のかわりに 2、
-        <strong><code>LOCK_UN</code></strong> のかわりに 3、そして
-        <strong><code>LOCK_NB</code></strong> のかわりに 4 を使用しなければなりません。
        </td>
       </tr>
 
@@ -173,7 +168,7 @@
  <div class="refsect1 examples" id="refsect1-function.flock-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2400">
+   <div class="example" id="example-2636">
     <p><strong>例1 <span class="function"><strong>flock()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -185,7 +180,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2401">
+   <div class="example" id="example-2637">
     <p><strong>例2 <span class="function"><strong>flock()</strong></span> で <strong><code>LOCK_NB</code></strong> オプションを使う例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

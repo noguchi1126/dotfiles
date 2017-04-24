@@ -38,6 +38,13 @@
           </tr>
 
           <tr>
+            <td><a href="yaml.configuration.html#ini.yaml.decode-php" class="link">yaml.decode_php</a></td>
+            <td>1</td>
+            <td>PHP_INI_ALL</td>
+            <td></td>
+          </tr>
+
+          <tr>
             <td><a href="yaml.configuration.html#ini.yaml.decode-timestamp" class="link">yaml.decode_timestamp</a></td>
             <td>0</td>
             <td>PHP_INI_ALL</td>
@@ -89,6 +96,21 @@
             デフォルトではオフです。オンにすると、明示的にタグ
             &quot;tag:yaml.org,2002:binary&quot; がつけられた
             base64 バイナリエンコード形式のエンティティをデコードします。
+          </p>
+        </dd>
+
+      
+      
+        <dt id="ini.yaml.decode-php">
+          <code class="parameter">yaml.decode_php</code>
+          <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+        </dt>
+
+        <dd>
+
+          <p class="para">
+            デフォルトではオンです。オフにすると、
+            シリアライズされた php オブジェクトのうち &quot;!php/object&quot; というタグが明示されているものはデシリアライズしなくなります。
           </p>
         </dd>
 

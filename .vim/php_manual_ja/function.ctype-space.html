@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ctype-space" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ctype_space</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">ctype_space</span> &mdash; <span class="dc-title">空白文字かどうか調べる</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ctype_space</span> &mdash; <span class="dc-title">空白文字かどうか調べる</span></p>
 
  </div>
 
@@ -68,11 +68,11 @@
  <div class="refsect1 examples" id="refsect1-function.ctype-space-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5094">
+   <div class="example" id="example-5703">
     <p><strong>例1 <span class="function"><strong>ctype_space()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$strings&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'string1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"\n\r\t"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'string2'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"\narf12"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'string3'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\n\r\t'</span><span style="color: #007700">);<br />foreach&nbsp;(</span><span style="color: #0000BB">$strings&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$testcase</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">ctype_space</span><span style="color: #007700">(</span><span style="color: #0000BB">$testcase</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;'</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">'&nbsp;consists&nbsp;of&nbsp;all&nbsp;whitespace&nbsp;characters.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;'</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">'&nbsp;does&nbsp;not&nbsp;consist&nbsp;of&nbsp;all&nbsp;whitespace&nbsp;characters.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$strings&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'string1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"\n\r\t"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'string2'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"\narf12"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'string3'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'\n\r\t'&nbsp;</span><span style="color: #FF8000">//&nbsp;単一引用符に注意してください。<br /></span><span style="color: #007700">);<br /><br />foreach&nbsp;(</span><span style="color: #0000BB">$strings&nbsp;</span><span style="color: #007700">as&nbsp;</span><span style="color: #0000BB">$name&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$testcase</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">ctype_space</span><span style="color: #007700">(</span><span style="color: #0000BB">$testcase</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;'</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">'&nbsp;consists&nbsp;of&nbsp;whitespace&nbsp;characters&nbsp;only.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"The&nbsp;string&nbsp;'</span><span style="color: #0000BB">$name</span><span style="color: #DD0000">'&nbsp;contains&nbsp;non-whitespace&nbsp;characters.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -80,9 +80,9 @@
     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-The string &#039;string1&#039; consists of all whitespace characters.
-The string &#039;string2&#039; does not consist of all whitespace characters.
-The string &#039;string3&#039; does not consist of all whitespace characters.
+The string &#039;string1&#039; consists of whitespace characters only.
+The string &#039;string2&#039; contains non-whitespace characters.
+The string &#039;string3&#039; contains non-whitespace characters.
 </pre></div>
     </div>
    </div>

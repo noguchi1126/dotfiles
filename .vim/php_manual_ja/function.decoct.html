@@ -13,7 +13,7 @@
 </div><hr /><div id="function.decoct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">decoct</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">decoct</span> &mdash; <span class="dc-title">10 進数を 8 進数に変換する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">decoct</span> &mdash; <span class="dc-title">10 進数を 8 進数に変換する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.decoct-description">
@@ -25,7 +25,12 @@
 
   <p class="para rdfs-comment">
    引数 <code class="parameter">number</code> を 8 進数表現した文字列を返します。
-   変換出来る最大の数字は 10 進数の 4294967295 であり、&quot;37777777777&quot; を返します。
+   変換出来る最大の数字はプラットフォームによって異なります。
+   32 ビットプラットフォームでは、通常は十進数の <em>4294967295</em> であり、
+   これは <em>37777777777</em> を返します。
+   64 ビットプラットフォームでは、通常は十進数の
+   <em>9223372036854775807</em> であり、これは
+   <em>777777777777777777777</em> を返します。
   </p>
  </div>
 
@@ -61,7 +66,7 @@
  <div class="refsect1 examples" id="refsect1-function.decoct-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3474">
+   <div class="example" id="example-4006">
     <p><strong>例1 <span class="function"><strong>decoct()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

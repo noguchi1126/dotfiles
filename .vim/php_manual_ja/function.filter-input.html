@@ -13,7 +13,7 @@
 </div><hr /><div id="function.filter-input" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">filter_input</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">filter_input</span> &mdash; <span class="dc-title">指定した名前の変数を外部から受け取り、オプションでそれをフィルタリングする</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">filter_input</span> &mdash; <span class="dc-title">指定した名前の変数を外部から受け取り、オプションでそれをフィルタリングする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.filter-input-description">
@@ -61,18 +61,25 @@
 
     
     
-     <dt>
+ 
+  <dt>
 <code class="parameter">filter</code></dt>
 
-     <dd>
+  <dd>
 
-      <p class="para">
-       適用するフィルタの ID。<a href="filter.filters.html" class="xref">フィルタの型</a>
-       に、利用できるフィルタの一覧があります。
-      </p>
-     </dd>
+   <p class="para">
+    適用するフィルタの ID。<a href="filter.filters.html" class="xref">フィルタの型</a>
+    に、利用できるフィルタの一覧があります。
+   </p>
+   <p class="para">
+    省略した場合は <strong><code>FILTER_DEFAULT</code></strong> を使います。これは
+    <a href="filter.filters.sanitize.html" class="link"><strong><code>FILTER_UNSAFE_RAW</code></strong></a> と同等です。
+    結果的に、デフォルトでは何もフィルタリングをしません。
+   </p>
+  </dd>
 
-    
+ 
+
     
      <dt>
 <code class="parameter">options</code></dt>
@@ -107,7 +114,7 @@
  <div class="refsect1 examples" id="refsect1-function.filter-input-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5105">
+   <div class="example" id="example-5948">
     <p><strong>例1 <span class="function"><strong>filter_input()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

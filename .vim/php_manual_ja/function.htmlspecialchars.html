@@ -13,7 +13,7 @@
 </div><hr /><div id="function.htmlspecialchars" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">htmlspecialchars</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">htmlspecialchars</span> &mdash; <span class="dc-title">特殊文字を HTML エンティティに変換する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">htmlspecialchars</span> &mdash; <span class="dc-title">特殊文字を HTML エンティティに変換する</span></p>
 
  </div>
 
@@ -23,7 +23,7 @@
    <span class="type">string</span> <span class="methodname"><strong>htmlspecialchars</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ENT_COMPAT | ENT_HTML401</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = &#039;UTF-8&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = ini_get(&quot;default_charset&quot;)</span></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$double_encode</code><span class="initializer"> = true</span></span>
   ]]] )</div>
 
@@ -48,36 +48,52 @@
    <span class="function"><a href="function.mb-encode-numericentity.html" class="function">mb_encode_numericentity()</a></span> を使う必要があります。
   </p>
   <p class="para">
-   変換対象となる文字は以下の通りです。
-   <ul class="itemizedlist">
-    <li class="listitem">
-     <span class="simpara">
-      &#039;&amp;&#039; (アンパサンド) は &#039;&amp;amp;&#039; になります。
-     </span>
-    </li>
-    <li class="listitem">
-     <span class="simpara">
-      <strong><code>ENT_NOQUOTES</code></strong> が設定されていない場合、
-      &#039;&quot;&#039; (ダブルクォート) は &#039;&amp;quot;&#039;になります。
-     </span>
-    </li>
-    <li class="listitem">
-     <span class="simpara">
-      <strong><code>ENT_QUOTES</code></strong> が設定されている場合のみ、
-      &quot;&#039;&quot; (シングルクオート) は &#039;&amp;#039;&#039; (あるいは &amp;apos;) になります。
-     </span>
-    </li>
-    <li class="listitem">
-     <span class="simpara">
-      &#039;&lt;&#039; (小なり) は &#039;&amp;lt;&#039; になります。
-     </span>
-    </li>
-    <li class="listitem">
-     <span class="simpara">
-      &#039;&gt;&#039; (大なり) は &#039;&amp;gt;&#039; になります。
-     </span>
-    </li>
-   </ul>
+   <table class="doctable table">
+    <caption><strong>変換対象となる文字</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>変換前</th>
+       <th>変換語</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><em>&amp;</em> (アンパサンド)</td>
+       <td><em>&amp;amp;</em></td>
+      </tr>
+
+      <tr>
+       <td><em>&quot;</em> (ダブルクォート)</td>
+       <td><strong><code>ENT_NOQUOTES</code></strong> が指定されていない場合、<em>&amp;quot;</em></td>
+      </tr>
+
+      <tr>
+       <td><em>&#039;</em> (シングルクォート)</td>
+       <td>
+        <em>&amp;#039;</em> (<strong><code>ENT_HTML401</code></strong> の場合) あるいは <em>&amp;apos;</em> (
+        <strong><code>ENT_XML1</code></strong>、<strong><code>ENT_XHTML</code></strong>、
+        <strong><code>ENT_HTML5</code></strong> の場合)。ただし
+        <strong><code>ENT_QUOTES</code></strong> が指定されている場合に限る
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>&lt;</em> (小なり)</td>
+       <td><em>&amp;lt;</em></td>
+      </tr>
+
+      <tr>
+       <td><em>&gt;</em> (大なり)</td>
+       <td><em>&amp;gt;</em></td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -151,7 +167,7 @@
            <td>
             無効な符号単位シーケンスを含む文字列を渡したときに、
             空の文字列を返すのではなく Unicode の置換文字に置き換えます。
-            UTF-8 の場合は U+FFFD、それ以外の場合は &amp;#FFFD; となります。
+            UTF-8 の場合は U+FFFD、それ以外の場合は &amp;#xFFFD; となります。
            </td>
           </tr>
 
@@ -159,7 +175,7 @@
            <td><strong><code>ENT_DISALLOWED</code></strong></td>
            <td>
             指定した文書型において無効な符号位置を、Unicode の代替文字である
-            U+FFFD (UTF-8) あるいは &amp;#FFFD; で置き換えます。
+            U+FFFD (UTF-8) あるいは &amp;#xFFFD; で置き換えます。
             これを設定しなければ、無効な符号位置をそのまま残します。
             これは、外部コンテンツを埋め込んだ XML 文書を整形式に保つために有用です。
            </td>
@@ -207,13 +223,27 @@
 
      <dd>
 
-      <p class="para">
-       PHP 5.6.0 以降では、デフォルト値として <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
-       の値を使います。それ以前のデフォルト値は、
-       PHP 5.4.0 より前のバージョンでは
-       ISO-8859-1、そして PHP 5.4.0 以降では UTF-8 でした。
-       この引数は表向きには任意指定となっていますが、コードにあわせて正しい値を指定しておくことを強く推奨します。
-      </p>
+      
+ <p class="para">
+  オプションの引数。文字を変換するときに使うエンコーディングを定義します。
+ </p>
+
+ <p class="para">
+  省略した場の <code class="parameter">encoding</code> のデフォルト値は、varies
+  PHP のバージョンによって異なります。
+  PHP 5.6.0 以降では、デフォルト値として <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
+  の値を使います。PHP 5.4 と PHP 5.5 のデフォルト値は、
+  <em>UTF-8</em> で、それより前のバージョンの PHP のデフォルト値は
+  <em>ISO-8859-1</em> でした。
+ </p>
+
+ <p class="para">
+  技術的にはこの引数を省略可能ですが、PHP 5.5 以前のバージョンを使っている場合や、
+  <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
+  の指定が入力とは違う文字セットになっている場合は、
+  適切な値を指定しておくことを強く推奨します。
+ </p>
+
       <p class="para">
        この関数を使ううえでは
        <em>ISO-8859-1</em> と <em>ISO-8859-15</em>、
@@ -433,6 +463,16 @@
      </thead>
 
      <tbody class="tbody">
+      
+ <tr>
+  <td>5.6.0</td>
+  <td>
+   <code class="parameter">encoding</code> パラメータのデフォルト値が、
+   <a href="ini.core.html#ini.default-charset" class="link">default_charset</a> の設定値に変わりました。
+  </td>
+ </tr>
+
+
       <tr>
        <td>5.4.0</td>
        <td>
@@ -464,13 +504,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>4.1.0</td>
-       <td>
-        <code class="parameter">encoding</code> パラメータが追加されました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -482,7 +515,7 @@
  <div class="refsect1 examples" id="refsect1-function.htmlspecialchars-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4853">
+   <div class="example" id="example-5454">
     <p><strong>例1 <span class="function"><strong>htmlspecialchars()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -503,6 +536,50 @@
     この関数は上記のあげたもの以外に関しては一切の変換を行わないことに注意してください。
     すべての変換を行うには
     <span class="function"><a href="function.htmlentities.html" class="function">htmlentities()</a></span> を参照してください。
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    In case of an ambiguous <code class="parameter">flags</code> value, the following rules apply:
+   </p>
+   <p class="para">
+    <ul class="itemizedlist">
+     <li class="listitem">
+      <span class="simpara">
+       When neither of <strong><code>ENT_COMPAT</code></strong>, <strong><code>ENT_QUOTES</code></strong>,
+       <strong><code>ENT_NOQUOTES</code></strong> is present, the default is <strong><code>ENT_COMPAT</code></strong>.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       When more than one of <strong><code>ENT_COMPAT</code></strong>, <strong><code>ENT_QUOTES</code></strong>,
+       <strong><code>ENT_NOQUOTES</code></strong> is present, <strong><code>ENT_QUOTES</code></strong> takes the
+       highest precedence, followed by <strong><code>ENT_COMPAT</code></strong>.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       When neither of <strong><code>ENT_HTML401</code></strong>, <strong><code>ENT_HTML5</code></strong>,
+       <strong><code>ENT_XHTML</code></strong>, <strong><code>ENT_XML1</code></strong> is present, the default is
+       <strong><code>ENT_HTML401</code></strong>.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       When more than one of <strong><code>ENT_HTML401</code></strong>, <strong><code>ENT_HTML5</code></strong>,
+       <strong><code>ENT_XHTML</code></strong>, <strong><code>ENT_XML1</code></strong> is present,
+       <strong><code>ENT_HTML5</code></strong> takes the highest precedence,
+       followed by <strong><code>ENT_XHTML</code></strong>, <strong><code>ENT_HTML401</code></strong>.
+      </span>
+     </li>
+     <li class="listitem">
+      <span class="simpara">
+       When more than one of <strong><code>ENT_DISALLOWED</code></strong>, <strong><code>ENT_IGNORE</code></strong>,
+       <strong><code>ENT_SUBSTITUTE</code></strong> are present, <strong><code>ENT_IGNORE</code></strong> takes the
+       highest precedence, followed by <strong><code>ENT_SUBSTITUTE</code></strong>.
+      </span>
+     </li>
+    </ul>
    </p>
   </p></blockquote>
  </div>

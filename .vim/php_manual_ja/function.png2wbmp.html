@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>PNG イメージファイルから WBMP イメージファイルに変換する</title>
+  <title>Convert PNG image file to WBMP image file</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,9 +13,20 @@
 </div><hr /><div id="function.png2wbmp" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">png2wbmp</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5)</p><p class="refpurpose"><span class="refname">png2wbmp</span> &mdash; <span class="dc-title">PNG イメージファイルから WBMP イメージファイルに変換する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">png2wbmp</span> &mdash; <span class="dc-title">Convert PNG image file to WBMP image file</span></p>
 
  </div>
+
+ <div id="function.png2wbmp-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    <span class="function"><strong>png2wbmp()</strong></span> has been deprecated as of PHP 7.2.0, and will
+    be removed as of PHP 8.0.0. Use <span class="function"><a href="function.imagecreatefrompng.html" class="function">imagecreatefrompng()</a></span> and
+    <span class="function"><a href="function.imagewbmp.html" class="function">imagewbmp()</a></span> instead.
+   </p>
+  </div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.png2wbmp-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -28,7 +39,7 @@
    )</div>
 
   <p class="para rdfs-comment">
-   PNG ファイルを WBMP ファイルに変換します。
+   Converts a PNG file into a WBMP file.
   </p>
  </div>
 
@@ -44,7 +55,7 @@
      <dd>
 
       <p class="para">
-       PNG ファイルへのパス。
+       Path to PNG file.
       </p>
      </dd>
 
@@ -56,7 +67,7 @@
      <dd>
 
       <p class="para">
-       変換後の WBMP ファイルへのパス。
+       Path to destination WBMP file.
       </p>
      </dd>
 
@@ -68,7 +79,7 @@
      <dd>
 
       <p class="para">
-       変換後の画像の高さ。
+       Destination image height.
       </p>
      </dd>
 
@@ -80,7 +91,7 @@
      <dd>
 
       <p class="para">
-       変換後の画像の幅。
+       Destination image width.
       </p>
      </dd>
 
@@ -92,7 +103,7 @@
      <dd>
 
       <p class="para">
-       閾値。0 から 8 までの値 (両端を含みます)。
+       Threshold value, between 0 and 8 (inclusive).
       </p>
      </dd>
 
@@ -112,11 +123,11 @@
  <div class="refsect1 examples" id="refsect1-function.png2wbmp-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3315">
-    <p><strong>例1 <span class="function"><strong>png2wbmp()</strong></span> の例</strong></p>
+   <div class="example" id="example-3623">
+    <p><strong>例1 <span class="function"><strong>png2wbmp()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;対象となる&nbsp;png&nbsp;へのパス<br /></span><span style="color: #0000BB">$path&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'./test.png'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;画像サイズを取得します<br /></span><span style="color: #0000BB">$image&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">getimagesize</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;画像を変換します<br /></span><span style="color: #0000BB">png2wbmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./test.wbmp'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Path&nbsp;to&nbsp;the&nbsp;target&nbsp;png<br /></span><span style="color: #0000BB">$path&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'./test.png'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;the&nbsp;image&nbsp;sizes<br /></span><span style="color: #0000BB">$image&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">getimagesize</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Convert&nbsp;image<br /></span><span style="color: #0000BB">png2wbmp</span><span style="color: #007700">(</span><span style="color: #0000BB">$path</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'./test.wbmp'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">$image</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">],&nbsp;</span><span style="color: #0000BB">7</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -125,17 +136,12 @@
   </p>
  </div>
 
- <div class="refsect1 notes" id="refsect1-function.png2wbmp-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">WBMP サポートは、
-PHP が GD-1.8 か、それ以降に対して、コンパイルされている場合のみ使用可能です。</span></p></blockquote>
- </div>
 
  <div class="refsect1 seealso" id="refsect1-function.png2wbmp-seealso">
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.jpeg2wbmp.html" class="function" rel="rdfs-seeAlso">jpeg2wbmp()</a> - JPEG イメージファイルから WBMP イメージファイルに変換する</span></li>
+    <li class="member"><span class="function"><a href="function.jpeg2wbmp.html" class="function" rel="rdfs-seeAlso">jpeg2wbmp()</a> - Convert JPEG image file to WBMP image file</span></li>
    </ul>
   </p>
  </div>

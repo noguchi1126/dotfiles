@@ -14,7 +14,7 @@
 </div><hr /><div id="function.array-diff-uassoc" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_diff_uassoc</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">array_diff_uassoc</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_diff_uassoc</span> &mdash; <span class="dc-title">
    ユーザーが指定したコールバック関数を利用し、
    追加された添字の確認を含めて配列の差を計算する
   </span></p>
@@ -96,7 +96,7 @@
      <dd>
 
       <p class="para">
-       比較関数は、最初の引数と二番目の引数の比較結果を返します。最初の引数のほうが二番目の引数より大きい場合は正の数を、二番目の引数と等しい場合はゼロを、そして二番目の引数より小さい場合は負の数を返す必要があります。
+       比較関数は、最初の引数と二番目の引数の比較結果を返します。最初の引数のほうが二番目の引数より大きい場合は正の数を、二番目の引数と等しい場合はゼロを、そして二番目の引数より小さい場合は負の数を返す必要があります。PHP 7.0.0 より前のバージョンでは、この整数が -2147483648 から 2147483647 までの範囲におさまる必要がありました。
       </p>
       <div class="methodsynopsis dc-description"><span class="type">int</span> <span class="methodname"><span class="replaceable">callback</span></span> ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$a</code></span>, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$b</code></span> )</div>
 
@@ -124,7 +124,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-diff-uassoc-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4954">
+   <div class="example" id="example-5560">
     <p><strong>例1 <span class="function"><strong>array_diff_uassoc()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      <em>&quot;a&quot; =&gt; &quot;green&quot;</em> の組み合わせが両方の配列に存在し、
@@ -188,7 +188,7 @@ Array
     <li class="member"><span class="function"><a href="function.array-uintersect.html" class="function" rel="rdfs-seeAlso">array_uintersect()</a> - データの比較にコールバック関数を用い、配列の共通項を計算する</span></li>
     <li class="member"><span class="function"><a href="function.array-uintersect-assoc.html" class="function" rel="rdfs-seeAlso">array_uintersect_assoc()</a> - データの比較にコールバック関数を用い、
   追加された添字の確認も含めて配列の共通項を計算する</span></li>
-    <li class="member"><span class="function"><a href="function.array-uintersect-uassoc.html" class="function" rel="rdfs-seeAlso">array_uintersect_uassoc()</a> - データと添字の比較にコールバック関数を用い、
+    <li class="member"><span class="function"><a href="function.array-uintersect-uassoc.html" class="function" rel="rdfs-seeAlso">array_uintersect_uassoc()</a> - データと添字の比較に個別のコールバック関数を用い、
   追加された添字の確認も含めて配列の共通項を計算する</span></li>
    </ul>
   </p>

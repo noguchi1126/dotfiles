@@ -14,13 +14,21 @@
   <h1 class="title">導入</h1>
   <p class="para">
    この拡張モジュールは、<a href="http://www.json.org/" class="link external">&raquo;&nbsp;JavaScript Object Notation (JSON)</a>
-   というデータ交換形式を実装したものです。デコード処理は、
+   というデータ交換形式を実装したものです。PHP 5 のデコード処理は、
    Douglas Crockford による JSON_checker を基にしています。
+   
+   PHP 7 comes with a completely new and
+   improved parser that is specifically written for PHP and licensed under the
+   PHP license.
   </p>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">
-PHP は JSON のスーパーセットを実装しており、スカラー型や <strong><code>NULL</code></strong> のエンコードやデコードもします。
-JSON の標準規格では、これらの値は配列やオブジェクトの内部でネストする場合にだけ対応しています。
-</p></p></blockquote>
+  
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <p class="para">
+   PHP の実装は、
+   <a href="http://www.faqs.org/rfcs/rfc7159" class="link external">&raquo;&nbsp;RFC 7159</a> の JSON のスーパーセットです。
+  </p>
+ </p></blockquote>
+
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="book.json.html">JSON</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="json.setup.html">インストール/設定</a></div>

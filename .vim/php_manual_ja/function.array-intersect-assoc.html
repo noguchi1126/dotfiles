@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-intersect-assoc" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_intersect_assoc</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">array_intersect_assoc</span> &mdash; <span class="dc-title">追加された添字の確認も含めて配列の共通項を確認する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_intersect_assoc</span> &mdash; <span class="dc-title">追加された添字の確認も含めて配列の共通項を確認する</span></p>
 
  </div>
  
@@ -30,7 +30,7 @@
    <span class="function"><strong>array_intersect_assoc()</strong></span> は、全ての引数に現れる
    <code class="parameter">array1</code> の全ての値を含む配列を返します。
    <span class="function"><a href="function.array-intersect.html" class="function">array_intersect()</a></span> と異なり、
-   キーが比較に使用されることに注意してください。
+   キーも比較に使用されることに注意してください。
   </p>
  </div>
 
@@ -93,7 +93,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-intersect-assoc-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4963">
+   <div class="example" id="example-5570">
     <p><strong>例1 <span class="function"><strong>array_intersect_assoc()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -142,7 +142,7 @@ Array
   追加された添字の確認も含めて配列の共通項を計算する</span></li>
    <li class="member"><span class="function"><a href="function.array-intersect-uassoc.html" class="function" rel="rdfs-seeAlso">array_intersect_uassoc()</a> - 追加された添字の確認も含め、コールバック関数を用いて
   配列の共通項を確認する</span></li>
-   <li class="member"><span class="function"><a href="function.array-uintersect-uassoc.html" class="function" rel="rdfs-seeAlso">array_uintersect_uassoc()</a> - データと添字の比較にコールバック関数を用い、
+   <li class="member"><span class="function"><a href="function.array-uintersect-uassoc.html" class="function" rel="rdfs-seeAlso">array_uintersect_uassoc()</a> - データと添字の比較に個別のコールバック関数を用い、
   追加された添字の確認も含めて配列の共通項を計算する</span></li>
    <li class="member"><span class="function"><a href="function.array-diff.html" class="function" rel="rdfs-seeAlso">array_diff()</a> - 配列の差を計算する</span></li>
    <li class="member"><span class="function"><a href="function.array-diff-assoc.html" class="function" rel="rdfs-seeAlso">array_diff_assoc()</a> - 追加された添字の確認を含めて配列の差を計算する</span></li>

@@ -7,13 +7,13 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="sqlite3.loadextension.html">SQLite3::loadExtension</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="sqlite3.prepare.html">SQLite3::prepare</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="sqlite3.openblob.html">SQLite3::openBlob</a></div>
  <div class="up"><a href="class.sqlite3.html">SQLite3</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="sqlite3.open" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SQLite3::open</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">SQLite3::open</span> &mdash; <span class="dc-title">SQLite データベースをオープンする</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">SQLite3::open</span> &mdash; <span class="dc-title">SQLite データベースをオープンする</span></p>
 
  </div>
 
@@ -23,7 +23,7 @@
    <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>SQLite3::open</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = SQLITE3_OPEN_READWRITE | SQLITE3_OPEN_CREATE</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encryption_key</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encryption_key</code><span class="initializer"> = null</span></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
@@ -92,6 +92,7 @@
 
       <p class="para">
        オプションの暗号キー。SQLite データベースの暗号化と復号に使用します。
+       暗号化モジュールがインストールされていない場合は、このパラメータは何の影響も及ぼしません。
       </p>
      </dd>
 
@@ -114,7 +115,7 @@
  <div class="refsect1 examples" id="refsect1-sqlite3.open-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2179">
+   <div class="example" id="example-2404">
     <p><strong>例1 <span class="function"><strong>SQLite3::open()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -130,7 +131,7 @@
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="sqlite3.loadextension.html">SQLite3::loadExtension</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="sqlite3.prepare.html">SQLite3::prepare</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="sqlite3.openblob.html">SQLite3::openBlob</a></div>
  <div class="up"><a href="class.sqlite3.html">SQLite3</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

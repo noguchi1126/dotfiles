@@ -17,13 +17,18 @@
     定数を定義することが可能です。PHP 5.3.0 以降では、
     クラス定義の外部で <em>const</em>
     キーワードを使って定数を定義することもできます。
+    <span class="function"><a href="function.define.html" class="function">define()</a></span> を使えば任意の式を使って定数を定義できますが、
+    <em>const</em> キーワードを使う場合には、
+    次の段落で説明する制約があります。
     定数が一度定義されると、
     変更または未定義とすることはできません。
    </p>
    <p class="simpara">
-    定数に指定できるのは、スカラデータ
-    (<span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>, <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>, 
+    PHP 5.6 より前のバージョンでは、<em>const</em> キーワードで定数に指定できるのは、スカラデータ
+    (<span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>, <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>,
     <span class="type"><a href="language.types.float.html" class="type double">double</a></span>, <span class="type"><a href="language.types.string.html" class="type string">string</a></span>) のみです。
+    PHP 5.6 以降では、定数をスカラー式として定義できるようになりました。
+    また、<span class="type"><a href="language.types.array.html" class="type array">array</a></span> の定数も指定できるようになりました。
     <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span> の定数を指定することもできますが、
     予期せぬ結果を引き起こすことがあるので避けるべきです。
    </p>
@@ -52,6 +57,8 @@
     <a href="language.types.array.html#language.types.array.foo-bar" class="link">$foo[bar]</a>が間違っている
     （まず<em>bar</em>を定数として<span class="function"><a href="function.define.html" class="function">define()</a></span>しなければ）
     のかというマニュアルもご覧ください。
+    これは <a href="language.namespaces.rules.html" class="link">完全修飾形式の定数</a>
+    には適用されず、この場合は未定義なら fatal error となります。
     定数がセットされているかを単にチェックするには
     <span class="function"><a href="function.defined.html" class="function">defined()</a></span>を使用してください。
    </p>
@@ -65,8 +72,8 @@
      </li>
      <li class="listitem">
       <span class="simpara">
-      定数を定義することができるのは、<span class="function"><a href="function.define.html" class="function">define()</a></span>関数
-      のみです。単なる代入による定義はできません。
+      PHP 5.3 より前のバージョンでは、定数を定義することができるのは、<span class="function"><a href="function.define.html" class="function">define()</a></span>
+      関数のみです。単なる代入による定義はできません。
       </span>
      </li>
      <li class="listitem">
@@ -83,13 +90,18 @@
      <li class="listitem">
       <span class="simpara">
        定数は、スカラー値としてのみ評価可能です。
+       PHP 5.6 以降では、<em>const</em> キーワードを用いて配列定数を定義できるようになりました。
+       また PHP 7 以降では、<span class="function"><a href="function.define.html" class="function">define()</a></span> を用いた配列定数の定義もできるようになりました。
+       配列を、定数スカラー式としても使えます
+       (例：<em>const FOO = array(1,2,3)[0];</em>)
+       が、最終的な結果は、許可されている型でなければいけません。
       </span>
      </li>
     </ul>
    </p>
     
    <p class="para">
-    <div class="example" id="example-113">
+    <div class="example" id="example-92">
      <p><strong>例1 定数の定義</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -102,11 +114,11 @@
    </p>
 
    <p class="para">
-    <div class="example" id="example-114">
+    <div class="example" id="example-93">
      <p><strong>例2 <em>const</em> キーワードによる定数の定義</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;PHP&nbsp;5.3.0&nbsp;以降で動作します<br /></span><span style="color: #007700">const&nbsp;</span><span style="color: #0000BB">CONSTANT&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World'</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #0000BB">CONSTANT</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;PHP&nbsp;5.3.0&nbsp;以降で動作します<br /></span><span style="color: #007700">const&nbsp;</span><span style="color: #0000BB">CONSTANT&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Hello&nbsp;World'</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #0000BB">CONSTANT</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;PHP&nbsp;5.6.0&nbsp;以降で動作します<br /></span><span style="color: #007700">const&nbsp;</span><span style="color: #0000BB">ANOTHER_CONST&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">CONSTANT</span><span style="color: #007700">.</span><span style="color: #DD0000">';&nbsp;Goodbye&nbsp;World'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">ANOTHER_CONST</span><span style="color: #007700">;<br /><br />const&nbsp;</span><span style="color: #0000BB">ANIMALS&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'dog'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'cat'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'bird'</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">ANIMALS</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;出力は&nbsp;"cat"<br /><br />//&nbsp;PHP&nbsp;7&nbsp;以降で動作します<br /></span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'ANIMALS'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'dog'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cat'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'bird'<br /></span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">ANIMALS</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;出力は&nbsp;"cat"<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -119,8 +131,8 @@
      <span class="function"><a href="function.define.html" class="function">define()</a></span> による定数の定義とは反対に、
      <em>const</em> キーワードで定義した定数はトップレベルのスコープで宣言しなければなりません。
      これはコンパイル時に定義されるからです。
-     つまり、関数やループ、そして
-     <em>if</em> 文の内部では宣言できないということです。
+     つまり、関数、ループ、<em>if</em> 文、または
+     <em>try</em>/<em>catch</em> ブロックの内部では宣言できないということです。
     </p>
    </p></blockquote>
 

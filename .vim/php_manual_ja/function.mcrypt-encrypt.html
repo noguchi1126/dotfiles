@@ -13,10 +13,13 @@
 </div><hr /><div id="function.mcrypt-encrypt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mcrypt_encrypt</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5)</p><p class="refpurpose"><span class="refname">mcrypt_encrypt</span> &mdash; <span class="dc-title">指定したパラメータでプレーンテキストを暗号化する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mcrypt_encrypt</span> &mdash; <span class="dc-title">指定したパラメータでプレーンテキストを暗号化する</span></p>
 
  </div>
- 
+ <div id="function.mcrypt-encrypt-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は PHP 7.1.0 で
+<em class="emphasis">非推奨</em>になります。この関数に頼らないことを強く推奨します。</p></div>
+ </div>
  <div class="refsect1 description" id="refsect1-function.mcrypt-encrypt-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -57,12 +60,9 @@
      <dd>
 
       <p class="para">
-       データを暗号化する際のキー。必要なキー長よりも小さい場合には、
-       &#039;<em>\0</em>&#039; で埋められます。キーにはASCII
-       文字列を使わない方が良いです。
-      </p>
-      <p class="para">
-       文字列からキーを生成するにはmhash関数を使用することを推奨します。
+       データを暗号化する際のキー。
+       指定した暗号化方式に対応していないサイズのキーを渡された場合は、
+       警告を発して <strong><code>FALSE</code></strong> を返します。
       </p>
      </dd>
 
@@ -104,8 +104,9 @@
 
       <p class="para">CBC, CFB, OFB モードおよび
 STREAM モードのいくつかのアルゴリズムの初期化の際に使用されます。
-アルゴリズムで必要とする IV を指定しない場合、この関数は警告を発生し、
-すべてのバイトを &quot;<em>\0</em>&quot; に設定した IV を使用します。</p>
+指定した IV のサイズがそのモードでサポートされていない場合、
+あるいは IV を必要とするモードで IV が指定されなかった場合は、
+この関数は警告を発して <strong><code>FALSE</code></strong> を返します。</p>
      </dd>
 
     
@@ -118,7 +119,40 @@ STREAM モードのいくつかのアルゴリズムの初期化の際に使用�
  <div class="refsect1 returnvalues" id="refsect1-function.mcrypt-encrypt-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   暗号化されたデータを文字列で返します。
+   暗号化されたデータを文字列で返します。失敗した場合に <strong><code>FALSE</code></strong> を返します。
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 changelog" id="refsect1-function.mcrypt-encrypt-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.6.0</td>
+       <td>
+        無効なサイズの <code class="parameter">key</code> や <code class="parameter">iv</code>
+        は、受け付けないようになりました。無効な値を受け取った場合、
+        <span class="function"><strong>mcrypt_encrypt()</strong></span> は警告を発して <strong><code>FALSE</code></strong> を返します。
+        以前のバージョンでは、キーや IV のサイズが足りない場合は
+        &#039;<em>\0</em>&#039; で埋めて、必要なサイズに合わせていました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -126,7 +160,7 @@ STREAM モードのいくつかのアルゴリズムの初期化の際に使用�
  <div class="refsect1 examples" id="refsect1-function.mcrypt-encrypt-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-845">
+   <div class="example" id="example-917">
     <p><strong>例1 <span class="function"><strong>mcrypt_encrypt()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -145,9 +179,16 @@ This string was AES-256 / CBC / ZeroBytePadding encrypted.
     </div>
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-function.mcrypt-encrypt-seealso">
+  <h3 class="title">参考</h3>
   <p class="para">
-   より高度な API やサンプルについては
-   <span class="function"><a href="function.mcrypt-module-open.html" class="function">mcrypt_module_open()</a></span> も参照ください。
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mcrypt-decrypt.html" class="function" rel="rdfs-seeAlso">mcrypt_decrypt()</a> - 指定したパラメータで暗号化されたテキストを復号する</span></li>
+    <li class="member"><span class="function"><a href="function.mcrypt-module-open.html" class="function" rel="rdfs-seeAlso">mcrypt_module_open()</a> - 使用するアルゴリズムおよびモードのモジュールをオープンする</span></li>
+   </ul>
   </p>
  </div>
 

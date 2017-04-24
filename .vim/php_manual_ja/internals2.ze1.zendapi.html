@@ -690,7 +690,7 @@ code and repeat the last two steps as often as necessary.
    <a href="internals2.ze1.zendapi.html#internals2.ze1.zendapi.example.config.m4" class="xref">デフォルトの config.m4</a> に示すデフォルトの
    <var class="filename">config.m4</var> は、すこし複雑です。
   </p> 
-  <div class="example" id="internals2.ze1.zendapi.example.config.m4"> 
+  <div class="example" id="internals2.structure.modstruct.example-decl"> 
    <p><strong>例1 デフォルトの <var class="filename">config.m4</var></strong></p> 
    <div class="example-contents">
 <div class="autoconfcode"><pre class="autoconfcode">dnl $Id: build.xml 324071 2012-03-10 01:29:04Z takagi $
@@ -833,7 +833,7 @@ fi</pre>
    パラメータとして受け取った整数値をそのまま返すというだけの関数を実装しています。
    ソースを <a href="internals2.ze1.zendapi.html#internals2.ze1.zendapi.example.simple" class="xref">単純な拡張モジュール</a> に示します。
   </p> 
-  <div class="example" id="internals2.ze1.zendapi.example.simple">
+  <div class="example" id="internals2.structure.modstruct.struct-defn">
    <p><strong>例2 単純な拡張モジュール</strong></p> 
    <div class="example-contents">
 <div class="ccode"><pre class="ccode">/* 標準ヘッダを include します */
@@ -846,7 +846,7 @@ ZEND_FUNCTION(first_module);
 zend_function_entry firstmod_functions[] =
 {
     ZEND_FE(first_module, NULL)
-    {NULL, NULL, NULL}
+    ZEND_FE_END
 };
 
 /* モジュールについての情報 */
@@ -1057,7 +1057,7 @@ ZEND_FUNCTION(first_module)
     </p> 
    </div>
   </p> 
-  <div class="example" id="internals2.ze1.zendapi.example.testfile">
+  <div class="example" id="internals2.structure.modstruct.filling-it-in.counter-mod-ex">
    <p><strong>例3 first_module.so をテストするためのファイル</strong></p> 
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -1325,7 +1325,7 @@ ZEND_FUNCTION(first_module)
     のように定義されています。
    </p>
    <p class="para">
-    <div class="example" id="internals2.ze1.zendapi.example.zend-function-entry">
+    <div class="example" id="internals2.structure.globals.intro.wrong-way">
      <p><strong>例4 内部での <span class="envar">zend_function_entry</span> の宣言</strong></p> 
      <div class="example-contents">
 <div class="ccode"><pre class="ccode">typedef struct _zend_function_entry {
@@ -1383,23 +1383,16 @@ ZEND_FUNCTION(first_module)
 <div class="ccode"><pre class="ccode">zend_function_entry firstmod_functions[] =
 {
     ZEND_FE(first_module, NULL)
-    {NULL, NULL, NULL}
+    ZEND_FE_END
 };</pre>
 </div>
     </div>
 
     リストの最後のエントリは、必ず
-    <em>{NULL, NULL, NULL}</em> でなければなりません。
+    <em>ZEND_FE_END</em> でなければなりません。
     エクスポートされる関数の一覧が終わることを Zend が知るために、
     このエントリが必要となります。
    </p>
-   <blockquote class="note"><p><strong class="note">注意</strong>: 
-    <p class="para">
-     最後を表す印として、定義済みマクロを使用することは
-     <em class="emphasis">できません</em>。そうすると、
-     &quot;NULL&quot; という名前の関数を探しにいってしまいます!
-    </p>
-   </p></blockquote>
    <p class="para">
     マクロ <em>ZEND_FE</em> (&#039;Zend Function
     Entry&#039; を省略したものです) は、構造体のエントリを単純に
@@ -1515,7 +1508,7 @@ ZEND_FUNCTION(first_module)
     <a href="internals2.ze1.zendapi.html#internals2.ze1.zendapi.example.zend-module-entry" class="xref">内部での zend_module_entry の宣言</a>
     で確認できます。
    </p>
-   <div class="example" id="internals2.ze1.zendapi.example.zend-module-entry">
+   <div class="example" id="internals2.structure.globals.declaring.doth">
     <p><strong>例5 内部での <span class="envar">zend_module_entry</span> の宣言</strong></p> 
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">typedef struct _zend_module_entry zend_module_entry;
@@ -2307,7 +2300,7 @@ if(zend_get_parameters_array_ex(argument_count, parameter_array) != SUCCESS)
     すぐにわかるようになります。
    </p> 
 
-   <div class="example" id="internals2.ze1.zendapi.example.fsockopen"> 
+   <div class="example" id="internals2.structure.globals.declaring.dotc"> 
     <p><strong>例6 fsockopen() における、PHP の可変引数処理の実装</strong></p> 
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">pval **args[5];
@@ -2533,7 +2526,7 @@ RETURN_LONG(Z_LVAL_P(parameter));</pre>
     <a href="internals2.ze1.zendapi.html#internals2.ze1.zendapi.example.zval-typedef" class="xref">PHP/Zend zval 型定義</a> に示します。
    </p> 
    
-   <div class="example" id="internals2.ze1.zendapi.example.zval-typedef"> 
+   <div class="example" id="internals2.structure.globals.using.accessor"> 
     <p><strong>例7 PHP/Zend <span class="envar">zval</span> 型定義</strong></p> 
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">typedef pval zval;
@@ -2839,7 +2832,7 @@ struct _zval_struct {
     <em>zval*</em> を受け取り、それが参照かそうでないかを返します。
     <a href="internals2.ze1.zendapi.html#internals2.ze1.zendapi.example.pass-by-ref" class="xref">パラメータが参照で渡されたかどうかを調べる</a> に実際の使用例があります。
    </p> 
-   <div class="example" id="internals2.ze1.zendapi.example.pass-by-ref">
+   <div class="example" id="internals2.structure.globals.intro.right-way">
     <p><strong>例8 パラメータが参照で渡されたかどうかを調べる</strong></p> 
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">zval *parameter;
@@ -3074,7 +3067,7 @@ zend_hash_update(
     これは、PHP ソース内で <em>global $global_variable;</em>
     のようにローカルスコープにインポートしていないからです。
    </p> 
-   <div class="example" id="internals2.ze1.zendapi.example.variable-scopes">
+   <div class="example" id="internals2.structure.lifecycle.info.counter">
     <p><strong>例9 スコープが異なる変数の作成</strong></p> 
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">ZEND_FUNCTION(variable_creation)
@@ -3116,7 +3109,7 @@ zend_hash_update(
     long 型に対応する <span class="envar">type</span> の値は
     <em>IS_LONG</em> です
     (<a href="internals2.ze1.zendapi.html#internals2.ze1.zendapi.example.create-long" class="xref">long の作成</a> を参照ください)。
-    <div class="example" id="internals2.ze1.zendapi.example.create-long"> 
+    <div class="example" id="internals2.pdo.implementing.driver.error.ex-macros"> 
      <p><strong>例10 long の作成</strong></p> 
      <div class="example-contents">
 <div class="ccode"><pre class="ccode">zval *new_long;
@@ -3529,7 +3522,7 @@ array_init(new_array);</pre>
     数値添字配列の場合は <span class="function"><strong>zend_hash_index_update()</strong></span>
     (<a href="internals2.ze1.zendapi.html#internals2.ze1.zendapi.example.array-add-indexed" class="xref">数値添字配列への要素の追加</a> を参照ください)
     を使用します。
-    <div class="example" id="internals2.ze1.zendapi.example.array-add-assoc">
+    <div class="example" id="internals2.pdo.implementing.preparer.ex-parse-params">
      <p><strong>例11 連想配列への要素の追加</strong></p> 
      <div class="example-contents">
 <div class="ccode"><pre class="ccode">zval *new_array, *new_element;
@@ -3550,7 +3543,7 @@ if(zend_hash_update(new_array-&amp;gt;value.ht, key, strlen(key) + 1, (void *)&a
      </div>
  
     </div> 
-    <div class="example" id="internals2.ze1.zendapi.example.array-add-indexed">
+    <div class="example" id="internals2.pdo.implementing.preparer.ex-no-native-prep">
      <p><strong>例12 数値添字配列への要素の追加</strong></p> 
      <div class="example-contents">
 <div class="ccode"><pre class="ccode">zval *new_array, *new_element;
@@ -4699,7 +4692,7 @@ zval_copy_ctor(return_value);</pre>
     テーブルのフッタを表示するには、<span class="function"><strong>php_info_print_table_end()</strong></span>
     を使用します。
    </p> 
-   <div class="example" id="internals2.ze1.zendapi.example.phpinfo">
+   <div class="example" id="example-6439">
     <p><strong>例13 
      ソースコードおよび <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>
      の出力のスクリーンショット
@@ -4748,7 +4741,7 @@ php_info_print_table_end();</pre>
     <a href="internals2.ze1.zendapi.html#internals2.ze1.zendapi.example.exec-info" class="xref">実行時の情報の表示</a>
     を参照ください。
    </p> 
-   <div class="example" id="internals2.ze1.zendapi.example.exec-info">
+   <div class="example" id="example-6440">
     <p><strong>例14 実行時の情報の表示</strong></p> 
     <div class="example-contents">
 <div class="ccode"><pre class="ccode">zend_printf(&quot;The name of the current function is %s&amp;lt;br&amp;gt;&quot;, get_active_function_name(TSRMLS_C));
@@ -4877,7 +4870,7 @@ int no_separation);</pre>
    ここではこれらの使用は必須ではありませんが
    (値を分割しており、代入は安全に行われる)、念のために記述しています。
   </p> 
-  <div class="example" id="internals2.ze1.zendapi.example.call-user-func">
+  <div class="example" id="example-6441">
    <p><strong>例15 ユーザー関数のコール</strong></p> 
    <div class="example-contents">
 <div class="ccode"><pre class="ccode">zval **function_name;

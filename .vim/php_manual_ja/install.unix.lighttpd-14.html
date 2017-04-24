@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="install.unix.apache2.html">Apache 2.x (Unixシステム用)</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="install.unix.nginx.html">Nginx 1.4.x on Unix systems</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="install.unix.sun.html">Sun, iPlanet, Netscape サーバー（Sun Solaris 用）</a></div>
  <div class="up"><a href="install.unix.html">Unix システムへのインストール</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -44,7 +44,7 @@
    プロセスに接続するにはソケットの使用をおすすめします。
   </p>
 
-  <div class="example" id="example-27">
+  <div class="example" id="install.unix.nginx.extract.php">
    <p><strong>例1 lighttpd.conf の抜粋</strong></p>
    <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -103,7 +103,7 @@ fastcgi.server = ( &quot;.php&quot; =&gt;
    を設定します。php レスポンダを起動するシンプルな bash スクリプトの例を以下に示します。
   </p>
      
-  <div class="example" id="example-28">
+  <div class="example" id="install.unix.nginx.build.php">
    <p><strong>例2 FastCGI レスポンダの起動</strong></p>
    <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -142,7 +142,7 @@ echo $! &gt; &quot;$PHP_PID&quot;
    アプリケーションの規模を拡大することができます。
   </p>
    
-  <div class="example" id="example-29">
+  <div class="example" id="install.unix.nginx.configure.php">
    <p><strong>例3 リモートの php-fastcgi インスタンスへの接続</strong></p>
    <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -155,7 +155,7 @@ fastcgi.server = ( &quot;.php&quot; =&gt;
   </div>
  </div>
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="install.unix.apache2.html">Apache 2.x (Unixシステム用)</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="install.unix.nginx.html">Nginx 1.4.x on Unix systems</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="install.unix.sun.html">Sun, iPlanet, Netscape サーバー（Sun Solaris 用）</a></div>
  <div class="up"><a href="install.unix.html">Unix システムへのインストール</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

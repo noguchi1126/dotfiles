@@ -146,6 +146,77 @@
   
 
   
+   <dt id="ziparchive.constants.fl-enc-guess">
+    <strong><code>ZipArchive::FL_ENC_GUESS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     文字エンコーディングを推測します (デフォルト)。PHP 7.0.8 以降で利用可能です。
+    </span>
+   </dd>
+
+  
+  
+   <dt id="ziparchive.constants.fl-enc-raw">
+    <strong><code>ZipArchive::FL_ENC_RAW</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     何も手を加えない文字列を取得します。PHP 7.0.8 以降で利用可能です。
+    </span>
+   </dd>
+
+  
+  
+   <dt id="ziparchive.constants.fl-enc-strict">
+    <strong><code>ZipArchive::FL_ENC_STRICT</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     指示に厳格に従います。PHP 7.0.8 以降で利用可能です。
+    </span>
+   </dd>
+
+  
+  
+   <dt id="ziparchive.constants.fl-enc-utf8">
+    <strong><code>ZipArchive::FL_ENC_UTF_8</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     文字列のエンコーディングは UTF-8 です。PHP 7.0.8 以降で利用可能です。
+    </span>
+   </dd>
+
+  
+  
+   <dt id="ziparchive.constants.fl-enc-cp437">
+    <strong><code>ZipArchive::FL_ENC_CP437</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     文字列のエンコーディングは CP437 です。PHP 7.0.8 以降で利用可能です。
+    </span>
+   </dd>
+
+  
+
+  
    <dt id="ziparchive.constants.cm-default">
     <strong><code>ZipArchive::CM_DEFAULT</code></strong>
      (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
@@ -654,12 +725,65 @@
    </dd>
 
   
+
+  
+   <dt id="ziparchive.constants.em-none">
+    <strong><code>ZipArchive::EM_NONE</code></strong> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     No encryption, since PHP 7.2.0, PECL zip 1.14.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="ziparchive.constants.em-aez-128">
+    <strong><code>ZipArchive::EM_AES_128</code></strong> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     AES 128 encryption, since PHP 7.2.0, PECL zip 1.14.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="ziparchive.constants.em-aez-192">
+    <strong><code>ZipArchive::EM_AES_192</code></strong> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     AES 1192 encryption, since PHP 7.2.0, PECL zip 1.14.0
+    </span>
+   </dd>
+
+  
+  
+   <dt id="ziparchive.constants.em-aes256">
+    <strong><code>ZipArchive::EM_AES_256</code></strong> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     AES 256 encryption, since PHP 7.2.0, PECL zip 1.14.0
+    </span>
+   </dd>
+
+  
  </dl>
 
 
  <dl>
 
-  <strong class="title">外部属性用の、オペレーティングシステム定数</strong>
+ <strong class="title">外部属性用の、オペレーティングシステム定数</strong>
   
    <dt id="ziparchive.constants.opsys.default">
     <strong><code>ZipArchive::OPSYS_DOS</code></strong> (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)

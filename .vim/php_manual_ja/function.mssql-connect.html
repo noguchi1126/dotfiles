@@ -17,6 +17,24 @@
 
  </div>
  
+ <div id="function.mssql-connect-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この関数は PHP 7.0.0 で <em class="emphasis">削除</em> されました。
+</p>
+<p class="para">
+ この関数の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="pdo.construct.html" class="function">PDO::__construct()</a></span></li>
+    <li class="member"><span class="function"><a href="function.sqlsrv-connect.html" class="function">sqlsrv_connect()</a></span></li>
+    <li class="member"><span class="function"><a href="function.odbc-connect.html" class="function">odbc_connect()</a></span></li>
+   </ul>
+  </div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.mssql-connect-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -127,7 +145,7 @@
 
      <tbody class="tbody">
       <tr>
-       <td>4.4.1 および 5.1.0</td>
+       <td>5.1.0</td>
        <td>
         パラメータ <code class="parameter">new_link</code> が追加されました。
        </td>
@@ -144,7 +162,7 @@
  <div class="refsect1 examples" id="refsect1-function.mssql-connect-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1534">
+   <div class="example" id="example-1751">
     <p><strong>例1 <span class="function"><strong>mssql_connect()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

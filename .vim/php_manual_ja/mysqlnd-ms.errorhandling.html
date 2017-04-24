@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.transaction.html">Transaction handling</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.transaction.html">Local transaction handling</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.transient_errors.html">Transient errors</a></div>
  <div class="up"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -30,7 +30,7 @@
    lists an invalid host name for the slave.
   </p>
   <p class="para">
-   <div class="example" id="example-1804">
+   <div class="example" id="example-2027">
     <p><strong>例1 Provoking a connection error</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -58,7 +58,7 @@
    The explicit activation of lazy connections is for demonstration purpose only.
   </p>
   <p class="para">
-   <div class="example" id="example-1805">
+   <div class="example" id="example-2028">
     <p><strong>例2 Connection error on query execution</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -93,7 +93,7 @@ PHP Warning:  mysqli::query(): [2002] php_network_getaddresses: getaddrinfo fail
    beyond master fail over, because fail over is not a transparent operation.
   </p>
   <p class="para">
-   <div class="example" id="example-1806">
+   <div class="example" id="example-2029">
     <p><strong>例3 Provoking a connection error</strong></p>
     <div class="example-contents">
 <div class="inicode"><pre class="inicode">{
@@ -130,7 +130,7 @@ PHP Warning:  mysqli::query(): [2002] php_network_getaddresses: getaddrinfo fail
    type.
   </p>
   <p class="para">
-   <div class="example" id="example-1807">
+   <div class="example" id="example-2030">
     <p><strong>例4 Most basic failover</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -169,10 +169,10 @@ version = 5.6.2-m5-log
   <p class="para">
    Such cases can be debugged by either checking for errors of the type
    <em>E_WARNING</em> (see above) or, if no other option, investigation
-   of the <a href="mysqlnd-ms.debugging.html" class="link">mysqlnd_ms debug and trace log</a>.
+   of the <a href="mysqlnd-ms.plugin-ini-json.html#mysqlnd-ms.debugging" class="link">mysqlnd_ms debug and trace log</a>.
   </p>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.transaction.html">Transaction handling</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="mysqlnd-ms.transaction.html">Local transaction handling</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="mysqlnd-ms.transient_errors.html">Transient errors</a></div>
  <div class="up"><a href="mysqlnd-ms.concepts.html">Concepts</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

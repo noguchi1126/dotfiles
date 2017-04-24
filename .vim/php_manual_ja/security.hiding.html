@@ -29,7 +29,7 @@
     これは、.htaccessディレクティブまたは
     Apacheの設定ファイル自体で指定します。
     これにより、紛らわしいファイル拡張子を使用可能です。
-    <div class="example" id="example-348">
+    <div class="example" id="example-373">
      <p><strong>例1 PHPを他の言語として隠す</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># PHPコードを他のコード型のようにする
@@ -39,7 +39,7 @@ AddType application/x-httpd-php .asp .py .pl</pre>
 
     </div>
     または、次のように完全に隠すことも可能です。
-    <div class="example" id="example-349">
+    <div class="example" id="example-374">
      <p><strong>例2 PHP拡張子用に未知の型を使用する</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># Make PHP code look like unknown types
@@ -51,7 +51,7 @@ AddType application/x-httpd-php .bop .foo .133t</pre>
     または、<acronym title="Hyper Text Markup Language">HTML</acronym>コードとして隠すことも可能です。この場合、全ての<acronym title="Hyper Text Markup Language">HTML</acronym>ファ
     イルが<acronym title="PHP: Hypertext Preprocessor">PHP</acronym>エンジンを通じてパースされることになるため、若干の性能上の
     問題があります。
-    <div class="example" id="example-350">
+    <div class="example" id="example-375">
      <p><strong>例3 PHP拡張子としてHTML型を使用する</strong></p>
      <div class="example-contents">
 <div class="apache-confcode"><pre class="apache-confcode"># 全てのPHPコードをHTMLのように作成する

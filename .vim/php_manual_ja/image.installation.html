@@ -25,9 +25,6 @@
  <p class="para">
   Windowsの場合、GD2 DLL <var class="filename">php_gd2.dll</var>を<var class="filename">php.ini</var>に
   エクステンションとして指定してください。
-  GD1 DLL <var class="filename">php_gd.dll</var>はPHP4.3.2で削除されました。
-  <span class="function"><a href="function.imagecreatetruecolor.html" class="function">imagecreatetruecolor()</a></span>のようにTrueカラーが優先される関数
-  についてはGD2が必須です。
  </p>
  <p class="para">
   より多くの画像フォーマットを扱えるようにGDの能力を高めるには、
@@ -76,6 +73,20 @@
       </td>
      </tr>
 
+     <tr>
+      <td><em>webp</em></td>
+      <td>
+       webp をサポートするには
+       <strong class="option configure">--with-vpx-dir=DIR</strong>
+ を指定します。
+       PHP 5.5 以降で利用可能です。
+       PHP 7.0.0 以降は <strong class="option configure">--with-webp-dir=DIR</strong>
+
+       を追加する必要があります。つまり、libvpx がサポートされなくなり、かわりに
+       libwebp を用いるようになりました。
+      </td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -116,7 +127,7 @@
       <td>
        T1lib (Postscript Type 1 フォント) をサポートするには
        <strong class="option configure">--with-t1lib[=DIR]</strong>
-を指定します。
+を指定します (PHP 7.0.0 で削除されました)。
       </td>
      </tr>
 
@@ -125,7 +136,8 @@
       <td>
        ネイティブな TrueType 文字列関数 をサポートするには
        <strong class="option configure">--enable-gd-native-ttf</strong>
-を指定します。
+を指定します
+       (これは PHP 5.5.0 以降では何の効果もなくなりました。PHP 7.2.0 で削除される予定です)。
       </td>
      </tr>
 

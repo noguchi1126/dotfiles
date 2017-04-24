@@ -28,17 +28,17 @@
    を使います。
   </p>
   <p class="para">
-   優先読み込みの設定は、あらゆるレベルでできます。
+   優先読み込みの設定は、ドライバのあらゆるレベルでできます。
    <ul class="simplelist">
     <li class="member">問い合わせのパラメータ、あるいは <span class="methodname"><strong>MongoClient::__construct()</strong></span> のオプションで指定する</li>
     <li class="member"><span class="methodname"><a href="mongoclient.setreadpreference.html" class="methodname">MongoClient::setReadPreference()</a></span> を呼ぶ</li>
     <li class="member">データベースレベルなら <span class="methodname"><a href="mongodb.setreadpreference.html" class="methodname">MongoDB::setReadPreference()</a></span> を呼ぶ</li>
     <li class="member">コレクションレベルなら <span class="methodname"><a href="mongocollection.setreadpreference.html" class="methodname">MongoCollection::setReadPreference()</a></span> を呼ぶ</li>
-
+    <li class="member">カーソルレベルなら <span class="methodname"><a href="mongocursor.setreadpreference.html" class="methodname">MongoCursor::setReadPreference()</a></span> あるいは <span class="methodname"><a href="mongocommandcursor.setreadpreference.html" class="methodname">MongoCommandCursor::setReadPreference()</a></span> を呼ぶ</li>
    </ul>
-   上位のクラスで指定した優先読み込み設定を継承します。
+   「親」コンテキストで指定した優先読み込み設定を継承します。
   </p>
-  <div class="example" id="mongo.queries.secondaries.inheritence-example">
+  <div class="example" id="mongo.connecting.context.ssl">
    <p><strong>例1 データベースレベルからカーソルへの優先読み込みの継承</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -65,7 +65,7 @@
     それぞれのデータセンターにひとつずつセカンダリがあるとすると、
     このようにすることができます。
    </p>
-   <div class="example" id="mongo.queries.choosing.secondary-example">
+   <div class="example" id="mongo.connecting.context.ssl.verify">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$options&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"replicaSet"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"setName"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"readPreference"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">::</span><span style="color: #0000BB">RP_SECONDARY_PREFERRED</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;オーストラリアのクライアント<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://primary,australianhost.secondary,europeanhost.secondary"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getNext</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"Reading&nbsp;from:&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">info</span><span style="color: #007700">()[</span><span style="color: #DD0000">"server"</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;ヨーロッパのクライアント<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://primary,australianhost.secondary,europeanhost.secondary"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$m</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">foo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bar</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getNext</span><span style="color: #007700">();<br />echo&nbsp;</span><span style="color: #DD0000">"Reading&nbsp;from:&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cursor</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">info</span><span style="color: #007700">()[</span><span style="color: #DD0000">"server"</span><span style="color: #007700">],&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -129,7 +129,7 @@ Reading from: europeanHost
    今追加したばかりのドキュメントを探すことを考えてみましょう。
    追加するとドキュメントに <em>_id</em> フィールドができるので、それを問い合わせればいいのです。
 
-   <div class="example" id="mongo.queries.querying-example">
+   <div class="example" id="mongo.connecting.context.ssl.certificate">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$person&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"joe"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$person</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;$joe&nbsp;には&nbsp;_id&nbsp;フィールドがあります<br /></span><span style="color: #0000BB">$joe&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">findOne</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"_id"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$person</span><span style="color: #007700">[</span><span style="color: #DD0000">'_id'</span><span style="color: #007700">]));<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -147,7 +147,7 @@ Reading from: europeanHost
    これは、文字列 &quot;array()&quot; と空の配列が別のものであるというのと同じことです。
    次の例を参照ください。
 
-   <div class="example" id="mongo.queries.querying.wrong">
+   <div class="example" id="mongo.connecting.authenticate.ssl.x509">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$person&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"joe"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">insert</span><span style="color: #007700">(</span><span style="color: #0000BB">$person</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;_id&nbsp;を文字列に変換します<br /></span><span style="color: #0000BB">$pid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$person</span><span style="color: #007700">[</span><span style="color: #DD0000">'_id'</span><span style="color: #007700">]&nbsp;.&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;失敗&nbsp;-&nbsp;$pid&nbsp;は文字列であり、MongoId&nbsp;ではありません<br /></span><span style="color: #0000BB">$joe&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$people</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">findOne</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"_id"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$pid</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -175,7 +175,7 @@ Reading from: europeanHost
    たとえば、受賞の一覧をドキュメントに保存するときには次のようにできます。
   </p>
 
-  <div class="example" id="mongo.queries.arrays-example">
+  <div class="example" id="mongo.connecting.auth-example">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br />$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"awards"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"gold"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"silver"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bronze"</span><span style="color: #007700">)));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -202,7 +202,7 @@ Reading from: europeanHost
    が配列であるということを気にせず、次のようにすればいいのです。
   </p>
 
-   <div class="example" id="mongo.queries.arrays-example-2">
+   <div class="example" id="mongo.connecting.auth-db-example">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br />&nbsp;&nbsp;$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"awards"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"gold"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -242,7 +242,7 @@ Reading from: europeanHost
    内部のオブジェクトへの問い合わせには、ドット記法が使えます。
   </p>
 
-   <div class="example" id="mongo.queries.querying-arrays-nested">
+   <div class="example" id="mongo.connecting.rs-example">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br />$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"awards.first&nbsp;place"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"gold"</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -262,7 +262,7 @@ Reading from: europeanHost
    &quot;gold&quot; あるいは &quot;copper&quot; を含むドキュメントを探すには、このようにします。
   </p>
 
-  <div class="example" id="mongo.queries.querying-arrays-in">
+  <div class="example" id="mongo.connecting.rs-example-wrong-replset">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br />$cursor&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$collection</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">find</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"awards"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">'$in'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(</span><span style="color: #DD0000">"gold"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"copper"</span><span style="color: #007700">))));<br /><br /></span><span style="color: #0000BB">?&gt;</span>

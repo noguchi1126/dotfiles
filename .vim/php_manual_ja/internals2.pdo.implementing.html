@@ -223,7 +223,7 @@ line</dt>
     それぞれについて関数のコール手順をカスタマイズしたものです。
    </p>
 
-   <div class="example" id="internals2.pdo.implementing.driver.error.ex-macros">
+   <div class="example" id="internals2.buildsys.configunix.sample-config">
     <p><strong>例1 pdo_SKEL_error をコールするマクロの例</strong></p>
     <div class="example-contents"><div class="ccode"><pre class="ccode">#define pdo_SKEL_drv_error(what) \
     pdo_SKEL_error(dbh, NULL, what, __FILE__, __LINE__ TSRMLS_CC)
@@ -440,7 +440,7 @@ driver_options</dt>
     を使用して PDO にクエリを書き換えさせることでこの機能を
     サポートさせなければなりません。
    </p>
-   <div class="example" id="internals2.pdo.implementing.preparer.ex-parse-params">
+   <div class="example" id="internals2.buildsys.configunix.php-arg.configure-out">
     <p><strong>例2 pdo_parse_params の使用</strong></p>
     <div class="example-contents"><div class="ccode"><pre class="ccode">int ret;
     char *nsql = NULL;
@@ -473,7 +473,7 @@ driver_options</dt>
     ドライバがプリペアドステートメントをまったくサポートしていない場合、
     この関数は単に必要なデータを割り当てたうえで、それを返す必要があります。
    </p>
-   <div class="example" id="internals2.pdo.implementing.preparer.ex-no-native-prep">
+   <div class="example" id="internals2.buildsys.configunix.counter.configunix">
     <p><strong>例3 プリペアドステートメントをネイティブにサポートしていないドライバでの実装</strong></p>
     <div class="example-contents"><div class="ccode"><pre class="ccode">static int SKEL_handle_preparer(pdo_dbh_t *dbh, const char *sql,
     long sql_len, pdo_stmt_t *stmt, zval *driver_options TSRMLS_DC)

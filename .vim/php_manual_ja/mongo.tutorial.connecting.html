@@ -16,7 +16,7 @@
    データベースサーバーに接続するには、次のいずれかの方法を使います。
   </p>
 
-  <div class="example" id="mongo.tutorial.connecting-example">
+  <div class="example" id="example-1442">
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$connection&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;localhost:27017&nbsp;に接続します<br /></span><span style="color: #0000BB">$connection&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">"mongodb://example.com"&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;リモートホスト&nbsp;(デフォルトのポート:&nbsp;27017)&nbsp;に接続します<br /></span><span style="color: #0000BB">$connection&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">"mongodb://example.com:65432"&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;リモートホストの指定したポートに接続します<br /></span><span style="color: #0000BB">?&gt;</span>

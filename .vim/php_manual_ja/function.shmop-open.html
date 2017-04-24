@@ -13,13 +13,13 @@
 </div><hr /><div id="function.shmop-open" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shmop_open</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">shmop_open</span> &mdash; <span class="dc-title">共有メモリブロックを作成またはオープンする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shmop_open</span> &mdash; <span class="dc-title">共有メモリブロックを作成またはオープンする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.shmop-open-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><strong>shmop_open</strong></span>
+   <span class="type">resource</span> <span class="methodname"><strong>shmop_open</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$key</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$flags</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$mode</code></span>
@@ -136,15 +136,44 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    成功した場合は、<span class="function"><strong>shmop_open()</strong></span> は
-   作成した共有メモリセグメントにアクセスするために使用する ID を返します。
+   作成した共有メモリセグメントにアクセスするために使用するリソースを返します。
    失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.shmop-open-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.0.0</td>
+      <td>
+       The return type of <span class="function"><strong>shmop_open()</strong></span> has been changed from
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span> to <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.shmop-open-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3747">
+   <div class="example" id="example-4282">
     <p><strong>例1 共有メモリブロックを新規に作成する</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -165,8 +194,8 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.shmop-close.html" class="function" rel="rdfs-seeAlso">shmop_close()</a> - 共有メモリブロックを閉じる</span></li>
-    <li class="member"><span class="function"><a href="function.shmop-delete.html" class="function" rel="rdfs-seeAlso">shmop_delete()</a> - 共有メモリブロックを削除する</span></li>
+    <li class="member"><span class="function"><a href="function.shmop-close.html" class="function" rel="rdfs-seeAlso">shmop_close()</a> - Close shared memory block</span></li>
+    <li class="member"><span class="function"><a href="function.shmop-delete.html" class="function" rel="rdfs-seeAlso">shmop_delete()</a> - Delete shared memory block</span></li>
    </ul>
   </p>
  </div>

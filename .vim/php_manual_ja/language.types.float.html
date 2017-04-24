@@ -136,8 +136,8 @@ EXPONENT_DNUM [+-]?(({LNUM} | {DNUM}) [eE][+-]? {LNUM})
   <p class="para">
    数値演算の結果が、定数 <strong><code>NAN</code></strong> で表される値になることがあります。
    この定数は、浮動小数点演算における未定義の値あるいは表現不能な値を表します。
-   この値を他の値と比較した場合、たとえ自分自身との比較であっても結果は <strong><code>FALSE</code></strong> になります。
-   緩やかな比較の場合も厳格な比較の場合の同様です。
+   この値を他の値と比較すると、緩やかな比較および厳密な比較のいずれでも結果は <strong><code>FALSE</code></strong> になります。
+   自分自身と比較した場合も含みますが、<strong><code>TRUE</code></strong> と比較した場合は除きます。
   </p>
   <p class="para">
    <strong><code>NAN</code></strong> はさまざまな値の数を表すものなので、

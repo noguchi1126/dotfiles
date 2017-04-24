@@ -83,7 +83,18 @@
  <div class="refsect1 returnvalues" id="refsect1-solrclient.optimize-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns a SolrUpdateResponse on success or throws a SolrClientException on failure.
+   Returns a SolrUpdateResponse on success or throws an exception on failure.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 errors" id="refsect1-solrclient.optimize-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   Throws <a href="class.solrclientexception.html" class="classname">SolrClientException</a> if the client had failed, or there was a connection issue.
+  </p>
+  <p class="para">
+   Throws <a href="class.solrserverexception.html" class="classname">SolrServerException</a> if the Solr Server had failed to process the request.
   </p>
  </div>
 

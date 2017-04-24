@@ -44,11 +44,43 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-reflectionclass.newinstancewithoutconstructor-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.6.0</td>
+       <td>
+        すべての内部クラスをインスタンス化できるようになりました。ただし
+        <a href="language.oop5.final.html" class="link">final</a> 宣言されたクラスは例外です。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 errors" id="refsect1-reflectionclass.newinstancewithoutconstructor-errors">
   <h3 class="title">エラー / 例外</h3>
   <p class="para">
    そのクラスが内部クラスであり、コンストラクタを実行せずにインスタンスを作成することができなかった場合に
    <a href="class.reflectionexception.html" class="classname">ReflectionException</a> が発生します。
+   PHP 5.6.0 以降は、この例外が発生するのは、
+   <a href="language.oop5.final.html" class="link">final</a> な内部クラスに限られるようになります。
   </p>
  </div>
 

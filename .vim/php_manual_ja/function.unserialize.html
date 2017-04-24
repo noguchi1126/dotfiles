@@ -13,7 +13,7 @@
 </div><hr /><div id="function.unserialize" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">unserialize</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">unserialize</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">unserialize</span> &mdash; <span class="dc-title">
    保存用表現から PHP の値を生成する
   </span></p>
 
@@ -24,12 +24,30 @@
   <div class="methodsynopsis dc-description">
    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>unserialize</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code></span>
+  ] )</div>
 
   <p class="simpara">
    <span class="function"><strong>unserialize()</strong></span> は、シリアル化された変数を
    PHP 変数値に戻す変換を行います。
   </p>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    <em>allowed_classes</em> の <code class="parameter">options</code> の値にかかわらず、
+    ユーザーからの入力をそのまま <span class="function"><strong>unserialize()</strong></span> に渡してはいけません。
+    アンシリアライズの時には、オブジェクトのインスタンス生成やオートローディングなどで
+    コードが実行されることがあり、悪意のあるユーザーがこれを悪用するかもしれないからです。
+    シリアル化したデータをユーザーに渡す必要がある場合は、安全で標準的なデータ交換フォーマットである
+    JSON などを使うようにしましょう。
+    <span class="function"><a href="function.json-decode.html" class="function">json_decode()</a></span> および <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span>
+    を利用します。
+   </p>
+   <p class="para">
+    外部に保存されているシリアル化されたデータをアンシリアライズする必要がある場合は、
+    <span class="function"><a href="function.hash-hmac.html" class="function">hash_hmac()</a></span> を使ったデータの検証を検討しましょう。
+    他者によるデータの改ざんがないことを確かめるためです。
+   </p>
+  </div>
  </div>
 
 
@@ -72,6 +90,54 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">options</code></dt>
+
+     <dd>
+
+      <p class="para">
+       <span class="function"><strong>unserialize()</strong></span> に連想配列で渡すオプション。
+      </p>
+      <table class="doctable table">
+       <caption><strong>有効なオプション</strong></caption>
+       
+        <thead>
+         <tr>
+          <th>名前</th>
+          <th>型</th>
+          <th>説明</th>
+         </tr>
+
+        </thead>
+
+        <tbody class="tbody">
+         <tr>
+          <td><em>allowed_classes</em></td>
+          <td><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span></td>
+          <td>
+           <span class="simpara">
+            受け付けるクラス名の配列を指定します。あらゆるクラスを拒否する場合は
+            <strong><code>FALSE</code></strong>、あらゆるクラスを受け付ける場合は <strong><code>TRUE</code></strong> を指定します。
+            このオプションを指定しているときに、もし
+            <span class="function"><strong>unserialize()</strong></span> が受け付け対象外のクラスのオブジェクトに遭遇すると、
+            そのオブジェクトを
+            <strong class="classname">__PHP_Incomplete_Class</strong> のインスタンスに変換します。
+           </span>
+           <span class="simpara">
+            このオプションを省略すると、<strong><code>TRUE</code></strong> を指定したのと同じ意味になります。
+            つまり、PHP はあらゆるクラスのオブジェクトをインスタンス化しようとします。
+           </span>
+          </td>
+         </tr>
+
+        </tbody>
+       
+      </table>
+
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -108,9 +174,29 @@
 
      <tbody class="tbody">
       <tr>
-       <td>4.2.0</td>
+       <td>7.1.0</td>
        <td>
-        unserialize_callback_func ディレクティブが追加されました。
+        The <em>allowed_classes</em> element of
+        <code class="parameter">options</code>) is now strictly typed, i.e. if anything
+        other than an <span class="type"><a href="language.types.array.html" class="type array">array</a></span> or a <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> is given,
+        <span class="function"><strong>unserialize()</strong></span> returns <strong><code>FALSE</code></strong> and issues an
+        <strong><code>E_WARNING</code></strong>.
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">options</code> パラメータが追加されました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.6.0</td>
+       <td>
+        シリアライズされたデータを改変して <em>C:</em> を
+        <em>O:</em> に置き換え、オブジェクトのインスタンス化の際にコンストラクタを呼ばないようにしたものは、
+        処理に失敗するようになりました。
        </td>
       </tr>
 
@@ -125,7 +211,7 @@
  <div class="refsect1 examples" id="refsect1-function.unserialize-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5288">
+   <div class="example" id="example-6151">
     <p><strong>例1 <span class="function"><strong>unserialize()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -137,11 +223,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5289">
+   <div class="example" id="example-6152">
     <p><strong>例2 unserialize_callback_func の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$serialized_object</span><span style="color: #007700">=</span><span style="color: #DD0000">'O:1:"a":1:{s:5:"value";s:3:"100";}'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;unserialize_callback_func&nbsp;ディレクティブは&nbsp;PHP&nbsp;4.2.0&nbsp;以降で利用可能<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'unserialize_callback_func'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mycallback'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;独自のコールバック関数を設定する<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">mycallback</span><span style="color: #007700">(</span><span style="color: #0000BB">$classname</span><span style="color: #007700">)&nbsp;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;クラスが定義されているファイルをインクルードするだけです。<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;どのクラス定義が必要になるのかを&nbsp;$classname&nbsp;で判断します。<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$serialized_object</span><span style="color: #007700">=</span><span style="color: #DD0000">'O:1:"a":1:{s:5:"value";s:3:"100";}'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'unserialize_callback_func'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'mycallback'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;独自のコールバック関数を設定する<br /><br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">mycallback</span><span style="color: #007700">(</span><span style="color: #0000BB">$classname</span><span style="color: #007700">)&nbsp;<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;クラスが定義されているファイルをインクルードするだけです。<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;どのクラス定義が必要になるのかを&nbsp;$classname&nbsp;で判断します。<br /></span><span style="color: #007700">}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -162,17 +248,6 @@
     をキャッチすることで区別することができます。
    </p>
   </div>
-  <div class="warning"><strong class="warning">警告</strong>
-   <p class="para">
-    ユーザーからの入力をそのまま <span class="function"><strong>unserialize()</strong></span> に渡してはいけません。
-    アンシリアライズの時には、オブジェクトのインスタンス生成やオートローディングなどで
-    コードが実行されることがあり、悪意のあるユーザーがこれを悪用するかもしれないからです。
-    シリアル化したデータをユーザーに渡す必要がある場合は、安全で標準的なデータ交換フォーマットである
-    JSON などを使うようにしましょう。
-    <span class="function"><a href="function.json-decode.html" class="function">json_decode()</a></span> および <span class="function"><a href="function.json-encode.html" class="function">json_encode()</a></span>
-    を利用します。
-   </p>
-  </div>
  </div>
 
 
@@ -180,8 +255,11 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.json-encode.html" class="function" rel="rdfs-seeAlso">json_encode()</a> - 値を JSON 形式にして返す</span></li>
+    <li class="member"><span class="function"><a href="function.json-decode.html" class="function" rel="rdfs-seeAlso">json_decode()</a> - JSON 文字列をデコードする</span></li>
+    <li class="member"><span class="function"><a href="function.hash-hmac.html" class="function" rel="rdfs-seeAlso">hash_hmac()</a> - HMAC 方式を使用してハッシュ値を生成する</span></li>
     <li class="member"><span class="function"><a href="function.serialize.html" class="function" rel="rdfs-seeAlso">serialize()</a> - 値の保存可能な表現を生成する</span></li>
-    <li class="member"><a href="language.oop5.autoload.html" class="link">オブジェクトのオートローディング</a></li>
+    <li class="member"><a href="language.oop5.autoload.html" class="link">クラスのオートローディング</a></li>
     <li class="member"><a href="var.configuration.html#unserialize-callback-func" class="link">unserialize_callback_func</a></li>
     <li class="member"><a href="language.oop5.magic.html#object.wakeup" class="link">__wakeup()</a></li>
    </ul>

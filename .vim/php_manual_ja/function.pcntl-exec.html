@@ -13,14 +13,14 @@
 </div><hr /><div id="function.pcntl-exec" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pcntl_exec</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">pcntl_exec</span> &mdash; <span class="dc-title">現在のプロセス空間で指定したプログラムを実行する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pcntl_exec</span> &mdash; <span class="dc-title">現在のプロセス空間で指定したプログラムを実行する</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.pcntl-exec-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>pcntl_exec</strong></span>
+   <span class="type">bool</span> <span class="methodname"><strong>pcntl_exec</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$args</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$envs</code></span>

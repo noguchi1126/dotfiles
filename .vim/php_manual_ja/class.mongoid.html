@@ -17,6 +17,15 @@
 
  <div class="partintro"><p class="verinfo">(PECL mongo &gt;=0.8.0)</p>
 
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">このクラスを定義している拡張モジュールは非推奨です。
+かわりに <a href="set.mongodb.html" class="link">MongoDB</a> 拡張モジュールを使うべきです。
+このクラスの代替として、以下が使えます。</p>
+   <ul class="simplelist">
+    <li class="member"><a href="class.mongodb-bson-objectid.html" class="classname">MongoDB\BSON\ObjectID</a></li>
+   </ul>
+  </div>
+
 
   <div class="section" id="mongoid.intro">
    <h2 class="title">導入</h2>
@@ -33,7 +42,7 @@
     リレーショナルデータベースにおける自動インクリメントの役割を果たします。
     つまり、データ自体が必然的にもつ一意なキーがない場合にそれを提供するということです。
     自動インクリメントは共有データベースではうまく動作しません。
-    次の番号を瞬時に見つけることが不可能だからです。
+    次の番号を瞬時に見つけることが難しいからです。
     このクラスは、共有環境であっても一意となる値をすばやく生成することができます。
    </p>
    <p class="para">
@@ -72,7 +81,7 @@ C:7:&quot;MongoId&quot;:24:{4af9f23d8ead0e1d32000000}
     <div class="fieldsynopsis">
      <span class="modifier">public</span>
      <span class="type">string</span>
-      <var class="varname"><a href="class.mongoid.html#mongoid.props.id">$<var class="varname">id</var></a></var>
+      <var class="varname"><a href="class.mongoid.html#mongoid.props.id">$<var class="varname">$id</var></a></var>
      <span class="initializer"> = <strong><code>NULL</code></strong></span>
     ;</div>
 
@@ -80,7 +89,7 @@ C:7:&quot;MongoId&quot;:24:{4af9f23d8ead0e1d32000000}
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongoid.construct.html" class="methodname">__construct</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$id</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+    ([ <span class="methodparam"><span class="type"><span class="type string|MongoId">string|MongoId</span></span> <code class="parameter">$id</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">string</span> <span class="methodname"><a href="mongoid.gethostname.html" class="methodname">getHostname</a></span>
@@ -121,13 +130,20 @@ C:7:&quot;MongoId&quot;:24:{4af9f23d8ead0e1d32000000}
    <dl>
 
     
-     <dt id="mongoid.props.id"><var class="varname"><var class="varname">id</var></var></dt>
+     <dt id="mongoid.props.id"><var class="varname"><var class="varname">$id</var></var></dt>
 
      <dd>
 
       <span class="simpara">
        このフィールドには、このオブジェクトの文字列表現が含まれます。
       </span>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+        <span class="simpara">
+          このプロパティの名前は <em>$</em> で始まります。アクセスするには、
+          <a href="language.types.string.html#language.types.string.parsing.complex" class="link">複雑な構文</a> (<em>$mongoId-&gt;{&#039;$id&#039;}</em> 形式)
+          を利用します。
+        </span>
+      </p></blockquote>
      </dd>
 
     
@@ -138,7 +154,7 @@ C:7:&quot;MongoId&quot;:24:{4af9f23d8ead0e1d32000000}
   <div class="section">
    <h2 class="title">参考</h2>
    <p class="para">
-    MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/reference/object-id/" class="link external">&raquo;&nbsp;id</a>
+    MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/reference/object-id/" class="link external">&raquo;&nbsp;ObjectIds</a>
     を参照ください。
    </p>
   </div>

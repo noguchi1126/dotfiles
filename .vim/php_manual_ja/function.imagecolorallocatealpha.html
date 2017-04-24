@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagecolorallocatealpha" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecolorallocatealpha</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5)</p><p class="refpurpose"><span class="refname">imagecolorallocatealpha</span> &mdash; <span class="dc-title">画像で使用する色を透過度を指定して作成する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecolorallocatealpha</span> &mdash; <span class="dc-title">画像で使用する色を透過度を指定して作成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecolorallocatealpha-description">
@@ -93,7 +93,9 @@ image</code></dt>
     
    </dl>
 
-   色のパラメータは、0 から 255 までの整数値か
+   パラメータ <code class="parameter">red</code>、<code class="parameter">green</code>
+   および <code class="parameter">blue</code> には、
+   0 から 255 までの整数値か
    0x00 から 0xFF までの十六進値を指定します。
   </p>
  </div>
@@ -143,7 +145,7 @@ image</code></dt>
  <div class="refsect1 examples" id="refsect1-function.imagecolorallocatealpha-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3202">
+   <div class="example" id="example-3504">
     <p><strong>例1 <span class="function"><strong>imagecolorallocatealpha()</strong></span> の使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -164,10 +166,6 @@ image</code></dt>
   </p>
  </div>
 
- <div class="refsect1 notes" id="refsect1-function.imagecolorallocatealpha-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は、GD 2.0.1 以降を必要とします (2.0.28 以降を推奨します)。</span></p></blockquote>
- </div>
 
  <div class="refsect1 seealso" id="refsect1-function.imagecolorallocatealpha-seealso">
   <h3 class="title">参考</h3>

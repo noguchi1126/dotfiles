@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ucwords" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ucwords</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ucwords</span> &mdash; <span class="dc-title">文字列の各単語の最初の文字を大文字にする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ucwords</span> &mdash; <span class="dc-title">文字列の各単語の最初の文字を大文字にする</span></p>
 
  </div>
  
@@ -22,16 +22,19 @@
   <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><strong>ucwords</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$str</code></span>
-   )</div>
+   [, <span class="methodparam">
+    <span class="type">string</span> <code class="parameter">$delimiters</code><span class="initializer"> = &quot; \t\r\n\f\v&quot;</span>
+   </span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    文字がアルファベットの場合、<code class="parameter">str</code>
    の各単語の最初の文字を大文字にしたものを返します。
   </p>
   <p class="para">
-   単語の定義は、空白文字
-   (スペース、フォームフィード、改行、キャリッジリターン、
-   水平タブ、垂直タブ) の直後にあるあらゆる文字からなる文字列です。
+   単語の定義は、<code class="parameter">delimiters</code> で指定した任意の文字
+   (デフォルトはスペース、フォームフィード、改行、キャリッジリターン、
+   水平タブ、垂直タブ) の直後にある、あらゆる文字からなる文字列です。
   </p>
  </div>
 
@@ -53,6 +56,18 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">delimiters</code></dt>
+
+     <dd>
+
+      <p class="para">
+       オプションの <code class="parameter">delimiters</code> で、単語の区切り文字を指定します。
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -67,14 +82,56 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.ucwords-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.4.32, 5.5.16</td>
+       <td>
+        <code class="parameter">delimiters</code> パラメータが追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.ucwords-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4939">
+   <div class="example" id="example-5541">
     <p><strong>例1 <span class="function"><strong>ucwords()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hello&nbsp;world!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ucwords</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Hello&nbsp;World!<br /><br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'HELLO&nbsp;WORLD!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ucwords</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;HELLO&nbsp;WORLD!<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ucwords</span><span style="color: #007700">(</span><span style="color: #0000BB">strtolower</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;Hello&nbsp;World!<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+
+  <p class="para">
+   <div class="example" id="example-5542">
+    <p><strong>例2 <span class="function"><strong>ucwords()</strong></span> で、区切り文字を指定する例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'hello|world!'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ucwords</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Hello|world!<br /><br /></span><span style="color: #0000BB">$baz&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ucwords</span><span style="color: #007700">(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"|"</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Hello|World!<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

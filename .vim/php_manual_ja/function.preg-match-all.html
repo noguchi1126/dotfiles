@@ -13,7 +13,7 @@
 </div><hr /><div id="function.preg-match-all" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_match_all</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">preg_match_all</span> &mdash; <span class="dc-title">繰り返し正規表現検索を行う</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">preg_match_all</span> &mdash; <span class="dc-title">繰り返し正規表現検索を行う</span></p>
 
  </div>
 
@@ -130,6 +130,33 @@ example: , this is a test
             </p>
            </div>
           </p>
+          <p class="para">
+           パターンに名前付きサブパターンが含まれる場合は、<var class="varname"><var class="varname">$matches</var></var>
+           にはサブパターン名のキーも含まれるようになります。
+          </p>
+          <p class="para">
+           サブパターンの名前が重複している場合は、いちばん右側のサブパターンだけが
+           <var class="varname"><var class="varname">$matches[NAME]</var></var> に格納されます。
+           <div class="informalexample">
+            <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />preg_match_all</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'/(?J)(?&lt;match&gt;foo)|(?&lt;match&gt;bar)/'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'foo&nbsp;bar'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$matches</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">PREG_PATTERN_ORDER<br /></span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$matches</span><span style="color: #007700">[</span><span style="color: #DD0000">'match'</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            </div>
+
+            <p class="para">上の例の出力は以下となります。</p>
+            <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [0] =&gt; 
+    [1] =&gt; bar
+)
+</pre></div>
+            </div>
+           </div>
+          </p>
          </dd>
 
         
@@ -171,9 +198,68 @@ example: , this is a test
 
           <p class="para">
            このフラグを設定した場合、各マッチに対応する文字列のオフセットも返されます。
-           これにより、返り値は配列となり、配列の要素 <em>0</em> はマッチした文字列、 
-           要素 <em>1</em> は <code class="parameter">subject</code> における
-           マッチした文字列のオフセット値となることに注意してください。 
+           これは、<code class="parameter">matches</code> の値を配列の配列に変更することに注意してください。
+           その配列のすべての要素は、
+           オフセット <em>0</em> で一致した文字列
+           およびその文字列のオフセット <em>1</em> での
+           <code class="parameter">subject</code> へのオフセットからなります。
+           <div class="informalexample">
+            <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />preg_match_all</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(foo)(bar)(baz)/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'foobarbaz'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$matches</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PREG_OFFSET_CAPTURE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$matches</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            </div>
+
+            <p class="para">上の例の出力は以下となります。</p>
+            <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [0] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [0] =&gt; foobarbaz
+                    [1] =&gt; 0
+                )
+
+        )
+
+    [1] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [0] =&gt; foo
+                    [1] =&gt; 0
+                )
+
+        )
+
+    [2] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [0] =&gt; bar
+                    [1] =&gt; 3
+                )
+
+        )
+
+    [3] =&gt; Array
+        (
+            [0] =&gt; Array
+                (
+                    [0] =&gt; baz
+                    [1] =&gt; 6
+                )
+
+        )
+
+)
+</pre></div>
+            </div>
+           </div>
           </p>
          </dd>
 
@@ -271,20 +357,6 @@ example: , this is a test
        </td>
       </tr>
 
-      <tr>
-       <td>4.3.3</td>
-       <td>
-        パラメータ <code class="parameter">offset</code> が追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        フラグ <strong><code>PREG_OFFSET_CAPTURE</code></strong> が追加されました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -296,7 +368,7 @@ example: , this is a test
  <div class="refsect1 examples" id="refsect1-function.preg-match-all-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4799">
+   <div class="example" id="example-5398">
     <p><strong>例1 テキストからすべての電話番号を得る</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -308,7 +380,7 @@ example: , this is a test
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4800">
+   <div class="example" id="example-5399">
     <p><strong>例2 HTML タグにマッチするものを見付ける（貪欲）</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -336,7 +408,7 @@ part 4: &lt;/a&gt;
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4801">
+   <div class="example" id="example-5400">
     <p><strong>例3 名前つきサブパターンの使用法</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -398,6 +470,7 @@ Array
   <p class="para">
    <ul class="simplelist">
     <li class="member"><a href="pcre.pattern.html" class="link">PCRE のパターン</a></li>
+    <li class="member"><span class="function"><a href="function.preg-quote.html" class="function" rel="rdfs-seeAlso">preg_quote()</a> - 正規表現文字をクオートする</span></li>
     <li class="member"><span class="function"><a href="function.preg-match.html" class="function" rel="rdfs-seeAlso">preg_match()</a> - 正規表現によるマッチングを行う</span></li>
     <li class="member"><span class="function"><a href="function.preg-replace.html" class="function" rel="rdfs-seeAlso">preg_replace()</a> - 正規表現検索および置換を行う</span></li>
     <li class="member"><span class="function"><a href="function.preg-split.html" class="function" rel="rdfs-seeAlso">preg_split()</a> - 正規表現で文字列を分割する</span></li>

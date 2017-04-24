@@ -136,6 +136,14 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$fieldName</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="solrdocument.getchilddocuments.html" class="methodname">getChildDocuments</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">integer</span> <span class="methodname"><a href="solrdocument.getchilddocumentscount.html" class="methodname">getChildDocumentsCount</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">SolrDocumentField</span> <span class="methodname"><a href="solrdocument.getfield.html" class="methodname">getField</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$fieldName</code></span>
    )</div>
@@ -149,6 +157,10 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">SolrInputDocument</span> <span class="methodname"><a href="solrdocument.getinputdocument.html" class="methodname">getInputDocument</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="solrdocument.haschilddocuments.html" class="methodname">hasChildDocuments</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -516,7 +528,28 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="solrdocument.addfield.html">SolrDocument::addField</a> — 文書にフィールドを追加</li><li><a href="solrdocument.clear.html">SolrDocument::clear</a> — Drops all the fields in the document</li><li><a href="solrdocument.clone.html">SolrDocument::__clone</a> — SolrDocument オブジェクトのコピーを作成</li><li><a href="solrdocument.construct.html">SolrDocument::__construct</a> — コンストラクタ</li><li><a href="solrdocument.current.html">SolrDocument::current</a> — 現行のフィールドを取得</li><li><a href="solrdocument.deletefield.html">SolrDocument::deleteField</a> — 文書からフィールドを除去</li><li><a href="solrdocument.destruct.html">SolrDocument::__destruct</a> — デストラクタ</li><li><a href="solrdocument.fieldexists.html">SolrDocument::fieldExists</a> — Checks if a field exists in the document</li><li><a href="solrdocument.get.html">SolrDocument::__get</a> — プロパティとしてフィールドにアクセス</li><li><a href="solrdocument.getfield.html">SolrDocument::getField</a> — 名前でフィールドを取得</li><li><a href="solrdocument.getfieldcount.html">SolrDocument::getFieldCount</a> — この文書内のフィールド数を返す</li><li><a href="solrdocument.getfieldnames.html">SolrDocument::getFieldNames</a> — 文書内のフィールド名の配列を返す</li><li><a href="solrdocument.getinputdocument.html">SolrDocument::getInputDocument</a> — Returns a SolrInputDocument equivalent of the object</li><li><a href="solrdocument.isset.html">SolrDocument::__isset</a> — フィールドが存在するかチェック</li><li><a href="solrdocument.key.html">SolrDocument::key</a> — 現行のキーを返す</li><li><a href="solrdocument.merge.html">SolrDocument::merge</a> — Merges source to the current SolrDocument</li><li><a href="solrdocument.next.html">SolrDocument::next</a> — 内部ポインタを次のフィールドに移動</li><li><a href="solrdocument.offsetexists.html">SolrDocument::offsetExists</a> — 特定のフィールドが存在するかどうかチェック</li><li><a href="solrdocument.offsetget.html">SolrDocument::offsetGet</a> — フィールドを取得</li><li><a href="solrdocument.offsetset.html">SolrDocument::offsetSet</a> — 文書にフィールドを追加</li><li><a href="solrdocument.offsetunset.html">SolrDocument::offsetUnset</a> — フィールドを除去</li><li><a href="solrdocument.reset.html">SolrDocument::reset</a> — SolrDocument::clear()へのエイリアス</li><li><a href="solrdocument.rewind.html">SolrDocument::rewind</a> — 内部ポインタを先頭にリセット</li><li><a href="solrdocument.serialize.html">SolrDocument::serialize</a> — カスタムのシリアライズで使われます</li><li><a href="solrdocument.set.html">SolrDocument::__set</a> — Adds another field to the document</li><li><a href="solrdocument.sort.html">SolrDocument::sort</a> — Sorts the fields in the document</li><li><a href="solrdocument.toarray.html">SolrDocument::toArray</a> — 文書の配列表現を返す</li><li><a href="solrdocument.unserialize.html">SolrDocument::unserialize</a> — Custom serialization of SolrDocument objects</li><li><a href="solrdocument.unset.html">SolrDocument::__unset</a> — 文書からフィールドを除去</li><li><a href="solrdocument.valid.html">SolrDocument::valid</a> — Checks if the current position internally is still valid</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="solrdocument.addfield.html">SolrDocument::addField</a> — 文書にフィールドを追加</li><li><a href="solrdocument.clear.html">SolrDocument::clear</a> — Drops all the fields in the document</li><li><a href="solrdocument.clone.html">SolrDocument::__clone</a> — SolrDocument オブジェクトのコピーを作成</li><li><a href="solrdocument.construct.html">SolrDocument::__construct</a> — コンストラクタ</li><li><a href="solrdocument.current.html">SolrDocument::current</a> — 現行のフィールドを取得</li><li><a href="solrdocument.deletefield.html">SolrDocument::deleteField</a> — 文書からフィールドを除去</li><li><a href="solrdocument.destruct.html">SolrDocument::__destruct</a> — デストラクタ</li><li><a href="solrdocument.fieldexists.html">SolrDocument::fieldExists</a> — Checks if a field exists in the document</li><li><a href="solrdocument.get.html">SolrDocument::__get</a> — プロパティとしてフィールドにアクセス</li><li><a href="solrdocument.getchilddocuments.html">SolrDocument::getChildDocuments</a> — Returns an array of child documents (SolrDocument)</li><li><a href="solrdocument.getchilddocumentscount.html">SolrDocument::getChildDocumentsCount</a> — Returns the number of child documents</li><li><a href="solrdocument.getfield.html">SolrDocument::getField</a> — 名前でフィールドを取得</li><li><a href="solrdocument.getfieldcount.html">SolrDocument::getFieldCount</a> — この文書内のフィールド数を返す</li><li><a href="solrdocument.getfieldnames.html">SolrDocument::getFieldNames</a> — 文書内のフィールド名の配列を返す</li><li><a href="solrdocument.getinputdocument.html">SolrDocument::getInputDocument</a> — Returns a SolrInputDocument equivalent of the object</li><li><a href="solrdocument.haschilddocuments.html">SolrDocument::hasChildDocuments</a> — Checks whether the document has any child documents</li><li><a href="solrdocument.isset.html">SolrDocument::__isset</a> — フィールドが存在するかチェック</li><li><a href="solrdocument.key.html">SolrDocument::key</a> — 現行のキーを返す</li><li><a href="solrdocument.merge.html">SolrDocument::merge</a> — Merges source to the current SolrDocument</li><li><a href="solrdocument.next.html">SolrDocument::next</a> — 内部ポインタを次のフィールドに移動</li><li><a href="solrdocument.offsetexists.html">SolrDocument::offsetExists</a> — 特定のフィールドが存在するかどうかチェック</li><li><a href="solrdocument.offsetget.html">SolrDocument::offsetGet</a> — フィールドを取得</li><li><a href="solrdocument.offsetset.html">SolrDocument::offsetSet</a> — 文書にフィールドを追加</li><li><a href="solrdocument.offsetunset.html">SolrDocument::offsetUnset</a> — フィールドを除去</li><li><a href="solrdocument.reset.html">SolrDocument::reset</a> — SolrDocument::clear()へのエイリアス</li><li><a href="solrdocument.rewind.html">SolrDocument::rewind</a> — 内部ポインタを先頭にリセット</li><li><a href="solrdocument.serialize.html">SolrDocument::serialize</a> — カスタムのシリアライズで使われます</li><li><a href="solrdocument.set.html">SolrDocument::__set</a> — Adds another field to the document</li><li><a href="solrdocument.sort.html">SolrDocument::sort</a> — Sorts the fields in the document</li><li><a href="solrdocument.toarray.html">SolrDocument::toArray</a> — 文書の配列表現を返す</li><li><a href="solrdocument.unserialize.html">SolrDocument::unserialize</a> — Custom serialization of SolrDocument objects</li><li><a href="solrdocument.unset.html">SolrDocument::__unset</a> — 文書からフィールドを除去</li><li><a href="solrdocument.valid.html">SolrDocument::valid</a> — Checks if the current position internally is still valid</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="solrinputdocument.toarray.html">SolrInputDocument::toArray</a></div>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.str-split" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">str_split</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">str_split</span> &mdash; <span class="dc-title">文字列を配列に変換する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">str_split</span> &mdash; <span class="dc-title">文字列を配列に変換する</span></p>
 
  </div>
  
@@ -86,7 +86,7 @@
  <div class="refsect1 examples" id="refsect1-function.str-split-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4896">
+   <div class="example" id="example-5498">
     <p><strong>例1 <span class="function"><strong>str_split()</strong></span> の使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -128,6 +128,16 @@ Array
  </div>
 
 
+ <div class="refsect1 notes" id="refsect1-function.str-split-notes">
+  <h3 class="title">注意</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <span class="function"><strong>str_split()</strong></span> でのマルチバイト文字列の扱いは、文字単位ではなくバイト単位での分割になります。
+   </p>
+  </p></blockquote>
+ </div>
+
+ 
  <div class="refsect1 seealso" id="refsect1-function.str-split-seealso">
   <h3 class="title">参考</h3>
   <p class="para">

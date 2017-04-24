@@ -13,7 +13,7 @@
 </div><hr /><div id="function.preg-match" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_match</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">preg_match</span> &mdash; <span class="dc-title">正規表現によるマッチングを行う</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">preg_match</span> &mdash; <span class="dc-title">正規表現によるマッチングを行う</span></p>
 
  </div>
 
@@ -95,13 +95,55 @@
 
          <dd>
 
-          <span class="simpara">
+          <p class="para">
            このフラグを設定した場合、各マッチに対応する文字列のオフセットも返されます。
-           これにより <code class="parameter">matches</code> の値は配列となり、
-           配列の要素 <em>0</em> はマッチした文字列、
-           要素 <em>1</em>は対象文字列中におけるマッチした文字列のオフセット値
-           となることに注意してください。 
-          </span>
+           これは、<code class="parameter">matches</code> の値を配列に変更することに注意してください。
+           その配列のすべての要素は、
+           オフセット <em>0</em> で一致した文字列、
+           およびその文字列のオフセット <em>1</em> での
+           <code class="parameter">subject</code> へのオフセットからなります。
+           <div class="informalexample">
+            <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />preg_match</span><span style="color: #007700">(</span><span style="color: #DD0000">'/(foo)(bar)(baz)/'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'foobarbaz'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$matches</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">PREG_OFFSET_CAPTURE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$matches</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+            </div>
+
+            <p class="para">上の例の出力は以下となります。</p>
+            <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [0] =&gt; Array
+        (
+            [0] =&gt; foobarbaz
+            [1] =&gt; 0
+        )
+
+    [1] =&gt; Array
+        (
+            [0] =&gt; foo
+            [1] =&gt; 0
+        )
+
+    [2] =&gt; Array
+        (
+            [0] =&gt; bar
+            [1] =&gt; 3
+        )
+
+    [3] =&gt; Array
+        (
+            [0] =&gt; baz
+            [1] =&gt; 6
+        )
+
+)
+</pre></div>
+            </div>
+           </div>
+          </p>
          </dd>
 
         
@@ -236,27 +278,6 @@ Array
        </td>
       </tr>
 
-      <tr>
-       <td>4.3.3</td>
-       <td>
-        パラメータ <code class="parameter">offset</code> が追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        フラグ <strong><code>PREG_OFFSET_CAPTURE</code></strong> が追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        パラメータ <code class="parameter">flags</code> が追加されました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -268,7 +289,7 @@ Array
  <div class="refsect1 examples" id="refsect1-function.preg-match-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4802">
+   <div class="example" id="example-5401">
     <p><strong>例1 文字列 &quot;php&quot; を探す</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -280,7 +301,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4803">
+   <div class="example" id="example-5402">
     <p><strong>例2 単語 &quot;web&quot; を探す</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -292,7 +313,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4804">
+   <div class="example" id="example-5403">
     <p><strong>例3 URL からドメイン名を得る</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -310,7 +331,7 @@ domain name is: php.net
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4805">
+   <div class="example" id="example-5404">
     <p><strong>例4 名前つきサブパターンの使用法</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -343,8 +364,7 @@ Array
    <p class="para">
     ある文字列が他の文字列内に含まれているかどうかを調べるためだけに
     <span class="function"><strong>preg_match()</strong></span> を使うのは避けた方が良いでしょう。
-    <span class="function"><a href="function.strpos.html" class="function">strpos()</a></span> か <span class="function"><a href="function.strstr.html" class="function">strstr()</a></span> 関数を
-    使う方が速くなります。
+    <span class="function"><a href="function.strpos.html" class="function">strpos()</a></span> 関数を使うほうが速くなります。
    </p>
   </div>
  </div>
@@ -355,6 +375,7 @@ Array
   <p class="para">
    <ul class="simplelist">
     <li class="member"><a href="pcre.pattern.html" class="link">PCRE のパターン</a></li>
+    <li class="member"><span class="function"><a href="function.preg-quote.html" class="function" rel="rdfs-seeAlso">preg_quote()</a> - 正規表現文字をクオートする</span></li>
     <li class="member"><span class="function"><a href="function.preg-match-all.html" class="function" rel="rdfs-seeAlso">preg_match_all()</a> - 繰り返し正規表現検索を行う</span></li>
     <li class="member"><span class="function"><a href="function.preg-replace.html" class="function" rel="rdfs-seeAlso">preg_replace()</a> - 正規表現検索および置換を行う</span></li>
     <li class="member"><span class="function"><a href="function.preg-split.html" class="function" rel="rdfs-seeAlso">preg_split()</a> - 正規表現で文字列を分割する</span></li>

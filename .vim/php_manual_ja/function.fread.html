@@ -13,7 +13,7 @@
 </div><hr /><div id="function.fread" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fread</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">fread</span> &mdash; <span class="dc-title">バイナリセーフなファイルの読み込み</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fread</span> &mdash; <span class="dc-title">バイナリセーフなファイルの読み込み</span></p>
 
  </div>
  
@@ -105,7 +105,7 @@
  <div class="refsect1 examples" id="refsect1-function.fread-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2406">
+   <div class="example" id="example-2642">
     <p><strong>例1 シンプルな <span class="function"><strong>fread()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -117,7 +117,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2407">
+   <div class="example" id="example-2643">
     <p><strong>例2 バイナリの <span class="function"><strong>fread()</strong></span> の例</strong></p>
     <div class="warning"><strong class="warning">警告</strong>
      <p class="para">
@@ -136,7 +136,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2408">
+   <div class="example" id="example-2644">
     <p><strong>例3 リモートファイルの <span class="function"><strong>fread()</strong></span> の例</strong></p>
     <div class="warning"><strong class="warning">警告</strong>
      <p class="para">
@@ -157,7 +157,7 @@
 
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$handle&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"http://www.example.com/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"rb"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br />while&nbsp;(!</span><span style="color: #0000BB">feof</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">$contents&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #0000BB">fread</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8192</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$handle&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">"http://www.example.com/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"rb"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">FALSE&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">$handle</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;exit(</span><span style="color: #DD0000">"Failed&nbsp;to&nbsp;open&nbsp;stream&nbsp;to&nbsp;URL"</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">$contents&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;<br /><br />while&nbsp;(!</span><span style="color: #0000BB">feof</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$contents&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #0000BB">fread</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">8192</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$handle</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -201,6 +201,7 @@
     <li class="member"><span class="function"><a href="function.fpassthru.html" class="function" rel="rdfs-seeAlso">fpassthru()</a> - ファイルポインタ上に残っているすべてのデータを出力する</span></li>
     <li class="member"><span class="function"><a href="function.ftell.html" class="function" rel="rdfs-seeAlso">ftell()</a> - ファイルの読み書き用ポインタの現在位置を返す</span></li>
     <li class="member"><span class="function"><a href="function.rewind.html" class="function" rel="rdfs-seeAlso">rewind()</a> - ファイルポインタの位置を先頭に戻す</span></li>
+    <li class="member"><span class="function"><a href="function.unpack.html" class="function" rel="rdfs-seeAlso">unpack()</a> - バイナリ文字列からデータを切り出す</span></li>
    </ul>
   </p>
  </div>

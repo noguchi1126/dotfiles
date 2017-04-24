@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>データベースのヘッダ情報を得る</title>
+  <title>Gets the header info of a database</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,18 +13,19 @@
 </div><hr /><div id="function.dbase-get-header-info" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">dbase_get_header_info</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">dbase_get_header_info</span> &mdash; <span class="dc-title">データベースのヘッダ情報を得る</span></p>
+  <p class="verinfo">(PHP 5 &lt; 5.3.0, dbase 5, dbase 7)</p><p class="refpurpose"><span class="refname">dbase_get_header_info</span> &mdash; <span class="dc-title">Gets the header info of a database</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.dbase-get-header-info-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><strong>dbase_get_header_info</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$dbase_identifier</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$dbase_identifier</code></span>
    )</div>
 
   <p class="para rdfs-comment">
-   指定したデータベースリンク ID のカラム構造についての情報を返します。
+   Returns information on the column structure of the given database link
+   identifier.
   </p>
  </div>
 
@@ -40,8 +41,8 @@
      <dd>
 
       <p class="para">
-       データベースのリンク ID 。<span class="function"><a href="function.dbase-open.html" class="function">dbase_open()</a></span>
-       あるいは <span class="function"><a href="function.dbase-create.html" class="function">dbase_create()</a></span> によって返されます。
+       The database link identifier, returned by <span class="function"><a href="function.dbase-open.html" class="function">dbase_open()</a></span>
+       or <span class="function"><a href="function.dbase-create.html" class="function">dbase_create()</a></span>.
       </p>
      </dd>
 
@@ -54,12 +55,12 @@
  <div class="refsect1 returnvalues" id="refsect1-function.dbase-get-header-info-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   データベースの各カラムについての要素を格納した配列を返します。
-   配列の添字は 0 から始まります。
+   An indexed array with an entry for each column in the database. The array index
+   starts at 0.
   </p>
   <p class="para">
-   配列の各要素には、以下に述べるような形式の連想配列で
-   カラムの情報が格納されます。
+   Each array element contains an associative array of column information, as
+   described here:
    <dl>
 
     
@@ -69,7 +70,7 @@ name</dt>
      <dd>
 
       <span class="simpara">
-       カラム名。
+       The name of the column
       </span>
      </dd>
 
@@ -81,7 +82,9 @@ type</dt>
      <dd>
 
       <span class="simpara">
-       カラムのデータ型を可読形式（例: date、boolean など）で格納。
+       The human-readable name for the dbase type of the column (i.e. date,
+       boolean, etc.)
+       The supported field types are listed in the <a href="intro.dbase.html" class="link">introduction section</a>.
       </span>
      </dd>
 
@@ -93,7 +96,7 @@ length</dt>
      <dd>
 
       <span class="simpara">
-       カラムのバイト数。
+       The number of bytes this column can hold
       </span>
      </dd>
 
@@ -105,7 +108,7 @@ precision</dt>
      <dd>
 
       <span class="simpara">
-       カラムの数値の精度。
+       The number of digits of decimal precision for the column
       </span>
      </dd>
 
@@ -117,7 +120,7 @@ format</dt>
      <dd>
 
       <span class="simpara">
-       カラムに対して推奨される <span class="function"><a href="function.printf.html" class="function">printf()</a></span> でのフォーマット指定。
+       A suggested <span class="function"><a href="function.printf.html" class="function">printf()</a></span> format specifier for the column
       </span>
      </dd>
 
@@ -129,7 +132,7 @@ offset</dt>
      <dd>
 
       <span class="simpara">
-       行の最初からのバイトオフセット。
+       The byte offset of the column from the start of the row
       </span>
      </dd>
 
@@ -138,18 +141,47 @@ offset</dt>
 
   </p>
   <p class="para">
-   ヘッダ情報が読み込めない場合には <strong><code>FALSE</code></strong> を返します。
+   If the database header information cannot be read, <strong><code>FALSE</code></strong> is returned.
   </p>
  </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.dbase-get-header-info-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>dbase 7.0.0</td>
+      <td>
+       <code class="parameter">dbase_identifier</code> is now a <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>
+       instead of an <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
 
  <div class="refsect1 examples" id="refsect1-function.dbase-get-header-info-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1101">
-    <p><strong>例1 dBase データベースファイルの情報の表示</strong></p>
+   <div class="example" id="example-1185">
+    <p><strong>例1 Showing header information for a dBase database file</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;dbase&nbsp;ファイルのパス<br /></span><span style="color: #0000BB">$db_path&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"/tmp/test.dbf"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;dbase&nbsp;ファイルのオープン<br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbase_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$db_path</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Error!&nbsp;Could&nbsp;not&nbsp;open&nbsp;dbase&nbsp;database&nbsp;file&nbsp;'</span><span style="color: #0000BB">$db_path</span><span style="color: #DD0000">'."</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;カラム情報の取得<br /></span><span style="color: #0000BB">$column_info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbase_get_header_info</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;情報の表示<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$column_info</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;Path&nbsp;to&nbsp;dbase&nbsp;file<br /></span><span style="color: #0000BB">$db_path&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"/tmp/test.dbf"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;Open&nbsp;dbase&nbsp;file<br /></span><span style="color: #0000BB">$dbh&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbase_open</span><span style="color: #007700">(</span><span style="color: #0000BB">$db_path</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)<br />&nbsp;&nbsp;or&nbsp;die(</span><span style="color: #DD0000">"Error!&nbsp;Could&nbsp;not&nbsp;open&nbsp;dbase&nbsp;database&nbsp;file&nbsp;'</span><span style="color: #0000BB">$db_path</span><span style="color: #DD0000">'."</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Get&nbsp;column&nbsp;information<br /></span><span style="color: #0000BB">$column_info&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">dbase_get_header_info</span><span style="color: #007700">(</span><span style="color: #0000BB">$dbh</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Display&nbsp;information<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$column_info</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

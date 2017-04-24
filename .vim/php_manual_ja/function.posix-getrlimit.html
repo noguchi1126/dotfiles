@@ -13,7 +13,7 @@
 </div><hr /><div id="function.posix-getrlimit" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">posix_getrlimit</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">posix_getrlimit</span> &mdash; <span class="dc-title">システムリソース制限に関する情報を返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">posix_getrlimit</span> &mdash; <span class="dc-title">システムリソース制限に関する情報を返す</span></p>
 
  </div>
  
@@ -28,14 +28,15 @@
    <span class="function"><strong>posix_getrlimit()</strong></span> は、
    現在のリソースにおけるソフトリミットおよびハードリミットを配列で返します。
   </p>
-  <p class="para">
-    各リソースには、それぞれソフトリミットとハードリミットがあります。
-    ソフトリミットとは、そのリソースに対してカーネルが課す制限値のことです。
-    ハードリミットとは、ソフトリミットの上限値のことです。
-    特権を持たないプロセスは、ソフトリミットの値を 0 からハードリミット値の間で設定することが可能です。
-    また、ハードリミットの値を下げることができますが、
-    いったん下げた値を再び上げることはできません。
-  </p>
+  
+<p class="para">
+  各リソースには、それぞれソフトリミットとハードリミットがあります。
+  ソフトリミットとは、そのリソースに対してカーネルが課す制限値のことです。
+  ハードリミットとは、ソフトリミットの上限値のことです。
+  特権を持たないプロセスは、ソフトリミットの値を 0 からハードリミット値の間で設定することが可能です。
+  また、ハードリミットの値を下げることもできます。
+</p>
+
  </div>
 
 
@@ -146,7 +147,7 @@
  <div class="refsect1 examples" id="refsect1-function.posix-getrlimit-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3682">
+   <div class="example" id="example-4211">
     <p><strong>例1 <span class="function"><strong>posix_getrlimit()</strong></span> の使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -189,25 +190,12 @@ Array
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-function.posix-getrlimit-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">
-    この関数は POSIX 関数ではなく、BSD および System V のシステムで共通な関数です。
-    使用するシステムがこの関数をサポートしていない場合は、
-    PHP のコンパイル時にこの関数は組み込まれません。
-    この関数が使用可能かどうかを調べるには、<span class="function"><a href="function.function-exists.html" class="function">function_exists()</a></span>
-    を使用します。
-   </p>
-  </p></blockquote>
- </div>
-
-
  <div class="refsect1 seealso" id="refsect1-function.posix-getrlimit-seealso">
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
     <li class="member">man ページ GETRLIMIT(2)</li>
+    <li class="member"><span class="function"><a href="function.posix-setrlimit.html" class="function" rel="rdfs-seeAlso">posix_setrlimit()</a> - システムリソース制限を設定</span></li>
    </ul>
   </p>
  </div>

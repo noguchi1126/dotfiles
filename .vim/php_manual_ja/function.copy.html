@@ -13,7 +13,7 @@
 </div><hr /><div id="function.copy" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">copy</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">copy</span> &mdash; <span class="dc-title">ファイルをコピーする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">copy</span> &mdash; <span class="dc-title">ファイルをコピーする</span></p>
 
  </div>
  
@@ -113,6 +113,14 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.3.4</td>
+       <td>
+        <code class="parameter">context</code> パラメータが実際に効力を持つようになりました。
+        以前のバージョンでは、<code class="parameter">context</code> に何を指定しても無視されていました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.3.0</td>
        <td>
         コンテキストのサポートが追加されました。
@@ -140,7 +148,7 @@
  <div class="refsect1 examples" id="refsect1-function.copy-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2370">
+   <div class="example" id="example-2606">
     <p><strong>例1 <span class="function"><strong>copy()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

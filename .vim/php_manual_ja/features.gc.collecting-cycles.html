@@ -16,12 +16,12 @@
     伝統的に、PHP で以前使われていたような参照カウント法記憶機構では、
     循環参照メモリ・リークに対処できません。
     しかしながら、5.3.0 現在、PHP ではその問題に焦点を当てた
-    <a href="http://www.research.ibm.com/people/d/dfb/papers/Bacon01Concurrent.pdf" class="link external">&raquo;&nbsp;Concurrent Cycle Collection in Reference Counted Systems</a>
+    <a href="http://researcher.watson.ibm.com/researcher/files/us-bacon/Bacon01Concurrent.pdf" class="link external">&raquo;&nbsp;Concurrent Cycle Collection in Reference Counted Systems</a>
     レポートに由来する同期アルゴリズムを実装しています。
    </p>
    <p class="para">
-    アルゴリズムの動作方法の詳しい説明がこのセクションの範囲の少し向こうにあります、
-    しかし、基本はここで説明されます。
+    アルゴリズムの動作方法の詳しい説明についてはこのセクションで扱う範囲を超えるので、
+    ここではその基本を説明します。
     まず第一に、いくつかの基本原則を確立しなければなりません。
     refcount が増やされたら、それはまだ使用中で、従ってゴミではありません。
     refcount が減少して、ゼロに達したら、zvalは解放可能です。

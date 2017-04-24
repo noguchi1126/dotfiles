@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="language.types.array.html">配列</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="language.types.iterable.html">Iterables</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="language.types.resource.html">リソース</a></div>
  <div class="up"><a href="language.types.html">型</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -47,6 +47,20 @@
    オブジェクト以外の型の値がオブジェクトに変換される時には、<em>stdClass</em> というビルトインクラス（予めPHPの内部で定義されているクラス）のインスタンスが新しく生成されます。
    その際、値が null の場合は新しいインスタンスは空となります。
    また、配列がオブジェクトに変換される場合、配列のキーと値がそれぞれオブジェクトのプロパティ名とその値となります。
+   ただし、数値のキーの場合は例外で、プロパティ名によるアクセスはできなくなります。
+  </p>
+
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$obj&nbsp;</span><span style="color: #007700">=&nbsp;(object)&nbsp;array(</span><span style="color: #DD0000">'1'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(isset(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">-&gt;{</span><span style="color: #DD0000">'1'</span><span style="color: #007700">}));&nbsp;</span><span style="color: #FF8000">//&nbsp;出力は&nbsp;'bool(false)'<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">key</span><span style="color: #007700">(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;出力は&nbsp;'int(1)'<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+
+  <p class="para">
    上記以外の値の場合には、<em>scalar</em> という名前のメンバ変数が値を格納します。
   </p>
 
@@ -62,7 +76,7 @@
 
  </div>
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="language.types.array.html">配列</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="language.types.iterable.html">Iterables</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="language.types.resource.html">リソース</a></div>
  <div class="up"><a href="language.types.html">型</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

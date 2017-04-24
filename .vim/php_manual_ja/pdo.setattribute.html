@@ -13,7 +13,7 @@
 </div><hr /><div id="pdo.setattribute" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::setAttribute</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::setAttribute</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::setAttribute</span> &mdash; <span class="dc-title">
    属性を設定する
   </span></p>
 
@@ -97,7 +97,8 @@
      プリペアドステートメントのエミュレーションを有効または無効にする。
      ドライバによってはネイティブのプリペアドステートメントをサポートしていなかったり
      完全には対応していなかったりするものがある。この設定を使うと、常に
-     プリペアドステートメントをエミュレートする (<strong><code>TRUE</code></strong> の場合) か、
+     プリペアドステートメントをエミュレートする (<strong><code>TRUE</code></strong> および
+     プリペアのエミュレートがドライバでサポートされている場合) か、
      ネイティブのプリペアドステートメントを使おうとする (<strong><code>FALSE</code></strong> の場合)
      かを設定できる。現在のクエリを正しく準備できなかった場合は、常にエミュレート方式を使う。
      <span class="type"><a href="language.types.boolean.html" class="type bool">bool</a></span> で指定する。

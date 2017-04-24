@@ -13,7 +13,7 @@
 </div><hr /><div id="function.php-sapi-name" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">php_sapi_name</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5)</p><p class="refpurpose"><span class="refname">php_sapi_name</span> &mdash; <span class="dc-title">ウェブサーバーと PHP の間のインターフェイスの型を返す</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">php_sapi_name</span> &mdash; <span class="dc-title">ウェブサーバーと PHP の間のインターフェイスの型を返す</span></p>
 
  </div>
  
@@ -44,8 +44,8 @@
    <em>aolserver</em>, <em>apache</em>, 
    <em>apache2filter</em>, <em>apache2handler</em>, 
    <em>caudium</em>, <em>cgi</em> (PHP 5.3 まで), 
-   <em>cgi-fcgi</em>, <em>cli</em>, 
-   <em>continuity</em>, <em>embed</em>,
+   <em>cgi-fcgi</em>, <em>cli</em>, <em>cli-server</em>,
+   <em>continuity</em>, <em>embed</em>, <em>fpm-fcgi</em>,
    <em>isapi</em>, <em>litespeed</em>, 
    <em>milter</em>, <em>nsapi</em>, 
    <em>phttpd</em>, <em>pi3web</em>, <em>roxen</em>,
@@ -57,7 +57,7 @@
  <div class="refsect1 examples" id="refsect1-function.php-sapi-name-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-508">
+   <div class="example" id="example-553">
     <p><strong>例1 <span class="function"><strong>php_sapi_name()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      この例では、文字列の一部に <em>cgi</em>

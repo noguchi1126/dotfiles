@@ -13,7 +13,7 @@
 </div><hr /><div id="function.simplexml-load-string" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">simplexml_load_string</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">simplexml_load_string</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">simplexml_load_string</span> &mdash; <span class="dc-title">
    XML 文字列をオブジェクトに代入する
   </span></p>
 
@@ -120,6 +120,12 @@
    XML ドキュメント内のデータをプロパティに含みます。
    失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は論理値
+<strong><code>FALSE</code></strong> を返す可能性がありますが、<strong><code>FALSE</code></strong> として評価される値を返す可能性もあります。
+詳細については <a href="language.types.boolean.html" class="link">論理値</a>の
+セクションを参照してください。この関数の返り値を調べるには
+<a href="language.operators.comparison.html" class="link">===演算子</a> を
+使用してください。</p></div>
  </div>
 
 
@@ -141,7 +147,7 @@
  <div class="refsect1 examples" id="refsect1-function.simplexml-load-string-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5536">
+   <div class="example" id="example-6374">
     <p><strong>例1 XML 文字列をパースする</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

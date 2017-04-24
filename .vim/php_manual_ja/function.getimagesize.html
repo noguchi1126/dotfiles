@@ -13,7 +13,7 @@
 </div><hr /><div id="function.getimagesize" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">getimagesize</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">getimagesize</span> &mdash; <span class="dc-title">画像の大きさを取得する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">getimagesize</span> &mdash; <span class="dc-title">画像の大きさを取得する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.getimagesize-description">
@@ -25,11 +25,23 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>getimagesize()</strong></span> 関数は任意の画像ファイルの大きさを決定し、
+   <span class="function"><strong>getimagesize()</strong></span> 関数は、サポートする任意の形式の画像ファイルの大きさを決定し、
    ファイルの型と<em>高さ/幅</em>を表す文字列を返します。これらは
    <acronym title="Hyper Text Markup Language">HTML</acronym> の <code class="tag">IMG</code>
    タグや <acronym title="Hypertext Transfer Protocol">HTTP</acronym> の content type として使用できます。
   </p>
+  <div class="caution"><strong class="caution">警告</strong>
+   <p class="para">
+    この関数は、<code class="parameter">filename</code> が適切な画像ファイルであることを想定しています。
+    画像以外のファイルを渡してもそれを画像だと判断してしまい、関数の処理は成功するでしょう。
+    しかし、配列には意味のない値が含まれる場合があります。
+   </p>
+   <p class="para">
+    <span class="function"><strong>getimagesize()</strong></span> を使って、そのファイルが画像であるかどうかを確かめることはできません。
+    そのようなことをしたい場合は、そのために用意されたソリューション
+    (<a href="book.fileinfo.html" class="link">Fileinfo</a> 拡張モジュールなど) を使いましょう。
+   </p>
+  </div>
   <p class="para">
    <span class="function"><strong>getimagesize()</strong></span> は、
    <code class="parameter">imageinfo</code> パラメータで追加情報を返します。
@@ -115,7 +127,7 @@
    </p>
   </p></blockquote>
   <p class="para">
-   2 番目の要素は <em>IMAGETYPE_XXX</em> 定数のひとつで、
+   2 番目の要素は <a href="image.constants.html" class="link">IMAGETYPE_XXX constants</a> 定数のひとつで、
    画像の形式を表します。
   </p>
   <p class="para">
@@ -127,7 +139,7 @@
    <em>mime</em>は画像のMIMEタイプに一致します。この情報は
    画像とともに正しい HTTP <em>Content-type</em>
    ヘッダを転送するために使用できます。
-   <div class="example" id="example-3188">
+   <div class="example" id="example-3487">
     <p><strong>例1 <span class="function"><strong>getimagesize()</strong></span> および MIME 型</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -186,6 +198,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.1.0</td>
+       <td>
+        WebP に対応しました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.3.0</td>
        <td>
         アイコンに対応しました。
@@ -229,13 +248,6 @@
       <tr>
        <td>4.3.0</td>
        <td>
-        <em>mime</em> が追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
         <acronym>SWC</acronym> および <acronym title="Interchange File Format">IFF</acronym> のサポートが追加されました。
        </td>
       </tr>
@@ -254,13 +266,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>4.0.5</td>
-       <td>
-        URL のサポートが追加されました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -272,7 +277,7 @@
  <div class="refsect1 examples" id="refsect1-function.getimagesize-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3189">
+   <div class="example" id="example-3488">
     <p><strong>例2 <span class="function"><strong>getimagesize()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -282,7 +287,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3190">
+   <div class="example" id="example-3489">
     <p><strong>例3 getimagesize (URL)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -292,7 +297,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-3191">
+   <div class="example" id="example-3490">
     <p><strong>例4 IPTC を返す getimagesize()</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

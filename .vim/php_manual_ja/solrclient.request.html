@@ -20,7 +20,7 @@
  <div class="refsect1 description" id="refsect1-solrclient.request-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>SolrClient::request</strong></span>
+   <span class="modifier">public</span> <span class="type"><a href="class.solrupdateresponse.html" class="type SolrUpdateResponse">SolrUpdateResponse</a></span> <span class="methodname"><strong>SolrClient::request</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$raw_request</code></span>
    )</div>
 
@@ -57,15 +57,29 @@
  <div class="refsect1 returnvalues" id="refsect1-solrclient.request-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns a SolrUpdateResponse on success. Throws a SolrClientException on failure.
+   Returns a <span class="type"><a href="class.solrupdateresponse.html" class="type SolrUpdateResponse">SolrUpdateResponse</a></span> on success. Throws an exception on failure.
   </p>
  </div>
 
+ 
+ <div class="refsect1 errors" id="refsect1-solrclient.request-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   Throws <a href="class.solrillegalargumentexception.html" class="classname">SolrIllegalArgumentException</a> if <code class="parameter">raw_request</code> was an empty string
+  </p>
+  <p class="para">
+   Throws <a href="class.solrclientexception.html" class="classname">SolrClientException</a> if the client had failed, or there was a connection issue.
+  </p>
+  <p class="para">
+   Throws <a href="class.solrserverexception.html" class="classname">SolrServerException</a> if the Solr Server had failed to satisfy the query.
+  </p>
+ </div>
 
+ 
  <div class="refsect1 examples" id="refsect1-solrclient.request-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4740">
+   <div class="example" id="example-5299">
     <p><strong>例1 <span class="methodname"><strong>SolrClient::request()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

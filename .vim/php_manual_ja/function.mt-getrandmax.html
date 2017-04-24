@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mt-getrandmax" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mt_getrandmax</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mt_getrandmax</span> &mdash; <span class="dc-title">乱数値の最大値を表示する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mt_getrandmax</span> &mdash; <span class="dc-title">乱数値の最大値を表示する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.mt-getrandmax-description">
@@ -31,14 +31,16 @@
  <div class="refsect1 returnvalues" id="refsect1-function.mt-getrandmax-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span> が返す乱数の最大値を返します。
+   <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span> を引数なしでコールしたときに取得できる乱数の最大値を返します。
+   <span class="function"><a href="function.mt-rand.html" class="function">mt_rand()</a></span> の <code class="parameter">max</code>
+   に指定する値をこの値以下にしておけば、結果がスケールアップされて無作為性が低下することを避けられます。
   </p>
  </div>
 
  <div class="refsect1 examples" id="refsect1-function.mt-getrandmax-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3484"><p><strong>例1 ランダムな浮動小数点数の算出</strong></p>
+   <div class="example" id="example-4016"><p><strong>例1 ランダムな浮動小数点数の算出</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">randomFloat</span><span style="color: #007700">(</span><span style="color: #0000BB">$min&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$max&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$min&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">mt_rand</span><span style="color: #007700">()&nbsp;/&nbsp;</span><span style="color: #0000BB">mt_getrandmax</span><span style="color: #007700">()&nbsp;*&nbsp;(</span><span style="color: #0000BB">$max&nbsp;</span><span style="color: #007700">-&nbsp;</span><span style="color: #0000BB">$min</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">randomFloat</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">randomFloat</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">20</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>

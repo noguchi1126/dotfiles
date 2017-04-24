@@ -67,7 +67,7 @@
    <p class="para">
     いくつか例を示します (APPLICATION_PATH は <a href="yaf.appconfig.html#configuration.yaf.directory" class="link">application.directory</a>
     であるものとします)。
-    <div class="example" id="example-4168">
+    <div class="example" id="example-4737">
      <p><strong>例1 設定の例</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">// php.ini で、これを設定しているものとします
@@ -81,7 +81,7 @@ application.library = APPLICATION_PATH &quot;/library&quot;</pre>
     </div>
 
     また、次のローカル名前空間を登録しているものとします。
-    <div class="example" id="example-4169">
+    <div class="example" id="example-4738">
      <p><strong>例2 localnamespace の登録</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -93,7 +93,7 @@ application.library = APPLICATION_PATH &quot;/library&quot;</pre>
     </div>
 
    オートロードの例です。
-    <div class="example" id="example-4170">
+    <div class="example" id="example-4739">
      <p><strong>例3 クラスのロード</strong></p>
       <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">class Foo_Bar_Test =&gt;
@@ -110,7 +110,7 @@ class BarNon_Test
     </div>
 
    PHP 5.3 からは、名前空間も使えます。
-   <div class="example" id="example-4171">
+   <div class="example" id="example-4740">
     <p><strong>例4 名前空間つきのクラスのロード</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">class \Foo\Bar\Dummy =&gt;
@@ -133,7 +133,7 @@ class \FooBar\Bar\Dummy =&gt;
   <p class="para">
    <strong class="classname">Yaf_Loader</strong> は MVC クラスを読み込むようにも作られています。
    次のような規約に従います。
-   <div class="example" id="example-4172">
+   <div class="example" id="example-4741">
     <p><strong>例5 MVC クラスのロード</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">Controller Classes =&gt;
@@ -152,7 +152,7 @@ Plugin Classes =&gt;
    クラスのサフィックス (デフォルト設定の場合。プレフィックスを使うには
    <a href="yaf.configuration.html#ini.yaf.name-suffix" class="link">yaf.name_suffix</a> の値を変更します)
    で、MVC クラスであるかそうでないかを判断します。
-   <div class="example" id="example-4173">
+   <div class="example" id="example-4742">
     <p><strong>例6 MVC クラスかどうかの区別</strong></p>
    <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">Controller Classes =&gt;
@@ -169,7 +169,7 @@ Plugin Classes =&gt;
   </div>
 
    例を示します。
-   <div class="example" id="example-4174">
+   <div class="example" id="example-4743">
     <p><strong>例7 MVC のロード</strong></p>
     <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">class IndexController
@@ -254,7 +254,7 @@ class A_B_TestModel =&gt;
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span><span class="methodname"><a href="yaf-loader.construct.html" class="methodname">__construct</a></span>
+   <span class="modifier">private</span> <span class="methodname"><a href="yaf-loader.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">

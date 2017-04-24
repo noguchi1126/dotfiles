@@ -13,7 +13,7 @@
 </div><hr /><div id="function.curl-exec" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">curl_exec</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5)</p><p class="refpurpose"><span class="refname">curl_exec</span> &mdash; <span class="dc-title">cURL セッションを実行する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">curl_exec</span> &mdash; <span class="dc-title">cURL セッションを実行する</span></p>
 
  </div>
 
@@ -59,13 +59,19 @@
    が<a href="function.curl-setopt.html" class="link">設定</a>されていると、
    成功した場合に取得結果、失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は論理値
+<strong><code>FALSE</code></strong> を返す可能性がありますが、<strong><code>FALSE</code></strong> として評価される値を返す可能性もあります。
+詳細については <a href="language.types.boolean.html" class="link">論理値</a>の
+セクションを参照してください。この関数の返り値を調べるには
+<a href="language.operators.comparison.html" class="link">===演算子</a> を
+使用してください。</p></div>
  </div>
 
    
  <div class="refsect1 examples" id="refsect1-function.curl-exec-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4223">
+   <div class="example" id="example-4793">
     <p><strong>例1 ウェブページの取得</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

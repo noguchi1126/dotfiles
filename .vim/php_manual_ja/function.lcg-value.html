@@ -13,7 +13,7 @@
 </div><hr /><div id="function.lcg-value" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">lcg_value</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">lcg_value</span> &mdash; <span class="dc-title">複合線形合同法</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">lcg_value</span> &mdash; <span class="dc-title">複合線形合同法</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.lcg-value-description">
@@ -28,6 +28,7 @@
    この関数は、周期が 2^31 - 85 および 2^31 - 249 の 2 つの CG を組み合わせます。
    この関数の周期はこれら 2 つの素数の積と等価です。
   </p>
+  <div class="caution"><strong class="caution">警告</strong><p class="para">この関数が生成する値は、暗号学的に安全ではありません。そのため、これを暗号として使ってはいけません。暗号学的に安全な値が必要な場合は、<span class="function"><a href="function.random-int.html" class="function">random_int()</a></span> か <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> あるいは <span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span> を使いましょう。</p></div>
  </div>
 
  <div class="refsect1 returnvalues" id="refsect1-function.lcg-value-returnvalues">

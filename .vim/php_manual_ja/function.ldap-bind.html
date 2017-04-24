@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ldap-bind" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_bind</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ldap_bind</span> &mdash; <span class="dc-title">LDAP ディレクトリにバインドする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_bind</span> &mdash; <span class="dc-title">LDAP ディレクトリにバインドする</span></p>
 
  </div>
  
@@ -75,8 +75,9 @@
 
   </p>
   <p class="para">
-   <code class="parameter">bind_rdn</code> および <code class="parameter">bind_password</code>
-   を省略した場合は匿名バインドを試みます。
+   <code class="parameter">bind_password</code> を省略または空にした場合は匿名バインドを試みます。
+   匿名バインドのため、<code class="parameter">bind_dn</code> も空のままにできます。
+   これは、https://tools.ietf.org/html/rfc2251#section-4.2.2 で定義されています。
   </p>
  </div>
 
@@ -92,7 +93,7 @@
  <div class="refsect1 examples" id="refsect1-function.ldap-bind-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4398">
+   <div class="example" id="example-4935">
     <p><strong>例1 LDAP バインドの使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -102,7 +103,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-4399">
+   <div class="example" id="example-4936">
     <p><strong>例2 LDAP 匿名バインドの使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.get-include-path" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_include_path</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">get_include_path</span> &mdash; <span class="dc-title">現在の include_path 設定オプションを取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_include_path</span> &mdash; <span class="dc-title">現在の include_path 設定オプションを取得する</span></p>
 
  </div>
  
@@ -42,11 +42,11 @@
  <div class="refsect1 examples" id="refsect1-function.get-include-path-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-488">
+   <div class="example" id="example-530">
     <p><strong>例1 <span class="function"><strong>get_include_path()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;PHP&nbsp;4.3.0&nbsp;以降で動作します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;すべてのバージョンの&nbsp;PHP&nbsp;で動作します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">get_include_path</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;または&nbsp;ini_get&nbsp;を使用します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">ini_get</span><span style="color: #007700">(</span><span style="color: #DD0000">'include_path'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

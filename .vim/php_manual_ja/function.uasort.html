@@ -13,7 +13,7 @@
 </div><hr /><div id="function.uasort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">uasort</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">uasort</span> &mdash; <span class="dc-title">ユーザー定義の比較関数で配列をソートし、連想インデックスを保持する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">uasort</span> &mdash; <span class="dc-title">ユーザー定義の比較関数で配列をソートし、連想インデックスを保持する</span></p>
 
  </div>
 
@@ -33,10 +33,11 @@
    主に実際の配列の順序に意味がある連想配列をソートするためにこの関数は使用されます。
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">
-    比較結果が同じになる要素があった場合、ソート後の配列内でのそれらの要素の並び順は未定義です。
-   </p>
-  </p></blockquote>
+ <p class="para">
+  比較結果が等しくなる二つの要素があった場合、ソートした配列におけるそれらの並び順は不定となります。
+ </p>
+</p></blockquote>
+
  </div>
 
 
@@ -88,7 +89,7 @@
  <div class="refsect1 examples" id="refsect1-function.uasort-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5048">
+   <div class="example" id="example-5656">
     <p><strong>例1 基本的な <span class="function"><strong>uasort()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="eventbuffer.write.html">EventBuffer::write</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="eventbufferevent.connect.html">EventBufferEvent::connect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="eventbufferevent.close.html">EventBufferEvent::close</a></div>
  <div class="up"><a href="book.event.html">Event</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="class.eventbufferevent" class="reference">
@@ -196,6 +196,12 @@
 
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">void</span> 
+   <span class="methodname"><a href="eventbufferevent.close.html" class="methodname">close</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="type">bool</span> 
    <span class="methodname"><a href="eventbufferevent.connect.html" class="methodname">connect</a></span>
@@ -435,6 +441,30 @@
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
+   <span class="type">string</span> 
+   <span class="methodname"><a href="eventbufferevent.sslgetcipherinfo.html" class="methodname">sslGetCipherInfo</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">string</span> 
+   <span class="methodname"><a href="eventbufferevent.sslgetciphername.html" class="methodname">sslGetCipherName</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">string</span> 
+   <span class="methodname"><a href="eventbufferevent.sslgetcipherversion.html" class="methodname">sslGetCipherVersion</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
+   <span class="type">string</span> 
+   <span class="methodname"><a href="eventbufferevent.sslgetprotocol.html" class="methodname">sslGetProtocol</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
    <span class="type">void</span> 
    <span class="methodname"><a href="eventbufferevent.sslrenegotiate.html" class="methodname">sslRenegotiate</a></span>
     ( <span class="methodparam">void</span>
@@ -650,7 +680,7 @@
      <dd>
 
       <p class="para">
-       When the buffe revent is freed, close the underlying transport. This
+       When the buffer event is freed, close the underlying transport. This
        will close an underlying socket, free an underlying buffer event, etc.
       </p>
      </dd>
@@ -864,15 +894,40 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="eventbufferevent.connect.html">EventBufferEvent::connect</a> — Connect buffer event's file descriptor to given address or
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="eventbufferevent.close.html">EventBufferEvent::close</a> — Closes file descriptor associated with the current buffer event</li><li><a href="eventbufferevent.connect.html">EventBufferEvent::connect</a> — Connect buffer event's file descriptor to given address or
   UNIX socket</li><li><a href="eventbufferevent.connecthost.html">EventBufferEvent::connectHost</a> — Connects to a hostname with optionally asyncronous DNS resolving</li><li><a href="eventbufferevent.construct.html">EventBufferEvent::__construct</a> — Constructs EventBufferEvent object</li><li><a href="eventbufferevent.createpair.html">EventBufferEvent::createPair</a> — Creates two buffer events connected to each other</li><li><a href="eventbufferevent.disable.html">EventBufferEvent::disable</a> — Disable events read, write, or both on a buffer event.</li><li><a href="eventbufferevent.enable.html">EventBufferEvent::enable</a> — Enable events read, write, or both on a buffer event.</li><li><a href="eventbufferevent.free.html">EventBufferEvent::free</a> — Free a buffer event</li><li><a href="eventbufferevent.getdnserrorstring.html">EventBufferEvent::getDnsErrorString</a> — Returns string describing the last failed DNS lookup attempt</li><li><a href="eventbufferevent.getenabled.html">EventBufferEvent::getEnabled</a> — Returns bitmask of events currently enabled on the buffer event</li><li><a href="eventbufferevent.getinput.html">EventBufferEvent::getInput</a> — Returns underlying input buffer associated with current buffer
   event</li><li><a href="eventbufferevent.getoutput.html">EventBufferEvent::getOutput</a> — Returns underlying output buffer associated with current buffer
-  event</li><li><a href="eventbufferevent.read.html">EventBufferEvent::read</a> — Read buffer's data</li><li><a href="eventbufferevent.readbuffer.html">EventBufferEvent::readBuffer</a> — Drains the entire contents of the input buffer and places them into buf</li><li><a href="eventbufferevent.setcallbacks.html">EventBufferEvent::setCallbacks</a> — Assigns read, write and event(status) callbacks</li><li><a href="eventbufferevent.setpriority.html">EventBufferEvent::setPriority</a> — Assign a priority to a bufferevent</li><li><a href="eventbufferevent.settimeouts.html">EventBufferEvent::setTimeouts</a> — Set the read and write timeout for a buffer event</li><li><a href="eventbufferevent.setwatermark.html">EventBufferEvent::setWatermark</a> — Adjusts read and/or write watermarks</li><li><a href="eventbufferevent.sslerror.html">EventBufferEvent::sslError</a> — Returns most recent OpenSSL error reported on the buffer event</li><li><a href="eventbufferevent.sslfilter.html">EventBufferEvent::sslFilter</a> — Create a new SSL buffer event to send its data over another buffer event</li><li><a href="eventbufferevent.sslrenegotiate.html">EventBufferEvent::sslRenegotiate</a> — Tells a bufferevent to begin SSL renegotiation.</li><li><a href="eventbufferevent.sslsocket.html">EventBufferEvent::sslSocket</a> — Creates a new SSL buffer event to send its data over an SSL on a socket</li><li><a href="eventbufferevent.write.html">EventBufferEvent::write</a> — Adds data to a buffer event's output buffer</li><li><a href="eventbufferevent.writebuffer.html">EventBufferEvent::writeBuffer</a> — Adds contents of the entire buffer to a buffer event's output
+  event</li><li><a href="eventbufferevent.read.html">EventBufferEvent::read</a> — Read buffer's data</li><li><a href="eventbufferevent.readbuffer.html">EventBufferEvent::readBuffer</a> — Drains the entire contents of the input buffer and places them into buf</li><li><a href="eventbufferevent.setcallbacks.html">EventBufferEvent::setCallbacks</a> — Assigns read, write and event(status) callbacks</li><li><a href="eventbufferevent.setpriority.html">EventBufferEvent::setPriority</a> — Assign a priority to a bufferevent</li><li><a href="eventbufferevent.settimeouts.html">EventBufferEvent::setTimeouts</a> — Set the read and write timeout for a buffer event</li><li><a href="eventbufferevent.setwatermark.html">EventBufferEvent::setWatermark</a> — Adjusts read and/or write watermarks</li><li><a href="eventbufferevent.sslerror.html">EventBufferEvent::sslError</a> — Returns most recent OpenSSL error reported on the buffer event</li><li><a href="eventbufferevent.sslfilter.html">EventBufferEvent::sslFilter</a> — Create a new SSL buffer event to send its data over another buffer event</li><li><a href="eventbufferevent.sslgetcipherinfo.html">EventBufferEvent::sslGetCipherInfo</a> — Returns a textual description of the cipher.</li><li><a href="eventbufferevent.sslgetciphername.html">EventBufferEvent::sslGetCipherName</a> — Returns the current cipher name of the SSL connection.</li><li><a href="eventbufferevent.sslgetcipherversion.html">EventBufferEvent::sslGetCipherVersion</a> — Returns version of cipher used by current SSL connection.</li><li><a href="eventbufferevent.sslgetprotocol.html">EventBufferEvent::sslGetProtocol</a> — Returns the name of the protocol used for current SSL connection.</li><li><a href="eventbufferevent.sslrenegotiate.html">EventBufferEvent::sslRenegotiate</a> — Tells a bufferevent to begin SSL renegotiation.</li><li><a href="eventbufferevent.sslsocket.html">EventBufferEvent::sslSocket</a> — Creates a new SSL buffer event to send its data over an SSL on a socket</li><li><a href="eventbufferevent.write.html">EventBufferEvent::write</a> — Adds data to a buffer event's output buffer</li><li><a href="eventbufferevent.writebuffer.html">EventBufferEvent::writeBuffer</a> — Adds contents of the entire buffer to a buffer event's output
   buffer</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="eventbuffer.write.html">EventBuffer::write</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="eventbufferevent.connect.html">EventBufferEvent::connect</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="eventbufferevent.close.html">EventBufferEvent::close</a></div>
  <div class="up"><a href="book.event.html">Event</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

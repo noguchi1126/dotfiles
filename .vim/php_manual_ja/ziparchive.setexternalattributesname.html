@@ -7,13 +7,13 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="ziparchive.setexternalattributesindex.html">ZipArchive::setExternalAttributesIndex</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="ziparchive.statindex.html">ZipArchive::statIndex</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ziparchive.setpassword.html">ZipArchive::setPassword</a></div>
  <div class="up"><a href="class.ziparchive.html">ZipArchive</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="ziparchive.setexternalattributesname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ZipArchive::setExternalAttributesName</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PECL zip &gt;= 1.12.4)</p><p class="refpurpose"><span class="refname">ZipArchive::setExternalAttributesName</span> &mdash; <span class="dc-title">Set the external attributes of an entry defined by its name</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.6.0, PHP 7, PECL zip &gt;= 1.12.4)</p><p class="refpurpose"><span class="refname">ZipArchive::setExternalAttributesName</span> &mdash; <span class="dc-title">Set the external attributes of an entry defined by its name</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-ziparchive.setexternalattributesname-description">
@@ -56,7 +56,7 @@
      <dd>
 
       <p class="para">
-       The operating system code defined by one of the OPSYS_ macro.
+       The operating system code defined by one of the ZipArchive::OPSYS_ constants.
       </p>
      </dd>
 
@@ -105,11 +105,11 @@
      the file <var class="filename">test.txt</var>
      with its Unix rights as external attributes.
     </p>
-    <div class="example" id="example-809">
+    <div class="example" id="example-874">
      <p><strong>例1 Archive a file, with its Unix rights</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$zip&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ZipArchive</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$stat&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stat</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">=</span><span style="color: #DD0000">'test.txt'</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$stat</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$zip</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">open</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.zip'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ZipArchive</span><span style="color: #007700">::</span><span style="color: #0000BB">CREATE</span><span style="color: #007700">)&nbsp;===&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$zip</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$zip</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setExternalAttributesName</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ZipArchive</span><span style="color: #007700">::</span><span style="color: #0000BB">OPSYS_UNIX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$stat</span><span style="color: #007700">[</span><span style="color: #DD0000">'mode'</span><span style="color: #007700">]);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$zip</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Ok\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"KO\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$zip&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ZipArchive</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$stat&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">stat</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">=</span><span style="color: #DD0000">'test.txt'</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">is_array</span><span style="color: #007700">(</span><span style="color: #0000BB">$stat</span><span style="color: #007700">)&nbsp;&amp;&amp;&nbsp;</span><span style="color: #0000BB">$zip</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">open</span><span style="color: #007700">(</span><span style="color: #DD0000">'test.zip'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ZipArchive</span><span style="color: #007700">::</span><span style="color: #0000BB">CREATE</span><span style="color: #007700">)&nbsp;===&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$zip</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">addFile</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$zip</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setExternalAttributesName</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">ZipArchive</span><span style="color: #007700">::</span><span style="color: #0000BB">OPSYS_UNIX</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$stat</span><span style="color: #007700">[</span><span style="color: #DD0000">'mode'</span><span style="color: #007700">]&nbsp;&lt;&lt;&nbsp;</span><span style="color: #0000BB">16</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$zip</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">close</span><span style="color: #007700">();<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Ok\n"</span><span style="color: #007700">;<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"KO\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -119,7 +119,7 @@
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="ziparchive.setexternalattributesindex.html">ZipArchive::setExternalAttributesIndex</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="ziparchive.statindex.html">ZipArchive::statIndex</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="ziparchive.setpassword.html">ZipArchive::setPassword</a></div>
  <div class="up"><a href="class.ziparchive.html">ZipArchive</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

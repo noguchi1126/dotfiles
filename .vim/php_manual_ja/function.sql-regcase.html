@@ -17,6 +17,24 @@
 
  </div>
  
+ <div id="function.sql-regcase-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この関数は PHP 5.3.0 で <em class="emphasis">非推奨</em> となり、
+ PHP 7.0.0 で <em class="emphasis">削除</em> されました。
+</p>
+<p class="para">
+ この関数の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.preg-match.html" class="function">preg_match()</a></span></li>
+    <li class="member"><span class="function"><a href="function.preg-quote.html" class="function">preg_quote()</a></span></li>
+   </ul>
+  </div>
+ </div>
+ 
  <div class="refsect1 description" id="refsect1-function.sql-regcase-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -27,9 +45,6 @@
   <p class="para rdfs-comment">
    大文字小文字を区別しないマッチングのための正規表現を作成します。
   </p>
-  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は PHP 5.3.0 で
-<em class="emphasis">非推奨</em>となりました。
-この機能を使用しないことを強く推奨します。</p></div>
  </div>
 
 
@@ -71,7 +86,7 @@
  <div class="refsect1 examples" id="refsect1-function.sql-regcase-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4829">
+   <div class="example" id="example-5429">
     <p><strong>例1 <span class="function"><strong>sql_regcase()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -92,17 +107,6 @@
    この関数は、大文字小文字を区別する正規表現しかサポートしない製品において、
    大文字小文字を区別しないパターンマッチングを行いたい場合に役立ちます。
   </p>
- </div>
-
-
- <div class="refsect1 notes" id="refsect1-function.sql-regcase-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">PHP 5.3.0 以降、
-regex 拡張モジュールは非推奨となりました。かわりに
-<a href="book.pcre.html" class="link">PCRE 拡張モジュール</a> を使うことが推奨されています。
-この関数をコールすると <strong><code>E_DEPRECATED</code></strong> が発生します。
-PCRE への変換についてのヘルプは <a href="reference.pcre.pattern.posix.html" class="link">
-相違点の一覧</a> を参照ください。</p></p></blockquote>
  </div>
 
 

@@ -37,7 +37,12 @@
     <span class="type">int</span>
      <code class="parameter">$port</code>
    </span>
-   )</div>
+   [, <span class="methodparam">
+    <span class="type"><a href="class.eventsslcontext.html" class="type EventSslContext">EventSslContext</a></span>
+     <code class="parameter">$ctx</code>
+    <span class="initializer"> = <strong><code>NULL</code></strong></span>
+   </span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    Constructs EventHttpConnection object.
@@ -106,6 +111,31 @@
     </dd>
 
    
+   
+    <dt>
+
+     <code class="parameter">ctx</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      <a href="class.eventsslcontext.html" class="classname">EventSslContext</a>
+      class object. Enables OpenSSL.
+     </p>
+     <blockquote class="note"><p><strong class="note">注意</strong>: 
+      <p class="para">
+       This parameter is available only if
+       <em>Event</em>
+       is compiled with OpenSSL support and only with
+       <em>Libevent
+        2.1.0-alpha</em>
+       and higher.
+      </p>
+     </p></blockquote>
+    </dd>
+
+   
   </dl>
 
  </div>
@@ -116,6 +146,34 @@
    Returns
    <a href="class.eventhttpconnection.html" class="classname">EventHttpConnection</a>
    object.
+  </p>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-eventhttpconnection.construct-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>1.9.0</td>
+       <td>
+        OpenSSL support (<code class="parameter">ctx</code>) added.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

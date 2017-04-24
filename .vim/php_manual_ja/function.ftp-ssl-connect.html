@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ftp-ssl-connect" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ftp_ssl_connect</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">ftp_ssl_connect</span> &mdash; <span class="dc-title">セキュアな SSL-FTP 接続をオープンする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ftp_ssl_connect</span> &mdash; <span class="dc-title">セキュアな SSL-FTP 接続をオープンする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.ftp-ssl-connect-description">
@@ -27,7 +27,12 @@
 
   <p class="para rdfs-comment">
    <span class="function"><strong>ftp_ssl_connect()</strong></span> は、指定した
-   <code class="parameter">host</code> への明示的な SSL-FTP 接続をオープンします。
+   <code class="parameter">host</code> への<em class="emphasis">明示的な</em> SSL-FTP 接続をオープンします。
+   サーバー側が SSL-FTP 接続に対応していなかったり、証明書が無効であったりした場合でも、
+   <span class="function"><strong>ftp_ssl_connect()</strong></span> は成功します。
+   そういった場合は、<span class="function"><a href="function.ftp-login.html" class="function">ftp_login()</a></span>
+   を呼んで AUTH FTP コマンドを送信した時点ではじめて、
+   <span class="function"><a href="function.ftp-login.html" class="function">ftp_login()</a></span> が失敗することになります。
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <strong>この関数が存在しないことがあるのはなぜですか？</strong><br />
@@ -142,11 +147,11 @@
  <div class="refsect1 examples" id="refsect1-function.ftp-ssl-connect-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4318">
+   <div class="example" id="example-4891">
     <p><strong>例1 <span class="function"><strong>ftp_ssl_connect()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;SSL&nbsp;接続を確立する<br /></span><span style="color: #0000BB">$conn_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_ssl_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp_server</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;ユーザー名とパスワードでログインする<br /></span><span style="color: #0000BB">$login_result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_login</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_pass</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #0000BB">ftp_pwd</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;/<br /><br />//&nbsp;SSL&nbsp;接続を閉じる<br /></span><span style="color: #0000BB">ftp_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;SSL&nbsp;接続を確立する<br /></span><span style="color: #0000BB">$conn_id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_ssl_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$ftp_server</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;ユーザー名とパスワードでログインする<br /></span><span style="color: #0000BB">$login_result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftp_login</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_name</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$ftp_user_pass</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$login_result</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;この場合は、すでに&nbsp;PHP&nbsp;側で&nbsp;E_WARNING&nbsp;レベルのメッセージを発行しています。<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">die(</span><span style="color: #DD0000">"can't&nbsp;login"</span><span style="color: #007700">);<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">ftp_pwd</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;/<br /><br />//&nbsp;SSL&nbsp;接続を閉じる<br /></span><span style="color: #0000BB">ftp_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn_id</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

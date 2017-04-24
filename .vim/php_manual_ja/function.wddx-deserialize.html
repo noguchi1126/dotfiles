@@ -13,7 +13,7 @@
 </div><hr /><div id="function.wddx-deserialize" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">wddx_deserialize</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">wddx_deserialize</span> &mdash; <span class="dc-title">WDDX パケットをデシリアライズする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">wddx_deserialize</span> &mdash; <span class="dc-title">WDDX パケットをデシリアライズする</span></p>
 
  </div>
  
@@ -60,6 +60,19 @@
    構造体は連想配列に変換されることに注意しましょう。
   </p>
  </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.wddx-deserialize-notes">
+  <h3 class="title">注意</h3>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    ユーザーからの信頼できない入力をそのまま <span class="function"><strong>wddx_deserialize()</strong></span> に渡すのは避けましょう。
+    デシリアライズの過程でオブジェクトのインスタンス化やオートロードが発生し、コードが読み込まれて実行される可能性があります。
+    悪意を持ったユーザーが、これを悪用するかもしれません。
+   </p>
+  </div>
+ </div>
+
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.wddx-add-vars.html">wddx_add_vars</a></div>

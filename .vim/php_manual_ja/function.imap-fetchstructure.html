@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imap-fetchstructure" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_fetchstructure</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imap_fetchstructure</span> &mdash; <span class="dc-title">特定のメッセージの構造を読み込む</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_fetchstructure</span> &mdash; <span class="dc-title">特定のメッセージの構造を読み込む</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-fetchstructure-description">
@@ -188,46 +188,58 @@ imap_stream</code></dt>
   </p>
   <p class="para">
    <table class="doctable table">
-     <caption><strong>最初の body 部の型 (使用するライブラリによって異なります)</strong></caption>
-     
-      <tbody class="tbody">
-      <tr><td>0</td><td>text</td></tr>
+     <caption><strong>最初の body 部の型 (使用するライブラリによって異なるため、定数を使うことを推奨します)</strong></caption>
+    
+     <thead>
+      <tr><th>値</th><th>型</th><th>定数</th></tr>
 
-      <tr><td>1</td><td>multipart</td></tr>
+     </thead>
 
-      <tr><td>2</td><td>message</td></tr>
+     <tbody class="tbody">
+      <tr><td>0</td><td>text</td><td>TYPETEXT</td></tr>
 
-      <tr><td>3</td><td>application</td></tr>
+      <tr><td>1</td><td>multipart</td><td>TYPEMULTIPART</td></tr>
 
-      <tr><td>4</td><td>audio</td></tr>
+      <tr><td>2</td><td>message</td><td>TYPEMESSAGE</td></tr>
 
-      <tr><td>5</td><td>image</td></tr>
+      <tr><td>3</td><td>application</td><td>TYPEAPPLICATION</td></tr>
 
-      <tr><td>6</td><td>video</td></tr>
+      <tr><td>4</td><td>audio</td><td>TYPEAUDIO</td></tr>
 
-      <tr><td>7</td><td>other</td></tr>
+      <tr><td>5</td><td>image</td><td>TYPEIMAGE</td></tr>
 
-      </tbody>
-     
+      <tr><td>6</td><td>video</td><td>TYPEVIDEO</td></tr>
+
+      <tr><td>7</td><td>model</td><td>TYPEMODEL</td></tr>
+
+      <tr><td>8</td><td>other</td><td>TYPEOTHER</td></tr>
+
+     </tbody>
+    
    </table>
 
   </p>
   <p class="para">
    <table class="doctable table">
-     <caption><strong>転送時のエンコーディング (使用するライブラリによって異なります)</strong></caption>
-     
-      <tbody class="tbody">
-      <tr><td>0</td><td>7BIT</td></tr>
+     <caption><strong>転送時のエンコーディング (使用するライブラリによって異なるため、定数を使うことを推奨します)</strong></caption>
+    
+     <thead>
+      <tr><th>値</th><th>型</th><th>定数</th></tr>
 
-      <tr><td>1</td><td>8BIT</td></tr>
+     </thead>
 
-      <tr><td>2</td><td>BINARY</td></tr>
+     <tbody class="tbody">
+      <tr><td>0</td><td>7bit</td><td>ENC7BIT</td></tr>
 
-      <tr><td>3</td><td>BASE64</td></tr>
+      <tr><td>1</td><td>8bit</td><td>ENC8BIT</td></tr>
 
-      <tr><td>4</td><td>QUOTED-PRINTABLE</td></tr>
+      <tr><td>2</td><td>Binary</td><td>ENCBINARY</td></tr>
 
-      <tr><td>5</td><td>OTHER</td></tr>
+      <tr><td>3</td><td>Base64</td><td>ENCBASE64</td></tr>
+
+      <tr><td>4</td><td>Quoted-Printable</td><td>ENCQUOTEDPRINTABLE</td></tr>
+
+      <tr><td>5</td><td>other</td><td>ENCOTHER</td></tr>
 
      </tbody>
     

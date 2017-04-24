@@ -16,7 +16,25 @@
   <p class="verinfo">(PHP 4, PHP 5, PECL odbtp &gt;= 1.1.1)</p><p class="refpurpose"><span class="refname">mssql_close</span> &mdash; <span class="dc-title">MS SQL Server への接続を閉じる</span></p>
 
  </div>
- 
+
+ <div id="function.mssql-close-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この関数は PHP 7.0.0 で <em class="emphasis">削除</em> されました。
+</p>
+<p class="para">
+ この関数の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.sqlsrv-close.html" class="function">sqlsrv_close()</a></span></li>
+    <li class="member"><span class="function"><a href="function.odbc-close.html" class="function">odbc_close()</a></span></li>
+    <li class="member"><span class="function"><a href="function.odbc-close-all.html" class="function">odbc_close_all()</a></span></li>
+   </ul>
+  </div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.mssql-close-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -74,7 +92,7 @@
  <div class="refsect1 examples" id="refsect1-function.mssql-close-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1533">
+   <div class="example" id="example-1750">
     <p><strong>例1 <span class="function"><strong>mssql_close()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

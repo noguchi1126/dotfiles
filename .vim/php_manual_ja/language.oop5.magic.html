@@ -26,8 +26,9 @@
    <a href="language.oop5.magic.html#object.wakeup" class="link">__wakeup()</a>,
    <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a>,
    <a href="language.oop5.magic.html#object.invoke" class="link">__invoke()</a>,
-   <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a> および
-   <a href="language.oop5.cloning.html#object.clone" class="link">__clone()</a>
+   <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a>,
+   <a href="language.oop5.cloning.html#object.clone" class="link">__clone()</a> および
+   <a href="language.oop5.magic.html#object.debuginfo" class="link">__debugInfo()</a>
   は、PHP クラスにおける特殊関数の名前です。
   これらの関数に関連する特別な機能を使用する場合を除き、
   クラス内にこれらの名前を有する関数を作成してはいけません。
@@ -96,7 +97,7 @@
    シリアル化の際に失われたデータベース接続を再度確立したり、
    その他の再初期化を行うことです。
   </p>
-   <div class="example" id="example-219">
+   <div class="example" id="language.oop5.traits.precedence.examples.ex2">
     <p><strong>例1 sleep および wakeup</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -127,7 +128,7 @@
     <p class="simpara">
      <a href="language.oop5.magic.html#object.tostring" class="link">__toString()</a> メソッド内から例外を投げることはできません。そうした場合、致命的なエラーが発生します。
     </p>
-   </div>  <div class="example" id="example-220">
+   </div>  <div class="example" id="language.oop5.traits.multiple.ex1">
    <p><strong>例2 簡単な例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -174,7 +175,7 @@ Hello
      この機能は PHP 5.3.0 以降で使用可能です。
     </p>
    </p></blockquote>
-   <div class="example" id="example-221">
+   <div class="example" id="language.oop5.traits.conflict.ex1">
     <p><strong>例3 <a href="language.oop5.magic.html#object.invoke" class="link">__invoke()</a> の使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -209,7 +210,7 @@ bool(true)
     このメソッドの唯一のパラメータは、エクスポートされたプロパティを
     <em>array(&#039;property&#039; =&gt; value, ...)</em> の形式で保持する配列です。
    </p>
-   <div class="example" id="example-222">
+   <div class="example" id="language.oop5.traits.visibility.ex1">
     <p><strong>例4 <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a> の使用法 (PHP 5.1.0 以降)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -230,8 +231,56 @@ object(A)#2 (2) {
 </pre></div>
     </div>
    </div>
- </div>
-</div><hr /><div class="manualnavbar" style="text-align: center;">
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <span class="simpara">
+     <span class="function"><a href="function.var-export.html" class="function">var_export()</a></span> でオブジェクトをエクスポートする際に、そのオブジェクトのクラスが
+     <a href="language.oop5.magic.html#object.set-state" class="link">__set_state()</a> を実装しているかどうかは確認しません。
+     一部の内部クラスを扱う際に、この影響が出てきます。
+    </span>
+    <span class="simpara">
+     エクスポートしたオブジェクトをインポートする際に、
+     __set_state() を実装するクラスのものだけをインポートさせるようにするのは、プログラマーの責務となります。
+    </span>
+   </p></blockquote>
+  </div>
+
+  <div class="sect2" id="language.oop5.magic.debuginfo">
+   <h3 class="title"><a href="language.oop5.magic.html#object.debuginfo" class="link">__debugInfo()</a></h3>
+   <div class="methodsynopsis dc-description" id="object.debuginfo">
+    <span class="type">array</span> <span class="methodname"><strong>__debugInfo</strong></span>
+     ( <span class="methodparam">void</span>
+    )</div>
+
+   <p class="para">
+    このメソッドは、<span class="function"><a href="function.var-dump.html" class="function">var_dump()</a></span> がオブジェクトをダンプするときに、
+    プロパティの情報を取得するために呼ばれます。
+    もしオブジェクトにこのメソッドが定義されていなければ、
+    すべての public, protected, private プロパティを表示します。
+   </p>
+   <p class="para">
+    この機能は PHP 5.6.0 で追加されました。
+   </p>
+   <div class="example" id="language.oop5.traits.composition.ex1">
+    <p><strong>例5 <a href="language.oop5.magic.html#object.debuginfo" class="link">__debugInfo()</a> の使用法</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">C&nbsp;</span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;</span><span style="color: #0000BB">$prop</span><span style="color: #007700">;<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">(</span><span style="color: #0000BB">$val</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prop&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$val</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__debugInfo</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;[<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'propSquared'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prop&nbsp;</span><span style="color: #007700">**&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;];<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(new&nbsp;</span><span style="color: #0000BB">C</span><span style="color: #007700">(</span><span style="color: #0000BB">42</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+object(C)#1 (1) {
+  [&quot;propSquared&quot;]=&gt;
+  int(1764)
+}
+</pre></div>
+    </div>
+   </div>
+  </div>
+ </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.oop5.iterations.html">オブジェクトの反復処理</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="language.oop5.final.html">finalキーワード</a></div>
  <div class="up"><a href="language.oop5.html">クラスとオブジェクト</a></div>

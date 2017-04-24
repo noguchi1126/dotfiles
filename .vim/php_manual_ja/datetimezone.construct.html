@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">DateTimeZone::__construct</h1>
   <h1 class="refname">timezone_open</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">DateTimeZone::__construct</span> -- <span class="refname">timezone_open</span> &mdash; <span class="dc-title">新しい DateTimeZone オブジェクトを作成する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">DateTimeZone::__construct</span> -- <span class="refname">timezone_open</span> &mdash; <span class="dc-title">新しい DateTimeZone オブジェクトを作成する</span></p>
 
  </div>
 
@@ -50,7 +50,8 @@
      <dd>
 
       <p class="para">
-       いずれかの <a href="timezones.html" class="link">タイムゾーン</a>。
+       サポートする<a href="timezones.html" class="link">タイムゾーン名</a>のいずれか、
+       またはオフセット値 (+0200)。
       </p>
      </dd>
 
@@ -79,10 +80,39 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-datetimezone.construct-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.5.10</td>
+       <td>
+        <code class="parameter">timezone</code> パラメータは、オフセット値を受け付けます。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-datetimezone.construct-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2297">
+   <div class="example" id="example-2528">
     <p><strong>例1 <a href="class.datetimezone.html" class="classname">DateTimeZone</a> のインスタンスを作成する際のエラー処理</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

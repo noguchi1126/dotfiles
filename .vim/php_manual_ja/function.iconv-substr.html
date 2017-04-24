@@ -13,7 +13,7 @@
 </div><hr /><div id="function.iconv-substr" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">iconv_substr</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">iconv_substr</span> &mdash; <span class="dc-title">文字列の一部を切り出す</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">iconv_substr</span> &mdash; <span class="dc-title">文字列の一部を切り出す</span></p>
 
  </div>
  
@@ -29,7 +29,7 @@
 
   <p class="para rdfs-comment">
    文字列 <code class="parameter">str</code> の、
-   <code class="parameter">start</code> と <code class="parameter">length</code>
+   <code class="parameter">offset</code> と <code class="parameter">length</code>
    で指定された一部を返します。
   </p>
  </div>
@@ -59,16 +59,16 @@
      <dd>
 
       <p class="para">
-       <code class="parameter">start</code> が負でない場合、
+       <code class="parameter">offset</code> が負でない場合、
        <span class="function"><strong>iconv_substr()</strong></span> は
-       <code class="parameter">str</code> の <code class="parameter">start</code>
+       <code class="parameter">str</code> の <code class="parameter">offset</code>
        番目の文字（ゼロから数えて）から切り出します。
       </p>
       <p class="para">
-       <code class="parameter">start</code> が負の場合、
+       <code class="parameter">offset</code> が負の場合、
        <span class="function"><strong>iconv_substr()</strong></span> は
        <code class="parameter">str</code> の最後から数えて
-       <code class="parameter">start</code> 番目の文字から切り出します。
+       <code class="parameter">offset</code> 番目の文字から切り出します。
       </p>
      </dd>
 
@@ -81,17 +81,17 @@
 
       <p class="para">
        <code class="parameter">length</code> が指定され、かつ正である場合、
-       返される文字列は <code class="parameter">start</code>
+       返される文字列は <code class="parameter">offset</code>
        から数えて最大 <code class="parameter">length</code> 文字数分となります
        (<code class="parameter">string</code> の長さに依存します)。
       </p>
       <p class="para">
        もし負の <code class="parameter">length</code> が渡された場合に
        <span class="function"><strong>iconv_substr()</strong></span> が切り出す文字列は、
-       <code class="parameter">str</code> の <code class="parameter">start</code>
+       <code class="parameter">str</code> の <code class="parameter">offset</code>
        番目の文字からはじまり、文字列の最後から数えて
        <code class="parameter">length</code> 文字分戻ったところまでとなります。
-       <code class="parameter">start</code> も負の場合、開始位置は
+       <code class="parameter">offset</code> も負の場合、開始位置は
        上で説明した方式で計算されます。
       </p>
      </dd>
@@ -132,8 +132,41 @@
    で指定された一部を返します。
   </p>
   <p class="para">
-   もし <code class="parameter">str</code> が <code class="parameter">start</code>
+   もし <code class="parameter">str</code> が <code class="parameter">offset</code>
    の文字列長より短い場合は、<strong><code>FALSE</code></strong> が返されます。
+   If <code class="parameter">str</code> is exactly <code class="parameter">offset</code>
+   characters long, an empty string will be returned.
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.iconv-substr-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.0.11</td>
+       <td>
+        If <code class="parameter">str</code> is equal to
+        <code class="parameter">offset</code> characters long, an empty string will be
+        returned. Prior to this version, <strong><code>FALSE</code></strong> was returned in this case.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

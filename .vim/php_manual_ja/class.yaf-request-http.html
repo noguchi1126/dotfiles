@@ -21,7 +21,25 @@
   <div class="section" id="yaf-request-http.intro">
    <h2 class="title">導入</h2>
    <p class="para">
-
+    クライアントからのあらゆるリクエストは、
+    <strong class="classname">Yaf_Request_Http</strong> として初期化されます。
+    URI のクエリ文字列や POST パラメータなどの情報は、このクラスのメソッド経由で取得できます。
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <p class="para">
+      セキュリティの観点から、Yaf では $_GET/$_POST が読み込み専用となっています。つまり、
+      これらのグローバル変数の値を書き換えたとしても、
+      <span class="methodname"><strong>Yaf_Request_Http::getQurey()</strong></span> や
+      <span class="methodname"><a href="yaf-request-http.getpost.html" class="methodname">Yaf_Request_Http::getPost()</a></span> からはそれを取得できないということです。
+     </p>
+     <p class="para">
+      しかし、ユニットテストの際などに、どうしても書き換えが必要になることもあります。
+      Yaf のビルド時に --enable-yaf-debug を指定すると、ユーザーがスクリプトで設定した値も Yaf で読み込めるようになります。
+     </p>
+     <p class="para">
+      その際に、Yaf は E_STRICT レベルの警告
+      「Strict Standards: you are running yaf in debug mode」を発します。
+     </p>
+    </p></blockquote>
    </p>
   </div>
 
@@ -54,9 +72,10 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="methodname"><a href="yaf-request-http.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam">void</span>
-   )</div>
+   <span class="modifier">public</span> <span class="methodname"><a href="yaf-request-http.construct.html" class="methodname">__construct</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$request_uri</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$base_uri</code></span>
+  ]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="yaf-request-http.get.html" class="methodname">get</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
@@ -406,7 +425,7 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="yaf-request-http.clone.html">Yaf_Request_Http::__clone</a> — The __clone purpose</li><li><a href="yaf-request-http.construct.html">Yaf_Request_Http::__construct</a> — The __construct purpose</li><li><a href="yaf-request-http.get.html">Yaf_Request_Http::get</a> — クライアントからの変数を取得する</li><li><a href="yaf-request-http.getcookie.html">Yaf_Request_Http::getCookie</a> — Cookie 変数を取得する</li><li><a href="yaf-request-http.getfiles.html">Yaf_Request_Http::getFiles</a> — The getFiles purpose</li><li><a href="yaf-request-http.getpost.html">Yaf_Request_Http::getPost</a> — POST 変数を取得する</li><li><a href="yaf-request-http.getquery.html">Yaf_Request_Http::getQuery</a> — クエリパラメータを取得する</li><li><a href="yaf-request-http.getrequest.html">Yaf_Request_Http::getRequest</a> — The getRequest purpose</li><li><a href="yaf-request-http.isxmlhttprequest.html">Yaf_Request_Http::isXmlHttpRequest</a> — Ajax リクエストかどうかを調べる</li></ul>
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="yaf-request-http.clone.html">Yaf_Request_Http::__clone</a> — The __clone purpose</li><li><a href="yaf-request-http.construct.html">Yaf_Request_Http::__construct</a> — Yaf_Request_Http のコンストラクタ</li><li><a href="yaf-request-http.get.html">Yaf_Request_Http::get</a> — クライアントからの変数を取得する</li><li><a href="yaf-request-http.getcookie.html">Yaf_Request_Http::getCookie</a> — Cookie 変数を取得する</li><li><a href="yaf-request-http.getfiles.html">Yaf_Request_Http::getFiles</a> — The getFiles purpose</li><li><a href="yaf-request-http.getpost.html">Yaf_Request_Http::getPost</a> — POST 変数を取得する</li><li><a href="yaf-request-http.getquery.html">Yaf_Request_Http::getQuery</a> — クエリパラメータを取得する</li><li><a href="yaf-request-http.getrequest.html">Yaf_Request_Http::getRequest</a> — The getRequest purpose</li><li><a href="yaf-request-http.isxmlhttprequest.html">Yaf_Request_Http::isXmlHttpRequest</a> — Ajax リクエストかどうかを調べる</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="yaf-request-abstract.setrouted.html">Yaf_Request_Abstract::setRouted</a></div>

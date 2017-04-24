@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="imagick.exportimagepixels.html">Imagick::exportImagePixels</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="imagick.flattenimages.html">Imagick::flattenImages</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="imagick.filter.html">Imagick::filter</a></div>
  <div class="up"><a href="class.imagick.html">Imagick</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="imagick.extentimage" class="refentry">
@@ -33,6 +33,20 @@
    このメソッドは、画像のサイズおよび新しい領域を開始する x 座標、y 座標を設定することができます。
    このメソッドは、ImageMagick バージョン 6.3.1 以降で Imagick をコンパイルした場合に使用可能です。
   </p>
+
+  <div class="caution"><strong class="caution">警告</strong>
+   <p class="para">
+  ImageMagick 6.5.7-8 (1623) より前のバージョンでは、$x は、左にシフトするときが正で右にシフトするときが負でした。
+  また $y は、上にシフトするときが正で下にシフトするときが負でした。
+
+  ImageMagick 6.3.7 (1591) から ImageMagick 6.5.7-8 (1623) までのどこかで、$x と $y の座標が反転しました。
+  つまり、$x は、左にシフトするときが負で右にシフトするときが正になりました。
+  また $y も、上にシフトするときが負で下にシフトするときが正になりました。
+
+  そして ImageMagick 6.5.7-8 (1623) から ImageMagick 6.6.9-7 (1641) までのどこかで、$x と $y の座標が再び反転して、ImageMagick 6.5.7-8 (1623) より前のバージョンと同じ状態に戻りました。
+
+   </p>
+  </div>
  </div>
 
 
@@ -117,7 +131,7 @@
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="imagick.exportimagepixels.html">Imagick::exportImagePixels</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="imagick.flattenimages.html">Imagick::flattenImages</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="imagick.filter.html">Imagick::filter</a></div>
  <div class="up"><a href="class.imagick.html">Imagick</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

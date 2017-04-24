@@ -321,6 +321,7 @@
       エラーの表示、そして
       <var class="varname"><var class="varname"><a href="reserved.variables.phperrormsg.html" class="classname">$php_errormsg</a></var></var>
       に適用されます。
+      しかし、明示的に呼び出される <span class="function"><a href="function.error-log.html" class="function">error_log()</a></span> のような関数には適用されません。
      </p>
 
      <span class="simpara"><span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>を使用する際、
@@ -412,12 +413,15 @@
     <dd>
 
      <p class="para">
-      エラーメッセージのHTMLタグをオフにします。htmlエラー用の新しい形
-      式では、ユーザーがエラーまたはエラーを発生した関数を説明するページ
+      有効にすると、エラーメッセージにHTMLタグが含まれるようになります。
+      HTML形式のエラーメッセージでは、ユーザーがエラーまたはエラーを発生した関数を説明するページ
       に導くようクリック可能なメッセージを出力します。これらのリファレ
       ンスは、<a href="errorfunc.configuration.html#ini.docref-root" class="link">docref_root</a> およ
       び <a href="errorfunc.configuration.html#ini.docref-ext" class="link">docref_ext</a>の設定に依存
       します。
+     </p>
+     <p class="para">
+      無効にすると、エラーメッセージは単なるプレーンテキストになります。
      </p>
     </dd>
 
@@ -432,7 +436,7 @@
     <dd>
 
      <p class="para">
-      通常のエラー報告を無効にし、XML-RPC 形式のエラーメッセージとします。
+      有効にすると、通常のエラー報告を無効にして XML-RPC 形式のエラーメッセージとします。
      </p>
     </dd>
 

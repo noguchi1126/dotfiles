@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>条件を作る</title>
+  <title>Create a Condition</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,8 +13,16 @@
 </div><hr /><div id="cond.create" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Cond::create</h1>
-  <p class="verinfo">(PECL pthreads &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Cond::create</span> &mdash; <span class="dc-title">条件を作る</span></p>
+  <p class="verinfo">(PECL pthreads &lt; 3.0.0)</p><p class="refpurpose"><span class="refname">Cond::create</span> &mdash; <span class="dc-title">Create a Condition</span></p>
 
+ </div>
+
+ <div id="cond.create-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    The <a href="class.cond.html" class="classname">Cond</a> class has been removed in pthreads v3.
+   </p>
+  </div>
  </div>
 
  <div class="refsect1 description" id="refsect1-cond.create-description">
@@ -28,7 +36,7 @@
     ( <span class="methodparam">void</span>
    )</div>
 
-  <p class="para rdfs-comment">新しい条件変数を作ります。</p>
+  <p class="para rdfs-comment">Creates a new Condition Variable for the caller.</p>
  </div>
 
 
@@ -40,18 +48,18 @@
 
  <div class="refsect1 returnvalues" id="refsect1-cond.create-returnvalues">
   <h3 class="title">返り値</h3>
-  <p class="para">条件変数へのハンドルを返します。</p>
+  <p class="para">A handle to a Condition Variable</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-cond.create-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3739">
-    <p><strong>例1 条件の作成と破棄</strong></p>
+   <div class="example" id="example-4274">
+    <p><strong>例1 Condition Creation and Destruction</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;"new"&nbsp;は使えません。Cond&nbsp;は&nbsp;PHP&nbsp;のオブジェクトではありません&nbsp;**/<br /></span><span style="color: #0000BB">$cond&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/**&nbsp;Cond&nbsp;を任意のコンテキストで使えます&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$cond</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/**&nbsp;自分が作った&nbsp;Cond&nbsp;は常に破棄します&nbsp;**/<br /></span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$cond</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;You&nbsp;cannot&nbsp;use&nbsp;the&nbsp;"new"&nbsp;keyword,&nbsp;a&nbsp;Cond&nbsp;is&nbsp;not&nbsp;a&nbsp;PHP&nbsp;object&nbsp;**/<br /></span><span style="color: #0000BB">$cond&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/**&nbsp;You&nbsp;can&nbsp;now&nbsp;use&nbsp;the&nbsp;Cond&nbsp;in&nbsp;any&nbsp;context&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$cond</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/**&nbsp;Always&nbsp;destroy&nbsp;Cond&nbsp;you&nbsp;have&nbsp;created&nbsp;**/<br /></span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$cond</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -25,7 +25,12 @@
     <span class="type"><a href="class.eventbase.html" class="type EventBase">EventBase</a></span>
      <code class="parameter">$base</code>
    </span>
-   )</div>
+   [, <span class="methodparam">
+    <span class="type"><a href="class.eventsslcontext.html" class="type EventSslContext">EventSslContext</a></span>
+     <code class="parameter">$ctx</code>
+    <span class="initializer"> = <strong><code>NULL</code></strong></span>
+   </span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    Constructs the HTTP server object.
@@ -50,6 +55,35 @@
     </dd>
 
    
+   
+    <dt>
+
+     <code class="parameter">ctx</code>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      <a href="class.eventsslcontext.html" class="classname">EventSslContext</a>
+      class object. Turns plain HTTP server into HTTPS server. It means that
+      if
+      <code class="parameter">ctx</code>
+      is configured correctly, then the underlying buffer events will be based
+      on OpenSSL sockets. Thus, all traffic will pass through the SSL or TLS.
+     </p>
+     <blockquote class="note"><p><strong class="note">注意</strong>: 
+      <p class="para">
+       This parameter is available only if
+       <em>Event</em>
+       is compiled with OpenSSL support and only with
+       <em>Libevent
+        2.1.0-alpha</em>
+       and higher.
+      </p>
+     </p></blockquote>
+    </dd>
+
+   
   </dl>
 
  </div>
@@ -63,9 +97,37 @@
   </p>
  </div>
 
+ <div class="refsect1 changelog" id="refsect1-eventhttp.construct-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>1.9.0</td>
+       <td>
+        OpenSSL support (<code class="parameter">ctx</code>) added.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
  <div class="refsect1 examples" id="refsect1-eventhttp.construct-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-4274">
+  <div class="example" id="example-4847">
    <p><strong>例1 Simple HTTP server</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.strtotime" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strtotime</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strtotime</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strtotime</span> &mdash; <span class="dc-title">
    英文形式の日付を Unix タイムスタンプに変換する
   </span></p>
 
@@ -173,15 +173,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>4.4.0</td>
-       <td>
-        バージョン 4.4.0 より前の PHP では、<em>&quot;next&quot;</em>
-        が誤って +2 として計算されます。これを解決するには、代わりに
-        <em>&quot;+1&quot;</em> を使用します。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -193,7 +184,7 @@
  <div class="refsect1 examples" id="refsect1-function.strtotime-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2341">
+   <div class="example" id="example-2577">
     <p><strong>例1 A <span class="function"><strong>strtotime()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -205,7 +196,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2342">
+   <div class="example" id="example-2578">
     <p><strong>例2 失敗のチェック</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -234,13 +225,14 @@
     タイムスタンプの有効な範囲は、通常、Fri, 13 Dec 1901 20:45:54
     UTC から Tue, 19 Jan 2038 03:14:07 UTC までです (これらは、32
     ビット符号付整数の最大及び最小に一致します)。
-    さらに全てのプラットフォームが負のタイムスタンプをサポートしている
-    わけではありませんので、日付の範囲は Unix
+   </p>
+   <p class="para">
+    全てのプラットフォームが負のタイムスタンプをサポートしている
+    わけではありませんので、PHP 5.1.0 より前のバージョンでは、日付の範囲が Unix
     エポック以前にはならないかも知れません。
     これは、例えば Windows やいくつかの Linux ディストリビューション、
     いくつかの他のオペレーティングシステムでは
     1970 年 1 月 1 日以前の日付では動作しない事を意味しています。
-    PHP 5.1.0 以降のバージョンでは、この制限はなくなっています。
    </p>
    <p class="para">
     64 ビット版の PHP では、タイムスタンプの有効範囲は事実上無制限です。
@@ -252,10 +244,12 @@
     <em>m/d/y</em> あるいは <em>d-m-y</em>
     といった書式の曖昧さを解決する際には、区切り文字を利用します。スラッシュ
     (<em>/</em>) で区切られている場合はアメリカ風の
-    <em>m/d/y</em> と見なし、ダッシュ
+    <em>m/d/y</em> とみなし、ダッシュ
     (<em>-</em>) あるいはドット (<em>.</em>)
     で区切られている場合はヨーロッパ風の
-    <em>d-m-y</em> であると見なします。
+    <em>d-m-y</em> であるとみなします。
+    しかし、年を二桁で表して区切り文字がダッシュ (<em>-</em>) である場合は、
+    <em>y-m-d</em> であるとみなします。
    </p>
    <p class="para">
     このような曖昧さを避けるためにも、ISO 8601 形式
@@ -279,7 +273,7 @@
   <p class="para">
    <ul class="simplelist">
     <li class="member"><a href="datetime.formats.html" class="link">日付と時刻の書式</a></li>
-    <li class="member"><span class="methodname"><a href="datetime.createfromformat.html" class="methodname" rel="rdfs-seeAlso">DateTime::createFromFormat()</a> - 指定した書式でフォーマットした新しい DateTime オブジェクトを返す</span></li>
+    <li class="member"><span class="methodname"><a href="datetime.createfromformat.html" class="methodname" rel="rdfs-seeAlso">DateTime::createFromFormat()</a> - 指定した書式で時刻文字列をパースする</span></li>
     <li class="member"><span class="function"><a href="function.checkdate.html" class="function" rel="rdfs-seeAlso">checkdate()</a> - グレゴリオ暦の日付/時刻の妥当性を確認します</span></li>
     <li class="member"><span class="function"><a href="function.strptime.html" class="function" rel="rdfs-seeAlso">strptime()</a> - strftime が生成した日付/時刻をパースする</span></li>
    </ul>

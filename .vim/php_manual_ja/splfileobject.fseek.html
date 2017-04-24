@@ -13,7 +13,7 @@
 </div><hr /><div id="splfileobject.fseek" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SplFileObject::fseek</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">SplFileObject::fseek</span> &mdash; <span class="dc-title">ファイルポインタを移動させる</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">SplFileObject::fseek</span> &mdash; <span class="dc-title">ファイルポインタを移動させる</span></p>
 
  </div>
 
@@ -85,11 +85,11 @@
  <div class="refsect1 examples" id="refsect1-splfileobject.fseek-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3981">
+   <div class="example" id="example-4548">
     <p><strong>例1 <span class="methodname"><strong>SplFileObject::fseek()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">"somefile.txt"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;最初の行を読み込む<br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fgets</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;ファイルの最初に戻る<br />//&nbsp;$file-&gt;rewind();&nbsp;と同じ<br /></span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fseek</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$file&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileObject</span><span style="color: #007700">(</span><span style="color: #DD0000">"somefile.txt"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;最初の行を読み込む<br /></span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fgets</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;ファイルの最初に戻る<br />//&nbsp;$file-&gt;rewind();&nbsp;と同じ<br /></span><span style="color: #0000BB">$file</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fseek</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

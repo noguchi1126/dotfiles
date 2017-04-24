@@ -16,7 +16,7 @@
     PHP のパーサは、開始タグと終了タグに囲まれていない部分をすべて無視します。
     そのおかげで、PHP のファイルにそれ以外のコンテンツを混在させることができるのです。
     たとえば PHP を HTML ドキュメントに組み込んで、テンプレートを作ったりすることもできます。
-    <div class="example" id="example-66">
+    <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 &lt;p&gt;この部分は&nbsp;PHP&nbsp;から無視され、そのままブラウザには表示されます。&lt;/p&gt;<br /><span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'一方、この部分はパースされます。'</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&lt;p&gt;この部分も&nbsp;PHP&nbsp;から無視され、そのままブラウザには表示されます。&lt;/p&gt;</span>
@@ -35,7 +35,7 @@
    </p>
    <p class="para">
     条件文を使った例です。
-    <div class="example" id="example-67">
+    <div class="example" id="example-39">
      <p><strong>例1 条件文を使った高度な脱出</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -55,11 +55,15 @@
     を用いることを考えると、このように一度 PHP のパースモードを抜けるほうが効率的です。
    </p>
    <p class="para">
-    PHP で用いられるタグは 4 種類あります。
-    これらのうちの 2 つ、&lt;?php ?&gt; と
-    &lt;script language=&quot;php&quot;&gt; &lt;/script&gt; は常に使用することができます。
-    残りの 2 つは短縮型のタグと <span class="productname">ASP</span> スタイルの
-    タグで、これらは <var class="filename">php.ini</var> ファイルによって有効か無効かを切り替えられます。
+    PHP 5 では、PHP の cnfigure 方法に応じて最大で五種類の開始タグ・終了タグが使えます。
+    そのうちの二つである
+    <code class="code">&lt;?php ?&gt;</code> と
+    <code class="code">&lt;script language=&quot;php&quot;&gt; &lt;/script&gt;</code> は、常に使えます。
+    また、短い形式の echo タグ <code class="code">&lt;?= ?&gt;</code> も、
+    PHP 5.4.0 以降では常に使えます。
+   </p>
+   <p class="para">
+    残りの二種類は、短縮型のタグと <span class="productname">ASP</span> スタイルのタグです。
     中には短縮型のタグや <span class="productname">ASP</span> スタイルのタグを
     便利に感じる人がいるかも知れませんが、長いタグに比べると移植性に欠けます。
     また一般的には推奨されていません。
@@ -72,19 +76,21 @@
     </p></blockquote>
    </p>
    <p class="para">
-    <div class="example" id="example-68">
+    PHP 7 では、<span class="productname">ASP</span> タグや
+    <code class="code">&lt;script language=&quot;php&quot;&gt;</code> タグが使えなくなりました。これから PHP のコードを書くときには、
+    互換性を考慮して <code class="code">&lt;?php ?&gt;</code> や <code class="code">&lt;?= ?&gt;</code>
+    だけを使うことを推奨します。
+   </p>
+   <p class="para">
+    <div class="example" id="example-40">
      <p><strong>例2 PHP の開始タグと終了タグ</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-1.&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'XHTMLまたはXMLドキュメントを処理したい場合は、この方法が良いでしょう'</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span><br />2.&nbsp;&nbsp;<span style="color: #0000BB">&lt;script&nbsp;language="php"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'(FrontPageのような)&nbsp;いくつかのエディタ&nbsp;は処理命令を好み<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ません'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">&lt;/script&gt;<br /></span><br />3.&nbsp;&nbsp;<span style="color: #0000BB">&lt;?&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'これは、SGML&nbsp;を処理する最もシンプルな方法です'</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?=&nbsp;expression&nbsp;?&gt;</span>&nbsp;This&nbsp;is&nbsp;a&nbsp;shortcut&nbsp;for&nbsp;"<span style="color: #0000BB">&lt;?&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">expression&nbsp;?&gt;</span>"<br /><br />4.&nbsp;&nbsp;&lt;%&nbsp;echo&nbsp;'オプションでASP形式のタグを使用可能です';&nbsp;%&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;%=&nbsp;$variable;&nbsp;#&nbsp;これは、"&lt;%echo&nbsp;.."&nbsp;のショートカットです。%&gt;</span>
+1.&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'XHTMLまたはXMLドキュメントの中でPHPコードを扱いたい場合は、このタグを使いましょう'</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span><br />2.&nbsp;&nbsp;短縮型の&nbsp;echo&nbsp;タグを使って&nbsp;<span style="color: #0000BB">&lt;?=&nbsp;</span><span style="color: #DD0000">'この文字列を表示'&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;とすることもできます。<br />&nbsp;&nbsp;&nbsp;&nbsp;これは&nbsp;PHP&nbsp;5.4.0&nbsp;以降では常に使えて、<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'この文字列を表示'&nbsp;</span><span style="color: #0000BB">?&gt;</span>&nbsp;と同じ意味になります。<br /><br />3.&nbsp;&nbsp;<span style="color: #0000BB">&lt;?&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'このコードは短縮型のタグに囲まれていますが、'</span><span style="color: #007700">.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'short_open_tag&nbsp;が有効な場合ににしか動作しません'</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span><br />4.&nbsp;&nbsp;<span style="color: #0000BB">&lt;script&nbsp;language="php"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'(FrontPageのような)&nbsp;いくつかのエディタは、このタグの中の処理命令を好みません'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">&lt;/script&gt;<br /></span>&nbsp;&nbsp;&nbsp;&nbsp;この構文は、PHP&nbsp;7.0.0&nbsp;で削除されました。<br /><br />5.&nbsp;&nbsp;&lt;%&nbsp;echo&nbsp;'オプションでASP形式のタグを使用可能です';&nbsp;%&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;%=&nbsp;$variable;&nbsp;%&gt;&nbsp;これは、&lt;%&nbsp;echo&nbsp;$variable;&nbsp;%&gt;&nbsp;のショートカットです。<br />&nbsp;&nbsp;&nbsp;&nbsp;これらの構文は、PHP&nbsp;7.0.0&nbsp;で削除されました。</span>
 </code></div>
      </div>
 
     </div>
-   </p>
-   <p class="para">
-    例の 1. と 2. のタグは常に利用可能です。中でも 1. のタグは最も一般的で
-    推奨される方法です。
    </p>
    <p class="para">
     短縮型のタグ（例 3.）が有効なのは、<var class="filename">php.ini</var> 設定ファイルのディレクティブ
@@ -94,9 +100,10 @@
     オプションつきで configure されている場合のみです。
    </p>
    <p class="para">
-    <span class="productname">ASP</span> 型のタグ（例 4.）が有効なのは、
+    <span class="productname">ASP</span> 型のタグ（例 5.）が有効なのは、
     <var class="filename">php.ini</var> 設定ファイルのディレクティブ
     <a href="ini.core.html#ini.asp-tags" class="link">asp_tags</a> が有効になっている場合のみです。
+    また、このタグは PHP 7.0.0 で廃止されました。
    </p>
    <p class="para">
    <blockquote class="note"><p><strong class="note">注意</strong>: 

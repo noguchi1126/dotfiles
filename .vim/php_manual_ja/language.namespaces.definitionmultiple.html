@@ -12,13 +12,13 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="language.namespaces.definitionmultiple" class="sect1">
   <h2 class="title">同一ファイル内での複数の名前空間の定義</h2>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p>
   <p class="para">
    複数の名前空間を同一ファイル内で宣言することもあります。
    この場合の構文は次の 2 通りです。
   </p>
   <p class="para">
-   <div class="example" id="example-237">
+   <div class="example" id="example-245">
     <p><strong>例1 シンプルな組み合わせ方式による複数の名前空間の宣言</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
@@ -34,7 +34,7 @@
    かわりに、次の波括弧構文を使うことを推奨します。
   </p>
   <p class="para">
-   <div class="example" id="example-238">
+   <div class="example" id="example-246">
     <p><strong>例2 波括弧構文による複数の名前空間の宣言</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
@@ -53,7 +53,7 @@
    名前空間に属さないグローバルなコードを名前空間つきのコードと組み合わせるときには、
    波括弧構文しか使用できません。グローバルなコードは、名前空間の名前を指定しない
    namespace 文で囲みます。たとえば次のようになります。
-   <div class="example" id="example-239">
+   <div class="example" id="example-247">
     <p><strong>例3 複数の名前空間および名前空間に属さないコードの宣言</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
@@ -66,7 +66,7 @@
   </p>
   <p class="para">
    namespace の波括弧の外側に書くことができる PHP コードは、最初の declare 文だけです。
-   <div class="example" id="example-240">
+   <div class="example" id="example-248">
     <p><strong>例4 複数の名前空間および名前空間に属さないコードの宣言</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">

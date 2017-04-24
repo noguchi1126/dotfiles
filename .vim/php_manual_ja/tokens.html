@@ -152,7 +152,6 @@
      <td>__CLASS__</td>
      <td>
       <a href="language.constants.predefined.html" class="link">マジック定数</a>
-      (PHP 4.3.0 以降で使用可能)
      </td>
     </tr>
 
@@ -161,7 +160,6 @@
      <td>clone</td>
      <td>
       <a href="language.oop5.html" class="link">クラスとオブジェクト</a>
-      (PHP 5.0.0 以降で使用可能)
      </td>
     </tr>
 
@@ -174,7 +172,7 @@
 
     <tr>
      <td><strong><code>T_COMMENT</code></strong></td>
-     <td>// or #, and /* */ in PHP 5</td>
+     <td>// or #, and /* */</td>
      <td><a href="language.basic-syntax.comments.html" class="link">コメント</a></td>
     </tr>
 
@@ -251,7 +249,6 @@
      <td>/** */</td>
      <td>
       <a href="language.basic-syntax.comments.html" class="link">PHPDoc 形式のコメント</a>
-      (PHP 5.0.0 以降で使用可能)
      </td>
     </tr>
 
@@ -290,6 +287,15 @@
      <td><strong><code>T_ECHO</code></strong></td>
      <td>echo</td>
      <td><span class="function"><a href="function.echo.html" class="function">echo</a></span></td>
+    </tr>
+
+    <tr>
+     <td><strong><code>T_ELLIPSIS</code></strong></td>
+     <td>...</td>
+     <td>
+      <a href="functions.arguments.html#functions.variable-arg-list.new" class="link">関数の引数</a>
+      (PHP 5.6.0 以降で使用可能)
+     </td>
     </tr>
 
     <tr>
@@ -387,7 +393,7 @@
     <tr>
      <td><strong><code>T_FINAL</code></strong></td>
      <td>final</td>
-     <td><a href="language.oop5.final.html" class="xref">finalキーワード</a> (PHP 5.0.0 以降で使用可能)</td>
+     <td><a href="language.oop5.final.html" class="xref">finalキーワード</a></td>
     </tr>
 
     <tr>
@@ -419,7 +425,6 @@
      <td>__FUNCTION__</td>
      <td>
       <a href="language.constants.predefined.html" class="link">定数</a>
-      (PHP 4.3.0 以降で使用可能)
      </td>
     </tr>
 
@@ -450,7 +455,7 @@
     <tr>
      <td><strong><code>T_IMPLEMENTS</code></strong></td>
      <td>implements</td>
-     <td><a href="language.oop5.interfaces.html" class="xref">オブジェクト インターフェイス</a> (PHP 5.0.0 以降で使用可能)</td>
+     <td><a href="language.oop5.interfaces.html" class="xref">オブジェクト インターフェイス</a></td>
     </tr>
 
     <tr>
@@ -483,7 +488,6 @@
      <td>instanceof</td>
      <td>
       <a href="language.operators.type.html" class="link">型演算子</a>
-      (PHP 5.0.0 以降で使用可能)
      </td>
     </tr>
 
@@ -502,7 +506,7 @@
     <tr>
      <td><strong><code>T_INTERFACE</code></strong></td>
      <td>interface</td>
-     <td><a href="language.oop5.interfaces.html" class="xref">オブジェクト インターフェイス</a> (PHP 5.0.0 以降で使用可能)</td>
+     <td><a href="language.oop5.interfaces.html" class="xref">オブジェクト インターフェイス</a></td>
     </tr>
 
     <tr>
@@ -548,6 +552,15 @@
     </tr>
 
     <tr>
+     <td><strong><code>T_SPACESHIP</code></strong></td>
+     <td>&lt;=&gt;</td>
+     <td>
+      <a href="language.operators.comparison.html" class="link">比較演算子</a>
+      (PHP 7.0.0 以降で使用可能)
+     </td>
+    </tr>
+
+    <tr>
      <td><strong><code>T_LINE</code></strong></td>
      <td>__LINE__</td>
      <td><a href="language.constants.predefined.html" class="link">定数</a></td>
@@ -588,7 +601,6 @@
      <td>__METHOD__</td>
      <td>
       <a href="language.constants.predefined.html" class="link">マジック定数</a>
-      (PHP 5.0.0 以降で使用可能)
      </td>
     </tr>
 
@@ -597,13 +609,6 @@
      <td>-=</td>
      <td><a href="language.operators.assignment.html" class="link">代入演算子
      </a></td>
-    </tr>
-
-    <tr>
-     <td><strong><code>T_ML_COMMENT</code></strong></td>
-     <td>/* and */</td>
-     <td><a href="language.basic-syntax.comments.html" class="link">コメント</a>
-      (PHP 4 のみ)</td>
     </tr>
 
     <tr>
@@ -673,12 +678,6 @@
     </tr>
 
     <tr>
-     <td><strong><code>T_OLD_FUNCTION</code></strong></td>
-     <td>old_function</td>
-     <td>(PHP 4 のみ)</td>
-    </tr>
-
-    <tr>
      <td><strong><code>T_OPEN_TAG</code></strong></td>
      <td>&lt;?php, &lt;? or &lt;%</td>
      <td><a href="language.basic-syntax.phpmode.html" class="link">HTML
@@ -714,6 +713,24 @@
     </tr>
 
     <tr>
+     <td><strong><code>T_POW</code></strong></td>
+     <td>**</td>
+     <td>
+      <a href="language.operators.arithmetic.html" class="link">代数演算子</a>
+      (PHP 5.6.0 以降で使用可能)
+     </td>
+    </tr>
+
+    <tr>
+     <td><strong><code>T_POW_EQUAL</code></strong></td>
+     <td>**=</td>
+     <td>
+      <a href="language.operators.assignment.html" class="link">代数演算子</a>
+      (PHP 5.6.0 以降で使用可能)
+     </td>
+    </tr>
+
+    <tr>
      <td><strong><code>T_PRINT</code></strong></td>
      <td>print()</td>
      <td><span class="function"><a href="function.print.html" class="function">print</a></span></td>
@@ -724,7 +741,6 @@
      <td>private</td>
      <td>
       <a href="language.oop5.html" class="link">クラスとオブジェクト</a>
-      (PHP 5.0.0 以降で使用可能)
      </td>
     </tr>
 
@@ -733,7 +749,6 @@
      <td>public</td>
      <td>
       <a href="language.oop5.html" class="link">クラスとオブジェクト</a>
-      (PHP 5.0.0 以降で使用可能)
      </td>
     </tr>
 
@@ -836,7 +851,7 @@
     <tr>
      <td><strong><code>T_THROW</code></strong></td>
      <td>throw</td>
-     <td><a href="language.exceptions.html" class="xref">例外(exceptions)</a> (PHP 5.0.0 以降で使用可能)</td>
+     <td><a href="language.exceptions.html" class="xref">例外(exceptions)</a></td>
     </tr>
 
     <tr>
@@ -854,7 +869,7 @@
     <tr>
      <td><strong><code>T_TRY</code></strong></td>
      <td>try</td>
-     <td><a href="language.exceptions.html" class="xref">例外(exceptions)</a> (PHP 5.0.0 以降で使用可能)</td>
+     <td><a href="language.exceptions.html" class="xref">例外(exceptions)</a></td>
     </tr>
 
     <tr>
@@ -866,8 +881,7 @@
     <tr>
      <td><strong><code>T_UNSET_CAST</code></strong></td>
      <td>(unset)</td>
-     <td><a href="language.types.type-juggling.html#language.types.typecasting" class="link">型キャスト</a>
-     (PHP 5.0.0 以降で使用可能)</td>
+     <td><a href="language.types.type-juggling.html#language.types.typecasting" class="link">型キャスト</a></td>
     </tr>
 
     <tr>

@@ -50,7 +50,7 @@
      <p class="para">
       未定義の変数のリファレンスに対して代入したり
       渡したり返したりすると、そこで変数が作成されます。
-      <div class="example" id="example-279">
+      <div class="example" id="example-290">
        <p><strong>例1 未定義の変数のリファレンスの使用</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -78,7 +78,8 @@
      は自動的にリファレンスを返すようになりました。そのため、この場面で
      <em>=&amp;</em> を使用することは非推奨となりました。
      PHP 5.3 以降では <strong><code>E_DEPRECATED</code></strong>、それより前のバージョンでは
-     <strong><code>E_STRICT</code></strong> レベルのメッセージが表示されます
+     <strong><code>E_STRICT</code></strong> レベルのメッセージが表示されます。
+     また、PHP 7.0.0 以降は、文法的に無効となります
      (技術的な話をすると、PHP 5 以降では、リソース型のようなオブジェクト変数は
      実際のデータへの単なるポインタとなりました。つまり、
      オブジェクトのリファレンスはこれまでのような意味での &quot;リファレンス&quot;
@@ -91,7 +92,7 @@
       関数の内部で <em>global</em> 宣言された変数にリファレンスを
       代入すると、そのリファレンスは関数の内部でのみ参照可能となります。
       これを避けるには、<var class="varname"><var class="varname"><a href="reserved.variables.globals.html" class="classname">$GLOBALS</a></var></var> 配列を使用します。
-      <div class="example" id="example-280">
+      <div class="example" id="example-291">
        <p><strong>例2 関数内でのグローバル変数の参照</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -110,7 +111,7 @@
     <blockquote class="note"><p><strong class="note">注意</strong>: 
      <p class="para">
       <a href="control-structures.foreach.html" class="link">foreach</a> ステートメントの内部でリファレンス変数に値を代入すると、リファレンスも変更されます。
-      <div class="example" id="example-281">
+      <div class="example" id="example-292">
        <p><strong>例3 リファレンスと foreach ステートメント</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -17,8 +17,15 @@
    <h1 class="title">はじめに</h1>
    <div class="abstract">
     <p class="para">
-     PHP から MySQL データベースにアクセスするための API は、三種類あります。
-     このページでは、それらの API についての説明に登場する
+     PHP から MySQL データベースにアクセスするための API は、二種類または三種類
+     (PHP のバージョンによって異なります) です。PHP 5 を使う場合は、
+     非推奨の <a href="book.mysql.html" class="link">mysql</a> 拡張モジュールか、
+     <a href="book.mysqli.html" class="link">mysqli</a> あるいは
+     <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> が利用できます。
+     PHP 7 では mysql 拡張モジュールが削除されたので、残りの二種類のいずれかを利用します。
+    </p>
+    <p class="para">
+     このページでは、これらの API についての説明に登場する
      <a href="mysqlinfo.terminology.html" class="link">用語</a>
      について解説したり、
      <a href="mysqlinfo.api.choosing.html" class="link">いったいどの API を使えばいいのか</a>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.base-convert" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">base_convert</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">base_convert</span> &mdash; <span class="dc-title">数値の基数を任意に変換する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">base_convert</span> &mdash; <span class="dc-title">数値の基数を任意に変換する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.base-convert-description">
@@ -34,6 +34,7 @@
    は、ともに 2 から 36 までである必要があります。
    10 より大きな基数を有する数の各桁は、文字 a-z で表されます。
    この場合、a は 10、b は 11、z は 35 を意味します。
+   <code class="parameter">number</code> は、大文字小文字を区別せずに扱います。
   </p>
   <div class="warning"><strong class="warning">警告</strong>
    <p class="simpara">
@@ -59,6 +60,7 @@
 
       <p class="para">
        変換する数値。
+       無効な文字が含まれている場合は、何もエラーを出さずにただ無視します。
       </p>
      </dd>
 
@@ -103,11 +105,11 @@
  <div class="refsect1 examples" id="refsect1-function.base-convert-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3466">
+   <div class="example" id="example-3998">
     <p><strong>例1 <span class="function"><strong>base_convert()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$hexadecimal&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'A37334'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">base_convert</span><span style="color: #007700">(</span><span style="color: #0000BB">$hexadecimal</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">16</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$hexadecimal&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'a37334'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">base_convert</span><span style="color: #007700">(</span><span style="color: #0000BB">$hexadecimal</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">16</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

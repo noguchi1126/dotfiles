@@ -13,7 +13,7 @@
 </div><hr /><div id="splfileinfo.getrealpath" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SplFileInfo::getRealPath</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.2)</p><p class="refpurpose"><span class="refname">SplFileInfo::getRealPath</span> &mdash; <span class="dc-title">ファイルへの絶対パスを取得する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.2, PHP 7)</p><p class="refpurpose"><span class="refname">SplFileInfo::getRealPath</span> &mdash; <span class="dc-title">ファイルへの絶対パスを取得する</span></p>
 
  </div>
 
@@ -40,7 +40,7 @@
  <div class="refsect1 returnvalues" id="refsect1-splfileinfo.getrealpath-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   ファイルへのパスを返します。
+   ファイルへのパスを返します。ファイルが存在しない場合は <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 
@@ -48,11 +48,11 @@
  <div class="refsect1 examples" id="refsect1-splfileinfo.getrealpath-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3957">
+   <div class="example" id="example-4523">
     <p><strong>例1 <span class="function"><strong>SplFileInfo::getRealPath()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$info&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/..//./../../'</span><span style="color: #007700">.</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRealPath</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/tmp'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRealPath</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$info&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/..//./../../'</span><span style="color: #007700">.</span><span style="color: #0000BB">__FILE__</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRealPath</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/tmp'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRealPath</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/I/Do/Not/Exist'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRealPath</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'php://output'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRealPath</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">$info&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">SplFileInfo</span><span style="color: #007700">(</span><span style="color: #DD0000">""</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$info</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getRealPath</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -63,6 +63,9 @@
 <div class="cdata"><pre>
 string(28) &quot;/private/tmp/phptempfile.php&quot; 
 string(12) &quot;/private/tmp&quot;
+bool(false)
+bool(false)
+string(12) &quot;/private/tmp&quot; 
 </pre></div>
     </div>
    </div>
@@ -75,6 +78,7 @@ string(12) &quot;/private/tmp&quot;
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="methodname"><a href="splfileinfo.islink.html" class="methodname" rel="rdfs-seeAlso">SplFileInfo::isLink()</a> - ファイルがリンクであるかどうかを調べる</span></li>
+    <li class="member"><span class="methodname"><a href="function.realpath.html" class="methodname" rel="rdfs-seeAlso">realpath()</a> - 正規化された絶対パス名を返す</span></li>
    </ul>
   </p>
  </div>

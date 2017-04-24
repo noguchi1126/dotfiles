@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-filter" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_filter</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">array_filter</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_filter</span> &mdash; <span class="dc-title">
    コールバック関数を使用して、配列の要素をフィルタリングする
   </span></p>
 
@@ -25,7 +25,8 @@
    <span class="type">array</span> <span class="methodname"><strong>array_filter</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
    [, <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flag</code><span class="initializer"> = 0</span></span>
+  ]] )</div>
 
   <p class="para rdfs-comment">
    <code class="parameter">callback</code>
@@ -33,8 +34,7 @@
    の全ての要素を含む配列を返します。
    <code class="parameter">callback</code> 関数が true を返した場合、
    <code class="parameter">array</code> の現在の値が結果の配列に入ります。
-   <code class="parameter">array</code> が連想配列の場合、
-   キーは保存されます。
+   配列のキーは保存されます。
   </p>
 </div>
 
@@ -77,6 +77,29 @@
 
     
 
+    
+     <dt>
+<code class="parameter">flag</code></dt>
+
+     <dd>
+
+      <p class="para">
+       引数として、何を <code class="parameter">callback</code> に送るのかを決めるフラグ。
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <span class="simpara"><strong><code>ARRAY_FILTER_USE_KEY</code></strong> - 値ではなく、キーだけを
+         <code class="parameter">callback</code> の引数として渡す</span>
+        </li>
+        <li class="listitem">
+         <span class="simpara"><strong><code>ARRAY_FILTER_USE_BOTH</code></strong> - 値だけではなく、値とキーの両方を
+         <code class="parameter">callback</code> の引数として渡す</span>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+
    </dl>
 
   </p>
@@ -91,12 +114,41 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.array-filter-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>5.6.0</td>
+      <td>
+       オプションのパラメータ <code class="parameter">flag</code> と、定数
+       <strong><code>ARRAY_FILTER_USE_KEY</code></strong> および
+       <strong><code>ARRAY_FILTER_USE_BOTH</code></strong> が追加されました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
 
 
  <div class="refsect1 examples" id="refsect1-function.array-filter-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4959">
+   <div class="example" id="example-5565">
     <p><strong>例1 <span class="function"><strong>array_filter()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -126,7 +178,7 @@ Array
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4960">
+   <div class="example" id="example-5566">
     <p><strong>例2 <code class="parameter">callback</code> がない
     <span class="function"><strong>array_filter()</strong></span>
     </strong></p>
@@ -145,6 +197,32 @@ Array
     [0] =&gt; foo
     [2] =&gt; -1
 )
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-5567">
+    <p><strong>例3 <span class="function"><strong>array_filter()</strong></span> で
+    <code class="parameter">flag</code> を使う例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br />$arr&nbsp;</span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'b'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'c'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'d'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">];<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_filter</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr</span><span style="color: #007700">,&nbsp;function(</span><span style="color: #0000BB">$k</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$k&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">'b'</span><span style="color: #007700">;<br />},&nbsp;</span><span style="color: #0000BB">ARRAY_FILTER_USE_KEY</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">array_filter</span><span style="color: #007700">(</span><span style="color: #0000BB">$arr</span><span style="color: #007700">,&nbsp;function(</span><span style="color: #0000BB">$v</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$k</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$k&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #DD0000">'b'&nbsp;</span><span style="color: #007700">||&nbsp;</span><span style="color: #0000BB">$v&nbsp;</span><span style="color: #007700">==&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">;<br />},&nbsp;</span><span style="color: #0000BB">ARRAY_FILTER_USE_BOTH</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+array(1) {
+  [&quot;b&quot;]=&gt;
+  int(2)
+}
+array(2) {
+  [&quot;b&quot;]=&gt;
+  int(2)
+  [&quot;d&quot;]=&gt;
+  int(4)
+}
 </pre></div>
     </div>
    </div>
@@ -170,7 +248,7 @@ Array
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.array-map.html" class="function" rel="rdfs-seeAlso">array_map()</a> - 指定した配列の要素にコールバック関数を適用する</span></li>
     <li class="member"><span class="function"><a href="function.array-reduce.html" class="function" rel="rdfs-seeAlso">array_reduce()</a> - コールバック関数を用いて配列を普通の値に変更することにより、配列を再帰的に減らす</span></li>
-    <li class="member"><span class="function"><a href="function.array-walk.html" class="function" rel="rdfs-seeAlso">array_walk()</a> - 配列の全ての要素にユーザー関数を適用する</span></li>
+    <li class="member"><span class="function"><a href="function.array-walk.html" class="function" rel="rdfs-seeAlso">array_walk()</a> - 配列の全ての要素にユーザー定義の関数を適用する</span></li>
    </ul>
   </p>
  </div>

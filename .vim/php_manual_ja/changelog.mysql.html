@@ -8,7 +8,7 @@
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mysql.resources.html">リソース型</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="mysql.constants.html">定義済み定数</a></div>
- <div class="up"><a href="book.mysql.html">Mysql</a></div>
+ <div class="up"><a href="book.mysql.html">MySQL (最初の API)</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="changelog.mysql" class="appendix">
  <h1>変更履歴</h1>
@@ -20,19 +20,6 @@
   <p class="para">
    ext/mysql 拡張モジュールの変更履歴をまとめました。
   </p>
- </div>
- 
- <div class="simplesect">
-  <h3 class="title">既存の関数の変更点</h3>
-  <p class="para">
-   ext/mysql の関数に対する変更点を、以下にまとめます。
-  </p>
-  <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>5.5.0</td><td><a href='function.mysql-connect.html'>mysql_connect</a></td><td>この関数は E_DEPRECATED エラーを発するようになりました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-db-name.html'>mysql_db_name</a></td><td>mysql_list_dbs 関数は非推奨となり、
-        E_DEPRECATED レベルのエラーが発生するようになりました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-pconnect.html'>mysql_pconnect</a></td><td>この関数は E_DEPRECATED エラーを発するようになりました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-tablename.html'>mysql_tablename</a></td><td>mysql_tablename 関数は非推奨となり、
-        E_DEPRECATED レベルのエラーが発生するようになりました。</td></tr></tbody><tbody class="gen-changelog v5-5-0"><tr><td>5.3.0</td><td><a href='function.mysql-db-query.html'>mysql_db_query</a></td><td>この関数は E_DEPRECATED をスローするようになりました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-escape-string.html'>mysql_escape_string</a></td><td>この関数は E_DEPRECATED をスローするようになりました。</td></tr></tbody><tbody class="gen-changelog v5-3-0"><tr><td>5.0.0</td><td><a href='function.mysql-fetch-object.html'>mysql_fetch_object</a></td><td>さまざまな型のオブジェクトで結果を返せるようになりました。</td></tr></tbody><tbody class="gen-changelog v5-0-0"><tr><td>4.3.7</td><td><a href='function.mysql-list-tables.html'>mysql_list_tables</a></td><td>この関数は非推奨となりました。</td></tr></tbody><tbody class="gen-changelog v4-3-7"><tr><td>4.3.0</td><td><a href='function.mysql-connect.html'>mysql_connect</a></td><td>パラメータ client_flags が追加されました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-escape-string.html'>mysql_escape_string</a></td><td>この関数は非推奨となりました。利用しないでください。代わりに
-        mysql_real_escape_string を利用してください。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-pconnect.html'>mysql_pconnect</a></td><td>パラメータ client_flags が追加されました。</td></tr></tbody><tbody class="gen-changelog v4-3-0"><tr><td>4.2.0</td><td><a href='function.mysql-connect.html'>mysql_connect</a></td><td>パラメータ new_link が追加されました。</td></tr></tbody><tbody class="gen-changelog v4-2-0"><tr><td>4.0.6</td><td><a href='function.mysql-db-query.html'>mysql_db_query</a></td><td>この関数は廃止予定です。使用しないでください。かわりに
-        mysql_select_db
-        あるいは mysql_query を使用してください。</td></tr></tbody></table>
  </div>
  
  <div class="simplesect">
@@ -52,6 +39,16 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <p class="para">
+         この拡張モジュールは PHP 本体から削除されました。詳細は
+         <a href="mysqlinfo.api.choosing.html" class="xref">どの API を使うか</a> を参照ください。
+        </p>
+       </td>
+      </tr>
+
       <tr>
        <td>5.5.0</td>
        <td>
@@ -85,10 +82,22 @@
 
   </p>
  </div>
+
+ <div class="simplesect">
+  <h3 class="title">既存の関数の変更点</h3>
+  <p class="para">
+   ext/mysql の関数に対する変更点を、以下にまとめます。
+  </p>
+  <table class='doctable table' rules='groups'><thead><tr><th>Version</th><th>Function</th><th>Description</th></tr></thead><tbody class="gen-changelog v"><tr><td>5.5.0</td><td><a href='function.mysql-connect.html'>mysql_connect</a></td><td>この関数は E_DEPRECATED エラーを発するようになりました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-db-name.html'>mysql_db_name</a></td><td>mysql_list_dbs 関数は非推奨となり、
+        E_DEPRECATED レベルのエラーが発生するようになりました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-pconnect.html'>mysql_pconnect</a></td><td>この関数は E_DEPRECATED エラーを発するようになりました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-tablename.html'>mysql_tablename</a></td><td>mysql_tablename 関数は非推奨となり、
+        E_DEPRECATED レベルのエラーが発生するようになりました。</td></tr></tbody><tbody class="gen-changelog v5-5-0"><tr><td>5.3.0</td><td><a href='function.mysql-db-query.html'>mysql_db_query</a></td><td>この関数は E_DEPRECATED をスローするようになりました。</td></tr><tr><td>&nbsp;</td><td><a href='function.mysql-escape-string.html'>mysql_escape_string</a></td><td>この関数は E_DEPRECATED をスローするようになりました。</td></tr></tbody><tbody class="gen-changelog v5-3-0"><tr><td>4.3.7</td><td><a href='function.mysql-list-tables.html'>mysql_list_tables</a></td><td>この関数は非推奨となりました。</td></tr></tbody><tbody class="gen-changelog v4-3-7"><tr><td>4.3.0</td><td><a href='function.mysql-escape-string.html'>mysql_escape_string</a></td><td>この関数は非推奨となりました。利用しないでください。代わりに
+        mysql_real_escape_string を利用してください。</td></tr></tbody></table>
+ </div>
+
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mysql.resources.html">リソース型</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="mysql.constants.html">定義済み定数</a></div>
- <div class="up"><a href="book.mysql.html">Mysql</a></div>
+ <div class="up"><a href="book.mysql.html">MySQL (最初の API)</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

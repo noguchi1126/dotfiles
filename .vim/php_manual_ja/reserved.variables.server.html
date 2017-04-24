@@ -13,8 +13,8 @@
 </div><hr /><div id="reserved.variables.server" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">$_SERVER</h1>
-  <h1 class="refname">$HTTP_SERVER_VARS [非推奨]</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">$_SERVER</span> -- <span class="refname">$HTTP_SERVER_VARS [非推奨]</span> &mdash; <span class="dc-title">サーバー情報および実行時の環境情報</span></p>
+  <h1 class="refname">$HTTP_SERVER_VARS [削除]</h1>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">$_SERVER</span> -- <span class="refname">$HTTP_SERVER_VARS [削除]</span> &mdash; <span class="dc-title">サーバー情報および実行時の環境情報</span></p>
 
  </div>
  
@@ -30,14 +30,15 @@
    で定義されています。したがって、これらについては定義されていることを
    期待することができます。
   </p>
-
-  <p class="simpara">
-   <var class="varname"><var class="varname">$HTTP_SERVER_VARS</var></var> の最初の情報は同じですが、
-   これは<a href="language.variables.superglobals.html" class="link">スーパーグローバル</a>ではありません
-   (<var class="varname"><var class="varname">HTTP_SERVER_VARS</var></var> と
-   <var class="varname"><var class="varname">$_SERVER</var></var> は異なる変数であり、
-   PHP は異なる変数として処理を行うことに注意してください)。
-  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+     PHP 5.4.0 より前のバージョンでは、<var class="varname"><var class="varname">$HTTP_SERVER_VARS</var></var> にも同じ初期情報が含まれていましたが、これは
+     <a href="language.variables.superglobals.html" class="link">スーパーグローバル</a> ではありませんでした
+     (<var class="varname"><var class="varname">HTTP_SERVER_VARS</var></var> と
+     <var class="varname"><var class="varname">$_SERVER</var></var> は異なる変数であり、
+     PHP は異なる変数として処理を行うことに注意してください)。
+   </span>
+  </p></blockquote>
  </div>
 
 
@@ -145,6 +146,14 @@
        スクリプトがバーチャルホスト上で実行されている場合は
        そのバーチャルホスト名となります。
       </span>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <span class="simpara">
+        Apache 2 では、<em>UseCanonicalName = On</em>
+        と <em>ServerName</em> を設定する必要があります。
+        そうしなければ、この値はクライアントが提供するホスト名を指すようになってしまい、無意味です。
+        また、セキュリティ的な意味合いでこの値に頼ってはいけません。
+       </span>
+      </p></blockquote>
      </dd>
 
     
@@ -717,6 +726,23 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.4.0</td>
+       <td>
+        <var class="varname"><var class="varname">$HTTP_SERVER_VARS</var></var> は使えなくなりました。
+        長い形式の配列への登録が廃止されたからです。
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.3.0</td>
+       <td>
+        <a href="ini.core.html#ini.register-long-arrays" class="link">register_long_arrays</a>
+        ディレクティブを使って <var class="varname"><var class="varname">$HTTP_SERVER_VARS</var></var>
+        を有効にする機能が、非推奨になりました。
+       </td>
+      </tr>
+
+      <tr>
        <td>4.1.0</td>
        <td>
         <var class="varname"><var class="varname">$_SERVER</var></var> が導入され、
@@ -736,7 +762,7 @@
  <div class="refsect1 examples" id="refsect1-reserved.variables.server-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="variable.server.basic">
+   <div class="example" id="example-294">
     <p><strong>例1 <var class="varname"><var class="varname">$_SERVER</var></var> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

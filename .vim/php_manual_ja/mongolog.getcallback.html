@@ -20,12 +20,12 @@
  <div class="refsect1 description" id="refsect1-mongolog.getcallback-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>MongoLog::getCallback</strong></span>
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <span class="methodname"><strong>MongoLog::getCallback</strong></span>
     ( <span class="methodparam">void</span>
    )</div>
 
   <p class="para rdfs-comment">
-   コールバック関数名を取得します。
+   コールバック関数を取得します。
   </p>
  </div>
 
@@ -39,8 +39,18 @@
  <div class="refsect1 returnvalues" id="refsect1-mongolog.getcallback-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   コールバック関数名を返します。まだ設定されていない場合は <strong><code>FALSE</code></strong> を返します。
+   コールバック関数を返します。まだ設定されていない場合は <strong><code>FALSE</code></strong> を返します。
   </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-mongolog.getcallback-notes">
+  <h3 class="title">注意</h3>
+  <div class="caution"><strong class="caution">警告</strong>
+   <p class="para">
+    この関数は、PHP 5.3.0 以降でしか使えません。
+   </p>
+  </div>
  </div>
 
 

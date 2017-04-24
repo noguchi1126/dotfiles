@@ -15,7 +15,7 @@
  <h1 class="title">SplFileObject クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p>
 
 
   <div class="section" id="splfileobject.intro">
@@ -85,13 +85,6 @@
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="methodname"><a href="splfileobject.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$open_mode</code><span class="initializer"> = &quot;r&quot;</span></span>
-   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = false</span></span>
-   [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code></span>
-  ]]] )</div>
-<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">string|array</span> <span class="methodname"><a href="splfileobject.current.html" class="methodname">current</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -133,9 +126,14 @@
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="splfileobject.fputcsv.html" class="methodname">fputcsv</a></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &#039;,&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;,&quot;</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &#039;&quot;&#039;</span></span>
-  ]] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape</code><span class="initializer"> = &quot;\&quot;</span></span>
+  ]]] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="splfileobject.fread.html" class="methodname">fread</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="splfileobject.fscanf.html" class="methodname">fscanf</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$format</code></span>
@@ -326,17 +324,17 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">SplFileObject</span> <span class="methodname"><a href="splfileinfo.openfile.html" class="methodname">SplFileInfo::openFile</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$open_mode</code><span class="initializer"> = r</span></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$open_mode</code><span class="initializer"> = &quot;r&quot;</span></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$use_include_path</code><span class="initializer"> = false</span></span>
    [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
   ]]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="splfileinfo.setfileclass.html" class="methodname">SplFileInfo::setFileClass</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = &quot;SplFileObject&quot;</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="splfileinfo.setinfoclass.html" class="methodname">SplFileInfo::setInfoClass</a></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$class_name</code><span class="initializer"> = &quot;SplFileInfo&quot;</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="splfileinfo.tostring.html" class="methodname">SplFileInfo::__toString</a></span>
@@ -685,7 +683,14 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="splfileobject.construct.html">SplFileObject::__construct</a> — 新しいファイルオブジェクトを作成する</li><li><a href="splfileobject.current.html">SplFileObject::current</a> — ファイルの現在の行を取得する</li><li><a href="splfileobject.eof.html">SplFileObject::eof</a> — ファイルの終端に到達しているか調べる</li><li><a href="splfileobject.fflush.html">SplFileObject::fflush</a> — 出力をファイルにフラッシュする</li><li><a href="splfileobject.fgetc.html">SplFileObject::fgetc</a> — ファイルから文字を取り出す</li><li><a href="splfileobject.fgetcsv.html">SplFileObject::fgetcsv</a> — ファイルから行を取り出し CSV フィールドとして処理する</li><li><a href="splfileobject.fgets.html">SplFileObject::fgets</a> — ファイルから 1 行取り出す</li><li><a href="splfileobject.fgetss.html">SplFileObject::fgetss</a> — ファイルから 1 行取り出し HTML タグを取り除く</li><li><a href="splfileobject.flock.html">SplFileObject::flock</a> — 簡易なファイルロックを行う</li><li><a href="splfileobject.fpassthru.html">SplFileObject::fpassthru</a> — ファイルポインタに残っているデータをすべて出力する</li><li><a href="splfileobject.fputcsv.html">SplFileObject::fputcsv</a> — フィールドの配列を CSV の行として書き出す</li><li><a href="splfileobject.fscanf.html">SplFileObject::fscanf</a> — フォーマットに従ってファイルからの入力をパースする</li><li><a href="splfileobject.fseek.html">SplFileObject::fseek</a> — ファイルポインタを移動させる</li><li><a href="splfileobject.fstat.html">SplFileObject::fstat</a> — ファイルの情報を得る</li><li><a href="splfileobject.ftell.html">SplFileObject::ftell</a> — ファイルポインタの現在位置を返す</li><li><a href="splfileobject.ftruncate.html">SplFileObject::ftruncate</a> — ファイルを指定した長さに丸める</li><li><a href="splfileobject.fwrite.html">SplFileObject::fwrite</a> — ファイルに書き込む</li><li><a href="splfileobject.getchildren.html">SplFileObject::getChildren</a> — 用途はなし</li><li><a href="splfileobject.getcsvcontrol.html">SplFileObject::getCsvControl</a> — CSV の区切りと囲み文字を取得する</li><li><a href="splfileobject.getcurrentline.html">SplFileObject::getCurrentLine</a> — SplFileObject::fgets のエイリアス</li><li><a href="splfileobject.getflags.html">SplFileObject::getFlags</a> — SplFileObject のフラグを取得する</li><li><a href="splfileobject.getmaxlinelen.html">SplFileObject::getMaxLineLen</a> — 行の最大バイト数を取得する</li><li><a href="splfileobject.haschildren.html">SplFileObject::hasChildren</a> — SplFileObject は子を持ちません</li><li><a href="splfileobject.key.html">SplFileObject::key</a> — 行番号を取得する</li><li><a href="splfileobject.next.html">SplFileObject::next</a> — 次の行を読み出す</li><li><a href="splfileobject.rewind.html">SplFileObject::rewind</a> — ファイルポインタを先頭に巻き戻す</li><li><a href="splfileobject.seek.html">SplFileObject::seek</a> — ファイルポインタを指定行に移動させる</li><li><a href="splfileobject.setcsvcontrol.html">SplFileObject::setCsvControl</a> — CSV の区切り文字と囲み文字をセットする</li><li><a href="splfileobject.setflags.html">SplFileObject::setFlags</a> — SplFileObject のフラグをセットする</li><li><a href="splfileobject.setmaxlinelen.html">SplFileObject::setMaxLineLen</a> — 読み込む行の最大バイト数をセットする</li><li><a href="splfileobject.tostring.html">SplFileObject::__toString</a> — SplFileObject::current のエイリアス</li><li><a href="splfileobject.valid.html">SplFileObject::valid</a> — ファイル終端でないかチェックする</li></ul>
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="splfileobject.construct.html">SplFileObject::__construct</a> — 新しいファイルオブジェクトを作成する</li><li><a href="splfileobject.current.html">SplFileObject::current</a> — ファイルの現在の行を取得する</li><li><a href="splfileobject.eof.html">SplFileObject::eof</a> — ファイルの終端に到達しているか調べる</li><li><a href="splfileobject.fflush.html">SplFileObject::fflush</a> — 出力をファイルにフラッシュする</li><li><a href="splfileobject.fgetc.html">SplFileObject::fgetc</a> — ファイルから文字を取り出す</li><li><a href="splfileobject.fgetcsv.html">SplFileObject::fgetcsv</a> — ファイルから行を取り出し CSV フィールドとして処理する</li><li><a href="splfileobject.fgets.html">SplFileObject::fgets</a> — ファイルから 1 行取り出す</li><li><a href="splfileobject.fgetss.html">SplFileObject::fgetss</a> — ファイルから 1 行取り出し HTML タグを取り除く</li><li><a href="splfileobject.flock.html">SplFileObject::flock</a> — 簡易なファイルロックを行う</li><li><a href="splfileobject.fpassthru.html">SplFileObject::fpassthru</a> — ファイルポインタに残っているデータをすべて出力する</li><li><a href="splfileobject.fputcsv.html">SplFileObject::fputcsv</a> — フィールドの配列を CSV の行として書き出す</li><li><a href="splfileobject.fread.html">SplFileObject::fread</a> — Read from file</li><li><a href="splfileobject.fscanf.html">SplFileObject::fscanf</a> — フォーマットに従ってファイルからの入力をパースする</li><li><a href="splfileobject.fseek.html">SplFileObject::fseek</a> — ファイルポインタを移動させる</li><li><a href="splfileobject.fstat.html">SplFileObject::fstat</a> — ファイルの情報を得る</li><li><a href="splfileobject.ftell.html">SplFileObject::ftell</a> — ファイルポインタの現在位置を返す</li><li><a href="splfileobject.ftruncate.html">SplFileObject::ftruncate</a> — ファイルを指定した長さに丸める</li><li><a href="splfileobject.fwrite.html">SplFileObject::fwrite</a> — ファイルに書き込む</li><li><a href="splfileobject.getchildren.html">SplFileObject::getChildren</a> — 用途はなし</li><li><a href="splfileobject.getcsvcontrol.html">SplFileObject::getCsvControl</a> — CSV の区切り、囲み文字、エスケープ文字を取得する</li><li><a href="splfileobject.getcurrentline.html">SplFileObject::getCurrentLine</a> — SplFileObject::fgets のエイリアス</li><li><a href="splfileobject.getflags.html">SplFileObject::getFlags</a> — SplFileObject のフラグを取得する</li><li><a href="splfileobject.getmaxlinelen.html">SplFileObject::getMaxLineLen</a> — 行の最大バイト数を取得する</li><li><a href="splfileobject.haschildren.html">SplFileObject::hasChildren</a> — SplFileObject は子を持ちません</li><li><a href="splfileobject.key.html">SplFileObject::key</a> — 行番号を取得する</li><li><a href="splfileobject.next.html">SplFileObject::next</a> — 次の行を読み出す</li><li><a href="splfileobject.rewind.html">SplFileObject::rewind</a> — ファイルポインタを先頭に巻き戻す</li><li><a href="splfileobject.seek.html">SplFileObject::seek</a> — ファイルポインタを指定行に移動させる</li><li><a href="splfileobject.setcsvcontrol.html">SplFileObject::setCsvControl</a> — CSV の区切り文字、囲み文字、エスケープ文字をセットする</li><li><a href="splfileobject.setflags.html">SplFileObject::setFlags</a> — SplFileObject のフラグをセットする</li><li><a href="splfileobject.setmaxlinelen.html">SplFileObject::setMaxLineLen</a> — 読み込む行の最大バイト数をセットする</li><li><a href="splfileobject.tostring.html">SplFileObject::__toString</a> — SplFileObject::current のエイリアス</li><li><a href="splfileobject.valid.html">SplFileObject::valid</a> — ファイル終端でないかチェックする</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="splfileinfo.tostring.html">SplFileInfo::__toString</a></div>

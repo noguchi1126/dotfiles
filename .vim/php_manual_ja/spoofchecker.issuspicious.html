@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>指定したテキストに疑わしい文字が含まれているかどうかを調べる</title>
+  <title>Checks if a given text contains any suspicious characters</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="spoofchecker.issuspicious" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Spoofchecker::isSuspicious</h1>
-  <p class="verinfo">(PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Spoofchecker::isSuspicious</span> &mdash; <span class="dc-title">指定したテキストに疑わしい文字が含まれているかどうかを調べる</span></p>
+  <p class="verinfo">(PHP &gt;= 5.4.0, PECL intl &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Spoofchecker::isSuspicious</span> &mdash; <span class="dc-title">Checks if a given text contains any suspicious characters</span></p>
 
  </div>
 
@@ -26,13 +26,9 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-
+   Checks if given string contains any suspicious characters like letters which
+   are almost identical visually, but are Unicode characters from different sets.
   </p>
-
-  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は、
-現在のところ詳細な情報はありません。引数のリストのみが
-記述されています。</p></div>
-
  </div>
 
 
@@ -47,7 +43,7 @@
     <dd>
 
      <p class="para">
-      
+      String to test.
      </p>
     </dd>
 
@@ -59,7 +55,8 @@
     <dd>
 
      <p class="para">
-      
+      This variable is set by-reference to string containing an error, if there
+      were any.
      </p>
     </dd>
 
@@ -72,11 +69,26 @@
  <div class="refsect1 returnvalues" id="refsect1-spoofchecker.issuspicious-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-
+   Returns <strong><code>TRUE</code></strong> if there are suspicious characters, <strong><code>FALSE</code></strong> otherwise.
   </p>
  </div>
 
 
+ <div class="refsect1 examples" id="refsect1-spoofchecker.issuspicious-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-2934">
+    <p><strong>例1 <span class="function"><strong>Spoofchecker::isSuspicious()</strong></span> example</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$checker&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Spoofchecker</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$checker</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isSuspicious</span><span style="color: #007700">(</span><span style="color: #DD0000">'google.com'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;FALSE:&nbsp;only&nbsp;ASCII&nbsp;characters<br /><br /></span><span style="color: #0000BB">$checker</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isSuspicious</span><span style="color: #007700">(</span><span style="color: #DD0000">'Рaypal.com'</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;TRUE<br />//&nbsp;The&nbsp;first&nbsp;letter&nbsp;is&nbsp;from&nbsp;Cyrylic,&nbsp;not&nbsp;a&nbsp;regular&nbsp;latin&nbsp;"P"</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="spoofchecker.construct.html">Spoofchecker::__construct</a></div>

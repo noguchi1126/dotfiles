@@ -13,7 +13,7 @@
 </div><hr /><div id="reflectionclass.isfinal" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ReflectionClass::isFinal</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">ReflectionClass::isFinal</span> &mdash; <span class="dc-title">final クラスであるかどうかを調べる</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ReflectionClass::isFinal</span> &mdash; <span class="dc-title">final クラスであるかどうかを調べる</span></p>
 
  </div>
 
@@ -47,8 +47,8 @@
  <div class="refsect1 examples" id="refsect1-reflectionclass.isfinal-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5219">
-    <p><strong>例1 <span class="methodname"><a href="reflectionclass.isabstract.html" class="methodname">ReflectionClass::isAbstract()</a></span> の例</strong></p>
+   <div class="example" id="example-6060">
+    <p><strong>例1 <span class="methodname"><strong>ReflectionClass::isFinal()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">TestClass&nbsp;</span><span style="color: #007700">{&nbsp;}<br />final&nbsp;class&nbsp;</span><span style="color: #0000BB">TestFinalClass&nbsp;</span><span style="color: #007700">{&nbsp;}<br /><br /></span><span style="color: #0000BB">$normalClass&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'TestClass'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$finalClass&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">ReflectionClass</span><span style="color: #007700">(</span><span style="color: #DD0000">'TestFinalClass'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$normalClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isFinal</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$finalClass</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">isFinal</span><span style="color: #007700">());<br /><br /></span><span style="color: #0000BB">?&gt;</span>

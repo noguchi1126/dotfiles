@@ -7,13 +7,13 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.imagegd2.html">imagegd2</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.imagegif.html">imagegif</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagegetclip.html">imagegetclip</a></div>
  <div class="up"><a href="ref.image.html">GD および Image 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.imagegd" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagegd</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5)</p><p class="refpurpose"><span class="refname">imagegd</span> &mdash; <span class="dc-title">GD イメージをブラウザまたはファイルに出力する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.7, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagegd</span> &mdash; <span class="dc-title">GD イメージをブラウザまたはファイルに出力する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagegd-description">
@@ -21,11 +21,11 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>imagegd</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$to</code><span class="initializer"> = NULL</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
-   GD イメージを、指定した <code class="parameter">filename</code>
+   GD イメージを、指定した <code class="parameter">to</code>
    に出力します。
   </p>
  </div>
@@ -44,11 +44,11 @@ image</code></dt>
 
     
      <dt>
-<code class="parameter">filename</code></dt>
+<code class="parameter">to</code></dt>
 
      <dd>
 
-      <p class="para">ファイルの保存先のパス。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
+      <p class="para">ファイル保存先のパスあるいはオープン中のリソース (この関数が値を戻した後で自動的にクローズされます)。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
      </dd>
 
     
@@ -64,10 +64,49 @@ image</code></dt>
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagegd-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>
+        <span class="function"><strong>imagegd()</strong></span> が truecolor 画像を出力できるようになりました。
+        これまでのバージョンでは、暗黙のうちにパレット画像に変換されていました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        ストリームリソースを
+        <code class="parameter">to</code> に渡せるようになりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagegd-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3265">
+   <div class="example" id="example-3570">
     <p><strong>例1 GD 画像の出力</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -79,7 +118,7 @@ image</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3266">
+   <div class="example" id="example-3571">
     <p><strong>例2 GD 画像の保存</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -114,7 +153,7 @@ image</code></dt>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.imagegd2.html">imagegd2</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.imagegif.html">imagegif</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.imagegetclip.html">imagegetclip</a></div>
  <div class="up"><a href="ref.image.html">GD および Image 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

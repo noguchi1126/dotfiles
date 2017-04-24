@@ -13,7 +13,7 @@
 </div><hr /><div id="pdo.begintransaction" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDO::beginTransaction</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::beginTransaction</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">PDO::beginTransaction</span> &mdash; <span class="dc-title">
    トランザクションを開始する
   </span></p>
 
@@ -53,10 +53,20 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-pdo.begintransaction-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   トランザクションが既に開始されている場合や、ドライバがトランザクションに対応していない場合に
+   <a href="class.pdoexception.html" class="classname">PDOException</a> をスローします。
+  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">例外は、<strong><code>PDO::ATTR_ERRMODE</code></strong> 属性が <strong><code>PDO::ERRMODE_EXCEPTION</code></strong> ではない場合でも発生します。</span></p></blockquote>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-pdo.begintransaction-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-919"><p><strong>例1 トランザクションをロールバックする</strong></p>
+   <div class="example" id="example-1001"><p><strong>例1 トランザクションをロールバックする</strong></p>
     <div class="example-contents"><p>
      以下の例は、トランザクションを開始し、
      変更をロールバックする前にデータベースを修正する

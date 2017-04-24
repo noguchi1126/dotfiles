@@ -42,7 +42,7 @@
    Between the two attempts the plugin sleeps for 100 milliseconds.
   </p>
   <p class="para">
-   <div class="example" id="example-1808">
+   <div class="example" id="example-2031">
     <p><strong>例1 Provoking a transient error</strong></p>
 <div class="example-contents">
 <div class="inicode"><pre class="inicode">mysqlnd_ms.enable=1
@@ -79,7 +79,7 @@ mysqlnd_ms.collect_statistics=1</pre>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1809">
+   <div class="example" id="example-2032">
     <p><strong>例2 Transient error retry loop</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -133,7 +133,7 @@ Transient error retries before error: 2
   <p class="para">
    However, functions that
    <a href="mysqlnd-ms.pooling.html" class="link">control connection state</a>
-   are dispatched to all all connections. The retry loop settings are applied
+   are dispatched to all connections. The retry loop settings are applied
    to every  connection on which the command is to be run. Thus, such a function
    may interrupt program execution for longer than a function that is run
    on one server only. For example, <em>set_autocommit()</em> is

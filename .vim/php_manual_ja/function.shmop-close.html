@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>共有メモリブロックを閉じる</title>
+  <title>Close shared memory block</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,19 +13,18 @@
 </div><hr /><div id="function.shmop-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shmop_close</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">shmop_close</span> &mdash; <span class="dc-title">共有メモリブロックを閉じる</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shmop_close</span> &mdash; <span class="dc-title">Close shared memory block</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.shmop-close-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>shmop_close</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$shmid</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$shmid</code></span>
    )</div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>shmop_close()</strong></span> は共有メモリブロックを閉じるために
-   使用されます。
+   <span class="function"><strong>shmop_close()</strong></span> is used to close a shared memory block.
   </p>
  </div>
 
@@ -41,8 +40,8 @@
      <dd>
 
       <p class="para">
+       The shared memory block resource created by 
        <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span>
-       が作成した共有メモリブロックの識別子。
       </p>
      </dd>
 
@@ -59,11 +58,40 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.shmop-close-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.0.0</td>
+      <td>
+       The type of <code class="parameter">shmid</code> has been changed from
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span> to <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.shmop-close-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3745">
-    <p><strong>例1 共有メモリブロックを閉じる</strong></p>
+   <div class="example" id="example-4280">
+    <p><strong>例1 Closing shared memory block</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />shmop_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_id</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -74,7 +102,7 @@
    </div>
   </p>
   <p class="para">
-   この例は、<em>$shm_id</em> を ID とする共有メモリブロックを閉じます。
+   This example will close shared memory block identified by <em>$shm_id</em>.
   </p>
  </div>
 

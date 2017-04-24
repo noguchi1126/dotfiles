@@ -28,32 +28,23 @@
   <strong>Win32 ユーザーへの注意</strong><br />
   <p class="para">
    この拡張モジュールを動作させるには、
-Windows システムの <em>PATH</em> が通った場所に
+Windows システムの <span class="envar">PATH</span> が通った場所に
 <acronym title="Dynamic Link Library">DLL</acronym> ファイルが存在する必要があります。
 <acronym title="Frequently Asked Questions">FAQ</acronym> の &quot;<a href="faq.installation.html#faq.installation.addtopath" class="link">Windows で PHP のディレクトリを
 PATH に追加するにはどうすればいいのですか?</a>&quot; で、その方法を説明しています。
 DLL ファイルを PHP のフォルダから Windows のシステムディレクトリにコピーしても動作します
-(システムディレクトリは、デフォルトで <em>PATH</em>
+(システムディレクトリは、デフォルトで <span class="envar">PATH</span>
 に含まれるからです) が、これは推奨しません。
 <em class="emphasis">この拡張モジュールを使用するには、以下のファイルが
-<em>PATH</em> の通った場所にある必要があります。</em> 
+<span class="envar">PATH</span> の通った場所にある必要があります。</em> 
    <var class="filename">libeay32.dll</var>
   </p>
   <p class="para">
    加えてキー生成およびサイン認証関数を使用する計画がある場合、
    システムに 有効な <var class="filename">openssl.cnf</var> をインストールする
-   必要があります。PHP 4.3.0 以降では、
-   Win32 バイナリ配布版にサンプル設定ファイルが同梱することにしました。
-   PHP 4.3.x および 4.4.x の場合は
-   <var class="filename">openssl</var> ディレクトリ、
-   PHP 5.x および 6.x の場合は
+   必要があります。
+   Win32 バイナリ配布版にサンプル設定ファイルを同梱することにしました。
    <var class="filename">extras/openssl</var> ディレクトリにあります。
-   PHP 4.2.0 以降を使用しておりこのファイルがない場合は、
-   <a href="http://www.openssl.org/related/binaries.html" class="link external">&raquo;&nbsp;OpenSSL バイナリのページ</a>から入手するか、
-   あるいはより新しい版の PHP をダウンロードしてそこから設定ファイルを使用することができます。
-   Windows のエクスプローラは、拡張子 <var class="filename">.cnf</var>
-   をデフォルトで非表示とすることに注意しましょう。この拡張子のファイルの種類は
-   <em>短縮ダイヤル</em> と表示されます。
   </p>
   <p class="para">
    PHP は、

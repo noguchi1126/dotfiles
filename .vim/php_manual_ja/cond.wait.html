@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>条件を待つ</title>
+  <title>Wait for Condition</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,8 +13,16 @@
 </div><hr /><div id="cond.wait" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Cond::wait</h1>
-  <p class="verinfo">(PECL pthreads &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Cond::wait</span> &mdash; <span class="dc-title">条件を待つ</span></p>
+  <p class="verinfo">(PECL pthreads &lt; 3.0.0)</p><p class="refpurpose"><span class="refname">Cond::wait</span> &mdash; <span class="dc-title">Wait for Condition</span></p>
 
+ </div>
+
+ <div id="cond.wait-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    The <a href="class.cond.html" class="classname">Cond</a> class has been removed in pthreads v3.
+   </p>
+  </div>
  </div>
 
  <div class="refsect1 description" id="refsect1-cond.wait-description">
@@ -39,7 +47,7 @@
   </span>
   ] )</div>
 
-  <p class="para rdfs-comment">条件変数上でシグナルを待ちます。オプションで、最大の待ち時間を指定できます。</p>
+  <p class="para rdfs-comment">Wait for a signal on a Condition Variable, optionally specifying a timeout to limit waiting time.</p>
  </div>
 
 
@@ -53,7 +61,7 @@
 
     <dd>
 
-     <p class="para"><span class="function"><a href="cond.create.html" class="function">Cond::create()</a></span> を呼んで取得した条件変数へのハンドル。</p>
+     <p class="para">A handle returned by a previous call to <span class="function"><a href="cond.create.html" class="function">Cond::create()</a></span>.</p>
     </dd>
 
    
@@ -63,7 +71,7 @@
 
     <dd>
 
-     <p class="para">呼び出し元が <span class="function"><a href="mutex.create.html" class="function">Mutex::create()</a></span> を呼んで所有 (ロック) しているミューテックスへのハンドル。</p>
+     <p class="para">A handle returned by a previous call to <span class="function"><a href="mutex.create.html" class="function">Mutex::create()</a></span> and owned (locked) by the caller.</p>
     </dd>
 
    
@@ -73,7 +81,7 @@
 
     <dd>
 
-     <p class="para">オプションのタイムアウト時間。マイクロ秒 (100 万分の 1 秒) 単位。</p>
+     <p class="para">An optional timeout, in microseconds ( millionths of a second ).</p>
     </dd>
 
    
@@ -84,18 +92,18 @@
 
  <div class="refsect1 returnvalues" id="refsect1-cond.wait-returnvalues">
   <h3 class="title">返り値</h3>
-  <p class="para">成功したかどうかを返します。</p>
+  <p class="para">A boolean indication of success.</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-cond.wait-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3742">
-    <p><strong>例1 条件の待機</strong></p>
+   <div class="example" id="example-4277">
+    <p><strong>例1 Waiting for Conditions</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;この例は、プロセスをハングさせることに注意しましょう&nbsp;**/<br /></span><span style="color: #0000BB">$mutex&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/**&nbsp;"new"&nbsp;は使えません。Cond&nbsp;は&nbsp;PHP&nbsp;のオブジェクトではありません&nbsp;**/<br /></span><span style="color: #0000BB">$cond&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/**&nbsp;呼び出し側は、関連するミューテックスをロックしてからブロードキャストを呼ぶ必要があります&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">wait</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cond</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">/**&nbsp;自分が作った&nbsp;Cond&nbsp;は常に破棄します&nbsp;**/<br /></span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$cond</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">unlock</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;PLEASE&nbsp;NOTE&nbsp;THIS&nbsp;EXAMPLE&nbsp;WILL&nbsp;CAUSE&nbsp;THE&nbsp;PROCESS&nbsp;TO&nbsp;HANG&nbsp;**/<br /></span><span style="color: #0000BB">$mutex&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/**&nbsp;You&nbsp;cannot&nbsp;use&nbsp;the&nbsp;"new"&nbsp;keyword,&nbsp;a&nbsp;Cond&nbsp;is&nbsp;not&nbsp;a&nbsp;PHP&nbsp;object&nbsp;**/<br /></span><span style="color: #0000BB">$cond&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/**&nbsp;The&nbsp;caller&nbsp;must&nbsp;lock&nbsp;the&nbsp;associated&nbsp;Mutex&nbsp;before&nbsp;a&nbsp;call&nbsp;to&nbsp;broadcast&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">wait</span><span style="color: #007700">(</span><span style="color: #0000BB">$cond</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">));<br /></span><span style="color: #FF8000">/**&nbsp;Always&nbsp;destroy&nbsp;Cond&nbsp;you&nbsp;have&nbsp;created&nbsp;**/<br /></span><span style="color: #0000BB">Cond</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$cond</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">unlock</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

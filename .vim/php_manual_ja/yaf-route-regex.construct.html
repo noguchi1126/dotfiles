@@ -6,7 +6,7 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="yaf-assemble-regex.assemble.html">Yaf_Route_Regex::assemble</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="yaf-route-regex.assemble.html">Yaf_Route_Regex::assemble</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="yaf-route-regex.route.html">Yaf_Route_Regex::route</a></div>
  <div class="up"><a href="class.yaf-route-regex.html">Yaf_Route_Regex</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
@@ -20,7 +20,7 @@
  <div class="refsect1 description" id="refsect1-yaf-route-regex.construct-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span><span class="methodname"><strong>Yaf_Route_Regex::__construct</strong></span>
+   <span class="modifier">public</span> <span class="methodname"><strong>Yaf_Route_Regex::__construct</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$match</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$route</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$map</code></span>
@@ -101,7 +101,7 @@
 
      <p class="para">
       URL を組み立てるときに使う文字列。
-      <span class="methodname"><a href="yaf-assemble-regex.assemble.html" class="methodname">Yaf_Route_Regex::assemble()</a></span> を参照ください。
+      <span class="methodname"><a href="yaf-route-regex.assemble.html" class="methodname">Yaf_Route_Regex::assemble()</a></span> を参照ください。
       <blockquote class="note"><p><strong class="note">注意</strong>: 
        <p class="para">
        このパラメータは 2.3.0 で導入されました。
@@ -126,7 +126,7 @@
 
  <div class="refsect1 examples" id="refsect1-yaf-route-regex.construct-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-4188">
+  <div class="example" id="example-4757">
    <p><strong>例1 <span class="function"><strong>Yaf_Route_Regex()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -136,7 +136,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-4189">
+  <div class="example" id="example-4758">
    <p><strong>例2 <span class="function"><strong>Yaf_Route_Regex()</strong></span> (2.3.0 以降) の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -146,8 +146,18 @@
    </div>
 
   </div>
-  <div class="example" id="example-4190">
-   <p><strong>例3 <span class="function"><strong>Yaf_Route_Regex()</strong></span> の例</strong></p>
+  <div class="example" id="example-4759">
+   <p><strong>例3 <span class="function"><strong>Yaf_Route_Regex と名前付きキャプチャグループ (2.3.0 以降) の例()</strong></span>example</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**<br />&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Use&nbsp;match&nbsp;result&nbsp;as&nbsp;MVC&nbsp;name<br />&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yaf_Dispatcher</span><span style="color: #007700">::</span><span style="color: #0000BB">getInstance</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getRouter</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">addRoute</span><span style="color: #007700">(</span><span style="color: #DD0000">"name"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">Yaf_Route_Regex</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"#^/product/(?&lt;name&gt;[^/]+)/([^/])+#i"</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//match&nbsp;request&nbsp;uri&nbsp;leading&nbsp;"/product"<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'controller'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">":name"</span><span style="color: #007700">,&nbsp;</span><span style="color: #FF8000">//&nbsp;route&nbsp;to&nbsp;:name,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;which&nbsp;is&nbsp;named&nbsp;capture&nbsp;group&nbsp;'name'&nbsp;in&nbsp;the&nbsp;match&nbsp;result&nbsp;as&nbsp;controller&nbsp;name<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">2&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"id"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;to&nbsp;get&nbsp;the&nbsp;first&nbsp;captrue&nbsp;in&nbsp;the&nbsp;match&nbsp;pattern.<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <div class="example" id="example-4760">
+   <p><strong>例4 <span class="function"><strong>Yaf_Route_Regex()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/**<br />&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Add&nbsp;a&nbsp;regex&nbsp;route&nbsp;to&nbsp;Yaf_Router&nbsp;route&nbsp;stack&nbsp;by&nbsp;calling&nbsp;addconfig<br />&nbsp;&nbsp;&nbsp;&nbsp;*/<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$config&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"name"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"type"&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"regex"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//Yaf_Route_Regex&nbsp;route<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"match"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"#(.*)#"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//match&nbsp;arbitrary&nbsp;request&nbsp;uri<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"route"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'controller'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"product"</span><span style="color: #007700">,&nbsp;&nbsp;</span><span style="color: #FF8000">//route&nbsp;to&nbsp;product&nbsp;controller,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'action'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"dummy"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//route&nbsp;to&nbsp;dummy&nbsp;action<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"map"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"uri"</span><span style="color: #007700">,&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;now&nbsp;you&nbsp;can&nbsp;call&nbsp;$request-&gt;getParam("uri")<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">),<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br />&nbsp;&nbsp;&nbsp;&nbsp;);<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">Yaf_Dispatcher</span><span style="color: #007700">::</span><span style="color: #0000BB">getInstance</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">getRouter</span><span style="color: #007700">()-&gt;</span><span style="color: #0000BB">addConfig</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;</span><span style="color: #0000BB">Yaf_Config_Simple</span><span style="color: #007700">(</span><span style="color: #0000BB">$config</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -174,7 +184,7 @@
   
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="yaf-assemble-regex.assemble.html">Yaf_Route_Regex::assemble</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="yaf-route-regex.assemble.html">Yaf_Route_Regex::assemble</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="yaf-route-regex.route.html">Yaf_Route_Regex::route</a></div>
  <div class="up"><a href="class.yaf-route-regex.html">Yaf_Route_Regex</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

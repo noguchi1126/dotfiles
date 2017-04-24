@@ -13,7 +13,7 @@
 </div><hr /><div id="function.explode" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">explode</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">explode</span> &mdash; <span class="dc-title">文字列を文字列により分割する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">explode</span> &mdash; <span class="dc-title">文字列を文字列により分割する</span></p>
 
  </div>
  
@@ -23,7 +23,7 @@
    <span class="type">array</span> <span class="methodname"><strong>explode</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$limit</code><span class="initializer"> = PHP_INT_MAX</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
@@ -87,13 +87,15 @@
    </dl>
 
   </p>
-  <p class="para">
-   歴史的理由により、<span class="function"><a href="function.implode.html" class="function">implode()</a></span>
-   はいずれのパラメータ順も受け入れることができますが、
-   <span class="function"><strong>explode()</strong></span> はそうできません。
-   <code class="parameter">string</code> 引数の前に必ず
-   <code class="parameter">delimiter</code> 引数がくるように確認する必要があります。
-  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    歴史的理由により、<span class="function"><a href="function.implode.html" class="function">implode()</a></span>
+    はいずれのパラメータ順も受け入れることができますが、
+    <span class="function"><strong>explode()</strong></span> はそうできません。
+    <code class="parameter">string</code> 引数の前に必ず
+    <code class="parameter">delimiter</code> 引数がくるように確認する必要があります。
+   </p>
+  </p></blockquote>
  </div>
 
 
@@ -135,13 +137,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>4.0.1</td>
-       <td>
-        <code class="parameter">limit</code> パラメータが追加されました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -153,7 +148,7 @@
  <div class="refsect1 examples" id="refsect1-function.explode-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4842">
+   <div class="example" id="example-5443">
     <p><strong>例1 <span class="function"><strong>explode()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -165,11 +160,11 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4843">
+   <div class="example" id="example-5444">
     <p><strong>例2 <span class="function"><strong>explode()</strong></span> の返り値の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*<br />&nbsp;&nbsp;&nbsp;デリミタを含まない文字列の場合は、<br />&nbsp;&nbsp;&nbsp;単に元の文字列だけを含む一要素の配列を返します<br />*/<br /></span><span style="color: #0000BB">$input1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$input2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"hello,there"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">','</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$input1&nbsp;</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">','</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$input2&nbsp;</span><span style="color: #007700">)&nbsp;);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*<br />&nbsp;&nbsp;&nbsp;デリミタを含まない文字列の場合は、<br />&nbsp;&nbsp;&nbsp;単に元の文字列だけを含む一要素の配列を返します<br />*/<br /></span><span style="color: #0000BB">$input1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"hello"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$input2&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"hello,there"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$input3&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">','</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">','</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$input1&nbsp;</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">','</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$input2&nbsp;</span><span style="color: #007700">)&nbsp;);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">explode</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">','</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$input3&nbsp;</span><span style="color: #007700">)&nbsp;);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -186,12 +181,17 @@ array(2)
     [0] =&gt; string(5) &quot;hello&quot;
     [1] =&gt; string(5) &quot;there&quot;
 )
+array(2)
+(
+    [0] =&gt; string(0) &quot;&quot;
+    [1] =&gt; string(0) &quot;&quot;
+)
 </pre></div>
     </div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4844">
+   <div class="example" id="example-5445">
     <p><strong>例3 <code class="parameter">limit</code> パラメータの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

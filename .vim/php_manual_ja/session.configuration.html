@@ -150,20 +150,6 @@
     </tr>
 
     <tr>
-     <td><a href="session.configuration.html#ini.session.entropy-file" class="link">session.entropy_file</a></td>
-     <td>&quot;&quot;</td>
-     <td>PHP_INI_ALL</td>
-     <td class="empty">&nbsp;</td>
-    </tr>
-
-    <tr>
-     <td><a href="session.configuration.html#ini.session.entropy-length" class="link">session.entropy_length</a></td>
-     <td>&quot;0&quot;</td>
-     <td>PHP_INI_ALL</td>
-     <td class="empty">&nbsp;</td>
-    </tr>
-
-    <tr>
      <td><a href="session.configuration.html#ini.session.cache-limiter" class="link">session.cache_limiter</a></td>
      <td>&quot;nocache&quot;</td>
      <td>PHP_INI_ALL</td>
@@ -185,38 +171,45 @@
     </tr>
 
     <tr>
-     <td><a href="session.configuration.html#ini.session.bug-compat-42" class="link">session.bug_compat_42</a></td>
-     <td>&quot;1&quot;</td>
+     <td><a href="session.configuration.html#ini.session.trans-sid-tags" class="link">session.trans_sid_tags</a></td>
+     <td>&quot;a=href,area=href,frame=src,form=&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>PHP 4.3.0 から利用可能。PHP 5.4.0 で削除されました。</td>
+     <td>PHP 7.1.0 から利用可能</td>
     </tr>
 
     <tr>
-     <td><a href="session.configuration.html#ini.session.bug-compat-warn" class="link">session.bug_compat_warn</a></td>
-     <td>&quot;1&quot;</td>
+     <td><a href="session.configuration.html#ini.session.trans-sid-hosts" class="link">session.trans_sid_hosts</a></td>
+     <td><em>$_SERVER[&#039;HTTP_HOST&#039;]</em></td>
      <td>PHP_INI_ALL</td>
-     <td>PHP 4.3.0 から利用可能。PHP 5.4.0 で削除されました。</td>
+     <td>PHP 7.1.0 から利用可能</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.sid-length" class="link">session.sid_length</a></td>
+     <td>&quot;32&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 7.1.0 から利用可能</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.sid-bits-per-character" class="link">session.sid_bits_per_character</a></td>
+     <td>&quot;5&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 7.1.0 から利用可能</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.hash-function" class="link">session.hash_function</a></td>
      <td>&quot;0&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>PHP 5.0.0 から利用可能</td>
+     <td>PHP 5.0.0 から利用可能。PHP 7.1.0 で削除されました。</td>
     </tr>
 
     <tr>
      <td><a href="session.configuration.html#ini.session.hash-bits-per-character" class="link">session.hash_bits_per_character</a></td>
      <td>&quot;4&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>PHP 5.0.0 から利用可能</td>
-    </tr>
-
-    <tr>
-     <td><a href="session.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a></td>
-     <td>&quot;a=href,area=href,frame=src,form=,fieldset=&quot;</td>
-     <td>PHP_INI_ALL</td>
-     <td>PHP 4.0.4 から利用可能</td>
+     <td>PHP 5.0.0 から利用可能。PHP 7.1.0 で削除されました。</td>
     </tr>
 
     <tr>
@@ -259,6 +252,62 @@
      <td>&quot;1&quot;</td>
      <td>PHP_INI_PERDIR</td>
      <td>PHP 5.4.0 から利用可能</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.lazy-write" class="link">session.lazy_write</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 7.0.0 から利用可能</td>
+    </tr>
+
+    <tr>
+     <td><a href="outcontrol.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a></td>
+     <td>&quot;a=href,area=href,frame=src,form=&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 4.0.4 から利用可能。PHP 7.1.0 以降は、セッションではこの項目を使いません。</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.hash-function" class="link">session.hash_function</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 5.0.0 から利用可能。PHP 7.1.0 で削除されました。</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.hash-bits-per-character" class="link">session.hash_bits_per_character</a></td>
+     <td>&quot;4&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 5.0.0 から利用可能。PHP 7.1.0 で削除されました。</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.entropy-file" class="link">session.entropy_file</a></td>
+     <td>&quot;&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 7.1.0 で削除されました。</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.entropy-length" class="link">session.entropy_length</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 7.1.0 で削除されました。</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.bug-compat-42" class="link">session.bug_compat_42</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 4.3.0 から利用可能。PHP 5.4.0 で削除されました。</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.html#ini.session.bug-compat-warn" class="link">session.bug_compat_warn</a></td>
+     <td>&quot;1&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 4.3.0 から利用可能。PHP 5.4.0 で削除されました。</td>
     </tr>
 
    </tbody>
@@ -340,6 +389,19 @@
       らでも読み込み可能なディレクトリのままにしている場合、サーバー上
       の他のユーザーがこのディレクトリのファイルのリストを取得すること
       により、セッションをハイジャックをすることが可能となります。
+     </p>
+    </div>
+    <div class="caution"><strong class="caution">警告</strong>
+     <p class="para">
+      オプションのディレクトリレベル定数 <em>N</em> で、
+      1 あるいは 2 以外の値を使うのは、大半のサイトでは不適切です。
+      大量のディレクトリが必要になってしまうからです。たとえば、この値を 3 にすると、
+      ファイルシステム上のディレクトリの数が <em>64^3</em> にもなり、
+      ディスク容量や inode の無駄遣いになってしまいます。
+     </p>
+     <p class="para">
+      <em>N</em> を 2 より大きくするのは、
+      それを必要とするような大規模サイトに限るようにしましょう。
      </p>
     </div>
     <blockquote class="note"><p><strong class="note">注意</strong>: 
@@ -479,24 +541,12 @@
      に依存します)。
     </span>
     <blockquote class="note"><p><strong class="note">注意</strong>: 
-     <p class="para">
+     <span class="simpara">
       異なる値を <em>session.gc_maxlifetime</em> に指定している
       別々のスクリプトがセッションデータの保存場所を共有している場合、
       一番小さい設定値に達した時点でデータが消去されます。このような場合には、
       お互いに <a href="session.configuration.html#ini.session.save-path" class="link">session.save_path</a>
       を使用します。
-     </p>
-    </p></blockquote>
-    <blockquote class="note"><p><strong class="note">注意</strong>: 
-     <span class="simpara">
-      デフォルトのファイルに基づくセッションハンドラを使用している場
-      合、使用するファイルシステムは、アクセス時間(atime)を記録できる
-      必要があります。Windows FATはこれができないため、
-      FATファイルシステムまたはatimeの記録ができない他のファイルシス
-      テムで問題を発生した場合は、セッションのガベージコレクト処理を
-      行う他の手段を用意する必要があります。
-      PHP4.2.3以降、atimeの代わりにmtime（更新時刻）が使用されます。
-      このため、atimeが利用できないファイルシステムでの問題は無くなりました。
      </span>
     </p></blockquote>
    </dd>
@@ -543,6 +593,9 @@
     </span>
     <blockquote class="note"><p><strong class="note">注意</strong>: 
      <span class="simpara">
+      PHP 7.1.0 で削除されました。
+     </span>
+     <span class="simpara">
       PHP 5.4.0 以降では、
       <em>/dev/urandom</em> あるいは <em>/dev/arandom</em>
       が使えるときはそれを
@@ -564,8 +617,11 @@
 
     <span class="simpara">
      <em>session.entropy_length</em> は、前記のファイルから
-     読みこむバイト数を指定します。デフォルトは、<em>0</em>
-     (無効)です。
+     読みこむバイト数を指定します。デフォルトは、<em>32</em>
+     です。
+    </span>
+    <span class="simpara">
+     PHP 7.1.0 で削除されました。
     </span>
    </dd>
 
@@ -588,6 +644,14 @@
      このモードを利用すると、セッションアダプションを利用したセッション固定攻撃からアプリケーションを保護できます。
      デフォルトは <em>0</em> (無効) です。
     </span>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <span class="simpara">
+     一般的なセッションのセキュリティを踏まえると、
+     <em>session.use_strict_mode</em> を有効にしておく必要があります。
+     すべてのサイトでこれを有効にすることを推奨します。
+     詳細は <span class="function"><a href="function.session-create-id.html" class="function">session_create_id()</a></span> のサンプルコードを参照ください。
+     </span>
+    </p></blockquote>
    </dd>
 
   
@@ -649,10 +713,10 @@
      <span class="function"><a href="function.session-set-cookie-params.html" class="function">session_set_cookie_params()</a></span> も参照してください。
     </span>
     <blockquote class="note"><p><strong class="note">注意</strong>: 
-     <p class="para">
+     <span class="simpara">
       有効期限のタイムスタンプは、サーバーの時刻に基づいて決まります。
       クライアントのブラウザの時刻がこれと同じであるとは限りません。
-     </p>
+     </span>
     </p></blockquote> 
    </dd>
 
@@ -792,13 +856,6 @@
     </span>
     <blockquote class="note"><p><strong class="note">注意</strong>: 
      <span class="simpara">
-      PHP 4.1.2より前のバージョンでは、このオプションは
-      <a href="configure.about.html#configure.enable-trans-sid" class="link">
-       <em>--enable-trans-sid</em></a>により
-      コンパイル時に有効とされていました。
-      PHP 4.2.0以降、trans-sid機能は常にコンパイルされます。
-     </span>
-     <span class="simpara">
       URLに基づくセッション管理は、Cookieに基づくセッション管理と比べ
       てセキュリティリスクが大きくなります。例えば、ユーザーは、emailに
       より友人にアクティブなセッションIDを含むURLを送信する可能性があ
@@ -806,7 +863,68 @@
       存し、常に同じセッションIDで使用するサイトにアクセスする可能性
       があります。
      </span>
+     <span class="simpara">
+      PHP 7.1.0 以降では、https://php.net/ のような完全な URL
+      パスが、透過的セッションID機能で扱われるようになります。
+      これより前のバージョンでは、相対 URL パスだけが対象でした。
+      リライト対象のホストは
+      <a href="session.configuration.html#ini.session.trans-sid-hosts" class="link">session.trans_sid_hosts</a>
+      で定義します。
+     </span>
     </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.trans-sid-tags">
+    <code class="parameter">session.trans_sid_tags</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.trans_sid_tags</em>
+     は、透過的セッションIDのサポートが有効な場合にどの HTML タグをリライトするかを指定します。
+     デフォルトは
+     <em>a=href,area=href,frame=src,input=src,form=</em>
+     です。
+    </span>
+    <span class="simpara">
+     <em>form</em> は特別なタグで、<em>&lt;input hidden=&quot;session_id&quot; name=&quot;session_name&quot;&gt;</em>
+     がフォーム変数に追加されます。
+    </span>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <span class="simpara">
+      PHP 7.1.0 より前のバージョンでは、この目的で使われていた設定項目は
+      <a href="outcontrol.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a>
+      でした。
+      PHP 7.1.0 以降は、<em>fieldset</em>
+      が特別なタグとはみなされなくなります。
+     </span>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.trans-sid-hosts">
+    <code class="parameter">session.trans_sid_hosts</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.trans_sid_hosts</em> は、
+     は、透過的セッションIDのサポートが有効な場合にどのホストをセッションIDつきにリライトするかを指定します。
+     デフォルトは <em>$_SERVER[&#039;HTTP_HOST&#039;]</em> です。
+     複数のホストを指定する場合は &quot;,&quot; で区切ってつなぎます。
+     ホストとホストの間にスペースを入れることはできません。つまり、たとえば
+     <em>php.net,wiki.php.net,bugs.php.net</em>
+     のように指定します。
+    </span>
    </dd>
 
   
@@ -830,6 +948,11 @@
      この特徴/バグは、
      このディレクティブを無効にすることで無効にすることが可能です。
     </span>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <span class="simpara">
+      PHP 5.4.0 で削除されました。
+     </span>
+    </p></blockquote>
    </dd>
 
   
@@ -853,6 +976,83 @@
      session.bug_compat_warn</a> を有効にして使用している場合、
      PHP 4.3.0 とそれ以降のバージョンでは警告が発されます。
     </span>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <span class="simpara">
+      PHP 5.4.0 で削除されました。
+     </span>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.sid-length">
+    <code class="parameter">session.sid_length</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.sid_length</em> は、セッション ID 文字列の長さを指定します。
+     22 から 256 までの値が使えます。
+    </span>
+    <span class="simpara">
+     デフォルトは 32 です。互換性を考慮するなら 32 や 40 などを使ってもかまいません。
+     セッション ID は長ければ長いほど推測されにくくなります。少なくとも 32 を指定することを推奨します。
+    </span>
+    <p class="para">
+      互換性に関するメモ。
+      <em>session.hash_func</em>=0 (MD5) で
+      <em>session.hash_bits_per_character</em>=4
+      の場合、あるいは
+      <em>session.hash_func</em>=1 (SHA1) で
+      <em>session.hash_bits_per_character</em>=6
+      の場合は 32 を使います。
+      <em>session.hash_func</em>=0 (MD5) で
+      <em>session.hash_bits_per_character</em>=5
+      の場合は 26 を使います。
+      <em>session.hash_func</em>=0 (MD5) で
+      <em>session.hash_bits_per_character</em>=6
+      の場合は 22 を使います。INI 設定で、セッション ID を少なくとも 128
+      ビットにしておく必要があります。
+      <em>session.sid_bits_per_character</em>
+      に適切な値を指定することを忘れないようにしましょう。
+      そうしないと、脆弱なセッション ID を使うことになってしまいます。
+    </p>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <span class="simpara">
+      この設定は PHP 7.1.0 で導入されました。
+     </span>
+    </p></blockquote>
+   </dd>
+
+  
+
+  
+   <dt id="ini.session.sid-bits-per-character">
+    <code class="parameter">session.sid_bits_per_character</code>
+    <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.sid_per_character</em>
+     エンコードされたセッション ID 文字のビット数を指定します。指定できる値は
+     &#039;4&#039; (0-9, a-f)、&#039;5&#039; (0-9, a-v)、&#039;6&#039; (0-9, a-z, A-Z, &quot;-&quot;, &quot;,&quot;) です。
+    </span>
+    <span class="simpara">
+     デフォルトは 4 です。大きいほどセッション ID が強力になります。
+     大半のシステムでは、5 を推奨します。
+    </span>
+    <p class="para">
+    </p>
+    <blockquote class="note"><p><strong class="note">注意</strong>: 
+     <span class="simpara">
+      この設定は PHP 7.1.0 で導入されました。
+     </span>
+    </p></blockquote>
    </dd>
 
   
@@ -881,7 +1081,7 @@
     </p>
     <blockquote class="note"><p><strong class="note">注意</strong>: 
      <p class="para">
-      この設定は PHP 5 で導入されました。
+      この設定は PHP 5 で導入されました。また、PHP 7.1.0 で削除されました。
      </p>
     </p></blockquote>
    </dd>
@@ -905,33 +1105,8 @@
     </span>
     <blockquote class="note"><p><strong class="note">注意</strong>: 
      <p class="para">
-      このディレクティブは PHP 5 で導入されました。
+      この設定は PHP 5 で導入されました。また、PHP 7.1.0 で削除されました。
      </p>
-    </p></blockquote>
-   </dd>
-
-  
-
-  
-   <dt id="ini.url-rewriter.tags">
-    <code class="parameter">url_rewriter.tags</code>
-    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
-   </dt>
-
-   <dd>
-
-    <span class="simpara">
-     <em>url_rewriter.tags</em>は、透過的なセッションIDの
-     付加機能が有効となった場合に、セッションIDを含めるために書き換
-     えられるHTMLタグを指定します。デフォルトは、
-     <em>a=href,area=href,frame=src,input=src,form=fakeentry,fieldset=</em>
-     です。
-    </span>
-    <blockquote class="note"><p><strong class="note">注意</strong>: 
-     <span class="simpara">
-      HTML/XHTML strict に適合させたい場合には <em>form</em> エントリは削除し、
-      formフィールドの前後に&lt;fieldset&gt; タグを使ってください。
-     </span>
     </p></blockquote>
    </dd>
 
@@ -1057,14 +1232,30 @@
 
   
 
+  
+   <dt id="ini.session.lazy-write">
+    <code class="parameter">session.lazy_write</code>
+    <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+   </dt>
+
+   <dd>
+
+    <span class="simpara">
+     <em>session.lazy_write</em> を 1 に設定すると、
+     セッションのデータが変更されたときにだけ再書き込みを行います。
+     デフォルトは 1 で、この機能は有効になっています。
+    </span>
+   </dd>
+
+  
+
  </dl>
 
  </p>
 
  <p class="para">
-  <a href="ini.core.html#ini.track-vars" class="link"><em>track_vars</em></a>および
   <a href="ini.core.html#ini.register-globals" class="link"><em>register_globals</em></a>
-  設定はセッション変数の保存および回復方法に影響を与えます。
+  設定は、セッション変数の保存および回復方法に影響を与えます。
  </p>
 
  <p class="para">
@@ -1074,13 +1265,6 @@
   この機能の詳細は <a href="session.upload-progress.html" class="link">セッションのアップロードの進捗</a>
   を参照ください。
  </p>
-
- <blockquote class="note"><p><strong class="note">注意</strong>: 
-  <p class="para">
-   PHP 4.0.3以降、<a href="ini.core.html#ini.track-vars" class="link"><em>track_vars</em></a> は常
-   にonとなっています。
-  </p>
- </p></blockquote>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="session.installation.html">インストール手順</a></div>

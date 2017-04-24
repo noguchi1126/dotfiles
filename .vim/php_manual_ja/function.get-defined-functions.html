@@ -13,7 +13,7 @@
 </div><hr /><div id="function.get-defined-functions" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_defined_functions</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">get_defined_functions</span> &mdash; <span class="dc-title">定義済みの全ての関数を配列で返す</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_defined_functions</span> &mdash; <span class="dc-title">定義済みの全ての関数を配列で返す</span></p>
 
  </div>
  
@@ -21,12 +21,33 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><strong>get_defined_functions</strong></span>
-    ( <span class="methodparam">void</span>
-   )</div>
+    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$exclude_disabled</code><span class="initializer"> = <strong><code>FALSE</code></strong></span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    すべての定義済み関数を配列で返します。
   </p>
+ </div>
+
+
+ <div class="refsect1 parameters" id="refsect1-function.get-defined-functions-parameters">
+  <h3 class="title">パラメータ</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">exclude_disabled</code></dt>
+
+    <dd>
+
+     <p class="para">
+      Whether disabled functions should be excluded from the return value.
+     </p>
+    </dd>
+
+   
+  </dl>
+
  </div>
 
 
@@ -42,10 +63,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.get-defined-functions-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>PHP 7.0.15, PHP 7.1.1</td>
+      <td>
+       <code class="parameter">exclude_disabled</code> パラメータが追加されました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.get-defined-functions-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5131">
+   <div class="example" id="example-5975">
     <p><strong>例1 <span class="function"><strong>get_defined_functions()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -20,7 +20,7 @@
  <div id="function.mysql-real-escape-string-refsynopsisdiv">
   <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
-この拡張モジュールは PHP 5.5.0 で非推奨になりました。将来のバージョンで削除される予定です。
+この拡張モジュールは PHP 5.5.0 で非推奨になり、PHP 7.0.0 で削除されました。
 <a href="book.mysqli.html" class="link">MySQLi</a> あるいは
 <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> を使うべきです。詳細な情報は
 <a href="mysqlinfo.api.choosing.html" class="link">MySQL: API の選択</a> や
@@ -118,10 +118,20 @@ link_identifier</code></dt>
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.mysql-real-escape-string-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   MySQL 接続が存在しない状態でこの関数を実行すると、
+   <strong><code>E_WARNING</code></strong> レベルのエラーが発生します。
+   この関数は、MySQL 接続が確立した状態でのみ実行するようにしましょう。
+  </p>
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.mysql-real-escape-string-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1620">
+   <div class="example" id="example-1974">
     <p><strong>例1 単純な <span class="function"><strong>mysql_real_escape_string()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -133,8 +143,34 @@ link_identifier</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1621">
-    <p><strong>例2 SQL インジェクション攻撃の例</strong></p>
+   <div class="example" id="example-1975">
+    <p><strong>例2 <span class="function"><strong>mysql_real_escape_string()</strong></span> には接続が必須であることを示す例</strong></p>
+    <div class="example-contents"><p>
+     この例では、MySQL 接続が存在しない状態でこの関数を実行したときにどうなるかを示します。
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;まだ&nbsp;MySQL&nbsp;に接続していません<br /><br /></span><span style="color: #0000BB">$lastname&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"O'Reilly"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$_lastname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_real_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$lastname</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;actors&nbsp;WHERE&nbsp;last_name&nbsp;=&nbsp;'</span><span style="color: #0000BB">$_lastname</span><span style="color: #DD0000">'"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$_lastname</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Warning: mysql_real_escape_string(): No such file or directory in /this/test/script.php on line 5
+Warning: mysql_real_escape_string(): A link to the server could not be established in /this/test/script.php on line 5
+
+bool(false)
+string(41) &quot;SELECT * FROM actors WHERE last_name = &#039;&#039;&quot;
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-1976">
+    <p><strong>例3 SQL インジェクション攻撃の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;$_POST['password']&nbsp;をチェックしなければ、このような例でユーザーに望みどおりの情報を取得されてしまう<br /></span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'aidan'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'password'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">"'&nbsp;OR&nbsp;''='"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;データベース上のユーザーに一致するかどうかを調べる<br /></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;*&nbsp;FROM&nbsp;users&nbsp;WHERE&nbsp;user='</span><span style="color: #007700">{</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'username'</span><span style="color: #007700">]}</span><span style="color: #DD0000">'&nbsp;AND&nbsp;password='</span><span style="color: #007700">{</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">'password'</span><span style="color: #007700">]}</span><span style="color: #DD0000">'"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;MySQL&nbsp;に送信されたクエリは、<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>

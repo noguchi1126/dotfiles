@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>共有メモリブロックを削除する</title>
+  <title>Delete shared memory block</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,19 +13,18 @@
 </div><hr /><div id="function.shmop-delete" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shmop_delete</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">shmop_delete</span> &mdash; <span class="dc-title">共有メモリブロックを削除する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shmop_delete</span> &mdash; <span class="dc-title">Delete shared memory block</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.shmop-delete-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>shmop_delete</strong></span>
-    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$shmid</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$shmid</code></span>
    )</div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>shmop_delete()</strong></span> は共有メモリブロックを削除するために
-   使用されます。
+   <span class="function"><strong>shmop_delete()</strong></span> is used to delete a shared memory block.
   </p>
  </div>
 
@@ -41,8 +40,8 @@
      <dd>
 
       <p class="para">
+       The shared memory block resource created by 
        <span class="function"><a href="function.shmop-open.html" class="function">shmop_open()</a></span>
-       が作成した共有メモリブロックの識別子。
       </p>
      </dd>
 
@@ -59,11 +58,40 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.shmop-delete-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.0.0</td>
+      <td>
+       The type of <code class="parameter">shmid</code> has been changed from
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span> to <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.shmop-delete-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3746">
-    <p><strong>例1 共有メモリブロックの削除</strong></p>
+   <div class="example" id="example-4281">
+    <p><strong>例1 Deleting shared memory block</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />shmop_delete</span><span style="color: #007700">(</span><span style="color: #0000BB">$shm_id</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -74,8 +102,8 @@
    </div>
   </p>
   <p class="para">
-   この例は、<em>$shm_id</em> を ID とする共有メモリブロックを
-   削除します。
+   This example will delete shared memory block identified by
+   <em>$shm_id</em>.
   </p>
  </div>
 

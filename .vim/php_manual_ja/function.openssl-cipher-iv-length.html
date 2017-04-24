@@ -13,7 +13,7 @@
 </div><hr /><div id="function.openssl-cipher-iv-length" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_cipher_iv_length</h1>
-  <p class="verinfo">(PHP 5 &gt;= PHP 5.3.3)</p><p class="refpurpose"><span class="refname">openssl_cipher_iv_length</span> &mdash; <span class="dc-title">暗号 iv の長さを取得</span></p>
+  <p class="verinfo">(PHP 5 &gt;= PHP 5.3.3, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_cipher_iv_length</span> &mdash; <span class="dc-title">暗号 iv の長さを取得</span></p>
 
  </div>
 
@@ -25,7 +25,7 @@
    )</div>
 
   <p class="para rdfs-comment">
-   暗号 iv の長さを取得。
+   暗号初期化ベクトル (iv) の長さを取得。
   </p>
  </div>
 
@@ -41,7 +41,7 @@
     <dd>
 
      <p class="para">
-      メソッド。
+      暗号化方式。指定できる値は <span class="function"><a href="function.openssl-get-cipher-methods.html" class="function">openssl_get_cipher_methods()</a></span> を参照ください。
      </p>
     </dd>
 
@@ -70,7 +70,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.openssl-cipher-iv-length-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="openssl-cipher-iv-length.example.basic">
+  <div class="example" id="example-932">
    <p><strong>例1 <span class="function"><strong>openssl_cipher_iv_length()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -13,14 +13,14 @@
 </div><hr /><div id="function.stripos" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stripos</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">stripos</span> &mdash; <span class="dc-title">大文字小文字を区別せずに文字列が最初に現れる位置を探す</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stripos</span> &mdash; <span class="dc-title">大文字小文字を区別せずに文字列が最初に現れる位置を探す</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.stripos-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><strong>stripos</strong></span>
+   <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>stripos</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$haystack</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$needle</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code><span class="initializer"> = 0</span></span>
@@ -79,8 +79,7 @@
 
       <p class="para">
        指定すると、文字列内での検索開始位置がその位置になります。
-       <span class="function"><a href="function.strrpos.html" class="function">strrpos()</a></span> や
-       <span class="function"><a href="function.strripos.html" class="function">strripos()</a></span> と異なり、負の数は指定できません。
+       負の数を指定すると、文字列の末尾からこの数だけ戻った場所から検索を開始します。
       </p>
      </dd>
 
@@ -110,10 +109,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.stripos-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.1.0</td>
+      <td>
+       負の <code class="parameter">offset</code> をサポートするようになりました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.stripos-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4901">
+   <div class="example" id="example-5504">
    <p><strong>例1 <span class="function"><strong>stripos()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -138,6 +164,8 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mb-stripos.html" class="function" rel="rdfs-seeAlso">mb_stripos()</a> - 大文字小文字を区別せず、
+   文字列の中で指定した文字列が最初に現れる位置を探す</span></li>
     <li class="member"><span class="function"><a href="function.strpos.html" class="function" rel="rdfs-seeAlso">strpos()</a> - 文字列内の部分文字列が最初に現れる場所を見つける</span></li>
     <li class="member"><span class="function"><a href="function.strrpos.html" class="function" rel="rdfs-seeAlso">strrpos()</a> - 文字列中に、ある部分文字列が最後に現れる場所を探す</span></li>
     <li class="member"><span class="function"><a href="function.strripos.html" class="function" rel="rdfs-seeAlso">strripos()</a> - 文字列中で、特定の(大文字小文字を区別しない)文字列が最後に現れた位置を探す</span></li>

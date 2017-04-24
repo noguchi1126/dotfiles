@@ -66,6 +66,13 @@
     </tr>
 
     <tr>
+     <td><a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a></td>
+     <td>&quot;0&quot;</td>
+     <td>PHP_INI_ALL</td>
+     <td>PHP 7.0.0 以降で利用可能。</td>
+    </tr>
+
+    <tr>
      <td><a href="info.configuration.html#ini.enable-dl" class="link">enable_dl</a></td>
      <td>&quot;1&quot;</td>
      <td>PHP_INI_SYSTEM</td>
@@ -91,7 +98,7 @@
      <td><a href="info.configuration.html#ini.max-input-nesting-level" class="link">max_input_nesting_level</a></td>
      <td>&quot;64&quot;</td>
      <td>PHP_INI_PERDIR</td>
-     <td>4.4.8 以降および PHP 5.2.3 以降で有効。</td>
+     <td>PHP 5.2.3 以降で有効。</td>
     </tr>
 
     <tr>
@@ -216,6 +223,21 @@
    
 
    
+    <dt id="ini.assert.exception">
+     <code class="parameter">assert.exception</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <p class="para">
+      アサーションに失敗した場合に <a href="class.assertionerror.html" class="classname">AssertionError</a> 例外を発行します。
+     </p>
+    </dd>
+
+   
+
+   
     <dt id="ini.enable-dl">
       <code class="parameter">enable_dl</code>
       <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
@@ -292,6 +314,9 @@
       スクリプトが POST、GET などの入力を
       パースする最大の時間を、秒単位で指定します。
       これは、サーバー側で PHP が起動してからスクリプトの実行を開始するまでの時間です。
+      The default setting is <em>-1</em>, which means that 
+      <a href="info.configuration.html#ini.max-execution-time" class="link">max_execution_time</a>
+      is used instead. Set to <em>0</em> to allow unlimited time.
      </p>
     </dd>
 
@@ -355,12 +380,6 @@ PHP 5.4.0 で<em class="emphasis">削除</em>されました。</p></div>
       も on の場合、シングルクオートは、バックスラッシュではなく
       シングルクオートでエスケープされます。
      </p>
-     <blockquote class="note"><p><strong class="note">注意</strong>: 
-      <p class="para">
-       PHP 4 では、<var class="varname"><var class="varname"><a href="reserved.variables.environment.html" class="classname">$_ENV</a></var></var>
-       変数もエスケープの対象となります。
-      </p>
-     </p></blockquote>
      <blockquote class="note"><p><strong class="note">注意</strong>: 
       <p class="para">
        <a href="sybase.configuration.html#ini.magic-quotes-sybase" class="link">magic_quotes_sybase</a>

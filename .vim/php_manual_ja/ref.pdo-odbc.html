@@ -71,7 +71,8 @@ generic</dt>
 
     </p>
     <p class="para">
-     Windows では、PDO_ODBC はデフォルトで PHP コアに組み込まれています。
+     Windows では、<var class="filename">php_pdo_odbc.dll</var>
+     をエクステンションとして <var class="filename">php.ini</var> で有効にする必要があります。
      これは Windows ODBC ドライバマネージャに対してリンクされており、
      システムの DSN に登録されているあらゆるデータベースに対して
      PHP から接続することができます。Microsoft SQL Server

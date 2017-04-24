@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ob-end-flush" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_end_flush</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ob_end_flush</span> &mdash; <span class="dc-title">出力用バッファをフラッシュ(送信)し、出力のバッファリングをオフにする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_end_flush</span> &mdash; <span class="dc-title">出力用バッファをフラッシュ(送信)し、出力のバッファリングをオフにする</span></p>
 
  </div>
  
@@ -30,6 +30,12 @@
    バッファの内容は <span class="function"><strong>ob_end_flush()</strong></span> がコールされた後に消去されるため、
    <span class="function"><strong>ob_end_flush()</strong></span> の前に
    <span class="function"><a href="function.ob-get-contents.html" class="function">ob_get_contents()</a></span> をコールする必要があります。
+  </p>
+  <p class="para">
+   出力バッファを開始するときに、
+   <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> で <a href="outcontrol.constants.html#constant.php-output-handler-flushable" class="link">PHP_OUTPUT_HANDLER_FLUSHABLE</a>
+   および <a href="outcontrol.constants.html#constant.php-output-handler-removable" class="link">PHP_OUTPUT_HANDLER_REMOVABLE</a>
+   フラグを指定する必要があります。指定しなければ、<span class="function"><strong>ob_end_flush()</strong></span> は動作しません。
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <span class="simpara">
@@ -59,39 +65,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.ob-end-flush-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.2.0</td>
-       <td>
-        boolean 型の戻り値が追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.ob-end-flush-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-466">
+   <div class="example" id="example-506">
     <p><strong>例1 <span class="function"><strong>ob_end_flush()</strong></span> example</strong></p>
     <div class="example-contents"><p>
      以下は全ての出力バッファをフラッシュし終了する簡単な方法の例です。

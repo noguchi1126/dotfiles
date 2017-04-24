@@ -13,7 +13,7 @@
 </div><hr /><div id="function.is-callable" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">is_callable</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">is_callable</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">is_callable</span> &mdash; <span class="dc-title">
    引数が、関数としてコール可能な構造であるかどうかを調べる
   </span></p>
 
@@ -23,7 +23,7 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>is_callable</strong></span>
-    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$name</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$var</code></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$syntax_only</code><span class="initializer"> = false</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$callable_name</code></span>
   ]] )</div>
@@ -44,12 +44,12 @@
 
     
      <dt>
-<code class="parameter">name</code></dt>
+<code class="parameter">var</code></dt>
 
      <dd>
 
       <p class="para">
-       チェックするコールバック関数。
+       チェックする値。
       </p>
      </dd>
 
@@ -94,7 +94,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.is-callable-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   <code class="parameter">name</code> がコール可能な場合に <strong><code>TRUE</code></strong>、
+   <code class="parameter">var</code> がコール可能な場合に <strong><code>TRUE</code></strong>、
    それ以外の場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
@@ -103,7 +103,7 @@
  <div class="refsect1 examples" id="refsect1-function.is-callable-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5272">
+   <div class="example" id="example-6133">
     <p><strong>例1 <span class="function"><strong>is_callable()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -113,6 +113,31 @@
     </div>
 
    </div>   
+   <div class="example" id="example-6134">
+    <p><strong>例2 <span class="function"><strong>is_callable()</strong></span> とコンストラクタ</strong></p>
+    <div class="example-contents"><p>
+     PHP 5.3.0 以降は、<span class="function"><strong>is_callable()</strong></span>
+     はコンストラクタを callable だとはみなさなくなりました。
+     これは、PHP 5 以降の形式のコンストラクタ
+     (<em>__construct</em>) であっても PHP 4 形式のコンストラクタ
+     (クラスと同じ名前のメソッド) であっても同じです。
+     PHP 5.3.0 より前のバージョンでは、これらはいずれも callable だとみなされていました。
+    </p></div>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">__construct</span><span style="color: #007700">()&nbsp;{}<br />&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">()&nbsp;{}<br />}<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">is_callable</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'__construct'</span><span style="color: #007700">)),<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">is_callable</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'Foo'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">))<br />);</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+bool(false)
+bool(false)
+</pre></div>
+    </div>
+   </div>
   </p>   
  </div>
 

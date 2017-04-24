@@ -27,7 +27,7 @@
   <p class="para rdfs-comment">
    カーソルは一般的に、結果オブジェクトをバッチで取得してローカルに格納します。
    このメソッドはバッチのサイズを決めるもので、
-   ひとつのデータパケットでサーバーから取得するドキュメントの数を設定できます。
+   一回の欧風でサーバーから取得するドキュメントの数を設定できます。
    しかし、バッチサイズの最大値 (通常は 4MB) に収まらないドキュメントは返せません。
   </p>
  </div>
@@ -111,7 +111,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocursor.batchsize-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1487">
+  <div class="example" id="example-1584">
    <p><strong>例1 <span class="function"><strong>MongoCursor::batchSize()</strong></span> を
    <span class="function"><a href="mongocursor.limit.html" class="function">MongoCursor::limit()</a></span> と組み合わせる例</strong></p>
    <div class="example-contents">
@@ -128,11 +128,12 @@
  <div class="refsect1 seealso" id="refsect1-mongocursor.batchsize-seealso">
   <h3 class="title">参考</h3>
   <p class="para">
-   MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/reference/method/cursor.batchSize/" class="link external">&raquo;&nbsp;batchSize</a>。
+   MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/reference/method/cursor.batchSize/" class="link external">&raquo;&nbsp;batchSize</a>。
   </p>
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="mongocursor.limit.html" class="function" rel="rdfs-seeAlso">MongoCursor::limit()</a> - 返す結果の数を制限する</span></li>
+    <li class="member"><span class="methodname"><a href="mongocursorinterface.batchsize.html" class="methodname" rel="rdfs-seeAlso">MongoCursorInterface::batchSize()</a> - Limits the number of elements returned in one batch.</span></li>
    </ul>
   </p>
  </div>

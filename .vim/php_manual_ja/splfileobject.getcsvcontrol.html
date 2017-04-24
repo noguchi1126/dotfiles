@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>CSV の区切りと囲み文字を取得する</title>
+  <title>CSV の区切り、囲み文字、エスケープ文字を取得する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="splfileobject.getcsvcontrol" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SplFileObject::getCsvControl</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">SplFileObject::getCsvControl</span> &mdash; <span class="dc-title">CSV の区切りと囲み文字を取得する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">SplFileObject::getCsvControl</span> &mdash; <span class="dc-title">CSV の区切り、囲み文字、エスケープ文字を取得する</span></p>
 
  </div>
 
@@ -25,7 +25,7 @@
    )</div>
 
   <p class="para rdfs-comment">
-   CSV フィールドを処理するのに使われる区切りと囲み文字を取得します。
+   CSV フィールドを処理するのに使われる区切りと囲み文字とエスケープ文字を取得します。
   </p>
  </div>
 
@@ -39,7 +39,36 @@
  <div class="refsect1 returnvalues" id="refsect1-splfileobject.getcsvcontrol-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   区切りと囲み文字を含む数字添字配列を返します。
+   区切りと囲み文字とエスケープ文字を含む数字添字配列を返します。
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-splfileobject.getcsvcontrol-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.6.25, 7.0.10</td>
+       <td>
+        返り値の配列にエスケープ文字が追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -47,7 +76,7 @@
  <div class="refsect1 examples" id="refsect1-splfileobject.getcsvcontrol-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3986">
+   <div class="example" id="example-4553">
     <p><strong>例1 <span class="methodname"><strong>SplFileObject::getCsvControl()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -64,6 +93,7 @@ Array
 (
     [0] =&gt; ,
     [1] =&gt; &quot;
+    [2] =&gt; \
 )
 </pre></div>
     </div>
@@ -76,7 +106,7 @@ Array
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="methodname"><a href="splfileobject.setcsvcontrol.html" class="methodname" rel="rdfs-seeAlso">SplFileObject::setCsvControl()</a> - CSV の区切り文字と囲み文字をセットする</span></li>
+    <li class="member"><span class="methodname"><a href="splfileobject.setcsvcontrol.html" class="methodname" rel="rdfs-seeAlso">SplFileObject::setCsvControl()</a> - CSV の区切り文字、囲み文字、エスケープ文字をセットする</span></li>
     <li class="member"><span class="methodname"><a href="splfileobject.fgetcsv.html" class="methodname" rel="rdfs-seeAlso">SplFileObject::fgetcsv()</a> - ファイルから行を取り出し CSV フィールドとして処理する</span></li>
    </ul>
   </p>

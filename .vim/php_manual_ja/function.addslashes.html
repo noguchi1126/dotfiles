@@ -13,7 +13,7 @@
 </div><hr /><div id="function.addslashes" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">addslashes</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">addslashes</span> &mdash; <span class="dc-title">文字列をスラッシュでクォートする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">addslashes</span> &mdash; <span class="dc-title">文字列をスラッシュでクォートする</span></p>
 
  </div>
  
@@ -31,14 +31,14 @@
    (<em>\</em>) ,NUL (<strong><code>NULL</code></strong> バイト) です。
   </p>
   <p class="para">
-   <span class="function"><strong>addslashes()</strong></span> 関数 を使う例として、PHPが評価する文字列データを入力する場合が挙げられます。たとえば、<em>O&#039;reilly</em> というデータを $str に格納して評価する場合、$str をエスケープする(つまり eval(&quot;echo &#039;&quot;.addslashes($str).&quot;&#039;;&quot;); する) 必要があります。
+   <span class="function"><strong>addslashes()</strong></span> 関数 を使う例として、PHPが評価する文字列データを入力する場合が挙げられます。たとえば、<em>O&#039;Reilly</em> というデータを $str に格納して評価する場合、$str をエスケープする(つまり eval(&quot;echo &#039;&quot;.addslashes($str).&quot;&#039;;&quot;); する) 必要があります。
   </p>
   <p class="para">
    セキュリティ上の理由で、データベースパラメータをエスケープするには DBMS 固有のエスケープ関数
    (たとえば MySQL 用の <span class="function"><a href="mysqli.real-escape-string.html" class="function">mysqli_real_escape_string()</a></span> や、
    PostgreSQL 用の <span class="function"><a href="function.pg-escape-literal.html" class="function">pg_escape_literal()</a></span>、<span class="function"><a href="function.pg-escape-string.html" class="function">pg_escape_string()</a></span>) を使うべきです。
    識別子(例: テーブル名やフィールド名)をエスケープするときは、データベースパラメータとは別の仕様をDBMSは使います。 
-   PostgreSQL の <span class="function"><strong>pg_escape_indentifier()</strong></span> のように、DBMS によっては識別子用のエスケープ関数を提供しているものもありますが、全ての DBMS が提供しているわけではありません。
+   PostgreSQL の <span class="function"><a href="function.pg-escape-identifier.html" class="function">pg_escape_identifier()</a></span> のように、DBMS によっては識別子用のエスケープ関数を提供しているものもありますが、全ての DBMS が提供しているわけではありません。
    提供されていない場合は、お使いのデータベースシステムのマニュアルを参照し、適切なエスケープ方法を調べるようにしてください。
   </p>
   <p class="para">
@@ -93,11 +93,11 @@
  <div class="refsect1 examples" id="refsect1-function.addslashes-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4831">
+   <div class="example" id="example-5431">
     <p><strong>例1 <span class="function"><strong>addslashes()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Is&nbsp;your&nbsp;name&nbsp;O'reilly?"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;出力:&nbsp;Is&nbsp;your&nbsp;name&nbsp;O\'reilly?<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">addslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$str&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Is&nbsp;your&nbsp;name&nbsp;O'Reilly?"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;出力:&nbsp;Is&nbsp;your&nbsp;name&nbsp;O\'Reilly?<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">addslashes</span><span style="color: #007700">(</span><span style="color: #0000BB">$str</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="language.namespaces.rationale" class="sect1">
   <h2 class="title">名前空間の概要</h2>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p>
   <p class="simpara">
    名前空間とは何でしょう? 広義の「名前空間」とは、項目をカプセル化するもののことです。
    これは多くの場面で見られる抽象概念です。
@@ -26,6 +26,30 @@
    <em>foo.txt</em> にアクセスするには、ディレクトリ名をファイル名の前につけて
    <em>/home/greg/foo.txt</em> としなければなりません。
    プログラミングの世界における名前空間も、この延長線上にあります。
+  </p>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        use 宣言をグループ化できるようになりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
   <p class="simpara">
    PHP の世界では、名前空間は次のふたつの問題を解決するための手段として用意されています。
@@ -51,7 +75,7 @@
    PHP の名前空間は、関連するクラスやインターフェイス、関数、そして定数をひとまとめにして扱うものです。
    PHP の名前空間構文の例を見てみましょう。
   </p>
-  <div class="example" id="example-233">
+  <div class="example" id="example-241">
    <p><strong>例1 名前空間構文の例</strong></p>
    <div class="example-contents">
    <div class="phpcode"><code><span style="color: #000000">

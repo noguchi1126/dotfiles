@@ -13,7 +13,7 @@
 </div><hr /><div id="function.stream-set-write-buffer" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_set_write_buffer</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">stream_set_write_buffer</span> &mdash; <span class="dc-title">指定されたストリームのファイル書き込みバッファリングを有効にする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_set_write_buffer</span> &mdash; <span class="dc-title">指定されたストリームのファイル書き込みバッファリングを有効にする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-set-write-buffer-description">
@@ -28,12 +28,6 @@
    <code class="parameter">stream</code>
    で指定されたファイルポインタに <code class="parameter">buffer</code>
    で表されたバイト数分だけ出力バッファを設定します。
-  </p>
-  <p class="simpara">
-   <span class="function"><a href="function.fwrite.html" class="function">fwrite()</a></span> による出力は、通常では 8K バイトがバッファされます。
-   これは、もし同じストリームに対し出力を行おうとするプロセスが2つあったとき、
-   いずれかのプロセスは、他方のプロセスが出力できるように 8K バイト分
-   データを書き出したところで停止することを示しています。
   </p>
  </div>
 
@@ -80,7 +74,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.stream-set-write-buffer-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   成功時に 0 を、要求通りに設定できなかった場合は <acronym title="End Of File">EOF</acronym> を返します。
+   成功時に 0 を、要求通りに設定できなかった場合はそれ以外の値を返します。
   </p>
  </div>
 
@@ -88,7 +82,7 @@
  <div class="refsect1 examples" id="refsect1-function.stream-set-write-buffer-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4054">
+   <div class="example" id="example-4621">
     <p><strong>例1 <span class="function"><strong>stream_set_write_buffer()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      次の例は、バッファされていないストリームを <span class="function"><strong>stream_set_write_buffer()</strong></span>
@@ -96,7 +90,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;</span><span style="color: #0000BB">stream_set_write_buffer</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$fp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"w"</span><span style="color: #007700">);<br />if&nbsp;(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">stream_set_write_buffer</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;!==&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;バッファリングの変更に失敗しました<br />&nbsp;&nbsp;</span><span style="color: #007700">}<br />&nbsp;&nbsp;</span><span style="color: #0000BB">fwrite</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$output</span><span style="color: #007700">);<br />&nbsp;&nbsp;</span><span style="color: #0000BB">fclose</span><span style="color: #007700">(</span><span style="color: #0000BB">$fp</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.group.html">MongoCollection::group</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mongocollection.remove.html">MongoCollection::remove</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.parallelcollectionscan.html">MongoCollection::parallelCollectionScan</a></div>
  <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mongocollection.insert" class="refentry">
@@ -21,7 +21,7 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type"><span class="type bool|array">bool|array</span></span> <span class="methodname"><strong>MongoCollection::insert</strong></span>
-    ( <span class="methodparam"><span class="type"><span class="type array|object">array|object</span></span> <code class="parameter">$a</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type array|object">array|object</span></span> <code class="parameter">$document</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
   ] )</div>
 
@@ -42,7 +42,7 @@
     
      <dt>
 
-      <code class="parameter">a</code>
+      <code class="parameter">document</code>
      </dt>
 
      <dd>
@@ -70,32 +70,33 @@
      <dd>
 
       <p class="para">
-       追加時のオプション。
+       追加操作についてのオプションの配列。
+       現在利用可能なオプションは、以下のとおりです。
        <ul class="itemizedlist">
-        <li class="listitem">
-<p class="para"><em>&quot;fsync&quot;</em></p>
+        <li class="listitem"><p class="para"><em>&quot;fsync&quot;</em></p>
 <p class="para">Boolean 型で、デフォルトは <strong><code>FALSE</code></strong> です。
 ジャーナリングが有効な場合、これは <em>&quot;j&quot;</em> とまったく同じ動きをします。
-ジャーナリングが有効でない場合は、追加をディスクに同期させるまで成功したと見なさないようになります。
-<strong><code>TRUE</code></strong> にすると確認つき書き込みが暗黙のうちに設定され、<em>w</em> の値を <em>0</em> にします。</p>
-<blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">このオプションは<em class="emphasis">非推奨</em>です。かわりに <em>&quot;j&quot;</em> を使いましょう。</p></p></blockquote></li>
-        <li class="listitem"><p class="para"><em>&quot;j&quot;</em></p>
-<p class="para">デフォルトは <strong><code>FALSE</code></strong> です。
-これを指定すると、追加をジャーナルに同期させるまで成功したと見なさないようになります。
-<strong><code>TRUE</code></strong> にすると確認付き書き込みと見なされ、<em>w</em> の設定を <em>0</em> に上書きします。</p></li>
-
+ジャーナリングが有効でない場合は、追加をディスク上のデータベースファイルに同期させるまで成功したと見なさないようになります。
+<strong><code>TRUE</code></strong> にすると確認つき書き込みが暗黙のうちに設定され、<em>&quot;w&quot;</em> の値を <em>0</em> にします。
+</p>
+<blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">ジャーナリングが有効な場合は、<em>&quot;fsync&quot;</em> のかわりに <em>&quot;j&quot;</em> を使いましょう。
+<em>&quot;fsync&quot;</em> と <em>&quot;j&quot;</em> を同時に指定すると、エラーになります。
+</span></p></blockquote></li>
+        <li class="listitem"><p class="para"><em>&quot;j&quot;</em></p><p class="para">デフォルトは <strong><code>FALSE</code></strong> です。これを指定すると、追加をジャーナルに同期させるまで成功したと見なさないようになります。<strong><code>TRUE</code></strong> にすると確認付き書き込みと見なされ、<em>&quot;w&quot;</em> の設定を <em>0</em> に上書きします。</p><blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">このオプションを使っているときにジャーナリングを無効にすると、MongoDB 2.6 以降ではエラーが発生して書き込みに失敗します。古いバージョンのサーバーでは、単純にオプションの指定を無視します。</span></p></blockquote></li>
+        <li class="listitem"><p class="para"><em>&quot;socketTimeoutMS&quot;</em></p><p class="para">このオプションは、ソケット通信の制限時間を、ミリ秒単位で指定します。この時間内にサーバーからの反応がなければ、<a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。この場合、サーバー側で書き込み処理が行われたのかどうかを判断できなくなります。<em>-1</em> を指定すると、永遠にブロックします。<a href="class.mongoclient.html" class="classname">MongoClient</a> のデフォルト値は <em>30000</em> (30 秒) です。</p></li>
         <li class="listitem">
 <p class="para"><em>&quot;w&quot;</em></p>
 <p class="para"><a href="mongo.writeconcerns.html" class="link">WriteConcerns</a> を参照ください。<a href="class.mongoclient.html" class="classname">MongoClient</a> でのデフォルト値は <em>1</em> です。
 </p></li>
-        <li class="listitem"><p class="para"><em>&quot;wtimeout&quot;</em></p>
-<p class="para"><a href="mongo.writeconcerns.html" class="link">WriteConcern</a> の確認をいつまで待つか。
-<a href="class.mongoclient.html" class="classname">MongoClient</a> のデフォルトは <em>10000</em> ミリ秒です。</p></li>
-        <li class="listitem"><p class="para"><em>&quot;safe&quot;</em></p><p class="para"><em class="emphasis">非推奨</em>。<a href="mongo.writeconcerns.html" class="link">WriteConcern</a> の <em>w</em> オプションを使いましょう。</p></li>
-        <li class="listitem"><p class="para"><em>&quot;timeout&quot;</em></p>
-<p class="para">整数で、デフォルトは <em>MongoCursor::$timeout</em> です。
-確認付き書き込みを使っている場合、これはクライアントがデータベースからのレスポンスを待ち続ける時間 (ミリ秒) を表します。
-この時間内にデータベースからの反応がなければ、<a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。</p></li>
+        <li class="listitem"><p class="para"><em>&quot;wTimeoutMS&quot;</em></p><p class="para">このオプションは、<a href="mongo.writeconcerns.html" class="link">書き込み確認</a>を待つ制限時間をミリ秒単位で指定します。これが書き込み操作に適用されるのは、<em>&quot;w&quot;</em> が <em>1</em> より大きい場合のみです。というのも、タイムアウトはレプリケーションに関する機能だからです。この時間内に書き込み確認ができなかった場合は <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> をスローします。<em>0</em> を指定すると、永遠にブロックし続けます。<a href="class.mongoclient.html" class="classname">MongoClient</a> でのデフォルトは <em>10000</em> ミリ秒 (10 秒) です。</p></li>
+       </ul>
+      </p>
+      <p class="para">
+       以下のオプションは廃止予定です。使ってはいけません。
+       <ul class="itemizedlist">
+        <li class="listitem"><p class="para"><em>&quot;safe&quot;</em></p><p class="para">非推奨。<a href="mongo.writeconcerns.html" class="link">write concern</a> の <em>w</em> オプションを使いましょう。</p></li>
+        <li class="listitem"><p class="para"><em>&quot;timeout&quot;</em></p><p class="para">非推奨。<em>&quot;socketTimeoutMS&quot;</em> のエイリアス。</p></li>
+        <li class="listitem"><p class="para"><em>&quot;wtimeout&quot;</em></p><p class="para">廃止予定。<em>&quot;wTimeoutMS&quot;</em> のエイリアスです。</p></li>
        </ul>
       </p>
      </dd>
@@ -285,7 +286,7 @@
    protected や private なプロパティを持つオブジェクトを追加しようとすると、
    キーの長さがゼロのエラーを引き起こします。
   </p>
-  <p class="para">&quot;w&quot; オプションが設定されていて書き込みが失敗した場合に <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> をスローします。</p><p class="para">&quot;w&quot; オプションの値が 1 より大きく設定されていて、操作の完了までの時間が <var class="varname"><var class="varname">MongoCursor::$timeout</var></var> ミリ秒をこえた場合に <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。サーバー上での操作は止めません。これはクライアント側でのタイムアウトです。<em>MongoCollection::$wtimeout</em> はミリ秒です。</p>
+  <p class="para"><em>&quot;w&quot;</em> オプションが設定されていて書き込みが失敗した場合に <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> をスローします。</p><p class="para"><em>&quot;w&quot;</em> オプションの値が 1 より大きく設定されていて、操作の完了までの時間が <var class="varname"><var class="varname">MongoCursor::$timeout</var></var> ミリ秒をこえた場合に <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。サーバー上での操作は止めません。これはクライアント側でのタイムアウトです。<var class="varname"><var class="varname">MongoCollection::$wtimeout</var></var> はミリ秒です。</p>
  </div>
 
 
@@ -303,14 +304,43 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>1.5.0</td>
+       <td>
+        <p class="para">
+         <em>&quot;wTimeoutMS&quot;</em> オプションが追加されました。これは
+         <em>&quot;wtimeout&quot;</em> を置き換えるものです。
+         <em>&quot;wtimeout&quot;</em> を使うと
+         <strong><code>E_DEPRECATED</code></strong> が発生します。
+        </p>
+        <p class="para">
+         <em>&quot;socketTimeoutMS&quot;</em> オプションが追加されました。これは
+         <em>&quot;timeout&quot;</em> を置き換えるものです。
+         <em>&quot;timeout&quot;</em> を使うと
+         <strong><code>E_DEPRECATED</code></strong> が発生します。
+        </p>
+        <p class="para">
+         <em>&quot;safe&quot;</em> を使うと
+         <strong><code>E_DEPRECATED</code></strong> が発生します。
+        </p>
+       </td>
+      </tr>
+
+      <tr>
+       <td>1.3.4</td>
+       <td><em>&quot;wtimeout&quot;</em> オプションが追加されました。</td>
+      </tr>
 
       <tr>
        <td>1.3.0</td>
        <td>
-        <code class="parameter">options</code> パラメータで、boolean
-        だけを渡して確認付きの書き込みを指定することができなくなりました。
-        同じことをするには <em>array(&#039;w&#039; =&gt; 1)</em>
-        (<a href="class.mongoclient.html" class="classname">MongoClient</a> のデフォルト) としなければなりません。
+        <p class="para"><em>&quot;w&quot;</em> オプションが追加されました。</p>
+        <p class="para">
+         <code class="parameter">options</code> パラメータで、boolean
+         だけを渡して確認付きの書き込みを指定することができなくなりました。
+         同じことをするには <em>array(&#039;w&#039; =&gt; 1)</em>
+         (<a href="class.mongoclient.html" class="classname">MongoClient</a> のデフォルト) としなければなりません。
+        </p>
        </td>
       </tr>
 
@@ -344,9 +374,9 @@
       </tr>
 
       <tr>
-       <td>1.0.5</td>
+       <td>1.0.2</td>
        <td>
-        二番目のパラメータがオプションの配列に変わりました。1.0.5
+        二番目のパラメータがオプションの配列に変わりました。1.0.2
         より前のバージョンでは、二番目のパラメータは <em>&quot;safe&quot;</em>
         オプションを表す boolean 値でした。
        </td>
@@ -370,7 +400,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocollection.insert-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1471">
+  <div class="example" id="example-1566">
    <p><strong>例1 <span class="function"><strong>MongoCollection::insert()</strong></span> の <em>_id</em> の例</strong></p>
    <div class="example-contents"><p>
     すでに存在しない場合は、<em>_id</em> フィールドを追加します。
@@ -414,7 +444,7 @@ array(1) {
    </div>
   </div>
 
-  <div class="example" id="example-1472">
+  <div class="example" id="example-1567">
    <p><strong>例2 <span class="function"><strong>MongoCollection::insert()</strong></span> での確認つき書き込みの例</strong></p>
    <div class="example-contents"><p>
     この例は、同じ _id を持つ二つの要素を追加しようとするものです。
@@ -439,14 +469,14 @@ array(1) {
    <li class="member"><span class="function"><a href="mongocollection.update.html" class="function" rel="rdfs-seeAlso">MongoCollection::update()</a> - 指定した条件にもとづいてレコードを更新する</span></li>
    <li class="member"><span class="function"><a href="mongocollection.find.html" class="function" rel="rdfs-seeAlso">MongoCollection::find()</a> - コレクションに問い合わせ、結果セットの MongoCursor を返す</span></li>
    <li class="member"><span class="function"><a href="mongocollection.remove.html" class="function" rel="rdfs-seeAlso">MongoCollection::remove()</a> - レコードをコレクションから削除する</span></li>
-   <li class="member">MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/tutorial/insert-documents/" class="link external">&raquo;&nbsp;insert</a></li>
+   <li class="member">MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/tutorial/insert-documents/" class="link external">&raquo;&nbsp;insert</a></li>
   </ul>
  </div>
 
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongocollection.group.html">MongoCollection::group</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mongocollection.remove.html">MongoCollection::remove</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongocollection.parallelcollectionscan.html">MongoCollection::parallelCollectionScan</a></div>
  <div class="up"><a href="class.mongocollection.html">MongoCollection</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

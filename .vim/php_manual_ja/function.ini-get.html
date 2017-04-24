@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ini-get" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ini_get</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ini_get</span> &mdash; <span class="dc-title">設定オプションの値を得る</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ini_get</span> &mdash; <span class="dc-title">設定オプションの値を得る</span></p>
 
  </div>
  
@@ -66,7 +66,7 @@
  <div class="refsect1 examples" id="refsect1-function.ini-get-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-501">
+   <div class="example" id="example-546">
     <p><strong>例1 <span class="function"><strong>ini_get()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -114,6 +114,12 @@ post_max_size in bytes = 8388608
     これらの値に通常の算術的な関数を施すと予期しない結果を
     得てしまいます。上の例では、省略形の表記から本来のバイト数に変換する
     PHP ソースのひとつの例を示しています。
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <span class="function"><strong>ini_get()</strong></span> は、&quot;配列&quot; 形式の ini オプション (pdo.dsn.* など)
+    を読むことができません。この場合は <strong><code>FALSE</code></strong> を返します。
    </p>
   </p></blockquote>
  </div>

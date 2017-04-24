@@ -13,7 +13,7 @@
 </div><hr /><div id="function.substr" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">substr</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">substr</span> &mdash; <span class="dc-title">文字列の一部分を返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">substr</span> &mdash; <span class="dc-title">文字列の一部分を返す</span></p>
 
  </div>
  
@@ -71,10 +71,10 @@
       </p>
       <p class="para">
        <code class="parameter">string</code> の長さが
-       <code class="parameter">start</code> 文字以下の場合は <strong><code>FALSE</code></strong> が返されます。
+       <code class="parameter">start</code> 文字より短い場合は <strong><code>FALSE</code></strong> が返されます。
       </p>
       <p class="para">
-       <div class="example" id="example-4931">
+       <div class="example" id="example-5533">
         <p><strong>例1 負の <code class="parameter">start</code> の使用</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -106,7 +106,7 @@
        (<code class="parameter">start</code> が負の場合は、
        開始位置を算出したあとで)。
        もし <code class="parameter">start</code> が切り出し位置を超える場合、
-       false が返されます。
+       <strong><code>FALSE</code></strong> が返されます。
       </p>
       <p class="para">
        <code class="parameter">length</code> が指定され、かつ <em>0</em>、<strong><code>NULL</code></strong>、もしくは <strong><code>FALSE</code></strong> であれば、空の文字が返されます。
@@ -115,7 +115,7 @@
        <code class="parameter">length</code> を省略した場合は、
        <code class="parameter">start</code> の位置から文字列の最後までの部分文字列を返します。
       </p>
-      <div class="example" id="example-4932">
+      <div class="example" id="example-5534">
        <p><strong>例2 負の <code class="parameter">length</code> の使用</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -137,7 +137,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.substr-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   文字列の一部を返します。失敗した場合に <strong><code>FALSE</code></strong> を返します。あるいは空文字列を返します。
+   <code class="parameter">string</code> の一部を返します。失敗した場合に <strong><code>FALSE</code></strong> を返します。あるいは空文字列を返します。
   </p>
  </div>
 
@@ -156,6 +156,15 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">string</code> の文字数が
+        <code class="parameter">start</code> と等しい場合に空文字列を返すようになりました。
+        これまでのバージョンでは、<strong><code>FALSE</code></strong> を返していました。
+       </td>
+      </tr>
+
       <tr>
        <td>5.2.2 - 5.2.6</td>
        <td>
@@ -176,7 +185,7 @@
  <div class="refsect1 examples" id="refsect1-function.substr-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4933">
+   <div class="example" id="example-5535">
     <p><strong>例3 基本的な <span class="function"><strong>substr()</strong></span> の使用法</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -186,7 +195,7 @@
     </div>
 
    </div> 
-   <div class="example" id="example-4934">
+   <div class="example" id="example-5536">
     <p><strong>例4 <span class="function"><strong>substr()</strong></span> でのキャストの挙動</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -195,7 +204,19 @@
 </code></div>
     </div>
 
-    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents"><p>上の例の PHP 7 での出力は、このようになります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+1) &#039;pe&#039;
+2) &#039;54&#039;
+3) &#039;gr&#039;
+4) &#039;1&#039;
+5) &#039;&#039;
+6) &#039;&#039;
+7) &#039;1200&#039;
+</pre></div>
+    </div>
+    <div class="example-contents"><p>上の例の PHP 5 での出力は、このようになります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
 1) &#039;pe&#039;
@@ -216,10 +237,10 @@
   <h3 class="title">エラー / 例外</h3>
   <p class="para">
    エラー時に <strong><code>FALSE</code></strong> を返します。
-   <div class="example" id="example-4935">
+   <div class="example" id="example-5537">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(false)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">substr</span><span style="color: #007700">(</span><span style="color: #DD0000">'a'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;bool(false)<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -13,7 +13,7 @@
 </div><hr /><div id="ziparchive.getfromname" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ZipArchive::getFromName</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">ZipArchive::getFromName</span> &mdash; <span class="dc-title">名前を使用して、エントリの内容を返す</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PECL zip &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">ZipArchive::getFromName</span> &mdash; <span class="dc-title">名前を使用して、エントリの内容を返す</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-ziparchive.getfromname-description">
@@ -66,7 +66,7 @@
      <dd>
 
       <p class="para">
-       アーカイブのオープン時に使用するフラグ。以下の値を
+       エントリを探す際に使用するフラグ。以下の値を
        OR で連結して使用します。
        <ul class="itemizedlist">
         <li class="listitem">
@@ -77,6 +77,11 @@
         <li class="listitem">
          <p class="para">
           <strong><code>ZipArchive::FL_COMPRESSED</code></strong>
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <strong><code>ZipArchive::FL_NOCASE</code></strong>
          </p>
         </li>
        </ul>
@@ -98,7 +103,7 @@
 
  <div class="refsect1 examples" id="refsect1-ziparchive.getfromname-examples">
   <h3 class="title">例</h3>
-    <div class="example" id="example-795">
+    <div class="example" id="example-857">
      <p><strong>例1 ファイルの内容の取得</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -108,7 +113,7 @@
      </div>
 
     </div>
-    <div class="example" id="example-796">
+    <div class="example" id="example-858">
      <p><strong>例2 zip エントリの画像への変換</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

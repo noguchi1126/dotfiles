@@ -13,7 +13,7 @@
 </div><hr /><div id="function.stream-context-create" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_context_create</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">stream_context_create</span> &mdash; <span class="dc-title">ストリームコンテキストを作成する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_context_create</span> &mdash; <span class="dc-title">ストリームコンテキストを作成する</span></p>
  
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-context-create-description">
@@ -45,7 +45,8 @@
 
       <p class="para">
        次のような形式の連想配列からなる連想配列でなくてはなりません。
-       <em>$arr[&#039;wrapper&#039;][&#039;option&#039;] = $value</em>.
+       <em>$arr[&#039;wrapper&#039;][&#039;option&#039;] = $value</em>
+       使用可能はラッパーやオプションの一覧は <a href="context.html" class="link">コンテキストオプション</a> を参照ください。
       </p>
       <p class="para">
        デフォルトは空の配列です。
@@ -63,7 +64,7 @@
        <em>$arr[&#039;parameter&#039;] = $value</em>
        形式の連想配列でなくてばなりません。
        標準のストリームパラメータについては
-       <a href="context.html" class="link">コンテキストパラメータ</a> を参照ください。
+       <a href="context.params.html" class="link">コンテキストパラメータ</a> を参照ください。
       </p>
      </dd>
 
@@ -113,7 +114,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.stream-context-create-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-4032">
+  <div class="example" id="example-4599">
    <p><strong>例1 <span class="function"><strong>stream_context_create()</strong></span> の使用</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

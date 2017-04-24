@@ -23,7 +23,7 @@
  </p>
 
  <p class="para">
-  PHP の自動型変換の例の一つは、加算演算子 &#039;+&#039; です。
+  PHP の自動型変換の例の一つは、乗算演算子 &#039;*&#039; です。
   オペランドのどれかが float の場合、全てのオペランドは float
   として評価され、結果は float になります。
   その他の場合、オペランドは整数として解釈され、結果も整数になります。
@@ -35,7 +35,7 @@
  <div class="informalexample">
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"0"</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;$foo&nbsp;は文字列です&nbsp;(ASCII&nbsp;48)<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">+=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;ここでは、$foo&nbsp;は整数です&nbsp;(2)<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1.3</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;ここでは、$foo&nbsp;はfloatです&nbsp;(3.3)<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #DD0000">"10&nbsp;Little&nbsp;Piggies"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;$foo&nbsp;は整数です&nbsp;(15)<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #DD0000">"10&nbsp;Small&nbsp;Pigs"</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;$foo&nbsp;は整数です&nbsp;(15)<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"1"</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;$foo&nbsp;は文字列&nbsp;(ASCII&nbsp;49)&nbsp;です<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">*=&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;ここでは、$foo&nbsp;は整数&nbsp;(2)&nbsp;です<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">1.3</span><span style="color: #007700">;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;ここでは、$foo&nbsp;はfloat&nbsp;(2.6)&nbsp;です<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #DD0000">"10&nbsp;Little&nbsp;Piggies"</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;$foo&nbsp;は整数&nbsp;(50)&nbsp;です<br /></span><span style="color: #0000BB">$foo&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #DD0000">"10&nbsp;Small&nbsp;Pigs"</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;$foo&nbsp;は整数&nbsp;(50)&nbsp;です<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
 
@@ -121,7 +121,6 @@
    <li class="listitem">
     <span class="simpara">(string) - 文字列へのキャスト</span>
    </li>
-   
    <li class="listitem">
     <span class="simpara">(array) - 配列へのキャスト</span>
    </li>

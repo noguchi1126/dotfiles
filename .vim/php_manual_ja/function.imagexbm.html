@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagexbm" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagexbm</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">imagexbm</span> &mdash; <span class="dc-title">XBM 画像をブラウザあるいはファイルに出力する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagexbm</span> &mdash; <span class="dc-title">XBM 画像をブラウザあるいはファイルに出力する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagexbm-description">
@@ -30,6 +30,13 @@
    <code class="parameter">image</code> を
    <acronym title="X Bitmap">XBM</acronym> にして出力あるいは保存します。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    <span class="function"><strong>imagexbm()</strong></span> はパディングを一切行わないので、
+    画像の幅は 8 の倍数でなければいけません。
+    PHP 5.6.24 および PHP 7.0.9 以降では、この制約がなくなりました。
+   </span>
+  </p></blockquote>
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.imagexbm-parameters">
@@ -50,7 +57,14 @@ image</code></dt>
 
      <dd>
 
-      <p class="para">ファイルの保存先のパス。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
+      <p class="para">画像の保存先のパス。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
+      <p class="para">
+       <code class="parameter">filename</code> (拡張子 .xbm を除いた部分)
+       は、<acronym title="X Bitmap">XBM</acronym> の C 識別子としても用いられます。
+       そのため、現在のロケールで扱える英数字以外の文字は、アンダースコアに置き換えられます。
+       <code class="parameter">filename</code> を <strong><code>NULL</code></strong> にすると、
+       <em>image</em> を使って C 識別子を作ります。
+      </p>
      </dd>
 
     
@@ -64,6 +78,7 @@ image</code></dt>
        このパラメータで、
        前景の色を指定できます。<span class="function"><a href="function.imagecolorallocate.html" class="function">imagecolorallocate()</a></span> で
        取得した ID を使用してください。デフォルトの前景色は黒です。
+       その他の色はすべて、背景色として扱われます。
       </p>
      </dd>
 
@@ -83,7 +98,7 @@ image</code></dt>
  <div class="refsect1 examples" id="refsect1-function.imagexbm-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3310">
+   <div class="example" id="example-3618">
     <p><strong>例1 XBM ファイルの保存</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -95,7 +110,7 @@ image</code></dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3311">
+   <div class="example" id="example-3619">
     <p><strong>例2 別の前景色による XBM ファイルの保存</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

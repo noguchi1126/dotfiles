@@ -121,7 +121,7 @@ int strlen ( string $string )
    <p class="para">
     <div class="example-contents screen">    
 <div class="cdata"><pre>
-      bool in_array ( mixed $needle, array $haystack [, bool $strict])
+      bool in_array ( mixed $needle, array $haystack [, bool $strict = FALSE ] )
 </pre></div>
     </div>
    </p>
@@ -146,6 +146,22 @@ int strlen ( string $string )
       <strong><code>FALSE</code></strong> であるとマニュアルに述べられています。機能の詳細については
       各関数のマニュアルをご覧ください。
    </p>
+    <p class="para"> 
+     さらに、&amp; (アンパサンド) 記号を関数のパラメータの前につけると、
+     そのパラメータを<a href="language.references.pass.html" class="link">参照</a>渡しにすることができます。
+    </p>
+    <p class="para">
+     <div class="example-contents screen"> 
+<div class="cdata"><pre>
+       int preg_match ( string $pattern , string $subject [, array &amp;$matches 
+      [, int $flags = 0 [, int $offset = 0 ]]] )
+</pre></div>
+     </div>
+    </p>
+    <p class="para">
+     この例では、三番目のオプションのパラメータ <code class="parameter">&amp;$matches</code>
+     が参照渡しとなります。
+    </p>
    <p class="para">
     より複雑なバージョンとの関係を有する関数もあります。以下が
     <span class="function"><a href="function.html-entity-decode.html" class="function">html_entity_decode()</a></span> の例です。

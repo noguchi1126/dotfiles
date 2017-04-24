@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imap-headerinfo" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_headerinfo</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imap_headerinfo</span> &mdash; <span class="dc-title">メッセージヘッダを読み込む</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_headerinfo</span> &mdash; <span class="dc-title">メッセージヘッダを読み込む</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-headerinfo-description">
@@ -101,6 +101,7 @@ imap_stream</code></dt>
  <div class="refsect1 returnvalues" id="refsect1-function.imap-headerinfo-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
+   エラー時には <strong><code>FALSE</code></strong>、成功時には
    以下のプロパティをもつオブジェクトを返します。
    <ul class="itemizedlist">
     <li class="listitem">

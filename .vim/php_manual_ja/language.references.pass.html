@@ -28,10 +28,9 @@
      <span class="simpara">
       関数コールの際には、リファレンス記号がないことに注意してください。
       関数定義にのみリファレンス記号があります。リファレンスで正しく引数を
-      渡すには、関数定義のみで十分です。以前のバージョンの PHP では
-      <em>foo(&amp;$a);</em> のような形式で &amp; を利用すると
-      &quot;Call-time pass-by-reference&quot; という警告が発生していましたが、
-      PHP 5.3.0 以降では警告は発生しません。
+      渡すには、関数定義のみで十分です。
+      PHP 5.3.0 以降では、<em>foo(&amp;$a);</em> のような形式で &amp; を利用すると
+      &quot;Call-time pass-by-reference&quot; を非推奨とする警告が発生します。      
       また、PHP 5.4.0 以降では call-time pass-by-reference 機能自体が削除されたので、
       これを使おうとすると fatal エラーが発生します。
      </span>
@@ -74,13 +73,12 @@
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">++;<br />}<br />function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">()&nbsp;</span><span style="color: #FF8000">//&nbsp;&amp;&nbsp;がないことに注意<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">bar</span><span style="color: #007700">());&nbsp;</span><span style="color: #FF8000">//&nbsp;PHP&nbsp;5.0.5&nbsp;以降、致命的なエラーが発生する<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;式、変数ではない<br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;致命的なエラーが発生する<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">++;<br />}<br />function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">()&nbsp;</span><span style="color: #FF8000">//&nbsp;&amp;&nbsp;がないことに注意<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">bar</span><span style="color: #007700">());&nbsp;</span><span style="color: #FF8000">//&nbsp;PHP&nbsp;5.0.5&nbsp;以降、致命的なエラーが発生する<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;PHP&nbsp;5.1.1&nbsp;以降では&nbsp;strict&nbsp;notice、そして&nbsp;PHP&nbsp;7.0.0&nbsp;以降では&nbsp;notice&nbsp;となる<br /><br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;式、変数ではない<br /></span><span style="color: #0000BB">foo</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;致命的なエラーが発生する<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
 
     </div>
-    以上の説明は、PHP 4.0.4 以降用です。
    </p>
   </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.references.arent.html">リファレンスが行わないこと</a></div>

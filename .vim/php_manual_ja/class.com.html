@@ -13,7 +13,7 @@
 </div><hr /><div id="class.com" class="reference">
  
  <h1 class="title">COM クラス</h1>
- <div class="partintro"><p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p>
+ <div class="partintro"><p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p>
 
  <div class="section" id="class.com.class">
   <h2 class="title">説明</h2>
@@ -29,7 +29,7 @@
  <div class="section" id="com.com">
   <h2 class="title">メソッド</h2>
   <div class="methodsynopsis dc-description">
-   <span class="methodname"><strong>COM::COM</strong></span>
+   <span class="methodname"><strong>COM::__construct</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$module_name</code></span>
    [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$server_name</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$codepage</code></span>
@@ -201,11 +201,6 @@ codepage</dt>
    変数を参照渡し形式に変換します。つまり、メソッドのコールをより自然に
    行えるということです。コードの中で特別な処理をする必要はありません。
   </p>
-  <p class="para">
-   PHP 4 では、パラメータを参照渡しする場合には、そのパラメータをラップする
-   ために <a href="class.variant.html" class="xref">VARIANT</a> クラスのインスタンスを生成する
-   必要があります。
-  </p>
  </div>
 
  <div class="section" id="class.com.falsemethods">
@@ -218,7 +213,7 @@ codepage</dt>
    大文字小文字を区別しません。
   </p>
   <div class="methodsynopsis dc-description" id="com.addref">
-   <span class="type"><span class="type void">void</span></span> <span class="methodname"><a href="function.com-addref.html" class="methodname">COM::AddRef</a></span>
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>COM::AddRef</strong></span>
     ( <span class="methodparam">void</span>
    )</div>
 
@@ -233,7 +228,7 @@ codepage</dt>
    </p>
   </div>
   <div class="methodsynopsis dc-description" id="com.release">
-   <span class="type"><span class="type void">void</span></span> <span class="methodname"><a href="function.com-release.html" class="methodname">COM::Release</a></span>
+   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>COM::Release</strong></span>
     ( <span class="methodparam">void</span>
    )</div>
 
@@ -251,7 +246,7 @@ codepage</dt>
  <div class="section" id="class.com.iteratormethods">
   <h2 class="title">反復処理のための疑似メソッド</h2>
   <p class="para">
-   以下の疑似メソッドは、 <span class="function"><a href="function.com-isenum.html" class="function">com_isenum()</a></span> が <strong><code>TRUE</code></strong>
+   以下の疑似メソッドは、 <span class="function"><strong>com_isenum()</strong></span> が <strong><code>TRUE</code></strong>
    を返す場合のみ利用可能で、この場合、これらのメソッドは、
    通常は COM オブジェクトにより提供される同じ名前を有する全ての
    メソッドを隠蔽します。これらのメソッドは PHP 5 では完全に廃止されています。
@@ -298,7 +293,7 @@ codepage</dt>
  <div class="section" id="class.com.examples">
   <h2 class="title">COM の例</h2>
   <p class="para">
-   <div class="example" id="example.com1">
+   <div class="example" id="example-6230">
     <p><strong>例1 COM の例 (1)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -310,7 +305,7 @@ codepage</dt>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example.com2">
+   <div class="example" id="example-6231">
     <p><strong>例2 COM の例 (2)</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

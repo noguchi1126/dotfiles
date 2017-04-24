@@ -13,7 +13,7 @@
 </div><hr /><div id="function.hash-pbkdf2" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">hash_pbkdf2</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0)</p><p class="refpurpose"><span class="refname">hash_pbkdf2</span> &mdash; <span class="dc-title">PBKDF2 を使ってパスワードからキーを生成する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">hash_pbkdf2</span> &mdash; <span class="dc-title">PBKDF2 を使ってパスワードからキーを生成する</span></p>
 
  </div>
 
@@ -137,10 +137,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.hash-pbkdf2-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.2.0</td>
+       <td>Usage of non-cryptographic hash functions (adler32, crc32, crc32b, fnv132, fnv1a32, fnv164, fnv1a64, joaat) was disabled.</td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.hash-pbkdf2-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-837">
+   <div class="example" id="example-908">
     <p><strong>例1 <span class="function"><strong>hash_pbkdf2()</strong></span> の基本的な使い方の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

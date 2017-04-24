@@ -15,7 +15,7 @@
  <h1 class="title">DateTimeImmutable クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p>
 
 
   <div class="section" id="datetimeimmutable.intro">
@@ -63,6 +63,10 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$time</code></span>
    [, <span class="methodparam"><span class="type"><a href="class.datetimezone.html" class="type DateTimeZone">DateTimeZone</a></span> <code class="parameter">$timezone</code></span>
   ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">DateTimeImmutable</span> <span class="methodname"><a href="datetimeimmutable.createfrommutable.html" class="methodname">createFromMutable</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$datetime</code></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">array</span> <span class="methodname"><a href="datetimeimmutable.getlasterrors.html" class="methodname">getLastErrors</a></span>
     ( <span class="methodparam">void</span>
@@ -237,7 +241,14 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="datetimeimmutable.add.html">DateTimeImmutable::add</a> — 年月日時分秒の値を加える</li><li><a href="datetimeimmutable.construct.html">DateTimeImmutable::__construct</a> — 新しい DateTimeImmutable オブジェクトを返す</li><li><a href="datetimeimmutable.createfromformat.html">DateTimeImmutable::createFromFormat</a> — 指定した書式でフォーマットした新しい DateTimeImmutable オブジェクトを返す</li><li><a href="datetimeimmutable.getlasterrors.html">DateTimeImmutable::getLastErrors</a> — 警告およびエラーを返す</li><li><a href="datetimeimmutable.modify.html">DateTimeImmutable::modify</a> — タイムスタンプを変更する</li><li><a href="datetimeimmutable.set-state.html">DateTimeImmutable::__set_state</a> — __set_state ハンドラ</li><li><a href="datetimeimmutable.setdate.html">DateTimeImmutable::setDate</a> — 日付を設定する</li><li><a href="datetimeimmutable.setisodate.html">DateTimeImmutable::setISODate</a> — ISO 日付を設定する</li><li><a href="datetimeimmutable.settime.html">DateTimeImmutable::setTime</a> — 時刻を設定する</li><li><a href="datetimeimmutable.settimestamp.html">DateTimeImmutable::setTimestamp</a> — Unix タイムスタンプを用いて日付と時刻を設定する</li><li><a href="datetimeimmutable.settimezone.html">DateTimeImmutable::setTimezone</a> — タイムゾーンを設定する</li><li><a href="datetimeimmutable.sub.html">DateTimeImmutable::sub</a> — 年月日時分秒の値を引く</li></ul>
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="datetimeimmutable.add.html">DateTimeImmutable::add</a> — 年月日時分秒の値を加える</li><li><a href="datetimeimmutable.construct.html">DateTimeImmutable::__construct</a> — 新しい DateTimeImmutable オブジェクトを返す</li><li><a href="datetimeimmutable.createfromformat.html">DateTimeImmutable::createFromFormat</a> — 指定した書式でフォーマットした新しい DateTimeImmutable オブジェクトを返す</li><li><a href="datetimeimmutable.createfrommutable.html">DateTimeImmutable::createFromMutable</a> — Returns new DateTimeImmutable object encapsulating the given DateTime object</li><li><a href="datetimeimmutable.getlasterrors.html">DateTimeImmutable::getLastErrors</a> — 警告およびエラーを返す</li><li><a href="datetimeimmutable.modify.html">DateTimeImmutable::modify</a> — タイムスタンプを変更した新しいオブジェクトを作る</li><li><a href="datetimeimmutable.set-state.html">DateTimeImmutable::__set_state</a> — __set_state ハンドラ</li><li><a href="datetimeimmutable.setdate.html">DateTimeImmutable::setDate</a> — 日付を設定する</li><li><a href="datetimeimmutable.setisodate.html">DateTimeImmutable::setISODate</a> — ISO 日付を設定する</li><li><a href="datetimeimmutable.settime.html">DateTimeImmutable::setTime</a> — 時刻を設定する</li><li><a href="datetimeimmutable.settimestamp.html">DateTimeImmutable::setTimestamp</a> — Unix タイムスタンプを用いて日付と時刻を設定する</li><li><a href="datetimeimmutable.settimezone.html">DateTimeImmutable::setTimezone</a> — タイムゾーンを設定する</li><li><a href="datetimeimmutable.sub.html">DateTimeImmutable::sub</a> — 年月日時分秒の値を引く</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="datetime.sub.html">DateTime::sub</a></div>

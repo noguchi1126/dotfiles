@@ -13,7 +13,7 @@
 </div><hr /><div id="function.define" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">define</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">define</span> &mdash; <span class="dc-title">名前を指定して定数を定義する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">define</span> &mdash; <span class="dc-title">名前を指定して定数を定義する</span></p>
 
  </div>
  
@@ -56,12 +56,17 @@
      <dd>
 
       <p class="para">
-       定数の値。スカラー値あるいは <span class="type"><a href="language.types.null.html" class="type null">null</a></span> 値のみを指定できます。
-       スカラー値とは <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> か
-       <span class="type"><a href="language.types.float.html" class="type float">float</a></span>、<span class="type"><a href="language.types.string.html" class="type string">string</a></span>、<span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
-       のいずれかのことです。リソース定数を定義することもできますが、
-       推奨できません。予期せぬ振る舞いをする可能性があります。
+       定数の値。PHP 5 では、<code class="parameter">value</code> は
+       スカラー値 (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>、
+       <span class="type"><a href="language.types.float.html" class="type float">float</a></span>、<span class="type"><a href="language.types.string.html" class="type string">string</a></span>、<span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span> あるいは
+       <strong><code>NULL</code></strong>) でなければいけません。PHP 7 では配列を使うこともできます。
       </p>
+      <div class="warning"><strong class="warning">警告</strong>
+       <p class="para">
+        リソース型の定数を定義することもできますが、
+        推奨できません。予期せぬ振る舞いをする可能性があります。
+       </p>
+      </div>
      </dd>
 
     
@@ -99,14 +104,43 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.define-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <span class="type"><a href="language.types.array.html" class="type array">array</a></span> が使えるようになりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+ 
  <div class="refsect1 examples" id="refsect1-function.define-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3794">
+   <div class="example" id="example-4357">
     <p><strong>例1 定数の定義</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />define</span><span style="color: #007700">(</span><span style="color: #DD0000">"CONSTANT"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;world."</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">CONSTANT</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;"Hello&nbsp;world."&nbsp;を出力します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">Constant</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;"Constant"&nbsp;を出力し、警告が発生します<br /><br /></span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">"GREETING"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;you."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">GREETING</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;"Hello&nbsp;you."&nbsp;を出力します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">Greeting</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;"Hello&nbsp;you."&nbsp;を出力します<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />define</span><span style="color: #007700">(</span><span style="color: #DD0000">"CONSTANT"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;world."</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">CONSTANT</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;"Hello&nbsp;world."&nbsp;を出力します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">Constant</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;"Constant"&nbsp;を出力し、警告が発生します<br /><br /></span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">"GREETING"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"Hello&nbsp;you."</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">GREETING</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;"Hello&nbsp;you."&nbsp;を出力します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">Greeting</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;"Hello&nbsp;you."&nbsp;を出力します<br /><br />//&nbsp;PHP&nbsp;7&nbsp;以降で動作します<br /></span><span style="color: #0000BB">define</span><span style="color: #007700">(</span><span style="color: #DD0000">'ANIMALS'</span><span style="color: #007700">,&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'dog'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cat'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'bird'<br /></span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">ANIMALS</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;"cat"&nbsp;を出力します<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

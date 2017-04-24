@@ -142,6 +142,16 @@
         </dd>
 
        
+    
+     <dt>
+<em class="emphasis">\R</em></dt>
+
+     <dd>
+
+      <span class="simpara">改行: \n、\r、\r\n にマッチする</span>
+     </dd>
+
+    
        
         <dt>
 <em class="emphasis">\t</em></dt>
@@ -449,6 +459,11 @@
       これらエスケープシーケンスの各組により、文字集合が 2 つに分割されます。
       文字は、各組のどちらか片方だけにマッチします。
      </p>
+  <p class="para">
+   空白文字とは HT (9)、LF (10)、FF (12)、CR (13)、スペース (32) のことです。
+   しかし、ロケールを指定したマッチングを行った場合には、128から255までのコードポイントの文字
+   (たとえば NBSP (A0)) も空白文字とみなされる可能性があります。
+  </p>
      <p class="para">
       単語構成文字とは、英字または数字またはアンダースコア文字であり、Perl
       が定義するところの「単語」と成り得る文字のことです。文字および数字の
@@ -562,7 +577,7 @@
      </p>
      <p class="para">      
       言明 <em>\A</em>, <em>\Z</em>, 
-      <em>\z</em> は、（以降で説明する）ハット記号やドル記号とは
+      <em>\z</em> は、（<a href="regexp.reference.anchors.html" class="link">アンカー</a> で説明する）ハット記号やドル記号とは
       異なり、オプション設定によらず、文字列の始端または終端だけに
       マッチします。これらの言明は、<a href="reference.pcre.pattern.modifiers.html" class="link">PCRE_MULTILINE</a> および <a href="reference.pcre.pattern.modifiers.html" class="link">PCRE_DOLLAR_ENDONLY</a> 
       オプションの影響を受けません。

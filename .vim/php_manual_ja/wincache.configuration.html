@@ -86,7 +86,7 @@
       <td>&quot;0&quot;</td>
       <td>&quot;1&quot;</td>      
       <td>PHP_INI_ALL</td>
-      <td>WinCache 1.0.0 以降で使用可能</td>
+      <td>WinCache 1.0.0 以降で使用可能、2.0.0.0 で削除</td>
      </tr>
  
      <tr>
@@ -95,7 +95,7 @@
       <td>&quot;NULL&quot;</td>
       <td>&quot;NULL&quot;</td>      
       <td>PHP_INI_SYSTEM</td>
-      <td>WinCache 1.0.0 以降で使用可能</td>
+      <td>WinCache 1.0.0 以降で使用可能、2.0.0.0 で削除</td>
      </tr>
      
      <tr>
@@ -104,7 +104,7 @@
       <td>&quot;15&quot;</td>
       <td>&quot;255&quot;</td>      
       <td>PHP_INI_SYSTEM</td>
-      <td>WinCache 1.0.0 以降で使用可能</td>
+      <td>WinCache 1.0.0 以降で使用可能、2.0.0.0 で削除</td>
      </tr>
 
      <tr>
@@ -171,7 +171,7 @@
      </tr>
 
      <tr>
-      <td><a href="wincache.configuration.html#ini.wincache.namesalt" class="link">wincache.ucachesize</a></td>
+      <td><a href="wincache.configuration.html#ini.wincache.ucachesize" class="link">wincache.ucachesize</a></td>
       <td>8</td>
       <td>5</td>
       <td>85</td>      
@@ -180,7 +180,7 @@
      </tr>
 
      <tr>
-      <td><a href="wincache.configuration.html#ini.wincache.namesalt" class="link">wincache.scachesize</a></td>
+      <td><a href="wincache.configuration.html#ini.wincache.scachesize" class="link">wincache.scachesize</a></td>
       <td>8</td>
       <td>5</td>
       <td>85</td>      
@@ -194,7 +194,34 @@
       <td>NULL</td>
       <td>NULL</td>
       <td>PHP_INI_SYSTEM</td>
-      <td>WinCache 1.2.0 以降で使用可能</td>
+      <td>WinCache 1.2.0 以降で使用可能。1.3.7 で削除。</td>
+     </tr>
+
+     <tr>
+      <td><a href="wincache.configuration.html#ini.wincache.reroute_enabled" class="link">wincache.reroute_enabled</a></td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>      
+      <td>PHP_INI_SYSTEM | PHP_INI_PERDIR</td>
+      <td>WinCache 1.3.7 以降で使用可能</td>
+     </tr>
+
+     <tr>
+      <td><a href="wincache.configuration.html#ini.wincache.srwlocks" class="link">wincache.srwlocks</a></td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>      
+      <td>PHP_INI_SYSTEM</td>
+      <td>WinCache 1.3.6.3 以降で使用可能、2.0.0.0 で削除</td>
+     </tr>
+
+     <tr>
+      <td><a href="wincache.configuration.html#ini.wincache.filemapdir" class="link">wincache.filemapdir</a></td>
+      <td>NULL</td>
+      <td>NULL</td>
+      <td>NULL</td>      
+      <td>PHP_INI_SYSTEM</td>
+      <td>WinCache 1.3.7.4 以降で使用可能</td>
      </tr>
 
     </tbody>
@@ -301,6 +328,7 @@
 
     <dd>
 
+     <div class="warning"><strong class="warning">警告</strong><p class="simpara">このオプションは 2.0.0.0 で<em class="emphasis">削除</em>されました。</p></div>
      <span class="simpara">opcode キャッシュ機能を有効あるいは無効にします。</span>
     </dd>
 
@@ -322,6 +350,7 @@
       <em>wincache.ocenabled</em> が 0 の場合は、
       <em>wincache.ocenabledfilter</em> に指定したサイトの opcode キャッシュを有効にします。
      </span>
+     <span class="simpara">このオプションは 2.0.0.0 で削除されました。</span>
     </dd>
 
    
@@ -333,6 +362,7 @@
 
     <dd>
 
+     <div class="warning"><strong class="warning">警告</strong><p class="simpara">このオプションは 2.0.0.0 で<em class="emphasis">削除</em>されました。</p></div>
      <span class="simpara">
       opcode キャッシュに割り当てる最大メモリ容量 (メガバイト単位) を指定します。
       キャッシュされた opcode の総容量がこの設定値を超えると、
@@ -420,7 +450,7 @@
       この拡張モジュールでキャッシュをしないファイルの一覧を定義します。
       ファイルリストにはファイル名のみを指定し、パイプ記号
       &quot;|&quot; で区切ります。
-      <div class="example" id="example-554">
+      <div class="example" id="example-616">
        <p><strong>例1 <em>wincache.ignorelist</em> の例</strong></p>
        <div class="example-contents">
 <div class="inicode"><pre class="inicode">wincache.ignorelist = &quot;index.php|misc.php|admin.php&quot;</pre>
@@ -503,10 +533,62 @@
 
     <dd>
 
+     <div class="warning"><strong class="warning">警告</strong><p class="simpara">
+      このオプションは 1.3.7 で<em class="emphasis">削除</em>されました。1.3.7 以降で同様の機能を使うには、<em>wincache.reroute_enabled</em> を参照ください。
+      </p></div>
      <span class="simpara">
       reroute.ini ファイルへの絶対パスあるいは相対パスを指定します。
       このファイルには、同等の WinCache 関数で実装を置き換える PHP 関数の一覧を記述します。
       相対パスで指定した場合は、php-cgi.exe の場所を基準としたパスとみなします。
+     </span>
+    </dd>
+
+   
+   
+    <dt id="ini.wincache.reroute_enabled">
+     <code class="parameter">wincache.reroute_enabled</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      ファイルキャッシュを用いたファイル入出力関数群のリルートを有効あるいは無効にします。
+     </span>
+    </dd>
+
+   
+   
+    <dt id="ini.wincache.srwlocks">
+     <code class="parameter">wincache.srwlocks</code>
+     <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+    </dt>
+
+    <dd>
+
+     <div class="warning"><strong class="warning">警告</strong><p class="simpara">このオプションは 2.0.0.0 で<em class="emphasis">削除</em>されました。</p></div>
+     <span class="simpara">
+      共有のリーダーロック／ライターロックを有効あるいは無効にします。WinCache におけるデッドロックのトラブルシューティングの際には、無効にしておくと便利です。
+     </span>
+    </dd>
+
+   
+   
+    <dt id="ini.wincache.filemapdir">
+     <code class="parameter">wincache.filemapdir</code>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+    </dt>
+
+    <dd>
+
+     <span class="simpara">
+      WinCache が共有メモリセグメント用の一時ファイルを格納するために使うディレクトリへの絶対パスを指定します。
+     </span>
+     <span class="simpara">
+      このディレクトリはローカルマシン上のものでなければいけません。ネットワークファイルシステム上のディレクトリは使えません。
+     </span>
+     <span class="simpara">
+      ディレクトリを指定しなかった場合は、WinCache は Windows System Page File をすべての共有メモリセグメント用に使います。
      </span>
     </dd>
 

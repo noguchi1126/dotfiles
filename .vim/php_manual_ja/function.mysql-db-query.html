@@ -20,7 +20,8 @@
  <div id="function.mysql-db-query-refsynopsisdiv">
   <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
-この拡張モジュールは PHP 5.5.0 で非推奨になりました。将来のバージョンで削除される予定です。
+この関数は PHP 5.3.0 で非推奨になり、PHP 7.0.0 で
+<a href="book.mysql.html" class="link">MySQL 拡張モジュール</a> 全体とあわせて削除されました。
 <a href="book.mysqli.html" class="link">MySQLi</a> あるいは
 <a href="ref.pdo-mysql.html" class="link">PDO_MySQL</a> を使うべきです。詳細な情報は
 <a href="mysqlinfo.api.choosing.html" class="link">MySQL: API の選択</a> や
@@ -46,9 +47,6 @@
    <span class="function"><strong>mysql_db_query()</strong></span> はデータベースを選択し、
    そこでクエリーを実行します。
   </p>
-  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は PHP 5.3.0 で
-<em class="emphasis">非推奨</em>となりました。
-この機能を使用しないことを強く推奨します。</p></div>
  </div>
 
 
@@ -136,15 +134,6 @@ link_identifier</code></dt>
        </td>
       </tr>
 
-      <tr>
-       <td>4.0.6</td>
-       <td>
-        この関数は廃止予定です。使用しないでください。かわりに
-        <span class="function"><a href="function.mysql-select-db.html" class="function">mysql_select_db()</a></span>
-        あるいは <span class="function"><a href="function.mysql-query.html" class="function">mysql_query()</a></span> を使用してください。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -156,7 +145,7 @@ link_identifier</code></dt>
  <div class="refsect1 examples" id="refsect1-function.mysql-db-query-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1584">
+   <div class="example" id="example-1938">
     <p><strong>例1 <span class="function"><strong>mysql_db_query()</strong></span> の別の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

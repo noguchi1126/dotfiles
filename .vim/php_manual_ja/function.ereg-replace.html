@@ -17,6 +17,23 @@
 
  </div>
  
+ <div id="function.ereg-replace-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この関数は PHP 5.3.0 で <em class="emphasis">非推奨</em> となり、
+ PHP 7.0.0 で <em class="emphasis">削除</em> されました。
+</p>
+<p class="para">
+ この関数の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span></li>
+   </ul>
+  </div>
+ </div>
+ 
  <div class="refsect1 description" id="refsect1-function.ereg-replace-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -32,9 +49,6 @@
    マッチしたテキストを <code class="parameter">replacement</code>
    で置換します。
   </p>
-  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は PHP 5.3.0 で
-<em class="emphasis">非推奨</em>となりました。
-この機能を使用しないことを強く推奨します。</p></div>
  </div>
 
 
@@ -108,7 +122,7 @@
    たとえば、以下のサンプルコードは &quot;This was a test&quot; と 3 回表示します。
   </p>
   <p class="para">
-   <div class="example" id="example-4820">
+   <div class="example" id="example-5420">
     <p><strong>例1 <span class="function"><strong>ereg_replace()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -127,7 +141,7 @@
    解釈し使用するためです。例えば、次のようになります。
   </p>
   <p class="para">
-   <div class="example" id="example-4821">
+   <div class="example" id="example-5421">
     <p><strong>例2 <span class="function"><strong>ereg_replace()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -139,7 +153,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4822">
+   <div class="example" id="example-5422">
     <p><strong>例3 URL をリンクで置換する</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,23 +164,6 @@
 
    </div>
   </p>
- </div>
-
-
- <div class="refsect1 notes" id="refsect1-function.ereg-replace-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">PHP 5.3.0 以降、
-regex 拡張モジュールは非推奨となりました。かわりに
-<a href="book.pcre.html" class="link">PCRE 拡張モジュール</a> を使うことが推奨されています。
-この関数をコールすると <strong><code>E_DEPRECATED</code></strong> が発生します。
-PCRE への変換についてのヘルプは <a href="reference.pcre.pattern.posix.html" class="link">
-相違点の一覧</a> を参照ください。</p></p></blockquote>
-  <div class="tip"><strong class="tip">ヒント</strong>
-   <p class="para">
-    <span class="function"><strong>ereg_replace()</strong></span> は PHP 5.3.0 以降で非推奨になりました。この関数のかわりに
-    <span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span> を使うことを推奨します。
-   </p>
-  </div>
  </div>
 
 

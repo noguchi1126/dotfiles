@@ -78,6 +78,10 @@
     ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$stack</code><span class="initializer"> = false</span></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.autolevelimage.html" class="methodname">autoLevelImage</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$CHANNEL</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">Imagick</span> <span class="methodname"><a href="imagick.averageimages.html" class="methodname">averageImages</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -85,6 +89,10 @@
    <span class="type">bool</span> <span class="methodname"><a href="imagick.blackthresholdimage.html" class="methodname">blackThresholdImage</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$threshold</code></span>
    )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.blueshiftimage.html" class="methodname">blueShiftImage</a></span>
+    ([ <span class="methodparam"><span class="type">float</span> <code class="parameter">$factor</code><span class="initializer"> = 1.5</span></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.blurimage.html" class="methodname">blurImage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
@@ -98,6 +106,12 @@
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.brightnesscontrastimage.html" class="methodname">brightnessContrastImage</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$brightness</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$contrast</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$CHANNEL</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.charcoalimage.html" class="methodname">charcoalImage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$sigma</code></span>
@@ -110,12 +124,21 @@
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.clampimage.html" class="methodname">clampImage</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$CHANNEL</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.clear.html" class="methodname">clear</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.clipimage.html" class="methodname">clipImage</a></span>
     ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.clipimagepath.html" class="methodname">clipImagePath</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pathname</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$inside</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.clippathimage.html" class="methodname">clipPathImage</a></span>
@@ -147,6 +170,10 @@
    <span class="type">bool</span> <span class="methodname"><a href="imagick.colorizeimage.html" class="methodname">colorizeImage</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$colorize</code></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$opacity</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.colormatriximage.html" class="methodname">colorMatrixImage</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$color_matrix</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">Imagick</span> <span class="methodname"><a href="imagick.combineimages.html" class="methodname">combineImages</a></span>
@@ -199,6 +226,10 @@
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code><span class="initializer"> = Imagick::CHANNEL_ALL</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.count.html" class="methodname">count</a></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.cropimage.html" class="methodname">cropImage</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>
@@ -229,6 +260,10 @@
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.deleteimageartifact.html" class="methodname">deleteImageArtifact</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$artifact</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.deleteimageproperty.html" class="methodname">deleteImageProperty</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="imagick.deskewimage.html" class="methodname">deskewImage</a></span>
@@ -304,6 +339,11 @@
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$y</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.filter.html" class="methodname">filter</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.imagickkernel.html" class="type ImagickKernel">ImagickKernel</a></span> <code class="parameter">$ImagickKernel</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$CHANNEL</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">Imagick</span> <span class="methodname"><a href="imagick.flattenimages.html" class="methodname">flattenImages</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -324,6 +364,10 @@
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.flopimage.html" class="methodname">flopImage</a></span>
     ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.forwardfouriertransformimage.html" class="methodname">forwardFourierTransformimage</a></span>
+    ( <span class="methodparam"><span class="type">bool</span> <code class="parameter">$magnitude</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.frameimage.html" class="methodname">frameImage</a></span>
@@ -404,6 +448,10 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$artifact</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="imagick.getimageattribute.html" class="methodname">getImageAttribute</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">ImagickPixel</span> <span class="methodname"><a href="imagick.getimagebackgroundcolor.html" class="methodname">getImageBackgroundColor</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -480,7 +528,7 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">int</span> <span class="methodname"><a href="imagick.getcompressionquality.html" class="methodname">getCompressionQuality</a></span>
+   <span class="type">int</span> <span class="methodname"><a href="imagick.getimagecompressionquality.html" class="methodname">getImageCompressionQuality</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -566,6 +614,10 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">ImagickPixel</span> <span class="methodname"><a href="imagick.getimagemattecolor.html" class="methodname">getImageMatteColor</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="imagick.getimagemimetype.html" class="methodname">getImageMimeType</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -702,12 +754,20 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">int</span> <span class="methodname"><a href="imagick.getquantum.html" class="methodname">getQuantum</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><a href="imagick.getquantumdepth.html" class="methodname">getQuantumDepth</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><a href="imagick.getquantumrange.html" class="methodname">getQuantumRange</a></span>
     ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">string</span> <span class="methodname"><a href="imagick.getregistry.html" class="methodname">getRegistry</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><a href="imagick.getreleasedate.html" class="methodname">getReleaseDate</a></span>
@@ -751,6 +811,10 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">string|false</span> <span class="methodname"><a href="imagick.identifyformat.html" class="methodname">identifyFormat</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$embedText</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><a href="imagick.identifyimage.html" class="methodname">identifyImage</a></span>
     ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$appendRawOutput</code><span class="initializer"> = false</span></span>
   ] )</div>
@@ -767,6 +831,11 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$map</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$storage</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$pixels</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.inversefouriertransformimage.html" class="methodname">inverseFourierTransformImage</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$complement</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$magnitude</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.labelimage.html" class="methodname">labelImage</a></span>
@@ -792,6 +861,10 @@
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$rigidity</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">array</span> <span class="methodname"><a href="imagick.listregistry.html" class="methodname">listRegistry</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.magnifyimage.html" class="methodname">magnifyImage</a></span>
     ( <span class="methodparam">void</span>
    )</div>
@@ -813,7 +886,7 @@
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="imagick.mergeimagelayers.html" class="methodname">mergeImageLayers</a></span>
+   <span class="type">Imagick</span> <span class="methodname"><a href="imagick.mergeimagelayers.html" class="methodname">mergeImageLayers</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$layer_method</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -838,6 +911,13 @@
    <span class="type">Imagick</span> <span class="methodname"><a href="imagick.morphimages.html" class="methodname">morphImages</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$number_frames</code></span>
    )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.morphology.html" class="methodname">morphology</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$morphologyMethod</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$iterations</code></span>
+   , <span class="methodparam"><span class="type"><a href="class.imagickkernel.html" class="type ImagickKernel">ImagickKernel</a></span> <code class="parameter">$ImagickKernel</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$CHANNEL</code></span>
+  ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">Imagick</span> <span class="methodname"><a href="imagick.mosaicimages.html" class="methodname">mosaicImages</a></span>
     ( <span class="methodparam">void</span>
@@ -1018,6 +1098,10 @@
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$fileName</code><span class="initializer"> = null</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">Imagick</span> <span class="methodname"><a href="imagick.readimages.html" class="methodname">readImages</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filenames</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.recolorimage.html" class="methodname">recolorImage</a></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$matrix</code></span>
    )</div>
@@ -1072,6 +1156,11 @@
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$degrees</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.rotationalblurimage.html" class="methodname">rotationalBlurImage</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$angle</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$CHANNEL</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.roundcorners.html" class="methodname">roundCorners</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$x_rounding</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$y_rounding</code></span>
@@ -1097,6 +1186,13 @@
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$smooth_threshold</code></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$verbose</code><span class="initializer"> = false</span></span>
   ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.selectiveblurimage.html" class="methodname">selectiveBlurImage</a></span>
+    ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$sigma</code></span>
+   , <span class="methodparam"><span class="type">float</span> <code class="parameter">$threshold</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$CHANNEL</code></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.separateimagechannel.html" class="methodname">separateImageChannel</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$channel</code></span>
@@ -1155,12 +1251,21 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.setimageattribute.html" class="methodname">setImageAttribute</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.setimagebackgroundcolor.html" class="methodname">setImageBackgroundColor</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$background</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.setimagebias.html" class="methodname">setImageBias</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$bias</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.setimagebiasquantum.html" class="methodname">setImageBiasQuantum</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$bias</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.setimageblueprimary.html" class="methodname">setImageBluePrimary</a></span>
@@ -1356,6 +1461,15 @@
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$point_size</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.setprogressmonitor.html" class="methodname">setProgressMonitor</a></span>
+    ( <span class="methodparam"><span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> <code class="parameter">$callback</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="modifier">static</span> <span class="type">void</span> <span class="methodname"><a href="imagick.setregistry.html" class="methodname">setRegistry</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$key</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.setresolution.html" class="methodname">setResolution</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$x_resolution</code></span>
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$y_resolution</code></span>
@@ -1428,6 +1542,11 @@
    , <span class="methodparam"><span class="type">float</span> <code class="parameter">$angle</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">Imagick</span> <span class="methodname"><a href="imagick.smushimages.html" class="methodname">smushImages</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$stack</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$offset</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.solarizeimage.html" class="methodname">solarizeImage</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$threshold</code></span>
    )</div>
@@ -1449,6 +1568,13 @@
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$radius</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="imagick.statisticimage.html" class="methodname">statisticImage</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$width</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$height</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$CHANNEL</code><span class="initializer"> = Imagick::CHANNEL_DEFAULT</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">Imagick</span> <span class="methodname"><a href="imagick.steganoimage.html" class="methodname">steganoImage</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <code class="parameter">$watermark_wand</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$offset</code></span>
@@ -1462,11 +1588,17 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">Imagick</span> <span class="methodname"><a href="imagick.subimagematch.html" class="methodname">subImageMatch</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <code class="parameter">$Imagick</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$offset</code></span>
+   [, <span class="methodparam"><span class="type">float</span> <code class="parameter reference">&$similarity</code></span>
+  ]] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.swirlimage.html" class="methodname">swirlImage</a></span>
     ( <span class="methodparam"><span class="type">float</span> <code class="parameter">$degrees</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="type">bool</span> <span class="methodname"><a href="imagick.textureimage.html" class="methodname">textureImage</a></span>
+   <span class="type">Imagick</span> <span class="methodname"><a href="imagick.textureimage.html" class="methodname">textureImage</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.imagick.html" class="type Imagick">Imagick</a></span> <code class="parameter">$texture_wand</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -1487,9 +1619,17 @@
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$opacity</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="type">string</span> <span class="methodname"><a href="imagick.tostring.html" class="methodname">__toString</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">Imagick</span> <span class="methodname"><a href="imagick.transformimage.html" class="methodname">transformImage</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$crop</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$geometry</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="imagick.transformimagecolorspace.html" class="methodname">transformImageColorspace</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$colorspace</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="imagick.transparentpaintimage.html" class="methodname">transparentPaintImage</a></span>
@@ -4669,7 +4809,216 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="imagick.adaptiveblurimage.html">Imagick::adaptiveBlurImage</a> — adaptive blur (順応性にじみ) フィルタを画像に追加する</li><li><a href="imagick.adaptiveresizeimage.html">Imagick::adaptiveResizeImage</a> — データに依存する三角測量にもとづいて画像のサイズを変更する</li><li><a href="imagick.adaptivesharpenimage.html">Imagick::adaptiveSharpenImage</a> — 順応して画像をシャープにする</li><li><a href="imagick.adaptivethresholdimage.html">Imagick::adaptiveThresholdImage</a> — 輝度の範囲にもとづいて各ピクセルの閾値を選択する</li><li><a href="imagick.addimage.html">Imagick::addImage</a> — 新しい画像を Imagick オブジェクトの画像リストに追加する</li><li><a href="imagick.addnoiseimage.html">Imagick::addNoiseImage</a> — ランダムなノイズを画像に追加する</li><li><a href="imagick.affinetransformimage.html">Imagick::affineTransformImage</a> — 画像を変換する</li><li><a href="imagick.animateimages.html">Imagick::animateImages</a> — 画像を動かす</li><li><a href="imagick.annotateimage.html">Imagick::annotateImage</a> — 画像にテキストによる注記を加える</li><li><a href="imagick.appendimages.html">Imagick::appendImages</a> — 画像群を追加する</li><li><a href="imagick.averageimages.html">Imagick::averageImages</a> — 画像群を平均化する</li><li><a href="imagick.blackthresholdimage.html">Imagick::blackThresholdImage</a> — 閾値に満たないすべてのピクセルを黒にする</li><li><a href="imagick.blurimage.html">Imagick::blurImage</a> — blur (にじみ) フィルタを画像に追加する</li><li><a href="imagick.borderimage.html">Imagick::borderImage</a> — 画像の周りを枠線で囲む</li><li><a href="imagick.charcoalimage.html">Imagick::charcoalImage</a> — 木炭画をシミュレートする</li><li><a href="imagick.chopimage.html">Imagick::chopImage</a> — 画像の一部を取り除き、切り詰める</li><li><a href="imagick.clear.html">Imagick::clear</a> — Imagick オブジェクトに関連付けられたすべてのリソースをクリアする</li><li><a href="imagick.clipimage.html">Imagick::clipImage</a> — 8BIM プロファイルの最初のパスにそって切り取る</li><li><a href="imagick.clippathimage.html">Imagick::clipPathImage</a> — 8BIM プロファイルの指定した名前のパスにそって切り取る</li><li><a href="imagick.clone.html">Imagick::clone</a> — Imagick オブジェクトの完全なコピーを作成する</li><li><a href="imagick.clutimage.html">Imagick::clutImage</a> — 画像の色を置き換える</li><li><a href="imagick.coalesceimages.html">Imagick::coalesceImages</a> — 複数の画像を合成する</li><li><a href="imagick.colorfloodfillimage.html">Imagick::colorFloodfillImage</a> — 対象にマッチする任意の点の色の値を変更する</li><li><a href="imagick.colorizeimage.html">Imagick::colorizeImage</a> — 塗りつぶし色と画像を混合する</li><li><a href="imagick.combineimages.html">Imagick::combineImages</a> — ひとつあるいは複数の画像をひとつにまとめる</li><li><a href="imagick.commentimage.html">Imagick::commentImage</a> — コメントを画像に追加する</li><li><a href="imagick.compareimagechannels.html">Imagick::compareImageChannels</a> — ひとつあるいは複数の画像の差を返す</li><li><a href="imagick.compareimagelayers.html">Imagick::compareImageLayers</a> — 複数の画像の中で最大の境界範囲を返す</li><li><a href="imagick.compareimages.html">Imagick::compareImages</a> — ある画像を再構築された画像と比較する</li><li><a href="imagick.compositeimage.html">Imagick::compositeImage</a> — ある画像を別の画像に合成する</li><li><a href="imagick.construct.html">Imagick::__construct</a> — Imagick のコンストラクタ</li><li><a href="imagick.contrastimage.html">Imagick::contrastImage</a> — 画像のコントラストを変更する</li><li><a href="imagick.contraststretchimage.html">Imagick::contrastStretchImage</a> — カラー画像のコントラストを強調する</li><li><a href="imagick.convolveimage.html">Imagick::convolveImage</a> — 独自の畳み込み関数を画像に適用する</li><li><a href="imagick.cropimage.html">Imagick::cropImage</a> — 画像の一部を抽出する</li><li><a href="imagick.cropthumbnailimage.html">Imagick::cropThumbnailImage</a> — 切り取ってサムネイルを作成する</li><li><a href="imagick.current.html">Imagick::current</a> — 現在の Imagick オブジェクトへの参照を返す</li><li><a href="imagick.cyclecolormapimage.html">Imagick::cycleColormapImage</a> — 画像のカラーマップを移動する</li><li><a href="imagick.decipherimage.html">Imagick::decipherImage</a> — 画像を復号する</li><li><a href="imagick.deconstructimages.html">Imagick::deconstructImages</a> — 画像間の特定のピクセルの差を返す</li><li><a href="imagick.deleteimageartifact.html">Imagick::deleteImageArtifact</a> — 画像のアーチファクトを削除する</li><li><a href="imagick.deskewimage.html">Imagick::deskewImage</a> — 傾きを除去する</li><li><a href="imagick.despeckleimage.html">Imagick::despeckleImage</a> — 画像内のスペックルノイズを軽減する</li><li><a href="imagick.destroy.html">Imagick::destroy</a> — Imagick オブジェクトを破棄する</li><li><a href="imagick.displayimage.html">Imagick::displayImage</a> — 画像を表示する</li><li><a href="imagick.displayimages.html">Imagick::displayImages</a> — 画像あるいは画像シーケンスを表示する</li><li><a href="imagick.distortimage.html">Imagick::distortImage</a> — さまざまな方式で画像を歪める</li><li><a href="imagick.drawimage.html">Imagick::drawImage</a> — 現在の画像上の ImagickDraw オブジェクトをレンダリングする</li><li><a href="imagick.edgeimage.html">Imagick::edgeImage</a> — 画像の輪郭を強調する</li><li><a href="imagick.embossimage.html">Imagick::embossImage</a> — グレースケール画像に三次元効果を施して返す</li><li><a href="imagick.encipherimage.html">Imagick::encipherImage</a> — 画像を暗号化する</li><li><a href="imagick.enhanceimage.html">Imagick::enhanceImage</a> — ノイジーな画像の品質を向上させる</li><li><a href="imagick.equalizeimage.html">Imagick::equalizeImage</a> — 画像ヒストグラムを均等化する</li><li><a href="imagick.evaluateimage.html">Imagick::evaluateImage</a> — 式を画像に適用する</li><li><a href="imagick.exportimagepixels.html">Imagick::exportImagePixels</a> — 画像の生のピクセルをエクスポートする</li><li><a href="imagick.extentimage.html">Imagick::extentImage</a> — 画像のサイズを設定する</li><li><a href="imagick.flattenimages.html">Imagick::flattenImages</a> — 画像シーケンスをマージする</li><li><a href="imagick.flipimage.html">Imagick::flipImage</a> — 垂直方向に反転した画像を作成する</li><li><a href="imagick.floodfillpaintimage.html">Imagick::floodFillPaintImage</a> — 対象にマッチする任意のピクセルの値を変更する</li><li><a href="imagick.flopimage.html">Imagick::flopImage</a> — 水平方向に反転した画像を作成する</li><li><a href="imagick.frameimage.html">Imagick::frameImage</a> — 三次元の枠線をシミュレートする</li><li><a href="imagick.functionimage.html">Imagick::functionImage</a> — 画像に関数を適用する</li><li><a href="imagick.fximage.html">Imagick::fxImage</a> — 式を画像の各ピクセルに適用する</li><li><a href="imagick.gammaimage.html">Imagick::gammaImage</a> — 画像をガンマ補正する</li><li><a href="imagick.gaussianblurimage.html">Imagick::gaussianBlurImage</a> — 画像をぼかす</li><li><a href="imagick.getcolorspace.html">Imagick::getColorspace</a> — 色空間を取得する</li><li><a href="imagick.getcompression.html">Imagick::getCompression</a> — オブジェクトの圧縮形式を取得する</li><li><a href="imagick.getcompressionquality.html">Imagick::getCompressionQuality</a> — オブジェクトの圧縮品質を取得する</li><li><a href="imagick.getcopyright.html">Imagick::getCopyright</a> — ImageMagick API の著作権情報を文字列で返す</li><li><a href="imagick.getfilename.html">Imagick::getFilename</a> — 画像シーケンスに関連付けられたファイル名を取得する</li><li><a href="imagick.getfont.html">Imagick::getFont</a> — フォントを取得する</li><li><a href="imagick.getformat.html">Imagick::getFormat</a> — Imagick オブジェクトのフォーマットを取得する</li><li><a href="imagick.getgravity.html">Imagick::getGravity</a> — gravity を取得する</li><li><a href="imagick.gethomeurl.html">Imagick::getHomeURL</a> — ImageMagick のホーム URL を返す</li><li><a href="imagick.getimage.html">Imagick::getImage</a> — 新しい Imagick オブジェクトを返す</li><li><a href="imagick.getimagealphachannel.html">Imagick::getImageAlphaChannel</a> — 画像のアルファチャネルを取得する</li><li><a href="imagick.getimageartifact.html">Imagick::getImageArtifact</a> — 画像のアーチファクトを取得する</li><li><a href="imagick.getimagebackgroundcolor.html">Imagick::getImageBackgroundColor</a> — 画像の背景色を返す</li><li><a href="imagick.getimageblob.html">Imagick::getImageBlob</a> — 画像シーケンスを blob で返す</li><li><a href="imagick.getimageblueprimary.html">Imagick::getImageBluePrimary</a> — 青が一番強い点を返す</li><li><a href="imagick.getimagebordercolor.html">Imagick::getImageBorderColor</a> — 画像の前景色を返す</li><li><a href="imagick.getimagechanneldepth.html">Imagick::getImageChannelDepth</a> — 特定の画像チャネルの深度を返す</li><li><a href="imagick.getimagechanneldistortion.html">Imagick::getImageChannelDistortion</a> — 画像のチャネルを再構築した画像と比較する</li><li><a href="imagick.getimagechanneldistortions.html">Imagick::getImageChannelDistortions</a> — チャネルの歪みを取得する</li><li><a href="imagick.getimagechannelextrema.html">Imagick::getImageChannelExtrema</a> — ひとつあるいは複数の画像チャネルの極値を取得する</li><li><a href="imagick.getimagechannelkurtosis.html">Imagick::getImageChannelKurtosis</a> — getImageChannelKurtosis</li><li><a href="imagick.getimagechannelmean.html">Imagick::getImageChannelMean</a> — 平均値と標準偏差を取得する</li><li><a href="imagick.getimagechannelrange.html">Imagick::getImageChannelRange</a> — チャネルの範囲を取得する</li><li><a href="imagick.getimagechannelstatistics.html">Imagick::getImageChannelStatistics</a> — 画像の各チャネルの統計情報を返す</li><li><a href="imagick.getimageclipmask.html">Imagick::getImageClipMask</a> — 画像のクリップマスクを取得する</li><li><a href="imagick.getimagecolormapcolor.html">Imagick::getImageColormapColor</a> — 指定したインデックスに対応する色マップ上の色を返す</li><li><a href="imagick.getimagecolors.html">Imagick::getImageColors</a> — 画像で使われている色の数を取得する</li><li><a href="imagick.getimagecolorspace.html">Imagick::getImageColorspace</a> — 画像の色空間を取得する</li><li><a href="imagick.getimagecompose.html">Imagick::getImageCompose</a> — 画像の合成演算子を返す</li><li><a href="imagick.getimagecompression.html">Imagick::getImageCompression</a> — 現在の画像の圧縮形式を取得する</li><li><a href="imagick.getimagecompressionquality.html">Imagick::getImageCompressionQuality</a> — 現在の画像の圧縮品質を取得する</li><li><a href="imagick.getimagedelay.html">Imagick::getImageDelay</a> — 画像の遅延を取得する</li><li><a href="imagick.getimagedepth.html">Imagick::getImageDepth</a> — 画像の深度を取得する</li><li><a href="imagick.getimagedispose.html">Imagick::getImageDispose</a> — 画像の配置方法を取得する</li><li><a href="imagick.getimagedistortion.html">Imagick::getImageDistortion</a> — ある画像と再構築した画像を比較する</li><li><a href="imagick.getimageextrema.html">Imagick::getImageExtrema</a> — 画像の極値を取得する</li><li><a href="imagick.getimagefilename.html">Imagick::getImageFilename</a> — シーケンス内の特定の画像のファイル名を返す</li><li><a href="imagick.getimageformat.html">Imagick::getImageFormat</a> — シーケンス内の特定の画像のフォーマットを返す</li><li><a href="imagick.getimagegamma.html">Imagick::getImageGamma</a> — 画像のガンマを取得する</li><li><a href="imagick.getimagegeometry.html">Imagick::getImageGeometry</a> — 幅と高さを連想配列で取得する</li><li><a href="imagick.getimagegravity.html">Imagick::getImageGravity</a> — 画像の gravity を取得する</li><li><a href="imagick.getimagegreenprimary.html">Imagick::getImageGreenPrimary</a> — 緑が一番強い点を返す</li><li><a href="imagick.getimageheight.html">Imagick::getImageHeight</a> — 画像の高さを返す</li><li><a href="imagick.getimagehistogram.html">Imagick::getImageHistogram</a> — 画像のヒストグラムを取得する</li><li><a href="imagick.getimageindex.html">Imagick::getImageIndex</a> — 現在アクティブな画像のインデックスを取得する</li><li><a href="imagick.getimageinterlacescheme.html">Imagick::getImageInterlaceScheme</a> — 画像のインターレース手法を取得する</li><li><a href="imagick.getimageinterpolatemethod.html">Imagick::getImageInterpolateMethod</a> — 画像の補間方式を返す</li><li><a href="imagick.getimageiterations.html">Imagick::getImageIterations</a> — 画像の反復を取得する</li><li><a href="imagick.getimagelength.html">Imagick::getImageLength</a> — 画像の長さをバイト数で取得する</li><li><a href="imagick.getimagemagicklicense.html">Imagick::getImageMagickLicense</a> — ImageMagick のライセンスを文字列で返す</li><li><a href="imagick.getimagematte.html">Imagick::getImageMatte</a> — 画像がマットチャネルを持っているかどうかを返す</li><li><a href="imagick.getimagemattecolor.html">Imagick::getImageMatteColor</a> — 画像のマット色を返す</li><li><a href="imagick.getimageorientation.html">Imagick::getImageOrientation</a> — 画像の方向を取得する</li><li><a href="imagick.getimagepage.html">Imagick::getImagePage</a> — ページのジオメトリを返す</li><li><a href="imagick.getimagepixelcolor.html">Imagick::getImagePixelColor</a> — 指定したピクセルの色を返す</li><li><a href="imagick.getimageprofile.html">Imagick::getImageProfile</a> — 指定した名前の画像プロファイルを返す</li><li><a href="imagick.getimageprofiles.html">Imagick::getImageProfiles</a> — 画像プロファイルを返す</li><li><a href="imagick.getimageproperties.html">Imagick::getImageProperties</a> — 画像のプロパティを返す</li><li><a href="imagick.getimageproperty.html">Imagick::getImageProperty</a> — 指定した名前の画像のプロパティを返す</li><li><a href="imagick.getimageredprimary.html">Imagick::getImageRedPrimary</a> — 赤が一番強い点を返す</li><li><a href="imagick.getimageregion.html">Imagick::getImageRegion</a> — 画像の一部を抽出する</li><li><a href="imagick.getimagerenderingintent.html">Imagick::getImageRenderingIntent</a> — 画像のレンダリング方向を取得する</li><li><a href="imagick.getimageresolution.html">Imagick::getImageResolution</a> — 画像の X 方向と Y 方向の解像度を取得する</li><li><a href="imagick.getimagesblob.html">Imagick::getImagesBlob</a> — すべての画像シーケンスを blob で返す</li><li><a href="imagick.getimagescene.html">Imagick::getImageScene</a> — 画像のシーンを取得する</li><li><a href="imagick.getimagesignature.html">Imagick::getImageSignature</a> — SHA-256 メッセージダイジェストを生成する</li><li><a href="imagick.getimagesize.html">Imagick::getImageSize</a> — 画像の長さをバイト数で返す</li><li><a href="imagick.getimagetickspersecond.html">Imagick::getImageTicksPerSecond</a> — 画像の ticks-per-second を取得する</li><li><a href="imagick.getimagetotalinkdensity.html">Imagick::getImageTotalInkDensity</a> — 画像の総インク密度を取得する</li><li><a href="imagick.getimagetype.html">Imagick::getImageType</a> — 画像の型を取得する</li><li><a href="imagick.getimageunits.html">Imagick::getImageUnits</a> — 画像の解像度の単位を取得する</li><li><a href="imagick.getimagevirtualpixelmethod.html">Imagick::getImageVirtualPixelMethod</a> — 仮想ピクセルメソッドを取得する</li><li><a href="imagick.getimagewhitepoint.html">Imagick::getImageWhitePoint</a> — 色度が白い点を返す</li><li><a href="imagick.getimagewidth.html">Imagick::getImageWidth</a> — 画像の幅を返す</li><li><a href="imagick.getinterlacescheme.html">Imagick::getInterlaceScheme</a> — オブジェクトのインターレース方式を取得する</li><li><a href="imagick.getiteratorindex.html">Imagick::getIteratorIndex</a> — 現在アクティブな画像のインデックスを取得する</li><li><a href="imagick.getnumberimages.html">Imagick::getNumberImages</a> — オブジェクト内の画像の数を返す</li><li><a href="imagick.getoption.html">Imagick::getOption</a> — 指定したキーに対応する値を返す</li><li><a href="imagick.getpackagename.html">Imagick::getPackageName</a> — ImageMagick パッケージ名を返す</li><li><a href="imagick.getpage.html">Imagick::getPage</a> — ページのジオメトリを返す</li><li><a href="imagick.getpixeliterator.html">Imagick::getPixelIterator</a> — MagickPixelIterator を返す</li><li><a href="imagick.getpixelregioniterator.html">Imagick::getPixelRegionIterator</a> — 画像セクションの ImagickPixelIterator を取得する</li><li><a href="imagick.getpointsize.html">Imagick::getPointSize</a> — ポイントサイズを取得する</li><li><a href="imagick.getquantumdepth.html">Imagick::getQuantumDepth</a> — quantum depth を取得する</li><li><a href="imagick.getquantumrange.html">Imagick::getQuantumRange</a> — Imagick quantum range を返す</li><li><a href="imagick.getreleasedate.html">Imagick::getReleaseDate</a> — ImageMagick のリリース日を返す</li><li><a href="imagick.getresource.html">Imagick::getResource</a> — 指定したリソースのメモリ使用状況を返す</li><li><a href="imagick.getresourcelimit.html">Imagick::getResourceLimit</a> — 指定したリソースの制限を返す</li><li><a href="imagick.getsamplingfactors.html">Imagick::getSamplingFactors</a> — 水平方向および垂直方向のサンプリング係数を取得する</li><li><a href="imagick.getsize.html">Imagick::getSize</a> — Imagick オブジェクトのサイズを取得する</li><li><a href="imagick.getsizeoffset.html">Imagick::getSizeOffset</a> — サイズのオフセットを返す</li><li><a href="imagick.getversion.html">Imagick::getVersion</a> — ImageMagick API のバージョンを返す</li><li><a href="imagick.haldclutimage.html">Imagick::haldClutImage</a> — 画像内の色を置換する</li><li><a href="imagick.hasnextimage.html">Imagick::hasNextImage</a> — オブジェクトが次の画像を保持しているかどうかを調べる</li><li><a href="imagick.haspreviousimage.html">Imagick::hasPreviousImage</a> — オブジェクトが前の画像を保持しているかどうかを調べる</li><li><a href="imagick.identifyimage.html">Imagick::identifyImage</a> — 画像を識別し、属性を取得する</li><li><a href="imagick.implodeimage.html">Imagick::implodeImage</a> — 新しい画像をコピーとして作成する</li><li><a href="imagick.importimagepixels.html">Imagick::importImagePixels</a> — 画像のピクセルをインポートする</li><li><a href="imagick.labelimage.html">Imagick::labelImage</a> — ラベルを画像に追加する</li><li><a href="imagick.levelimage.html">Imagick::levelImage</a> — 画像のレベルを調節する</li><li><a href="imagick.linearstretchimage.html">Imagick::linearStretchImage</a> — 画像の輝度を引き伸ばして飽和させる</li><li><a href="imagick.liquidrescaleimage.html">Imagick::liquidRescaleImage</a> — 画像を動かす</li><li><a href="imagick.magnifyimage.html">Imagick::magnifyImage</a> — 画像を 2 倍に比例拡大する</li><li><a href="imagick.mapimage.html">Imagick::mapImage</a> — 画像の色を、参照画像の中の最も近い色に置き換える</li><li><a href="imagick.mattefloodfillimage.html">Imagick::matteFloodfillImage</a> — 色の透明度を変更する</li><li><a href="imagick.medianfilterimage.html">Imagick::medianFilterImage</a> — デジタルフィルタを適用する</li><li><a href="imagick.mergeimagelayers.html">Imagick::mergeImageLayers</a> — 画像のレイヤーをマージする</li><li><a href="imagick.minifyimage.html">Imagick::minifyImage</a> — 画像をその半分のサイズに比例縮小する</li><li><a href="imagick.modulateimage.html">Imagick::modulateImage</a> — 明度、飽和度、色相を制御する</li><li><a href="imagick.montageimage.html">Imagick::montageImage</a> — 合成画像を作成する</li><li><a href="imagick.morphimages.html">Imagick::morphImages</a> — 複数の画像をモーフィングする</li><li><a href="imagick.mosaicimages.html">Imagick::mosaicImages</a> — 画像からモザイクを作成する</li><li><a href="imagick.motionblurimage.html">Imagick::motionBlurImage</a> — モーションブラーをシミュレートする</li><li><a href="imagick.negateimage.html">Imagick::negateImage</a> — 画像の色を打ち消す</li><li><a href="imagick.newimage.html">Imagick::newImage</a> — 新しい画像を作成する</li><li><a href="imagick.newpseudoimage.html">Imagick::newPseudoImage</a> — 新しい画像を作成する</li><li><a href="imagick.nextimage.html">Imagick::nextImage</a> — 次の画像に移動する</li><li><a href="imagick.normalizeimage.html">Imagick::normalizeImage</a> — カラー画像のコントラストを強調する</li><li><a href="imagick.oilpaintimage.html">Imagick::oilPaintImage</a> — 油絵をシミュレートする</li><li><a href="imagick.opaquepaintimage.html">Imagick::opaquePaintImage</a> — 対象にマッチする任意のピクセルの色を変更する</li><li><a href="imagick.optimizeimagelayers.html">Imagick::optimizeImageLayers</a> — 画像の繰り返し部分を削除して最適化する</li><li><a href="imagick.orderedposterizeimage.html">Imagick::orderedPosterizeImage</a> — 配列ディザリングを行う</li><li><a href="imagick.paintfloodfillimage.html">Imagick::paintFloodfillImage</a> — 色にマッチするピクセルを変更する</li><li><a href="imagick.paintopaqueimage.html">Imagick::paintOpaqueImage</a> — 色にマッチするピクセルを変更する</li><li><a href="imagick.painttransparentimage.html">Imagick::paintTransparentImage</a> — 色にマッチするピクセルを塗りつぶし色に変更する</li><li><a href="imagick.pingimage.html">Imagick::pingImage</a> — 画像の基本属性を取得する</li><li><a href="imagick.pingimageblob.html">Imagick::pingImageBlob</a> — 手早く属性を取得する</li><li><a href="imagick.pingimagefile.html">Imagick::pingImageFile</a> — 画像の基本属性を手軽に取得する</li><li><a href="imagick.polaroidimage.html">Imagick::polaroidImage</a> — ポラロイド写真をシミュレートする</li><li><a href="imagick.posterizeimage.html">Imagick::posterizeImage</a> — 指定した色数まで画像を減色する</li><li><a href="imagick.previewimages.html">Imagick::previewImages</a> — 画像処理用の適切なパラメータを手早く取得する</li><li><a href="imagick.previousimage.html">Imagick::previousImage</a> — オブジェクト内の前の画像に移動する</li><li><a href="imagick.profileimage.html">Imagick::profileImage</a> — 画像のプロファイルを追加あるいは削除する</li><li><a href="imagick.quantizeimage.html">Imagick::quantizeImage</a> — 参照画像内の色を解析する</li><li><a href="imagick.quantizeimages.html">Imagick::quantizeImages</a> — 画像シーケンス内の色を解析する</li><li><a href="imagick.queryfontmetrics.html">Imagick::queryFontMetrics</a> — フォントメトリクスを表す配列を返す</li><li><a href="imagick.queryfonts.html">Imagick::queryFonts</a> — 設定したフォントを返す</li><li><a href="imagick.queryformats.html">Imagick::queryFormats</a> — Imagick がサポートするフォーマットを返す</li><li><a href="imagick.radialblurimage.html">Imagick::radialBlurImage</a> — 画像にラジアルブラーを施す</li><li><a href="imagick.raiseimage.html">Imagick::raiseImage</a> — 三次元のボタン風の効果をシミュレートする</li><li><a href="imagick.randomthresholdimage.html">Imagick::randomThresholdImage</a> — コントラストの高い 2 色の画像を作成する</li><li><a href="imagick.readimage.html">Imagick::readImage</a> — ファイルから画像を読み込む</li><li><a href="imagick.readimageblob.html">Imagick::readImageBlob</a> — バイナリ文字列から画像を読み込む</li><li><a href="imagick.readimagefile.html">Imagick::readImageFile</a> — オープンしているファイルハンドルから画像を読み込む</li><li><a href="imagick.recolorimage.html">Imagick::recolorImage</a> — 画像の色を変更する</li><li><a href="imagick.reducenoiseimage.html">Imagick::reduceNoiseImage</a> — 画像の輪郭をなめらかにする</li><li><a href="imagick.remapimage.html">Imagick::remapImage</a> — 画像の色を再配置する</li><li><a href="imagick.removeimage.html">Imagick::removeImage</a> — 画像リストから画像を削除する</li><li><a href="imagick.removeimageprofile.html">Imagick::removeImageProfile</a> — 指定した名前の画像プロファイルを削除してそれを返す</li><li><a href="imagick.render.html">Imagick::render</a> — それまでのすべての描画コマンドをレンダリングする</li><li><a href="imagick.resampleimage.html">Imagick::resampleImage</a> — 画像を指定した解像度にリサンプリングする</li><li><a href="imagick.resetimagepage.html">Imagick::resetImagePage</a> — 画像のページをリセットする</li><li><a href="imagick.resizeimage.html">Imagick::resizeImage</a> — 画像のサイズを変更する</li><li><a href="imagick.rollimage.html">Imagick::rollImage</a> — 画像を補正する</li><li><a href="imagick.rotateimage.html">Imagick::rotateImage</a> — 画像を回転する</li><li><a href="imagick.roundcorners.html">Imagick::roundCorners</a> — 画像の角を丸める</li><li><a href="imagick.sampleimage.html">Imagick::sampleImage</a> — ピクセルのサンプリングによって画像の倍率を変更する</li><li><a href="imagick.scaleimage.html">Imagick::scaleImage</a> — 画像のサイズを変更する</li><li><a href="imagick.segmentimage.html">Imagick::segmentImage</a> — 画像を分割する</li><li><a href="imagick.separateimagechannel.html">Imagick::separateImageChannel</a> — 画像からチャネルを分離する</li><li><a href="imagick.sepiatoneimage.html">Imagick::sepiaToneImage</a> — 画像をセピア調にする</li><li><a href="imagick.setbackgroundcolor.html">Imagick::setBackgroundColor</a> — オブジェクトのデフォルト背景色を設定する</li><li><a href="imagick.setcolorspace.html">Imagick::setColorspace</a> — 色空間を設定する</li><li><a href="imagick.setcompression.html">Imagick::setCompression</a> — オブジェクトのデフォルトの圧縮方式を設定する</li><li><a href="imagick.setcompressionquality.html">Imagick::setCompressionQuality</a> — オブジェクトのデフォルトの圧縮品質を設定する</li><li><a href="imagick.setfilename.html">Imagick::setFilename</a> — 画像を読み書きする前にファイル名を設定する</li><li><a href="imagick.setfirstiterator.html">Imagick::setFirstIterator</a> — Imagick イテレータを最初の画像に設定する</li><li><a href="imagick.setfont.html">Imagick::setFont</a> — フォントを設定する</li><li><a href="imagick.setformat.html">Imagick::setFormat</a> — Imagick オブジェクトのフォーマットを設定する</li><li><a href="imagick.setgravity.html">Imagick::setGravity</a> — gravity を設定する</li><li><a href="imagick.setimage.html">Imagick::setImage</a> — オブジェクト内の画像を置き換える</li><li><a href="imagick.setimagealphachannel.html">Imagick::setImageAlphaChannel</a> — 画像のアルファチャネルを設定する</li><li><a href="imagick.setimageartifact.html">Imagick::setImageArtifact</a> — 画像のアーチファクトを設定する</li><li><a href="imagick.setimagebackgroundcolor.html">Imagick::setImageBackgroundColor</a> — 画像の背景色を設定する</li><li><a href="imagick.setimagebias.html">Imagick::setImageBias</a> — 画像を折りたたむ任意のメソッドについて画像のバイアスを設定する</li><li><a href="imagick.setimageblueprimary.html">Imagick::setImageBluePrimary</a> — 青が一番強い点を設定する</li><li><a href="imagick.setimagebordercolor.html">Imagick::setImageBorderColor</a> — 画像の前景色を設定する</li><li><a href="imagick.setimagechanneldepth.html">Imagick::setImageChannelDepth</a> — 特定の画像チャネルの深度を設定する</li><li><a href="imagick.setimageclipmask.html">Imagick::setImageClipMask</a> — 画像のクリップマスクを設定する</li><li><a href="imagick.setimagecolormapcolor.html">Imagick::setImageColormapColor</a> — 指定した色マップインデックスの色を設定する</li><li><a href="imagick.setimagecolorspace.html">Imagick::setImageColorspace</a> — 画像の色空間を設定する</li><li><a href="imagick.setimagecompose.html">Imagick::setImageCompose</a> — 画像の合成演算子を設定する</li><li><a href="imagick.setimagecompression.html">Imagick::setImageCompression</a> — 画像の圧縮を設定する</li><li><a href="imagick.setimagecompressionquality.html">Imagick::setImageCompressionQuality</a> — 画像の圧縮品質を設定する</li><li><a href="imagick.setimagedelay.html">Imagick::setImageDelay</a> — 画像の遅延を設定する</li><li><a href="imagick.setimagedepth.html">Imagick::setImageDepth</a> — 画像の深度を設定する</li><li><a href="imagick.setimagedispose.html">Imagick::setImageDispose</a> — 画像の配置方法を設定する</li><li><a href="imagick.setimageextent.html">Imagick::setImageExtent</a> — 画像のサイズを設定する</li><li><a href="imagick.setimagefilename.html">Imagick::setImageFilename</a> — 特定の画像のファイル名を設定する</li><li><a href="imagick.setimageformat.html">Imagick::setImageFormat</a> — 特定の画像のフォーマットを設定する</li><li><a href="imagick.setimagegamma.html">Imagick::setImageGamma</a> — 画像のガンマを設定する</li><li><a href="imagick.setimagegravity.html">Imagick::setImageGravity</a> — 画像の gravity を設定する</li><li><a href="imagick.setimagegreenprimary.html">Imagick::setImageGreenPrimary</a> — 緑が一番強い点を設定する</li><li><a href="imagick.setimageindex.html">Imagick::setImageIndex</a> — イテレータの位置を設定する</li><li><a href="imagick.setimageinterlacescheme.html">Imagick::setImageInterlaceScheme</a> — 画像のインターレース手法を設定する</li><li><a href="imagick.setimageinterpolatemethod.html">Imagick::setImageInterpolateMethod</a> — 画像のピクセル補間方式を設定する</li><li><a href="imagick.setimageiterations.html">Imagick::setImageIterations</a> — 画像の反復を設定する</li><li><a href="imagick.setimagematte.html">Imagick::setImageMatte</a> — 画像のマットチャネルを設定する</li><li><a href="imagick.setimagemattecolor.html">Imagick::setImageMatteColor</a> — 画像のマット色を設定する</li><li><a href="imagick.setimageopacity.html">Imagick::setImageOpacity</a> — 画像の不透明度を設定する</li><li><a href="imagick.setimageorientation.html">Imagick::setImageOrientation</a> — 画像の方向を設定する</li><li><a href="imagick.setimagepage.html">Imagick::setImagePage</a> — 画像のページのジオメトリを設定する</li><li><a href="imagick.setimageprofile.html">Imagick::setImageProfile</a> — 指定した名前の画像プロファイルを Imagick オブジェクトに追加する</li><li><a href="imagick.setimageproperty.html">Imagick::setImageProperty</a> — 画像のプロパティを設定する</li><li><a href="imagick.setimageredprimary.html">Imagick::setImageRedPrimary</a> — 赤が一番強い点を設定する</li><li><a href="imagick.setimagerenderingintent.html">Imagick::setImageRenderingIntent</a> — 画像のレンダリング方向を設定する</li><li><a href="imagick.setimageresolution.html">Imagick::setImageResolution</a> — 画像の解像度を設定する</li><li><a href="imagick.setimagescene.html">Imagick::setImageScene</a> — 画像のシーンを設定する</li><li><a href="imagick.setimagetickspersecond.html">Imagick::setImageTicksPerSecond</a> — 画像の ticks-per-second を設定する</li><li><a href="imagick.setimagetype.html">Imagick::setImageType</a> — 画像の型を設定する</li><li><a href="imagick.setimageunits.html">Imagick::setImageUnits</a> — 画像の解像度の単位を設定する</li><li><a href="imagick.setimagevirtualpixelmethod.html">Imagick::setImageVirtualPixelMethod</a> — 画像の仮想ピクセルメソッドを設定する</li><li><a href="imagick.setimagewhitepoint.html">Imagick::setImageWhitePoint</a> — 画像の色度が白い点を設定する</li><li><a href="imagick.setinterlacescheme.html">Imagick::setInterlaceScheme</a> — 画像の圧縮を設定する</li><li><a href="imagick.setiteratorindex.html">Imagick::setIteratorIndex</a> — イテレータの位置を設定する</li><li><a href="imagick.setlastiterator.html">Imagick::setLastIterator</a> — Imagick イテレータを最後の画像に設定する</li><li><a href="imagick.setoption.html">Imagick::setOption</a> — オプションを設定する</li><li><a href="imagick.setpage.html">Imagick::setPage</a> — Imagick オブジェクトのページジオメトリを設定する</li><li><a href="imagick.setpointsize.html">Imagick::setPointSize</a> — ポイントサイズを設定する</li><li><a href="imagick.setresolution.html">Imagick::setResolution</a> — 画像の解像度を設定する</li><li><a href="imagick.setresourcelimit.html">Imagick::setResourceLimit</a> — 特定のリソースの制限をメガバイト単位で設定する</li><li><a href="imagick.setsamplingfactors.html">Imagick::setSamplingFactors</a> — 画像のサンプリング係数を設定する</li><li><a href="imagick.setsize.html">Imagick::setSize</a> — Imagick オブジェクトのサイズを設定する</li><li><a href="imagick.setsizeoffset.html">Imagick::setSizeOffset</a> — Imagick オブジェクトのサイズのオフセットを設定する</li><li><a href="imagick.settype.html">Imagick::setType</a> — 画像タイプ属性を設定する</li><li><a href="imagick.shadeimage.html">Imagick::shadeImage</a> — 3D 効果を作成する</li><li><a href="imagick.shadowimage.html">Imagick::shadowImage</a> — 画像の影をシミュレートする</li><li><a href="imagick.sharpenimage.html">Imagick::sharpenImage</a> — 画像をシャープにする</li><li><a href="imagick.shaveimage.html">Imagick::shaveImage</a> — 画像の輪郭からピクセルを刈り取る</li><li><a href="imagick.shearimage.html">Imagick::shearImage</a> — 平行四辺形を作成する</li><li><a href="imagick.sigmoidalcontrastimage.html">Imagick::sigmoidalContrastImage</a> — 画像のコントラストを調整する</li><li><a href="imagick.sketchimage.html">Imagick::sketchImage</a> — 鉛筆画をシミュレートする</li><li><a href="imagick.solarizeimage.html">Imagick::solarizeImage</a> — 画像にソラリゼーション効果を適用する</li><li><a href="imagick.sparsecolorimage.html">Imagick::sparseColorImage</a> — 色を補間する</li><li><a href="imagick.spliceimage.html">Imagick::spliceImage</a> — 無地の画像を作成する</li><li><a href="imagick.spreadimage.html">Imagick::spreadImage</a> — ブロック内の各ピクセルをランダムに移動する</li><li><a href="imagick.steganoimage.html">Imagick::steganoImage</a> — デジタル透かしを画像に埋め込む</li><li><a href="imagick.stereoimage.html">Imagick::stereoImage</a> — ふたつの画像を合成する</li><li><a href="imagick.stripimage.html">Imagick::stripImage</a> — 画像からすべてのプロパティやコメントを除去する</li><li><a href="imagick.swirlimage.html">Imagick::swirlImage</a> — 画像の中心から、ピクセルを渦巻状にする</li><li><a href="imagick.textureimage.html">Imagick::textureImage</a> — テクスチャ画像をタイル状に並べる</li><li><a href="imagick.thresholdimage.html">Imagick::thresholdImage</a> — 閾値にもとづいて個々のピクセルの値を変更する</li><li><a href="imagick.thumbnailimage.html">Imagick::thumbnailImage</a> — 画像のサイズを変更する</li><li><a href="imagick.tintimage.html">Imagick::tintImage</a> — 色ベクトルを画像の各ピクセルに適用する</li><li><a href="imagick.transformimage.html">Imagick::transformImage</a> — 切り取るサイズと画像のジオメトリを設定する便利なメソッド</li><li><a href="imagick.transparentpaintimage.html">Imagick::transparentPaintImage</a> — ピクセルを透過させる</li><li><a href="imagick.transposeimage.html">Imagick::transposeImage</a> — 垂直方向に反転させた画像を作成する</li><li><a href="imagick.transverseimage.html">Imagick::transverseImage</a> — 水平方向に反転させた画像を作成する</li><li><a href="imagick.trimimage.html">Imagick::trimImage</a> — 画像の輪郭を削除する</li><li><a href="imagick.uniqueimagecolors.html">Imagick::uniqueImageColors</a> — ある 1 色以外のすべての色のピクセルを削除する</li><li><a href="imagick.unsharpmaskimage.html">Imagick::unsharpMaskImage</a> — 画像をシャープにする</li><li><a href="imagick.valid.html">Imagick::valid</a> — 現在のアイテムが有効かどうかを調べる</li><li><a href="imagick.vignetteimage.html">Imagick::vignetteImage</a> — ビネットフィルタを画像に追加する</li><li><a href="imagick.waveimage.html">Imagick::waveImage</a> — ウェーブフィルタを画像に適用する</li><li><a href="imagick.whitethresholdimage.html">Imagick::whiteThresholdImage</a> — 閾値に満たないすべてのピクセルを白にする</li><li><a href="imagick.writeimage.html">Imagick::writeImage</a> — 指定した名前で画像を書き込む</li><li><a href="imagick.writeimagefile.html">Imagick::writeImageFile</a> — 画像をファイルハンドルに書き出す</li><li><a href="imagick.writeimages.html">Imagick::writeImages</a> — 画像あるいは画像シーケンスを書き込む</li><li><a href="imagick.writeimagesfile.html">Imagick::writeImagesFile</a> — フレームをファイルハンドルに書き出す</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="imagick.adaptiveblurimage.html">Imagick::adaptiveBlurImage</a> — adaptive blur (順応性にじみ) フィルタを画像に追加する</li><li><a href="imagick.adaptiveresizeimage.html">Imagick::adaptiveResizeImage</a> — データに依存する三角測量にもとづいて画像のサイズを変更する</li><li><a href="imagick.adaptivesharpenimage.html">Imagick::adaptiveSharpenImage</a> — 順応して画像をシャープにする</li><li><a href="imagick.adaptivethresholdimage.html">Imagick::adaptiveThresholdImage</a> — 輝度の範囲にもとづいて各ピクセルの閾値を選択する</li><li><a href="imagick.addimage.html">Imagick::addImage</a> — 新しい画像を Imagick オブジェクトの画像リストに追加する</li><li><a href="imagick.addnoiseimage.html">Imagick::addNoiseImage</a> — ランダムなノイズを画像に追加する</li><li><a href="imagick.affinetransformimage.html">Imagick::affineTransformImage</a> — 画像を変換する</li><li><a href="imagick.animateimages.html">Imagick::animateImages</a> — 画像を動かす</li><li><a href="imagick.annotateimage.html">Imagick::annotateImage</a> — 画像にテキストによる注記を加える</li><li><a href="imagick.appendimages.html">Imagick::appendImages</a> — 画像群を追加する</li><li><a href="imagick.autolevelimage.html">Imagick::autoLevelImage</a> — Description</li><li><a href="imagick.averageimages.html">Imagick::averageImages</a> — 画像群を平均化する</li><li><a href="imagick.blackthresholdimage.html">Imagick::blackThresholdImage</a> — 閾値に満たないすべてのピクセルを黒にする</li><li><a href="imagick.blueshiftimage.html">Imagick::blueShiftImage</a> — Description</li><li><a href="imagick.blurimage.html">Imagick::blurImage</a> — blur (にじみ) フィルタを画像に追加する</li><li><a href="imagick.borderimage.html">Imagick::borderImage</a> — 画像の周りを枠線で囲む</li><li><a href="imagick.brightnesscontrastimage.html">Imagick::brightnessContrastImage</a> — Description</li><li><a href="imagick.charcoalimage.html">Imagick::charcoalImage</a> — 木炭画をシミュレートする</li><li><a href="imagick.chopimage.html">Imagick::chopImage</a> — 画像の一部を取り除き、切り詰める</li><li><a href="imagick.clampimage.html">Imagick::clampImage</a> — Description</li><li><a href="imagick.clear.html">Imagick::clear</a> — Imagick オブジェクトに関連付けられたすべてのリソースをクリアする</li><li><a href="imagick.clipimage.html">Imagick::clipImage</a> — 8BIM プロファイルの最初のパスにそって切り取る</li><li><a href="imagick.clipimagepath.html">Imagick::clipImagePath</a> — Description</li><li><a href="imagick.clippathimage.html">Imagick::clipPathImage</a> — 8BIM プロファイルの指定した名前のパスにそって切り取る</li><li><a href="imagick.clone.html">Imagick::clone</a> — Imagick オブジェクトの完全なコピーを作成する</li><li><a href="imagick.clutimage.html">Imagick::clutImage</a> — 画像の色を置き換える</li><li><a href="imagick.coalesceimages.html">Imagick::coalesceImages</a> — 複数の画像を合成する</li><li><a href="imagick.colorfloodfillimage.html">Imagick::colorFloodfillImage</a> — 対象にマッチする任意の点の色の値を変更する</li><li><a href="imagick.colorizeimage.html">Imagick::colorizeImage</a> — 塗りつぶし色と画像を混合する</li><li><a href="imagick.colormatriximage.html">Imagick::colorMatrixImage</a> — Description</li><li><a href="imagick.combineimages.html">Imagick::combineImages</a> — ひとつあるいは複数の画像をひとつにまとめる</li><li><a href="imagick.commentimage.html">Imagick::commentImage</a> — コメントを画像に追加する</li><li><a href="imagick.compareimagechannels.html">Imagick::compareImageChannels</a> — ひとつあるいは複数の画像の差を返す</li><li><a href="imagick.compareimagelayers.html">Imagick::compareImageLayers</a> — 複数の画像の中で最大の境界範囲を返す</li><li><a href="imagick.compareimages.html">Imagick::compareImages</a> — ある画像を再構築された画像と比較する</li><li><a href="imagick.compositeimage.html">Imagick::compositeImage</a> — ある画像を別の画像に合成する</li><li><a href="imagick.construct.html">Imagick::__construct</a> — Imagick のコンストラクタ</li><li><a href="imagick.contrastimage.html">Imagick::contrastImage</a> — 画像のコントラストを変更する</li><li><a href="imagick.contraststretchimage.html">Imagick::contrastStretchImage</a> — カラー画像のコントラストを強調する</li><li><a href="imagick.convolveimage.html">Imagick::convolveImage</a> — 独自の畳み込み関数を画像に適用する</li><li><a href="imagick.count.html">Imagick::count</a> — Description</li><li><a href="imagick.cropimage.html">Imagick::cropImage</a> — 画像の一部を抽出する</li><li><a href="imagick.cropthumbnailimage.html">Imagick::cropThumbnailImage</a> — 切り取ってサムネイルを作成する</li><li><a href="imagick.current.html">Imagick::current</a> — 現在の Imagick オブジェクトへの参照を返す</li><li><a href="imagick.cyclecolormapimage.html">Imagick::cycleColormapImage</a> — 画像のカラーマップを移動する</li><li><a href="imagick.decipherimage.html">Imagick::decipherImage</a> — 画像を復号する</li><li><a href="imagick.deconstructimages.html">Imagick::deconstructImages</a> — 画像間の特定のピクセルの差を返す</li><li><a href="imagick.deleteimageartifact.html">Imagick::deleteImageArtifact</a> — 画像のアーチファクトを削除する</li><li><a href="imagick.deleteimageproperty.html">Imagick::deleteImageProperty</a> — Description</li><li><a href="imagick.deskewimage.html">Imagick::deskewImage</a> — 傾きを除去する</li><li><a href="imagick.despeckleimage.html">Imagick::despeckleImage</a> — 画像内のスペックルノイズを軽減する</li><li><a href="imagick.destroy.html">Imagick::destroy</a> — Imagick オブジェクトを破棄する</li><li><a href="imagick.displayimage.html">Imagick::displayImage</a> — 画像を表示する</li><li><a href="imagick.displayimages.html">Imagick::displayImages</a> — 画像あるいは画像シーケンスを表示する</li><li><a href="imagick.distortimage.html">Imagick::distortImage</a> — さまざまな方式で画像を歪める</li><li><a href="imagick.drawimage.html">Imagick::drawImage</a> — 現在の画像上の ImagickDraw オブジェクトをレンダリングする</li><li><a href="imagick.edgeimage.html">Imagick::edgeImage</a> — 画像の輪郭を強調する</li><li><a href="imagick.embossimage.html">Imagick::embossImage</a> — グレースケール画像に三次元効果を施して返す</li><li><a href="imagick.encipherimage.html">Imagick::encipherImage</a> — 画像を暗号化する</li><li><a href="imagick.enhanceimage.html">Imagick::enhanceImage</a> — ノイジーな画像の品質を向上させる</li><li><a href="imagick.equalizeimage.html">Imagick::equalizeImage</a> — 画像ヒストグラムを均等化する</li><li><a href="imagick.evaluateimage.html">Imagick::evaluateImage</a> — 式を画像に適用する</li><li><a href="imagick.exportimagepixels.html">Imagick::exportImagePixels</a> — 画像の生のピクセルをエクスポートする</li><li><a href="imagick.extentimage.html">Imagick::extentImage</a> — 画像のサイズを設定する</li><li><a href="imagick.filter.html">Imagick::filter</a> — Description</li><li><a href="imagick.flattenimages.html">Imagick::flattenImages</a> — 画像シーケンスをマージする</li><li><a href="imagick.flipimage.html">Imagick::flipImage</a> — 垂直方向に反転した画像を作成する</li><li><a href="imagick.floodfillpaintimage.html">Imagick::floodFillPaintImage</a> — 対象にマッチする任意のピクセルの値を変更する</li><li><a href="imagick.flopimage.html">Imagick::flopImage</a> — 水平方向に反転した画像を作成する</li><li><a href="imagick.forwardfouriertransformimage.html">Imagick::forwardFourierTransformImage</a> — Description</li><li><a href="imagick.frameimage.html">Imagick::frameImage</a> — 三次元の枠線をシミュレートする</li><li><a href="imagick.functionimage.html">Imagick::functionImage</a> — 画像に関数を適用する</li><li><a href="imagick.fximage.html">Imagick::fxImage</a> — 式を画像の各ピクセルに適用する</li><li><a href="imagick.gammaimage.html">Imagick::gammaImage</a> — 画像をガンマ補正する</li><li><a href="imagick.gaussianblurimage.html">Imagick::gaussianBlurImage</a> — 画像をぼかす</li><li><a href="imagick.getcolorspace.html">Imagick::getColorspace</a> — 色空間を取得する</li><li><a href="imagick.getcompression.html">Imagick::getCompression</a> — オブジェクトの圧縮形式を取得する</li><li><a href="imagick.getcompressionquality.html">Imagick::getCompressionQuality</a> — オブジェクトの圧縮品質を取得する</li><li><a href="imagick.getcopyright.html">Imagick::getCopyright</a> — ImageMagick API の著作権情報を文字列で返す</li><li><a href="imagick.getfilename.html">Imagick::getFilename</a> — 画像シーケンスに関連付けられたファイル名を取得する</li><li><a href="imagick.getfont.html">Imagick::getFont</a> — フォントを取得する</li><li><a href="imagick.getformat.html">Imagick::getFormat</a> — Imagick オブジェクトのフォーマットを取得する</li><li><a href="imagick.getgravity.html">Imagick::getGravity</a> — gravity を取得する</li><li><a href="imagick.gethomeurl.html">Imagick::getHomeURL</a> — ImageMagick のホーム URL を返す</li><li><a href="imagick.getimage.html">Imagick::getImage</a> — 新しい Imagick オブジェクトを返す</li><li><a href="imagick.getimagealphachannel.html">Imagick::getImageAlphaChannel</a> — 画像のアルファチャネルを取得する</li><li><a href="imagick.getimageartifact.html">Imagick::getImageArtifact</a> — 画像のアーチファクトを取得する</li><li><a href="imagick.getimageattribute.html">Imagick::getImageAttribute</a> — Description</li><li><a href="imagick.getimagebackgroundcolor.html">Imagick::getImageBackgroundColor</a> — 画像の背景色を返す</li><li><a href="imagick.getimageblob.html">Imagick::getImageBlob</a> — 画像シーケンスを blob で返す</li><li><a href="imagick.getimageblueprimary.html">Imagick::getImageBluePrimary</a> — 青が一番強い点を返す</li><li><a href="imagick.getimagebordercolor.html">Imagick::getImageBorderColor</a> — 画像の前景色を返す</li><li><a href="imagick.getimagechanneldepth.html">Imagick::getImageChannelDepth</a> — 特定の画像チャネルの深度を返す</li><li><a href="imagick.getimagechanneldistortion.html">Imagick::getImageChannelDistortion</a> — 画像のチャネルを再構築した画像と比較する</li><li><a href="imagick.getimagechanneldistortions.html">Imagick::getImageChannelDistortions</a> — チャネルの歪みを取得する</li><li><a href="imagick.getimagechannelextrema.html">Imagick::getImageChannelExtrema</a> — ひとつあるいは複数の画像チャネルの極値を取得する</li><li><a href="imagick.getimagechannelkurtosis.html">Imagick::getImageChannelKurtosis</a> — getImageChannelKurtosis</li><li><a href="imagick.getimagechannelmean.html">Imagick::getImageChannelMean</a> — 平均値と標準偏差を取得する</li><li><a href="imagick.getimagechannelrange.html">Imagick::getImageChannelRange</a> — チャネルの範囲を取得する</li><li><a href="imagick.getimagechannelstatistics.html">Imagick::getImageChannelStatistics</a> — 画像の各チャネルの統計情報を返す</li><li><a href="imagick.getimageclipmask.html">Imagick::getImageClipMask</a> — 画像のクリップマスクを取得する</li><li><a href="imagick.getimagecolormapcolor.html">Imagick::getImageColormapColor</a> — 指定したインデックスに対応する色マップ上の色を返す</li><li><a href="imagick.getimagecolors.html">Imagick::getImageColors</a> — 画像で使われている色の数を取得する</li><li><a href="imagick.getimagecolorspace.html">Imagick::getImageColorspace</a> — 画像の色空間を取得する</li><li><a href="imagick.getimagecompose.html">Imagick::getImageCompose</a> — 画像の合成演算子を返す</li><li><a href="imagick.getimagecompression.html">Imagick::getImageCompression</a> — 現在の画像の圧縮形式を取得する</li><li><a href="imagick.getimagecompressionquality.html">Imagick::getImageCompressionQuality</a> — 現在の画像の圧縮品質を取得する</li><li><a href="imagick.getimagedelay.html">Imagick::getImageDelay</a> — 画像の遅延を取得する</li><li><a href="imagick.getimagedepth.html">Imagick::getImageDepth</a> — 画像の深度を取得する</li><li><a href="imagick.getimagedispose.html">Imagick::getImageDispose</a> — 画像の配置方法を取得する</li><li><a href="imagick.getimagedistortion.html">Imagick::getImageDistortion</a> — ある画像と再構築した画像を比較する</li><li><a href="imagick.getimageextrema.html">Imagick::getImageExtrema</a> — 画像の極値を取得する</li><li><a href="imagick.getimagefilename.html">Imagick::getImageFilename</a> — シーケンス内の特定の画像のファイル名を返す</li><li><a href="imagick.getimageformat.html">Imagick::getImageFormat</a> — シーケンス内の特定の画像のフォーマットを返す</li><li><a href="imagick.getimagegamma.html">Imagick::getImageGamma</a> — 画像のガンマを取得する</li><li><a href="imagick.getimagegeometry.html">Imagick::getImageGeometry</a> — 幅と高さを連想配列で取得する</li><li><a href="imagick.getimagegravity.html">Imagick::getImageGravity</a> — 画像の gravity を取得する</li><li><a href="imagick.getimagegreenprimary.html">Imagick::getImageGreenPrimary</a> — 緑が一番強い点を返す</li><li><a href="imagick.getimageheight.html">Imagick::getImageHeight</a> — 画像の高さを返す</li><li><a href="imagick.getimagehistogram.html">Imagick::getImageHistogram</a> — 画像のヒストグラムを取得する</li><li><a href="imagick.getimageindex.html">Imagick::getImageIndex</a> — 現在アクティブな画像のインデックスを取得する</li><li><a href="imagick.getimageinterlacescheme.html">Imagick::getImageInterlaceScheme</a> — 画像のインターレース手法を取得する</li><li><a href="imagick.getimageinterpolatemethod.html">Imagick::getImageInterpolateMethod</a> — 画像の補間方式を返す</li><li><a href="imagick.getimageiterations.html">Imagick::getImageIterations</a> — 画像の反復を取得する</li><li><a href="imagick.getimagelength.html">Imagick::getImageLength</a> — 画像の長さをバイト数で取得する</li><li><a href="imagick.getimagemagicklicense.html">Imagick::getImageMagickLicense</a> — ImageMagick のライセンスを文字列で返す</li><li><a href="imagick.getimagematte.html">Imagick::getImageMatte</a> — 画像がマットチャネルを持っているかどうかを返す</li><li><a href="imagick.getimagemattecolor.html">Imagick::getImageMatteColor</a> — 画像のマット色を返す</li><li><a href="imagick.getimagemimetype.html">Imagick::getImageMimeType</a> — Description</li><li><a href="imagick.getimageorientation.html">Imagick::getImageOrientation</a> — 画像の方向を取得する</li><li><a href="imagick.getimagepage.html">Imagick::getImagePage</a> — ページのジオメトリを返す</li><li><a href="imagick.getimagepixelcolor.html">Imagick::getImagePixelColor</a> — 指定したピクセルの色を返す</li><li><a href="imagick.getimageprofile.html">Imagick::getImageProfile</a> — 指定した名前の画像プロファイルを返す</li><li><a href="imagick.getimageprofiles.html">Imagick::getImageProfiles</a> — 画像プロファイルを返す</li><li><a href="imagick.getimageproperties.html">Imagick::getImageProperties</a> — 画像のプロパティを返す</li><li><a href="imagick.getimageproperty.html">Imagick::getImageProperty</a> — 指定した名前の画像のプロパティを返す</li><li><a href="imagick.getimageredprimary.html">Imagick::getImageRedPrimary</a> — 赤が一番強い点を返す</li><li><a href="imagick.getimageregion.html">Imagick::getImageRegion</a> — 画像の一部を抽出する</li><li><a href="imagick.getimagerenderingintent.html">Imagick::getImageRenderingIntent</a> — 画像のレンダリング方向を取得する</li><li><a href="imagick.getimageresolution.html">Imagick::getImageResolution</a> — 画像の X 方向と Y 方向の解像度を取得する</li><li><a href="imagick.getimagesblob.html">Imagick::getImagesBlob</a> — すべての画像シーケンスを blob で返す</li><li><a href="imagick.getimagescene.html">Imagick::getImageScene</a> — 画像のシーンを取得する</li><li><a href="imagick.getimagesignature.html">Imagick::getImageSignature</a> — SHA-256 メッセージダイジェストを生成する</li><li><a href="imagick.getimagesize.html">Imagick::getImageSize</a> — 画像の長さをバイト数で返す</li><li><a href="imagick.getimagetickspersecond.html">Imagick::getImageTicksPerSecond</a> — 画像の ticks-per-second を取得する</li><li><a href="imagick.getimagetotalinkdensity.html">Imagick::getImageTotalInkDensity</a> — 画像の総インク密度を取得する</li><li><a href="imagick.getimagetype.html">Imagick::getImageType</a> — 画像の型を取得する</li><li><a href="imagick.getimageunits.html">Imagick::getImageUnits</a> — 画像の解像度の単位を取得する</li><li><a href="imagick.getimagevirtualpixelmethod.html">Imagick::getImageVirtualPixelMethod</a> — 仮想ピクセルメソッドを取得する</li><li><a href="imagick.getimagewhitepoint.html">Imagick::getImageWhitePoint</a> — 色度が白い点を返す</li><li><a href="imagick.getimagewidth.html">Imagick::getImageWidth</a> — 画像の幅を返す</li><li><a href="imagick.getinterlacescheme.html">Imagick::getInterlaceScheme</a> — オブジェクトのインターレース方式を取得する</li><li><a href="imagick.getiteratorindex.html">Imagick::getIteratorIndex</a> — 現在アクティブな画像のインデックスを取得する</li><li><a href="imagick.getnumberimages.html">Imagick::getNumberImages</a> — オブジェクト内の画像の数を返す</li><li><a href="imagick.getoption.html">Imagick::getOption</a> — 指定したキーに対応する値を返す</li><li><a href="imagick.getpackagename.html">Imagick::getPackageName</a> — ImageMagick パッケージ名を返す</li><li><a href="imagick.getpage.html">Imagick::getPage</a> — ページのジオメトリを返す</li><li><a href="imagick.getpixeliterator.html">Imagick::getPixelIterator</a> — MagickPixelIterator を返す</li><li><a href="imagick.getpixelregioniterator.html">Imagick::getPixelRegionIterator</a> — 画像セクションの ImagickPixelIterator を取得する</li><li><a href="imagick.getpointsize.html">Imagick::getPointSize</a> — ポイントサイズを取得する</li><li><a href="imagick.getquantum.html">Imagick::getQuantum</a> — Description</li><li><a href="imagick.getquantumdepth.html">Imagick::getQuantumDepth</a> — quantum depth を取得する</li><li><a href="imagick.getquantumrange.html">Imagick::getQuantumRange</a> — Imagick quantum range を返す</li><li><a href="imagick.getregistry.html">Imagick::getRegistry</a> — Description</li><li><a href="imagick.getreleasedate.html">Imagick::getReleaseDate</a> — ImageMagick のリリース日を返す</li><li><a href="imagick.getresource.html">Imagick::getResource</a> — 指定したリソースのメモリ使用状況を返す</li><li><a href="imagick.getresourcelimit.html">Imagick::getResourceLimit</a> — 指定したリソースの制限を返す</li><li><a href="imagick.getsamplingfactors.html">Imagick::getSamplingFactors</a> — 水平方向および垂直方向のサンプリング係数を取得する</li><li><a href="imagick.getsize.html">Imagick::getSize</a> — Returns the size associated with the Imagick object</li><li><a href="imagick.getsizeoffset.html">Imagick::getSizeOffset</a> — サイズのオフセットを返す</li><li><a href="imagick.getversion.html">Imagick::getVersion</a> — ImageMagick API のバージョンを返す</li><li><a href="imagick.haldclutimage.html">Imagick::haldClutImage</a> — 画像内の色を置換する</li><li><a href="imagick.hasnextimage.html">Imagick::hasNextImage</a> — オブジェクトが次の画像を保持しているかどうかを調べる</li><li><a href="imagick.haspreviousimage.html">Imagick::hasPreviousImage</a> — オブジェクトが前の画像を保持しているかどうかを調べる</li><li><a href="imagick.identifyformat.html">Imagick::identifyFormat</a> — Description</li><li><a href="imagick.identifyimage.html">Imagick::identifyImage</a> — 画像を識別し、属性を取得する</li><li><a href="imagick.implodeimage.html">Imagick::implodeImage</a> — 新しい画像をコピーとして作成する</li><li><a href="imagick.importimagepixels.html">Imagick::importImagePixels</a> — 画像のピクセルをインポートする</li><li><a href="imagick.inversefouriertransformimage.html">Imagick::inverseFourierTransformImage</a> — Description</li><li><a href="imagick.labelimage.html">Imagick::labelImage</a> — ラベルを画像に追加する</li><li><a href="imagick.levelimage.html">Imagick::levelImage</a> — 画像のレベルを調節する</li><li><a href="imagick.linearstretchimage.html">Imagick::linearStretchImage</a> — 画像の輝度を引き伸ばして飽和させる</li><li><a href="imagick.liquidrescaleimage.html">Imagick::liquidRescaleImage</a> — 画像を動かす</li><li><a href="imagick.listregistry.html">Imagick::listRegistry</a> — Description</li><li><a href="imagick.magnifyimage.html">Imagick::magnifyImage</a> — 画像を 2 倍に比例拡大する</li><li><a href="imagick.mapimage.html">Imagick::mapImage</a> — 画像の色を、参照画像の中の最も近い色に置き換える</li><li><a href="imagick.mattefloodfillimage.html">Imagick::matteFloodfillImage</a> — 色の透明度を変更する</li><li><a href="imagick.medianfilterimage.html">Imagick::medianFilterImage</a> — デジタルフィルタを適用する</li><li><a href="imagick.mergeimagelayers.html">Imagick::mergeImageLayers</a> — 画像のレイヤーをマージする</li><li><a href="imagick.minifyimage.html">Imagick::minifyImage</a> — 画像をその半分のサイズに比例縮小する</li><li><a href="imagick.modulateimage.html">Imagick::modulateImage</a> — 明度、飽和度、色相を制御する</li><li><a href="imagick.montageimage.html">Imagick::montageImage</a> — 合成画像を作成する</li><li><a href="imagick.morphimages.html">Imagick::morphImages</a> — 複数の画像をモーフィングする</li><li><a href="imagick.morphology.html">Imagick::morphology</a> — Description</li><li><a href="imagick.mosaicimages.html">Imagick::mosaicImages</a> — 画像からモザイクを作成する</li><li><a href="imagick.motionblurimage.html">Imagick::motionBlurImage</a> — モーションブラーをシミュレートする</li><li><a href="imagick.negateimage.html">Imagick::negateImage</a> — 画像の色を打ち消す</li><li><a href="imagick.newimage.html">Imagick::newImage</a> — 新しい画像を作成する</li><li><a href="imagick.newpseudoimage.html">Imagick::newPseudoImage</a> — 新しい画像を作成する</li><li><a href="imagick.nextimage.html">Imagick::nextImage</a> — 次の画像に移動する</li><li><a href="imagick.normalizeimage.html">Imagick::normalizeImage</a> — カラー画像のコントラストを強調する</li><li><a href="imagick.oilpaintimage.html">Imagick::oilPaintImage</a> — 油絵をシミュレートする</li><li><a href="imagick.opaquepaintimage.html">Imagick::opaquePaintImage</a> — 対象にマッチする任意のピクセルの色を変更する</li><li><a href="imagick.optimizeimagelayers.html">Imagick::optimizeImageLayers</a> — 画像の繰り返し部分を削除して最適化する</li><li><a href="imagick.orderedposterizeimage.html">Imagick::orderedPosterizeImage</a> — 配列ディザリングを行う</li><li><a href="imagick.paintfloodfillimage.html">Imagick::paintFloodfillImage</a> — 色にマッチするピクセルを変更する</li><li><a href="imagick.paintopaqueimage.html">Imagick::paintOpaqueImage</a> — 色にマッチするピクセルを変更する</li><li><a href="imagick.painttransparentimage.html">Imagick::paintTransparentImage</a> — 色にマッチするピクセルを塗りつぶし色に変更する</li><li><a href="imagick.pingimage.html">Imagick::pingImage</a> — 画像の基本属性を取得する</li><li><a href="imagick.pingimageblob.html">Imagick::pingImageBlob</a> — 手早く属性を取得する</li><li><a href="imagick.pingimagefile.html">Imagick::pingImageFile</a> — 画像の基本属性を手軽に取得する</li><li><a href="imagick.polaroidimage.html">Imagick::polaroidImage</a> — ポラロイド写真をシミュレートする</li><li><a href="imagick.posterizeimage.html">Imagick::posterizeImage</a> — 指定した色数まで画像を減色する</li><li><a href="imagick.previewimages.html">Imagick::previewImages</a> — 画像処理用の適切なパラメータを手早く取得する</li><li><a href="imagick.previousimage.html">Imagick::previousImage</a> — オブジェクト内の前の画像に移動する</li><li><a href="imagick.profileimage.html">Imagick::profileImage</a> — 画像のプロファイルを追加あるいは削除する</li><li><a href="imagick.quantizeimage.html">Imagick::quantizeImage</a> — 参照画像内の色を解析する</li><li><a href="imagick.quantizeimages.html">Imagick::quantizeImages</a> — 画像シーケンス内の色を解析する</li><li><a href="imagick.queryfontmetrics.html">Imagick::queryFontMetrics</a> — フォントメトリクスを表す配列を返す</li><li><a href="imagick.queryfonts.html">Imagick::queryFonts</a> — 設定したフォントを返す</li><li><a href="imagick.queryformats.html">Imagick::queryFormats</a> — Imagick がサポートするフォーマットを返す</li><li><a href="imagick.radialblurimage.html">Imagick::radialBlurImage</a> — 画像にラジアルブラーを施す</li><li><a href="imagick.raiseimage.html">Imagick::raiseImage</a> — 三次元のボタン風の効果をシミュレートする</li><li><a href="imagick.randomthresholdimage.html">Imagick::randomThresholdImage</a> — コントラストの高い 2 色の画像を作成する</li><li><a href="imagick.readimage.html">Imagick::readImage</a> — ファイルから画像を読み込む</li><li><a href="imagick.readimageblob.html">Imagick::readImageBlob</a> — バイナリ文字列から画像を読み込む</li><li><a href="imagick.readimagefile.html">Imagick::readImageFile</a> — オープンしているファイルハンドルから画像を読み込む</li><li><a href="imagick.readimages.html">Imagick::readimages</a> — Description</li><li><a href="imagick.recolorimage.html">Imagick::recolorImage</a> — 画像の色を変更する</li><li><a href="imagick.reducenoiseimage.html">Imagick::reduceNoiseImage</a> — 画像の輪郭をなめらかにする</li><li><a href="imagick.remapimage.html">Imagick::remapImage</a> — 画像の色を再配置する</li><li><a href="imagick.removeimage.html">Imagick::removeImage</a> — 画像リストから画像を削除する</li><li><a href="imagick.removeimageprofile.html">Imagick::removeImageProfile</a> — 指定した名前の画像プロファイルを削除してそれを返す</li><li><a href="imagick.render.html">Imagick::render</a> — それまでのすべての描画コマンドをレンダリングする</li><li><a href="imagick.resampleimage.html">Imagick::resampleImage</a> — 画像を指定した解像度にリサンプリングする</li><li><a href="imagick.resetimagepage.html">Imagick::resetImagePage</a> — 画像のページをリセットする</li><li><a href="imagick.resizeimage.html">Imagick::resizeImage</a> — 画像のサイズを変更する</li><li><a href="imagick.rollimage.html">Imagick::rollImage</a> — 画像を補正する</li><li><a href="imagick.rotateimage.html">Imagick::rotateImage</a> — 画像を回転する</li><li><a href="imagick.rotationalblurimage.html">Imagick::rotationalBlurImage</a> — Description</li><li><a href="imagick.roundcorners.html">Imagick::roundCorners</a> — 画像の角を丸める</li><li><a href="imagick.sampleimage.html">Imagick::sampleImage</a> — ピクセルのサンプリングによって画像の倍率を変更する</li><li><a href="imagick.scaleimage.html">Imagick::scaleImage</a> — 画像のサイズを変更する</li><li><a href="imagick.segmentimage.html">Imagick::segmentImage</a> — 画像を分割する</li><li><a href="imagick.selectiveblurimage.html">Imagick::selectiveBlurImage</a> — Description</li><li><a href="imagick.separateimagechannel.html">Imagick::separateImageChannel</a> — 画像からチャネルを分離する</li><li><a href="imagick.sepiatoneimage.html">Imagick::sepiaToneImage</a> — 画像をセピア調にする</li><li><a href="imagick.setbackgroundcolor.html">Imagick::setBackgroundColor</a> — オブジェクトのデフォルト背景色を設定する</li><li><a href="imagick.setcolorspace.html">Imagick::setColorspace</a> — 色空間を設定する</li><li><a href="imagick.setcompression.html">Imagick::setCompression</a> — オブジェクトのデフォルトの圧縮方式を設定する</li><li><a href="imagick.setcompressionquality.html">Imagick::setCompressionQuality</a> — オブジェクトのデフォルトの圧縮品質を設定する</li><li><a href="imagick.setfilename.html">Imagick::setFilename</a> — 画像を読み書きする前にファイル名を設定する</li><li><a href="imagick.setfirstiterator.html">Imagick::setFirstIterator</a> — Imagick イテレータを最初の画像に設定する</li><li><a href="imagick.setfont.html">Imagick::setFont</a> — フォントを設定する</li><li><a href="imagick.setformat.html">Imagick::setFormat</a> — Imagick オブジェクトのフォーマットを設定する</li><li><a href="imagick.setgravity.html">Imagick::setGravity</a> — gravity を設定する</li><li><a href="imagick.setimage.html">Imagick::setImage</a> — オブジェクト内の画像を置き換える</li><li><a href="imagick.setimagealphachannel.html">Imagick::setImageAlphaChannel</a> — 画像のアルファチャネルを設定する</li><li><a href="imagick.setimageartifact.html">Imagick::setImageArtifact</a> — 画像のアーチファクトを設定する</li><li><a href="imagick.setimageattribute.html">Imagick::setImageAttribute</a> — Description</li><li><a href="imagick.setimagebackgroundcolor.html">Imagick::setImageBackgroundColor</a> — 画像の背景色を設定する</li><li><a href="imagick.setimagebias.html">Imagick::setImageBias</a> — 画像を折りたたむ任意のメソッドについて画像のバイアスを設定する</li><li><a href="imagick.setimagebiasquantum.html">Imagick::setImageBiasQuantum</a> — Description</li><li><a href="imagick.setimageblueprimary.html">Imagick::setImageBluePrimary</a> — 青が一番強い点を設定する</li><li><a href="imagick.setimagebordercolor.html">Imagick::setImageBorderColor</a> — 画像の前景色を設定する</li><li><a href="imagick.setimagechanneldepth.html">Imagick::setImageChannelDepth</a> — 特定の画像チャネルの深度を設定する</li><li><a href="imagick.setimageclipmask.html">Imagick::setImageClipMask</a> — 画像のクリップマスクを設定する</li><li><a href="imagick.setimagecolormapcolor.html">Imagick::setImageColormapColor</a> — 指定した色マップインデックスの色を設定する</li><li><a href="imagick.setimagecolorspace.html">Imagick::setImageColorspace</a> — 画像の色空間を設定する</li><li><a href="imagick.setimagecompose.html">Imagick::setImageCompose</a> — 画像の合成演算子を設定する</li><li><a href="imagick.setimagecompression.html">Imagick::setImageCompression</a> — 画像の圧縮を設定する</li><li><a href="imagick.setimagecompressionquality.html">Imagick::setImageCompressionQuality</a> — 画像の圧縮品質を設定する</li><li><a href="imagick.setimagedelay.html">Imagick::setImageDelay</a> — 画像の遅延を設定する</li><li><a href="imagick.setimagedepth.html">Imagick::setImageDepth</a> — 画像の深度を設定する</li><li><a href="imagick.setimagedispose.html">Imagick::setImageDispose</a> — 画像の配置方法を設定する</li><li><a href="imagick.setimageextent.html">Imagick::setImageExtent</a> — 画像のサイズを設定する</li><li><a href="imagick.setimagefilename.html">Imagick::setImageFilename</a> — 特定の画像のファイル名を設定する</li><li><a href="imagick.setimageformat.html">Imagick::setImageFormat</a> — 特定の画像のフォーマットを設定する</li><li><a href="imagick.setimagegamma.html">Imagick::setImageGamma</a> — 画像のガンマを設定する</li><li><a href="imagick.setimagegravity.html">Imagick::setImageGravity</a> — 画像の gravity を設定する</li><li><a href="imagick.setimagegreenprimary.html">Imagick::setImageGreenPrimary</a> — 緑が一番強い点を設定する</li><li><a href="imagick.setimageindex.html">Imagick::setImageIndex</a> — イテレータの位置を設定する</li><li><a href="imagick.setimageinterlacescheme.html">Imagick::setImageInterlaceScheme</a> — 画像のインターレース手法を設定する</li><li><a href="imagick.setimageinterpolatemethod.html">Imagick::setImageInterpolateMethod</a> — 画像のピクセル補間方式を設定する</li><li><a href="imagick.setimageiterations.html">Imagick::setImageIterations</a> — 画像の反復を設定する</li><li><a href="imagick.setimagematte.html">Imagick::setImageMatte</a> — 画像のマットチャネルを設定する</li><li><a href="imagick.setimagemattecolor.html">Imagick::setImageMatteColor</a> — 画像のマット色を設定する</li><li><a href="imagick.setimageopacity.html">Imagick::setImageOpacity</a> — 画像の不透明度を設定する</li><li><a href="imagick.setimageorientation.html">Imagick::setImageOrientation</a> — 画像の方向を設定する</li><li><a href="imagick.setimagepage.html">Imagick::setImagePage</a> — 画像のページのジオメトリを設定する</li><li><a href="imagick.setimageprofile.html">Imagick::setImageProfile</a> — 指定した名前の画像プロファイルを Imagick オブジェクトに追加する</li><li><a href="imagick.setimageproperty.html">Imagick::setImageProperty</a> — 画像のプロパティを設定する</li><li><a href="imagick.setimageredprimary.html">Imagick::setImageRedPrimary</a> — 赤が一番強い点を設定する</li><li><a href="imagick.setimagerenderingintent.html">Imagick::setImageRenderingIntent</a> — 画像のレンダリング方向を設定する</li><li><a href="imagick.setimageresolution.html">Imagick::setImageResolution</a> — 画像の解像度を設定する</li><li><a href="imagick.setimagescene.html">Imagick::setImageScene</a> — 画像のシーンを設定する</li><li><a href="imagick.setimagetickspersecond.html">Imagick::setImageTicksPerSecond</a> — 画像の ticks-per-second を設定する</li><li><a href="imagick.setimagetype.html">Imagick::setImageType</a> — 画像の型を設定する</li><li><a href="imagick.setimageunits.html">Imagick::setImageUnits</a> — 画像の解像度の単位を設定する</li><li><a href="imagick.setimagevirtualpixelmethod.html">Imagick::setImageVirtualPixelMethod</a> — 画像の仮想ピクセルメソッドを設定する</li><li><a href="imagick.setimagewhitepoint.html">Imagick::setImageWhitePoint</a> — 画像の色度が白い点を設定する</li><li><a href="imagick.setinterlacescheme.html">Imagick::setInterlaceScheme</a> — 画像の圧縮を設定する</li><li><a href="imagick.setiteratorindex.html">Imagick::setIteratorIndex</a> — イテレータの位置を設定する</li><li><a href="imagick.setlastiterator.html">Imagick::setLastIterator</a> — Imagick イテレータを最後の画像に設定する</li><li><a href="imagick.setoption.html">Imagick::setOption</a> — オプションを設定する</li><li><a href="imagick.setpage.html">Imagick::setPage</a> — Imagick オブジェクトのページジオメトリを設定する</li><li><a href="imagick.setpointsize.html">Imagick::setPointSize</a> — ポイントサイズを設定する</li><li><a href="imagick.setprogressmonitor.html">Imagick::setProgressMonitor</a> — Description</li><li><a href="imagick.setregistry.html">Imagick::setRegistry</a> — Description</li><li><a href="imagick.setresolution.html">Imagick::setResolution</a> — 画像の解像度を設定する</li><li><a href="imagick.setresourcelimit.html">Imagick::setResourceLimit</a> — 特定のリソースの制限をメガバイト単位で設定する</li><li><a href="imagick.setsamplingfactors.html">Imagick::setSamplingFactors</a> — 画像のサンプリング係数を設定する</li><li><a href="imagick.setsize.html">Imagick::setSize</a> — Imagick オブジェクトのサイズを設定する</li><li><a href="imagick.setsizeoffset.html">Imagick::setSizeOffset</a> — Imagick オブジェクトのサイズのオフセットを設定する</li><li><a href="imagick.settype.html">Imagick::setType</a> — 画像タイプ属性を設定する</li><li><a href="imagick.shadeimage.html">Imagick::shadeImage</a> — 3D 効果を作成する</li><li><a href="imagick.shadowimage.html">Imagick::shadowImage</a> — 画像の影をシミュレートする</li><li><a href="imagick.sharpenimage.html">Imagick::sharpenImage</a> — 画像をシャープにする</li><li><a href="imagick.shaveimage.html">Imagick::shaveImage</a> — 画像の輪郭からピクセルを刈り取る</li><li><a href="imagick.shearimage.html">Imagick::shearImage</a> — 平行四辺形を作成する</li><li><a href="imagick.sigmoidalcontrastimage.html">Imagick::sigmoidalContrastImage</a> — 画像のコントラストを調整する</li><li><a href="imagick.sketchimage.html">Imagick::sketchImage</a> — 鉛筆画をシミュレートする</li><li><a href="imagick.smushimages.html">Imagick::smushImages</a> — Description</li><li><a href="imagick.solarizeimage.html">Imagick::solarizeImage</a> — 画像にソラリゼーション効果を適用する</li><li><a href="imagick.sparsecolorimage.html">Imagick::sparseColorImage</a> — 色を補間する</li><li><a href="imagick.spliceimage.html">Imagick::spliceImage</a> — 無地の画像を作成する</li><li><a href="imagick.spreadimage.html">Imagick::spreadImage</a> — ブロック内の各ピクセルをランダムに移動する</li><li><a href="imagick.statisticimage.html">Imagick::statisticImage</a> — Description</li><li><a href="imagick.steganoimage.html">Imagick::steganoImage</a> — デジタル透かしを画像に埋め込む</li><li><a href="imagick.stereoimage.html">Imagick::stereoImage</a> — ふたつの画像を合成する</li><li><a href="imagick.stripimage.html">Imagick::stripImage</a> — 画像からすべてのプロパティやコメントを除去する</li><li><a href="imagick.subimagematch.html">Imagick::subImageMatch</a> — Description</li><li><a href="imagick.swirlimage.html">Imagick::swirlImage</a> — 画像の中心から、ピクセルを渦巻状にする</li><li><a href="imagick.textureimage.html">Imagick::textureImage</a> — テクスチャ画像をタイル状に並べる</li><li><a href="imagick.thresholdimage.html">Imagick::thresholdImage</a> — 閾値にもとづいて個々のピクセルの値を変更する</li><li><a href="imagick.thumbnailimage.html">Imagick::thumbnailImage</a> — 画像のサイズを変更する</li><li><a href="imagick.tintimage.html">Imagick::tintImage</a> — 色ベクトルを画像の各ピクセルに適用する</li><li><a href="imagick.tostring.html">Imagick::__toString</a> — Returns the image as a string.</li><li><a href="imagick.transformimage.html">Imagick::transformImage</a> — 切り取るサイズと画像のジオメトリを設定する便利なメソッド</li><li><a href="imagick.transformimagecolorspace.html">Imagick::transformImageColorspace</a> — Transforms an image to a new colorspace.</li><li><a href="imagick.transparentpaintimage.html">Imagick::transparentPaintImage</a> — ピクセルを透過させる</li><li><a href="imagick.transposeimage.html">Imagick::transposeImage</a> — 垂直方向に反転させた画像を作成する</li><li><a href="imagick.transverseimage.html">Imagick::transverseImage</a> — 水平方向に反転させた画像を作成する</li><li><a href="imagick.trimimage.html">Imagick::trimImage</a> — 画像の輪郭を削除する</li><li><a href="imagick.uniqueimagecolors.html">Imagick::uniqueImageColors</a> — ある 1 色以外のすべての色のピクセルを削除する</li><li><a href="imagick.unsharpmaskimage.html">Imagick::unsharpMaskImage</a> — 画像をシャープにする</li><li><a href="imagick.valid.html">Imagick::valid</a> — 現在のアイテムが有効かどうかを調べる</li><li><a href="imagick.vignetteimage.html">Imagick::vignetteImage</a> — ビネットフィルタを画像に追加する</li><li><a href="imagick.waveimage.html">Imagick::waveImage</a> — ウェーブフィルタを画像に適用する</li><li><a href="imagick.whitethresholdimage.html">Imagick::whiteThresholdImage</a> — 閾値に満たないすべてのピクセルを白にする</li><li><a href="imagick.writeimage.html">Imagick::writeImage</a> — 指定した名前で画像を書き込む</li><li><a href="imagick.writeimagefile.html">Imagick::writeImageFile</a> — 画像をファイルハンドルに書き出す</li><li><a href="imagick.writeimages.html">Imagick::writeImages</a> — 画像あるいは画像シーケンスを書き込む</li><li><a href="imagick.writeimagesfile.html">Imagick::writeImagesFile</a> — フレームをファイルハンドルに書き出す</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="imagick.examples-1.html">基本的な使用法</a></div>

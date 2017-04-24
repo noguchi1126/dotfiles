@@ -17,6 +17,17 @@
 
  </div>
 
+ <div id="mongoid.tostring-soft-deprecation-notice" class="soft-deprecation-notice">
+  <blockquote class="sidebar">
+   <p class="para">このメソッドを定義している拡張モジュールは非推奨です。
+かわりに <a href="set.mongodb.html" class="link">MongoDB</a> 拡張モジュールを使うべきです。
+このメソッドの代替として、以下が使えます。</p>
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="mongodb-bson-objectid.tostring.html" class="methodname">MongoDB\BSON\ObjectID::__toString()</a></span></li>
+   </ul>
+  </blockquote>
+ </div>
+
  <div class="refsect1 description" id="refsect1-mongoid.tostring-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -43,7 +54,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongoid.tostring-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1501">
+  <div class="example" id="example-1608">
    <p><strong>例1 <span class="function"><strong>MongoId::__toString()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

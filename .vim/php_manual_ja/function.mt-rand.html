@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mt-rand" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mt_rand</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mt_rand</span> &mdash; <span class="dc-title">よりよい乱数値を生成する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mt_rand</span> &mdash; <span class="dc-title">よりよい乱数値を生成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.mt-rand-description">
@@ -46,6 +46,7 @@
    例えば、5 から 15 まで(端点を含む)の間の乱数値を得たい場合には
    <em>mt_rand(5, 15)</em> としてください。
   </p>
+  <div class="caution"><strong class="caution">警告</strong><p class="para">この関数が生成する値は、暗号学的に安全ではありません。そのため、これを暗号として使ってはいけません。暗号学的に安全な値が必要な場合は、<span class="function"><a href="function.random-int.html" class="function">random_int()</a></span> か <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> あるいは <span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span> を使いましょう。</p></div>
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.mt-rand-parameters">
@@ -115,9 +116,6 @@
        </td>
       </tr>
 
-      <tr><td>4.2.0</td><td>
-乱数生成器が自動的にシードを生成するようになりました。</td></tr>
-
      </tbody>
     
    </table>
@@ -128,7 +126,7 @@
  <div class="refsect1 examples" id="refsect1-function.mt-rand-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3485">
+   <div class="example" id="example-4017">
     <p><strong>例1 <span class="function"><strong>mt_rand()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -152,13 +150,15 @@
 
  <div class="refsect1 notes" id="refsect1-function.mt-rand-notes">
   <h3 class="title">注意</h3>
-  <div class="caution"><strong class="caution">警告</strong><p class="para">この関数が生成する値は、暗号学的に安全ではありません。そのため、これを暗号として使ってはいけません。暗号学的に安全な値が必要な場合は、<span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span> を使いましょう。</p></div>
-  <div class="caution"><strong class="caution">警告</strong>
+  <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
-    64 ビット版の PHP で
-    <code class="parameter">max</code> を <em>2^32</em>
-    より大きくすると、<span class="function"><strong>mt_rand()</strong></span>
-    の返り値の分布にバイアスがかかり、偶数よりになります。
+    <code class="parameter">min</code> から <code class="parameter">max</code>
+    までの幅を <span class="function"><a href="function.mt-getrandmax.html" class="function">mt_getrandmax()</a></span> の範囲内におさめる必要があります。
+    つまり、(<code class="parameter">max</code> -
+    <code class="parameter">min</code>) &lt;= <span class="function"><a href="function.mt-getrandmax.html" class="function">mt_getrandmax()</a></span>
+    でなければいけないということです。この範囲をこえてしまうと、
+    <span class="function"><strong>mt_rand()</strong></span> が返す値のランダム性が、
+    本来あるべき姿よりも低くなってしまいます。
    </p>
   </div>
  </div>
@@ -169,6 +169,8 @@
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.mt-srand.html" class="function" rel="rdfs-seeAlso">mt_srand()</a> - 改良型乱数生成器にシードを指定する</span></li>
     <li class="member"><span class="function"><a href="function.mt-getrandmax.html" class="function" rel="rdfs-seeAlso">mt_getrandmax()</a> - 乱数値の最大値を表示する</span></li>
+    <li class="member"><span class="function"><a href="function.random-int.html" class="function" rel="rdfs-seeAlso">random_int()</a> - Generates cryptographically secure pseudo-random integers</span></li>
+    <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Generates cryptographically secure pseudo-random bytes</span></li>
     <li class="member"><span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function" rel="rdfs-seeAlso">openssl_random_pseudo_bytes()</a> - 疑似乱数のバイト文字列を生成する</span></li>
     <li class="member"><span class="function"><a href="function.rand.html" class="function" rel="rdfs-seeAlso">rand()</a> - 乱数を生成する</span></li>
    </ul>

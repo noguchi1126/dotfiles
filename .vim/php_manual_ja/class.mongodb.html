@@ -23,7 +23,7 @@
    <p class="para">
     このクラスのインスタンスを使用してデータベースとのやりとりを行います。
     データベースを取得するには、このようにします。
-    <div class="example" id="example-1415">
+    <div class="example" id="example-1504">
      <p><strong>例1 データベースの選択</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -112,7 +112,8 @@
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongodb.command.html" class="methodname">command</a></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$command</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter reference">&$hash</code></span>
+  ]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongodb.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.mongoclient.html" class="type MongoClient">MongoClient</a></span> <code class="parameter">$conn</code></span>
@@ -150,8 +151,12 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongodb.getcollectioninfo.html" class="methodname">getCollectionInfo</a></span>
+    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongodb.getcollectionnames.html" class="methodname">getCollectionNames</a></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$includeSystemCollections</code><span class="initializer"> = false</span></span>
+    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongodb.getdbref.html" class="methodname">getDBRef</a></span>
@@ -183,7 +188,7 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongodb.listcollections.html" class="methodname">listCollections</a></span>
-    ([ <span class="methodparam"><span class="type">bool</span> <code class="parameter">$includeSystemCollections</code><span class="initializer"> = false</span></span>
+    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="mongodb.preverror.html" class="methodname">prevError</a></span>
@@ -358,7 +363,7 @@
   <div class="section">
    <h2 class="title">参考</h2>
    <p class="para">
-    MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/reference/glossary/#term-database" class="link external">&raquo;&nbsp;データベース</a>
+    MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/reference/glossary/#term-database" class="link external">&raquo;&nbsp;データベース</a>
     を参照ください。
    </p>
   </div>
@@ -427,6 +432,12 @@
 
  
 
+
+
+
+
+
+ 
 
 
 
@@ -565,7 +576,7 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb.authenticate.html">MongoDB::authenticate</a> — このデータベースにログインする</li><li><a href="mongodb.command.html">MongoDB::command</a> — データベースコマンドを実行する</li><li><a href="mongodb.construct.html">MongoDB::__construct</a> — 新しいデータベースを作成する</li><li><a href="mongodb.createcollection.html">MongoDB::createCollection</a> — コレクションを作成する</li><li><a href="mongodb.createdbref.html">MongoDB::createDBRef</a> — データベース参照を作成する</li><li><a href="mongodb.drop.html">MongoDB::drop</a> — このデータベースを削除する</li><li><a href="mongodb.dropcollection.html">MongoDB::dropCollection</a> — コレクションを削除する [非推奨]</li><li><a href="mongodb.execute.html">MongoDB::execute</a> — JavaScript コードをデータベースサーバー上で実行する</li><li><a href="mongodb.forceerror.html">MongoDB::forceError</a> — データベースのエラーを作成する</li><li><a href="mongodb.get.html">MongoDB::__get</a> — コレクションを取得する</li><li><a href="mongodb.getcollectionnames.html">MongoDB::getCollectionNames</a> — このデータベースのすべてのコレクションを取得する</li><li><a href="mongodb.getdbref.html">MongoDB::getDBRef</a> — データベース参照が指すドキュメントを取得する</li><li><a href="mongodb.getgridfs.html">MongoDB::getGridFS</a> — このデータベースに格納されているファイルを扱うためのツールキットを取得する</li><li><a href="mongodb.getprofilinglevel.html">MongoDB::getProfilingLevel</a> — このデータベースのプロファイリングレベルを取得する</li><li><a href="mongodb.getreadpreference.html">MongoDB::getReadPreference</a> — このデータベースの優先読み込みを取得する</li><li><a href="mongodb.getslaveokay.html">MongoDB::getSlaveOkay</a> — このデータベースの slaveOkay 設定を取得する</li><li><a href="mongodb.getwriteconcern.html">MongoDB::getWriteConcern</a> — Get the write concern for this database</li><li><a href="mongodb.lasterror.html">MongoDB::lastError</a> — 直近のデータベース操作でエラーが発生したかどうかを調べる</li><li><a href="mongodb.listcollections.html">MongoDB::listCollections</a> — このデータベース内のすべての MongoCollection の配列を取得する</li><li><a href="mongodb.preverror.html">MongoDB::prevError</a> — データベース操作中の直近に発生したエラーを調べる</li><li><a href="mongodb.repair.html">MongoDB::repair</a> — このデータベースを修復・圧縮する</li><li><a href="mongodb.reseterror.html">MongoDB::resetError</a> — データベースで発生したすべてのエラーをクリアする</li><li><a href="mongodb.selectcollection.html">MongoDB::selectCollection</a> — コレクションを取得する</li><li><a href="mongodb.setprofilinglevel.html">MongoDB::setProfilingLevel</a> — このデータベースのプロファイリングレベルを設定する</li><li><a href="mongodb.setreadpreference.html">MongoDB::setReadPreference</a> — このデータベースの優先読み込みを設定する</li><li><a href="mongodb.setslaveokay.html">MongoDB::setSlaveOkay</a> — このデータベースの slaveOkay の設定を変更する</li><li><a href="mongodb.setwriteconcern.html">MongoDB::setWriteConcern</a> — Set the write concern for this database</li><li><a href="mongodb.--tostring.html">MongoDB::__toString</a> — このデータベースの名前</li></ul>
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="mongodb.authenticate.html">MongoDB::authenticate</a> — このデータベースにログインする</li><li><a href="mongodb.command.html">MongoDB::command</a> — データベースコマンドを実行する</li><li><a href="mongodb.construct.html">MongoDB::__construct</a> — 新しいデータベースを作成する</li><li><a href="mongodb.createcollection.html">MongoDB::createCollection</a> — コレクションを作成する</li><li><a href="mongodb.createdbref.html">MongoDB::createDBRef</a> — データベース参照を作成する</li><li><a href="mongodb.drop.html">MongoDB::drop</a> — このデータベースを削除する</li><li><a href="mongodb.dropcollection.html">MongoDB::dropCollection</a> — コレクションを削除する [非推奨]</li><li><a href="mongodb.execute.html">MongoDB::execute</a> — JavaScript コードをデータベースサーバー上で実行する [非推奨]</li><li><a href="mongodb.forceerror.html">MongoDB::forceError</a> — データベースのエラーを作成する</li><li><a href="mongodb.get.html">MongoDB::__get</a> — コレクションを取得する</li><li><a href="mongodb.getcollectioninfo.html">MongoDB::getCollectionInfo</a> — Returns information about collections in this database</li><li><a href="mongodb.getcollectionnames.html">MongoDB::getCollectionNames</a> — このデータベースのすべてのコレクション名の配列を取得する</li><li><a href="mongodb.getdbref.html">MongoDB::getDBRef</a> — データベース参照が指すドキュメントを取得する</li><li><a href="mongodb.getgridfs.html">MongoDB::getGridFS</a> — このデータベースに格納されているファイルを扱うためのツールキットを取得する</li><li><a href="mongodb.getprofilinglevel.html">MongoDB::getProfilingLevel</a> — このデータベースのプロファイリングレベルを取得する</li><li><a href="mongodb.getreadpreference.html">MongoDB::getReadPreference</a> — このデータベースの優先読み込みを取得する</li><li><a href="mongodb.getslaveokay.html">MongoDB::getSlaveOkay</a> — このデータベースの slaveOkay 設定を取得する</li><li><a href="mongodb.getwriteconcern.html">MongoDB::getWriteConcern</a> — Get the write concern for this database</li><li><a href="mongodb.lasterror.html">MongoDB::lastError</a> — 直近のデータベース操作でエラーが発生したかどうかを調べる</li><li><a href="mongodb.listcollections.html">MongoDB::listCollections</a> — このデータベース内のすべてのコレクションの MongoCollection オブジェクトの配列を取得する</li><li><a href="mongodb.preverror.html">MongoDB::prevError</a> — データベース操作中の直近に発生したエラーを調べる</li><li><a href="mongodb.repair.html">MongoDB::repair</a> — このデータベースを修復・圧縮する</li><li><a href="mongodb.reseterror.html">MongoDB::resetError</a> — データベースで発生したすべてのエラーをクリアする</li><li><a href="mongodb.selectcollection.html">MongoDB::selectCollection</a> — コレクションを取得する</li><li><a href="mongodb.setprofilinglevel.html">MongoDB::setProfilingLevel</a> — このデータベースのプロファイリングレベルを設定する</li><li><a href="mongodb.setreadpreference.html">MongoDB::setReadPreference</a> — このデータベースの優先読み込みを設定する</li><li><a href="mongodb.setslaveokay.html">MongoDB::setSlaveOkay</a> — このデータベースの slaveOkay の設定を変更する</li><li><a href="mongodb.setwriteconcern.html">MongoDB::setWriteConcern</a> — Set the write concern for this database</li><li><a href="mongodb.--tostring.html">MongoDB::__toString</a> — このデータベースの名前</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongo.tostring.html">Mongo::__toString</a></div>

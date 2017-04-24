@@ -13,7 +13,7 @@
 </div><hr /><div id="function.get-included-files" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">get_included_files</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">get_included_files</span> &mdash; <span class="dc-title">include または require で読み込まれたファイルの名前を配列として返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">get_included_files</span> &mdash; <span class="dc-title">include または require で読み込まれたファイルの名前を配列として返す</span></p>
 
  </div>
  
@@ -51,47 +51,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.get-included-files-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.0.1</td>
-       <td>
-        PHP 4.0.1および以前のバージョンにおいて、
-        <span class="function"><strong>get_included_files()</strong></span>
-        は読み込まれるファイルが拡張子 <em>.php</em>
-        となることを仮定しており、他の拡張子のファイルは返されませんでした。
-        <span class="function"><strong>get_included_files()</strong></span> により返される配列は
-        連想配列であり、
-        <span class="function"><a href="function.include.html" class="function">include</a></span> および
-        <span class="function"><a href="function.include-once.html" class="function">include_once</a></span>
-        で読み込まれたファイルのみが一覧に含まれていました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.get-included-files-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-489">
+   <div class="example" id="example-531">
     <p><strong>例1 <span class="function"><strong>get_included_files()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -103,11 +66,11 @@
     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-abc.php
-test1.php
-test2.php
-test3.php
-test4.php
+/path/to/abc.php
+/path/to/test1.php
+/path/to/test2.php
+/path/to/test3.php
+/path/to/test4.php
 </pre></div>
     </div>
    </div>

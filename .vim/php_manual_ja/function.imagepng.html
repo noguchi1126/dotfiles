@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagepng" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagepng</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagepng</span> &mdash; <span class="dc-title">PNG イメージをブラウザまたはファイルに出力する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagepng</span> &mdash; <span class="dc-title">PNG イメージをブラウザまたはファイルに出力する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagepng-description">
@@ -21,7 +21,7 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>imagepng</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$image</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$to</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$quality</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$filters</code></span>
   ]]] )</div>
@@ -46,11 +46,11 @@ image</code></dt>
 
     
      <dt>
-<code class="parameter">filename</code></dt>
+<code class="parameter">to</code></dt>
 
      <dd>
 
-      <p class="para">ファイルの保存先のパス。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
+      <p class="para">ファイル保存先のパスあるいはオープン中のリソース (この関数が値を戻した後で自動的にクローズされます)。省略したり <strong><code>NULL</code></strong> を設定したりした場合は、画像ストリームを直接出力します。</p>
       <blockquote class="note"><p><strong class="note">注意</strong>: 
        <p class="para">
         <code class="parameter">quality</code> および
@@ -69,6 +69,8 @@ image</code></dt>
 
       <p class="para">
        圧縮レベル。0 (圧縮しない) から 9 までの値です。
+       現在のデフォルトは 6 です。
+       詳細は、<a href="http://www.zlib.net/manual.html" class="link external">&raquo;&nbsp;zlib マニュアル</a> をご覧ください。
       </p>
      </dd>
 
@@ -117,6 +119,14 @@ image</code></dt>
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>5.4.0</td>
+       <td>
+        ストリームリソースを
+        <code class="parameter">to</code> に渡せるようになりました。
+       </td>
+      </tr>
+
       <tr>
        <td>5.1.3</td>
        <td>

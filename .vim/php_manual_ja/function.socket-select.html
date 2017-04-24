@@ -13,7 +13,7 @@
 </div><hr /><div id="function.socket-select" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">socket_select</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5)</p><p class="refpurpose"><span class="refname">socket_select</span> &mdash; <span class="dc-title">与えられたソケットの配列に対し、指定した有効時間で select() システムコールを実行する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.1.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">socket_select</span> &mdash; <span class="dc-title">与えられたソケットの配列に対し、指定した有効時間で select() システムコールを実行する</span></p>
 
  </div>
  
@@ -136,7 +136,7 @@
     現状の Zend Engine の制限により、関数の参照渡しパラメータに
     <strong><code>NULL</code></strong> のような定数値を直接渡すことができません。一時的な変数を使用するか、
     あるいは一番左に一時変数を使用する式を使用してください。
-    <div class="example" id="example-4608">
+    <div class="example" id="snmp.set.example.multiple">
      <p><strong>例1 <span class="function"><strong>socket_select()</strong></span> での <strong><code>NULL</code></strong> の使用</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -166,7 +166,7 @@
     使用するようにしましょう。<span class="function"><strong>socket_select()</strong></span> は
     0 を返す場合もあり、このような場合に <em>==</em>
     を用いて比較すると、エラーと判定されてしまいます。
-    <div class="example" id="example-4609">
+    <div class="example" id="snmp.set.example.bits">
      <p><strong>例2 <span class="function"><strong>socket_select()</strong></span> の返す結果を知る</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -184,7 +184,7 @@
  <div class="refsect1 examples" id="refsect1-function.socket-select-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4610">
+   <div class="example" id="snmp.setsecurity.example.basic">
     <p><strong>例3 <span class="function"><strong>socket_select()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

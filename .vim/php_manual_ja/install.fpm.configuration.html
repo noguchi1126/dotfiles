@@ -44,6 +44,7 @@
        <p class="para">
         エラーログファイルへのパス。デフォルト値:
         <em>#INSTALL_PREFIX#/log/php-fpm.log</em>
+        &quot;syslog&quot; と設定すると、ログをローカルファイルに書き出すのではなく、syslogd に送信します。
        </p> 
       </dd>
 
@@ -59,6 +60,38 @@
        <p class="para">
         エラーログのレベル。使用可能な値: alert, error, warning, notice,
         debug、デフォルト値: notice
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="syslog-facility">
+       <code class="parameter">syslog.facility</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        メッセージを記録するプログラムの種別。
+        デフォルト値: daemon
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="syslog-ident">
+       <code class="parameter">syslog.ident</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        すべてのメッセージの先頭に付加する内容。
+        複数の FPM インスタンスを同一サーバー上で実行する場合には、
+        デフォルト値を変更すれば区別できるようになります。
+        デフォルト値: php-fpm
        </p> 
       </dd>
 
@@ -113,6 +146,39 @@
 
      
      
+      <dt id="process-max">
+       <code class="parameter">process.max</code>
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        FPM がフォークするプロセスの最大数。
+        多数のプール内で動的な PM を使う場合に、全体のプロセス数を制御するために用意されたものです。
+        気をつけて使うようにしましょう。
+        デフォルト値: 0
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="process-priority">
+       <code class="parameter">process.priority</code>
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        マスタープロセスに適用する nice(2) 値。
+        -19 (優先度最高) から 20 (優先度最低) までの値を指定します。
+        デフォルト値: 未設定
+       </p> 
+      </dd>
+
+     
+     
       <dt id="daemonize">
        <code class="parameter">daemonize</code>
        <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
@@ -128,7 +194,70 @@
       </dd>
 
      
+     
+      <dt id="rlimit-files-master">
+       <code class="parameter">rlimit_files</code>
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        マスタープロセス用の、オープン時のファイル記述子の rlimit。デフォルト値: システムで定義されている値
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="rlimit-core-master">
+       <code class="parameter">rlimit_core</code>
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        マスタープロセス用の、最大コアサイズの rlimit。
+        デフォルト値: 0
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="events-mechanism">
+       <code class="parameter">events.mechanism</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        FPM が利用するイベントメカニズム。
+        select、pool、epoll、kqueue (*BSD)、port (Solaris) が利用可能。
+        デフォルト値: 未設定 (自動検出)
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="systemd-interval">
+       <code class="parameter">systemd_interval</code>
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        FPM を systemd 統合込みでビルドした場合に、
+        ヘルスチェックのレポートを systemd に送る間隔 (秒単位)。
+        0 にすると、無効化されます。
+        デフォルト値: 10
+       </p> 
+      </dd>
+
+     
     </dl>
+
 
    </div>
 
@@ -184,7 +313,8 @@
         における環境変数 FCGI_WEB_SERVER_ADDRS と同じです。
         tcp でリスンするソケットに対してのみ意味をなします。
         書くアドレスはカンマ区切りで指定します。この値を空にしておくと、任意の ip アドレスからの接続を許可します。
-        デフォルト値: 任意の ip アドレスを許可
+        デフォルト値: 任意の ip アドレスを許可。
+        5.5.20 および 5.6.4 以降は、IPv6 アドレスも指定できるようになりました。
        </p> 
       </dd>
 
@@ -201,7 +331,7 @@
         unix ソケットを使う場合に、そのパーミッションを設定します。Linux では、
         読み書きアクセス権限を設定しないとウェブサーバーからの接続を受け付けることができません。
         多くの BSD 由来のシステムでは、パーミッションにかかわらず接続を受け付けることができます。
-        デフォルト値: ユーザーとグループは実行しているユーザーと同じ、モードは 0666
+        デフォルト値: ユーザーとグループは実行しているユーザーと同じ、モードは 0660
        </p> 
       </dd>
 
@@ -230,6 +360,37 @@
 
        <p class="para">
         <em>listen.owner</em> を参照ください。
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="listen-acl-users">
+       <code class="parameter">listen.acl_users</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        POSIX の Access Control List をサポートしている場合は、このオプションでそれを指定できます。
+        これを設定した場合は、<em>listen.owner</em> および <em>listen.group</em> は無視されます。
+        値には、ユーザー名をカンマ区切りのリスト形式で指定します。PHP 5.6.5 以降で利用可能です。
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="listen-acl-groups">
+       <code class="parameter">listen.acl_groups</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        <em>listen.acl_users</em> を参照。
+        グループ名を、カンマ区切りのリスト形式で指定します。PHP 5.6.5 以降で利用可能です。
        </p> 
       </dd>
 
@@ -363,6 +524,24 @@
 
      
      
+      <dt id="pm.process-idle-timeout">
+       <code class="parameter">pm.process_idle_timeout</code>
+       <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        
+        秒数 after which an idle process will be killed. 
+        Used only when <em>pm</em> is set to <em>ondemand</em>.
+        使用可能な単位: s(秒)(デフォルト)、m(分)、h(時間)、または d(日)。
+        デフォルト値: 10 秒
+       </p>
+      </dd>
+
+     
+     
       <dt id="pm.max-requests">
        <code class="parameter">pm.max_requests</code>
        <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
@@ -428,6 +607,36 @@
 
      
      
+      <dt id="worker-process-priority">
+       <code class="parameter">process.priority</code>
+       <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        Specify the nice(2) priority to apply to the worker process (only if set).
+        The value can vary from -19 (highest priority) to 20 (lower priority).
+        デフォルト値: 未設定
+       </p>
+      </dd>
+
+     
+     
+      <dt id="prefix">
+       <code class="parameter">prefix</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        Specify prefix for path evaluation
+       </p>
+      </dd>
+
+     
+     
       <dt id="request-terminate-timeout">
        <code class="parameter">request_terminate_timeout</code>
        <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span>
@@ -487,7 +696,7 @@
       <dd>
 
        <p class="para">
-        オープン時のファイル記述子の rlimit。デフォルト値: システムで定義されている値
+        このプール内の子プロセス用の、オープン時のファイル記述子の rlimit。デフォルト値: システムで定義されている値
        </p> 
       </dd>
 
@@ -501,7 +710,7 @@
       <dd>
 
        <p class="para">
-        最大コアサイズの rlimit。
+        このプール内の子プロセス用の、最大コアサイズの rlimit。
         使用可能な値: &#039;unlimited&#039; あるいは 0 以上の整数値、
         デフォルト値: システムで定義されている値
        </p> 
@@ -555,12 +764,78 @@
       </dd>
 
      
+     
+      <dt id="clear-env">
+       <code class="parameter">clear_env</code>
+       <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        FPM ワーカー内の環境をクリアする。
+        任意の環境変数が FPM ワーカープロセスに到達してしまうことを防ぐために、
+        ワーカー内の環境をいったんクリアしてから、このプールの設定で指定された環境変数を追加します。
+        PHP 5.4.27、PHP 5.5.11、PHP 5.6.0 以降で利用可能です。
+        デフォルト値: Yes
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="security-limit-extensions">
+       <code class="parameter">security.limit_extensions</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        FPM がパース可能なメインスクリプトを拡張子で制限する。
+        サーバー側の設定ミスによる被害を抑えることができます。
+        FPM には拡張子 .php だけをパースさせるようにしておけば、
+        悪意のあるユーザーがその他の拡張子で php のコードを実行させようとする試みを防ぐことができます。
+        デフォルト値: .php .phar
+       </p> 
+      </dd>
+
+     
+     
+      <dt id="access-log">
+       <code class="parameter">access.log</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        アクセス・ログ・ファイル。
+        デフォルト値: 未設定
+       </p>
+      </dd>
+
+     
+     
+      <dt id="access-format">
+       <code class="parameter">access.format</code>
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+      </dt>
+
+      <dd>
+
+       <p class="para">
+        アクセス・ログ形式。
+        デフォルト値: &quot;%R - %u %t \&quot;%m %r\&quot; %s&quot;
+       </p>
+      </dd>
+
+     
     </dl>
 
     <p class="para">
      追加の環境変数を渡して、特定のプールだけで PHP の設定を更新することができます。
      そのためには、次のオプションをプール設定ファイルに追加しなければなりません。
-     <div class="example" id="example-60">
+     <div class="example" id="example-33">
       <p><strong>例1 環境変数や PHP の設定をプールに渡す</strong></p>
       <div class="example-contents">
 <div class="inicode"><pre class="inicode">env[HOSTNAME] = $HOSTNAME
@@ -592,7 +867,7 @@ php_admin_value[memory_limit] = 32M</pre>
     </p>
     <p class="para">
      PHP 5.3.3 以降は、PHP の設定をウェブサーバーでも設定できるようになりました。
-     <div class="example" id="example-61">
+     <div class="example" id="example-34">
       <p><strong>例2 PHP の設定を nginx.conf で行う例</strong></p>
       <div class="example-contents">
        <div class="inicode"><pre class="inicode">set $php_value &quot;pcre.backtrack_limit=424242&quot;;

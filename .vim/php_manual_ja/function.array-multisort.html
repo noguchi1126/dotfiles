@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>複数の多次元の配列をソートする</title>
+  <title>複数または多次元の配列をソートする</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-multisort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_multisort</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">array_multisort</span> &mdash; <span class="dc-title">複数の多次元の配列をソートする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_multisort</span> &mdash; <span class="dc-title">複数または多次元の配列をソートする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-multisort-description">
@@ -29,12 +29,17 @@
   <p class="para rdfs-comment">
    <span class="function"><strong>array_multisort()</strong></span> は、複数の配列を一度に、
    または、多次元の配列をその次元の一つでソートする際に使用可能です。
-   この関数は、ソートの際にキーの相関を維持します。
   </p>
   <p class="para">
    連想配列のキー (<span class="type"><a href="language.types.string.html" class="type string">string</a></span>) は不変ですが、
    数値添字は再度振り直されます。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+ <p class="para">
+  比較結果が等しくなる二つの要素があった場合、ソートした配列におけるそれらの並び順は不定となります。
+ </p>
+</p></blockquote>
+
  </div>
 
 
@@ -132,6 +137,8 @@
 
       <p class="para">
        追加の配列。オプションで並び順やフラグが続きます。
+       前の配列の比較結果が等しい要素に対応する要素群だけを比較します。
+       要するに、辞書的 (lexicographical) なソートを行うということです。
       </p>
      </dd>
 
@@ -167,16 +174,16 @@
       <tr>
        <td>5.4.0</td>
        <td>
-        <strong><code>SORT_NATURAL</code></strong> と <strong><code>SORT_FLAG_CASE</code></strong> が、
-        <code class="parameter">arg</code> のソートフラグに追加されました。
+        <code class="parameter">arg</code> で指定できるソートフラグに
+        <strong><code>SORT_NATURAL</code></strong> と <strong><code>SORT_FLAG_CASE</code></strong> が追加されました。
        </td>
       </tr>
 
       <tr>
        <td>5.3.0</td>
        <td>
-        <strong><code>SORT_LOCALE_STRING</code></strong> が、
-        <code class="parameter">arg</code> のソートフラグに追加されました。
+        <code class="parameter">arg</code> で指定できるソートフラグに
+        <strong><code>SORT_LOCALE_STRING</code></strong> が追加されました。
        </td>
       </tr>
 
@@ -191,7 +198,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-multisort-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4980">
+   <div class="example" id="example-5587">
     <p><strong>例1 複数の配列をソートする</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -202,9 +209,9 @@
 
     <div class="example-contents"><p>
      この例では、ソートの後で、最初の配列は、0, 10, 100, 100 となります。
-     2番目の配列は、4, 1, 2, 3 を有します。最初の配列 (100 および
-     100) の同じエントリに対応している二番目の配列のエントリは、
-     同時にソートされます。
+     2番目の配列は、4, 1, 2, 3 を有します。最初の配列で等しい要素 (100 および
+     100) に対応している二番目の配列のエントリは、
+     同じ順にソートされます。
     </p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -225,7 +232,7 @@ array(4) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4981">
+   <div class="example" id="example-5588">
     <p><strong>例2 多次元の配列をソートする</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -262,7 +269,7 @@ array(2) {
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4982">
+   <div class="example" id="example-5589">
     <p><strong>例3 データベースの結果をソートする</strong></p>
     <div class="example-contents"><p>
      この例では、配列 <var class="varname"><var class="varname">data</var></var>
@@ -330,7 +337,7 @@ volume | edition
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4983">
+   <div class="example" id="example-5590">
     <p><strong>例4 大文字・小文字を区別しないソート</strong></p>
     <div class="example-contents"><p>
      <strong><code>SORT_STRING</code></strong> と

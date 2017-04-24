@@ -13,7 +13,7 @@
 </div><hr /><div id="function.natsort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">natsort</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">natsort</span> &mdash; <span class="dc-title">&quot;自然順&quot;アルゴリズムで配列をソートする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">natsort</span> &mdash; <span class="dc-title">&quot;自然順&quot;アルゴリズムで配列をソートする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.natsort-description">
@@ -30,6 +30,12 @@
    このアルゴリズムと (<span class="function"><a href="function.sort.html" class="function">sort()</a></span> を用いた)
    通常のコンピュータ文字列ソートアルゴリズムの違いを示す例を以下に示します。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+ <p class="para">
+  比較結果が等しくなる二つの要素があった場合、ソートした配列におけるそれらの並び順は不定となります。
+ </p>
+</p></blockquote>
+
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.natsort-parameters">
@@ -93,7 +99,7 @@
  <div class="refsect1 examples" id="refsect1-function.natsort-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5038">
+   <div class="example" id="example-5646">
     <p><strong>例1 <span class="function"><strong>natsort()</strong></span> の基本的な使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -129,11 +135,11 @@ Array
      ページを参照ください。
     </p></div>
    </div>
-   <div class="example" id="example-5039">
+   <div class="example" id="example-5647">
     <p><strong>例2 <span class="function"><strong>natsort()</strong></span> をより知るための例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"負の数\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$negative&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'-5'</span><span style="color: #007700">,</span><span style="color: #DD0000">'3'</span><span style="color: #007700">,</span><span style="color: #DD0000">'-2'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'-1000'</span><span style="color: #007700">,</span><span style="color: #DD0000">'9'</span><span style="color: #007700">,</span><span style="color: #DD0000">'1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$negative</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">natsort</span><span style="color: #007700">(</span><span style="color: #0000BB">$negative</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$negative</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"ゼロ埋め\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$zeros&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'09'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'8'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'10'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'009'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'011'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">);&nbsp;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$zeros</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">natsort</span><span style="color: #007700">(</span><span style="color: #0000BB">$zeros</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$zeros</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"文字入り\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$images_oops&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'image_1.jpg'</span><span style="color: #007700">,</span><span style="color: #DD0000">'image_12.jpg'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'image_21.jpg'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'image_4.jpg'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$images_oops</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">natsort</span><span style="color: #007700">(</span><span style="color: #0000BB">$images_oops</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$images_oops</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"キーによるソート\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$smoothie&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'orange'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'apple'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'yogurt'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'banana'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$smoothie</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">uksort</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$smoothie</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'strnatcmp'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$smoothie</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"負の数\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$negative&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'-5'</span><span style="color: #007700">,</span><span style="color: #DD0000">'3'</span><span style="color: #007700">,</span><span style="color: #DD0000">'-2'</span><span style="color: #007700">,</span><span style="color: #DD0000">'0'</span><span style="color: #007700">,</span><span style="color: #DD0000">'-1000'</span><span style="color: #007700">,</span><span style="color: #DD0000">'9'</span><span style="color: #007700">,</span><span style="color: #DD0000">'1'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$negative</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">natsort</span><span style="color: #007700">(</span><span style="color: #0000BB">$negative</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$negative</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"ゼロ埋め\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$zeros&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'09'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'8'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'10'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'009'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'011'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'0'</span><span style="color: #007700">);&nbsp;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$zeros</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">natsort</span><span style="color: #007700">(</span><span style="color: #0000BB">$zeros</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$zeros</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -181,38 +187,6 @@ Array
     [0] =&gt; 09
     [2] =&gt; 10
     [4] =&gt; 011
-)
-
-文字入り
-Array
-(
-    [0] =&gt; image_1.jpg
-    [1] =&gt; image_12.jpg
-    [2] =&gt; image_21.jpg
-    [3] =&gt; image_4.jpg
-)
-Array
-(
-    [0] =&gt; image_1.jpg
-    [3] =&gt; image_4.jpg
-    [1] =&gt; image_12.jpg
-    [2] =&gt; image_21.jpg
-)
-
-キーによるソート
-Array
-(
-    [orange] =&gt; 1
-    [apple]  =&gt; 1
-    [yogurt] =&gt; 4
-    [banana] =&gt; 4
-)
-Array
-(
-    [apple]  =&gt; 1
-    [banana] =&gt; 4
-    [orange] =&gt; 1
-    [yogurt] =&gt; 4
 )
 </pre></div>
     </div>

@@ -30,6 +30,15 @@
 
      <tbody class="tbody">
       <tr>
+       <td>+$a</td>
+       <td>同一</td>
+       <td>
+        <var class="varname"><var class="varname">$a</var></var> を、必要に応じて <span class="type"><a href="language.types.integer.html" class="type int">int</a></span>
+        あるいは <span class="type"><a href="language.types.float.html" class="type float">float</a></span> に変換する
+       </td>
+      </tr>
+
+      <tr>
        <td>-$a</td>
        <td>負にする</td>
        <td><var class="varname"><var class="varname">$a</var></var> の逆</td>
@@ -65,6 +74,12 @@
        <td><var class="varname"><var class="varname">$a</var></var> を <var class="varname"><var class="varname">$b</var></var> で割った余り</td>
       </tr>
 
+      <tr>
+       <td>$a ** $b</td>
+       <td>累乗</td>
+       <td><var class="varname"><var class="varname">$a</var></var> の <var class="varname"><var class="varname">$b</var></var> 乗。PHP 5.6 で導入されました。</td>
+      </tr>
+
      </tbody>
     
    </table>
@@ -74,11 +89,13 @@
     除算演算子 (&quot;/&quot;) の返す値は浮動小数点数となります。
     ただし、ふたつのオペランドがともに整数 (あるいは整数に変換できる文字列)
     であり、かつ結果が割り切れる場合には整数値を返します。
+    整数の除算については <span class="function"><a href="function.intdiv.html" class="function">intdiv()</a></span> を参照ください。
    </p>
    <p class="simpara">
     剰余演算子は、まず両方のオペランドを整数に直し
     (小数点以下を切り捨てます)
     てから処理を行います。
+    浮動小数点の剰余については <span class="function"><a href="function.fmod.html" class="function">fmod()</a></span> を参照ください。
    </p>
    <p class="para">
     剰余演算子 <em>%</em> の結果の符号は、被除数の符号と同じになります。

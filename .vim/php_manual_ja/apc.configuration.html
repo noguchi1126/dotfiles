@@ -384,13 +384,15 @@
    
     <dt id="ini.apc.shm-size">
      <code class="parameter">apc.shm_size</code>
-     <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>
+     <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
     </dt>
 
     <dd>
 
      <p class="para">
-      個々の共有メモリセグメントの大きさを MB 単位で指定します。デフォルトで、
+      個々の共有メモリセグメントの大きさを、
+      <a href="faq.using.html#faq.using.shorthandbytes" class="link">この FAQ</a>
+      で説明している記法で指定します。デフォルトで、
       共有メモリセグメントの大きさが非常に小さく設定されているシステムもあります
       (大半の BSD 系システムがこれに含まれます)。
      </p>
@@ -815,7 +817,7 @@
       すべてのファイルの転送が完了してからであることに注意しましょう。
      </p>
      <p class="para">
-      <div class="example" id="example-403">
+      <div class="example" id="example-428">
        <p><strong>例1 apc.rfc1867 の例</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

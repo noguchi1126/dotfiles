@@ -16,10 +16,18 @@
     PHP 5では、データベースに関していくつかの変更があります。(MySQL および SQLite).
    </p>
    <p class="para">
-    PHP 5では、ライセンス上の問題やその他の問題により、MySQLクライアントライブラリは
-    バンドルされていません。
-    詳細については、<a href="faq.databases.html#faq.databases.mysql.php5" class="link">
-     FAQエントリ</a>を参照してください。
+    PHP 5では、ライセンス上の問題やメンテナンスの問題により、MySQLクライアントライブラリはバンドルされていません。
+    MySQL をサポートしていること自体は変わりませんが、PHP 5 以降では MySQL サポートが
+    <em class="emphasis">デフォルトでは</em> 有効ではなくなりました。
+    これはつまり、PHP の <a href="configuration.html" class="link">configure</a>
+    の際に <strong class="option configure">--with-mysql</strong>
+
+    オプションを含めなくなったということです。有効にするには、PHP をコンパイルする際に
+    <strong class="option configure">--with-mysql</strong>
+ オプションを明示的に指定する必要があります。
+    Windows ユーザーは、<var class="filename">php.ini</var> を編集して <var class="filename">php_mysql.dll</var>
+    を有効にしなければいけません。この DLL は PHP 4 には存在しませんでした。
+    Windows 版の PHP バイナリに組み込まれていたのです。
    </p>
    <p class="para">
     新しい拡張モジュールとして、MySQL 4.1以降で動作するよう設計された

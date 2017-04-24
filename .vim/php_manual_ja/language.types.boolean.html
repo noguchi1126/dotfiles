@@ -21,7 +21,7 @@
  <div class="sect2" id="language.types.boolean.syntax">
   <h3 class="title">構文</h3>
   <p class="para">
-   boolean リテラルを指定するには、キーワード <strong><code>TRUE</code></strong>
+   boolean リテラルを指定するには、定数 <strong><code>TRUE</code></strong>
    または <strong><code>FALSE</code></strong> を指定してください。
    両方とも大文字小文字に依存しません。
   </p>
@@ -104,11 +104,6 @@
    </li>
    <li class="listitem">
     <span class="simpara">
-     メンバ変数の数がゼロである <a href="language.types.object.html" class="link">オブジェクト</a> (PHP 4のみ)
-    </span>
-   </li>
-   <li class="listitem">
-    <span class="simpara">
      特別な値 <a href="language.types.null.html" class="link">NULL</a>
      (値がセットされていない変数を含む)
     </span>
@@ -123,7 +118,8 @@
     
   <p class="para">
    その他の値は全て <strong><code>TRUE</code></strong> とみなされます (全ての
-   <a href="language.types.resource.html" class="link">resource</a>を含みます)。
+   <a href="language.types.resource.html" class="link">resource</a>
+   および <strong><code>NAN</code></strong> を含みます)。
   </p>
   
   <div class="warning"><strong class="warning">警告</strong>

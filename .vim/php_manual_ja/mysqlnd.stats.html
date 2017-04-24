@@ -17,7 +17,7 @@
   <em class="emphasis">統計情報を使う</em>
  </p>
  <p class="para">
-  MySQL Native Driver は、クライアントとサーバー間の通信に関する統計情報を収集する機能をサポートしています。収集できる統計情報は主に3つのタイプに分けられます。
+  MySQL Native Driver は、クライアントとサーバー間の通信に関する統計情報を収集する機能をサポートしています。収集できる統計情報は主に2つのタイプに分けられます。
  </p>
  <ul class="itemizedlist">
   <li class="listitem">
@@ -30,14 +30,9 @@
     接続の統計情報
    </p>
   </li>
-  <li class="listitem">
-   <p class="para">
-    Zval のキャッシュに関する統計情報
-   </p>
-  </li>
  </ul>
  <p class="para">
-  <em>mysqli</em> 拡張機能を使っている場合、これらの統計情報は以下の3つのAPIを呼び出すことで取得できます。
+  <em>mysqli</em> 拡張機能を使っている場合、これらの統計情報は以下の2つのAPIを呼び出すことで取得できます。
  </p>
  <ul class="itemizedlist">
   <li class="listitem">
@@ -48,11 +43,6 @@
   <li class="listitem">
    <p class="para">
     <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span>
-   </p>
-  </li>
-  <li class="listitem">
-   <p class="para">
-    <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span>
    </p>
   </li>
  </ul>
@@ -83,15 +73,6 @@
   この関数は、統計情報の名前をキーとして対応するデータを値とする連想配列を返します。
  </p>
  <p class="para">
-  <em class="emphasis">Zvalキャッシュの統計情報にアクセスする</em>
- </p>
- <p class="para">
-  MySQL Native Driver は PHPの内部的な値である Zval のキャッシュからも統計情報を収集します。これらの統計は <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span> 関数を使ってアクセスできます。
- </p>
- <p class="para">
-  Zval のキャッシュに関する統計情報を収集する際は、<var class="filename">php.ini</var> の Zval cache に関連する設定を調整することで、パフォーマンスを向上させることができます。
- </p>
- <p class="para">
   <em class="emphasis">結果セットをバッファリングさせるか否か</em>
  </p>
  <p class="para">
@@ -108,8 +89,7 @@
  </p>
  <p class="para">
   以下の表で、<span class="function"><a href="mysqli.get-client-stats.html" class="function">mysqli_get_client_stats()</a></span>,
-  <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span>,
-  <span class="function"><a href="function.mysqli-get-cache-stats.html" class="function">mysqli_get_cache_stats()</a></span> 関数が返す統計情報のリストを示します。
+  <span class="function"><a href="mysqli.get-connection-stats.html" class="function">mysqli_get_connection_stats()</a></span> 関数が返す統計情報のリストを示します。
  </p>
  <table class="doctable table">
   <caption><strong>MySQL Native Driver が返す統計情報: ネットワーク関連</strong></caption>
@@ -357,7 +337,7 @@ $res-&gt;close();
     <tr>
      <td><em>non_result_set_queries</em></td>
      <td>Connection</td>
-     <td>結果セットを生成しなかったクエリの数。結果セットを生成しないクエリの例:<em>INSERT</em>, <em>UPDATE</em>, <em>LOAD DATA</em>, <em>SHOW</em>. 結果セットのヘッダパケットを読み取っている間にエラーが発生した場合、この統計値はインクリメントされません。</td>
+     <td>結果セットを生成しなかったクエリの数。結果セットを生成しないクエリの例:<em>INSERT</em>, <em>UPDATE</em>, <em>LOAD DATA</em>。結果セットのヘッダパケットを読み取っている間にエラーが発生した場合、この統計値はインクリメントされません。</td>
      <td>同上</td>
     </tr>
 

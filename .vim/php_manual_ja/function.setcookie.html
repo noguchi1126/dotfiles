@@ -13,7 +13,7 @@
 </div><hr /><div id="function.setcookie" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">setcookie</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">setcookie</span> &mdash; <span class="dc-title">クッキーを送信する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">setcookie</span> &mdash; <span class="dc-title">クッキーを送信する</span></p>
 
  </div>
  
@@ -22,10 +22,10 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>setcookie</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$value</code><span class="initializer"> = &quot;&quot;</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$expire</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$domain</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = &quot;&quot;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$domain</code><span class="initializer"> = &quot;&quot;</span></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$secure</code><span class="initializer"> = false</span></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$httponly</code><span class="initializer"> = false</span></span>
   ]]]]]] )</div>
@@ -40,27 +40,15 @@
   </p>
   <p class="para">
    一度クッキーが送信されると、次のページのロードからは
-   <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var> や
-   <var class="varname"><var class="varname">$HTTP_COOKIE_VARS</var></var> 配列によってクッキーにアクセスできます。
-   <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var> のような
-   <a href="language.variables.superglobals.html" class="link">スーパーグローバル</a> は
-   PHP 4.1.0 以降で有効となることに注意してください。
+   <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var> 配列によってクッキーにアクセスできます。
    クッキーの値は <var class="varname"><var class="varname"><a href="reserved.variables.request.html" class="classname">$_REQUEST</a></var></var>
-   配列からもアクセスできます。
+   配列からもアクセスできるかもしれません。
   </p>
  </div>
 
 
  <div class="refsect1 parameters" id="refsect1-function.setcookie-parameters">
   <h3 class="title">パラメータ</h3>
-  <p class="para">
-   <code class="parameter">name</code> 以外の全ての引数はオプションです。
-   全ての引数に関して引数の指定をスキップするために空文字列
-   (<em class="emphasis">&quot;&quot;</em>) とすることが可能です。
-   <code class="parameter">expire</code> および <code class="parameter">secure</code>
-   は数値なので、空文字列でスキップすることはできません。代わりにゼロ
-   (<em class="emphasis">0</em>) を使用してください。
-  </p>
   <p class="para">
    <span class="function"><strong>setcookie()</strong></span> の各パラメータがどのように作用するのかを知るには
    <a href="http://www.faqs.org/rfcs/rfc6265" class="link external">&raquo;&nbsp;RFC 6265</a> を参照ください。
@@ -149,13 +137,13 @@
      <dd>
 
       <p class="para">
-       クッキーが有効なドメイン。ドメインを
-       <em>&#039;www.example.com&#039;</em> に設定すると、
-       <em>www</em> サブドメインおよびその上位のサブドメインでクッキーが使えるようになります。
-       より低レベルのドメイン、たとえば
-       <em>&#039;example.com&#039;</em> でクッキーを有効にすると、その上位にある
-       <em>&#039;www.example.com&#039;</em> などのサブドメインでもクッキーが有効になります。
-       
+       クッキーが有効な (サブ) ドメイン。これを
+       <em>&#039;www.example.com&#039;</em> などのサブドメインに設定すると、
+       <em>www</em> サブドメインおよびそれ自身のすべてのサブドメイン (w2.www.example.com など) でクッキーが使えるようになります。
+       サブドメインを含むドメイン全体でクッキーを有効にしたければ、そのドメイン自体
+       (この場合は <em>&#039;example.com&#039;</em>) を設定します。
+      </p>
+      <p class="para">
        古いブラウザの中には、非推奨になった
        <a href="http://www.faqs.org/rfcs/rfc2109" class="link external">&raquo;&nbsp;RFC 2109</a> を実装しているものが未だに残っているかもしれません。
        そのようなブラウザでは、すべてのサブドメインにマッチさせるためには先頭に
@@ -219,7 +207,7 @@
   <h3 class="title">例</h3>
   <p class="para">
    以下はクッキーを送信する例です。
-   <div class="example" id="example-4503">
+   <div class="example" id="example-5047">
     <p><strong>例1 <span class="function"><strong>setcookie()</strong></span> での送信の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -243,7 +231,7 @@
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;個々のクッキーを表示します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">];<br />echo&nbsp;</span><span style="color: #0000BB">$HTTP_COOKIE_VARS</span><span style="color: #007700">[</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;デバッグ／テスト用には、全てのクッキーを見る方法があります。<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;個々のクッキーを表示します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">[</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">];<br /><br /></span><span style="color: #FF8000">//&nbsp;デバッグ／テスト用には、全てのクッキーを見る方法があります。<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$_COOKIE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -251,7 +239,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4504">
+   <div class="example" id="example-5048">
     <p><strong>例2 <span class="function"><strong>setcookie()</strong></span> による削除の例</strong></p>
     <div class="example-contents"><p>
      クッキーを削除する場合には、ブラウザの削除機構を起動するために
@@ -260,7 +248,7 @@
     </p></div>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;有効期限を一時間前に設定します<br /></span><span style="color: #0000BB">setcookie&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie&nbsp;</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/~rasmus/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;有効期限を一時間前に設定します<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">setcookie</span><span style="color: #007700">(</span><span style="color: #DD0000">"TestCookie"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">""</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">()&nbsp;-&nbsp;</span><span style="color: #0000BB">3600</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"/~rasmus/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"example.com"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -268,7 +256,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4505">
+   <div class="example" id="header-register-callback.example.basic">
     <p><strong>例3 <span class="function"><strong>setcookie()</strong></span> と配列</strong></p>
     <div class="example-contents"><p>
      クッキー名で配列を記述することにより、クッキーの配列を設定することも可能です。

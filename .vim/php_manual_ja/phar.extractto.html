@@ -26,18 +26,13 @@
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$overwrite</code><span class="initializer"> = false</span></span>
   ]] )</div>
 
-  <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">
-このメソッドは、<var class="filename">php.ini</var> の <em>phar.readonly</em>
-が <em>0</em> でないと <a href="class.phar.html" class="classname">Phar</a>
-オブジェクトで動作しません。それ以外の場合は
-<a href="class.pharexception.html" class="classname">PharException</a> がスローされます。</p></p></blockquote>
 
-  <p class="para">
+  <p class="para rdfs-comment">
    phar アーカイブ内のすべてのファイルをディスクに展開します。
    展開されたファイルやディレクトリは、アーカイブに保存されたときのパーミッションを維持しています。
    オプションのパラメータを使用すると、どのファイルを展開するかを制御したり
    既存のファイルを上書きするかどうかを指定したりすることができます。
-   2 番目のパラメータ <em>files</em> には、
+   2 番目のパラメータ <code class="parameter">files</code> には、
    展開したいファイルやディレクトリの名前、あるいはその配列を指定します。
    デフォルトでは、このメソッドは既存のファイルを上書きしません。
    3 番目のパラメータを true にすると既存のファイルを上書きさせることができます。
@@ -58,7 +53,7 @@
      <dd>
 
       <p class="para">
-       アーカイブ内のファイルへのパス。
+       指定した <code class="parameter">files</code> の展開先のパス。
       </p>
      </dd>
 
@@ -116,7 +111,7 @@
  <div class="refsect1 examples" id="refsect1-phar.extractto-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-679">
+   <div class="example" id="example-741">
     <p><strong>例1 <span class="function"><strong>Phar::extractTo()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.call-user-func" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">call_user_func</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">call_user_func</span> &mdash; <span class="dc-title">最初の引数で指定したコールバック関数をコールする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">call_user_func</span> &mdash; <span class="dc-title">最初の引数で指定したコールバック関数をコールする</span></p>
 
  </div>
 
@@ -63,11 +63,11 @@
        <p class="para">
         <span class="function"><strong>call_user_func()</strong></span> のパラメータは
         参照渡しではないことに注意しましょう。
-        <div class="example" id="example-5112">
+        <div class="example" id="example-5956">
          <p><strong>例1 <span class="function"><strong>call_user_func()</strong></span> の例と参照</strong></p>
          <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />error_reporting</span><span style="color: #007700">(</span><span style="color: #0000BB">E_ALL</span><span style="color: #007700">);<br />function&nbsp;</span><span style="color: #0000BB">increment</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">++;<br />}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">,&nbsp;array(&amp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">));&nbsp;</span><span style="color: #FF8000">//&nbsp;PHP&nbsp;5.3&nbsp;より前のバージョンでは、このようにしてもかまいません<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />error_reporting</span><span style="color: #007700">(</span><span style="color: #0000BB">E_ALL</span><span style="color: #007700">);<br />function&nbsp;</span><span style="color: #0000BB">increment</span><span style="color: #007700">(&amp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">)<br />{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$var</span><span style="color: #007700">++;<br />}<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">call_user_func</span><span style="color: #007700">(</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;このようにしてもかまいません<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(</span><span style="color: #DD0000">'increment'</span><span style="color: #007700">,&nbsp;array(&amp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">));<br />echo&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">.</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
          </div>
@@ -94,7 +94,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.call-user-func-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   コールバック関数の結果、あるいはエラー時に <strong><code>FALSE</code></strong> を返します。
+   コールバック関数の結果を返します。
   </p>
  </div>
 
@@ -134,7 +134,7 @@
  <div class="refsect1 examples" id="refsect1-function.call-user-func-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5113">
+   <div class="example" id="example-5957">
     <p><strong>例2 <span class="function"><strong>call_user_func()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -151,7 +151,7 @@
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5114">
+   <div class="example" id="example-5958">
     <p><strong>例3 名前空間を使用した <span class="function"><strong>call_user_func()</strong></span></strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -168,7 +168,7 @@ Hello world!
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-5115">
+   <div class="example" id="example-5959">
     <p><strong>例4 <span class="function"><strong>call_user_func()</strong></span> でのクラスメソッドの使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -186,7 +186,7 @@ Hello!
 </pre></div>
     </div>   
    </div>
-   <div class="example" id="example-5116">
+   <div class="example" id="example-5960">
     <p><strong>例5 <span class="function"><strong>call_user_func()</strong></span> でのラムダ関数の使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

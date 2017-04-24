@@ -7,13 +7,13 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="sqlite3.createcollation.html">SQLite3::createCollation</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="sqlite3.escapestring.html">SQLite3::escapeString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="sqlite3.enableexceptions.html">SQLite3::enableExceptions</a></div>
  <div class="up"><a href="class.sqlite3.html">SQLite3</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="sqlite3.createfunction" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SQLite3::createFunction</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">SQLite3::createFunction</span> &mdash; <span class="dc-title">SQL のスカラー関数として使用する PHP 関数を登録する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">SQLite3::createFunction</span> &mdash; <span class="dc-title">SQL のスカラー関数として使用する PHP 関数を登録する</span></p>
 
  </div>
 
@@ -24,7 +24,8 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
    , <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$callback</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$argument_count</code><span class="initializer"> = -1</span></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = 0</span></span>
+  ]] )</div>
 
   <p class="para rdfs-comment">
    SQL のスカラー関数として使用する PHP 関数を登録します。
@@ -72,7 +73,22 @@
 
       <p class="para">
        SQL 関数が受け取るパラメータの数。
-       負の値を指定すると、SQL 関数は任意の数の引数を受け取るようになります。
+       <em>-1</em> を指定すると、SQL 関数は任意の数の引数を受け取るようになります。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">flags</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A bitwise conjunction of flags. Currently, only
+       <strong><code>SQLITE3_DETERMINISTIC</code></strong> is supported, which specifies
+       that the function always returns the same result given the same inputs
+       within a single SQL statement.
       </p>
      </dd>
 
@@ -93,10 +109,37 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-sqlite3.createfunction-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>PHP 7.1.4</td>
+      <td>
+       <code class="parameter">flags</code> が追加されました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-sqlite3.createfunction-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2176">
+   <div class="example" id="example-2400">
     <p><strong>例1 <span class="function"><strong>SQLite3::createFunction()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -119,7 +162,7 @@ string(32) &quot;098f6bcd4621d373cade4e832627b4f6&quot;
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="sqlite3.createcollation.html">SQLite3::createCollation</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="sqlite3.escapestring.html">SQLite3::escapeString</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="sqlite3.enableexceptions.html">SQLite3::enableExceptions</a></div>
  <div class="up"><a href="class.sqlite3.html">SQLite3</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

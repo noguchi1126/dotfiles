@@ -17,6 +17,28 @@
 
  </div>
  
+ <div id="function.mssql-execute-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この関数は PHP 7.0.0 で <em class="emphasis">削除</em> されました。
+</p>
+<p class="para">
+ この関数の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member">
+     <a href="ref.pdo-sqlsrv.html" class="link">PDO_SQLSRV</a>、
+     <a href="ref.pdo-odbc.html" class="link">PDO_ODBC</a>、
+     <a href="book.sqlsrv.html" class="link">SQLSRV</a> あるいは
+     <a href="book.uodbc.html" class="link">unified ODBC ドライバ</a>
+     で <em>EXEC</em> クエリを発行する
+    </li>
+   </ul>
+  </div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.mssql-execute-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -69,7 +91,7 @@
  <div class="refsect1 examples" id="refsect1-function.mssql-execute-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1536">
+   <div class="example" id="example-1753">
     <p><strong>例1 <span class="function"><strong>mssql_execute()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

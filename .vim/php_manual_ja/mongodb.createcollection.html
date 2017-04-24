@@ -73,9 +73,12 @@
 
       <p class="para">
        コレクションのオプションを含む配列。個々のオプション用の要素がこの配列に用意されており、
-       以下に挙げるオプション名が配列のキーになります。サポートするオプションは
-       MongoDB サーバーのバージョンによって変わります。
-       現時点でサポートするオプションは、次のとおりです。
+       以下に挙げるオプション名が配列のキーになります。サポートするオプションは、
+       MongoDB サーバーのバージョンやストレージエンジンによって変わります。
+       また，ドライバーは、受け取ったオプションをすべてそのままサーバーに渡します。
+       現時点でサポートするオプションの一部を以下に示します。すべてのオプションの一覧は、
+       MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/method/db.createCollection/" class="link external">&raquo;&nbsp;createCollection</a>
+       を参照ください。
       </p>
       <p class="para">
        <dl>
@@ -160,7 +163,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongodb.createcollection-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1421">
+  <div class="example" id="example-1509">
    <p><strong>例1 <span class="function"><strong>MongoDB::createCollection()</strong></span> での固定サイズコレクションの例</strong></p>
    <div class="example-contents"><p>
     固定サイズのコレクションは特別な形式のコレクションで、

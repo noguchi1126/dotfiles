@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagecreatefromxpm" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecreatefromxpm</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5)</p><p class="refpurpose"><span class="refname">imagecreatefromxpm</span> &mdash; <span class="dc-title">新しい画像をファイルあるいは URL から作成する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecreatefromxpm</span> &mdash; <span class="dc-title">新しい画像をファイルあるいは URL から作成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecreatefromxpm-description">
@@ -61,10 +61,38 @@ URL を使用することができます。ファイル名の指定方法に関�
   <p class="para">成功した場合に画像リソース ID、エラー時に <strong><code>FALSE</code></strong> を返します。</p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagecreatefromxpm-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>5.3.19</td>
+      <td>
+       <span class="function"><strong>imagecreatefromxpm()</strong></span> が Windows でも使えるようになりました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagecreatefromxpm-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3237">
+   <div class="example" id="example-3540">
     <p><strong>例1 <span class="function"><strong>imagecreatefromxpm()</strong></span> による画像インスタンスの作成</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -77,11 +105,6 @@ URL を使用することができます。ファイル名の指定方法に関�
   </p>
  </div>
 
- <div class="refsect1 notes" id="refsect1-function.imagecreatefromxpm-notes">
-  <h3 class="title">返り値</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は Windows 環境にはまだ実装されていません。
-</span></p></blockquote>
- </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.imagecreatefromxbm.html">imagecreatefromxbm</a></div>

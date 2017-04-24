@@ -7,13 +7,13 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.gmp-gcdext.html">gmp_gcdext</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.gmp-init.html">gmp_init</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gmp-import.html">gmp_import</a></div>
  <div class="up"><a href="ref.gmp.html">GMP 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.gmp-hamdist" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmp_hamdist</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">gmp_hamdist</span> &mdash; <span class="dc-title">ハミング距離</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gmp_hamdist</span> &mdash; <span class="dc-title">ハミング距離</span></p>
 
  </div>
  
@@ -21,8 +21,8 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">int</span> <span class="methodname"><strong>gmp_hamdist</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$a</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$b</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$a</code></span>
+   , <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$b</code></span>
    )</div>
 
   <p class="para rdfs-comment">
@@ -43,8 +43,7 @@
 
      <dd>
 
-      <p class="para">GMP 数リソース、
-あるいは数値に変換可能な数値形式の文字列。</p> 
+      <p class="para">PHP 5.5 以前での GMP 数リソース、PHP 5.6 以降での <a href="class.gmp.html" class="classname">GMP</a> オブジェクト、あるいは数値に変換可能な数値形式の文字列。</p> 
       <p class="para">
        正の数である必要があります。
       </p>
@@ -57,8 +56,7 @@
 
      <dd>
 
-      <p class="para">GMP 数リソース、
-あるいは数値に変換可能な数値形式の文字列。</p> 
+      <p class="para">PHP 5.5 以前での GMP 数リソース、PHP 5.6 以降での <a href="class.gmp.html" class="classname">GMP</a> オブジェクト、あるいは数値に変換可能な数値形式の文字列。</p> 
       <p class="para">
        正の数である必要があります。
       </p>
@@ -74,7 +72,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.gmp-hamdist-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   GMP 数リソースを返します。
+   PHP 5.5 以前は GMP 数リソースを、そして PHP 5.6 以降は <a href="class.gmp.html" class="classname">GMP</a> オブジェクトを返します。
   </p>
  </div>
 
@@ -82,7 +80,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-hamdist-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3430">
+   <div class="example" id="example-3958">
     <p><strong>例1 <span class="function"><strong>gmp_hamdist()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -116,7 +114,7 @@
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.gmp-gcdext.html">gmp_gcdext</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.gmp-init.html">gmp_init</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.gmp-import.html">gmp_import</a></div>
  <div class="up"><a href="ref.gmp.html">GMP 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

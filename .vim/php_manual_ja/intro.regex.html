@@ -12,6 +12,27 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="intro.regex" class="preface">
   <h1 class="title">導入</h1>
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この機能は PHP 5.3.0 で <em class="emphasis">非推奨</em> となり、
+ PHP 7.0.0 で <em class="emphasis">削除</em> されました。
+</p>
+<p class="para">
+ この機能の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member">
+     <a href="book.pcre.html" class="link">PCRE</a>
+     (完全な正規表現に対応)
+    </li>
+    <li class="member">
+     <span class="function"><a href="function.fnmatch.html" class="function">fnmatch()</a></span>
+     (シェル形式のシンプルなワイルドカードによるパターンマッチング)
+    </li>
+   </ul>
+  </div>
   <div class="tip"><strong class="tip">ヒント</strong>
    <p class="para">
     PHPは、<a href="book.pcre.html" class="link">PCRE関数</a>によりPerl互換の構
@@ -25,13 +46,6 @@
     これらの正規表現関数はバイナリセーフではありません。<a href="book.pcre.html" class="link">PCRE関数</a>はバイナリセーフです。
    </p>
   </div>
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">
-    PHP 5.3.0 以降、この拡張モジュールは非推奨となります。
-    この拡張モジュールの関数をコールすると <strong><code>E_DEPRECATED</code></strong>
-    が発生するようになります。
-   </p>
-  </p></blockquote>
   <p class="para">
    正規表現は、複雑な文字列操作の際に使用されます。
    PHPはPOSIX 1003.2で定義されたPOSIX拡張正規表現を使用します。

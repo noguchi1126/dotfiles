@@ -13,7 +13,7 @@
 </div><hr /><div id="function.set-exception-handler" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">set_exception_handler</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">set_exception_handler</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">set_exception_handler</span> &mdash; <span class="dc-title">
    ユーザー定義の例外ハンドラ関数を設定する
   </span></p>
 
@@ -29,7 +29,7 @@
   <p class="para rdfs-comment">
    例外が try/catch ブロックの中でキャッチされなかった場合の
    デフォルトの例外ハンドラを設定します。
-   例外は、<code class="parameter">exception_handler</code> がコールされた後に
+   実行は、<code class="parameter">exception_handler</code> がコールされた後に
    停止します。
   </p>
  </div>
@@ -48,11 +48,9 @@
 
       <p class="para">
        キャッチされない例外が発生した際にコールされる関数の名前。
-       この関数は、<span class="function"><strong>set_exception_handler()</strong></span>
-       をコールする前に定義する必要があります。
        このハンドラ関数は、パラメータをひとつとる必要があります。
        このパラメータは、スローされた例外オブジェクトとなります。
-       ハンドラのシグネチャは、次のようになります。
+       PHP 7 より前のバージョンでは、ハンドラのシグネチャは、次のようになります。
       </p>
       <p class="para">
        <div class="methodsynopsis dc-description">
@@ -61,11 +59,29 @@
         )</div>
 
       </p>
-      <blockquote class="note"><p><strong class="note">注意</strong>: 
-       <p class="para">
+      <p class="para">
+       PHP 7 からは、大半のエラーが <a href="class.error.html" class="classname">Error</a> 例外として報告されるようになりました。
+       これらもこのハンドラで扱うことになるでしょう。<a href="class.error.html" class="classname">Error</a> と
+       <a href="class.exception.html" class="classname">Exception</a> は、どちらも <a href="class.throwable.html" class="classname">Throwable</a> インターフェイスを実装しています。
+       PHP 7 以降のハンドラのシグネチャは、次のようになります。
+      </p>
+      <p class="para">
+       <div class="methodsynopsis dc-description">
+        <span class="type"><span class="type void">void</span></span> <span class="methodname"><span class="replaceable">handler</span></span>
+         ( <span class="methodparam"><span class="type"><a href="class.throwable.html" class="type Throwable">Throwable</a></span> <code class="parameter">$ex</code></span>
+        )</div>
+
+      </p>
+      <p class="para">
         <strong><code>NULL</code></strong> を渡すと、このハンドラをデフォルトの状態に戻せます。
+      </p>
+      <div class="caution"><strong class="caution">警告</strong>
+       <p class="para">
+        コールバックの <code class="parameter">ex</code> パラメータにタイプヒントとして
+        <a href="class.exception.html" class="classname">Exception</a> を明示すると、
+        PHP 7 での例外の階層の変更に伴う問題が発生することに注意しましょう。
        </p>
-      </p></blockquote>
+      </div>
      </dd>
 
     
@@ -99,6 +115,14 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">exception_handler</code> に渡すパラメータの型が、
+        <a href="class.exception.html" class="classname">Exception</a> から <a href="class.throwable.html" class="classname">Throwable</a> に変わりました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.5.0</td>
        <td>
         これより前のバージョンでは、<strong><code>NULL</code></strong> を渡した場合の返り値が <strong><code>TRUE</code></strong> でした。
@@ -117,7 +141,7 @@
  <div class="refsect1 examples" id="refsect1-function.set-exception-handler-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-457">
+   <div class="example" id="example-496">
     <p><strong>例1 <span class="function"><strong>set_exception_handler()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

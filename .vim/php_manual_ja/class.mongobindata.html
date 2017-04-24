@@ -17,6 +17,15 @@
 
  <div class="partintro"><p class="verinfo">(PECL mongo &gt;= 0.8.1)</p>
 
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">このクラスを定義している拡張モジュールは非推奨です。
+かわりに <a href="set.mongodb.html" class="link">MongoDB</a> 拡張モジュールを使うべきです。
+このクラスの代替として、以下が使えます。</p>
+   <ul class="simplelist">
+    <li class="member"><a href="class.mongodb-bson-binary.html" class="classname">MongoDB\BSON\Binary</a></li>
+   </ul>
+  </div>
+
 
   <div class="section" id="mongobindata.intro">
    <h2 class="title">導入</h2>
@@ -32,7 +41,7 @@
    <p class="para">
     たとえば画像をドキュメントに埋め込むには、このようにします。
    </p>
-   <div class="example" id="mongobindata.intro-example">
+   <div class="example" id="example-1618">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /><br />$profile&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"username"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"foobity"</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">"pic"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoBinData</span><span style="color: #007700">(</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"gravatar.jpg"</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">MongoBinData</span><span style="color: #007700">::</span><span style="color: #0000BB">GENERIC</span><span style="color: #007700">),<br />);<br /><br /></span><span style="color: #0000BB">$users</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">save</span><span style="color: #007700">(</span><span style="color: #0000BB">$profile</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
@@ -139,7 +148,7 @@
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="mongobindata.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$data</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = 2</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$type</code><span class="initializer"> = 0</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="mongobindata.tostring.html" class="methodname">__toString</a></span>

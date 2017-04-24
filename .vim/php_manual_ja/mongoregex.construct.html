@@ -17,6 +17,17 @@
 
  </div>
 
+ <div id="mongoregex.construct-soft-deprecation-notice" class="soft-deprecation-notice">
+  <blockquote class="sidebar">
+   <p class="para">このメソッドを定義している拡張モジュールは非推奨です。
+かわりに <a href="set.mongodb.html" class="link">MongoDB</a> 拡張モジュールを使うべきです。
+このメソッドの代替として、以下が使えます。</p>
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="mongodb-bson-regex.construct.html" class="methodname">MongoDB\BSON\Regex::__construct()</a></span></li>
+   </ul>
+  </blockquote>
+ </div>
+
  <div class="refsect1 description" id="refsect1-mongoregex.construct-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -66,7 +77,7 @@
  <div class="refsect1 examples" id="refsect1-mongoregex.construct-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1508">
+   <div class="example" id="example-1616">
     <p><strong>例1 <span class="function"><strong>MongoRegex::__construct()</strong></span> の例</strong></p>
     <div class="example-contents"><p>この例は、正規表現を使用してすべてのドキュメントに問い合わせ、
     username フィールドの先頭 (<em>^</em>) が

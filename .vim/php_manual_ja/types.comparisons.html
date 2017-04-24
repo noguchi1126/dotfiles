@@ -49,12 +49,12 @@
  <blockquote class="note"><p><strong class="note">注意</strong>: 
   <p class="para">
    数値演算の結果が、定数 <strong><code>NAN</code></strong> で表される値になることがあります。
-   この値を、自分自身を含む他の値と比較すると、緩い比較であっても厳しい比較であっても結果は
-   <strong><code>FALSE</code></strong> となります
+   この値を他の値と比較すると、緩やかな比較および厳密な比較のいずれでも結果は <strong><code>FALSE</code></strong> になります。
+   自分自身と比較した場合も含みますが、<strong><code>TRUE</code></strong> と比較した場合は除きます。
    (つまり <em>NAN != NAN</em> であり <em>NAN !== NAN</em> であるということです)。
    結果が <strong><code>NAN</code></strong> になる演算の例には
    <em>sqrt(-1)</em> や <em>asin(2)</em> そして
-   <em>asinh(0)</em> があります。
+   <em>acosh(0)</em> があります。
   </p>
  </p></blockquote>
  <p class="para">
@@ -117,6 +117,15 @@
       <td><strong><code>FALSE</code></strong></td>
       <td><strong><code>TRUE</code></strong></td>
       <td><strong><code>FALSE</code></strong></td>
+     </tr>
+
+     <tr>
+      <td><em>$x = array(&#039;a&#039;, &#039;b&#039;);</em></td>
+      <td><span class="type"><a href="language.types.array.html" class="type array">array</a></span></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>FALSE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
+      <td><strong><code>TRUE</code></strong></td>
      </tr>
 
      <tr>

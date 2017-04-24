@@ -13,7 +13,7 @@
 </div><hr /><div id="function.dio-fcntl" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">dio_fcntl</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5 &lt;= 5.0.5)</p><p class="refpurpose"><span class="refname">dio_fcntl</span> &mdash; <span class="dc-title">fd について C ライブラリの fcntl を実行する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5 &lt;= 5.0.5, PHP 7)</p><p class="refpurpose"><span class="refname">dio_fcntl</span> &mdash; <span class="dc-title">fd について C ライブラリの fcntl を実行する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.dio-fcntl-description">
@@ -76,7 +76,7 @@
         <li class="listitem">
          <p class="para">
           <strong><code>F_GETLK</code></strong> - <span class="function"><strong>dio_fcntl()</strong></span> 
-          は、他の誰かがロックを妨げる場合、（上で述べた）連想配列を返します。
+          は、他の誰かがロックを妨げる場合、（後述の）連想配列を返します。
           妨げるものがない場合、キー &quot;type&quot; は <strong><code>F_UNLCK</code></strong>
           に設定されます。
          </p>
@@ -158,7 +158,7 @@
  <div class="refsect1 examples" id="refsect1-function.dio-fcntl-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2347">
+   <div class="example" id="example-2584">
     <p><strong>例1 ロックの設定と解除</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

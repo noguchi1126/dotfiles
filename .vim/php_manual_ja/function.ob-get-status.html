@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ob-get-status" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_get_status</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">ob_get_status</span> &mdash; <span class="dc-title">出力バッファのステータスを取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_get_status</span> &mdash; <span class="dc-title">出力バッファのステータスを取得する</span></p>
 
  </div>
  
@@ -77,15 +77,15 @@
 </div>
     </div>
    </div>
-   <div class="segmentedlist">
-    <strong class="title">単純な <span class="function"><strong>ob_get_status()</strong></span> の出力結果</strong>
-    
-    <div class="seglistitem"><div class="seg"><strong><span class="segtitle">キー:</span></strong>level</div><div class="seg"><strong><span class="segtitle">値:</span></strong>出力階層レベル</div></div>
-    <div class="seglistitem"><div class="seg"><strong><span class="segtitle">キー:</span></strong>type</div><div class="seg"><strong><span class="segtitle">値:</span></strong><em>PHP_OUTPUT_HANDLER_INTERNAL (0)</em> あるいは <em>PHP_OUTPUT_HANDLER_USER (1)</em></div></div>
-    <div class="seglistitem"><div class="seg"><strong><span class="segtitle">キー:</span></strong>status</div><div class="seg"><strong><span class="segtitle">値:</span></strong><em>PHP_OUTPUT_HANDLER_START</em> (0)、<em>PHP_OUTPUT_HANDLER_CONT</em> (1) あるいは <em>PHP_OUTPUT_HANDLER_END</em> (2) のいずれか</div></div>
-    <div class="seglistitem"><div class="seg"><strong><span class="segtitle">キー:</span></strong>name</div><div class="seg"><strong><span class="segtitle">値:</span></strong>アクティブな出力ハンドラの名前、あるいは設定されていない場合は &#039; default output handler&#039;</div></div>
-    <div class="seglistitem"><div class="seg"><strong><span class="segtitle">キー:</span></strong>del</div><div class="seg"><strong><span class="segtitle">値:</span></strong><span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> が設定した削除フラグ</div></div>
-   </div>
+   <table class="segmentedlist">
+    <caption><strong>単純な <span class="function"><strong>ob_get_status()</strong></span> の出力結果</strong></caption>
+    <thead><tr><th>キー</th><th>値</th>
+    </tr></thead><tbody><tr class="seglistitem"><td class="seg">level</td><td class="seg">出力階層レベル</td></tr>
+    <tr class="seglistitem"><td class="seg">type</td><td class="seg"><em>PHP_OUTPUT_HANDLER_INTERNAL (0)</em> あるいは <em>PHP_OUTPUT_HANDLER_USER (1)</em></td></tr>
+    <tr class="seglistitem"><td class="seg">status</td><td class="seg"><em>PHP_OUTPUT_HANDLER_START</em> (0)、<em>PHP_OUTPUT_HANDLER_CONT</em> (1) あるいは <em>PHP_OUTPUT_HANDLER_END</em> (2) のいずれか</td></tr>
+    <tr class="seglistitem"><td class="seg">name</td><td class="seg">アクティブな出力ハンドラの名前、あるいは設定されていない場合は &#039; default output handler&#039;</td></tr>
+    <tr class="seglistitem"><td class="seg">del</td><td class="seg"><span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> が設定した削除フラグ</td></tr>
+   </tbody></table>
   </p>
   <p class="para">
    <code class="parameter">full_status</code> = <strong><code>TRUE</code></strong> を指定してコールした場合、
@@ -127,13 +127,13 @@ Array
   </p>
   <p class="para">
    完全な出力には、追加項目として以下の要素が含まれます。
-   <div class="segmentedlist">
-    <strong class="title">完全な <span class="function"><strong>ob_get_status()</strong></span> の出力結果</strong>
-    
-    <div class="seglistitem"><div class="seg"><strong><span class="segtitle">キー:</span></strong>chunk_size</div><div class="seg"><strong><span class="segtitle">値:</span></strong><span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> で設定したチャンクの大きさ</div></div>
-    <div class="seglistitem"><div class="seg"><strong><span class="segtitle">キー:</span></strong>size</div><div class="seg"><strong><span class="segtitle">値:</span></strong>...</div></div>
-    <div class="seglistitem"><div class="seg"><strong><span class="segtitle">キー:</span></strong>blocksize</div><div class="seg"><strong><span class="segtitle">値:</span></strong>...</div></div>
-   </div>
+   <table class="segmentedlist">
+    <caption><strong>完全な <span class="function"><strong>ob_get_status()</strong></span> の出力結果</strong></caption>
+    <thead><tr><th>キー</th><th>値</th>
+    </tr></thead><tbody><tr class="seglistitem"><td class="seg">chunk_size</td><td class="seg"><span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> で設定したチャンクの大きさ</td></tr>
+    <tr class="seglistitem"><td class="seg">size</td><td class="seg">...</td></tr>
+    <tr class="seglistitem"><td class="seg">blocksize</td><td class="seg">...</td></tr>
+   </tbody></table>
   </p>
  </div>
 

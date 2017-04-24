@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>LDAP 結果エントリをソートする</title>
+  <title>LDAP 結果エントリをクライアント側でソートする</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ldap-sort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_sort</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">ldap_sort</span> &mdash; <span class="dc-title">LDAP 結果エントリをソートする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_sort</span> &mdash; <span class="dc-title">LDAP 結果エントリをクライアント側でソートする</span></p>
 
  </div>
 
@@ -29,6 +29,14 @@
   <p class="para rdfs-comment">
    <span class="function"><a href="function.ldap-search.html" class="function">ldap_search()</a></span> が返す LDAP 検索結果をソートします。
   </p>
+  <p class="para">
+   この関数は、返された結果をクライアント側でソートします。そのため、
+   サーバー側の <code class="parameter">sizelimit</code> や
+   <span class="function"><a href="function.ldap-search.html" class="function">ldap_search()</a></span> で定義した <code class="parameter">sizelimit</code>
+   に達した場合は期待どおりの結果を得られない可能性があります。
+  </p>
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は PHP 7.0.0 で
+<em class="emphasis">非推奨</em>になります。この機能に頼らないことを強く推奨します。</p></div>
  </div>
 
 
@@ -83,7 +91,7 @@
   <h3 class="title">例</h3>
   <p class="para">
    検索結果をソートします。
-   <div class="example" id="example-4415">
+   <div class="example" id="example-4958">
     <p><strong>例1 LDAP のソート</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">

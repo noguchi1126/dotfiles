@@ -13,7 +13,7 @@
 </div><hr /><div id="function.grapheme-stripos" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">grapheme_stripos</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">grapheme_stripos</span> &mdash; <span class="dc-title">大文字小文字を区別せず、文字列内で最初にあらわれる場所の (書記素単位の) 位置を見つける</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">grapheme_stripos</span> &mdash; <span class="dc-title">大文字小文字を区別せず、文字列内で最初にあらわれる場所の (書記素単位の) 位置を見つける</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.grapheme-stripos-description">
@@ -70,6 +70,7 @@
       <p class="para">
        オプションの $offset パラメータで、$haystack
        のどの位置 (バイト数や文字数ではなく、書記素単位) から探し始めるのかを指定します。
+       負の値を指定した場合は、文字列の末尾からのオフセットとみなします。
        $offset の値にかかわらず、返される値は常に haystack
        の先頭からの位置になります。
       </p>
@@ -92,9 +93,36 @@
  </div>
 
  
+ <div class="refsect1 changelog" id="refsect1-function.grapheme-stripos-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.1.0</td>
+      <td>
+       負の <code class="parameter">offset</code> をサポートするようになりました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.grapheme-stripos-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-2697">
+  <div class="example" id="example-2937">
    <p><strong>例1 <span class="function"><strong>grapheme_stripos()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

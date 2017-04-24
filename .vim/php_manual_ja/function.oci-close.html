@@ -13,7 +13,7 @@
 </div><hr /><div id="function.oci-close" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">oci_close</h1>
-  <p class="verinfo">(PHP 5, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_close</span> &mdash; <span class="dc-title">Oracleとの接続を閉じる</span></p>
+  <p class="verinfo">(PHP 5, PHP 7, PECL OCI8 &gt;= 1.1.0)</p><p class="refpurpose"><span class="refname">oci_close</span> &mdash; <span class="dc-title">Oracleとの接続を閉じる</span></p>
 
  </div>
  
@@ -71,7 +71,7 @@
 
  <div class="refsect1 examples" id="refsect1-function.oci-close-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1974">
+  <div class="example" id="example-2202">
    <p><strong>例1 接続を閉じる</strong></p>
    <div class="example-contents"><p>
     基礎となるデータベース接続がきちんと終了され、データベースリソースが解放されることを確実にするために、
@@ -86,7 +86,7 @@
 
   </div>
 
-  <div class="example" id="example-1975">
+  <div class="example" id="example-2203">
    <p><strong>例2 参照の全てが閉じられるまでデータベース接続は閉じられません</strong></p>
    <div class="example-contents"><p>
     基礎となるデータベースへの接続が閉じられる前に
@@ -101,7 +101,7 @@
 
   </div>
 
-  <div class="example" id="example-1976">
+  <div class="example" id="example-2204">
    <p><strong>例3 一回以上開かれた接続を閉じる</strong></p>
    <div class="example-contents"><p>
      データベースクレデンシャルが再利用されるときは、基礎となるデータベース接続が閉じられる前に、
@@ -116,7 +116,7 @@
 
   </div>
 
-  <div class="example" id="example-1977">
+  <div class="example" id="example-2205">
    <p><strong>例4 変数がスコープから外れると接続が閉じられます</strong></p>
    <div class="example-contents"><p>
     接続を参照する変数の全てがスコープを外れてPHPにより解放されると、

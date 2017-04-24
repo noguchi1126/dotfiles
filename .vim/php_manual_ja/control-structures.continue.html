@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="control-structures.continue" class="sect1">
  <h2 class="title"><em>continue</em></h2>
- <p class="verinfo">(PHP 4, PHP 5)</p>
+ <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p>
  <p class="simpara">
   <em>continue</em> は、ループ構造において現在の繰り返しループ
   の残りの処理をスキップし、条件式を評価した後に
@@ -22,7 +22,11 @@
   <span class="simpara">
    PHP では、<em>continue</em> の動作に関しては
    <a href="control-structures.switch.html" class="link">switch</a>
-   文がループ構造とみなされるということに注意しましょう。
+   文がループ構造とみなされます。
+   <em>continue</em> に引数を渡さなかった場合の動きは
+   <em>break</em> と同じです。
+   <em>switch</em> がループ内にある場合、
+   <em>continue 2</em> とすると、外側のループの次回の処理から続行します。
   </span>
  </p></blockquote>
  <p class="simpara">
@@ -67,7 +71,7 @@
 </pre></div>
     </div>
     <p class="para">
-     しかし、このスクリプトの出力は以下のようになります。
+     しかし、PHP 5.4.0 より前のバージョンでは、このスクリプトの出力は以下のようになります。
     </p>
     <div class="example-contents screen">
 <div class="cdata"><pre>
@@ -81,6 +85,12 @@
      (<em>print</em> の返り値が <em>continue</em>
      への数値引数として渡されます)。
     </p>
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     PHP 5.4.0 移行では、先ほどの例を実行すると
+     <strong><code>E_COMPILE_ERROR</code></strong> エラーが発生するようになりました。
+    </p>
+   </p></blockquote>
    </div>
   </p>
   <p class="para">

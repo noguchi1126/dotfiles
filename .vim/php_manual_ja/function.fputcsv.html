@@ -13,7 +13,7 @@
 </div><hr /><div id="function.fputcsv" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fputcsv</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">fputcsv</span> &mdash; <span class="dc-title">行を CSV 形式にフォーマットし、ファイルポインタに書き込む</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">fputcsv</span> &mdash; <span class="dc-title">行を CSV 形式にフォーマットし、ファイルポインタに書き込む</span></p>
 
  </div>
  
@@ -23,9 +23,10 @@
    <span class="type">int</span> <span class="methodname"><strong>fputcsv</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$handle</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$fields</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &#039;,&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$delimiter</code><span class="initializer"> = &quot;,&quot;</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$enclosure</code><span class="initializer"> = &#039;&quot;&#039;</span></span>
-  ]] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$escape_char</code><span class="initializer"> = &quot;\&quot;</span></span>
+  ]]] )</div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>fputcsv()</strong></span> は、行（<code class="parameter">fields</code>
@@ -92,6 +93,19 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">escape_char</code></dt>
+
+     <dd>
+
+      <p class="para">
+       オプションの <code class="parameter">escape_char</code> は、エスケープ文字
+       (一文字だけ) を指定します。
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -106,10 +120,39 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.fputcsv-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.5.4</td>
+       <td>
+        <code class="parameter">escape_char</code> パラメータが追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.fputcsv-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2405">
+   <div class="example" id="example-2641">
     <p><strong>例1 <span class="function"><strong>fputcsv()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

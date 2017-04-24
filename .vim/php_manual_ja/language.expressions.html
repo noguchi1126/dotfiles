@@ -15,8 +15,8 @@
 
   
   <p class="simpara">
-   式は、PHP における最も重要な基盤石です。PHPにおいては、ほとんど全てのものは式で記述されます。最も簡単で最も正確な式の定義は、&quot;全ての式には値がある。&quot;
-   です。
+   式は、PHP における最も重要なビルディングブロックです。PHPにおいては、ほとんど全てのものは式で記述されます。
+   最も簡単で最も正確な式の定義は、&quot;全ての式には値がある。&quot;です。
   </p>
 
   <p class="simpara">
@@ -158,7 +158,8 @@
   <p class="para">
    もう一種類、三項演算子(ternary operator)を用いた式がありますが、
    他の言語で見たことがない場合には理解できないかもしれません。
-
+  </p>
+  <p class="para">
    <div class="informalexample">
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -168,7 +169,8 @@
     </div>
 
    </div>
-
+  </p>
+  <p class="para">
    最初の部分式の値が <strong><code>TRUE</code></strong> (非ゼロ)の場合、二番目の部分式が評価され、
     この条件文の結果となります。
    そうでない場合、三番目の部分式が評価され、この文の値となります。
@@ -177,31 +179,14 @@
   <p class="para">
    次の例は、前置および後置加算子と多少一般的な式の理解を
    助けてくれることでしょう。
-   
+  </p>
+  <p class="para">
    <div class="informalexample">
     <div class="example-contents">
-<div class="cdata"><pre>
-&lt;?php
-function double($i) {
-    return $i*2;
-}
-$b = $a = 5;        /* 値 5 を $a と $b に代入します */
-$c = $a++;          /* 後置加算なので、$c に代入される値は、$a の
-                       元の値 (5) です */
-$e = $d = ++$b;     /* 前置加算なので、$d と $e に代入される値は、
-                       加算後の $b の値 (6) です */
-
-/* ここままで、$d と $e は、6 です */
-
-$f = double($d++);  /* $f には、$d が加算される前の値を2倍した値、
-                       つまり 2*6 = 12 が、代入されます。
-$g = double(++$e);  /* $g には、$e が加算された後の値を2倍した値、
-                        つまり 2*7 = 14 が、代入されます。
-$h = $g += 10;      /* まず、$g に 10 が加算され、24 になります。
-                       代入値 (24) は、$h に代入されます。
-                       そして、$h も同様に 24 になります。 */
-?&gt;
-</pre></div>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">double</span><span style="color: #007700">(</span><span style="color: #0000BB">$i</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span style="color: #0000BB">$i</span><span style="color: #007700">*</span><span style="color: #0000BB">2</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">5</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;値&nbsp;5&nbsp;を&nbsp;$a&nbsp;と&nbsp;$b&nbsp;に代入します&nbsp;*/<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">++;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;後置加算なので、$c&nbsp;に代入される値は、$a&nbsp;の<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元の値&nbsp;(5)&nbsp;です&nbsp;*/<br /></span><span style="color: #0000BB">$e&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$d&nbsp;</span><span style="color: #007700">=&nbsp;++</span><span style="color: #0000BB">$b</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;前置加算なので、$d&nbsp;と&nbsp;$e&nbsp;に代入される値は、<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加算後の&nbsp;$b&nbsp;の値&nbsp;(6)&nbsp;です&nbsp;*/<br /><br />/*&nbsp;ここままで、$d&nbsp;と&nbsp;$e&nbsp;は、6&nbsp;です&nbsp;*/<br /><br /></span><span style="color: #0000BB">$f&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">double</span><span style="color: #007700">(</span><span style="color: #0000BB">$d</span><span style="color: #007700">++);&nbsp;&nbsp;</span><span style="color: #FF8000">/*&nbsp;$f&nbsp;には、$d&nbsp;が加算される前の値を2倍した値、<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;つまり&nbsp;2*6&nbsp;=&nbsp;12&nbsp;が、代入されます。<br />$g&nbsp;=&nbsp;double(++$e);&nbsp;&nbsp;/*&nbsp;$g&nbsp;には、$e&nbsp;が加算された後の値を2倍した値、<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;つまり&nbsp;2*7&nbsp;=&nbsp;14&nbsp;が、代入されます。<br />$h&nbsp;=&nbsp;$g&nbsp;+=&nbsp;10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;まず、$g&nbsp;に&nbsp;10&nbsp;が加算され、24&nbsp;になります。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代入値&nbsp;(24)&nbsp;は、$h&nbsp;に代入されます。<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;そして、$h&nbsp;も同様に&nbsp;24&nbsp;になります。&nbsp;*/<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
     </div>
 
    </div>

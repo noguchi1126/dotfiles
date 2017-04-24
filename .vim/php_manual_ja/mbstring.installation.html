@@ -41,72 +41,7 @@
      <strong class="option configure">--with-libmbfl[=DIR]</strong>
  を指定します。
     </p>
-    <p class="para">
-     PHP 4.3.0 以降、<em>mbstring</em> 拡張モジュールは
-     日本語のほかに中国語 (簡体字)・中国語 (繁体字)・
-     韓国語・ロシア語をサポートするように機能拡張されました。
-    </p>
-    <p class="para">
-     PHP 4.3.4以前のバージョンの場合、
-     この機能を使用するには、<strong class="option configure">--enable-mbstring=LANG</strong>
-の
-     <em>LANG</em> パラメータに
-     以下のオプションのいずれかを追加する必要があります。
-     <strong class="option configure">--enable-mbstring=cn</strong>
- を
-     使用した場合、簡体字中国語のエンコーディングがサポートされます。
-     <strong class="option configure">--enable-mbstring=tw</strong>
- を
-     使用した場合、繁体字中国語のエンコーディングがサポートされます。
-     <strong class="option configure">--enable-mbstring=kr</strong>
- を
-     使用した場合、韓国語のエンコーディングがサポートされます。
-     <strong class="option configure">--enable-mbstring=ru</strong>
- を
-     使用した場合、ロシア語のエンコーディングがサポートされます。そして、
-     <strong class="option configure">--enable-mbstring=ja</strong>
- (デフォルト)を
-     使用した場合、日本語のエンコーディングがサポートされます。
-     <strong class="option configure">--enable-mbstring=all</strong>
-
-     を指定した場合、サポートされるすべての文字エンコーディングが有効となります。
-     以前のバージョンとの互換性のため、何もオプションを指定せずに
-     <strong class="option configure">--enable-mbstring</strong>
- を使用した場合は
-     日本語のエンコーディングがサポートされます。
-    </p>
-    <blockquote class="note"><p><strong class="note">注意</strong>: 
-     <p class="para">
-      PHP 4.3.4以降では、<strong class="option configure">--enable-mbstring</strong>
-により、
-      <span class="productname">libmbfl</span>でサポートされている全てのエンコーディングが有効となるよう
-      になっています。
-     </p>
-    </p></blockquote>
    </li>
-    <li class="listitem">
-     <p class="para">
-      <strong class="option configure">--enable-mbstr-enc-trans</strong>
- :
-      <em>mbstring</em> 変換エンジンを使用した、HTTP 入力の
-      文字エンコーディング変換を有効にします。この機能が有効の場合、
-      HTTP 入力文字エンコーディングは、自動的に
-      <em>mbstring.internal_encoding</em> に変換されます。
-     </p>
-     <blockquote class="note"><p><strong class="note">注意</strong>: 
-      <p class="para">
-       PHP 4.3.0 以降、このオプション
-       <strong class="option configure">--enable-mbstr-enc-trans</strong>
-
-       は廃止され、実行時の設定 
-       <em>mbstring.encoding_translation</em>
-       に変更となります。HTTP 入力文字エンコーディング変換は、
-       このオプションを <em>On</em> に設定した場合のみ
-       有効となります
-       (デフォルトは <em>Off</em>です)。
-      </p>
-     </p></blockquote>
-    </li>
     <li class="listitem">
      <p class="para">
       <strong class="option configure">--disable-mbregex</strong>

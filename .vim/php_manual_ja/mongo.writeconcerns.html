@@ -130,7 +130,7 @@
    はどれも、オプションの引数で MongoDB サーバーに送るオプションを設定できます。
    このオプション配列を使って、次の例のように書き込み確認を指定できます。
   </p>
-  <div class="example" id="example-1374">
+  <div class="example" id="mongo.tutorial.selectdb-example">
    <p><strong>例1 書き込み操作での書き込み確認の指定</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,7 +150,7 @@
    <em>journal</em> や <em>w</em> そして
    <em>wTimeoutMS</em> というオプションを指定できます。
   </p>
-  <div class="example" id="example-1375">
+  <div class="example" id="mongo.tutorial.selectdb.typo">
    <p><strong>例2 接続文字列での書き込み確認の指定</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -169,7 +169,7 @@
    <a href="class.mongodb.html" class="classname">MongoDB</a> や <a href="class.mongocollection.html" class="classname">MongoCollection</a>
    から作るすべての操作のデフォルトを設定できます。
   </p>
-  <div class="example" id="example-1376">
+  <div class="example" id="mongo.tutorial.collection-example">
    <p><strong>例3 MongoDB::setWriteConcern および MongoCollection::setWriteConcern</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -205,7 +205,7 @@
    そのせいでパフォーマンスが大きく落ちることはないし、
    何かエラーがあればそれを捕捉できるようになります。
   </p>
-  <div class="example" id="mongo.writeconcerns.unacknowledged-example">
+  <div class="example" id="mongo.tutorial.insert-data-example">
    <p><strong>例4 確認なしの書き込みの後に確認付き書き込みを続ける例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -231,7 +231,7 @@
   <p class="para">
    レプリカセットの中で何台のメンバーに書き込み終える (レプリケートされる)
    まで書き込み完了とみなさないかを指定することもできます。
-   <div class="example" id="mongo.writeconcerns.acknowledged-example">
+   <div class="example" id="mongo.tutorial.insert-example-2">
     <p><strong>例5 確認付き書き込み</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -267,7 +267,7 @@
    この設定にすると、レプリカセットの過半数に書き込みが行き渡るまで成功したとみなさないので、
    ありがちなあらゆる障害に対応できるようになります。
   </p>
-  <div class="example" id="mongo.writeconcerns.majority.acknowledged-example">
+  <div class="example" id="mongo.tutorial.findone-example">
    <p><strong>例6 過半数の確認付き書き込み</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -290,7 +290,7 @@
    数百ミリ秒単位の遅延があります。
    書き込みがディスクに記録されるまで成功とみなさないようにするには、
    <em>j</em> オプションを指定します。
-   <div class="example" id="mongo.writeconcerns.journalled">
+   <div class="example" id="mongo.tutorial.findone-example-2">
     <p><strong>例7 確認付きジャーナル書き込み</strong></p>
     <div class="example-contents"><p>ジャーナルのフラッシュを強制します。</p></div>
     <div class="example-contents">
@@ -308,7 +308,7 @@
   <h3 class="title">参考</h3>
   <ul class="simplelist">
    <li class="member">
-    <a href="http://docs.mongodb.org/manual/applications/replication/#replica-set-write-concern" class="link external">&raquo;&nbsp;MongoDB の WriteConcern に関するドキュメント</a>
+    <a href="https://docs.mongodb.com/manual/applications/replication/#replica-set-write-concern" class="link external">&raquo;&nbsp;MongoDB の WriteConcern に関するドキュメント</a>
    </li>
   </ul>
  </div>

@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>例外が発生した行を取得する</title>
+  <title>例外が作られた行を取得する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="exception.getline" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Exception::getLine</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">Exception::getLine</span> &mdash; <span class="dc-title">例外が発生した行を取得する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">Exception::getLine</span> &mdash; <span class="dc-title">例外が作られた行を取得する</span></p>
 
  </div>
  
@@ -47,7 +47,7 @@
  <div class="refsect1 examples" id="refsect1-exception.getline-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-296">
+   <div class="example" id="example-307">
     <p><strong>例1 <span class="function"><strong>Exception::getLine()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -64,6 +64,16 @@ The exception was created on line: 3
 </pre></div>
     </div>
    </div>
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-exception.getline-seealso">
+  <h3 class="title">参考</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="throwable.getline.html" class="methodname" rel="rdfs-seeAlso">Throwable::getLine()</a> - オブジェクトのインスタンスが作られた行番号を取得する</span></li>
+   </ul>
   </p>
  </div>
 

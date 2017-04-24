@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-merge" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_merge</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">array_merge</span> &mdash; <span class="dc-title">ひとつまたは複数の配列をマージする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_merge</span> &mdash; <span class="dc-title">ひとつまたは複数の配列をマージする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-merge-description">
@@ -80,69 +80,11 @@
   </p>
  </div>
 
- <div class="refsect1 changelog" id="refsect1-function.array-merge-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        <div class="warning"><strong class="warning">警告</strong>
-         <p class="para">
-          <span class="function"><strong>array_merge()</strong></span> の動作は PHP 5 で変更されました。PHP 4 とは異なり、
-          <span class="function"><strong>array_merge()</strong></span> は、<span class="type"><a href="language.types.array.html" class="type array">array</a></span>
-          型のパラメータのみを受け取るようになりました。しかし、
-          他の型をマージするために型キャストを使用することも可能です。
-          詳細は以下の例を参照してください。
-         </p>
-         <p class="para">
-          <div class="example" id="example-4977">
-           <p><strong>例1 <span class="function"><strong>array_merge()</strong></span> PHP 5 の例</strong></p>
-           <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$beginning&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$end&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_merge</span><span style="color: #007700">((array)</span><span style="color: #0000BB">$beginning</span><span style="color: #007700">,&nbsp;(array)</span><span style="color: #0000BB">$end</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-           </div>
-
-           <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
-           <div class="example-contents screen">
-    <div class="cdata"><pre>
-    Array
-    (
-        [0] =&gt; foo
-        [1] =&gt; bar
-    )
-</pre></div>
-           </div>
-          </div>
-         </p>
-        </div>
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
  <div class="refsect1 examples" id="refsect1-function.array-merge-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4978">
-    <p><strong>例2 <span class="function"><strong>array_merge()</strong></span> の例</strong></p>
+   <div class="example" id="example-5584">
+    <p><strong>例1 <span class="function"><strong>array_merge()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$array1&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"color"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"red"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$array2&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"a"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"b"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"color"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"green"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"shape"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"trapezoid"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_merge</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$array2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -168,8 +110,8 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4979">
-    <p><strong>例3 簡単な <span class="function"><strong>array_merge()</strong></span> の例</strong></p>
+   <div class="example" id="example-5585">
+    <p><strong>例2 簡単な <span class="function"><strong>array_merge()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$array1&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #0000BB">$array2&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">"data"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_merge</span><span style="color: #007700">(</span><span style="color: #0000BB">$array1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$array2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -224,6 +166,28 @@ array(5) {
     </div>
    </div>
   </p>
+  <p class="para">
+   <div class="example" id="example-5586">
+    <p><strong>例3 <span class="function"><strong>array_merge()</strong></span> で配列以外の型を扱う例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$beginning&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'foo'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$end&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'bar'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">array_merge</span><span style="color: #007700">((array)</span><span style="color: #0000BB">$beginning</span><span style="color: #007700">,&nbsp;(array)</span><span style="color: #0000BB">$end</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+    <div class="cdata"><pre>
+    Array
+    (
+        [0] =&gt; foo
+        [1] =&gt; bar
+    )
+</pre></div>
+    </div>
+   </div>
+  </p>
  </div>
 
  <div class="refsect1 seealso" id="refsect1-function.array-merge-seealso">
@@ -231,6 +195,7 @@ array(5) {
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.array-merge-recursive.html" class="function" rel="rdfs-seeAlso">array_merge_recursive()</a> - 二つ以上の配列を再帰的にマージする</span></li>
+    <li class="member"><span class="function"><a href="function.array-replace.html" class="function" rel="rdfs-seeAlso">array_replace()</a> - 渡された配列の要素を置き換える</span></li>
     <li class="member"><span class="function"><a href="function.array-combine.html" class="function" rel="rdfs-seeAlso">array_combine()</a> - 一方の配列をキーとして、もう一方の配列を値として、ひとつの配列を生成する</span></li>
     <li class="member"><a href="language.operators.array.html" class="link">配列演算子</a></li>
    </ul>

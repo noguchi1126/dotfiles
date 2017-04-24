@@ -13,7 +13,7 @@
 </div><hr /><div id="function.unpack" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">unpack</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">unpack</span> &mdash; <span class="dc-title">バイナリ文字列からデータを切り出す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">unpack</span> &mdash; <span class="dc-title">バイナリ文字列からデータを切り出す</span></p>
 
  </div>
  
@@ -126,35 +126,49 @@
  <div class="refsect1 examples" id="refsect1-function.unpack-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3811">
+   <div class="example" id="example-4374">
     <p><strong>例1 <span class="function"><strong>unpack()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$binarydata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"\x04\x00\xa0\x00"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"cchars/nint"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$binarydata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"\x04\x00\xa0\x00"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"cchars/nint"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
-    <div class="example-contents"><p>
-     結果の配列の内容は、値が <em>4</em> であるエントリ &quot;chars&quot;
-     と値が <em>160</em> であるエントリ &quot;int&quot; となります。
-    </p></div>
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [chars] =&gt; 4
+    [int] =&gt; 160
+)
+</pre></div>
+    </div>
    </div>
   </p>
 
   <p class="para">
-   <div class="example" id="example-3812">
+   <div class="example" id="example-4375">
     <p><strong>例2 <span class="function"><strong>unpack()</strong></span> でのリピータの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$binarydata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"\x04\x00\xa0\x00"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"c2chars/nint"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$binarydata&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"\x04\x00\xa0\x00"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">unpack</span><span style="color: #007700">(</span><span style="color: #DD0000">"c2chars/nint"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$binarydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$array</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
 
-     <div class="example-contents"><p>
-      結果の配列のエントリは &quot;chars1&quot;、&quot;chars2&quot; および &quot;int&quot; となります。
-     </p></div>
+     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [chars1] =&gt; 4
+    [chars2] =&gt; 0
+    [int] =&gt; 40960
+)
+</pre></div>
+     </div>
     </div>
    </p>
   </div>
@@ -172,12 +186,12 @@
   </div>
   <div class="caution"><strong class="caution">警告</strong>
    <p class="para">
-    要素に名前をつけなければ、空文字列の要素となることに注意しましょう。
-    つまり、名前をつけない要素が複数ある場合は、
-    それらのキーが同じになるためデータが上書きされてしまうということです。
+    要素に名前をつけなければ、<em>1</em> から始まる数値インデックスを用います。
+    名前をつけない要素が複数ある場合は、データが上書きされてしまうかもしれないことに注意しましょう。
+    それぞれの要素について、数値インデックスが <em>1</em> から割りあてられるからです。
    </p>
    <p class="para">
-    <div class="example" id="example-3813">
+    <div class="example" id="example-4376">
      <p><strong>例3 <span class="function"><strong>unpack()</strong></span> で名前のないキーを扱う例</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -186,11 +200,20 @@
 </code></div>
      </div>
 
+     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+array(2) {
+  [1]=&gt;
+  int(160)
+  [2]=&gt;
+  int(66)
+}
+</pre></div>
+     </div>
      <div class="example-contents"><p>
-      結果の配列の内容は、値が <em>160</em> であるエントリ &quot;1&quot;
-      と値が <em>66</em> であるエントリ &quot;2&quot; になります。
       <em>c</em> で指定した最初の値が
-      <em>n</em> で指定した値で上書きされます。
+      <em>n</em> で指定した値で上書きされることに注意しましょう。
      </p></div>
     </div>
    </p>

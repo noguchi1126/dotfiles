@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::ping</h1>
   <h1 class="refname">mysqli_ping</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli::ping</span> -- <span class="refname">mysqli_ping</span> &mdash; <span class="dc-title">サーバーとの接続をチェックし、もし切断されている場合は再接続を試みる</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::ping</span> -- <span class="refname">mysqli_ping</span> &mdash; <span class="dc-title">サーバーとの接続をチェックし、もし切断されている場合は再接続を試みる</span></p>
 
  </div>
 
@@ -38,6 +38,12 @@
    <a href="mysqli.configuration.html#ini.mysqli.reconnect" class="link">mysqli.reconnect</a>
    が有効な場合は再接続を試みます。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    mysqlnd ドライバは、<var class="filename">php.ini</var> 設定項目 mysqli.reconnect を無視します。
+    自動再接続は行われません。
+   </span>
+  </p></blockquote>
   <p class="para">
    この関数は、長期間アイドル状態にあるクライアントが、
    サーバーの状態を確認して必要なら再接続するために使用します。
@@ -74,7 +80,7 @@ link</code></dt>
 
  <div class="refsect1 examples" id="refsect1-mysqli.ping-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1685">
+  <div class="example" id="example-1849">
    <p><strong>例1 <span class="methodname"><strong>mysqli::ping()</strong></span> の例</strong></p>
    <div class="example-contents"><p>オブジェクト指向型</p></div>
    <div class="example-contents">

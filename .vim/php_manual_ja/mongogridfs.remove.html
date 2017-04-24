@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>ファイルをコレクションから削除する</title>
+  <title>ファイルとそのチャンクをデータベースから削除する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,14 +13,14 @@
 </div><hr /><div id="mongogridfs.remove" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">MongoGridFS::remove</h1>
-  <p class="verinfo">(PECL mongo &gt;=0.9.0)</p><p class="refpurpose"><span class="refname">MongoGridFS::remove</span> &mdash; <span class="dc-title">ファイルをコレクションから削除する</span></p>
+  <p class="verinfo">(PECL mongo &gt;=0.9.0)</p><p class="refpurpose"><span class="refname">MongoGridFS::remove</span> &mdash; <span class="dc-title">ファイルとそのチャンクをデータベースから削除する</span></p>
 
  </div>
 
  <div class="refsect1 description" id="refsect1-mongogridfs.remove-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><strong>MongoGridFS::remove</strong></span>
+   <span class="modifier">public</span> <span class="type"><span class="type bool|array">bool|array</span></span> <span class="methodname"><strong>MongoGridFS::remove</strong></span>
     ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$criteria</code><span class="initializer"> = array()</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
   ]] )</div>
@@ -36,7 +36,7 @@
     
      <dt>
 
-      <code class="parameter">query</code>
+      <code class="parameter">criteria</code>
      </dt>
 
      <dd>
@@ -46,7 +46,7 @@
       </p>
      </dd>
 
-       
+    
     
      <dt>
 
@@ -56,17 +56,14 @@
      <dd>
 
       <p class="para">
-       削除時のオプション。以下のオプションが使えます。
+       <em>chunks</em> および <em>files</em>
+       コレクションに対して削除操作を実行するときの、オプションの配列。
+       オプションの意味については、<span class="function"><a href="mongocollection.remove.html" class="function">MongoCollection::remove()</a></span>
+       を参照ください。
       </p>
-      <ul class="itemizedlist">
-       <li class="listitem">
-<p class="para"><em>&quot;w&quot;</em></p>
-<p class="para"><a href="mongo.writeconcerns.html" class="link">WriteConcerns</a> を参照ください。<a href="class.mongoclient.html" class="classname">MongoClient</a> でのデフォルト値は <em>1</em> です。
-</p></li>
-      </ul>
      </dd>
 
-       
+    
    </dl>
 
   </p>
@@ -76,8 +73,20 @@
  <div class="refsect1 returnvalues" id="refsect1-mongogridfs.remove-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   削除がデータベースに正しく送信されたかどうかを返します。
+   <em>&quot;w&quot;</em> オプションを設定している場合は、配列を返します。
+   この配列には、削除が成功したかどうか (<em>files</em> コレクションを尊重したもの) を含みます。
+   それ以外の場合は <strong><code>TRUE</code></strong> を返します。
   </p>
+  <p class="para">
+   配列の各フィールドの意味については、
+   <span class="function"><a href="mongocollection.insert.html" class="function">MongoCollection::insert()</a></span> のドキュメントを参照ください。
+  </p>
+ </div>
+
+
+ <div class="refsect1 errors" id="refsect1-mongogridfs.remove-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para"><em>&quot;w&quot;</em> オプションが設定されていて書き込みが失敗した場合に <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> をスローします。</p><p class="para"><em>&quot;w&quot;</em> オプションの値が 1 より大きく設定されていて、操作の完了までの時間が <var class="varname"><var class="varname">MongoCursor::$timeout</var></var> ミリ秒をこえた場合に <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。サーバー上での操作は止めません。これはクライアント側でのタイムアウトです。<var class="varname"><var class="varname">MongoCollection::$wtimeout</var></var> はミリ秒です。</p>
  </div>
 
 

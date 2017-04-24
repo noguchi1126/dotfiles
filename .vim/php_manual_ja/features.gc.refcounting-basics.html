@@ -31,7 +31,7 @@
    <p class="para">
     新しい変数が定数値を使って作成されるとき、zval コンテナが作成されます。
     例えば、
-    <div class="example" id="example-387">
+    <div class="example" id="example-412">
      <p><strong>例1 新規 zval コンテナを作成</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -56,7 +56,7 @@
     <span class="function"><strong>xdebug_debug_zval()</strong></span>を呼ぶと、この情報を表示できます。
    </p>
    <p class="para">
-    <div class="example" id="example-388">
+    <div class="example" id="example-413">
      <p><strong>例2 zval 情報を表示</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -77,7 +77,7 @@ a: (refcount=1, is_ref=0)=&#039;new string&#039;
     この変数を他の変数名に代入すると、refcount が増加します。
    </p>
    <p class="para">
-    <div class="example" id="example-389">
+    <div class="example" id="example-414">
      <p><strong>例3 zval の refcount を増加</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -100,16 +100,17 @@ a: (refcount=2, is_ref=0)=&#039;new string&#039;
     PHPは、必要ではない場合に実際の変数コンテナをコピーしないように十分スマートです。
     「refcount」がゼロに達すると、変数コンテナは破棄されます。
     変数コンテナにリンクされたあらゆるシンボルがスコープを抜ける
-    （例えば関数が終わる）場合、またはシンボルに対して <span class="function"><a href="function.unset.html" class="function">unset()</a></span>
-    が呼ばれた場合に「refcount」が減少します。
+    (たとえば関数が終わる) 場合、またはシンボルへの代入が解除された
+    (たとえば <span class="function"><a href="function.unset.html" class="function">unset()</a></span> が呼ばれた)
+    場合に「refcount」が減少します。
     下記の例でこれを示します。
    </p>
    <p class="para">
-    <div class="example" id="example-390">
+    <div class="example" id="example-415">
      <p><strong>例4 zval refcount を減少</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"new&nbsp;string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br />unset(&nbsp;</span><span style="color: #0000BB">$b</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"new&nbsp;string"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$a</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$b&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">42</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br />unset(&nbsp;</span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">xdebug_debug_zval</span><span style="color: #007700">(&nbsp;</span><span style="color: #DD0000">'a'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -118,6 +119,7 @@ a: (refcount=2, is_ref=0)=&#039;new string&#039;
      <div class="example-contents screen">
 <div class="cdata"><pre>
 a: (refcount=3, is_ref=0)=&#039;new string&#039;
+a: (refcount=2, is_ref=0)=&#039;new string&#039;
 a: (refcount=1, is_ref=0)=&#039;new string&#039;
 </pre></div>
      </div>
@@ -134,12 +136,12 @@ a: (refcount=1, is_ref=0)=&#039;new string&#039;
     <p class="para">
      <span class="type"><a href="language.types.array.html" class="type array">array</a></span> や <span class="type"><a href="language.types.object.html" class="type object">object</a></span> のような複合型では、事情が少し
      複雑になります。
-     <span class="type"><span class="type scalar">scalar</span></span> 値ではなく、<span class="type"><a href="language.types.array.html" class="type array">array</a></span> と <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
+     <span class="type"><span class="type scalar">scalar</span></span> 値とは逆に、<span class="type"><a href="language.types.array.html" class="type array">array</a></span> と <span class="type"><a href="language.types.object.html" class="type object">object</a></span>
      では、それらのプロパティをそれら自身のシンボルテーブルに保管します。
      これは、以下の例が3つの zval コンテナを作成することを意味します。
     </p>
     <p class="para">
-     <div class="example" id="example-391">
+     <div class="example" id="example-416">
       <p><strong>例5 <span class="type"><a href="language.types.array.html" class="type array">array</a></span> zval を作成</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -173,7 +175,7 @@ a: (refcount=1, is_ref=0)=array (
      下記では、配列に他の要素を追加して、既存の要素の内容をその値に設定します。
     </p>
     <p class="para">
-     <div class="example" id="example-392">
+     <div class="example" id="example-417">
       <p><strong>例6 既存の要素を配列に追加</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -217,7 +219,7 @@ a: (refcount=1, is_ref=0)=array (
      除去されます。前と同じように、これを示す例です。
     </p>
     <p class="para">
-     <div class="example" id="example-393">
+     <div class="example" id="example-418">
       <p><strong>例7 配列から要素を除去</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -243,7 +245,7 @@ a: (refcount=1, is_ref=0)=array (
      さもなければ PHP がコピーを作成するでしょう。
     </p>
     <p class="para">
-     <div class="example" id="example-394">
+     <div class="example" id="example-419">
       <p><strong>例8 それ自体の要素として配列自体を追加</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -285,7 +287,7 @@ a: (refcount=2, is_ref=1)=array (
      アンセットにより「2」から「1」に減少します。これは次のように表現されます。
     </p>
     <p class="para">
-     <div class="example" id="example-395">
+     <div class="example" id="example-420">
       <p><strong>例9 <var class="varname"><var class="varname">$a</var></var> をアンセット</strong></p>
       <div class="example-contents screen">
 <div class="cdata"><pre>

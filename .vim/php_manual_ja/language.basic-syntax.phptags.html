@@ -21,7 +21,7 @@
     箇所以外のすべての部分は、PHP パーサに無視されます。
    </p>
    <p class="para">
-    PHP では、短い形式の開始タグ <em>&lt;?</em> および <em>?&gt;</em> も使えます
+    PHP では、短い形式の開始タグ <em>&lt;?</em> も使えます
     (しかしこれはおすすめしません。というのも、この形式のタグは <var class="filename">php.ini</var> で
     <a href="ini.core.html#ini.short-open-tag" class="link">short_open_tag</a> を有効にするか
     <strong class="option unknown">--enable-short-tags</strong>
@@ -40,6 +40,41 @@
      </div>
 
     </div>
+   </p>
+   <p class="para">
+    <table class="doctable table">
+     <caption><strong>変更履歴</strong></caption>
+     
+      <thead>
+       <tr>
+        <th>バージョン</th>
+        <th>説明</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>7.0.0</td>
+         <td>
+          ASP タグ (<code class="code">&lt;%</code>, <code class="code">%&gt;</code>,
+          <code class="code">&lt;%=</code>) や script タグ
+          (<code class="code">&lt;script language=&quot;php&quot;&gt;</code>)
+          が PHP から削除されました。
+         </td>
+       </tr>
+
+       <tr>
+        <td>5.4.0</td>
+         <td>
+          short_open_tag の設定にかかわらず、&lt;?= は常に使えるようになりました。
+         </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
    </p>
   </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.basic-syntax.html">基本的な構文</a></div>

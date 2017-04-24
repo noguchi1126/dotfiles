@@ -15,15 +15,17 @@
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <strong>Version requirement</strong><br />
    <p class="para">
-    The feature requires use of PECL/mysqlnd_ms 1.3.0-beta or later,
-    and PECL/mysqlnd_qc 1.1.0-alpha or newer. PECL/mysqlnd_ms must be
+    The feature requires use of <em>PECL/mysqlnd_ms</em> 1.3.0-beta or later,
+    and <em>PECL/mysqlnd_qc</em> 1.1.0-alpha or newer.
+    <em>PECL/mysqlnd_ms</em> must be
     compiled to support the feature. PHP 5.4.0 or newer is required.
    </p>
   </p></blockquote>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <strong>Setup: extension load order</strong><br />
    <p class="para">
-    PECL/mysqlnd_ms must be loaded before PECL/mysqlnd_qc, when using shared
+    <em>PECL/mysqlnd_ms</em> must be loaded before
+    <em>PECL/mysqlnd_qc</em>, when using shared
     extensions.
    </p>
   </p></blockquote>
@@ -44,7 +46,8 @@
   </p></blockquote>
   <p class="para">
    Support for MySQL replication clusters (asynchronous primary copy) is the
-   main focus of PECL/mysqlnd_ms. The slaves of a MySQL replication cluster
+   main focus of <em>PECL/mysqlnd_ms</em>.
+   The slaves of a MySQL replication cluster
    may or may not reflect the latest updates from the master.
    Slaves are asynchronous and can lag behind the master. A read from a slave
    is eventual consistent from a cluster-wide perspective.
@@ -61,17 +64,18 @@
    replace a remote database access with a local cache access to gain better possibility.
   </p>
   <p class="para">
-   As of PECL/mysqlnd_ms 1.3.0-beta the plugin is capable of transparently controlling
-   PECL/mysqlnd_ms 1.1.0-alpha or newer to cache a read-only query if explicitly
-   allowed by setting an appropriate quality of service through
-   <span class="function"><a href="function.mysqlnd-ms-set-qos.html" class="function">mysqlnd_ms_set_qos()</a></span>. Please, see the
+   As of <em>PECL/mysqlnd_ms</em> 1.3.0-beta the plugin is
+   capable of transparently controlling  <em>PECL/mysqlnd_ms</em> 1.1.0-alpha
+   or newer to cache a read-only query if explicitly allowed by setting an
+   appropriate quality of service through <span class="function"><a href="function.mysqlnd-ms-set-qos.html" class="function">mysqlnd_ms_set_qos()</a></span>. P
+   lease, see the
    <a href="mysqlnd-ms.quickstart.cache.html" class="link">quickstart</a> for a code example.
-   Both plugins must be installed, PECL/mysqlnd_ms must be compiled to support the
-   cache feature and PHP 5.4.0 or newer has to be used.
+   Both plugins must be installed, <em>PECL/mysqlnd_ms</em>
+   must be compiled to support the cache feature and PHP 5.4.0 or newer has to be used.
   </p>
   <p class="para">
    Applications have full control of cache usage and can request fresh data
-   at any time, if need be. Thec ache usage can be enabled and disabled
+   at any time, if need be. The cache usage can be enabled and disabled
    time during the execution of a script. The cache will be used
    if <span class="function"><a href="function.mysqlnd-ms-set-qos.html" class="function">mysqlnd_ms_set_qos()</a></span> sets the quality of service
    to eventual consistency and enables cache usage. Cache usage is disabled by
@@ -80,7 +84,7 @@
    relaxed to eventual consistency the cache can be used again.
   </p>
   <p class="para">
-   If caching is enabled for a read-only statement, PECL/mysqlnd_ms may inject
+   If caching is enabled for a read-only statement, <em>PECL/mysqlnd_ms</em> may inject
    <a href="mysqlnd-qc.quickstart.caching.html" class="link">SQL hints to control caching</a>
    by PECL/mysqlnd_qc. It may modify the SQL statement it got from the application.
    Subsequent SQL processors are supposed to ignore the SQL hints. A SQL hint is a
@@ -148,7 +152,7 @@
     </li>
     <li class="listitem">
      <span class="simpara">
-      Inject the appropriate SQL hints to enable caching by PECL/mysqlnd_qc.
+      Inject the appropriate SQL hints to enable caching by <em>PECL/mysqlnd_qc</em>.
      </span>
     </li>
     <li class="listitem">
@@ -159,9 +163,10 @@
     </li>
     <li class="listitem">
      <span class="simpara">
-      PECL/mysqlnd_qc is loaded after PECL/mysqlnd_ms by PHP. Thus, it will see
-      all query modifications of PECL/mysqlnd_ms and cache the query if instructed
-      to do so.
+      <em>PECL/mysqlnd_qc</em> is loaded after
+      <em>PECL/mysqlnd_ms</em> by PHP. Thus, it will see
+      all query modifications of <em>PECL/mysqlnd_ms</em> and cache
+      the query if instructed to do so.
      </span>
     </li>
    </ul>
@@ -169,7 +174,7 @@
   <p class="para">
    The algorithm may seem expensive. <em>SHOW SLAVE STATUS</em> is a very
    fast operation. Given a sufficient number of requests and cache hits per second the cost of
-   checking the slaves lag can easily outweight the costs of the cache decision.
+   checking the slaves lag can easily outweigh the costs of the cache decision.
   </p>
   <p class="para">
    Suggestions on a better algorithm are always welcome.

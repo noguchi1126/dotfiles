@@ -13,7 +13,7 @@
 </div><hr /><div id="function.gzgets" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gzgets</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">gzgets</span> &mdash; <span class="dc-title">ファイルポインタから 1 行を得る</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gzgets</span> &mdash; <span class="dc-title">ファイルポインタから 1 行を得る</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.gzgets-description">
@@ -21,8 +21,8 @@
   <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><strong>gzgets</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$zp</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$length</code></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    与えられたファイルポインタから最大 length - 1 バイトの文字を読み込み、
@@ -79,7 +79,7 @@
  <div class="refsect1 examples" id="refsect1-function.gzgets-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-820">
+   <div class="example" id="example-886">
     <p><strong>例1 <span class="function"><strong>gzgets()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -75,6 +75,12 @@
 
        <tr>
         <td>right</td>
+        <td><em>**</em></td>
+        <td><a href="language.operators.arithmetic.html" class="link">代数演算子</a></td>
+       </tr>
+
+       <tr>
+        <td>right</td>
         <td>
          <em>++</em> 
          <em>--</em> 
@@ -164,6 +170,7 @@
          <em>===</em> 
          <em>!==</em> 
          <em>&lt;&gt;</em>
+         <em>&lt;=&gt;</em>
         </td>
         <td>
          <a href="language.operators.comparison.html" class="link">比較演算子</a>
@@ -211,6 +218,14 @@
        </tr>
 
        <tr>
+        <td>right</td>
+        <td><em>??</em></td>
+        <td>
+         <a href="language.operators.comparison.html" class="link">比較演算子</a>
+        </td>
+       </tr>
+
+       <tr>
         <td>left</td>
         <td><em>? :</em></td>
         <td>
@@ -225,6 +240,7 @@
          <em>+=</em> 
          <em>-=</em> 
          <em>*=</em> 
+         <em>**=</em> 
          <em>/=</em> 
          <em>.=</em> 
          <em>%=</em> 
@@ -233,7 +249,6 @@
          <em>^=</em> 
          <em>&lt;&lt;=</em> 
          <em>&gt;&gt;=</em>
-         <em>=&gt;</em>
         </td>
         <td>
          <a href="language.operators.assignment.html" class="link">代入演算子</a>
@@ -264,19 +279,13 @@
         </td>
        </tr>
 
-       <tr>
-        <td>left</td>
-        <td><em>,</em></td>
-        <td>さまざまな利用法</td>
-       </tr>
-
       </tbody>
      
     </table>
 
    </p>
    <p class="para">
-    <div class="example" id="example-115">
+    <div class="example" id="example-94">
      <p><strong>例1 結合時の評価</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -289,10 +298,10 @@
    </p>
    <p class="para">
     演算子の優先順位や結合性は、あくまでも式のグループ分けだけを決めるものであり、評価順を決めるものではありません。
-    PHP では一般に、式をどの順番で評価するかは決めていませｎ。
+    PHP では一般に、式をどの順番で評価するかは決めていません。
     そのため、特定の順序で式が評価されることを前提としたコードを書いてはいけません。
     PHP のバージョンが変わったり前後のコードが変わったりしたときに、評価順が変わる可能性があるからです。
-    <div class="example" id="example-116">
+    <div class="example" id="example-95">
      <p><strong>例2 評価順序は未定義</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -301,6 +310,24 @@
 </code></div>
      </div>
 
+    </div>
+    <div class="example" id="example-96">
+     <p><strong>例3 <em>+</em>、<em>-</em>、<em>.</em> の優先順位は同じ</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$x&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;次の行は、予期せぬ結果になることでしょう<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">-</span><span style="color: #0000BB">1&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;なぜなら、これは次のように評価されるからです<br /></span><span style="color: #007700">echo&nbsp;((</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">)&nbsp;-&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #FF8000">//&nbsp;期待どおりの結果を得るには、括弧を使って優先順位を指定します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"x&nbsp;minus&nbsp;one&nbsp;equals&nbsp;"&nbsp;</span><span style="color: #007700">.&nbsp;(</span><span style="color: #0000BB">$x</span><span style="color: #007700">-</span><span style="color: #0000BB">1</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">",&nbsp;or&nbsp;so&nbsp;I&nbsp;hope\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+     <div class="example-contents screen">
+<div class="cdata"><pre>
+-1, or so I hope
+-1, or so I hope
+x minus one equals 3, or so I hope
+</pre></div>
+     </div>
     </div>
    </p>
    <blockquote class="note"><p><strong class="note">注意</strong>: 

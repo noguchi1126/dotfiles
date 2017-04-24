@@ -13,7 +13,7 @@
 </div><hr /><div id="function.xml-parser-create-ns" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">xml_parser_create_ns</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5)</p><p class="refpurpose"><span class="refname">xml_parser_create_ns</span> &mdash; <span class="dc-title">名前空間をサポートした XML パーサを生成する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">xml_parser_create_ns</span> &mdash; <span class="dc-title">名前空間をサポートした XML パーサを生成する</span></p>
 
  </div>
  
@@ -22,7 +22,7 @@
   <div class="methodsynopsis dc-description">
    <span class="type">resource</span> <span class="methodname"><strong>xml_parser_create_ns</strong></span>
     ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = &#039;:&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$separator</code><span class="initializer"> = &quot;:&quot;</span></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
@@ -44,13 +44,10 @@
      <dd>
 
       <p class="para">
-       PHP 4 では、オプションの <code class="parameter">encoding</code> で入出力の
-       エンコーディングを指定します。PHP 5 以降では入力のエンコーディングは
+       入力のエンコーディングは
        自動判定されるので、<code class="parameter">encoding</code> パラメータは
-       出力のエンコーディングのみを指定することになります。PHP 4 では、
-       デフォルトの出力エンコーディングは入力の文字セットと同じです。
-       もし空の文字列が渡された場合、先頭の 3 あるいは 4 バイトの内容をもとに
-       パーサがエンコーディングの判別を試みます。PHP 5.0.0 および 5.0.1
+       出力のエンコーディングのみを指定することになります。
+       PHP 5.0.0 および 5.0.1
        ではデフォルトの出力文字セットは ISO-8859-1 で、PHP 5.0.2 以降では
        UTF-8 です。サポートされるエンコーディングは
        <em>ISO-8859-1</em>、<em>UTF-8</em> および

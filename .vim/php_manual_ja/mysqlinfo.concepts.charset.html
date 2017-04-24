@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mysqlinfo.concepts.buffering.html">バッファクエリと非バッファクエリ</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="book.mysql.html">Mysql</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.mysqli.html">MySQLi</a></div>
  <div class="up"><a href="mysqlinfo.concepts.html">コンセプト</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mysqlinfo.concepts.charset" class="section">
@@ -35,11 +35,11 @@
    </p>
   </div>
 
-  <div class="example" id="example-1569">
+  <div class="example" id="example-1786">
    <p><strong>例1 文字セットを SQL で指定することによる問題</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;これは&nbsp;$mysqli-&gt;real_escape_string();&nbsp;に影響を及ぼしません<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SET&nbsp;NAMES&nbsp;utf8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;これも&nbsp;$mysqli-&gt;real_escape_string();&nbsp;に影響を及ぼしません<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SET&nbsp;CHARACTER&nbsp;SET&nbsp;utf8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;しかしこの方法なら&nbsp;$mysqli-&gt;real_escape_string();&nbsp;にもきちんと影響します<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf8'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;これは&nbsp;$mysqli-&gt;real_escape_string();&nbsp;に影響を及ぼしません<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SET&nbsp;NAMES&nbsp;utf8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;これも&nbsp;$mysqli-&gt;real_escape_string();&nbsp;に影響を及ぼしません<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">query</span><span style="color: #007700">(</span><span style="color: #DD0000">"SET&nbsp;CHARACTER&nbsp;SET&nbsp;utf8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;しかしこの方法なら&nbsp;$mysqli-&gt;real_escape_string();&nbsp;にもきちんと影響します<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf8'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;いっぽう、こちらは影響を及ぼしません&nbsp;(utf-8&nbsp;と&nbsp;utf8&nbsp;の違いに注目)&nbsp;--&nbsp;ここではハイフンを使ってはいけません<br /></span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf-8'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -49,19 +49,27 @@
   <p class="para">
    実行時に文字セットを変更する適切な方法を、各 API について示します。
   </p>
+  
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <strong>UTF-8 でありがちなミス</strong><br />
+   <p class="para">
+    MySQL の文字セット名はハイフンを含まないので、MySQL で UTF-8 を表す文字セットは
+    &quot;utf8&quot; が正解です。&quot;utf-8&quot; ではないので、&quot;utf-8&quot; と指定しても文字セットは変わりません。
+   </p>
+  </p></blockquote>
 
-  <div class="example" id="example-1570">
+  <div class="example" id="example-1787">
    <p><strong>例2 文字セットの設定: mysqli</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf8'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Error&nbsp;loading&nbsp;character&nbsp;set&nbsp;utf8:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Current&nbsp;character&nbsp;set:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">character_set_name</span><span style="color: #007700">());<br />}<br /><br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get_charset</span><span style="color: #007700">()&nbsp;);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$mysqli&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">mysqli</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_password"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Initial&nbsp;character&nbsp;set:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">character_set_name</span><span style="color: #007700">());<br /><br />if&nbsp;(!</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf8'</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">printf</span><span style="color: #007700">(</span><span style="color: #DD0000">"Error&nbsp;loading&nbsp;character&nbsp;set&nbsp;utf8:&nbsp;%s\n"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">error</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /><br />echo&nbsp;</span><span style="color: #DD0000">"New&nbsp;character&nbsp;set&nbsp;information:\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$mysqli</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">get_charset</span><span style="color: #007700">()&nbsp;);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
 
   </div>
 
-  <div class="example" id="example-1571">
+  <div class="example" id="example-1788">
    <p><strong>例3 文字セットの設定: <a href="ref.pdo-mysql.connection.html" class="link">pdo_mysql</a></strong></p>
    <div class="example-contents"><p>
     注意: これは PHP 5.3.6 以降でしか動作しません。
@@ -75,11 +83,11 @@
 
   </div>
 
-  <div class="example" id="example-1572">
+  <div class="example" id="example-1789">
    <p><strong>例4 文字セットの設定: mysql</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_pass"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$db&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br />if&nbsp;(!</span><span style="color: #0000BB">mysql_set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf8'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error:&nbsp;Unable&nbsp;to&nbsp;set&nbsp;the&nbsp;character&nbsp;set.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Your&nbsp;current&nbsp;character&nbsp;set&nbsp;is:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_client_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$conn&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #DD0000">"localhost"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_user"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_pass"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$db&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #DD0000">"world"</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Initial&nbsp;character&nbsp;set:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_client_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">)&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /><br />if&nbsp;(!</span><span style="color: #0000BB">mysql_set_charset</span><span style="color: #007700">(</span><span style="color: #DD0000">'utf8'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$conn</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error:&nbsp;Unable&nbsp;to&nbsp;set&nbsp;the&nbsp;character&nbsp;set.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Your&nbsp;current&nbsp;character&nbsp;set&nbsp;is:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_client_encoding</span><span style="color: #007700">(</span><span style="color: #0000BB">$conn</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
    </div>
@@ -87,7 +95,7 @@
   </div>  
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mysqlinfo.concepts.buffering.html">バッファクエリと非バッファクエリ</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="book.mysql.html">Mysql</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.mysqli.html">MySQLi</a></div>
  <div class="up"><a href="mysqlinfo.concepts.html">コンセプト</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

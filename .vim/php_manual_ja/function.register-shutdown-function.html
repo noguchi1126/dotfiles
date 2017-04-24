@@ -13,7 +13,7 @@
 </div><hr /><div id="function.register-shutdown-function" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">register_shutdown_function</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">register_shutdown_function</span> &mdash; <span class="dc-title">シャットダウン時に実行する関数を登録する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">register_shutdown_function</span> &mdash; <span class="dc-title">シャットダウン時に実行する関数を登録する</span></p>
 
  </div>
  
@@ -106,46 +106,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.register-shutdown-function-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.1.0</td>
-       <td>
-        シャットダウン関数がリクエストの一部としてコールされるようになりました。
-        以前のバージョンを Apache で動かしている場合、
-        登録されたシャットダウン関数はリクエストの完了後（結果の出力を含む）
-        に実行されます。そのため、<span class="function"><a href="function.echo.html" class="function">echo</a></span>
-        や <span class="function"><a href="function.print.html" class="function">print</a></span> を用いてブラウザに出力したり
-        <span class="function"><a href="function.ob-get-contents.html" class="function">ob_get_contents()</a></span>
-        を用いて出力バッファの内容を取得したりすることができませんでした。
-        ヘッダも常に送信された後でした。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.register-shutdown-function-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5132">
+   <div class="example" id="example-5976">
     <p><strong>例1 <span class="function"><strong>register_shutdown_function()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

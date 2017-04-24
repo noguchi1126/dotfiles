@@ -13,7 +13,7 @@
 </div><hr /><div id="function.session-start" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">session_start</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">session_start</span> &mdash; <span class="dc-title">新しいセッションを開始、あるいは既存のセッションを再開する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_start</span> &mdash; <span class="dc-title">新しいセッションを開始、あるいは既存のセッションを再開する</span></p>
 
  </div>
 
@@ -21,8 +21,8 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>session_start</strong></span>
-    ( <span class="methodparam">void</span>
-   )</div>
+    ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = []</span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    <span class="function"><strong>session_start()</strong></span> は、セッションを作成します。
@@ -58,6 +58,36 @@
  </div>
 
 
+ <div class="refsect1 parameters" id="refsect1-function.session-start-parameters">
+  <h3 class="title">パラメータ</h3>
+  <dl>
+
+   
+    <dt>
+<code class="parameter">options</code></dt>
+
+    <dd>
+
+     <p class="para">
+      オプションの連想配列を指定することができます。これは、現在設定されている
+      <a href="session.configuration.html" class="link">セッションの設定ディレクティブ</a>
+      を上書きします。
+      連想配列のキーにはプレフィックス <em>session.</em> を含めてはいけません。
+     </p>
+     <p class="para">
+      通常の設定ディレクティブ群に加えて、
+      <em>read_and_close</em> オプションを指定することもできます。
+      これを <strong><code>TRUE</code></strong> にすると、セッションを読み込んだらその場ですぐにクローズします。
+      セッションのデータを書き換えるつもりがない場合は、こうしておけば、意図せぬロックを防げます。
+     </p>
+    </dd>
+
+   
+  </dl>
+
+ </div>
+
+
  <div class="refsect1 returnvalues" id="refsect1-function.session-start-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
@@ -81,6 +111,13 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">options</code> パラメータが追加されました。
+       </td>
+      </tr>
+
       <tr>
        <td>5.3.0</td>
        <td>
@@ -109,37 +146,68 @@
 
  <div class="refsect1 examples" id="refsect1-function.session-start-examples">
   <h3 class="title">例</h3>
-  <p class="para">
-   <div class="example" id="example-4786">
-    <p><strong>例1 セッションの例 <var class="filename">page1.php</var></strong></p>
-    <div class="example-contents">
+  <div class="refsect2 unknown-examplet" id="refsect2-function.session-start-unknown-examplet">
+   <h4 class="title">基本的なセッションの例</h4>
+
+   <p class="para">
+    <div class="example" id="example-5383">
+     <p><strong>例1 <var class="filename">page1.php</var></strong></p>
+     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;page1.php<br /><br /></span><span style="color: #0000BB">session_start</span><span style="color: #007700">();<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Welcome&nbsp;to&nbsp;page&nbsp;#1'</span><span style="color: #007700">;<br /><br /></span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'favcolor'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'green'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'animal'</span><span style="color: #007700">]&nbsp;&nbsp;&nbsp;=&nbsp;</span><span style="color: #DD0000">'cat'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'time'</span><span style="color: #007700">]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;</span><span style="color: #0000BB">time</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;セッションクッキーが有効なら動作します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;&lt;a&nbsp;href="page2.php"&gt;page&nbsp;2&lt;/a&gt;'</span><span style="color: #007700">;<br /><br /></span><span style="color: #FF8000">//&nbsp;あるいは必要に応じてセッション&nbsp;ID&nbsp;を渡します<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;&lt;a&nbsp;href="page2.php?'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">SID&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #DD0000">'"&gt;page&nbsp;2&lt;/a&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
-    </div>
+     </div>
 
-   </div>
-  </p>
-  <p class="para">
-   <var class="filename">page1.php</var> を表示した後なら、
-   <var class="filename">page2.php</var> はセッション上の情報を含んでいるはずです。
-   <a href="ref.session.html" class="link">セッションについてのリファレンス</a> を読むと、
-   <a href="session.idpassing.html" class="link">セッションIDの伝達</a> に関する情報が得られます。
-   例えば、<strong><code>SID</code></strong> とは何かといったことです。
-  </p>
-  <p class="para">
-   <div class="example" id="example-4787">
-    <p><strong>例2 セッションの例: <var class="filename">page2.php</var></strong></p>
-    <div class="example-contents">
+    </div>
+   </p>
+   <p class="para">
+    <var class="filename">page1.php</var> を表示した後なら、
+    <var class="filename">page2.php</var> はセッション上の情報を含んでいるはずです。
+    <a href="ref.session.html" class="link">セッションについてのリファレンス</a> を読むと、
+    <a href="session.idpassing.html" class="link">セッションIDの伝達</a> に関する情報が得られます。
+    例えば、<strong><code>SID</code></strong> とは何かといったことです。
+   </p>
+   <p class="para">
+    <div class="example" id="example-5384">
+     <p><strong>例2 <var class="filename">page2.php</var></strong></p>
+     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;page2.php<br /><br /></span><span style="color: #0000BB">session_start</span><span style="color: #007700">();<br /><br />echo&nbsp;</span><span style="color: #DD0000">'Welcome&nbsp;to&nbsp;page&nbsp;#2&lt;br&nbsp;/&gt;'</span><span style="color: #007700">;<br /><br />echo&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'favcolor'</span><span style="color: #007700">];&nbsp;</span><span style="color: #FF8000">//&nbsp;green<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'animal'</span><span style="color: #007700">];&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;cat<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">date</span><span style="color: #007700">(</span><span style="color: #DD0000">'Y&nbsp;m&nbsp;d&nbsp;H:i:s'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$_SESSION</span><span style="color: #007700">[</span><span style="color: #DD0000">'time'</span><span style="color: #007700">]);<br /><br /></span><span style="color: #FF8000">//&nbsp;page1.php&nbsp;と同様に、ここで&nbsp;SID&nbsp;を使うこともできます<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">'&lt;br&nbsp;/&gt;&lt;a&nbsp;href="page1.php"&gt;page&nbsp;1&lt;/a&gt;'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+  </div>
+
+  <div class="refsect2 unknown-unknown-exampleu" id="refsect2-function.session-start-unknown-unknown-exampleu">
+   <h4 class="title"><span class="function"><strong>session_start()</strong></span> のオプションの指定</h4>
+
+   <div class="example" id="example-5385">
+    <p><strong>例3 クッキーの有効期限の上書き</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;これは、有効期限が1日の永続クッキーを送信します<br /></span><span style="color: #0000BB">session_start</span><span style="color: #007700">([<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cookie_lifetime'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">86400</span><span style="color: #007700">,<br />]);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
 
    </div>
-  </p>
+
+   <div class="example" id="example-5386">
+    <p><strong>例4 セッションの読み込みとクローズ</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;セッション内で何も変更する必要がないことがわかっている場合は、<br />//&nbsp;セッションを読み込んですぐにクローズしてしまえば、<br />//&nbsp;セッションファイルをロックして他のページをブロックしてしまうことを防げます<br /></span><span style="color: #0000BB">session_start</span><span style="color: #007700">([<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cookie_lifetime'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">86400</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'read_and_close'&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />]);</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </div>
+
  </div>
 
 

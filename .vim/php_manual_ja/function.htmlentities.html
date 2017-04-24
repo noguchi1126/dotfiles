@@ -13,7 +13,7 @@
 </div><hr /><div id="function.htmlentities" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">htmlentities</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">htmlentities</span> &mdash; <span class="dc-title">適用可能な文字を全て HTML エンティティに変換する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">htmlentities</span> &mdash; <span class="dc-title">適用可能な文字を全て HTML エンティティに変換する</span></p>
 
  </div>
  
@@ -23,7 +23,7 @@
    <span class="type">string</span> <span class="methodname"><strong>htmlentities</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ENT_COMPAT | ENT_HTML401</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = &#039;UTF-8&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = ini_get(&quot;default_charset&quot;)</span></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$double_encode</code><span class="initializer"> = true</span></span>
   ]]] )</div>
 
@@ -163,15 +163,27 @@
 
      <dd>
 
-      <p class="para">
-       <span class="function"><a href="function.htmlspecialchars.html" class="function">htmlspecialchars()</a></span>と同様に、<span class="function"><strong>htmlentities()</strong></span> はオプションの3番目の引数
-       <code class="parameter">charset</code> をとり、変換に使用されるエンコーディングを指定可能です。
-       PHP 5.6.0 以降では、デフォルト値として <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
-       の値を使います。それ以前のデフォルト値は、
-       PHP 5.4.0 より前のバージョンでは
-       ISO-8859-1、そして PHP 5.4.0 以降では UTF-8 でした。
-       この引数は表向きには任意指定となっていますが、コードにあわせて正しい値を指定しておくことを強く推奨します。
-      </p>
+      
+ <p class="para">
+  オプションの引数。文字を変換するときに使うエンコーディングを定義します。
+ </p>
+
+ <p class="para">
+  省略した場の <code class="parameter">encoding</code> のデフォルト値は、varies
+  PHP のバージョンによって異なります。
+  PHP 5.6.0 以降では、デフォルト値として <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
+  の値を使います。PHP 5.4 と PHP 5.5 のデフォルト値は、
+  <em>UTF-8</em> で、それより前のバージョンの PHP のデフォルト値は
+  <em>ISO-8859-1</em> でした。
+ </p>
+
+ <p class="para">
+  技術的にはこの引数を省略可能ですが、PHP 5.5 以前のバージョンを使っている場合や、
+  <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
+  の指定が入力とは違う文字セットになっている場合は、
+  適切な値を指定しておくことを強く推奨します。
+ </p>
+
       
 
 
@@ -380,6 +392,16 @@
      </thead>
 
      <tbody class="tbody">
+      
+ <tr>
+  <td>5.6.0</td>
+  <td>
+   <code class="parameter">encoding</code> パラメータのデフォルト値が、
+   <a href="ini.core.html#ini.default-charset" class="link">default_charset</a> の設定値に変わりました。
+  </td>
+ </tr>
+
+
       <tr>
        <td>5.4.0</td>
        <td>
@@ -411,20 +433,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>4.1.0</td>
-       <td>
-        <code class="parameter">encoding</code> パラメータが追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.3</td>
-       <td>
-        <code class="parameter">flags</code> パラメータが追加されました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -436,7 +444,7 @@
  <div class="refsect1 examples" id="refsect1-function.htmlentities-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4850">
+   <div class="example" id="example-5451">
     <p><strong>例1 <span class="function"><strong>htmlentities()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -449,7 +457,7 @@
   </p>
   
   <p class="para">
-   <div class="example" id="example-4851">
+   <div class="example" id="example-5452">
     <p><strong>例2 <strong><code>ENT_IGNORE</code></strong> の使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

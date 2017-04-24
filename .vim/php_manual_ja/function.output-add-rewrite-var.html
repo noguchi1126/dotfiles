@@ -13,7 +13,7 @@
 </div><hr /><div id="function.output-add-rewrite-var" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">output_add_rewrite_var</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">output_add_rewrite_var</span> &mdash; <span class="dc-title">URL リライタの値を追加する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">output_add_rewrite_var</span> &mdash; <span class="dc-title">URL リライタの値を追加する</span></p>
 
  </div>
  
@@ -31,11 +31,10 @@
    (hidden フィールドとして) で追加されます。これは、<a href="session.configuration.html#ini.session.use-trans-sid" class="link">session.use_trans_sid</a>
    で透過的 URL リライティングが有効になっている場合に
    セッション ID が渡される方法と同じです。
-   絶対 URL (http://example.com/..)
-   はリライトされないことに注意しましょう。
   </p>
   <p class="para">
-   この関数の挙動は、<var class="filename">php.ini</var> パラメータ <a href="session.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a>
+   この関数の挙動は、<var class="filename">php.ini</var> パラメータ <a href="outcontrol.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a>
+   および <a href="outcontrol.configuration.html#ini.url-rewriter.hosts" class="link">url_rewriter.hosts</a>
    によって制御されます。
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
@@ -90,10 +89,44 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.output-add-rewrite-var-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.1.0</td>
+       <td>
+        PHP 7.1.0 より前のバージョンでは、<span class="function"><strong>output_add_rewrite_var()</strong></span>
+        で設定したリライト変数は、透過的セッションID出力バッファと同じセッションモジュールを使っていました。
+        PHP 7.1.0 以降では、専用の出力バッファを用いるようになりました。
+        <a href="outcontrol.configuration.html#ini.url-rewriter.tags" class="link">
+        url_rewriter.tags</a> はただ関数の出力にだけ使われるようになり、
+        <a href="outcontrol.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.hosts</a> が追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.output-add-rewrite-var-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-475">
+   <div class="example" id="example-515">
     <p><strong>例1 <span class="function"><strong>output_add_rewrite_var()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -131,6 +164,10 @@ Array
     <li class="member"><span class="function"><a href="function.output-reset-rewrite-vars.html" class="function" rel="rdfs-seeAlso">output_reset_rewrite_vars()</a> - URL リライタの値をリセットする</span></li>
     <li class="member"><span class="function"><a href="function.ob-flush.html" class="function" rel="rdfs-seeAlso">ob_flush()</a> - 出力バッファをフラッシュ(送信)する</span></li>
     <li class="member"><span class="function"><a href="function.ob-list-handlers.html" class="function" rel="rdfs-seeAlso">ob_list_handlers()</a> - 使用中の出力ハンドラの一覧を取得する</span></li>
+    <li class="member"><a href="outcontrol.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a></li>
+    <li class="member"><a href="outcontrol.configuration.html#ini.url-rewriter.hosts" class="link">url_rewriter.hosts</a></li>
+    <li class="member"><a href="session.configuration.html#ini.session.trans-sid-tags" class="link">session.trans_sid_tags</a></li>
+    <li class="member"><a href="session.configuration.html#ini.session.trans-sid-hosts" class="link">session.trans_sid_hosts</a></li>
    </ul>
   </p>
  </div>

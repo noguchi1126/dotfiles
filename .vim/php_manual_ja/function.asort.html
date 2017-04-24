@@ -13,7 +13,7 @@
 </div><hr /><div id="function.asort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">asort</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">asort</span> &mdash; <span class="dc-title">連想キーと要素との関係を維持しつつ配列をソートする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">asort</span> &mdash; <span class="dc-title">連想キーと要素との関係を維持しつつ配列をソートする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.asort-description">
@@ -30,6 +30,12 @@
    この関数は、
    主に実際の要素の並び方が重要である連想配列をソートするために使われます。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+ <p class="para">
+  比較結果が等しくなる二つの要素があった場合、ソートした配列におけるそれらの並び順は不定となります。
+ </p>
+</p></blockquote>
+
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.asort-parameters">
@@ -78,7 +84,7 @@
  <div class="refsect1 examples" id="refsect1-function.asort-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5018">
+   <div class="example" id="example-5625">
     <p><strong>例1 <span class="function"><strong>asort()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

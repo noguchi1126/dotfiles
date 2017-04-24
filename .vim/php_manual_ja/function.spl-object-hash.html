@@ -13,7 +13,7 @@
 </div><hr /><div id="function.spl-object-hash" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">spl_object_hash</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">spl_object_hash</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">spl_object_hash</span> &mdash; <span class="dc-title">
    指定したオブジェクトのハッシュ ID を返す
   </span></p>
 
@@ -27,8 +27,9 @@
 
   <p class="para rdfs-comment">
    この関数は、オブジェクトの一意な識別子を返します。この ID は、
-   オブジェクトを保存する際のハッシュのキーとして使用できますし、
-   オブジェクトを識別するための値として使用することもできます。
+   オブジェクトを保存する際のハッシュのキーとして使えます。
+   また、オブジェクトが破棄されるまでは、オブジェクトを識別するための値としても使えます。
+   オブジェクトが破棄されると、そのハッシュが他のオブジェクトで再利用されてしまうことがあります。
   </p>
  </div>
 
@@ -67,7 +68,7 @@
  <div class="refsect1 examples" id="refsect1-function.spl-object-hash-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3943">
+   <div class="example" id="regexiterator.setpregflags.example.basic">
     <p><strong>例1 <span class="function"><strong>spl_object_hash()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

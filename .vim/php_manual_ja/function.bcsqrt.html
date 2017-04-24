@@ -13,7 +13,7 @@
 </div><hr /><div id="function.bcsqrt" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">bcsqrt</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">bcsqrt</span> &mdash; <span class="dc-title">任意精度数値の平方根を取得する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">bcsqrt</span> &mdash; <span class="dc-title">任意精度数値の平方根を取得する</span></p>
 
  </div>
  
@@ -22,7 +22,7 @@
   <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><strong>bcsqrt</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$operand</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$scale</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$scale</code><span class="initializer"> = 0</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
@@ -53,8 +53,9 @@
 scale</code></dt>
 <dd>
 <p class="para">このオプションパラメータを使用して、
-結果の小数点以下の桁数を指定します。すべての関数で使用するデフォルトのスケールを定義するには
-<span class="function"><a href="function.bcscale.html" class="function">bcscale()</a></span> を使用します。</p></dd>
+結果の小数点以下の桁数を指定します。省略した場合は、<span class="function"><a href="function.bcscale.html" class="function">bcscale()</a></span>
+関数でグローバルに設定した桁数をデフォルトとして使用します。それも設定されていない場合は
+<em>0</em> を使用します。</p></dd>
 
    </dl>
 
@@ -73,7 +74,7 @@ scale</code></dt>
  
  <div class="refsect1 examples" id="refsect1-function.bcsqrt-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-3414">
+  <div class="example" id="example-3941">
    <p><strong>例1 <span class="function"><strong>bcsqrt()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

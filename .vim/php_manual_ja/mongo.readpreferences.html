@@ -15,7 +15,7 @@
 
  <p class="para">
   MongoDB 2.2 およびドライバのバージョン 1.3.0 以降では
-  <a href="http://docs.mongodb.org/manual/core/read-preference/" class="link external">&raquo;&nbsp;優先読み込み</a>
+  <a href="https://docs.mongodb.com/manual/core/read-preference/" class="link external">&raquo;&nbsp;優先読み込み</a>
   をサポートします。これを使えば、レプリカセット環境内でクエリを
   mongod インスタンスに振り分ける方法を制御できます。
   優先読み込みは接続ごとに指定することもできるし、
@@ -29,7 +29,7 @@
   優先読み込みの指定は、モードとタグセットの組み合わせで行います。
   mongod インスタンスの優先順位をどのように決めるのかを指定するのがモードで、
   ふさわしい mongod インスタンスの条件を指定するのが
-  <a href="http://docs.mongodb.org/manual/tutorial/configure-replica-set-tag-sets/" class="link external">&raquo;&nbsp;タグセット</a> です。
+  <a href="https://docs.mongodb.com/manual/tutorial/configure-replica-set-tag-sets/" class="link external">&raquo;&nbsp;タグセット</a> です。
   mongod のインスタンスがそれにふさわしいと認められるのは、直近の mongod インスタンスからの ping 時間が 15ms 以内に収まるときだけです。
  </p>
  <div class="simplesect">
@@ -152,7 +152,7 @@
  <div class="simplesect">
   <h3 class="title">タグセット</h3>
   <p class="para">
-   <a href="http://docs.mongodb.org/manual/tutorial/configure-replica-set-tag-sets/" class="link external">&raquo;&nbsp;タグセット</a>
+   <a href="https://docs.mongodb.com/manual/tutorial/configure-replica-set-tag-sets/" class="link external">&raquo;&nbsp;タグセット</a>
    を使うと、カスタムパラメータに基づいて読み込み操作の対象を特定のメンバーに絞り込めます。
    タグセットでは、読み込み操作の対象となるメンバーを特定のデータセンターに絞り込んだり、
    レポーティングや分析など操作種別ごとにその対象の mongod インスタンスを絞り込んだりできます。
@@ -222,7 +222,7 @@
    </p>
   </div>
   <p class="para">
-   <div class="example" id="example-1372">
+   <div class="example" id="mongo.tutorial.basics">
     <p><strong>例1 接続 URI でのクエリ文字列構文による優先読み込みの設定</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -234,7 +234,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-1373">
+   <div class="example" id="mongo.tutorial.connecting-example">
     <p><strong>例2 タグセット用の配列構文による優先読み込みの設定</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

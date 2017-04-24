@@ -2,8 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>アルファブレンディングフラグを設定し、
-   libgd にバンドルされているレイヤ効果を使用する</title>
+  <title>アルファブレンディングフラグを設定し、レイヤ効果を使用する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -14,9 +13,8 @@
 </div><hr /><div id="function.imagelayereffect" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagelayereffect</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">imagelayereffect</span> &mdash; <span class="dc-title">
-   アルファブレンディングフラグを設定し、
-   libgd にバンドルされているレイヤ効果を使用する
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagelayereffect</span> &mdash; <span class="dc-title">
+   アルファブレンディングフラグを設定し、レイヤ効果を使用する
   </span></p>
 
  </div>
@@ -29,8 +27,7 @@
    )</div>
 
   <p class="para rdfs-comment">
-   アルファブレンディングフラグを設定し、
-   libgd にバンドルされているレイヤ効果を使用します。
+   アルファブレンディングフラグを設定し、レイヤ効果を使用します。
   </p>
  </div>
 
@@ -110,6 +107,18 @@ image</code></dt>
          </dd>
 
         
+        
+         <dt>
+<strong><code>IMG_EFFECT_MULTIPLY</code></strong></dt>
+
+         <dd>
+
+          <span class="simpara">
+           多重効果を使ったオーバーレイを使用します。
+          </span>
+         </dd>
+
+        
        </dl>
 
       </p>
@@ -128,9 +137,39 @@ image</code></dt>
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.imagelayereffect-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.2.0</td>
+      <td>
+       <strong><code>IMG_EFFECT_MULTIPLY</code></strong> が追加されました
+       (システムの libgd が 2.1.1 以降であるか、バンドルされている
+       libgd を使う必要があります)。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.imagelayereffect-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-3276">
+  <div class="example" id="example-3582">
    <p><strong>例1 <span class="function"><strong>imagelayereffect()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -150,10 +189,15 @@ image</code></dt>
   </div>
  </div>
 
+
  <div class="refsect1 notes" id="refsect1-function.imagelayereffect-notes">
   <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は、GD 2.0.1 以降を必要とします (2.0.28 以降を推奨します)。</span></p></blockquote>
+  <p class="simpara">
+   PHP 5.5.0 より前のバージョンでは、バンドルされている GD を指定して
+   PHP をコンパイルした場合だけしかこの関数を使えませんでした。
+  </p>
  </div>
+
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.imagejpeg.html">imagejpeg</a></div>

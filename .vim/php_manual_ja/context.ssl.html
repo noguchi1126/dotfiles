@@ -32,6 +32,20 @@
    <dl>
 
     
+     <dt id="context.ssl.peer-name">
+      <code class="parameter">peer_name</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       使用するピア名。省略した場合は、ストリームをオープンしたときに使ったホスト名をもとに、名前を推測します。
+      </p>
+     </dd>
+
+    
+    
      <dt id="context.ssl.verify-peer">
       <code class="parameter">verify_peer</code>
       <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
@@ -43,7 +57,24 @@
        SSL サーバー証明書の検証を要求するかどうか。
       </p>
       <p class="para">
-       デフォルトは <strong><code>FALSE</code></strong> です。
+       デフォルトは <strong><code>TRUE</code></strong> です。
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.verify-peer-name">
+      <code class="parameter">verify_peer_name</code>
+      <span class="type"><a href="language.types.boolean.html" class="type boolean">boolean</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       ピア名の検証を要求するかどうか。
+      </p>
+      <p class="para">
+       デフォルトは <strong><code>TRUE</code></strong> です。
       </p>
      </dd>
 
@@ -113,6 +144,23 @@
        あなたの証明書とプライベートキーを含み、PEM エンコードされた
        ファイルである必要があります。オプションで、発行者の
        認証チェーンを含めることも可能です。
+       プライベートキーは、
+       <em>local_pk</em> で指定した別のファイルに含めることも可能です。
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.local-pk">
+      <code class="parameter">local_pk</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       ローカルファイルシステム上のプライベートキーファイルの場所。
+       証明書 (<em>local_cert</em>) とプライベートキーを別のファイルに分けたい場合に用います。
       </p>
      </dd>
 
@@ -145,6 +193,12 @@
        行います。もし一般名がこれにマッチしなかった場合、接続の試行は
        失敗します。
       </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+        <span class="simpara">
+          このオプションは非推奨です。PHP 5.6.0 以降では <code class="parameter">peer_name</code>
+          を使いましょう。
+        </span>
+      </p></blockquote>
      </dd>
 
     
@@ -175,7 +229,7 @@
 
       <p class="para">
        使用可能な暗号化方式の一覧を設定します。設定できるフォーマットは
-       <a href="http://www.openssl.org/docs/apps/ciphers.html#CIPHER_LIST_FORMAT" class="link external">&raquo;&nbsp;ciphers(1)</a> の説明を参照ください。
+       <a href="https://www.openssl.org/docs/manmaster/man1/ciphers.html#CIPHER-LIST-FORMAT" class="link external">&raquo;&nbsp;ciphers(1)</a> の説明を参照ください。
       </p>
       <p class="para">
        デフォルトは <em>DEFAULT</em> です。
@@ -240,6 +294,12 @@
        設定すると、この値がサーバー名として用いられるようになります。
        設定されていない場合は、ストリームをオープンしたときに使ったホスト名からサーバー名を推測します。
       </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+        <span class="simpara">
+          このオプションは非推奨です。PHP 5.6.0 以降では <code class="parameter">peer_name</code>
+          を使いましょう。
+        </span>
+      </p></blockquote>
      </dd>
 
     
@@ -253,6 +313,28 @@
 
       <p class="para">
        設定すると、TLS 圧縮を無効にします。これは、CRIME アタックベクターを軽減するのに役立ちます。
+      </p>
+     </dd>
+
+    
+    
+     <dt id="context.ssl.peer-fingerprint">
+      <code class="parameter">peer_fingerprint</code>
+      <span class="type"><a href="language.types.string.html" class="type string">string</a></span> | <span class="type"><a href="language.types.array.html" class="type array">array</a></span>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       リモート証明書のダイジェストが指定したハッシュに一致しない場合に、異常終了させます。
+      </p>
+      <p class="para">
+       <span class="type"><a href="language.types.string.html" class="type string">string</a></span> を指定する場合は、その長さでハッシュアルゴリズムを判断します。
+       &quot;md5&quot; (32) あるいは &quot;sha1&quot; (40) のいずれかです。
+      </p>
+      <p class="para">
+       <span class="type"><a href="language.types.array.html" class="type array">array</a></span> を指定する場合は、キーがハッシュアルゴリズムで、
+       それに対応する値がダイジェストとなります。
       </p>
      </dd>
 
@@ -278,6 +360,14 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.6.0</td>
+       <td>
+        <code class="parameter">peer_fingerprint</code> と <code class="parameter">verify_peer_name</code> が追加されました。
+        <code class="parameter">verify_peer</code> のデフォルトが <strong><code>TRUE</code></strong> に変わりました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.4.13</td>
        <td>
         <code class="parameter">disable_compression</code> が追加されました。OpenSSL &gt;= 1.0.0 が必要です。
@@ -289,15 +379,6 @@
        <td>
         <code class="parameter">SNI_enabled</code> および
         <code class="parameter">SNI_server_name</code> が追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        <code class="parameter">capture_peer_cert</code>、
-        <code class="parameter">capture_peer_chain</code> および
-        <code class="parameter">ciphers</code> が追加されました。
        </td>
       </tr>
 

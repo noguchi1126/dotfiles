@@ -13,7 +13,7 @@
 </div><hr /><div id="function.openssl-pkcs12-read" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">openssl_pkcs12_read</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.2)</p><p class="refpurpose"><span class="refname">openssl_pkcs12_read</span> &mdash; <span class="dc-title">PKCS#12 認証ストアをパースして配列形式にする</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.2, PHP 7)</p><p class="refpurpose"><span class="refname">openssl_pkcs12_read</span> &mdash; <span class="dc-title">PKCS#12 認証ストアをパースして配列形式にする</span></p>
 
  </div>
  
@@ -46,6 +46,7 @@
      <dd>
 
       <p class="para">
+       認証ストアの内容。ファイル名ではありません。
       </p>
      </dd>
 
@@ -85,6 +86,21 @@
   <p class="para">
    成功した場合に <strong><code>TRUE</code></strong> を、失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
+ </div>
+
+
+ <div class="refsect1 examples" id="refsect1-function.openssl-pkcs12-read-examples">
+  <h3 class="title">例</h3>
+  <div class="example" id="example-940">
+   <p><strong>例1 <span class="function"><strong>openssl_pkcs12_read()</strong></span> の例</strong></p>
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$cert_store&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">file_get_contents</span><span style="color: #007700">(</span><span style="color: #DD0000">"/certs/file.p12"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error:&nbsp;Unable&nbsp;to&nbsp;read&nbsp;the&nbsp;cert&nbsp;file\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /><br />if&nbsp;(</span><span style="color: #0000BB">openssl_pkcs12_read</span><span style="color: #007700">(</span><span style="color: #0000BB">$cert_store</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$cert_info</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"my_secret_pass"</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Certificate&nbsp;Information\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$cert_info</span><span style="color: #007700">);<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Error:&nbsp;Unable&nbsp;to&nbsp;read&nbsp;the&nbsp;cert&nbsp;store.\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;exit;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
  </div>
 
 

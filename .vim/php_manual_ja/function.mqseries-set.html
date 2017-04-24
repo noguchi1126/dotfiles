@@ -21,22 +21,22 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>mqseries_set</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$hconn</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$hobj</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$selectorcount</code></span>
+    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$hConn</code></span>
+   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$hObj</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$selectorCount</code></span>
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$selectors</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$intattrcount</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$intattrs</code></span>
-   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$charattrlength</code></span>
-   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$charattrs</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$intAttrCount</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$intAttrs</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$charAttrLength</code></span>
+   , <span class="methodparam"><span class="type">array</span> <code class="parameter">$charAttrs</code></span>
    , <span class="methodparam"><span class="type">resource</span> <code class="parameter reference">&$compCode</code></span>
    , <span class="methodparam"><span class="type">resource</span> <code class="parameter reference">&$reason</code></span>
    )</div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>mqseries_set()</strong></span>
-   (MQSET) は、ハンドルが指すオブジェクトの属性を変更します。
-   オブジェクトは、キューでなければなりません。
+   The <span class="function"><strong>mqseries_set()</strong></span>
+   (MQSET) call is used to change the attributes of an object represented by a
+   handle. The object must be a queue.
   </p>
  </div>
 
@@ -54,8 +54,93 @@
 
      <dd>
 
-      <p class="para">接続ハンドル。</p>
-      <p class="para">このハンドルは、キューマネージャへの接続を表します。</p>
+      <p class="para">Connection handle.</p>
+      <p class="para">This handle represents the connection to the queue manager.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">hObj</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Object handle.</p>
+      <p class="para">This handle represents the object to be used.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">selectorCount</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Count of selectors.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">selectors</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Array of attribute selectors.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">intAttrCount</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Count of integer attributes.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">intAttrs</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Array of integer attributes.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">charAttrLength</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Length of character attributes buffer.</p>
+     </dd>
+
+    
+    
+     <dt>
+
+      <code class="parameter">charAttrs</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">Character attributes.</p>
      </dd>
 
     
@@ -67,7 +152,7 @@
 
      <dd>
 
-      <p class="para">完了コード。</p>
+      <p class="para">Completion code.</p>
      </dd>
 
     
@@ -79,7 +164,7 @@
 
      <dd>
 
-      <p class="para">compCode の原因を表すコード。</p>
+      <p class="para">Reason code qualifying the compCode.</p>
      </dd>
 
     

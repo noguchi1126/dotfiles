@@ -13,7 +13,7 @@
 </div><hr /><div id="pdostatement.debugdumpparams" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">PDOStatement::debugDumpParams</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::debugDumpParams</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7, PECL pdo &gt;= 0.9.0)</p><p class="refpurpose"><span class="refname">PDOStatement::debugDumpParams</span> &mdash; <span class="dc-title">
    SQL プリペアドコマンドを出力する
   </span></p>
 
@@ -30,9 +30,9 @@
    使用する <em>SQL</em> クエリ、使用するパラメータ数
    (<em>Params</em>)、パラメータリスト、パラメータ名、
    パラメータの型 (<em>paramtype</em>) をあらわす整数値、
-   そのキーの名前あるいは位置、値、そしてクエリ内での位置
+   そのキーの名前あるいは位置、そしてクエリ内での位置
    (PDO ドライバがサポートしている場合のみ。サポートしていない場合は
-   -1 となります) 。
+   -1 となります) 、型 (<em>param_type</em>) を表す整数値、boolean 値 <em>is_param</em>。
   </p>
   <p class="para">
    これはデバッグ用関数です。結果を標準出力にそのまま出力します。
@@ -58,7 +58,7 @@
 
  <div class="refsect1 examples" id="refsect1-pdostatement.debugdumpparams-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-945">
+  <div class="example" id="example-1027">
    <p><strong>例1 名前つきパラメータを用いた <span class="function"><strong>PDOStatement::debugDumpParams()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -88,7 +88,7 @@ param_type=2
    </div>
   </div>
 
-  <div class="example" id="example-946">
+  <div class="example" id="example-1028">
    <p><strong>例2 名前なしパラメータを用いた <span class="function"><strong>PDOStatement::debugDumpParams()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

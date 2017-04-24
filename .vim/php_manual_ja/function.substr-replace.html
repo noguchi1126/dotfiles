@@ -13,7 +13,7 @@
 </div><hr /><div id="function.substr-replace" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">substr_replace</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">substr_replace</span> &mdash; <span class="dc-title">文字列の一部を置換する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">substr_replace</span> &mdash; <span class="dc-title">文字列の一部を置換する</span></p>
 
  </div>
  
@@ -78,7 +78,7 @@
      <dd>
 
       <p class="para">
-       <code class="parameter">start</code> が正の場合、置換は
+       <code class="parameter">start</code> が負ではない場合、置換は
        <code class="parameter">string</code> で <code class="parameter">start</code>
        番目の文字から始まります。
       </p>
@@ -126,39 +126,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.substr-replace-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.3</td>
-       <td>
-        すべてのパラメータに配列を指定できるようになりました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.substr-replace-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4929">
+   <div class="example" id="example-5531">
     <p><strong>例1 シンプルな <span class="function"><strong>substr_replace()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -170,7 +141,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4930">
+   <div class="example" id="example-5532">
     <p><strong>例2 
      <span class="function"><strong>substr_replace()</strong></span> で複数の文字列を一度に置換する例
     </strong></p>

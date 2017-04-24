@@ -59,6 +59,11 @@
       <p class="para">
        memcache サーバーのホスト名。ホスト名が無効な場合は、データ関連の操作の結果コードに
        <strong><code>Memcached::RES_HOST_LOOKUP_FAILURE</code></strong> が設定されます。
+       バージョン 2.0.0b1 以降では、このパラメータにソケットのパス
+       (<em>/path/to/memcached.sock</em> など) を指定すると、
+       UNIX ドメインソケットを使えるようになりました。
+       このとき、<code class="parameter">port</code> には
+       <em>0</em> を設定する必要があります。
       </p>
      </dd>
 
@@ -72,6 +77,8 @@
       <p class="para">
        memcache が動作しているポート。通常、これは
        <em>11211</em> となります。
+       バージョン 2.0.0b1 以降では、UNIX ドメインソケットを利用する際には
+       <em>0</em> を設定します。
       </p>
      </dd>
 
@@ -108,7 +115,7 @@
  <div class="refsect1 examples" id="refsect1-memcached.addserver-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4438">
+   <div class="example" id="example-4981">
     <p><strong>例1 <span class="function"><strong>Memcached::addServer()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

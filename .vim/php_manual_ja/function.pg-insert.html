@@ -13,7 +13,7 @@
 </div><hr /><div id="function.pg-insert" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_insert</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">pg_insert</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_insert</span> &mdash; <span class="dc-title">
    テーブルに配列を挿入する
   </span></p>
 
@@ -115,7 +115,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.pg-insert-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   成功した場合に <strong><code>TRUE</code></strong> を、失敗した場合に <strong><code>FALSE</code></strong> を返します。  <code class="parameter">options</code> で
+   成功時に接続リソースを返し、失敗した場合に <strong><code>FALSE</code></strong> を返します。
+   <code class="parameter">options</code> で
    <strong><code>PGSQL_DML_STRING</code></strong> が渡された場合は文字列を返します。
   </p>
  </div>
@@ -124,7 +125,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-insert-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2101">
+   <div class="example" id="example-2325">
     <p><strong>例1 <span class="function"><strong>pg_insert()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -152,6 +153,14 @@
      </thead>
 
      <tbody class="tbody">
+      <tr>
+       <td>5.6.0</td>
+       <td>
+        <strong><code>PGSQL_DML_STRING</code></strong> が渡されない限り、
+        この関数は、成功時に <strong><code>TRUE</code></strong> の代わりに接続リソースを返します。
+       </td>
+      </tr>
+
       <tr>
        <td>5.6.0</td>
        <td>

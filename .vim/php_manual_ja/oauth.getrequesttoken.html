@@ -23,7 +23,8 @@
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><strong>OAuth::getRequestToken</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$request_token_url</code></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$callback_url</code></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$http_method</code></span>
+  ]] )</div>
 
   <p class="para rdfs-comment">
    リクエストトークン、secret そして追加のレスポンスパラメータをサービスプロバイダから取得します。
@@ -57,6 +58,18 @@
       <p class="para">
        OAuth コールバック URL。<code class="parameter">callback_url</code>
        に空の値を渡すと、&quot;oob&quot; に設定されて OAuth 2009.1 advisory を指すことになります。
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">http_method</code></dt>
+
+     <dd>
+
+      <p class="para">
+       利用する HTTP メソッド。<em>GET</em> や <em>POST</em> など。
       </p>
      </dd>
 
@@ -114,7 +127,7 @@
  <div class="refsect1 examples" id="refsect1-oauth.getrequesttoken-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5299">
+   <div class="example" id="example-6162">
     <p><strong>例1 <span class="function"><strong>OAuth::getRequestToken()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -13,17 +13,17 @@
 </div><hr /><div id="function.gmp-powm" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">gmp_powm</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">gmp_powm</span> &mdash; <span class="dc-title">べき乗とモジュロを計算する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">gmp_powm</span> &mdash; <span class="dc-title">べき乗とモジュロを計算する</span></p>
 
  </div>
  
  <div class="refsect1 description" id="refsect1-function.gmp-powm-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
-   <span class="type">resource</span> <span class="methodname"><strong>gmp_powm</strong></span>
-    ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$base</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$exp</code></span>
-   , <span class="methodparam"><span class="type">resource</span> <code class="parameter">$mod</code></span>
+   <span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <span class="methodname"><strong>gmp_powm</strong></span>
+    ( <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$base</code></span>
+   , <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$exp</code></span>
+   , <span class="methodparam"><span class="type"><a href="class.gmp.html" class="type GMP">GMP</a></span> <code class="parameter">$mod</code></span>
    )</div>
 
   <p class="para rdfs-comment">
@@ -51,8 +51,7 @@
       <p class="para">
        もととなる数。
       </p>
-      <p class="para">GMP 数リソース、
-あるいは数値に変換可能な数値形式の文字列。</p> 
+      <p class="para">PHP 5.5 以前での GMP 数リソース、PHP 5.6 以降での <a href="class.gmp.html" class="classname">GMP</a> オブジェクト、あるいは数値に変換可能な数値形式の文字列。</p> 
      </dd>
 
     
@@ -66,8 +65,7 @@
        正の数で、<code class="parameter">base</code>
        を何乗するかを指定します。
       </p>
-      <p class="para">GMP 数リソース、
-あるいは数値に変換可能な数値形式の文字列。</p> 
+      <p class="para">PHP 5.5 以前での GMP 数リソース、PHP 5.6 以降での <a href="class.gmp.html" class="classname">GMP</a> オブジェクト、あるいは数値に変換可能な数値形式の文字列。</p> 
      </dd>
 
     
@@ -80,8 +78,7 @@
       <p class="para">
        モジュロ。
       </p>
-      <p class="para">GMP 数リソース、
-あるいは数値に変換可能な数値形式の文字列。</p> 
+      <p class="para">PHP 5.5 以前での GMP 数リソース、PHP 5.6 以降での <a href="class.gmp.html" class="classname">GMP</a> オブジェクト、あるいは数値に変換可能な数値形式の文字列。</p> 
      </dd>
 
     
@@ -102,7 +99,7 @@
  <div class="refsect1 examples" id="refsect1-function.gmp-powm-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3444">
+   <div class="example" id="example-3973">
     <p><strong>例1 <span class="function"><strong>gmp_powm()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

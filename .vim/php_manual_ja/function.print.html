@@ -13,7 +13,7 @@
 </div><hr /><div id="function.print" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">print</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">print</span> &mdash; <span class="dc-title">文字列を出力する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">print</span> &mdash; <span class="dc-title">文字列を出力する</span></p>
 
  </div>
  
@@ -30,6 +30,10 @@
   <p class="para">
    <em>print</em>は実際には関数ではありません
    (言語構造です)。このため、引数を括弧で括る必要はありません。
+  </p>
+  <p class="para">
+   <em>echo</em> との主な違いは、
+   <em>print</em> が単一の引数のみ受け付け、常に 1 を返すことです。
   </p>
  </div>
 
@@ -68,7 +72,7 @@
  <div class="refsect1 examples" id="refsect1-function.print-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4870">
+   <div class="example" id="example-5471">
     <p><strong>例1 <em>print</em> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -96,7 +100,7 @@
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.echo.html" class="function" rel="rdfs-seeAlso">echo</a> - 1 つ以上の文字列を出力する</span></li>
     <li class="member"><span class="function"><a href="function.printf.html" class="function" rel="rdfs-seeAlso">printf()</a> - フォーマット済みの文字列を出力する</span></li>
-    <li class="member"><span class="function"><a href="function.flush.html" class="function" rel="rdfs-seeAlso">flush()</a> - 出力バッファをフラッシュする</span></li>
+    <li class="member"><span class="function"><a href="function.flush.html" class="function" rel="rdfs-seeAlso">flush()</a> - システム出力バッファをフラッシュする</span></li>
     <li class="member"><a href="language.types.string.html#language.types.string.syntax.heredoc" class="link">ヒアドキュメント構文</a></li>
    </ul>
   </p>

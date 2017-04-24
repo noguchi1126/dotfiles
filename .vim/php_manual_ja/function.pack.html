@@ -13,7 +13,7 @@
 </div><hr /><div id="function.pack" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pack</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">pack</span> &mdash; <span class="dc-title">データをバイナリ文字列にパックする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pack</span> &mdash; <span class="dc-title">データをバイナリ文字列にパックする</span></p>
 
  </div>
 
@@ -152,6 +152,26 @@
           </tr>
 
           <tr>
+           <td>q</td>
+           <td>signed long long (常に 64 ビット、マシンのバイトオーダー)</td>
+          </tr>
+
+          <tr>
+           <td>Q</td>
+           <td>unsigned long long (常に 64 ビット、マシンのバイトオーダー)</td>
+          </tr>
+
+          <tr>
+           <td>J</td>
+           <td>unsigned long long (常に 64 ビット、ビッグエンディアンバイトオーダー)</td>
+          </tr>
+
+          <tr>
+           <td>P</td>
+           <td>unsigned long long (常に 64 ビット、リトルエンディアンバイトオーダー)</td>
+          </tr>
+
+          <tr>
            <td>f</td>
            <td>float (サイズおよび表現はマシン依存)</td>
           </tr>
@@ -229,6 +249,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.6.3</td>
+       <td>
+        &quot;q&quot;、&quot;Q&quot;、&quot;J&quot;、&quot;P&quot; が追加され、64ビットの数値が使えるようになりました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.5.0</td>
        <td>
         &quot;Z&quot; が追加されました。Perl の &quot;a&quot; と互換性のある機能です。
@@ -246,7 +273,7 @@
  <div class="refsect1 examples" id="refsect1-function.pack-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3804">
+   <div class="example" id="example-4367">
     <p><strong>例1 <span class="function"><strong>pack()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

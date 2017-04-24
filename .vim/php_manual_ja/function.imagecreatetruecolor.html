@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagecreatetruecolor" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecreatetruecolor</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">imagecreatetruecolor</span> &mdash; <span class="dc-title">TrueColor イメージを新規に作成する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecreatetruecolor</span> &mdash; <span class="dc-title">TrueColor イメージを新規に作成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecreatetruecolor-description">
@@ -27,15 +27,6 @@
   <p class="para rdfs-comment">
    <span class="function"><strong>imagecreatetruecolor()</strong></span>
    は、指定した大きさの黒い画像を表す画像 ID を返します。
-  </p>
-  <p class="para">
-   この関数が定義されているかどうかは、PHP および GD のバージョンによって
-   変わります。PHP 4.0.6 から 4.1.x の場合、GD モジュールが読み込まれていれば
-   この関数は常に存在しますが、GD2 がインストールされていない環境では
-   PHP が致命的なエラーを発生して終了してしまいます。PHP 4.2.x では、
-   このような場合にエラーではなく警告を発生させます。他のバージョンの PHP では、
-   適切なバージョンの GD がインストールされている場合にのみ
-   この関数が定義されます。
   </p>
  </div>
 
@@ -81,7 +72,7 @@
  <div class="refsect1 examples" id="refsect1-function.imagecreatetruecolor-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3238">
+   <div class="example" id="example-3541">
     <p><strong>例1 
      新規 GD イメージストリームの作成およびイメージの出力
     </strong></p>
@@ -104,10 +95,6 @@
   </p>
  </div>
 
- <div class="refsect1 notes" id="refsect1-function.imagecreatetruecolor-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は、GD 2.0.1 以降を必要とします (2.0.28 以降を推奨します)。</span></p></blockquote>
- </div>
 
  <div class="refsect1 seealso" id="refsect1-function.imagecreatetruecolor-seealso">
   <h3 class="title">参考</h3>

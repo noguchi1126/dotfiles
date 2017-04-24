@@ -13,7 +13,7 @@
 </div><hr /><div id="function.bindec" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">bindec</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">bindec</span> &mdash; <span class="dc-title">2 進数 を 10 進数に変換する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">bindec</span> &mdash; <span class="dc-title">2 進数 を 10 進数に変換する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.bindec-description">
@@ -74,39 +74,10 @@
   </p>
  </div>
 
- <div class="refsect1 changelog" id="refsect1-function.bindec-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.1.0</td>
-       <td>
-        この関数は、<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> 型の範囲をこえる大きな数値も変換できるようになりました。
-        そのような値は、<span class="type"><a href="language.types.float.html" class="type float">float</a></span> で返します。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
  <div class="refsect1 examples" id="refsect1-function.bindec-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3467">
+   <div class="example" id="example-3999">
     <p><strong>例1 <span class="function"><strong>bindec()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -126,7 +97,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-3468">
+   <div class="example" id="example-4000">
     <p><strong>例2 <span class="function"><strong>bindec()</strong></span> が入力を符号なし整数として処理する例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -194,6 +165,16 @@ NOTE:         interpreted to be the largest unsigned integer
     </div>
    </div>
   </p>
+ </div>
+
+ <div class="refsect1 notes" id="refsect1-function.bindec-notes">
+  <h3 class="title">注意</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    この関数は、プラットフォームの <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> 型に収まらない大きな数も変換できます。
+    その場合、結果は <span class="type"><a href="language.types.float.html" class="type float">float</a></span> で返します。
+   </p>
+  </p></blockquote>
  </div>
 
  <div class="refsect1 seealso" id="refsect1-function.bindec-seealso">

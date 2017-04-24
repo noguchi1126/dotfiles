@@ -13,7 +13,7 @@
 </div><hr /><div id="function.filter-var" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">filter_var</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">filter_var</span> &mdash; <span class="dc-title">指定したフィルタでデータをフィルタリングする</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">filter_var</span> &mdash; <span class="dc-title">指定したフィルタでデータをフィルタリングする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.filter-var-description">
@@ -40,24 +40,33 @@
      <dd>
 
       <p class="para">
-       フィルタリングする値。
+       フィルタリングする値。値をフィルタリングする前に、
+       内部的に <a href="language.types.string.html#language.types.string.casting" class="link">文字列への変換</a>
+       が行われることに注意しましょう。
       </p>
      </dd>
 
     
     
-     <dt>
+ 
+  <dt>
 <code class="parameter">filter</code></dt>
 
-     <dd>
+  <dd>
 
-      <p class="para">
-       適用するフィルタの ID。<a href="filter.filters.html" class="xref">フィルタの型</a>
-       に、利用できるフィルタの一覧があります。
-      </p>
-     </dd>
+   <p class="para">
+    適用するフィルタの ID。<a href="filter.filters.html" class="xref">フィルタの型</a>
+    に、利用できるフィルタの一覧があります。
+   </p>
+   <p class="para">
+    省略した場合は <strong><code>FILTER_DEFAULT</code></strong> を使います。これは
+    <a href="filter.filters.sanitize.html" class="link"><strong><code>FILTER_UNSAFE_RAW</code></strong></a> と同等です。
+    結果的に、デフォルトでは何もフィルタリングをしません。
+   </p>
+  </dd>
 
-    
+ 
+
     
      <dt>
 <code class="parameter">options</code></dt>
@@ -101,7 +110,7 @@
  <div class="refsect1 examples" id="refsect1-function.filter-var-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5108">
+   <div class="example" id="example-5951">
     <p><strong>例1 <span class="function"><strong>filter_var()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

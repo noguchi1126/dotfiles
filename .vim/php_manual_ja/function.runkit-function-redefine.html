@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>関数の定義を新しい実装で置き換える</title>
+  <title>Replace a function definition with a new implementation</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">runkit_function_redefine</h1>
   <p class="verinfo">(PECL runkit &gt;= 0.7.0)</p><p class="refpurpose"><span class="refname">runkit_function_redefine</span> &mdash; <span class="dc-title">
-   関数の定義を新しい実装で置き換える
+   Replace a function definition with a new implementation
   </span></p>
 
  </div>
@@ -25,7 +25,16 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$funcname</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$arglist</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$code</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$return_by_reference</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+  ]] )</div>
+
+  <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><strong>runkit_function_redefine</strong></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$funcname</code></span>
+   , <span class="methodparam"><span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <code class="parameter">$closure</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$doc_comment</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+  ] )</div>
 
 
   <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">デフォルトでは、
@@ -49,7 +58,7 @@
      <dd>
 
       <p class="para">
-       再定義する関数の名前。
+       Name of function to redefine
       </p>
      </dd>
 
@@ -61,7 +70,7 @@
      <dd>
 
       <p class="para">
-       再定義後の関数が受け取る引数のリスト。
+       New list of arguments to be accepted by function
       </p>
      </dd>
 
@@ -73,7 +82,43 @@
      <dd>
 
       <p class="para">
-       新しい実装コード。
+       New code implementation
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">closure</code></dt>
+
+     <dd>
+
+      <p class="para">
+       A <a href="class.closure.html" class="classname">closure</a> that defines the function.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">return_by_reference</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Whether the function should return by reference.
+      </p>
+     </dd>
+
+    
+    
+     <dt>
+<code class="parameter">doc_comment</code></dt>
+
+     <dd>
+
+      <p class="para">
+       The doc comment of the function.
       </p>
      </dd>
 
@@ -91,11 +136,46 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.runkit-function-redefine-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>runkit 1.0.4</td>
+      <td>
+       An alternative syntax expecting a <code class="parameter">closure</code> has been added.
+      </td>
+     </tr>
+
+     <tr>
+      <td>runkit 1.0.4</td>
+      <td>
+       The optional parameters <code class="parameter">return_by_reference</code> and 
+       <code class="parameter">doc_comment</code> have been added.
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.runkit-function-redefine-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-538">
-    <p><strong>例1 <span class="function"><strong>runkit_function_redefine()</strong></span> の例</strong></p>
+   <div class="example" id="example-583">
+    <p><strong>例1 A <span class="function"><strong>runkit_function_redefine()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">testme</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"Original&nbsp;Testme&nbsp;Implementation\n"</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">testme</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">runkit_function_redefine</span><span style="color: #007700">(</span><span style="color: #DD0000">'testme'</span><span style="color: #007700">,</span><span style="color: #DD0000">''</span><span style="color: #007700">,</span><span style="color: #DD0000">'echo&nbsp;"New&nbsp;Testme&nbsp;Implementation\n";'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">testme</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -119,10 +199,11 @@ New Testme Implementation
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.runkit-function-add.html" class="function" rel="rdfs-seeAlso">runkit_function_add()</a> - 新しい関数を追加する。create_function と同じ</span></li>
+    <li class="member"><span class="function"><a href="function.runkit-function-add.html" class="function" rel="rdfs-seeAlso">runkit_function_add()</a> - Add a new function, similar to create_function</span></li>
     <li class="member"><span class="function"><a href="function.runkit-function-copy.html" class="function" rel="rdfs-seeAlso">runkit_function_copy()</a> - 関数を別の名前でコピーする</span></li>
     <li class="member"><span class="function"><a href="function.runkit-function-rename.html" class="function" rel="rdfs-seeAlso">runkit_function_rename()</a> - 関数名を変更する</span></li>
     <li class="member"><span class="function"><a href="function.runkit-function-remove.html" class="function" rel="rdfs-seeAlso">runkit_function_remove()</a> - 関数の定義を削除する</span></li>
+    <li class="member"><span class="function"><a href="function.runkit-method-redefine.html" class="function" rel="rdfs-seeAlso">runkit_method_redefine()</a> - Dynamically changes the code of the given method</span></li>
    </ul>
   </p>
  </div>

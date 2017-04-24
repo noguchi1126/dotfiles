@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mb-detect-order" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_detect_order</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">mb_detect_order</span> &mdash; <span class="dc-title">文字エンコーディング検出順序を設定あるいは取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_detect_order</span> &mdash; <span class="dc-title">文字エンコーディング検出順序を設定あるいは取得する</span></p>
 
  </div>
    
@@ -76,21 +76,6 @@
        <em>UCS2</em>, <em>UCS4</em> の場合、
        エンコーディング検出は常に失敗します。
       </p>
-      <p class="para">
-       <div class="example" id="example-2724">
-        <p><strong>例1 無意味な順番の例</strong></p>
-        <div class="example-contents">
-<div class="cdata"><pre>
-; 常に ISO-8859-1 として検出されます
-detect_order = ISO-8859-1, UTF-8
-
-; ASCII/UTF-7 の値は UTF-8 として有効なため、常に UTF-8 として検出されます
-detect_order = UTF-8, ASCII, UTF-7
-</pre></div>
-        </div>
-
-       </div>
-      </p>
      </dd>
 
     
@@ -103,7 +88,10 @@ detect_order = UTF-8, ASCII, UTF-7
  <div class="refsect1 returnvalues" id="refsect1-function.mb-detect-order-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   成功した場合に <strong><code>TRUE</code></strong> を、失敗した場合に <strong><code>FALSE</code></strong> を返します。
+   検出順序を設定する場合は、成功した場合に <strong><code>TRUE</code></strong> を返し、失敗したときに <strong><code>FALSE</code></strong> を返します。
+  </p>
+  <p class="para">
+   検出順序を取得する場合は、エンコーディングの配列を返します。
   </p>
  </div>
 
@@ -111,13 +99,28 @@ detect_order = UTF-8, ASCII, UTF-7
  <div class="refsect1 examples" id="refsect1-function.mb-detect-order-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2725">
-    <p><strong>例2 <span class="function"><strong>mb_detect_order()</strong></span> の例</strong></p>
+   <div class="example" id="example-3023">
+    <p><strong>例1 <span class="function"><strong>mb_detect_order()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/*&nbsp;リストで検出順を設定&nbsp;*/<br /></span><span style="color: #0000BB">mb_detect_order</span><span style="color: #007700">(</span><span style="color: #DD0000">"eucjp-win,sjis-win,UTF-8"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;配列で検出順を設定&nbsp;*/<br /></span><span style="color: #0000BB">$ary</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">"ASCII"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$ary</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">"JIS"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$ary</span><span style="color: #007700">[]&nbsp;=&nbsp;</span><span style="color: #DD0000">"EUC-JP"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">mb_detect_order</span><span style="color: #007700">(</span><span style="color: #0000BB">$ary</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;現在の検出順を表示&nbsp;*/<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">implode</span><span style="color: #007700">(</span><span style="color: #DD0000">",&nbsp;"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">mb_detect_order</span><span style="color: #007700">());<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
+    </div>
+
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-3024">
+    <p><strong>例2 無意味な順番の例</strong></p>
+    <div class="example-contents">
+<div class="cdata"><pre>
+; 常に ISO-8859-1 として検出されます
+detect_order = ISO-8859-1, UTF-8
+
+; ASCII/UTF-7 の値は UTF-8 として有効なため、常に UTF-8 として検出されます
+detect_order = UTF-8, ASCII, UTF-7
+</pre></div>
     </div>
 
    </div>

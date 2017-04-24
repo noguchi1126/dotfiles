@@ -71,6 +71,58 @@
      </dd>
 
     
+    
+     <dt id="context.socket.ipv6_v6only"><code class="parameter">ipv6_v6only</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Overrides the OS default regarding mapping IPv4 into IPv6.
+      </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        This is important in particular when trying to listen on IPv4 addresses
+        separately while there exists a binding on <em>[::]</em>.
+       </p>
+       <p class="para">
+        <span class="function"><a href="function.stream-socket-server.html" class="function">stream_socket_server()</a></span> でのみ有効です。
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="context.socket.so_reuseport"><code class="parameter">so_reuseport</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Allows multiple bindings to a same ip:port pair, even from separate processes.
+      </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        <span class="function"><a href="function.stream-socket-server.html" class="function">stream_socket_server()</a></span> でのみ有効です。
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
+    
+     <dt id="context.socket.so_broadcast"><code class="parameter">so_broadcast</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Enables sending and receiving data to/from broadcast addresses.
+      </p>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        <span class="function"><a href="function.stream-socket-server.html" class="function">stream_socket_server()</a></span> でのみ有効です。
+       </p>
+      </p></blockquote>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -91,17 +143,38 @@
      </thead>
 
      <tbody class="tbody">
+       <tr>
+       <td>7.0.1</td>
+       <td>
+        <code class="parameter">ipv6_v6only</code> が追加されました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">so_broadcast</code> が追加されました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">so_reuseport</code> が追加されました。
+       </td>
+      </tr>
+
       <tr>
        <td>5.3.3</td>
        <td>
-        <em>backlog</em> が追加されました。
+        <code class="parameter">backlog</code> が追加されました。
        </td>
       </tr>
 
       <tr>
        <td>5.1.0</td>
        <td>
-        <em>bindto</em> が追加されました。
+        <code class="parameter">bindto</code> が追加されました。
        </td>
       </tr>
 
@@ -116,7 +189,7 @@
  <div class="refsect1 examples" id="refsect1-context.socket-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="context.socket.example-bindto">
+   <div class="example" id="example-333">
     <p><strong>例1 基本的な <code class="parameter">bindto</code> の使用例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

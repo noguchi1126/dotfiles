@@ -60,7 +60,7 @@
      まず、<em>global</em>の使用例を示します。
     </p>
     <p class="para">
-     <div class="example" id="example-100">
+     <div class="example" id="example-78">
       <p><strong>例1 <em>global</em> の使用</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -86,7 +86,7 @@
      のように書き換えることができます。
     </p>
     <p class="para">
-     <div class="example" id="example-101">
+     <div class="example" id="language.types.array.examples.loop">
       <p><strong>例2 globalのかわりに<var class="varname"><var class="varname"><a href="reserved.variables.globals.html" class="classname">$GLOBALS</a></var></var>を使用する</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -106,7 +106,7 @@
      以下にスーパーグローバルの効果を示す例を示します。
     </p>
     <p class="para">
-     <div class="example" id="example-102">
+     <div class="example" id="language.types.array.examples.changeloop">
       <p><strong>例3 スーパーグローバルとスコープの例</strong></p>
       <div class="example-contents">   
 <div class="phpcode"><code><span style="color: #000000">
@@ -134,7 +134,7 @@
      てもその値を失わないません。次の例を見てください。
     </p>
     <p class="para">
-     <div class="example" id="example-103">
+     <div class="example" id="example-81">
       <p><strong>例4 静的変数が必要な場面の例</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,7 +154,7 @@
      めには、変数<var class="varname"><var class="varname">$a</var></var>をstaticとして宣言します。
     </p>
     <p class="para">
-     <div class="example" id="example-104">
+     <div class="example" id="example-82">
       <p><strong>例5 静的変数の使用例</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -181,7 +181,7 @@
      10 回まで再帰を行います。
     </p>
     <p class="para">
-     <div class="example" id="example-105">
+     <div class="example" id="example-83">
       <p><strong>例6 再帰関数での静的変数の使用</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -196,15 +196,15 @@
    <blockquote class="note"><p><strong class="note">注意</strong>: 
     <p class="para">
      静的変数は、上の例に見られるような方法で宣言されます。
-     式の結果を静的変数に代入しようとすると、パースエラーが
-     発生します。
+     PHP 5.6 以降は、これらの変数に式の結果の値を代入できます。
+     しかし関数は使えません。関数を使おうとするとパースエラーが発生します。
     </p>
     <p class="para">
-     <div class="example" id="example-106">
+     <div class="example" id="example-84">
       <p><strong>例7 静的変数の宣言</strong></p>
       <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(){<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;正しい<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">static&nbsp;</span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">+</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;間違い（式を代入しています）<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">static&nbsp;</span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sqrt</span><span style="color: #007700">(</span><span style="color: #0000BB">121</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;間違い（同じく式を代入しています）<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$int</span><span style="color: #007700">++;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$int</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">foo</span><span style="color: #007700">(){<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;正しい<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">static&nbsp;</span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">+</span><span style="color: #0000BB">2</span><span style="color: #007700">;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;正しい（ただし、PHP&nbsp;5.6&nbsp;以降に限ります）<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">static&nbsp;</span><span style="color: #0000BB">$int&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sqrt</span><span style="color: #007700">(</span><span style="color: #0000BB">121</span><span style="color: #007700">);&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;間違い（関数を使っています）<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$int</span><span style="color: #007700">++;<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$int</span><span style="color: #007700">;<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
        </div>

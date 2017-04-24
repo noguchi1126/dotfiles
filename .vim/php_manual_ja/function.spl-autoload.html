@@ -13,7 +13,7 @@
 </div><hr /><div id="function.spl-autoload" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">spl_autoload</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.2)</p><p class="refpurpose"><span class="refname">spl_autoload</span> &mdash; <span class="dc-title">__autoload() のデフォルト実装</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7)</p><p class="refpurpose"><span class="refname">spl_autoload</span> &mdash; <span class="dc-title">__autoload() のデフォルト実装</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.spl-autoload-description">
@@ -78,6 +78,15 @@
  </div>
 
 
+ <div class="refsect1 errors" id="refsect1-function.spl-autoload-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+    クラスが見つからず、かつそれ以外にオートローダーが登録されていない場合に
+    <a href="class.logicexception.html" class="classname">LogicException</a> をスローします。
+   </p>
+ </div>
+
+ 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.spl-autoload-unregister.html">spl_autoload_unregister</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.spl-classes.html">spl_classes</a></div>

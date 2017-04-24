@@ -125,7 +125,7 @@ void zif_hackers_function(INTERNAL_FUNCTION_PARAMETERS)
 
   
   <p class="para">
-   For clarity, the fully expanded declaration for <code class="code">PHP_FUNCTION(hackers_function)</code> looks like:
+   明確にするために、完全に展開した <code class="code">PHP_FUNCTION(hackers_function)</code> のドキュメントを示します。
   </p>
   
   <div class="example-contents screen">
@@ -135,8 +135,8 @@ void zif_hackers_function(int ht, zval* return_value, zval** return_value_ptr, z
   </div>
   
   <p class="para">
-    The precense of <code class="code">this_ptr</code> may be confusing, classes are covered in detail in later sections, 
-    suffice to say that <code class="code">PHP_METHOD(MyClass, hackersFunction)</code> would result in the following declaration:
+    <code class="code">this_ptr</code> の存在を奇妙に感じるかもしれません。クラスの詳細は後ほど説明するとして、ここでは
+    <code class="code">PHP_METHOD(MyClass, hackersFunction)</code> の結果が次のような宣言になることを示しておけば十分でしょう。
   </p>
   
   <div class="example-contents screen">
@@ -146,22 +146,27 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
   </div>
   
   <p class="para">
-   <code class="code">hackers_function</code> doesn&#039;t do anything useful, it accepts a number using the <code class="code">zend_parse_parameters</code> API, doubles it, and returns it to the engine.
-   It is obvious that a normal function would have to do something more complex than double the input, for the purposes of education we are keeping it simple. 
-   On entry to the function <code class="code">return_value</code> is allocated and initialized to <code class="code">null</code>, making <code class="code">null</code> the default return value of any function in PHP.
+   <code class="code">hackers_function</code> は特に凝ったことをするわけではなく、<code class="code">zend_parse_parameters</code> API
+   を使って受け取った数値を二倍して、それをエンジンに返すだけです。
+   普通は、単に入力を二倍するだけなどではなく、もっと複雑な何かを行うことでしょう。
+   ここでは、説明のために、できるだけシンプルにとどめました。
+   関数に入った際に <code class="code">return_value</code> を確保し、<code class="code">null</code> に初期化されます。
+   これで、PHP の関数のデフォルトの返り値が <code class="code">null</code> となります。
   </p>
   
   <p class="para">
-   If <code class="code">zend_parse_parameters</code> does not recieve what is specified by the <code class="code">Hacker</code> as the correct arguments, and the arguments recieved cannot be converted
-   to conform with <code class="code">type_spec</code> an error will be raised, and by convention, the <code class="code">Hacker</code> should <code class="code">return</code> immediately.
+   <code class="code">Hacker</code> が正しい引数として指定する内容を
+   <code class="code">zend_parse_parameters</code> が受け取れず、受け取った引数を
+   <code class="code">type_spec</code> を満たす形式に変換できなかった場合は、エラーを発生させます。
+   そして、<code class="code">Hacker</code> はその場で <code class="code">return</code> しなければいけません。
   </p>
   
   <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para"><code class="code">Arrays</code>, <code class="code">Objects</code>, and <code class="code">Resources</code> cannot be converted.</p>
+   <p class="para"><code class="code">Array</code>、<code class="code">Object</code>、そして <code class="code">Resource</code> は変換できません。</p>
   </p></blockquote>
   
   <table id="internals2.funcs.parameters.api" class="doctable table">
-   <caption><strong>Parsing Parameters Prototypes</strong></caption>
+   <caption><strong>パラメータのプロトタイプのパース</strong></caption>
    
     <tbody class="tbody">
      <tr>
@@ -183,29 +188,30 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
   
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
-    <code class="code">zend_parse_parameter</code> is available from version 5.5, it behaves like <code class="code">zend_parse_parameters_ex</code> 
-    except that instead of reading the arguments from the stack, it receives a single zval to convert, which may be changed in place.
+    <code class="code">zend_parse_parameter</code> はバージョン 5.5 以降で使用可能で、<code class="code">zend_parse_parameters_ex</code> と同じような挙動です。
+    ただ、引数をスタックから読み込むのではなく、変換対象の zval を受け取って、その場で変換します。
    </p>
   </p></blockquote>
   
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
-    <code class="code">flags</code> is intended to be a mask, currently only <code class="code">ZEND_PARSE_PARAMS_QUIET</code> will have any impact (supress warnings)
+    <code class="code">flags</code> はマスクとして扱うことを想定しています。現時点で有効なフラグは <code class="code">ZEND_PARSE_PARAMS_QUIET</code> だけです (これは、警告を抑制します)。
    </p>
   </p></blockquote>
   
   <p class="para">
-   The variable arguments recieved by these API functions are expected to be the address of C variables, and should be considered the output of the <code class="code">zend_parse_parameters</code> API functions.
+   これらの API 関数から受け取る可変引数は、C の変数のアドレスであることが期待されています。
+   また、<code class="code">zend_parse_parameters</code> API 関数の出力であると考えなければいけません。
   </p>
 
   <table id="internals2.funcs.parameters.types" class="doctable table">
-   <caption><strong>Type Specifiers</strong></caption>
+   <caption><strong>型指定子</strong></caption>
    
      <thead>
      <tr>
-      <th>Spec</th>
-      <th>Type</th>
-      <th>Locals</th>
+      <th>指定子</th>
+      <th>型</th>
+      <th>ローカル</th>
      </tr>
 
     </thead>
@@ -219,7 +225,7 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
 
      <tr>
       <td>A</td>
-      <td><code class="code">array</code> or <code class="code">object</code></td>
+      <td><code class="code">array</code> あるいは <code class="code">object</code></td>
       <td><code class="code">zval*</code></td>
      </tr>
 
@@ -255,7 +261,7 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
 
      <tr>
       <td>H</td>
-      <td><code class="code">array</code> or <code class="code">object</code></td>
+      <td><code class="code">array</code> あるいは <code class="code">object</code></td>
       <td><code class="code">HashTable*</code></td>
      </tr>
 
@@ -267,7 +273,7 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
 
      <tr>
       <td>L</td>
-      <td><code class="code">long</code> (limits out-of-range LONG_MAX/LONG_MIN)</td>
+      <td><code class="code">long</code> (LONG_MAX/LONG_MIN の範囲に収まるもの)</td>
       <td><code class="code">long</code></td>
      </tr>
 
@@ -279,26 +285,26 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
 
      <tr>
       <td>O</td>
-      <td><code class="code">object</code> (of specified <code class="code">zend_class_entry</code>)</td>
+      <td><code class="code">object</code> (指定した <code class="code">zend_class_entry</code> のもの)</td>
       <td><code class="code">zval*</code>, <code class="code">zend_class_entry*</code></td>
      </tr>
 
      <tr>
       <td>p</td>
-      <td><code class="code">string</code> (a valid path)</td>
+      <td><code class="code">string</code> (有効なパス)</td>
       <td><code class="code">char*</code>, <code class="code">int</code></td>
      </tr>
 
      <tr>
       <td>r</td>
       <td><code class="code">resource</code></td>
-      <td><code class="code">char*</code></td>
+      <td><code class="code">zval*</code></td>
      </tr>
 
      <tr>
       <td>s</td>
       <td><code class="code">string</code></td>
-      <td><code class="code">char*</code>, <code class="code">uint</code></td>
+      <td><code class="code">char*</code>, <code class="code">int</code></td>
      </tr>
 
      <tr>
@@ -320,18 +326,18 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
   
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
-    Where the type specifier is <code class="code">O</code>, the local <code class="code">zend_class_entry*</code> is to be 
-    considered input (part of the type spec) to <code class="code">zend_parse_parameter</code>
+    型指定子が <code class="code">O</code> の場合、ローカルの <code class="code">zend_class_entry*</code> は
+    <code class="code">zend_parse_parameter</code> への入力 (型指定子の一部) と見なされます。
    </p>
   </p></blockquote>
   
   <table id="internals2.funcs.parameters.advanced" class="doctable table">
-   <caption><strong>Advanced Type Specifiers</strong></caption>
+   <caption><strong>高度な型指定子</strong></caption>
    
      <thead>
      <tr>
-      <th>Spec</th>
-      <th>Description</th>
+      <th>指定子</th>
+      <th>説明</th>
      </tr>
 
     </thead>
@@ -339,31 +345,31 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
     <tbody class="tbody">
      <tr>
       <td>*</td>
-      <td>a variable number of argument of the preceeding type, 0 or more</td>
+      <td>直前の型の引数が 0 個以上</td>
      </tr>
 
      <tr>
       <td>+</td>
-      <td>a variable number of argument of the preceeding type, 1 or more</td>
+      <td>直前の型の引数が 1 個以上</td>
      </tr>
 
      <tr>
       <td>|</td>
-      <td>indicates that the remaining parameters are optional</td>
+      <td>残りのパラメータは任意である</td>
      </tr>
 
      <tr>
       <td>/</td>
-      <td><code class="code">SEPARATE_ZVAL_IF_NOT_REF</code> on the parameter it follows</td>
+      <td>後に続くパラメータを <code class="code">SEPARATE_ZVAL_IF_NOT_REF</code> します。</td>
      </tr>
 
      <tr>
       <td>!</td>
       <td>
-       the preceeding parameter can be of the specified type or <code class="code">null</code>
-       For &#039;b&#039;, &#039;l&#039; and &#039;d&#039;, an extra argument of type zend_bool* must be passed after 
-       the corresponding <code class="code">bool*</code>, <code class="code">long*</code> or <code class="code">double*</code> 
-       addresses which will be set <code class="code">true</code> if <code class="code">null</code> is recieved.
+       直前のパラメータが、指定した型あるいは <code class="code">null</code> のどちらかになるものとします。
+       &#039;b&#039;、&#039;l&#039;、&#039;d&#039; の場合は、対応する <code class="code">bool*</code>、<code class="code">long*</code>、<code class="code">double*</code>
+       の後に zend_bool* 型の引数を追加する必要があります。<code class="code">null</code>
+       を受け取った場合は、ここに <code class="code">true</code> が設定されます。
       </td>
      </tr>
 
@@ -372,20 +378,25 @@ void zim_MyClass_hackersFunction(INTERNAL_FUNCTION_PARAMETERS)
   </table>
 
   <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">Consult <code class="code">README.PARAMETER_PARSING_API</code> included in source distributions for more information on parsing parameters</p>
+   <p class="para">パラメータのパースについての詳細は、ソース配布物に含まれる <code class="code">README.PARAMETER_PARSING_API</code> を参照ください。</p>
   </p></blockquote>
   
   <p class="para">
-   Once the <code class="code">Hacker&#039;s</code> function has executed whatever it was implemented to execute, it is time to set the <code class="code">return_value</code> for the engine. 
-   The <code class="code">RETURN_</code> and <code class="code">RETVAL_</code> macros are just wrappers around <code class="code">Z_*_P</code> macros that work with <code class="code">return_value</code>. 
+   一度 <code class="code">Hacker</code> の関数が実行されたら、実行するよう実装されているかどうかにかかわらず、エンジン向けの <code class="code">return_value</code> を設定します。
+   <code class="code">RETURN_</code> マクロと <code class="code">RETVAL_</code> マクロは
+   <code class="code">Z_*_P</code> の単なるラッパーで、<code class="code">return_value</code> と組み合わせて使います。
   </p>
   
   <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para"><code class="code">RETURN_</code> macros cause execution to leave the function immediately (ie: <code class="code">return;</code>), while <code class="code">RETVAL_</code> macros allow execution to continue after <code class="code">return_value</code> has been set.</p>
+   <p class="para">
+    <code class="code">RETURN_</code> マクロはその場で関数の実行を終了します (つまり、<code class="code">return;</code> します) が、
+    <code class="code">RETVAL_</code> は、<code class="code">return_value</code> を設定してからも実行を続けます。
+   </p>
   </p></blockquote>
   
   <p class="para">
-   The <code class="code">Hacker</code> should now have a reasonable understanding of the anatomy of a function, and to some degree, the anatomy of a method.
+   これで、関数の仕組みについて、それなりに理解できたことでしょう。
+   メソッドの仕組みについても、ある程度は理解できたはずです。
   </p>
 
 </div>

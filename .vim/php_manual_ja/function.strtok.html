@@ -13,7 +13,7 @@
 </div><hr /><div id="function.strtok" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strtok</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strtok</span> &mdash; <span class="dc-title">文字列をトークンに分割する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strtok</span> &mdash; <span class="dc-title">文字列をトークンに分割する</span></p>
 
  </div>
  
@@ -94,7 +94,7 @@
  <div class="refsect1 examples" id="refsect1-function.strtok-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4919">
+   <div class="example" id="example-5522">
     <p><strong>例1 <span class="function"><strong>strtok()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -106,30 +106,8 @@
    </div>
   </p> 
   <p class="para">
-   空の部分が見つかった場合の動作は PHP 4.1.0 で変更されました。
-   以前は空の文字列を返していました、新しい、正しい動作は、
-   文字列のその部分を単に読み飛ばします。
-  </p>
-  <p class="para">
-   <div class="example" id="example-4920">
-    <p><strong>例2 古い <span class="function"><strong>strtok()</strong></span> の動作</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$first_token&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtok</span><span style="color: #007700">(</span><span style="color: #DD0000">'/something'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$second_token&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtok</span><span style="color: #007700">(</span><span style="color: #DD0000">'/'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$first_token</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$second_token</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
-    <div class="example-contents screen">
-<div class="cdata"><pre>
-    string(0) &quot;&quot;
-    string(9) &quot;something&quot;
-</pre></div>
-    </div>
-   </div>
-   <div class="example" id="example-4921">
-    <p><strong>例3 新しい <span class="function"><strong>strtok()</strong></span> の動作</strong></p>
+   <div class="example" id="example-5523">
+    <p><strong>例2 空の部分が見つかった場合の <span class="function"><strong>strtok()</strong></span> の動作</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$first_token&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtok</span><span style="color: #007700">(</span><span style="color: #DD0000">'/something'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'/'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$second_token&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">strtok</span><span style="color: #007700">(</span><span style="color: #DD0000">'/'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$first_token</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$second_token</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>

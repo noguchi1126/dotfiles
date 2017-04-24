@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ibase-connect" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ibase_connect</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">ibase_connect</span> &mdash; <span class="dc-title">データベースへの接続をオープンする</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ibase_connect</span> &mdash; <span class="dc-title">データベースへの接続をオープンする</span></p>
 
  </div>
  
@@ -59,7 +59,7 @@
        <code class="parameter">database</code>は接続するサーバー上のデータベース
        ファイルへの正しいパスである必要があります。ローカルなサーバーへの
        接続でない場合、使用する接続プロトコルに応じてこの引数の前に
-       &#039;hostname:&#039; (TCP/IP)、&#039;//hostname/&#039; (NetBEUI)
+       &#039;hostname:&#039; (TCP/IP)、&#039;hostname/port:&#039; (カスタム TCP ポート上での interbase サーバーでの TCP/IP)、&#039;//hostname/&#039; (NetBEUI)
        のどれかをつける必要があります。
       </p>
      </dd>
@@ -189,7 +189,7 @@
  <div class="refsect1 examples" id="refsect1-function.ibase-connect-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1110">
+   <div class="example" id="example-1194">
     <p><strong>例1 <span class="function"><strong>ibase_connect()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

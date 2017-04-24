@@ -13,7 +13,7 @@
 </div><hr /><div id="function.shm-attach" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">shm_attach</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">shm_attach</span> &mdash; <span class="dc-title">共有メモリセグメントを作成またはオープンする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">shm_attach</span> &mdash; <span class="dc-title">共有メモリセグメントを作成またはオープンする</span></p>
 
  </div>
  
@@ -141,7 +141,7 @@
     integer へとキャストします。
    </p>
    <p class="para">
-    <div class="example" id="example-3743">
+    <div class="example" id="example-4278">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;テンポラリファイルを作り、そのパスを返します<br /></span><span style="color: #0000BB">$tmp&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">tempnam</span><span style="color: #007700">(</span><span style="color: #DD0000">'/tmp'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'PHP'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;ファイルトークンキーを取得します<br /></span><span style="color: #0000BB">$key&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">ftok</span><span style="color: #007700">(</span><span style="color: #0000BB">$tmp</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'a'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;SHM&nbsp;リソースをアタッチします。あとでキャストすることに注意<br /></span><span style="color: #0000BB">$id&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">shm_attach</span><span style="color: #007700">(</span><span style="color: #0000BB">$key</span><span style="color: #007700">);<br /><br />if&nbsp;(</span><span style="color: #0000BB">$id&nbsp;</span><span style="color: #007700">===&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'共有メモリセグメントを作成できません'</span><span style="color: #007700">);<br />}<br /><br /></span><span style="color: #FF8000">//&nbsp;integer&nbsp;にキャストします。PHP&nbsp;5.3.0&nbsp;より前のバージョンでは<br />//&nbsp;リソース&nbsp;ID&nbsp;が返り値となっており、この値はリソースを&nbsp;integer<br />//&nbsp;にキャストすることで得られるからです<br /></span><span style="color: #0000BB">$id&nbsp;</span><span style="color: #007700">=&nbsp;(integer)&nbsp;</span><span style="color: #0000BB">$id</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>

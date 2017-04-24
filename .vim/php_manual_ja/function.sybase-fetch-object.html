@@ -17,6 +17,11 @@
 
  </div>
  
+ <div id="function.sybase-fetch-object-refsynopsisdiv">
+   <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は
+PHP 7.0.0 で <em class="emphasis">削除</em> されました。</p></div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.sybase-fetch-object-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -83,64 +88,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.sybase-fetch-object-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.0</td>
-       <td><p class="para">
-        この関数は数値のオブジェクトメンバを返さなくなりました。
-        以前はこのような挙動でした。
-        <div class="example-contents screen">
-<div class="changelogcode"><pre class="changelogcode">object(stdclass)(3) {
-  [0]=&gt;
-  string(3) &quot;foo&quot;
-  [&quot;foo&quot;]=&gt;
-  string(3) &quot;foo&quot;
-  [1]=&gt;
-  string(3) &quot;bar&quot;
-  [&quot;bar&quot;]=&gt;
-  string(3) &quot;bar&quot;
-}</pre>
-</div>
-        </div>
-        しかし、新しい挙動は次のようになります。
-        <div class="example-contents screen">
-<div class="changelogcode"><pre class="changelogcode">object(stdclass)(3) {
-  [&quot;foo&quot;]=&gt;
-  string(3) &quot;foo&quot;
-  [&quot;bar&quot;]=&gt;
-  string(3) &quot;bar&quot;
-}</pre>
-</div>
-        </div>
-        </p>
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.sybase-fetch-object-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2215">
+   <div class="example" id="example-2441">
     <p><strong>例1 <span class="function"><strong>sybase_fetch_object()</strong></span> の結果を Foo で返す</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

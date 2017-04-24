@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Get status information about the cache</title>
+  <title>キャッシュについてのステータス情報を取得</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.opcache-get-status" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">opcache_get_status</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.5, PECL ZendOpcache &gt; 7.0.2)</p><p class="refpurpose"><span class="refname">opcache_get_status</span> &mdash; <span class="dc-title">Get status information about the cache</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.5, PHP 7, PECL ZendOpcache &gt; 7.0.2)</p><p class="refpurpose"><span class="refname">opcache_get_status</span> &mdash; <span class="dc-title">キャッシュについてのステータス情報を取得</span></p>
 
  </div>
 
@@ -25,7 +25,7 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-   This function returns state information about the cache instance
+   この関数は、キャッシュ・インスタンスについてのステータス情報を返します。
   </p>
  </div>
 
@@ -41,7 +41,7 @@
     <dd>
 
      <p class="para">
-      Include script specific state information
+      スクリプト固有の状態の情報を含む。
      </p>
     </dd>
 
@@ -54,7 +54,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.opcache-get-status-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns an array of information, optionally containing script specific state information
+   情報の配列を返します。スクリプト固有の状態の情報をオプションで含みます。
   </p>
  </div>
 
@@ -62,9 +62,10 @@
  <div class="refsect1 errors" id="refsect1-function.opcache-get-status-errors">
   <h3 class="title">エラー / 例外</h3>
   <p class="para">
-   If <em>opcache.restrict_api</em> is in use and the current path 
-   is in violation of the rule, an E_WARNING will be raised; no status information will
-   be returned.
+   <em>opcache.restrict_api</em> を使用中で、
+   かつ現在のパスがルール違反の場合、
+   E_WARNING が発生します。
+   ステータス情報は返されません。
   </p>
  </div>
 
@@ -73,7 +74,7 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.opcache-get-configuration.html" class="function" rel="rdfs-seeAlso">opcache_get_configuration()</a> - Get configuration information about the cache</span></li>
+    <li class="member"><span class="function"><a href="function.opcache-get-configuration.html" class="function" rel="rdfs-seeAlso">opcache_get_configuration()</a> - キャッシュについての構成情報を取得</span></li>
    </ul>
   </p>
  </div>

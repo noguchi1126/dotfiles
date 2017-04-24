@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mb-ereg-search-setpos" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_ereg_search_setpos</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">mb_ereg_search_setpos</span> &mdash; <span class="dc-title">次の正規表現検索を開始する位置を設定する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_ereg_search_setpos</span> &mdash; <span class="dc-title">次の正規表現検索を開始する位置を設定する</span></p>
 
  </div>
    
@@ -43,7 +43,7 @@
      <dd>
 
       <p class="para">
-       設定する位置。
+       設定する位置。負の値を指定すると、文字列の末尾から数えます。
       </p>
      </dd>
 
@@ -59,6 +59,33 @@
   <p class="simpara">
    成功した場合に <strong><code>TRUE</code></strong> を、失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-ereg-search-setpos-changelog">
+  <h3 class="title">変更履歴</h3>
+  <table class="doctable informaltable">
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.1.0</td>
+      <td>
+       負の <code class="parameter">position</code> をサポートするようになりました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
  </div>
 
 

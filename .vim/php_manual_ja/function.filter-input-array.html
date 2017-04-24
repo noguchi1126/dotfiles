@@ -13,7 +13,7 @@
 </div><hr /><div id="function.filter-input-array" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">filter_input_array</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">filter_input_array</span> &mdash; <span class="dc-title">外部から変数を受け取り、オプションでそれらをフィルタリングする</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">filter_input_array</span> &mdash; <span class="dc-title">外部から変数を受け取り、オプションでそれらをフィルタリングする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.filter-input-array-description">
@@ -107,7 +107,7 @@
  <div class="refsect1 examples" id="refsect1-function.filter-input-array-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5104">
+   <div class="example" id="example-5947">
     <p><strong>例1 <span class="function"><strong>filter_input_array()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -121,20 +121,14 @@
 <div class="cdata"><pre>
 array(6) {
   [&quot;product_id&quot;]=&gt;
-  array(1) {
-    [0]=&gt;
-    string(17) &quot;libgd%3Cscript%3E&quot;
-  }
+  string(17) &quot;libgd%3Cscript%3E&quot;
   [&quot;component&quot;]=&gt;
   array(1) {
     [0]=&gt;
     int(10)
   }
   [&quot;versions&quot;]=&gt;
-  array(1) {
-    [0]=&gt;
-    string(6) &quot;2.0.33&quot;
-  }
+  string(6) &quot;2.0.33&quot;
   [&quot;doesnotexist&quot;]=&gt;
   NULL
   [&quot;testscalar&quot;]=&gt;

@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>ミューテックスを破棄する</title>
+  <title>Destroy Mutex</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,8 +13,16 @@
 </div><hr /><div id="mutex.destroy" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Mutex::destroy</h1>
-  <p class="verinfo">(PECL pthreads &gt;= 2.0.0)</p><p class="refpurpose"><span class="refname">Mutex::destroy</span> &mdash; <span class="dc-title">ミューテックスを破棄する</span></p>
+  <p class="verinfo">(PECL pthreads &lt; 3.0.0)</p><p class="refpurpose"><span class="refname">Mutex::destroy</span> &mdash; <span class="dc-title">Destroy Mutex</span></p>
 
+ </div>
+
+ <div id="mutex.destroy-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    The <a href="class.mutex.html" class="classname">Mutex</a> class has been removed in pthreads v3.
+   </p>
+  </div>
  </div>
 
  <div class="refsect1 description" id="refsect1-mutex.destroy-description">
@@ -31,7 +39,7 @@
  </span>
    )</div>
 
-  <p class="para rdfs-comment">ミューテックスへのハンドルの破棄は、ミューテックスを使い終えたときにプログラマーが明示的に行う必要があります。</p>
+  <p class="para rdfs-comment">Destroying Mutex handles must be carried out explicitly by the programmer when they are finished with the Mutex handle. </p>
  </div>
 
 
@@ -46,8 +54,8 @@
     <dd>
 
      <p class="para">
-      <span class="function"><a href="mutex.create.html" class="function">Mutex::create()</a></span> を呼んで取得したミューテックスへのハンドル。
-      <span class="function"><strong>Mutex::destroy()</strong></span> を呼ぶときには、このハンドルはどのスレッドからもロックされていない状態でなければいけません。
+ A handle returned by a previous call to <span class="function"><a href="mutex.create.html" class="function">Mutex::create()</a></span>.
+ The handle should not be locked by any Thread when <span class="function"><strong>Mutex::destroy()</strong></span> is called.
      </p>
     </dd>
 
@@ -59,24 +67,18 @@
 
  <div class="refsect1 returnvalues" id="refsect1-mutex.destroy-returnvalues">
   <h3 class="title">返り値</h3>
-  <p class="para">成功したかどうかを返します。</p>
- </div>
-
-
- <div class="refsect1 returnvalues" id="refsect1-mutex.destroy-returnvalues">
-  <h3 class="title">返り値</h3>
-  <p class="para">A newly created and optionally locked Mutex handle</p>
+  <p class="para">A boolean indication of success</p>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-mutex.destroy-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3734">
-    <p><strong>例1 ミューテックスの作成と破棄</strong></p>
+   <div class="example" id="example-4269">
+    <p><strong>例1 Mutex Creation and Destruction</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;"new"&nbsp;キーワードは使えません。Mutex&nbsp;は&nbsp;PHP&nbsp;のオブジェクトではありません&nbsp;**/<br /></span><span style="color: #0000BB">$mutex&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/**&nbsp;ミューテックスの物理アドレスを取得します&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/**&nbsp;自分が作ったミューテックスは、常に破棄します&nbsp;**/<br /></span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">/**&nbsp;You&nbsp;cannot&nbsp;use&nbsp;the&nbsp;"new"&nbsp;keyword,&nbsp;a&nbsp;Mutex&nbsp;is&nbsp;not&nbsp;a&nbsp;PHP&nbsp;object&nbsp;**/<br /></span><span style="color: #0000BB">$mutex&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">create</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">/**&nbsp;You&nbsp;have&nbsp;the&nbsp;physical&nbsp;address&nbsp;of&nbsp;the&nbsp;Mutex&nbsp;**/<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">/**&nbsp;Always&nbsp;destroy&nbsp;mutex&nbsp;you&nbsp;have&nbsp;created&nbsp;**/<br /></span><span style="color: #0000BB">Mutex</span><span style="color: #007700">::</span><span style="color: #0000BB">destroy</span><span style="color: #007700">(</span><span style="color: #0000BB">$mutex</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

@@ -10,7 +10,7 @@
  <div class="next" style="text-align: right; float: right;"><a href="datetime.formats.compound.html">複合的な書式</a></div>
  <div class="up"><a href="datetime.formats.html">サポートする日付と時刻の書式</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
-</div><hr /><div id="datetime.formats.date" class="section">
+</div><hr /><div id="datetime.formats.date" class="sect1">
   <h2 class="title">日付の書式</h2>
   
   <p class="para">
@@ -149,13 +149,13 @@
      <tr>
       <td>ドットかタブかハイフンで区切られた、日、月、4桁の年</td>
       <td><em>dd</em> [.\t-] <em>mm</em> [.-] <em>YY</em></td>
-      <td>&quot;30-6-2008&quot;, &quot;22.12\t1978&quot;</td>
+      <td>&quot;30-6-2008&quot;, &quot;22.12.1978&quot;</td>
      </tr>
 
      <tr>
       <td>ドットかタブで区切られた、日、月、2桁の年</td>
       <td><em>dd</em> [.\t] <em>mm</em> &quot;.&quot; <em>yy</em></td>
-      <td>&quot;30.6.08&quot;, &quot;22\t12\t78&quot;</td>
+      <td>&quot;30.6.08&quot;, &quot;22\t12.78&quot;</td>
      </tr>
 
      <tr>
@@ -303,6 +303,11 @@
     このルールにより、&quot;2008-08-00&quot; は &quot;2008-07-31&quot; と同一になり、
     &quot;2008-06-31&quot; は &quot;2008-07-01&quot; と同一になります
     ( 6 月は 30 日までしかないので)。
+   </p>
+   <p class="para">
+    PHP 5.1.0 以降では「日」の範囲が 0 から 31 までに絞られたことに注意しましょう。
+    先ほどの正規表現が示すとおりです。
+    したがって、たとえば &quot;2008-06-32&quot; は日付文字列として妥当な形式ではなくなります。
    </p>
    <p class="para">
     また、シンボル <em>mm</em> と <em>MM</em> についても

@@ -95,7 +95,7 @@
    <var class="filename">php.ini</var> の中で環境変数を使うには、次のようにします。
   </p>
   <p class="para">
-   <div class="example" id="example-63">
+   <div class="example" id="example-36">
     <p><strong>例1 <var class="filename">php.ini</var> での環境変数</strong></p>
      <div class="example-contents">
 <div class="inicode"><pre class="inicode">; 環境変数 PHP_MEMORY_LIMIT を利用します
@@ -118,7 +118,7 @@ memory_limit = ${PHP_MEMORY_LIMIT}</pre>
     最新の <var class="filename">php.ini</var></a> も有用でしょう。
    </p>
    <p class="para">
-    <div class="example" id="example-64">
+    <div class="example" id="example-37">
      <p><strong>例2 <var class="filename">php.ini</var> の例</strong></p>
      <div class="example-contents">
 <div class="inicode"><pre class="inicode">; 引用符をつけないセミコロン(;)の後のテキストは、すべて無視されます
@@ -145,6 +145,113 @@ include_path = &quot;.;c:\php\lib&quot;</pre>
     例: <em>open_basedir = ${open_basedir}
     &quot;:/new/dir&quot;</em>
    </p>
+  <div class="sect2" id="configuration.file.scan">
+   <h3 class="title">スキャンディレクトリ</h3>
+
+   <p class="para">
+    PHP の設定で、<var class="filename">php.ini</var> を読んだ後に .ini ファイルを探すディレクトリを指定できます。
+    これは、コンパイル時のオプション
+    <strong class="option configure">--with-config-file-scan-dir</strong>
+ で設定します。
+    PHP 5.2.0 以降では、このスキャンディレクトリを実行時に上書きできるようになりました。
+    環境変数 <var class="varname"><var class="varname">PHP_INI_SCAN_DIR</var></var> で指定します。
+   </p>
+
+   <p class="para">
+    複数のディレクトリを指定するには、各プラットフォームのパス区切り文字
+    (Window や NetWare そして RISC OS の場合は <em>;</em>、
+    その他のプラットフォームの場合は <em>:</em>。PHP が用いる値は定数
+    <strong><code>PATH_SEPARATOR</code></strong> で取得できます)
+    を用います。<var class="varname"><var class="varname">PHP_INI_SCAN_DIR</var></var> に空文字列が指定された場合は、
+    PHP のコンパイル時に
+    <strong class="option configure">--with-config-file-scan-dir</strong>
+
+    で指定されたディレクトリもスキャンします。
+   </p>
+
+   <p class="para">
+    指定されたディレクトリの中にあるファイルの中で、ファイル名が
+    <em>.ini</em> で終わるすべてのファイルを、アルファベット順にスキャンします。
+    読み込まれたファイルの一覧とその順序を調べるには、
+    <span class="function"><a href="function.php-ini-scanned-files.html" class="function">php_ini_scanned_files()</a></span> を呼ぶか、あるいは
+    <strong class="option unknown">--ini</strong>
+ オプションつきで PHP を実行します。
+   </p>
+
+   <div class="informalexample">
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+PHP のコンパイル時に --with-config-file-scan-dir=/etc/php.d
+を指定しており、パス区切り文字が : であるものとします
+
+$ php
+  PHP は /etc/php.d/*.ini を設定ファイルとして読み込みます。
+
+$ PHP_INI_SCAN_DIR=/usr/local/etc/php.d php
+  PHP は /usr/local/etc/php.d/*.ini を設定ファイルとして読み込みます。
+
+$ PHP_INI_SCAN_DIR=:/usr/local/etc/php.d php
+  PHP はまず /etc/php.d/*.ini を設定ファイルとして読み込み、
+  続いて /usr/local/etc/php.d/*.ini も設定ファイルとして読み込みます。
+
+$ PHP_INI_SCAN_DIR=/usr/local/etc/php.d: php
+  PHP はまず /usr/local/etc/php.d/*.ini を設定ファイルとして読み込み、
+  続いて /etc/php.d/*.ini を設定ファイルとして読み込みます。
+</pre></div>
+    </div>
+   </div>
+  </div>
+  <div class="sect2" id="configuration.file.changelog">
+   <h3 class="title">変更履歴</h3>
+
+   <p class="para">
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>バージョン</th>
+        <th>説明</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>7.0.0</td>
+        <td>
+         ハッシュ記号 (<em>#</em>) をコメントとみなさないようになりました。
+        </td>
+       </tr>
+
+       <tr>
+        <td>5.3.0</td>
+        <td>
+         ハッシュ記号 (<em>#</em>) をコメントとして使ってはいけないようになりました。
+         もし使うと、廃止予定だという警告を発します。
+        </td>
+       </tr>
+
+       <tr>
+        <td>5.2.0</td>
+        <td>
+         環境変数 <var class="varname"><var class="varname">PHP_INI_SCAN_DIR</var></var> によって、
+         configure 時に指定したスキャンディレクトリを上書きできるようになりました。
+        </td>
+       </tr>
+
+       <tr>
+        <td>5.1.0</td>
+        <td>
+         .ini ファイル内で既存の .ini 変数を参照できるようになりました。
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+  </div>
   </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="configuration.html">実行時設定</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="configuration.file.per-user.html">.user.ini ファイル</a></div>

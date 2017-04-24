@@ -13,7 +13,7 @@
 </div><hr /><div id="function.json-encode" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">json_encode</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PECL json &gt;= 1.2.0)</p><p class="refpurpose"><span class="refname">json_encode</span> &mdash; <span class="dc-title">値を JSON 形式にして返す</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PECL json &gt;= 1.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">json_encode</span> &mdash; <span class="dc-title">値を JSON 形式にして返す</span></p>
 
  </div>
 
@@ -50,10 +50,14 @@
       <p class="para">
        すべての文字列データは、UTF-8 エンコードされたいなければいけません。
       </p>
-      <blockquote class="note"><p><strong class="note">注意</strong>: <p class="para">
-PHP は JSON のスーパーセットを実装しており、スカラー型や <strong><code>NULL</code></strong> のエンコードやデコードもします。
-JSON の標準規格では、これらの値は配列やオブジェクトの内部でネストする場合にだけ対応しています。
-</p></p></blockquote>
+      
+ <blockquote class="note"><p><strong class="note">注意</strong>: 
+  <p class="para">
+   PHP の実装は、
+   <a href="http://www.faqs.org/rfcs/rfc7159" class="link external">&raquo;&nbsp;RFC 7159</a> の JSON のスーパーセットです。
+  </p>
+ </p></blockquote>
+
      </dd>
 
     
@@ -72,7 +76,9 @@ JSON の標準規格では、これらの値は配列やオブジェクトの内
        <strong><code>JSON_PRETTY_PRINT</code></strong>,
        <strong><code>JSON_UNESCAPED_SLASHES</code></strong>,
        <strong><code>JSON_FORCE_OBJECT</code></strong>,
-       <strong><code>JSON_UNESCAPED_UNICODE</code></strong>
+       <strong><code>JSON_PRESERVE_ZERO_FRACTION</code></strong>,
+       <strong><code>JSON_UNESCAPED_UNICODE</code></strong>,
+       <strong><code>JSON_PARTIAL_OUTPUT_ON_ERROR</code></strong>
        からなるビットマスク。
        各定数の意味については
        <a href="json.constants.html" class="link">JSON 定数のページ</a>
@@ -123,6 +129,22 @@ JSON の標準規格では、これらの値は配列やオブジェクトの内
 
      <tbody class="tbody">
       <tr>
+       <td>7.1.0</td>
+       <td>
+        double 値をエンコードする際に、
+        <a href="ini.core.html#ini.precision" class="link">precision</a> ではなく
+        <a href="ini.core.html#ini.serialize-precision" class="link">serialize_precision</a> を使うようになりました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.6.6</td>
+       <td>
+        <code class="parameter">option</code> パラメータに <strong><code>JSON_PRESERVE_ZERO_FRACTION</code></strong> が追加されました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.5.0</td>
        <td>
         パラメータ <code class="parameter">depth</code> が追加されました。
@@ -163,7 +185,7 @@ JSON の標準規格では、これらの値は配列やオブジェクトの内
  <div class="refsect1 examples" id="refsect1-function.json-encode-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3782">
+   <div class="example" id="example-4343">
     <p><strong>例1 <span class="function"><strong>json_encode()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -180,7 +202,7 @@ JSON の標準規格では、これらの値は配列やオブジェクトの内
     </div>
    </div>
 
-   <div class="example" id="example-3783">
+   <div class="example" id="example-4344">
     <p><strong>例2 
      <span class="function"><strong>json_encode()</strong></span> で、利用中のいくつかのオプションを表示する例
     </strong></p>
@@ -213,8 +235,44 @@ Associative array always output as object: {&quot;foo&quot;:&quot;bar&quot;,&quo
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-3784">
-    <p><strong>例3 シーケンシャルな配列とそうでない配列の例</strong></p>
+   <div class="example" id="example-4345">
+    <p><strong>例3 JSON_NUMERIC_CHECK オプションの例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Strings&nbsp;representing&nbsp;numbers&nbsp;automatically&nbsp;turned&nbsp;into&nbsp;numbers"</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$numbers&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'+123123'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'-123123'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'1.2e3'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'0.00001'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(<br />&nbsp;</span><span style="color: #0000BB">$numbers</span><span style="color: #007700">,<br />&nbsp;</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$numbers</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">JSON_NUMERIC_CHECK</span><span style="color: #007700">)<br />);<br />echo&nbsp;</span><span style="color: #DD0000">"Strings&nbsp;containing&nbsp;improperly&nbsp;formatted&nbsp;numbers"</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$strings&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'+a33123456789'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'a123'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(<br />&nbsp;</span><span style="color: #0000BB">$strings</span><span style="color: #007700">,<br />&nbsp;</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$strings</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">JSON_NUMERIC_CHECK</span><span style="color: #007700">)<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Strings representing numbers automatically turned into numbers
+array(4) {
+  [0]=&gt;
+  string(7) &quot;+123123&quot;
+  [1]=&gt;
+  string(7) &quot;-123123&quot;
+  [2]=&gt;
+  string(5) &quot;1.2e3&quot;
+  [3]=&gt;
+  string(7) &quot;0.00001&quot;
+}
+string(28) &quot;[123123,-123123,1200,1.0e-5]&quot;
+Strings containing improperly formatted numbers
+array(2) {
+  [0]=&gt;
+  string(13) &quot;+a33123456789&quot;
+  [1]=&gt;
+  string(4) &quot;a123&quot;
+}
+string(24) &quot;[&quot;+a33123456789&quot;,&quot;a123&quot;]&quot;
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-4346">
+    <p><strong>例4 シーケンシャルな配列とそうでない配列の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #DD0000">"Sequential&nbsp;array"</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$sequential&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"baz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"blong"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(<br />&nbsp;</span><span style="color: #0000BB">$sequential</span><span style="color: #007700">,<br />&nbsp;</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$sequential</span><span style="color: #007700">)<br />);<br /><br />echo&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">.</span><span style="color: #DD0000">"Non-sequential&nbsp;array"</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$nonsequential&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">1</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">2</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">3</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"baz"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">4</span><span style="color: #007700">=&gt;</span><span style="color: #DD0000">"blong"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(<br />&nbsp;</span><span style="color: #0000BB">$nonsequential</span><span style="color: #007700">,<br />&nbsp;</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$nonsequential</span><span style="color: #007700">)<br />);<br /><br />echo&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">.</span><span style="color: #DD0000">"Sequential&nbsp;array&nbsp;with&nbsp;one&nbsp;key&nbsp;unset"</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />unset(</span><span style="color: #0000BB">$sequential</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]);<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(<br />&nbsp;</span><span style="color: #0000BB">$sequential</span><span style="color: #007700">,<br />&nbsp;</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">$sequential</span><span style="color: #007700">)<br />);<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -261,6 +319,23 @@ array(3) {
   string(5) &quot;blong&quot;
 }
 string(33) &quot;{&quot;0&quot;:&quot;foo&quot;,&quot;2&quot;:&quot;baz&quot;,&quot;3&quot;:&quot;blong&quot;}&quot;
+</pre></div>
+    </div>
+   </div>
+   <div class="example" id="example-4347">
+    <p><strong>例5 <strong><code>JSON_PRESERVE_ZERO_FRACTION</code></strong> オプションの例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">12.0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">JSON_PRESERVE_ZERO_FRACTION</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">json_encode</span><span style="color: #007700">(</span><span style="color: #0000BB">12.0</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+string(4) &quot;12.0&quot;
+string(2) &quot;12&quot;
 </pre></div>
     </div>
    </div>

@@ -21,8 +21,6 @@
    以下の FAQ を読む前に、どうやって <a href="language.variables.external.html" class="link">
    外部から来る変数</a>を取得するかを読んでおくことは重要です。
    このマニュアルにはこのトピックに関するよい例があります。
-   <em>register_globals</em> の意味するところにも
-   注意を払ってください。
   </p>
 
   <div class="qandaset"><ol class="qandaset_questions"><li><a href="#faq.html.encoding">
@@ -78,7 +76,7 @@
       </ul>
      </p>
      <p class="para">
-      <div class="example" id="example-5616">
+      <div class="example" id="internals2.ze1.zendapi.example.config.m4">
        <p><strong>例1 HTML の hidden 要素</strong></p>
         <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -99,7 +97,7 @@
         リクエストの内容は通常目に触れることは無いからです。
        </span>
       </p></blockquote>
-      <div class="example" id="example-5617">
+      <div class="example" id="internals2.ze1.zendapi.example.simple">
        <p><strong>例2 ユーザーによって編集するデータ</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -121,7 +119,7 @@
         すべて自動的に行われると言うことです。
        </span>
       </p></blockquote>
-      <div class="example" id="example-5618">
+      <div class="example" id="internals2.ze1.zendapi.example.testfile">
        <p><strong>例3 URL 中の場合</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -303,7 +301,7 @@ var=option3
       使用するか、シングルクオートで要素名を囲んでフォーム要素の配列の
       インデックスとしてアクセスしてください。例えば、以下のようにします：
       <div class="example-contents"><div class="cdata"><pre>
-variable = documents.forms[0].elements[&#039;var[]&#039;];
+variable = document.forms[0].elements[&#039;var[]&#039;];
       </pre></div></div>
 
      </p>
@@ -330,7 +328,7 @@ variable = documents.forms[0].elements[&#039;var[]&#039;];
       これは通常はクライアントサイドでしかできないことです。
      </p>
      <p class="para">
-      <div class="example" id="example-5619">
+      <div class="example" id="internals2.ze1.zendapi.example.zend-function-entry">
        <p><strong>例4 PHP による Javascript の生成</strong></p>
        <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

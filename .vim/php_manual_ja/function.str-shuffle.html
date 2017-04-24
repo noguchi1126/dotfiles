@@ -13,7 +13,7 @@
 </div><hr /><div id="function.str-shuffle" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">str_shuffle</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">str_shuffle</span> &mdash; <span class="dc-title">文字列をランダムにシャッフルする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">str_shuffle</span> &mdash; <span class="dc-title">文字列をランダムにシャッフルする</span></p>
 
  </div>
  
@@ -28,6 +28,7 @@
    <span class="function"><strong>str_shuffle()</strong></span> は文字列をシャッフルします。
    考えられるすべての順列のうちのひとつを作成します。
   </p>
+  <div class="caution"><strong class="caution">警告</strong><p class="para">この関数が生成する値は、暗号学的に安全ではありません。そのため、これを暗号として使ってはいけません。暗号学的に安全な値が必要な場合は、<span class="function"><a href="function.random-int.html" class="function">random_int()</a></span> か <span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span> あるいは <span class="function"><a href="function.openssl-random-pseudo-bytes.html" class="function">openssl_random_pseudo_bytes()</a></span> を使いましょう。</p></div>
  </div>
 
 
@@ -62,10 +63,39 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-function.str-shuffle-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.1.0</td>
+       <td>
+        <a href="migration71.incompatible.html#migration71.incompatible.rand-srand-aliases" class="link">The internal randomization algorithm has been changed to use the <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html" class="link external">&raquo;&nbsp;Mersenne Twister</a> Random Number Generator instead of the libc rand function.</a>
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-function.str-shuffle-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4895">
+   <div class="example" id="example-5497">
     <p><strong>例1 <span class="function"><strong>str_shuffle()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

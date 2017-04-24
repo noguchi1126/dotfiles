@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">Normalizer::isNormalized</h1>
   <h1 class="refname">normalizer_is_normalized</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Normalizer::isNormalized</span> -- <span class="refname">normalizer_is_normalized</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL intl &gt;= 1.0.0)</p><p class="refpurpose"><span class="refname">Normalizer::isNormalized</span> -- <span class="refname">normalizer_is_normalized</span> &mdash; <span class="dc-title">
    渡された文字列が、指定した正規化を適用済みかどうかを調べる
   </span></p>
 
@@ -28,7 +28,7 @@
     <span class="type">bool</span> 
     <span class="methodname"><strong>Normalizer::isNormalized</strong></span>
      ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>
-    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$form</code><span class="initializer"> = Normalizer::FORM_C</span></span>
+    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$form</code><span class="initializer"> = Normalizer::FORM_C</span></span>
    ] )</div>
 
   <p class="para rdfs-comment">手続き型</p>
@@ -36,7 +36,7 @@
    <span class="type">bool</span> 
    <span class="methodname"><strong>normalizer_is_normalized</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$form</code><span class="initializer"> = Normalizer::FORM_C</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$form</code><span class="initializer"> = Normalizer::FORM_C</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
@@ -87,7 +87,7 @@
 
  <div class="refsect1 examples" id="refsect1-normalizer.isnormalized-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-2585">
+  <div class="example" id="example-2823">
    <p><strong>例1 
     <span class="function"><strong>normalizer_is_normalized()</strong></span> の例
    </strong></p>
@@ -99,7 +99,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2586">
+  <div class="example" id="example-2824">
    <p><strong>例2 オブジェクト指向の例</strong></p>
    <div class="example-contents">
     <div class="phpcode"><code><span style="color: #000000">

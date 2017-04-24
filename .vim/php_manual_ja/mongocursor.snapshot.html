@@ -26,16 +26,17 @@
 
   <p class="para rdfs-comment">
    このクエリでスナップショットモードを使います。
-   スナップショットモードは、複製を返したりオブジェクトが失われたりせず
-   クエリの実行開始時と終了時の両方でオブジェクトが存在することを保証します
-   (クエリの途中でオブジェクトが新しくなったり削除されたりした場合は、
-   スナップショットモードであってもそれが返されることもあれば返されないこともあります)。
+   スナップショットモードでは、途中に書き込み操作が混ざった場合にも
+   同じドキュメントが複数回返されないことを保証します。
+   カーソルの生存期間中に追加されたり削除されたりしたドキュメントが返されるかどうかは、
+   スナップショットモードかどうかには関わらず、返されることもあれば返されないこともあります。
   </p>
   <p class="para">
    短い (1MB 未満の) クエリの応答は、常に事実上スナップショットになることに注意しましょう。
   </p>
   <p class="para">
-   現在は、ソートや明示的なヒントを指定している場合はスナップショットモードは用いられません。
+   ソートや明示的なヒントを指定している場合、あるいは共有コレクションに対するクエリの場合は、
+   スナップショットモードは用いられません。
   </p>
  </div>
 
@@ -59,6 +60,15 @@
   <p class="para">
    このカーソルの反復処理が始まっている場合に
    <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> をスローします。
+  </p>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongocursor.snapshot-seealso">
+  <h3 class="title">参考</h3>
+  <p class="para">
+   MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/reference/operator/meta/snapshot/" class="link external">&raquo;&nbsp;$snapshot 演算子</a>
+   も参照ください。
   </p>
  </div>
 

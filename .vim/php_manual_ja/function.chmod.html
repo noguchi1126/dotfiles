@@ -13,7 +13,7 @@
 </div><hr /><div id="function.chmod" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">chmod</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">chmod</span> &mdash; <span class="dc-title">ファイルのモードを変更する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">chmod</span> &mdash; <span class="dc-title">ファイルのモードを変更する</span></p>
 
  </div>
  
@@ -58,9 +58,9 @@
       <p class="para">
        <code class="parameter">mode</code>
        は自動的には 8 進数と見なされないので注意してください。
-       このため、(&quot;g+w&quot; のような)文字列は正常に動作しません。
        意図した操作を行うには、<code class="parameter">mode</code>
        の前にゼロ(0)を付ける必要があります。
+       &quot;g+w&quot; のような文字列は正常に動作しません。
       </p>
       <p class="para">
        <div class="informalexample">

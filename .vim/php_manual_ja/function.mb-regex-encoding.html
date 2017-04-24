@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mb-regex-encoding" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mb_regex_encoding</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5)</p><p class="refpurpose"><span class="refname">mb_regex_encoding</span> &mdash; <span class="dc-title">現在のマルチバイト正規表現用のエンコーディングを取得または設定する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.2.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mb_regex_encoding</span> &mdash; <span class="dc-title">現在のマルチバイト正規表現用のエンコーディングを取得または設定する</span></p>
 
  </div>
    
@@ -59,6 +59,35 @@
    encoding が設定された場合、成功した場合に TRUE を、失敗した場合に FALSE を返します。
    このとき、内部文字エンコーディングは変更されません。
    encoding が省略された場合、現在のマルチバイト用の正規表現関数で用いる文字エンコーディング名を返します。 
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.mb-regex-encoding-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.6.0</td>
+       <td>
+        デフォルトのエンコーディングが EUC-JP から UTF-8 に変わりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

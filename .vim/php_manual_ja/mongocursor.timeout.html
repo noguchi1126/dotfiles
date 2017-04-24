@@ -46,7 +46,7 @@
      <p class="para">
       カーソルがレスポンスを待つミリ秒数。
       ずっと待ち続ける場合は <em>-1</em> を指定します。
-      デフォルトでは、<var class="varname"><var class="varname">MongoCursor::$timeout</var></var> で指定したミリ秒数だけ待ちます。
+      デフォルトでは、<var class="varname"><var class="varname">30000</var></var> ミリ秒 (30 秒) だけ待ちます。
      </p>
     </dd>
 
@@ -75,7 +75,7 @@
 
  <div class="refsect1 examples" id="refsect1-mongocursor.timeout-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1498">
+  <div class="example" id="example-1596">
    <p><strong>例1 <span class="function"><strong>MongoCursor::timeout()</strong></span> の例</strong></p>
    <div class="example-contents"><p>
     この例では、最初のレスポンスはずっと待ち続けるけれども
@@ -99,8 +99,19 @@
      これは、MongoDB サーバー上で時間がかかっている操作をキャンセルさせるわけではありません。
      ドライバが結果を待ち続ける時間を指定して、それに達したら
      <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローするだけです。
+     サーバー側でのクエリのタイムアウトを指定したい場合は、
+     <span class="methodname"><a href="mongocursor.maxtimems.html" class="methodname">MongoCursor::maxTimeMS()</a></span> を使いましょう。
    </p>
   </div>
+ </div>
+
+
+ <div class="refsect1 seealso" id="refsect1-mongocursor.timeout-seealso">
+  <h3 class="title">参考</h3>
+  <ul class="simplelist">
+   <li class="member"><span class="methodname"><a href="mongocursorinterface.timeout.html" class="methodname" rel="rdfs-seeAlso">MongoCursorInterface::timeout()</a> - Sets a client-side timeout for this query</span></li>
+   <li class="member"><span class="function"><strong>MongoClient::__construct()</strong></span> の <em>socketTimeoutMS</em> オプション</li>
+  </ul>
  </div>
 
 

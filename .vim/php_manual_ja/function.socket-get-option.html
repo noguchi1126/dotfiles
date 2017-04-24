@@ -7,13 +7,13 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.socket-create.html">socket_create</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.socket-getpeername.html">socket_getpeername</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.socket-getopt.html">socket_getopt</a></div>
  <div class="up"><a href="ref.sockets.html">ソケット 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.socket-get-option" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">socket_get_option</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">socket_get_option</span> &mdash; <span class="dc-title">ソケットのオプションを取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">socket_get_option</span> &mdash; <span class="dc-title">ソケットのオプションを取得する</span></p>
 
  </div>
  
@@ -467,8 +467,8 @@
  <div class="refsect1 examples" id="refsect1-function.socket-get-option-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4603">
-    <p><strong>例1 <span class="function"><a href="function.socket-set-option.html" class="function">socket_set_option()</a></span> の例</strong></p>
+   <div class="example" id="snmp.geterrno.example.basic">
+    <p><strong>例1 <span class="function"><strong>socket_get_option()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$socket&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">socket_create_listen</span><span style="color: #007700">(</span><span style="color: #0000BB">1223</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$linger&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'l_linger'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'l_onoff'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">socket_set_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SOL_SOCKET</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SO_LINGER</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$linger</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">socket_get_option</span><span style="color: #007700">(</span><span style="color: #0000BB">$socket</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SOL_SOCKET</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SO_REUSEADDR</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -481,39 +481,20 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.socket-get-option-changelog">
-  <h3 class="title">変更履歴</h3>
+ <div class="refsect1 seealso" id="refsect1-function.socket-get-option-seealso">
+  <h3 class="title">参考</h3>
   <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        関数の名前が変わりました。以前は
-        <em>socket_getopt()</em> という名前でした。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.socket-create-listen.html" class="function" rel="rdfs-seeAlso">socket_create_listen()</a> - 接続を受けつけるためにポートにソケットをオープンする</span></li>
+    <li class="member"><span class="function"><a href="function.socket-set-option.html" class="function" rel="rdfs-seeAlso">socket_set_option()</a> - ソケットのオプションを設定する</span></li>
+   </ul>
   </p>
  </div>
 
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.socket-create.html">socket_create</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="function.socket-getpeername.html">socket_getpeername</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="function.socket-getopt.html">socket_getopt</a></div>
  <div class="up"><a href="ref.sockets.html">ソケット 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

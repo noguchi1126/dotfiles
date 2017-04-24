@@ -12,10 +12,10 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="class.traversable" class="reference">
 
- <h1 class="title">Traversable インターフェイス</h1>
+ <h1 class="title"><span class="interfacename"><a href="class.traversable.html" class="interfacename">Traversable</a></span> インターフェイス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.0.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.0.0, PHP 7)</p>
 
 
   <div class="section" id="traversable.intro">
@@ -25,26 +25,26 @@
    </p>
    <p class="para">
     これは抽象インターフェイスであり、単体で実装することはできません。
-    <a href="class.iteratoraggregate.html" class="classname">IteratorAggregate</a> あるいは
-    <a href="class.iterator.html" class="classname">Iterator</a> を実装しなければなりません。
+    <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> あるいは
+    <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span> を実装しなければなりません。
    </p>
    <blockquote class="note"><p><strong class="note">注意</strong>: 
     <p class="para">
      このインターフェイスを実装した内部クラス (組み込みクラス) は
      <a href="control-structures.foreach.html" class="link">foreach</a> で使用することができます。
-     <a href="class.iteratoraggregate.html" class="classname">IteratorAggregate</a> や
-     <a href="class.iterator.html" class="classname">Iterator</a> を実装する必要はありません。
+     <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> や
+     <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span> を実装する必要はありません。
     </p>
    </p></blockquote>
    <blockquote class="note"><p><strong class="note">注意</strong>: 
     <p class="para">
-     これは内部エンジンのインターフェイスであり、PHP スクリプトないで実装することはできません。
-     そのかわりに <a href="class.iteratoraggregate.html" class="classname">IteratorAggregate</a> あるいは
-     <a href="class.iterator.html" class="classname">Iterator</a> を使用しなければなりません。
+     これは内部エンジンのインターフェイスであり、PHP スクリプト内で実装することはできません。
+     そのかわりに <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> あるいは
+     <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span> を使用しなければなりません。
      Traversable を継承したインターフェイスを実装するときは、
      implements 句の中でそのインターフェイスより前に
-     <a href="class.iteratoraggregate.html" class="classname">IteratorAggregate</a> か
-     <a href="class.iterator.html" class="classname">Iterator</a> を指定しておきましょう。
+     <span class="interfacename"><a href="class.iteratoraggregate.html" class="interfacename">IteratorAggregate</a></span> か
+     <span class="interfacename"><a href="class.iterator.html" class="interfacename">Iterator</a></span> を指定しておきましょう。
     </p>
    </p></blockquote>
   </div>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-keys" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_keys</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">array_keys</span> &mdash; <span class="dc-title">配列のキーすべて、あるいはその一部を返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_keys</span> &mdash; <span class="dc-title">配列のキーすべて、あるいはその一部を返す</span></p>
 
  </div>
  
@@ -22,7 +22,7 @@
   <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><strong>array_keys</strong></span>
     ( <span class="methodparam"><span class="type">array</span> <code class="parameter">$array</code></span>
-   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$search_value</code></span>
+   [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$search_value</code><span class="initializer"> = null</span></span>
    [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$strict</code><span class="initializer"> = false</span></span>
   ]] )</div>
 
@@ -93,39 +93,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.array-keys-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        <code class="parameter">strict</code> パラメータが追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
- 
  <div class="refsect1 examples" id="refsect1-function.array-keys-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4970">
+   <div class="example" id="example-5577">
     <p><strong>例1 <span class="function"><strong>array_keys()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -165,8 +136,9 @@ Array
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.array-values.html" class="function" rel="rdfs-seeAlso">array_values()</a> - 配列の全ての値を返す</span></li>
+    <li class="member"><span class="function"><a href="function.array-combine.html" class="function" rel="rdfs-seeAlso">array_combine()</a> - 一方の配列をキーとして、もう一方の配列を値として、ひとつの配列を生成する</span></li>
     <li class="member"><span class="function"><a href="function.array-key-exists.html" class="function" rel="rdfs-seeAlso">array_key_exists()</a> - 指定したキーまたは添字が配列にあるかどうかを調べる</span></li>
-    <li class="member"><span class="function"><a href="function.array-search.html" class="function" rel="rdfs-seeAlso">array_search()</a> - 指定した値を配列で検索し、見つかった場合に対応するキーを返す</span></li>
+    <li class="member"><span class="function"><a href="function.array-search.html" class="function" rel="rdfs-seeAlso">array_search()</a> - 指定した値を配列で検索し、見つかった場合に対応する最初のキーを返す</span></li>
    </ul>
   </p>
  </div>

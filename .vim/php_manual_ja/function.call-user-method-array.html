@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>パラメータの配列を指定してユーザーメソッドをコールする [古い関数]</title>
+  <title>パラメータの配列を指定してユーザーメソッドをコールする</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,8 +13,24 @@
 </div><hr /><div id="function.call-user-method-array" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">call_user_method_array</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5)</p><p class="refpurpose"><span class="refname">call_user_method_array</span> &mdash; <span class="dc-title">パラメータの配列を指定してユーザーメソッドをコールする [古い関数]</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.5, PHP 5)</p><p class="refpurpose"><span class="refname">call_user_method_array</span> &mdash; <span class="dc-title">パラメータの配列を指定してユーザーメソッドをコールする</span></p>
 
+ </div>
+ <div id="function.call-user-method-array-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この関数は PHP 4.1.0 で <em class="emphasis">非推奨</em> となり、
+ PHP 7.0.0 で <em class="emphasis">削除</em> されました。
+</p>
+<p class="para">
+ この関数の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.call-user-func-array.html" class="function">call_user_func_array()</a></span></li>
+   </ul>
+  </div>
  </div>
  <div class="refsect1 description" id="refsect1-function.call-user-method-array-description">
   <h3 class="title">説明</h3>
@@ -25,12 +41,6 @@
    , <span class="methodparam"><span class="type">array</span> <code class="parameter">$params</code></span>
    )</div>
 
-  <div class="warning"><strong class="warning">警告</strong>
-   <p class="para">
-    PHP 4.1.0 以降、<span class="function"><a href="function.call-user-method.html" class="function">call_user_method()</a></span>
-    関数は非推奨となっています。
-   </p>
-  </div>
  </div>
 
  <div class="refsect1 parameters" id="refsect1-function.call-user-method-array-parameters">
@@ -88,11 +98,11 @@
  <div class="refsect1 examples" id="refsect1-function.call-user-method-array-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5056">
+   <div class="example" id="example-5664">
     <p><strong>例1 <span class="function"><strong>call_user_method_array()</strong></span> の代替策</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />call_user_func_array</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$method_name</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">call_user_func_array</span><span style="color: #007700">(array(&amp;</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$method_name</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;PHP&nbsp;4<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />call_user_func_array</span><span style="color: #007700">(array(</span><span style="color: #0000BB">$obj</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$method_name</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$params</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

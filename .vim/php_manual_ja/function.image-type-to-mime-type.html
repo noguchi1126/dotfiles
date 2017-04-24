@@ -14,7 +14,7 @@
 </div><hr /><div id="function.image-type-to-mime-type" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">image_type_to_mime_type</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">image_type_to_mime_type</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">image_type_to_mime_type</span> &mdash; <span class="dc-title">
    getimagesize, exif_read_data, exif_thumbnail, exif_imagetypeから返される
    画像形式のMIMEタイプを取得する
   </span></p>
@@ -159,6 +159,11 @@
        <td><em>image/vnd.microsoft.icon</em></td>
       </tr>
 
+      <tr>
+       <td><strong><code>IMAGETYPE_WEBP</code></strong></td>
+       <td><em>image/webp</em></td>
+      </tr>
+
      </tbody>
     
    </table>
@@ -169,7 +174,7 @@
  <div class="refsect1 examples" id="refsect1-function.image-type-to-mime-type-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3194">
+   <div class="example" id="example-3493">
     <p><strong>例1 <span class="function"><strong>image_type_to_mime_type()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

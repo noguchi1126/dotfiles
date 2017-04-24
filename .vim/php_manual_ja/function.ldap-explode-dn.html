@@ -6,14 +6,14 @@
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="function.ldap-error.html">ldap_error</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ldap-escape.html">ldap_escape</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.ldap-first-attribute.html">ldap_first_attribute</a></div>
  <div class="up"><a href="ref.ldap.html">LDAP 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="function.ldap-explode-dn" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_explode_dn</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ldap_explode_dn</span> &mdash; <span class="dc-title">DN を構成要素ごとに分割する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_explode_dn</span> &mdash; <span class="dc-title">DN を構成要素ごとに分割する</span></p>
 
  </div>
  
@@ -75,7 +75,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ldap-explode-dn-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   すべての DN 要素を配列で返します。
+   すべての DN 要素を配列で返します。失敗した場合に <strong><code>FALSE</code></strong> を返します。
    この配列の最初の要素のキーは <em>count</em> で、
    これは返される値の数を表します。次の要素は、DN の数値添字配列となります。
   </p>
@@ -83,7 +83,7 @@
 
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="function.ldap-error.html">ldap_error</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="function.ldap-escape.html">ldap_escape</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="function.ldap-first-attribute.html">ldap_first_attribute</a></div>
  <div class="up"><a href="ref.ldap.html">LDAP 関数</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>

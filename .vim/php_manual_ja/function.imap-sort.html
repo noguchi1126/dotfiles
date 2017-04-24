@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imap-sort" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imap_sort</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imap_sort</span> &mdash; <span class="dc-title">メッセージヘッダの配列をソートする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imap_sort</span> &mdash; <span class="dc-title">メッセージヘッダの配列をソートする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imap-sort-description">
@@ -25,7 +25,7 @@
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$reverse</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$search_criteria</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code><span class="initializer"> = NIL</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$charset</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
   ]]] )</div>
 
   <p class="para rdfs-comment">
@@ -137,6 +137,8 @@ imap_stream</code></dt>
      <dd>
 
       <p class="para">
+       IMAP2 フォーマットの検索条件文字列。詳細は
+       <span class="function"><a href="function.imap-search.html" class="function">imap_search()</a></span> を参照ください。
       </p>
      </dd>
 
@@ -148,6 +150,7 @@ imap_stream</code></dt>
      <dd>
 
       <p class="para">
+       文字列の検索の際に使う MIME 文字セット。
       </p>
      </dd>
 
@@ -161,34 +164,6 @@ imap_stream</code></dt>
   <h3 class="title">返り値</h3>
   <p class="para">
    指定したパラメータでソートしたメッセージ番号の配列を返します。
-  </p>
- </div>
-
- <div class="refsect1 changelog" id="refsect1-function.imap-sort-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.3</td>
-       <td>
-        パラメータ <code class="parameter">charset</code> が追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 

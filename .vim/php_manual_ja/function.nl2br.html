@@ -13,7 +13,7 @@
 </div><hr /><div id="function.nl2br" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">nl2br</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">nl2br</span> &mdash; <span class="dc-title">改行文字の前に HTML の改行タグを挿入する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">nl2br</span> &mdash; <span class="dc-title">改行文字の前に HTML の改行タグを挿入する</span></p>
 
  </div>
  
@@ -28,7 +28,7 @@
   <p class="para rdfs-comment">
    <code class="parameter">string</code> に含まれるすべての改行文字 (<em>\r\n</em>、
    <em>\n\r</em>、<em>\n</em> および <em>\r</em>)
-   の前に &#039;&lt;br /&gt;&#039; あるいは &#039;&lt;br&gt;&#039; を挿入して返します。
+   の前に <code class="code">&lt;br /&gt;</code> あるいは <code class="code">&lt;br&gt;</code> を挿入して返します。
   </p>
  </div>
 
@@ -79,7 +79,7 @@
  <div class="refsect1 examples" id="refsect1-function.nl2br-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4864">
+   <div class="example" id="example-5465">
     <p><strong>例1 <span class="function"><strong>nl2br()</strong></span> の使用法</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -96,7 +96,7 @@ foo isn&#039;t&lt;br /&gt;
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4865">
+   <div class="example" id="example-5466">
     <p><strong>例2 <code class="parameter">is_xhtml</code> パラメータの使用による、妥当な HTML 形式のマークアップの生成</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -113,7 +113,7 @@ This is my HTML document
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-4866">
+   <div class="example" id="example-5467">
     <p><strong>例3 さまざまな改行文字</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,17 +154,7 @@ string&lt;br /&gt;
        <td>5.3.0</td>
        <td>
          オプションの <code class="parameter">is_xhtml</code> パラメータが追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.5</td>
-       <td>
-        <span class="function"><strong>nl2br()</strong></span> は XHTML 準拠となりました。
-        PHP 4.0.5 より前の全てのバージョンでは、
-        <span class="function"><strong>nl2br()</strong></span> は、<code class="parameter">string</code>
-        の全ての改行記号の前に &#039;&lt;br /&gt;&#039; の代わりに &#039;&lt;br&gt;&#039;
-        を挿入して返します。
+         以前のバージョンでは、杖に &#039;&lt;br /&gt;&#039; が挿入されていました。
        </td>
       </tr>
 

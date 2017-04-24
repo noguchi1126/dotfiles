@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="control-structures.switch" class="sect1">
  <h2 class="title"><em>switch</em></h2>
- <p class="verinfo">(PHP 4, PHP 5)</p>
+ <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p>
  <p class="simpara">
   <em>switch</em>文は、同じ式を用いてIF文を並べたのに似ています。
   同じ変数を異なる値と比較し、値に応じて異なったコードを実行したいと
@@ -23,8 +23,8 @@
   <span class="simpara">
    他の言語とは違って、
    <a href="control-structures.continue.html" class="link">continue</a>命令は
-   switchにも適用され、<em>break</em>と同じ動作をします。
-   ループの内部でswitchを使用しており、
+   <em>switch</em> にも適用され、<em>break</em>と同じ動作をします。
+   ループの内部で <em>switch</em> を使用しており、
    外側のループの処理を続行させたい場合には、<em>continue 2</em>
    を使用してください。
   </span>
@@ -37,10 +37,35 @@
   </p>
  </p></blockquote>
  <p class="para">
+  <table class="doctable table">
+   <caption><strong>変更履歴</strong></caption>
+   
+    <thead>
+     <tr>
+      <th>バージョン</th>
+      <th>説明</th>
+     </tr>
+
+    </thead>
+
+    <tbody class="tbody">
+     <tr>
+      <td>7.0.0</td>
+      <td>
+       default ケースを複数指定すると <strong><code>E_COMPILE_ERROR</code></strong> エラーが発生するようになりました。
+      </td>
+     </tr>
+
+    </tbody>
+   
+  </table>
+
+ </p> 
+ <p class="para">
   次の二つの例は、同じことを二つの異なった方法で書いたものです。
   一つは、<em>if</em>文を、もう一つは<em>switch</em>
   文を使っています。
-  <div class="example" id="example-135">
+  <div class="example" id="example-117">
    <p><strong>例1 <em>switch</em>構造</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -50,7 +75,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-136">
+  <div class="example" id="example-118">
    <p><strong>例2 <em>switch</em>構造では文字列を使用できる</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -66,8 +91,8 @@
   理解することが重要です。
   <em>switch</em>文は、行毎に実行されます。
   (実際には、文毎に実行されます。)初めは、何も実行しません。
-  <em>switch</em>式の値と一致する値を有する
-  <em>case</em>文が見つけられたときに初めてPHにより
+  <em>switch</em>式の値と同じ値として評価される式を有する
+  <em>case</em>文が見つけられたときに初めてPHPにより
   命令の実行が行われます。
   PHPは<em>switch</em>ブロックの終わりまたは最初の
   <em>break</em>文まで実行を続けます。
@@ -126,12 +151,6 @@
    </div>
 
   </div>
- </p>
- <p class="para">
-  <em>case</em>式は、スカラー型に式を評価する
-  任意の式、つまり、整数、浮動小数点、文字列とすることができます。
-  配列又はオブジェクトは、単純な型にキャストされていない限り
-  使用することができません。
  </p>
  <p class="para">
   switch文の制御構造に関する別の構文がサポートされています。

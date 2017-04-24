@@ -13,7 +13,7 @@
 </div><hr /><div id="function.php-strip-whitespace" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">php_strip_whitespace</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">php_strip_whitespace</span> &mdash; <span class="dc-title">コメントと空白文字を取り除いたソースを返す</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">php_strip_whitespace</span> &mdash; <span class="dc-title">コメントと空白文字を取り除いたソースを返す</span></p>
 
  </div>
  
@@ -64,6 +64,13 @@
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
+    This function respects the value of the
+    <a href="ini.core.html#ini.short-open-tag" class="link">short_open_tag</a>
+    ini directive.
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
     PHP 5.0.1 以降、この関数は記述どおりに動作するようになりました。
     それまでは単に空の文字列を返すだけでした。このバグについての詳細な情報は、
     バグ番号 <a href="http://bugs.php.net/29606" class="link external">&raquo;&nbsp;29606</a> を参照ください。
@@ -75,7 +82,7 @@
  <div class="refsect1 examples" id="refsect1-function.php-strip-whitespace-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3805">
+   <div class="example" id="example-4368">
     <p><strong>例1 <span class="function"><strong>php_strip_whitespace()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

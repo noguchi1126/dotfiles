@@ -15,7 +15,7 @@
  <h1 class="title">DatePeriod クラス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p>
 
 
   <div class="section" id="dateperiod.intro">
@@ -59,16 +59,16 @@
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="dateperiod.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$start</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$start</code></span>
    , <span class="methodparam"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span> <code class="parameter">$interval</code></span>
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$recurrences</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code></span>
   ] )</div>
 <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="dateperiod.construct.html" class="methodname">__construct</a></span>
-    ( <span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$start</code></span>
+    ( <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$start</code></span>
    , <span class="methodparam"><span class="type"><a href="class.dateinterval.html" class="type DateInterval">DateInterval</a></span> <code class="parameter">$interval</code></span>
-   , <span class="methodparam"><span class="type"><a href="class.datetime.html" class="type DateTime">DateTime</a></span> <code class="parameter">$end</code></span>
+   , <span class="methodparam"><span class="type"><a href="class.datetimeinterface.html" class="type DateTimeInterface">DateTimeInterface</a></span> <code class="parameter">$end</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code></span>
   ] )</div>
 <div class="constructorsynopsis dc-description">
@@ -78,6 +78,19 @@
   ] )</div>
 
     
+    <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">DateInterval</span> <span class="methodname"><a href="dateperiod.getdateinterval.html" class="methodname">getDateInterval</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">DateTimeInterface</span> <span class="methodname"><a href="dateperiod.getenddate.html" class="methodname">getEndDate</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">DateTimeInterface</span> <span class="methodname"><a href="dateperiod.getstartdate.html" class="methodname">getStartDate</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+
 
    }</div>
 
@@ -117,7 +130,28 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="dateperiod.construct.html">DatePeriod::__construct</a> — 新しい DatePeriod オブジェクトを作成する</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="dateperiod.construct.html">DatePeriod::__construct</a> — 新しい DatePeriod オブジェクトを作成する</li><li><a href="dateperiod.getdateinterval.html">DatePeriod::getDateInterval</a> — Gets the interval</li><li><a href="dateperiod.getenddate.html">DatePeriod::getEndDate</a> — Gets the end date</li><li><a href="dateperiod.getstartdate.html">DatePeriod::getStartDate</a> — Gets the start date</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="dateinterval.format.html">DateInterval::format</a></div>

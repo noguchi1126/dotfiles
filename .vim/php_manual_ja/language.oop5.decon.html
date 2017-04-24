@@ -16,10 +16,10 @@
  <div class="sect2" id="language.oop5.decon.constructor">
   <h3 class="title">コンストラクタ</h3>
    <div class="methodsynopsis dc-description" id="object.construct">
-   <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>__construct</strong></span>
-    ([ <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$args</code></span>
-   [, <span class="methodparam"> <code class="parameter">$...</code></span>
-  ]] )</div>
+    <span class="type"><span class="type void">void</span></span> <span class="methodname"><strong>__construct</strong></span>
+     ([ <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$args</code><span class="initializer"> = &quot;&quot;</span></span>
+    [, <span class="methodparam"> <code class="parameter">$...</code></span>
+   ]] )</div>
 
   <p class="para">
    PHP 5 では、開発者がクラスのコンストラクタメソッドを宣言することが
@@ -39,7 +39,7 @@
     これは、通常のクラスメソッドと同様です。
    </span>
   </p></blockquote>
-  <div class="example" id="example-184">
+  <div class="example" id="example-191">
    <p><strong>例1 新しい統一されたコンストラクタを使用する</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -50,14 +50,21 @@
 
   </div>
   <p class="para">
-   下位互換性を維持するため、PHP 5 が指定されたクラスの
-   <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a> 関数をみつけられなくて、
-   かつそれが親クラスのコンストラクタを継承していない場合には、
-   古い形式のコンストラクタ関数、つまり、そのクラスの名前と同じ関数が探されます。
-   実際、互換性の問題が発生する可能性があるのは、
+   PHP 3 や PHP 4 との下位互換性を維持するため、もし PHP がクラスの
+   <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a> 関数を見つけられない場合は、
+   古い形式のコンストラクタ (つまりクラス名と同じ名前の関数)を捜します。
+   事実上、互換性の問題が発生する可能性があるのは、
    そのクラスが <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a> という名前のメソッドを
-   有しており、それが異なる用途で使用されている場合です。
+   異なる用途で用いてる場合だけです。
   </p>
+   
+   <div class="warning"><strong class="warning">警告</strong>
+    <p class="simpara">
+     古い形式のコンストラクタは PHP 7.0 で <em class="emphasis">非推奨</em> となりました。
+     将来のバージョンで削除されるでしょう。新しいコードでは常に
+     <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a> を使うべきです。
+    </p>
+   </div>
    <p class="para">
     他のメソッドと異なり、親の <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a>
     と異なるパラメータで <a href="language.oop5.decon.html#object.construct" class="link">__construct()</a>
@@ -69,7 +76,7 @@
     コンストラクタとみなされなくなりました。
     名前空間を使っていないクラスは今までと変わりません。
    </p>
-   <div class="example" id="example-185">
+   <div class="example" id="example-192">
     <p><strong>例2 名前空間つきのクラスのコンストラクタ</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -94,7 +101,7 @@
    特定のオブジェクトを参照するリファレンスがひとつもなくなったときにコールされます。
    あるいは、スクリプトの終了時にも順不同でコールされます。
   </p>
-  <div class="example" id="example-186">
+  <div class="example" id="example-193">
    <p><strong>例3 デストラクタの例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

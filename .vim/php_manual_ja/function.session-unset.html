@@ -13,7 +13,7 @@
 </div><hr /><div id="function.session-unset" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">session_unset</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">session_unset</span> &mdash; <span class="dc-title">全てのセッション変数を開放する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_unset</span> &mdash; <span class="dc-title">全てのセッション変数を開放する</span></p>
 
  </div>
  
@@ -43,8 +43,7 @@
   <h3 class="title">注意</h3>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
-    <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var> (または PHP 4.0.6
-    以前の場合は <var class="varname"><var class="varname">$HTTP_SESSION_VARS</var></var>)
+    <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>
     が使用されている場合、セッション変数の登録を削除するために
     <span class="function"><a href="function.unset.html" class="function">unset()</a></span>
     すなわち、<em>unset ($_SESSION[&#039;varname&#039;]);</em>

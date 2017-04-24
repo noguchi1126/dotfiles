@@ -26,9 +26,8 @@
     <ul class="itemizedlist">
      <li class="listitem">
       <span class="simpara">
-       <var class="varname"><var class="varname">$HTTP_*_VARS</var></var> 配列が過去のものとなったこと
-       (これは、関数またはメソッドの中で使用する際にグローバル変数として
-       宣言を行なう必要がありました)。以下の
+       古い形式の配列 <var class="varname"><var class="varname">$HTTP_*_VARS</var></var> は、PHP 5.4.0 以降使えなくなりました。
+       以下の
        <a href="language.variables.superglobals.html" class="link">スーパーグローバル
        配列</a>が <a href="http://www.php.net/releases/4_1_0.php" class="link external">&raquo;&nbsp;4.1.0</a>
        で導入されました。これらを以下に示します。
@@ -36,12 +35,6 @@
        <var class="varname"><var class="varname"><a href="reserved.variables.cookies.html" class="classname">$_COOKIE</a></var></var>, <var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var></var>,
        <var class="varname"><var class="varname"><a href="reserved.variables.environment.html" class="classname">$_ENV</a></var></var>, <var class="varname"><var class="varname"><a href="reserved.variables.request.html" class="classname">$_REQUEST</a></var></var>,
        <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>.
-       従来の $HTTP_POST_VARS のような配列 <var class="varname"><var class="varname">$HTTP_*_VARS</var></var>
-       もまだ存在します。
-       PHP 5.0.0 以降、PHP の長い
-<a href="language.variables.predefined.html" class="link">定義済みの変数</a>
-配列は <a href="ini.core.html#ini.register-long-arrays" class="link">register_long_arrays</a>
-ディレクティブにより無効にすることができます。
       </span>
      </li>
      <li class="listitem">

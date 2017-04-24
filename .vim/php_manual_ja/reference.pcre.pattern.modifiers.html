@@ -106,8 +106,8 @@
 
         <dd>
 
-       <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は PHP 5.5.0 で
-<em class="emphasis">非推奨</em>になります。この機能に頼らないことを強く推奨します。</p></div>
+       <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は PHP 5.5.0 で <em class="emphasis">非推奨</em> となり、
+PHP 7.0.0 で <em class="emphasis">削除</em> されました。</p></div>
          <span class="simpara">
           この非推奨の修飾子を設定すると、<span class="function"><a href="function.preg-replace.html" class="function">preg_replace()</a></span>
           は、置換文字列において後方参照に関する通常の置換を行った後、
@@ -286,11 +286,13 @@
         <dd>
 
          <span class="simpara">
-          この修正子は、Perl 非互換な PCRE の機能を有効にします。パターン
-          文字列は、UTF-8 エンコードされた文字列として処理されます。
-          この修正子は、UNIX では PHP 4.1.0 以降、Win32 では PHP 4.2.3 以降で
-          使用可能です。
-          また、PHP 4.3.5 以降では、パターンの UTF-8 としての妥当性も確認されます。
+          この修正子は、Perl 非互換な PCRE の機能を有効にします。パターンと対象文字列は、
+          UTF-8 として処理されます。
+          無効な対象文字列を preg_* 関数に渡しても、何もマッチしません。
+          無効なパターンを渡すと、E_WARNING レベルのエラーが発生します。
+          5オクテットおよび6オクテットの UTF-8 シーケンスは、PHP 5.3.4 以降
+          (PCRE 7.3 2007-08-28 以降) では無効とみなされます。
+          以前のバージョンでは、これらも UTF-8 として有効だとみなされていました。
          </span>
         </dd>
 

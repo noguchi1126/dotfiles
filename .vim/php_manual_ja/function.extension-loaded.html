@@ -13,7 +13,7 @@
 </div><hr /><div id="function.extension-loaded" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">extension_loaded</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">extension_loaded</span> &mdash; <span class="dc-title">ある拡張機能がロードされているかどうかを調べる</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">extension_loaded</span> &mdash; <span class="dc-title">ある拡張機能がロードされているかどうかを調べる</span></p>
 
  </div>
  
@@ -42,7 +42,7 @@
      <dd>
 
       <p class="para">
-       拡張モジュールの名前。
+       拡張モジュールの名前。大文字小文字を区別します。
       </p>
       <p class="para">
        <span class="function"><a href="function.phpinfo.html" class="function">phpinfo()</a></span>を使って種々の拡張モジュールの
@@ -92,7 +92,7 @@ ctype
  <div class="refsect1 examples" id="refsect1-function.extension-loaded-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-483">
+   <div class="example" id="example-525">
    <p><strong>例1 <span class="function"><strong>extension_loaded()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -102,39 +102,6 @@ ctype
     </div>
 
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-function.extension-loaded-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        <span class="function"><strong>extension_loaded()</strong></span> は、
-        内部的な拡張モジュール名を使ってそのモジュールが使用可能かどうかを判断します。
-        内部的な拡張モジュール名はほとんどの場合は小文字ですが、
-        大文字を使っているものもあるかもしれません。PHP 5 より前のバージョンでは、
-        この関数は大文字小文字を区別して名前を比較していました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 

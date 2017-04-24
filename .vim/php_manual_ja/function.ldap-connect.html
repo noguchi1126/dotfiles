@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ldap-connect" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_connect</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ldap_connect</span> &mdash; <span class="dc-title">LDAP サーバーへ接続する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_connect</span> &mdash; <span class="dc-title">LDAP サーバーへ接続する</span></p>
 
  </div>
  
@@ -21,14 +21,18 @@
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">resource</span> <span class="methodname"><strong>ldap_connect</strong></span>
-    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$hostname</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
+    ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$host</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$port</code><span class="initializer"> = 389</span></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
-   指定した
-   <code class="parameter">hostname</code> および <code class="parameter">port</code>
-   上の LDAP サーバーとの接続を確立します。
+   LDAP リンク ID を作成して、指定した
+   <code class="parameter">host</code> および <code class="parameter">port</code>
+   が妥当であるかどうかを調べます。
+  </p>
+  <p class="para">
+   注意: この関数は、接続を確立するするわけでは <em class="emphasis">ありません</em>。
+   指定したパラメータが妥当であり、必要に応じて接続をオープンできるかどうかを調べるだけです。
   </p>
  </div>
 
@@ -40,15 +44,21 @@
 
     
      <dt>
-<code class="parameter">hostname</code></dt>
+<code class="parameter">host</code></dt>
 
      <dd>
 
       <p class="para">
-       OpenLDAP 2.x.x を使用している場合、ホスト名の代わりに URL を指定する
-       ことが可能です。SSL と組み合わせて LDAP を使用するには、SSL
-       サポートを指定して OpenLDAP 2.x.x をコンパイルし、PHP の configure で
-       SSL を指定し、このパラメータを <em>ldaps://hostname/</em> とします。
+       このフィールドには、ホスト名を指定します。OpenLDAP 2.x.x 以降を使用している場合は、
+       LDAP URI を指定することもできます。<em>ldap://hostname:port</em>
+       形式、あるいは SSL を用いる場合は <em>ldaps://hostname:port</em> 形式が使えます。
+      </p>
+      <p class="para">
+       複数の LDAP URI を指定する場合は、間にスペースをはさんだひとつの文字列とします。
+      </p>
+      <p class="para">
+       <em>hostname:port</em> 形式は LDAP URI としてサポートされないことに注意しましょう。
+       スキーマが抜けているからです。
       </p>
      </dd>
 
@@ -60,7 +70,7 @@
      <dd>
 
       <p class="para">
-       接続するポート。URL を用いる場合は使用しません。
+       接続するポート。LDAP URI を用いる場合は使用しません。
       </p>
      </dd>
 
@@ -74,8 +84,10 @@
  <div class="refsect1 returnvalues" id="refsect1-function.ldap-connect-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   成功した場合に正の LDAP リンク ID 、エラーの場合に <strong><code>FALSE</code></strong>
-   を返します。OpenLDAP 2.x.x を使用している場合は、
+   指定したホスト名とポートの組み合わせ、あるいは LDAP URI が妥当であると思われる場合に正の LDAP リンク ID を返します。
+   これは単なる構文チェックであり、実際にサーバーに接続するわけではありません。
+   構文チェックに失敗した場合は <strong><code>FALSE</code></strong> を返します。
+   OpenLDAP 2.x.x を使用している場合は、
    <span class="function"><strong>ldap_connect()</strong></span> は常に <span class="type"><a href="language.types.resource.html" class="type resource">resource</a></span>
    を返しますが、実際には接続せずにパラメータの初期化だけを行います。
    実際に接続するのは次に ldap_* 関数がコールされた際で、これは
@@ -87,39 +99,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.ldap-connect-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.0.4</td>
-       <td>
-        URL および SSL のサポートが追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.ldap-connect-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4401">
+   <div class="example" id="example-4938">
     <p><strong>例1 LDAP サーバーに接続する例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -129,7 +112,7 @@
     </div>
 
    </div>
-   <div class="example" id="example-4402">
+   <div class="example" id="example-4939">
     <p><strong>例2 LDAP サーバーへのセキュアな接続の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

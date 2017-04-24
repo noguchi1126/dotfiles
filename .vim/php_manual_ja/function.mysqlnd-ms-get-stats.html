@@ -457,7 +457,7 @@
        off, a query is executed and autocommit is enabled again. In that case,
        the statement will be committed by the server and SQL to maintain is
        injected before the autocommit is re-enabled. Another sequence
-       causing an an implicit commit is <em>begin()</em>,
+       causing an implicit commit is <em>begin()</em>,
        <em>query()</em>, <em>begin()</em>. The second call
        to <em>begin()</em> will implicitly commit the transaction
        started by the first call to <em>begin()</em>.
@@ -564,6 +564,165 @@
       <td>Since 1.6.0.</td>
      </tr>
 
+     <tr>
+      <td>
+       <em>xa_begin</em>
+      </td>
+      <td>
+       How many XA/distributed transactions have been started
+       using <span class="function"><a href="function.mysqlnd-ms-xa-begin.html" class="function">mysqlnd_ms_xa_begin()</a></span>.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>xa_commit_success</em>
+      </td>
+      <td>
+       How many XA/distributed transactions have been successfully committed
+       using <span class="function"><a href="function.mysqlnd-ms-xa-commit.html" class="function">mysqlnd_ms_xa_commit()</a></span>.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>xa_commit_failure</em>
+      </td>
+      <td>
+       How many XA/distributed transactions failed to commit
+       during <span class="function"><a href="function.mysqlnd-ms-xa-commit.html" class="function">mysqlnd_ms_xa_commit()</a></span>.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>xa_rollback_success</em>
+      </td>
+      <td>
+       How many XA/distributed transactions have been successfully rolled back
+       using <span class="function"><a href="function.mysqlnd-ms-xa-rollback.html" class="function">mysqlnd_ms_xa_rollback()</a></span>. The figure does
+       not include implict rollbacks performed as a result of
+       <span class="function"><a href="function.mysqlnd-ms-xa-commit.html" class="function">mysqlnd_ms_xa_commit()</a></span> failure.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>xa_rollback_failure</em>
+      </td>
+      <td>
+       How many XA/distributed transactions could not be rolled back.
+       This includes failures of <span class="function"><a href="function.mysqlnd-ms-xa-rollback.html" class="function">mysqlnd_ms_xa_rollback()</a></span>
+       but also failured during rollback when closing a connection, if
+       <em>rollback_on_close</em> is set. Please, see also
+       <em>xa_rollback_on_close</em> below.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>xa_participants</em>
+      </td>
+      <td>
+       Total number of participants in any XA transaction started with
+       <span class="function"><a href="function.mysqlnd-ms-xa-begin.html" class="function">mysqlnd_ms_xa_begin()</a></span>.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>xa_rollback_on_close</em>
+      </td>
+      <td>
+       How many XA transactions have been rolled back implicitly when
+       a connection was close and <em>rollback_on_close</em> is set.
+       Depending on your coding policies, this may hint a flaw in your code as
+       you may prefer to explicitly clean up resources.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>pool_masters_total</em>
+      </td>
+      <td>
+       Number of master servers (connections) in the internal connection pool.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>pool_slaves_total</em>
+      </td>
+      <td>
+       Number of slave servers (connections) in the internal connection pool.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>pool_masters_active</em>
+      </td>
+      <td>
+       Number of master servers (connections) from the internal connection pool
+       which are currently used for picking a connection.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>pool_slaves_active</em>
+      </td>
+      <td>
+       Number of slave servers (connections) from the internal connection pool
+       which are currently used for picking a connection.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+       <tr>
+      <td>
+       <em>pool_updates</em>
+      </td>
+      <td>
+       How often the active connection list has been replaced and a
+       new set of master and slave servers had been installed.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>pool_master_reactivated</em>
+      </td>
+      <td>
+       How often a master connection has been reused after being
+       flushed from the active list.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
+     <tr>
+      <td>
+       <em>pool_slave_reactivated</em>
+      </td>
+      <td>
+       How often a slave connection has been reused after being
+       flushed from the active list.
+      </td>
+      <td>Since 1.6.0.</td>
+     </tr>
+
     </tbody>
    
   </table>
@@ -574,7 +733,7 @@
  <div class="refsect1 examples" id="refsect1-function.mysqlnd-ms-get-stats-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-1856">
+   <div class="example" id="example-2083">
     <p><strong>例1 <span class="function"><strong>mysqlnd_ms_get_stats()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -665,7 +824,7 @@ array(26) {
      <a href="mysqlnd-ms.configuration.html#ini.mysqlnd-ms.enable" class="link">mysqlnd_ms.enable</a>
     </li>
     <li class="member">
-     <a href="mysqlnd-ms.monitoring.html" class="link">Monitoring</a>
+     <a href="mysqlnd-ms.plugin-ini-json.html#mysqlnd-ms.monitoring" class="link">Monitoring</a>
     </li>
    </ul>
   </p>

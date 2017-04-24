@@ -27,11 +27,14 @@
     には、さらなる詳細情報や機能一覧があります。
    </p>
    <p class="para">
-    <div class="example" id="example-1565">
+    <div class="example" id="example-1782">
      <p><strong>例1 mysqlnd あるいは libmysqlclient を使う場合の configure コマンド</strong></p>
      <div class="example-contents">
 <div class="shellcode"><pre class="shellcode">// おすすめの方法。mysqlnd を使ってコンパイルします。
 $ ./configure --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-mysql=mysqlnd
+
+// もうひとつのおすすめの方法。PHP 5.4 以降で mysqlnd を使ってコンパイルします。
+$ ./configure --with-mysqli --with-pdo-mysql --with-mysql
 
 // おすすめしない方法。libmysqlclient を使ってコンパイルします。
 $ ./configure --with-mysqli=/path/to/mysql_config --with-pdo-mysql=/path/to/mysql_config --with-mysql=/path/to/mysql_config</pre>
@@ -91,7 +94,7 @@ $ ./configure --with-mysqli=/path/to/mysql_config --with-pdo-mysql=/path/to/mysq
       </tr>
 
       <tr>
-       <td>PHP 5.4 でのコンパイルのデフォルト (すべての MySQL 拡張モジュール)</td>
+       <td>PHP 5.4 以降でのコンパイルのデフォルト (すべての MySQL 拡張モジュール)</td>
        <td>Yes</td>
        <td>No</td>
       </tr>
@@ -196,6 +199,12 @@ $ ./configure --with-mysqli=/path/to/mysql_config --with-pdo-mysql=/path/to/mysq
        <td>透過的なクエリ操作 (自動 EXPLAIN あるいはモニタリングなど)</td>
        <td>Yes, with plugin</td>
        <td>No</td>
+      </tr>
+
+      <tr>
+       <td>自動再接続</td>
+       <td>No</td>
+       <td>オプション</td>
       </tr>
 
      </tbody>

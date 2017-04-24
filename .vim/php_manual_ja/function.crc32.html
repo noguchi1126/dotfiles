@@ -13,7 +13,7 @@
 </div><hr /><div id="function.crc32" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">crc32</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5)</p><p class="refpurpose"><span class="refname">crc32</span> &mdash; <span class="dc-title">文字列の crc32 多項式計算を行う</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.1, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">crc32</span> &mdash; <span class="dc-title">文字列の crc32 多項式計算を行う</span></p>
 
  </div>
  
@@ -66,7 +66,7 @@
     移植性を考慮した選択肢として、より汎用的な
     <span class="function"><a href="function.hash.html" class="function">hash()</a></span> を使う方法もあります。
     <code class="code">hash(&quot;crc32b&quot;, $str)</code> は
-    <code class="code">dechex(crc32($str))</code> と同じ文字列を返します。
+    <code class="code">str_pad(dechex(crc32($str)), 8, &#039;0&#039;, STR_PAD_LEFT)</code> と同じ文字列を返します。
    </p>
   </div>
  </div>
@@ -106,7 +106,7 @@
  <div class="refsect1 examples" id="refsect1-function.crc32-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4837">
+   <div class="example" id="example-5438">
     <p><strong>例1 crc32 チェックサムの表示</strong></p>
     <div class="example-contents"><p>
      この例は <span class="function"><a href="function.printf.html" class="function">printf()</a></span>

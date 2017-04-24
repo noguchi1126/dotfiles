@@ -14,7 +14,7 @@
  <h1 class="title"><a href="class.ziparchive.html" class="classname">ZipArchive</a> クラス</h1>
  
  
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.2.0, PECL zip &gt;= 1.1.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7, PECL zip &gt;= 1.1.0)</p>
  
 
   <div class="section" id="ziparchive.intro">
@@ -78,7 +78,7 @@
 <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><a href="ziparchive.addpattern.html" class="methodname">addPattern</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$pattern</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = &#039;.&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$path</code><span class="initializer"> = &quot;.&quot;</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
   ]] )</div>
 <div class="methodsynopsis dc-description">
@@ -188,6 +188,32 @@
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$comment</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="ziparchive.setcompressionindex.html" class="methodname">setCompressionIndex</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$comp_method</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$comp_flags</code><span class="initializer"> = 0</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> <span class="methodname"><a href="ziparchive.setcompressionname.html" class="methodname">setCompressionName</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$comp_method</code></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$comp_flags</code><span class="initializer"> = 0</span></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> 
+   <span class="methodname"><a href="ziparchive.setencryptionindex.html" class="methodname">setEncryptionIndex</a></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
+   , <span class="methodparam"><span class="type">string</span> <code class="parameter">$method</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="type">bool</span> 
+   <span class="methodname"><a href="ziparchive.setencryptionname.html" class="methodname">setEncryptionName</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$name</code></span>
+   , <span class="methodparam"><span class="type">int</span> <code class="parameter">$method</code></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
+  ] )</div>
+<div class="methodsynopsis dc-description">
    <span class="type">bool</span> 
    <span class="methodname"><a href="ziparchive.setexternalattributesindex.html" class="methodname">setExternalAttributesIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
@@ -203,6 +229,10 @@
    , <span class="methodparam"><span class="type">int</span> <code class="parameter">$attr</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
   ] )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="ziparchive.setpassword.html" class="methodname">setPassword</a></span>
+    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$password</code></span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="type">array</span> <span class="methodname"><a href="ziparchive.statindex.html" class="methodname">statIndex</a></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$index</code></span>
@@ -529,7 +559,38 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="ziparchive.addemptydir.html">ZipArchive::addEmptyDir</a> — 新しいディレクトリを追加する</li><li><a href="ziparchive.addfile.html">ZipArchive::addFile</a> — 指定したパスからファイルを ZIP アーカイブに追加する</li><li><a href="ziparchive.addfromstring.html">ZipArchive::addFromString</a> — 内容を指定して、ファイルを ZIP アーカイブに追加する</li><li><a href="ziparchive.addglob.html">ZipArchive::addGlob</a> — ディレクトリから、glob パターンを使ってファイルを追加する</li><li><a href="ziparchive.addpattern.html">ZipArchive::addPattern</a> — ディレクトリから、PCRE パターンを使ってファイルを追加する</li><li><a href="ziparchive.close.html">ZipArchive::close</a> — アクティブな (オープンされた、あるいは新しく作成された) アーカイブを閉じる</li><li><a href="ziparchive.deleteindex.html">ZipArchive::deleteIndex</a> — インデックスを使用して、アーカイブ内のエントリを削除する</li><li><a href="ziparchive.deletename.html">ZipArchive::deleteName</a> — 名前を使用して、アーカイブからエントリを削除する</li><li><a href="ziparchive.extractto.html">ZipArchive::extractTo</a> — アーカイブの内容を展開する</li><li><a href="ziparchive.getarchivecomment.html">ZipArchive::getArchiveComment</a> — ZIP アーカイブのコメントを返す</li><li><a href="ziparchive.getcommentindex.html">ZipArchive::getCommentIndex</a> — エントリのインデックスを使用して、エントリのコメントを返す</li><li><a href="ziparchive.getcommentname.html">ZipArchive::getCommentName</a> — エントリ名を使用して、エントリのコメントを返す</li><li><a href="ziparchive.getexternalattributesindex.html">ZipArchive::getExternalAttributesIndex</a> — Retrieve the external attributes of an entry defined by its index</li><li><a href="ziparchive.getexternalattributesname.html">ZipArchive::getExternalAttributesName</a> — Retrieve the external attributes of an entry defined by its name</li><li><a href="ziparchive.getfromindex.html">ZipArchive::getFromIndex</a> — インデックスを使用して、エントリの内容を返す</li><li><a href="ziparchive.getfromname.html">ZipArchive::getFromName</a> — 名前を使用して、エントリの内容を返す</li><li><a href="ziparchive.getnameindex.html">ZipArchive::getNameIndex</a> — インデックスを使用して、エントリの名前を返す</li><li><a href="ziparchive.getstatusstring.html">ZipArchive::getStatusString</a> — システムエラー、または ZIP メッセージに関するエラー情報を返す</li><li><a href="ziparchive.getstream.html">ZipArchive::getStream</a> — 名前を使用して、エントリのファイルハンドラ (読み込み専用) を取得する</li><li><a href="ziparchive.locatename.html">ZipArchive::locateName</a> — アーカイブ内のエントリのインデックスを返す</li><li><a href="ziparchive.open.html">ZipArchive::open</a> — ZIP ファイルアーカイブをオープンする</li><li><a href="ziparchive.renameindex.html">ZipArchive::renameIndex</a> — インデックスを使用してエントリ名を変更する</li><li><a href="ziparchive.renamename.html">ZipArchive::renameName</a> — 名前を使用してエントリ名を変更する</li><li><a href="ziparchive.setarchivecomment.html">ZipArchive::setArchiveComment</a> — ZIP アーカイブのコメントを設定する</li><li><a href="ziparchive.setcommentindex.html">ZipArchive::setCommentIndex</a> — インデックスを使用してエントリのコメントを設定する</li><li><a href="ziparchive.setcommentname.html">ZipArchive::setCommentName</a> — 名前を使用してエントリのコメントを設定する</li><li><a href="ziparchive.setexternalattributesindex.html">ZipArchive::setExternalAttributesIndex</a> — Set the external attributes of an entry defined by its index</li><li><a href="ziparchive.setexternalattributesname.html">ZipArchive::setExternalAttributesName</a> — Set the external attributes of an entry defined by its name</li><li><a href="ziparchive.statindex.html">ZipArchive::statIndex</a> — インデックスを使用してエントリの詳細を取得する</li><li><a href="ziparchive.statname.html">ZipArchive::statName</a> — 名前を使用してエントリの詳細を取得する</li><li><a href="ziparchive.unchangeall.html">ZipArchive::unchangeAll</a> — アーカイブに対するすべての変更を取り消す</li><li><a href="ziparchive.unchangearchive.html">ZipArchive::unchangeArchive</a> — アーカイブ全体に対して行われたすべての変更を取り消す</li><li><a href="ziparchive.unchangeindex.html">ZipArchive::unchangeIndex</a> — 指定したインデックスのエントリに対するすべての変更を取り消す</li><li><a href="ziparchive.unchangename.html">ZipArchive::unchangeName</a> — 指定した名前のエントリに対するすべての変更を取り消す</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="ziparchive.addemptydir.html">ZipArchive::addEmptyDir</a> — 新しいディレクトリを追加する</li><li><a href="ziparchive.addfile.html">ZipArchive::addFile</a> — 指定したパスからファイルを ZIP アーカイブに追加する</li><li><a href="ziparchive.addfromstring.html">ZipArchive::addFromString</a> — 内容を指定して、ファイルを ZIP アーカイブに追加する</li><li><a href="ziparchive.addglob.html">ZipArchive::addGlob</a> — ディレクトリから、glob パターンを使ってファイルを追加する</li><li><a href="ziparchive.addpattern.html">ZipArchive::addPattern</a> — ディレクトリから、PCRE パターンを使ってファイルを追加する</li><li><a href="ziparchive.close.html">ZipArchive::close</a> — アクティブな (オープンされた、あるいは新しく作成された) アーカイブを閉じる</li><li><a href="ziparchive.deleteindex.html">ZipArchive::deleteIndex</a> — インデックスを使用して、アーカイブ内のエントリを削除する</li><li><a href="ziparchive.deletename.html">ZipArchive::deleteName</a> — 名前を使用して、アーカイブからエントリを削除する</li><li><a href="ziparchive.extractto.html">ZipArchive::extractTo</a> — アーカイブの内容を展開する</li><li><a href="ziparchive.getarchivecomment.html">ZipArchive::getArchiveComment</a> — ZIP アーカイブのコメントを返す</li><li><a href="ziparchive.getcommentindex.html">ZipArchive::getCommentIndex</a> — エントリのインデックスを使用して、エントリのコメントを返す</li><li><a href="ziparchive.getcommentname.html">ZipArchive::getCommentName</a> — エントリ名を使用して、エントリのコメントを返す</li><li><a href="ziparchive.getexternalattributesindex.html">ZipArchive::getExternalAttributesIndex</a> — Retrieve the external attributes of an entry defined by its index</li><li><a href="ziparchive.getexternalattributesname.html">ZipArchive::getExternalAttributesName</a> — Retrieve the external attributes of an entry defined by its name</li><li><a href="ziparchive.getfromindex.html">ZipArchive::getFromIndex</a> — インデックスを使用して、エントリの内容を返す</li><li><a href="ziparchive.getfromname.html">ZipArchive::getFromName</a> — 名前を使用して、エントリの内容を返す</li><li><a href="ziparchive.getnameindex.html">ZipArchive::getNameIndex</a> — インデックスを使用して、エントリの名前を返す</li><li><a href="ziparchive.getstatusstring.html">ZipArchive::getStatusString</a> — システムエラー、または ZIP メッセージに関するエラー情報を返す</li><li><a href="ziparchive.getstream.html">ZipArchive::getStream</a> — 名前を使用して、エントリのファイルハンドラ (読み込み専用) を取得する</li><li><a href="ziparchive.locatename.html">ZipArchive::locateName</a> — アーカイブ内のエントリのインデックスを返す</li><li><a href="ziparchive.open.html">ZipArchive::open</a> — ZIP ファイルアーカイブをオープンする</li><li><a href="ziparchive.renameindex.html">ZipArchive::renameIndex</a> — インデックスを使用してエントリ名を変更する</li><li><a href="ziparchive.renamename.html">ZipArchive::renameName</a> — 名前を使用してエントリ名を変更する</li><li><a href="ziparchive.setarchivecomment.html">ZipArchive::setArchiveComment</a> — ZIP アーカイブのコメントを設定する</li><li><a href="ziparchive.setcommentindex.html">ZipArchive::setCommentIndex</a> — インデックスを使用してエントリのコメントを設定する</li><li><a href="ziparchive.setcommentname.html">ZipArchive::setCommentName</a> — 名前を使用してエントリのコメントを設定する</li><li><a href="ziparchive.setcompressionindex.html">ZipArchive::setCompressionIndex</a> — Set the compression method of an entry defined by its index</li><li><a href="ziparchive.setcompressionname.html">ZipArchive::setCompressionName</a> — Set the compression method of an entry defined by its name</li><li><a href="ziparchive.setencryptionindex.html">ZipArchive::setEncryptionIndex</a> — Set the encryption method of an entry defined by its index</li><li><a href="ziparchive.setencryptionname.html">ZipArchive::setEncryptionName</a> — Set the encryption method of an entry defined by its name</li><li><a href="ziparchive.setexternalattributesindex.html">ZipArchive::setExternalAttributesIndex</a> — Set the external attributes of an entry defined by its index</li><li><a href="ziparchive.setexternalattributesname.html">ZipArchive::setExternalAttributesName</a> — Set the external attributes of an entry defined by its name</li><li><a href="ziparchive.setpassword.html">ZipArchive::setPassword</a> — Set the password for the active archive</li><li><a href="ziparchive.statindex.html">ZipArchive::statIndex</a> — インデックスを使用してエントリの詳細を取得する</li><li><a href="ziparchive.statname.html">ZipArchive::statName</a> — 名前を使用してエントリの詳細を取得する</li><li><a href="ziparchive.unchangeall.html">ZipArchive::unchangeAll</a> — アーカイブに対するすべての変更を取り消す</li><li><a href="ziparchive.unchangearchive.html">ZipArchive::unchangeArchive</a> — アーカイブ全体に対して行われたすべての変更を取り消す</li><li><a href="ziparchive.unchangeindex.html">ZipArchive::unchangeIndex</a> — 指定したインデックスのエントリに対するすべての変更を取り消す</li><li><a href="ziparchive.unchangename.html">ZipArchive::unchangeName</a> — 指定した名前のエントリに対するすべての変更を取り消す</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="zip.examples.html">例</a></div>

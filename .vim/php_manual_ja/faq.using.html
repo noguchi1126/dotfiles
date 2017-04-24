@@ -124,7 +124,6 @@ echo &quot;myfunc($variable) = &quot; . myfunc($variable);
      
       いくつかの PHP ディレクティブでは、バイト値を integer 
       ではなく省略形で設定できます。この省略形で使えるオプションを教えてください。
-      また、これは php.ini 以外でも使えるのですか ?
      
     </a></li><li><a href="#faq.using.windowslocalhostissue">
      
@@ -180,14 +179,6 @@ echo &quot;myfunc($variable) = &quot; . myfunc($variable);
       </div>
 
      </p>
-
-     <blockquote class="note"><p><strong class="note">注意</strong>: <strong>スーパーグローバル:
-使用可能なバージョンに関する注意</strong><br /><p class="para">PHP 4.1.0 以降、
-<var class="varname"><var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var></var>, <var class="varname"><var class="varname"><a href="reserved.variables.post.html" class="classname">$_POST</a></var></var>,
-<var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var></var>
-等のスーパーグローバル配列が使用可能となっています。
-詳細な情報については、マニュアルの <a href="language.variables.predefined.html" class="link">superglobals</a>
-のセクションを参照してください。</p></p></blockquote>
 
     </dd>
    </dl>
@@ -543,14 +534,6 @@ PHP コミュニティは、ユーザーがこのディレクティブの設定�
       register_globals = on の場合は <var class="varname"><var class="varname">$DOCUMENT_ROOT</var></var>も
       <var class="varname"><var class="varname"><a href="reserved.variables.globals.html" class="classname">$GLOBALS['DOCUMENT_ROOT']</a></var></var>も存在します。
      </p>
-     
-     <blockquote class="note"><p><strong class="note">注意</strong>: <strong>スーパーグローバル:
-使用可能なバージョンに関する注意</strong><br /><p class="para">PHP 4.1.0 以降、
-<var class="varname"><var class="varname"><a href="reserved.variables.get.html" class="classname">$_GET</a></var></var>, <var class="varname"><var class="varname"><a href="reserved.variables.post.html" class="classname">$_POST</a></var></var>,
-<var class="varname"><var class="varname"><a href="reserved.variables.server.html" class="classname">$_SERVER</a></var></var>
-等のスーパーグローバル配列が使用可能となっています。
-詳細な情報については、マニュアルの <a href="language.variables.predefined.html" class="link">superglobals</a>
-のセクションを参照してください。</p></p></blockquote>
 
     </dd>
    </dl>
@@ -560,20 +543,17 @@ PHP コミュニティは、ユーザーがこのディレクティブの設定�
      
       いくつかの PHP ディレクティブでは、バイト値を <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> 
       ではなく省略形で設定できます。この省略形で使えるオプションを教えてください。
-      また、これは <var class="filename">php.ini</var> 以外でも使えるのですか ?
      
     </strong></dt>
     <dd class="answer">
      <p class="para">
       有効なオプションは K（キロバイト）、M（メガバイト）および G（ギガバイト:
-      PHP 5.1.0 以降で有効）です。大文字小文字は区別しません。これ以外の文字は
-      バイト値と判断されます。
+      PHP 5.1.0 以降で有効）です。これらはすべて、大文字小文字を区別しません。
+      これ以外の文字はバイト値と判断されます。
       <em>1M</em> は、1 メガバイトあるいは <em>1048576</em>
       バイトと等しくなります。<em>1K</em> は、1 キロバイトあるいは
-      <em>1024</em> バイトです。この表記法を <var class="filename">php.ini</var> 以外では使用
-      しないでください。かわりに <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> のバイト値を設定します。
-      これらの値を数値に変換する例は <span class="function"><a href="function.ini-get.html" class="function">ini_get()</a></span> のドキュメントを
-      参照ください。
+      <em>1024</em> バイトです。この表記法は、 <var class="filename">php.ini</var>
+      や <span class="function"><a href="function.ini-set.html" class="function">ini_set()</a></span> 関数で使えます。
      </p>
      <blockquote class="note"><p><strong class="note">注意</strong>: 
       <strong>キロバイト? キビバイト?</strong><br />

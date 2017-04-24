@@ -13,7 +13,7 @@
 </div><hr /><div id="function.array-slice" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">array_slice</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">array_slice</span> &mdash; <span class="dc-title">配列の一部を展開する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">array_slice</span> &mdash; <span class="dc-title">配列の一部を展開する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.array-slice-description">
@@ -106,7 +106,7 @@
  <div class="refsect1 returnvalues" id="refsect1-function.array-slice-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   切り取った部分を返します。
+   切り取った部分を返します。オフセットが配列のサイズより大きい場合は、空の配列を返します。
   </p>
  </div>
 
@@ -150,7 +150,7 @@
  <div class="refsect1 examples" id="refsect1-function.array-slice-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4996">
+   <div class="example" id="example-5603">
     <p><strong>例1 <span class="function"><strong>array_slice()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

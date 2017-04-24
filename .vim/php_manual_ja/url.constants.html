@@ -47,7 +47,7 @@
    <dd>
 
     <span class="simpara">
-     
+    パースした URL のホスト名を出力します。
     </span>
    </dd>
 
@@ -61,7 +61,7 @@
    <dd>
 
     <span class="simpara">
-     
+     パースした URL のポート番号を出力します。
     </span>
    </dd>
 
@@ -75,7 +75,7 @@
    <dd>
 
     <span class="simpara">
-     
+     パースした URL のユーザー名を出力します。
     </span>
    </dd>
 
@@ -89,7 +89,7 @@
    <dd>
 
     <span class="simpara">
-     
+     パースした URL のパスワードを出力します。
     </span>
    </dd>
 
@@ -103,7 +103,7 @@
    <dd>
 
     <span class="simpara">
-     
+     パースした URL のパスを出力します。
     </span>
    </dd>
 
@@ -117,7 +117,7 @@
    <dd>
 
     <span class="simpara">
-     
+     パースした URL のクエリ文字列を出力します。
     </span>
    </dd>
 
@@ -131,11 +131,19 @@
    <dd>
 
     <span class="simpara">
-     
+     パースした URL のフラグメント (# 以降の文字列) を出力します。
     </span>
    </dd>
 
   
+ </dl>
+
+ <p class="para">
+  以下の定数は、
+  <span class="function"><a href="function.http-build-query.html" class="function">http_build_query()</a></span> で利用するものです。
+ </p>
+ <dl>
+
   
    <dt id="constant.php-query-rfc1738">
     <strong><code>PHP_QUERY_RFC1738</code></strong>
@@ -145,7 +153,9 @@
    <dd>
 
     <span class="simpara">
-     
+     <a href="http://www.faqs.org/rfcs/rfc1738" class="link external">&raquo;&nbsp;RFC 1738</a> と
+     <em>application/x-www-form-urlencoded</em> メディアタイプに基づくエンコーディングを行います。
+     つまり、スペースはプラス記号 (<em>+</em>) にエンコードされます。
     </span>
    </dd>
 
@@ -159,7 +169,8 @@
    <dd>
 
     <span class="simpara">
-     
+     <a href="http://www.faqs.org/rfcs/rfc3986" class="link external">&raquo;&nbsp;RFC 3986</a> に基づくエンコーディングを行います。
+     スペースはパーセントエンコードされて、<em>%20</em> となります。
     </span>
    </dd>
 

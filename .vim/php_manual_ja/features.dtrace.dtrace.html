@@ -2,29 +2,28 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Using PHP and DTrace</title>
+  <title>PHP および DTrace の使用</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="features.dtrace.introduction.html">Introduction to PHP and DTrace</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.systemtap.html">Using SystemTap with PHP DTrace Static Probes</a></div>
- <div class="up"><a href="features.dtrace.html">DTrace Dynamic Tracing</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="features.dtrace.introduction.html">PHP および DTrace への入門</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.systemtap.html">PHP DTrace 静的プローブとともに SystemTap を使用</a></div>
+ <div class="up"><a href="features.dtrace.html">DTrace 動的トレーシング</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="features.dtrace.dtrace" class="sect1">
-  <h2 class="title">Using PHP and DTrace</h2>
+  <h2 class="title">PHP および DTrace の使用</h2>
   <p class="para">
-   PHP can be configured with DTrace static probes on platforms that
-   support DTrace Dynamic Tracing.
+   DTrace 動的トレーシングをサポートするプラットフォームでは、
+   DTrace 静的プローブ付きで PHP を構成できます。
   </p>
 
   <div class="sect2" id="features.dtrace.install">
-   <h3 class="title">Configuring PHP for DTrace Static Probes</h3>
+   <h3 class="title">DTrace 静的プローブのために PHP を構成</h3>
 
    <p class="para">
-    Refer to external platform specific documentation for enabling
-    operating system DTrace support.  For example, on Oracle Linux
-    boot a UEK3 kernel and do:
-
+    OS の DTrace サポートを有効にするには、
+    プラットフォーム固有の外部のドキュメントを参照してください。
+    例えば、Oracle Linux では UEK3 を起動して下記を行います。
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -35,12 +34,13 @@
     </div>
    </p>
    <p class="para">
-    Instead of using <em>chmod</em>, you could instead use an
-    ACL package rule to limit device access to a specific user.
+    <em>chmod</em> を使用する代わりに、
+    デバイスのアクセスを特定のユーザーに制限するために
+    ACL パッケージ・ルールを使用できるでしょう。
    </p>
 
    <p class="para">
-    Build PHP with the <em>--enable-dtrace</em> configuration parameter:
+    <em>--enable-dtrace</em> 構成パラメータとともに PHP をビルドします。
     <div class="informalexample">
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -51,22 +51,22 @@
     </div>
    </p>
    <p class="para">
-    This enables the static probes in core PHP.  Any PHP extensions
-    that provide their own probes should be built separately as shared
-    extensions.
+    これは、 コア PHP で静的プローブを有効にします。
+    それら自身のプローブを提供するどの PHP 拡張モジュールも、
+    共用拡張モジュールとして別々にビルドするべきです。
    </p>
   </div>
 
   <div class="sect2" id="features.dtrace.static-probes">
-  <h3 class="title">DTrace Static Probes in Core PHP</h3>
+  <h3 class="title">コア PHP の DTrace 静的プローブ</h3>
   <table class="doctable table">
-   <caption><strong>The following static probes are available in PHP</strong></caption>
+   <caption><strong>PHP では、以下の静的プローブが使用できます</strong></caption>
    
     <thead>
      <tr>
-      <th>Probe Name</th>
-      <th>Probe Description</th>
-      <th>Probe Arguments</th>
+      <th>プローブ名</th>
+      <th>プローブの説明</th>
+      <th>プローブの引数</th>
      </tr>
 
     </thead>
@@ -74,69 +74,69 @@
     <tbody class="tbody">
      <tr>
       <td><em>request-startup</em></td>
-      <td>Fires when a request starts.</td>
+      <td>リクエスト開始時に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">file</var></var>, char *<var class="varname"><var class="varname">request_uri</var></var>, char *<var class="varname"><var class="varname">request_method</var></var></td>
      </tr>
 
      <tr>
       <td><em>request-shutdown</em></td>
-      <td>Fires when a request shutdown.</td>
+      <td>リクエスト・シャットダウン時に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">file</var></var>, char *<var class="varname"><var class="varname">request_uri</var></var>, char *<var class="varname"><var class="varname">request_method</var></var></td>
      </tr>
 
      <tr>
       <td><em>compile-file-entry</em></td>
-      <td>Fires when the compilation of a script starts.</td>
+      <td>スクリプトのコンパイル開始時に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">compile_file</var></var>, char *<var class="varname"><var class="varname">compile_file_translated</var></var></td>
      </tr>
 
      <tr>
       <td><em>compile-file-return</em></td>
-      <td>Fires when the compilation of a script finishes.</td>
+      <td>スクリプトのコンパイル終了時に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">compile_file</var></var>, char *<var class="varname"><var class="varname">compile_file_translated</var></var></td>
      </tr>
 
      <tr>
       <td><em>execute-entry</em></td>
-      <td>Fires when an opcode array is to be executed.  For
-      example, it fires on function calls, includes, and generator
-      resumes.</td>
+      <td>op コードの配列が実行される際に発射されます。
+      例えば、関数の呼び出し、インクルードおよびジェネレータ続行時に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">request_file</var></var>, int <var class="varname"><var class="varname">lineno</var></var></td>
      </tr>
 
      <tr>
       <td><em>execute-return</em></td>
-      <td>Fires after execution of an opcode array.</td>
+      <td>op コードの配列の実行後に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">request_file</var></var>, int <var class="varname"><var class="varname">lineno</var></var></td>
      </tr>
 
      <tr>
       <td><em>function-entry</em></td>
-      <td>Fires when the PHP engine enters a PHP function or method call.</td>
+      <td>PHP エンジンが、PHP の関数またはメソッドの呼び出しに入り込む際に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">function_name</var></var>, char *<var class="varname"><var class="varname">request_file</var></var>, int <var class="varname"><var class="varname">lineno</var></var>, char *<var class="varname"><var class="varname">classname</var></var>, char *<var class="varname"><var class="varname">scope</var></var></td>
      </tr>
 
      <tr>
       <td><em>function-return</em></td>
-      <td>Fires when the PHP engine returns from a PHP function or method call.</td>
+      <td>PHP エンジンが、PHP の関数またはメソッドの呼び出しから戻る際に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">function_name</var></var>, char *<var class="varname"><var class="varname">request_file</var></var>, int <var class="varname"><var class="varname">lineno</var></var>, char *<var class="varname"><var class="varname">classname</var></var>, char *<var class="varname"><var class="varname">scope</var></var></td>
      </tr>
 
      <tr>
       <td><em>exception-thrown</em></td>
-      <td>Fires when an exception is thrown.</td>
+      <td>例外がスローされる際に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">classname</var></var></td>
      </tr>
 
      <tr>
       <td><em>exception-caught</em></td>
-      <td>Fires when an exception is caught.</td>
+      <td>例外が捕捉される際に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">classname</var></var></td>
      </tr>
 
      <tr>
       <td><em>error</em></td>
-      <td>Fires when an error occurs, regardless of the <a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a> level.</td>
+      <td><a href="errorfunc.configuration.html#ini.error-reporting" class="link">error_reporting</a> レベルにかかわらず、
+      エラー発生時に発射されます。</td>
       <td>char *<var class="varname"><var class="varname">errormsg</var></var>, char *<var class="varname"><var class="varname">request_file</var></var>, int <var class="varname"><var class="varname">lineno</var></var></td>
      </tr>
 
@@ -145,14 +145,15 @@
   </table>
 
   <p class="para">
-   PHP extensions may also have additional static probes.
+   PHP 拡張モジュールには、追加の静的プローブもあるかもしれません。
   </p>
   </div>
 
   <div class="sect2" id="features.dtrace.list-probes">
-   <h3 class="title">Listing DTrace Static Probes in PHP</h3>
+   <h3 class="title">PHP の DTrace 静的プローブ一覧</h3>
    <p class="para">
-    To list available probes, start a PHP process and then run:
+    使用できるプローブを一覧表示するには、
+    PHP プロセスを開始して以下のように実行します。
     <div class="informalexample">
      <div class="example-contents">
 <div class="cdata"><pre>
@@ -164,7 +165,7 @@
    </p>
 
    <p class="para">
-    The output will be similar to:
+    出力は以下のようになります。
     <div class="informalexample">
      <div class="example-contents">
 <div class="cdata"><pre>
@@ -190,32 +191,34 @@
    </p>
 
    <p class="para">
-    The Provider column values consist of <em>php</em> and
-    the process id of the currently running PHP process.
+    PROVIDER 列の値は、<em>php</em> および
+    現在実行中の PHP プロセスのプロセス ID から構成されます。
    </p>
 
    <p class="para">
-    If the Apache web server is running, the module name might be, for
-    example, <var class="filename">libphp5.so</var>, and there would be
-    multiple blocks of listings, one per running Apache process.
+    Apache Web サーバーが実行中の場合、モジュール名は、例えば
+    <var class="filename">libphp5.so</var> かもしれません。
+    そして、実行中の Apache プロセスごとに 1 つ、
+    一覧表の複数のブロックが存在するかもしれません。
    </p>
 
    <p class="para">
-    The Function column refers to PHP&#039;s internal C implementation
-    function names where each provider is located.
+    FUNCTION 列は、各プロバイダが配置された PHP 内部の C 実装関数名を参照します。
    </p>
 
    <p class="para">
-    If a PHP process is not running, then no PHP probes will be shown.
+    PHP プロセスが実行されていない場合、PHP プローブは表示されません。
    </p>
   </div>
 
   <div class="sect2" id="features.dtrace.examples">
-   <h3 class="title">DTrace with PHP Example</h3>
+   <h3 class="title">PHP についての DTrace の例</h3>
    <p class="para">
-    This example shows the basics of the DTrace D scripting language.
-    <div class="example" id="example-401">
-     <p><strong>例1 <var class="filename">all_probes.d</var> for tracing all PHP Static Probes with DTrace</strong></p>
+    この例では、DTrace の D スクリプト言語の基本を示します。
+    <div class="example" id="example-426">
+     <p><strong>例1 
+      DTrace を使用してすべての PHP 静的プローブをトレースするための<var class="filename">all_probes.d</var>
+     </strong></p>
      <div class="example-contents">
 <div class="cdata"><pre>
 #!/usr/sbin/dtrace -Zs
@@ -312,16 +315,18 @@ php*:::request-startup
    </p>
 
    <p class="para">
-    This script uses the <em>-Z</em> option to
-    <var class="filename">dtrace</var>, allowing it to be run when there is no
-    PHP process executing.  If this option were omitted the script
-    would immediately terminate because it knows none of the probes to
-    be monitored are in existence.
+    このスクリプトは、<var class="filename">dtrace</var> に対して
+    <em>-Z</em> オプションを使用します。
+    それにより、実行中の PHP プロセスがない場合に実行できるようになります。
+    もしこのオプションが書き落とされた場合、
+    モニターされているプローブがどれも存在しないことがわかっているので、
+    スクリプトは即座に終了します。
    </p>
 
    <p class="para">
-    The script traces all core PHP static probe points throughout the
-    duration of a running PHP script. Run the D script:
+    スクリプトは、PHP スクリプト実行中の期間全体にわたって、
+    すべてのコア PHP 静的プローブ・ポイントをトレースします。
+    D スクリプトを実行します。
     <div class="informalexample">
      <div class="example-contents">
 <div class="cdata"><pre>
@@ -333,20 +338,23 @@ php*:::request-startup
    </p>
 
    <p class="para">
-    Run a PHP script or application.  The monitoring D script will
-    output each probe&#039;s arguments as it fires.
+    PHP スクリプトまたはアプリケーションを実行します。
+    モニタリングの D スクリプトは、各プローブが発射されるたびに
+    その引数を出力します。
    </p>
 
    <p class="para">
-    When monitoring is complete, the D script can be terminated with a
-    <em>^C</em>.
+    モニタリングが完了した際には、<em>^C</em>を使用して
+    D スクリプトを終わらせることができます。
    </p>
 
    <p class="para">
-    On multi-CPU machines the probe ordering might not appear to be
-    sequential. This depends on which CPU was processing the probes,
-    and how threads migrate across CPUs.  Displaying probe time stamps
-    will help reduce confusion, for example:
+    マルチ CPU マシンでは、プローブの順序は規則的に連続して表示されないことがあります。
+    これは、どの CPU がプローブを処理し、
+    CPU の間をスレッドがどのように移動したかに依存します。
+    プローブのタイムスタンプを表示すると、
+    混乱を減らすことができます。
+    その例です。
     <div class="informalexample">
      <div class="example-contents">
 <div class="cdata"><pre>
@@ -363,14 +371,14 @@ php*:::function-entry
   </div>
 
   <div class="sect2" id="features.dtrace.references">
-   <h3 class="title">See Also</h3>
+   <h3 class="title">関連項目</h3>
    <ul class="simplelist">
-    <li class="member"><a href="oci8.dtrace.html" class="link">OCI8 and DTrace Dynamic Tracing</a></li>
+    <li class="member"><a href="oci8.dtrace.html" class="link">OCI8 および DTrace 動的トレーシング</a></li>
    </ul>
   </div>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
- <div class="prev" style="text-align: left; float: left;"><a href="features.dtrace.introduction.html">Introduction to PHP and DTrace</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.systemtap.html">Using SystemTap with PHP DTrace Static Probes</a></div>
- <div class="up"><a href="features.dtrace.html">DTrace Dynamic Tracing</a></div>
+ <div class="prev" style="text-align: left; float: left;"><a href="features.dtrace.introduction.html">PHP および DTrace への入門</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="features.dtrace.systemtap.html">PHP DTrace 静的プローブとともに SystemTap を使用</a></div>
+ <div class="up"><a href="features.dtrace.html">DTrace 動的トレーシング</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

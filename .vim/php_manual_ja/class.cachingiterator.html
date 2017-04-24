@@ -14,7 +14,7 @@
  <h1 class="title">CachingIterator クラス</h1>
  
  
- <div class="partintro"><p class="verinfo">(PHP 5)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5, PHP 7)</p>
  
 
   <div class="section" id="cachingiterator.intro">
@@ -104,7 +104,7 @@
     <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><a href="cachingiterator.construct.html" class="methodname">__construct</a></span>
     ( <span class="methodparam"><span class="type"><a href="class.iterator.html" class="type Iterator">Iterator</a></span> <code class="parameter">$iterator</code></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$flags</code><span class="initializer"> = self::CALL_TOSTRING</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = self::CALL_TOSTRING</span></span>
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="cachingiterator.count.html" class="methodname">count</a></span>
@@ -115,11 +115,11 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="cachingiterator.getcache.html" class="methodname">getCache</a></span>
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="cachingiterator.getcache.html" class="methodname">getCache</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="cachingiterator.getflags.html" class="methodname">getFlags</a></span>
+   <span class="modifier">public</span> <span class="type">int</span> <span class="methodname"><a href="cachingiterator.getflags.html" class="methodname">getFlags</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -161,7 +161,7 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="cachingiterator.setflags.html" class="methodname">setFlags</a></span>
-    ( <span class="methodparam"><span class="type"><span class="type bitmask">bitmask</span></span> <code class="parameter">$flags</code></span>
+    ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="cachingiterator.tostring.html" class="methodname">__toString</a></span>
@@ -403,7 +403,7 @@
 
 
  
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="cachingiterator.construct.html">CachingIterator::__construct</a> — 新しい CachingIterator オブジェクトを作成する</li><li><a href="cachingiterator.count.html">CachingIterator::count</a> — イテレータ内の要素の数</li><li><a href="cachingiterator.current.html">CachingIterator::current</a> — 現在の要素を返す</li><li><a href="cachingiterator.getcache.html">CachingIterator::getCache</a> — The getCache purpose</li><li><a href="cachingiterator.getflags.html">CachingIterator::getFlags</a> — 使用しているフラグを取得する</li><li><a href="cachingiterator.getinneriterator.html">CachingIterator::getInnerIterator</a> — 内部イテレータを返す</li><li><a href="cachingiterator.hasnext.html">CachingIterator::hasNext</a> — 内部イテレータが有効な次の要素を持つかどうかをチェックする</li><li><a href="cachingiterator.key.html">CachingIterator::key</a> — 現在の要素のキーを返す</li><li><a href="cachingiterator.next.html">CachingIterator::next</a> — イテレータを前方に移動する</li><li><a href="cachingiterator.offsetexists.html">CachingIterator::offsetExists</a> — The offsetExists purpose</li><li><a href="cachingiterator.offsetget.html">CachingIterator::offsetGet</a> — The offsetGet purpose</li><li><a href="cachingiterator.offsetset.html">CachingIterator::offsetSet</a> — The offsetSet purpose</li><li><a href="cachingiterator.offsetunset.html">CachingIterator::offsetUnset</a> — The offsetUnset purpose</li><li><a href="cachingiterator.rewind.html">CachingIterator::rewind</a> — イテレータを巻き戻す</li><li><a href="cachingiterator.setflags.html">CachingIterator::setFlags</a> — The setFlags purpose</li><li><a href="cachingiterator.tostring.html">CachingIterator::__toString</a> — 現在の要素の文字列表現を返す</li><li><a href="cachingiterator.valid.html">CachingIterator::valid</a> — 現在の要素が有効かどうかをチェックする</li></ul>
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="cachingiterator.construct.html">CachingIterator::__construct</a> — 新しい CachingIterator オブジェクトを作成する</li><li><a href="cachingiterator.count.html">CachingIterator::count</a> — イテレータ内の要素の数</li><li><a href="cachingiterator.current.html">CachingIterator::current</a> — 現在の要素を返す</li><li><a href="cachingiterator.getcache.html">CachingIterator::getCache</a> — キャッシュの内容を取得する</li><li><a href="cachingiterator.getflags.html">CachingIterator::getFlags</a> — 使用しているフラグを取得する</li><li><a href="cachingiterator.getinneriterator.html">CachingIterator::getInnerIterator</a> — 内部イテレータを返す</li><li><a href="cachingiterator.hasnext.html">CachingIterator::hasNext</a> — 内部イテレータが有効な次の要素を持つかどうかをチェックする</li><li><a href="cachingiterator.key.html">CachingIterator::key</a> — 現在の要素のキーを返す</li><li><a href="cachingiterator.next.html">CachingIterator::next</a> — イテレータを前方に移動する</li><li><a href="cachingiterator.offsetexists.html">CachingIterator::offsetExists</a> — The offsetExists purpose</li><li><a href="cachingiterator.offsetget.html">CachingIterator::offsetGet</a> — The offsetGet purpose</li><li><a href="cachingiterator.offsetset.html">CachingIterator::offsetSet</a> — The offsetSet purpose</li><li><a href="cachingiterator.offsetunset.html">CachingIterator::offsetUnset</a> — The offsetUnset purpose</li><li><a href="cachingiterator.rewind.html">CachingIterator::rewind</a> — イテレータを巻き戻す</li><li><a href="cachingiterator.setflags.html">CachingIterator::setFlags</a> — The setFlags purpose</li><li><a href="cachingiterator.tostring.html">CachingIterator::__toString</a> — 現在の要素の文字列表現を返す</li><li><a href="cachingiterator.valid.html">CachingIterator::valid</a> — 現在の要素が有効かどうかをチェックする</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="arrayiterator.valid.html">ArrayIterator::valid</a></div>

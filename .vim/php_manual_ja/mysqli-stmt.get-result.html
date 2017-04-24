@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli_stmt::get_result</h1>
   <h1 class="refname">mysqli_stmt_get_result</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">mysqli_stmt::get_result</span> -- <span class="refname">mysqli_stmt_get_result</span> &mdash; <span class="dc-title">プリペアード・ステートメントから結果セットを取得</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli_stmt::get_result</span> -- <span class="refname">mysqli_stmt_get_result</span> &mdash; <span class="dc-title">プリペアード・ステートメントから結果セットを取得</span></p>
 
  </div>
 
@@ -59,7 +59,10 @@ stmt</code></dt>
  <div class="refsect1 returnvalues" id="refsect1-mysqli-stmt.get-result-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   結果セット、失敗した場合に <strong><code>FALSE</code></strong> を返します 。
+   SELECT クエリが成功した場合はその結果セットを返します。
+   その他の DML クエリを実行した場合や失敗した場合は <strong><code>FALSE</code></strong> を返します。
+   その他の DML クエリを実行したのかクエリの実行に失敗したのかを区別するには、
+   <span class="function"><a href="mysqli.errno.html" class="function">mysqli_errno()</a></span> 関数を使います。
   </p>
  </div>
 
@@ -75,7 +78,7 @@ stmt</code></dt>
 
  <div class="refsect1 examples" id="refsect1-mysqli-stmt.get-result-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1718">
+  <div class="example" id="example-1882">
    <p><strong>例1 オブジェクト指向型</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -85,7 +88,7 @@ stmt</code></dt>
    </div>
 
   </div>
-  <div class="example" id="example-1719">
+  <div class="example" id="example-1883">
    <p><strong>例2 手続き型</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -116,6 +119,7 @@ Anguilla 8000 North America
     <li class="member"><span class="function"><a href="mysqli-stmt.fetch.html" class="function" rel="rdfs-seeAlso">mysqli_stmt_fetch()</a> - プリペアドステートメントから結果を取得し、バインド変数に格納する</span></li>
     <li class="member"><span class="function"><a href="mysqli-result.fetch-array.html" class="function" rel="rdfs-seeAlso">mysqli_fetch_array()</a> - 結果の行を連想配列・数値添字配列あるいはその両方の形式で取得する</span></li>
     <li class="member"><span class="function"><a href="mysqli-stmt.store-result.html" class="function" rel="rdfs-seeAlso">mysqli_stmt_store_result()</a> - プリペアドステートメントから結果を転送する</span></li>
+    <li class="member"><span class="function"><a href="mysqli.errno.html" class="function" rel="rdfs-seeAlso">mysqli_errno()</a> - 直近の関数コールによるエラーコードを返す</span></li>
    </ul>
   </p>
  </div>

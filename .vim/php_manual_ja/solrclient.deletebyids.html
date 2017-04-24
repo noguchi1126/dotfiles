@@ -57,7 +57,18 @@
  <div class="refsect1 returnvalues" id="refsect1-solrclient.deletebyids-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns a SolrUpdateResponse on success and throws a SolrClientException on failure.
+   Returns a <span class="type"><a href="class.solrupdateresponse.html" class="type SolrUpdateResponse">SolrUpdateResponse</a></span> on success and throws an exception on failure.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 errors" id="refsect1-solrclient.deletebyids-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   Throws <a href="class.solrclientexception.html" class="classname">SolrClientException</a> if the client had failed, or there was a connection issue.
+  </p>
+  <p class="para">
+   Throws <a href="class.solrserverexception.html" class="classname">SolrServerException</a> if the Solr Server had failed to process the request.
   </p>
  </div>
 

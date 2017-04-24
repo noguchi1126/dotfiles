@@ -25,7 +25,7 @@
  <ul class="itemizedlist">
   <li class="listitem">
    <span class="simpara">
-    <a href="ref.gmp.html" class="link">任意精度整数 / GMP</a>
+    <a href="book.gmp.html" class="link">任意精度整数 / GMP</a>
    </span>
   </li>
   <li class="listitem">
@@ -35,7 +35,7 @@
   </li>
   <li class="listitem">
    <span class="simpara">
-    <a href="ref.bc.html" class="link">任意精度整数 / BCMath</a>
+    <a href="book.bc.html" class="link">任意精度整数 / BCMath</a>
    </span>
   </li>
  </ul>
@@ -59,7 +59,7 @@
    2 進数表記を使用する場合、数の前に <em>0b</em> を付ける必要があります。
   </p>
 
-  <div class="example" id="example-69">
+  <div class="example" id="example-41">
    <p><strong>例1 整数リテラル</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -99,28 +99,22 @@ integer     : [+-]?decimal
    整数のサイズはプラットフォームに依存しますが、
    約 20 億 (32 ビット符号付) が一般的な値です。
    64 ビットプラットフォームでの通常の最大値は、およそ 9*10^18 (900京) になります。
+   しかし PHP 7 より前のバージョンにおける Windows は例外で、Windows で PHP 7 より前のバージョンを使う場合はは常に 32 ビットとなります。
    PHP は符号無し整数をサポートしていません。
    整数のサイズは定数 <strong><code>PHP_INT_SIZE</code></strong> で、
    そして整数の最大値は定数 <strong><code>PHP_INT_MAX</code></strong> でそれぞれ決まります。
-   これらの定数は、PHP 4.4.0 以降および PHP 5.0.5 以降で使えます。
+   これらの定数は、PHP 5.0.5 以降で使えます。
+   PHP 7.0.0 以降では、整数の最小値を表す定数 <strong><code>PHP_INT_MIN</code></strong>
+   が使えるようになりました。
   </p>
 
   <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
+    PHP 7 より前のバージョンでは、
     8 進数の整数値として不正な数字（例: 8 または 9）が渡された場合、
     数値の残りの部分は無視されます。
+    PHP 7 以降では、パースエラーが発生します。
    </p>
-
-   <div class="example" id="example-70">
-    <p><strong>例2 おかしな 8 進数</strong></p>
-    <div class="example-contents">
-<div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">01090</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;010（8&nbsp;進数）=&nbsp;8（10&nbsp;進数）<br /></span><span style="color: #0000BB">?&gt;</span>
-</span>
-</code></div>
-    </div>
-
-   </div>
   </div>
  </div>
 
@@ -134,8 +128,8 @@ integer     : [+-]?decimal
    <span class="type"><a href="language.types.float.html" class="type float">float</a></span>が代わりに返されます。
   </p>
 
-  <div class="example" id="example-71">
-   <p><strong>例3 32 ビットシステムにおける整数のオーバーフロー</strong></p>
+  <div class="example" id="example-42">
+   <p><strong>例2 32 ビットシステムにおける整数のオーバーフロー</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$large_number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2147483647</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;int(2147483647)<br /><br /></span><span style="color: #0000BB">$large_number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2147483648</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(2147483648)<br /><br /></span><span style="color: #0000BB">$million&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1000000</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$large_number&nbsp;</span><span style="color: #007700">=&nbsp;&nbsp;</span><span style="color: #0000BB">50000&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$million</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(50000000000)<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -145,8 +139,8 @@ integer     : [+-]?decimal
 
   </div>
 
-  <div class="example" id="example-72">
-   <p><strong>例4 64 ビットシステムにおける整数のオーバーフロー</strong></p>
+  <div class="example" id="example-43">
+   <p><strong>例3 64 ビットシステムにおける整数のオーバーフロー</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$large_number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">9223372036854775807</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;int(9223372036854775807)<br /><br /></span><span style="color: #0000BB">$large_number&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">9223372036854775808</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(9.2233720368548E+18)<br /><br /></span><span style="color: #0000BB">$million&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">1000000</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$large_number&nbsp;</span><span style="color: #007700">=&nbsp;&nbsp;</span><span style="color: #0000BB">50000000000000&nbsp;</span><span style="color: #007700">*&nbsp;</span><span style="color: #0000BB">$million</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">var_dump</span><span style="color: #007700">(</span><span style="color: #0000BB">$large_number</span><span style="color: #007700">);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;float(5.0E+19)<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -160,7 +154,7 @@ integer     : [+-]?decimal
    PHP には整数の割り算はありません。<em>1/2</em> は <span class="type"><span class="type 
    float ">
    float </span></span> 型の <em>0.5</em> になります。
-   下方向の整数値に値を丸めるためにキャストを使用することができ、
+   0 に近い方向の整数値に値を丸めるためにキャストを使用することができ、
    また、<span class="function"><a href="function.round.html" class="function">round()</a></span> 関数を使用することもできます。
   </p>
 
@@ -217,11 +211,18 @@ integer     : [+-]?decimal
     
    <p class="para">
     float が整数の範囲 (通常は、32 ビットプラットフォームでは <em>+/- 2.15e+9 =
-    2^31</em>、64 ビットプラットフォームでは <em>+/- 9.22e+18 = 2^63</em>
+    2^31</em>、Windows 以外の 64 ビットプラットフォームでは <em>+/- 9.22e+18 = 2^63</em>
     ) を越える場合、結果は undefined となります。これは、
     その float が正しい整数の結果を得るために十分な精度を得られなかったからです。
     この場合、警告も通知も発生しません!
    </p>
+
+   <blockquote class="note"><p><strong class="note">注意</strong>: 
+    <p class="para">
+     NaN や無限大を <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> にキャストした結果は
+     未定義でプラットフォーム依存でしたが、PHP 7.0.0 以降は常にゼロとなります。
+    </p>
+   </p></blockquote>
     
    <div class="warning"><strong class="warning">警告</strong>
     <p class="para">

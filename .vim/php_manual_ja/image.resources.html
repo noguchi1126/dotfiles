@@ -13,8 +13,52 @@
 </div><hr /><div id="image.resources" class="section">
   <h2 class="title">リソース型</h2>
   <p class="para">
-   この拡張モジュールでは、画像 ID および フォント ID
-   の二種類のリソースを定義しています。
+   この拡張モジュールでは、以下のリソース型を定義しています。
+   <table class="doctable table">
+   <caption><strong>GD におけるリソース型の一覧</strong></caption>
+    
+     <thead>
+      <tr>
+       <th>名前</th>
+       <th>説明</th>
+       <th>備考</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td><em>gd</em></td>
+       <td>画像リソース。<span class="function"><a href="function.imagecreatefrompng.html" class="function">imagecreatefrompng()</a></span> などの関数が利用します。</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><em>gd font</em></td>
+       <td>フォントリソース。<span class="function"><a href="function.imageloadfont.html" class="function">imageloadfont()</a></span> が返します。</td>
+       <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><em>gd PS font</em></td>
+       <td>PostScript Type 1 フォントリソース。<span class="function"><a href="function.imagepsloadfont.html" class="function">imagepsloadfont()</a></span> が返します。</td>
+       <td>
+        PHP 7.0.0 で削除されました。
+       </td>
+      </tr>
+
+      <tr>
+       <td><em>gd PS encoding</em></td>
+       <td>PostScript Type 1 エンコーディングリソース。<span class="function"><a href="function.imagepsencodefont.html" class="function">imagepsencodefont()</a></span> が返します。</td>
+       <td>
+        PHP 7.0.0 で削除されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="image.configuration.html">実行時設定</a></div>

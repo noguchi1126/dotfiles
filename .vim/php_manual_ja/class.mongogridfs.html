@@ -246,7 +246,7 @@
    [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$chunks</code><span class="initializer"> = &quot;fs&quot;</span></span>
   ]] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongogridfs.delete.html" class="methodname">delete</a></span>
+   <span class="modifier">public</span> <span class="type">bool|array</span> <span class="methodname"><a href="mongogridfs.delete.html" class="methodname">delete</a></span>
     ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$id</code></span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -271,9 +271,10 @@
    <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="mongogridfs.put.html" class="methodname">put</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
-  ] )</div>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
+  ]] )</div>
 <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="mongogridfs.remove.html" class="methodname">remove</a></span>
+   <span class="modifier">public</span> <span class="type">bool|array</span> <span class="methodname"><a href="mongogridfs.remove.html" class="methodname">remove</a></span>
     ([ <span class="methodparam"><span class="type">array</span> <code class="parameter">$criteria</code><span class="initializer"> = array()</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
   ]] )</div>
@@ -285,7 +286,7 @@
   ]] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">mixed</span> <span class="methodname"><a href="mongogridfs.storefile.html" class="methodname">storeFile</a></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+    ( <span class="methodparam"><span class="type"><span class="type string|resource">string|resource</span></span> <code class="parameter">$filename</code></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$metadata</code><span class="initializer"> = array()</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array()</span></span>
   ]] )</div>
@@ -303,7 +304,7 @@
   <div class="section">
    <h2 class="title">参考</h2>
    <ul class="simplelist">
-    <li class="member">MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/core/gridfs/" class="link external">&raquo;&nbsp;GridFS</a></li>
+    <li class="member">MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/core/gridfs/" class="link external">&raquo;&nbsp;GridFS</a></li>
     <li class="member">LightCube Solutions blog の記事 <a href="http://www.lightcubesolutions.com/blog/?p=209" class="link external">&raquo;&nbsp;ユーザーがアップロードした内容の保存</a></li>
     <li class="member">LightCube Solutions blog の記事 <a href="http://www.lightcubesolutions.com/blog/?p=228" class="link external">&raquo;&nbsp;メタデータの追加</a></li>
    </ul>
@@ -389,7 +390,7 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="mongogridfs.construct.html">MongoGridFS::__construct</a> — 新しいファイルコレクションを作成する</li><li><a href="mongogridfs.delete.html">MongoGridFS::delete</a> — ファイルをデータベースから削除する</li><li><a href="mongogridfs.drop.html">MongoGridFS::drop</a> — ファイルコレクションおよびチャンクコレクションを削除する</li><li><a href="mongogridfs.find.html">MongoGridFS::find</a> — ファイルを問い合わせる</li><li><a href="mongogridfs.findone.html">MongoGridFS::findOne</a> — 条件にマッチする単一のファイルを返す</li><li><a href="mongogridfs.get.html">MongoGridFS::get</a> — ファイルをデータベースから取得する</li><li><a href="mongogridfs.put.html">MongoGridFS::put</a> — ファイルをデータベースに格納する</li><li><a href="mongogridfs.remove.html">MongoGridFS::remove</a> — ファイルをコレクションから削除する</li><li><a href="mongogridfs.storebytes.html">MongoGridFS::storeBytes</a> — バイト列をデータベースに格納する</li><li><a href="mongogridfs.storefile.html">MongoGridFS::storeFile</a> — ファイルをデータベースに格納する</li><li><a href="mongogridfs.storeupload.html">MongoGridFS::storeUpload</a> — アップロードされたファイルをデータベースに格納する</li></ul>
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="mongogridfs.construct.html">MongoGridFS::__construct</a> — 新しいファイルコレクションを作成する</li><li><a href="mongogridfs.delete.html">MongoGridFS::delete</a> — ファイルとそのチャンクをデータベースから削除する</li><li><a href="mongogridfs.drop.html">MongoGridFS::drop</a> — ファイルコレクションおよびチャンクコレクションを削除する</li><li><a href="mongogridfs.find.html">MongoGridFS::find</a> — ファイルを問い合わせる</li><li><a href="mongogridfs.findone.html">MongoGridFS::findOne</a> — 条件にマッチする単一のファイルを返す</li><li><a href="mongogridfs.get.html">MongoGridFS::get</a> — ファイルをデータベースから取得する</li><li><a href="mongogridfs.put.html">MongoGridFS::put</a> — ファイルをデータベースに格納する</li><li><a href="mongogridfs.remove.html">MongoGridFS::remove</a> — ファイルとそのチャンクをデータベースから削除する</li><li><a href="mongogridfs.storebytes.html">MongoGridFS::storeBytes</a> — バイト列をデータベースに格納する</li><li><a href="mongogridfs.storefile.html">MongoGridFS::storeFile</a> — ファイルをデータベースに格納する</li><li><a href="mongogridfs.storeupload.html">MongoGridFS::storeUpload</a> — アップロードされたファイルをデータベースに格納する</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongo.gridfs.html">GridFS クラス群</a></div>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagecolorat" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagecolorat</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagecolorat</span> &mdash; <span class="dc-title">ピクセルの色のインデックスを取得する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagecolorat</span> &mdash; <span class="dc-title">ピクセルの色のインデックスを取得する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagecolorat-description">
@@ -30,7 +30,7 @@
    特定位置にあるピクセルの色のインデックスを返します。
   </p>
   <p class="para">
-   PHP が GD ライブラリ 2.0 以上とともにコンパイルされておりかつ画像が
+   画像が
    True カラーイメージである場合、この関数はそのピクセルの RGB 値を整数で返します。
    赤、緑、青のそれぞれの値にアクセスするにはビットシフトとマスキングを利用してください:
   </p>
@@ -87,7 +87,7 @@ image</code></dt>
  <div class="refsect1 examples" id="refsect1-function.imagecolorat-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3203">
+   <div class="example" id="example-3505">
     <p><strong>例1 個々の RGB 値へのアクセス</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -106,7 +106,7 @@ int(180)
 </pre></div>
     </div>
    </div>
-   <div class="example" id="example-3204">
+   <div class="example" id="example-3506">
     <p><strong>例2 <span class="function"><a href="function.imagecolorsforindex.html" class="function">imagecolorsforindex()</a></span> による可読形式の RGB 値</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

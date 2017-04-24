@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli_stmt::next_result</h1>
   <h1 class="refname">mysqli_stmt_next_result</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli_stmt::next_result</span> -- <span class="refname">mysqli_stmt_next_result</span> &mdash; <span class="dc-title">複数クエリから、次の結果を読み込む</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli_stmt::next_result</span> -- <span class="refname">mysqli_stmt_next_result</span> &mdash; <span class="dc-title">複数クエリから、次の結果を読み込む</span></p>
 
  </div>
 
@@ -70,6 +70,15 @@ stmt</code></dt>
    結果セットが存在しない場合は <strong><code>E_STRICT</code></strong> レベルのエラーが発生します。
    そんな場合に備えて、まず <span class="methodname"><a href="mysqli-stmt.more-results.html" class="methodname">mysqli_stmt::more_results()</a></span>
    をコールしてから <span class="methodname"><strong>mysqli_stmt::next_result()</strong></span> をコールするようにしましょう。
+  </p>
+ </div>
+
+
+ <div class="refsect1 mysqlnd" id="refsect1-mysqli-stmt.next-result-mysqlnd">
+   <h3 class="title">MySQL ネイティブドライバ限定</h3>
+
+  <p class="para">
+   <a href="book.mysqlnd.html" class="link">mysqlnd</a> でのみ使用可能です。
   </p>
  </div>
 

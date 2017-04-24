@@ -13,7 +13,7 @@
 </div><hr /><div id="function.eval" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">eval</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">eval</span> &mdash; <span class="dc-title">文字列を PHP コードとして評価する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">eval</span> &mdash; <span class="dc-title">文字列を PHP コードとして評価する</span></p>
 
  </div>
  
@@ -58,11 +58,11 @@
       <p class="para">
        <a href="language.basic-syntax.phpmode.html" class="link">PHP
        開始タグ</a>を含めてはいけません。つまり、
-       <em>&#039;&lt;? echo &quot;Hi!&quot;; &gt;&#039;</em> ではなく
+       <em>&#039;&lt;?php echo &quot;Hi!&quot;; ?&gt;&#039;</em> ではなく
        <em>&#039;echo &quot;Hi!&quot;;&#039;</em> を渡さなければならないということです。
        適切に PHP タグを使えば、PHP モードからいったん抜けてもう一度 PHP モードに戻るということも可能です。
        たとえば、このようになります。
-       <em>&#039;echo &quot;PHP モード!&quot;; ?&gt;HTML モード!&lt;? echo &quot;ふたたび PHP モード!&quot;;&#039;</em>
+       <em>&#039;echo &quot;PHP モード!&quot;; ?&gt;HTML モード!&lt;?php echo &quot;ふたたび PHP モード!&quot;;&#039;</em>
       </p>
       <p class="para">
        それはさておき、渡すコードは PHP として有効な形式でなければなりません。
@@ -93,8 +93,10 @@
    評価されるコードの中で <em>return</em> が
    コールされない限り、<span class="function"><strong>eval()</strong></span> は <strong><code>NULL</code></strong> を返します。
    <em>return</em> がコールされた場合は、その値を返します。
-   評価されるコードの中でパースエラーが発生した場合は、
-   <span class="function"><strong>eval()</strong></span> は <strong><code>FALSE</code></strong> を返します。
+   PHP 7 以降、評価されるコードの中でパースエラーが発生した場合は、
+   <span class="function"><strong>eval()</strong></span> は ParseError 例外をスローします。
+   PHP 7 より前のバージョンでは、この場合に
+   <span class="function"><strong>eval()</strong></span> は <strong><code>FALSE</code></strong> を返していました。
    それ以降のコードは通常通り実行されます。
    <span class="function"><strong>eval()</strong></span> の中でのパースエラーを
    <span class="function"><a href="function.set-error-handler.html" class="function">set_error_handler()</a></span>
@@ -106,7 +108,7 @@
  <div class="refsect1 examples" id="refsect1-function.eval-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3796">
+   <div class="example" id="example-4359">
     <p><strong>例1 <span class="function"><strong>eval()</strong></span> の例 - 簡単なテキストのマージ</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

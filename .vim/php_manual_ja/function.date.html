@@ -13,7 +13,7 @@
 </div><hr /><div id="function.date" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">date</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">date</span> &mdash; <span class="dc-title">ローカルの日付/時刻を書式化する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">date</span> &mdash; <span class="dc-title">ローカルの日付/時刻を書式化する</span></p>
 
  </div>
   
@@ -134,7 +134,7 @@
 
           <tr>
            <td><em>W</em></td>
-           <td>ISO-8601 月曜日に始まる年単位の週番号 (PHP 4.1.0 で追加)</td>
+           <td>ISO-8601 月曜日に始まる年単位の週番号</td>
            <td>例: <em>42</em> (年の第 42 週目)</td>
           </tr>
 
@@ -188,10 +188,9 @@
 
           <tr>
            <td><em>o</em></td>
-           <td>ISO-8601 形式の年。これは
+           <td>ISO-8601 形式の週番号による年。これは
             <em>Y</em> ほぼ同じだが、ISO 週番号
-           （<em>W</em>）が前年あるいは翌年に属する場合がある点で
-            異なる（PHP 5.1.0 で追加）。</td>
+           （<em>W</em>）が前年あるいは翌年に属する場合はそちらの年を使うという点が異なる（PHP 5.1.0 で追加）。</td>
            <td>例: <em>1999</em> あるいは <em>2003</em></td>
           </tr>
 
@@ -274,9 +273,19 @@
             <span class="function"><strong>date()</strong></span> の場合、これは常に
             <em>000000</em> となることに注意しましょう。というのも、
             この関数が受け取るパラメータは <span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span> 型だからです。
-            一方 <span class="methodname"><a href="datetime.format.html" class="methodname">DateTime::format()</a></span> はマイクロ秒にも対応しています。
+            一方 <a href="class.datetime.html" class="classname">DateTime</a> をマイクロ秒つきで作成した場合は、
+            <span class="methodname"><a href="datetime.format.html" class="methodname">DateTime::format()</a></span> はマイクロ秒にも対応しています。
            </td>
            <td>例: <em>654321</em></td>
+          </tr>
+
+          <tr>
+           <td><em>v</em></td>
+           <td>
+            ミリ秒 (PHP 7.0.0 で追加)
+            Same note applies as for <em>u</em>.
+           </td>
+           <td>例: <em>654</em></td>
           </tr>
 
           <tr>
@@ -467,7 +476,7 @@
  <div class="refsect1 examples" id="refsect1-function.date-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2319">
+   <div class="example" id="example-2555">
     <p><strong>例1 <span class="function"><strong>date()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -483,7 +492,7 @@
    フォーマット文字列として認識される文字が展開されることを防止することができます。
    バックスラッシュ付きの文字は既に特別なシーケンスであり、
    バックスラッシュもエスケープすることが必要となる可能性があります。
-   <div class="example" id="example-2320">
+   <div class="example" id="example-2556">
     <p><strong>例2 <span class="function"><strong>date()</strong></span> の文字をエスケープする</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -497,7 +506,7 @@
   <p class="para">
    <span class="function"><strong>date()</strong></span> と <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span>
    の両方を用いて、未来または過去の日付を知ることができます。
-   <div class="example" id="example-2321">
+   <div class="example" id="example-2557">
     <p><strong>例3 <span class="function"><strong>date()</strong></span> と <span class="function"><a href="function.mktime.html" class="function">mktime()</a></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -521,7 +530,7 @@
    エスケープする必要があることに注意してください。エスケープを
    する際には、改行文字 \n のような文字を回避するために
    シングルクォートを使用してください。
-   <div class="example" id="example-2322">
+   <div class="example" id="example-2558">
     <p><strong>例4 <span class="function"><strong>date()</strong></span> のフォーマット指定</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

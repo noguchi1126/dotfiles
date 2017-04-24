@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Imagick オブジェクトのサイズを取得する</title>
+  <title>Returns the size associated with the Imagick object</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="imagick.getsize" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Imagick::getSize</h1>
-  <p class="verinfo">(PECL imagick 2.0.0)</p><p class="refpurpose"><span class="refname">Imagick::getSize</span> &mdash; <span class="dc-title">Imagick オブジェクトのサイズを取得する</span></p>
+  <p class="verinfo">(PECL imagick 2.0.0)</p><p class="refpurpose"><span class="refname">Imagick::getSize</span> &mdash; <span class="dc-title">Returns the size associated with the Imagick object</span></p>
 
  </div>
 
@@ -25,17 +25,49 @@
    )</div>
 
   <p class="para rdfs-comment">
-   Imagick オブジェクトのサイズを返します。
-   &quot;columns&quot; および &quot;rows&quot; というキーを持つ連想配列となります。
+   Get the size in pixels associated with the Imagick object, previously set by <span class="function"><a href="imagick.setsize.html" class="function">Imagick::setSize()</a></span>.
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    This method just returns the size that was set using <span class="function"><a href="imagick.setsize.html" class="function">Imagick::setSize()</a></span>. If you want to get the actual width / height of the image, use <span class="function"><a href="imagick.getimagewidth.html" class="function">Imagick::getImageWidth()</a></span> and <span class="function"><a href="imagick.getimageheight.html" class="function">Imagick::getImageHeight()</a></span>.
+   </p>
+  </p></blockquote>
  </div>
 
 
  <div class="refsect1 returnvalues" id="refsect1-imagick.getsize-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Imagick オブジェクトのサイズを返します。
-   &quot;columns&quot; および &quot;rows&quot; というキーを持つ連想配列となります。
+   Returns the size associated with the Imagick object as an array with the
+   keys &quot;columns&quot; and &quot;rows&quot;.
+  </p>
+ </div>
+
+ 
+ <div class="refsect1 examples" id="refsect1-imagick.getsize-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-3689">
+    <p><strong>例1 Getting the size of a raw RGB image set at 200x400, after scaling to 400x800 (compared to width / height)</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//Set&nbsp;size&nbsp;first&nbsp;and&nbsp;then&nbsp;load&nbsp;the&nbsp;raw&nbsp;image<br /></span><span style="color: #0000BB">$img&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Imagick</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">setSize</span><span style="color: #007700">(</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">400</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">readImage</span><span style="color: #007700">(</span><span style="color: #DD0000">"image.rgb"</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scaleImage</span><span style="color: #007700">(</span><span style="color: #0000BB">400</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">800</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$size&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getSize</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">$size</span><span style="color: #007700">);<br /><br />echo&nbsp;</span><span style="color: #DD0000">"</span><span style="color: #0000BB">$img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageWidth</span><span style="color: #DD0000">()."</span><span style="color: #0000BB">x</span><span style="color: #DD0000">".</span><span style="color: #0000BB">$img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getImageHeight</span><span style="color: #DD0000">();<br />?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [columns] =&gt; 200
+    [rows] =&gt; 400
+)
+400x800
+</pre></div>
+    </div>
+   </div>
   </p>
  </div>
 

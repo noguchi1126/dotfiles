@@ -7,12 +7,12 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.namespaces.rules.html">名前解決のルール</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="language.exceptions.html">例外(exceptions)</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.errors.html">エラー</a></div>
  <div class="up"><a href="language.namespaces.html">名前空間</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="language.namespaces.faq" class="sect1">
   <h2 class="title">FAQ: 名前空間について知っておくべきこと</h2>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p>
   <p class="para">
    この FAQ は 2 つに別れています。一般的な質問と、
    深く理解するために有用な実装に関する質問です。
@@ -84,7 +84,7 @@
     <li class="listitem">
      <span class="simpara">
       <a href="language.namespaces.faq.html#language.namespaces.faq.nofuncconstantuse" class="link">
-      関数や定数は <em>use</em> 文でインポートできない</a>
+      PHP 5.6 より前のバージョンでは、関数や定数は <em>use</em> 文でインポートできない</a>
      </span>
     </li>
     <li class="listitem">
@@ -115,7 +115,7 @@
     お望みなら名前空間を使わないコードを書くこともできます。
    </p>
    <p class="para">
-    <div class="example" id="example-258">
+    <div class="example" id="example-266">
      <p><strong>例1 名前空間の外部にあるグローバルクラスへのアクセス</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -130,7 +130,7 @@
     これは、機能的に次と同等です。
    </p>
    <p class="para">
-    <div class="example" id="example-259">
+    <div class="example" id="example-267">
      <p><strong>例2 名前空間の外部にあるグローバルクラスへのアクセス</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -145,7 +145,7 @@
   <div class="sect2" id="language.namespaces.faq.globalclass">
    <h3 class="title">名前空間内での内部クラスあるいはグローバルクラスの使用法は?</h3>
    <p class="para">
-    <div class="example" id="example-260">
+    <div class="example" id="example-268">
      <p><strong>例3 名前空間内からの内部クラスへのアクセス</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -162,7 +162,7 @@
     同じ名前空間にあるクラス、関数あるいは定数を使用する方法は?
    </h3>
    <p class="para">
-    <div class="example" id="example-261">
+    <div class="example" id="example-269">
      <p><strong>例4 名前空間内のクラス、関数あるいは定数へのアクセス</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -183,7 +183,7 @@
     <em>\</em> から始まる名前は常に見た目のままに解釈されます。
     つまり <em>\my\name</em> は <em>my\name</em> であり、
     <em>\Exception</em> は <em>Exception</em> となります。
-    <div class="example" id="example-262">
+    <div class="example" id="example-270">
      <p><strong>例5 完全修飾名</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -210,7 +210,7 @@
     それ以外の場合は、現在の名前空間が <em>my\name</em> の先頭に付け加えられます。
    </p>
    <p class="para">
-    <div class="example" id="example-263">
+    <div class="example" id="example-271">
      <p><strong>例6 修飾名</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -236,7 +236,7 @@
     それ以外の場合は、現在の名前空間が <em>name</em> の先頭に付け加えられます。
    </p>
    <p class="para">
-    <div class="example" id="example-264">
+    <div class="example" id="example-272">
      <p><strong>例7 非修飾クラス名</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -265,7 +265,7 @@
     があればそれを使用します。
    </p>
    <p class="para">
-    <div class="example" id="example-265">
+    <div class="example" id="example-273">
      <p><strong>例8 非修飾関数/定数名</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -351,9 +351,9 @@
    </p>
   </div>
   <div class="sect2" id="language.namespaces.faq.nofuncconstantuse">
-   <h3 class="title">関数や定数は <em>use</em> 文でインポートできない</h3>
+   <h3 class="title">PHP 5.6 より前のバージョンでは、関数や定数は <em>use</em> 文でインポートできない</h3>
    <p class="para">
-    <em>use</em> 文の影響を受けるのは名前空間とクラス名のみです。
+    PHP 5.6 より前のバージョンでは、<em>use</em> 文の影響を受けるのは名前空間とクラス名のみです。
     長い名前の定数や関数を短い名前にするには、それらが含まれる名前空間をインポートします。
     <div class="informalexample">
      <div class="example-contents">
@@ -364,6 +364,7 @@
      </div>
 
     </div>
+    PHP 5.6 以降では、関数名や定数名のエイリアスを設定したりインポートしたりできるようになりました。
    </p>
   </div>
   <div class="sect2" id="language.namespaces.faq.quote">
@@ -372,7 +373,7 @@
     バックスラッシュは文字列のエスケープ文字として使われることに注意しましょう。
     文字列の中で使う際にはバックスラッシュを二重に書く必要があります。
     そうしないと、予期せぬ結果を引き起こしてしまいます。
-    <div class="example" id="example-266">
+    <div class="example" id="example-274">
      <p><strong>例9 ダブルクォートで囲んだ文字列内で名前空間名を扱う際の危険</strong></p>
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -394,7 +395,7 @@
     PHP が <em>FOO</em> を定数の値と解釈したという notice が発生します。
     修飾あるいは完全修飾形式の定数、つまりバックスラッシュを含む定数の場合、
     それが未定義なら致命的なエラーが発生します。
-    <div class="example" id="example-267">
+    <div class="example" id="example-275">
      <p><strong>例10 未定義の定数</strong></p>
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -410,7 +411,7 @@
    <h3 class="title">特別な定数 NULL, TRUE, FALSE, ZEND_THREAD_SAFE そして ZEND_DEBUG_BUILD は上書きできない</h3>
    <p class="para">
     名前空間内で特別な組み込み定数を定義しようとすると、致命的なエラーが発生します。
-    <div class="example" id="example-268">
+    <div class="example" id="example-276">
      <p><strong>例11 未定義の定数</strong></p>
      <div class="example-contents">
       <div class="phpcode"><code><span style="color: #000000">
@@ -424,7 +425,7 @@
   </div>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="language.namespaces.rules.html">名前解決のルール</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="language.exceptions.html">例外(exceptions)</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="language.errors.html">エラー</a></div>
  <div class="up"><a href="language.namespaces.html">名前空間</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.stream-socket-enable-crypto" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_socket_enable_crypto</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.0)</p><p class="refpurpose"><span class="refname">stream_socket_enable_crypto</span> &mdash; <span class="dc-title">接続済みのソケットについて暗号化の on/off を切り替える</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p><p class="refpurpose"><span class="refname">stream_socket_enable_crypto</span> &mdash; <span class="dc-title">接続済みのソケットについて暗号化の on/off を切り替える</span></p>
  
  </div>
  
@@ -81,12 +81,24 @@
         <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_SSLv2_CLIENT</code></strong></span></li>
         <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_SSLv3_CLIENT</code></strong></span></li>
         <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_SSLv23_CLIENT</code></strong></span></li>
+        <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_ANY_CLIENT</code></strong></span></li>
         <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_TLS_CLIENT</code></strong></span></li>
+        <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT</code></strong></span></li>
+        <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT</code></strong></span></li>
+        <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT</code></strong></span></li>
         <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_SSLv2_SERVER</code></strong></span></li>
         <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_SSLv3_SERVER</code></strong></span></li>
         <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_SSLv23_SERVER</code></strong></span></li>
+        <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_ANY_SERVER</code></strong></span></li>
         <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_TLS_SERVER</code></strong></span></li>
+        <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_TLSv1_0_SERVER</code></strong></span></li>
+        <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_TLSv1_1_SERVER</code></strong></span></li>
+        <li class="listitem"><span class="simpara"><strong><code>STREAM_CRYPTO_METHOD_TLSv1_2_SERVER</code></strong></span></li>
        </ul>
+      </p>
+      <p class="para">
+       省略した場合は、ストリームの SSL コンテキストのオプション <code class="parameter">crypto_type</code>
+       を利用します。
       </p>
      </dd>
 
@@ -118,11 +130,48 @@
   </p>
  </div>
 
+
+ <div class="refsect1 changelog" id="refsect1-function.stream-socket-enable-crypto-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.6.0</td>
+       <td>
+        <strong><code>STREAM_CRYPTO_METHOD_ANY_CLIENT</code></strong>, <strong><code>STREAM_CRYPTO_METHOD_TLSv1_0_CLIENT</code></strong>, <strong><code>STREAM_CRYPTO_METHOD_TLSv1_1_CLIENT</code></strong>, <strong><code>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT</code></strong>, <strong><code>STREAM_CRYPTO_METHOD_ANY_SERVER</code></strong>, <strong><code>STREAM_CRYPTO_METHOD_TLSv1_0_SERVER</code></strong>, <strong><code>STREAM_CRYPTO_METHOD_TLSv1_1_SERVER</code></strong>, <strong><code>STREAM_CRYPTO_METHOD_TLSv1_2_SERVER</code></strong>
+        が追加されました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.6.0</td>
+       <td>
+        <code class="parameter">crypto_type</code> がオプションになりました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
  
  <div class="refsect1 examples" id="refsect1-function.stream-socket-enable-crypto-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="stream-socket-enable-crypto.example.basic">
+   <div class="example" id="example-4624">
     <p><strong>例1 <span class="function"><strong>stream_socket_enable_crypto()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

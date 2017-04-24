@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>ログレベルを設定する</title>
+  <title>記録するログレベルを設定する</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="mongolog.setlevel" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">MongoLog::setLevel</h1>
-  <p class="verinfo">(PECL mongo &gt;= 1.2.3)</p><p class="refpurpose"><span class="refname">MongoLog::setLevel</span> &mdash; <span class="dc-title">ログレベルを設定する</span></p>
+  <p class="verinfo">(PECL mongo &gt;= 1.2.3)</p><p class="refpurpose"><span class="refname">MongoLog::setLevel</span> &mdash; <span class="dc-title">記録するログレベルを設定する</span></p>
 
  </div>
 
@@ -26,11 +26,12 @@
 
   <p class="para rdfs-comment">
    この関数で、どの程度の冗長性でログを記録するかとどんな活動を記録するかを設定します。
-   <a href="class.mongolog.html" class="classname">MongoLog</a> のセクションで説明した定数をビット演算子でつないでレベルを指定します。
+   <a href="class.mongolog.html#mongolog.constants.level" class="link">MongoLog レベル定数</a>
+   をビット演算子でつなぐと、複数のレベルを指定できます。
   </p>
   <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;まず、モジュールのログ記録を有効にします<br /></span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">setModule</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">POOL</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #FF8000">//&nbsp;すべてのレベルのログを記録します<br /></span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">setLevel</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">ALL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;警告と情報を記録します<br /></span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">setLevel</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">WARNING</span><span style="color: #007700">|</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">INFO</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;良好な活動以外はすべて記録します<br /></span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">setLevel</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">ALL&nbsp;</span><span style="color: #007700">&amp;&nbsp;(~</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">FINE</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br /></span><span style="color: #FF8000">//&nbsp;まず、ロギングモジュールを指定します<br /></span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">setModule</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">CON</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;すべてのレベルのログを記録します<br /></span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">setLevel</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">ALL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;警告と情報だけを記録します<br /></span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">setLevel</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">WARNING</span><span style="color: #007700">|</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">INFO</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;良好な活動以外はすべて記録します<br /></span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">setLevel</span><span style="color: #007700">(</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">ALL&nbsp;</span><span style="color: #007700">&amp;&nbsp;(~</span><span style="color: #0000BB">MongoLog</span><span style="color: #007700">::</span><span style="color: #0000BB">FINE</span><span style="color: #007700">));<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
   </div>

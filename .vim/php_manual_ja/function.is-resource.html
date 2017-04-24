@@ -13,7 +13,7 @@
 </div><hr /><div id="function.is-resource" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">is_resource</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">is_resource</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">is_resource</span> &mdash; <span class="dc-title">
    変数がリソースかどうかを調べる
   </span></p>
 
@@ -67,7 +67,7 @@
  <div class="refsect1 examples" id="refsect1-function.is-resource-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5278">
+   <div class="example" id="example-6141">
     <p><strong>例1 <span class="function"><strong>is_resource()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -78,6 +78,17 @@
 
    </div>
   </p>
+ </div>
+
+ 
+ <div class="refsect1 notes" id="refsect1-function.is-resource-notes">
+  <h3 class="title">注意</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <span class="function"><strong>is_resource()</strong></span> は、厳格な型チェックを行うわけではありません。
+    <code class="parameter">var</code> がすでに閉じられたリソース変数である場合は、<strong><code>FALSE</code></strong> を返します。
+   </p>
+  </p></blockquote>
  </div>
 
 

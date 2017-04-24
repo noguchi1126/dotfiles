@@ -24,7 +24,7 @@
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$input</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$pos</code><span class="initializer"> = 0</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter reference">&$ndocs</code></span>
-   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$callbacks</code></span>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$callbacks</code><span class="initializer"> = null</span></span>
   ]]] )</div>
 
   <p class="para rdfs-comment">
@@ -111,7 +111,7 @@
  <div class="refsect1 examples" id="refsect1-function.yaml-parse-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4124">
+   <div class="example" id="example-4693">
     <p><strong>例1 <span class="function"><strong>yaml_parse()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -203,6 +203,21 @@ array(8) {
     </div>
    </div>
   </p>
+ </div>
+
+
+ <div class="refsect1 notes" id="refsect1-function.yaml-parse-notes">
+  <h3 class="title">注意</h3>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    <em>!php/object</em> タグを使ったノードの
+    <span class="function"><a href="function.unserialize.html" class="function">unserialize()</a></span> を有効にしている場合に、
+    ユーザーからの信頼できない入力を
+    <span class="function"><strong>yaml_parse()</strong></span>
+    で処理するのは危険です。
+    この挙動を無効にするには、ini 設定の <em>yaml.decode_php</em> を利用します。
+   </p>
+  </div>
  </div>
 
 

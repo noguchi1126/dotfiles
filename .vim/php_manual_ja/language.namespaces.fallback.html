@@ -12,14 +12,14 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="language.namespaces.fallback" class="sect1">
   <h2 class="title">名前空間の使用法: グローバル関数/定数への移行</h2>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p>
   <p class="para">
    名前空間内で、PHP が未定義のクラス名や関数、定数に出会った場合、
    それぞれに応じて異なる優先順位で解決を行います。
    クラス名は、常に現在の名前空間での名前として解釈されます。
    したがって、内部クラスあるいは名前空間に属さないクラスにアクセスするには
    次のように完全修飾名で指定しなければなりません。
-   <div class="example" id="example-255">
+   <div class="example" id="example-263">
     <p><strong>例1 名前空間内からのグローバルクラスへのアクセス</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">
@@ -33,7 +33,7 @@
   <p class="para">
    関数や定数の場合、名前空間内にその関数や定数が見つからなければ
    PHP はグローバル関数/定数を探します。
-   <div class="example" id="example-256">
+   <div class="example" id="example-264">
     <p><strong>例2 名前空間内からのグローバル関数/定数への移行</strong></p>
     <div class="example-contents">
      <div class="phpcode"><code><span style="color: #000000">

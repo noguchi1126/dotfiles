@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="solrutils.queryphrase.html">SolrUtils::queryPhrase</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="solrinputdocument.addfield.html">SolrInputDocument::addField</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="solrinputdocument.addchilddocument.html">SolrInputDocument::addChildDocument</a></div>
  <div class="up"><a href="book.solr.html">Solr</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="class.solrinputdocument" class="reference">
@@ -87,6 +87,14 @@
     
     <div class="classsynopsisinfo classsynopsisinfo_comment">/* メソッド */</div>
     <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="solrinputdocument.addchilddocument.html" class="methodname">addChildDocument</a></span>
+    ( <span class="methodparam"><span class="type"><a href="class.solrinputdocument.html" class="type SolrInputDocument">SolrInputDocument</a></span> <code class="parameter">$child</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">void</span> <span class="methodname"><a href="solrinputdocument.addchilddocuments.html" class="methodname">addChildDocuments</a></span>
+    ( <span class="methodparam"><span class="type">array</span> <code class="parameter reference">&$docs</code></span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">bool</span> <span class="methodname"><a href="solrinputdocument.addfield.html" class="methodname">addField</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$fieldName</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$fieldValue</code></span>
@@ -121,6 +129,14 @@
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="solrinputdocument.getchilddocuments.html" class="methodname">getChildDocuments</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">integer</span> <span class="methodname"><a href="solrinputdocument.getchilddocumentscount.html" class="methodname">getChildDocumentsCount</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">SolrDocumentField</span> <span class="methodname"><a href="solrinputdocument.getfield.html" class="methodname">getField</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$fieldName</code></span>
    )</div>
@@ -134,6 +150,10 @@
    )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span> <span class="type">array</span> <span class="methodname"><a href="solrinputdocument.getfieldnames.html" class="methodname">getFieldNames</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span> <span class="type">boolean</span> <span class="methodname"><a href="solrinputdocument.haschilddocuments.html" class="methodname">hasChildDocuments</a></span>
     ( <span class="methodparam">void</span>
    )</div>
 <div class="methodsynopsis dc-description">
@@ -374,11 +394,46 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="solrinputdocument.addfield.html">SolrInputDocument::addField</a> — 文書にフィールドを追加</li><li><a href="solrinputdocument.clear.html">SolrInputDocument::clear</a> — 入力した文書をリセット</li><li><a href="solrinputdocument.clone.html">SolrInputDocument::__clone</a> — SolrDocument のコピーを作成</li><li><a href="solrinputdocument.construct.html">SolrInputDocument::__construct</a> — コンストラクタ</li><li><a href="solrinputdocument.deletefield.html">SolrInputDocument::deleteField</a> — 文書からフィールドを除去</li><li><a href="solrinputdocument.destruct.html">SolrInputDocument::__destruct</a> — デストラクタ</li><li><a href="solrinputdocument.fieldexists.html">SolrInputDocument::fieldExists</a> — フィールドが存在するかチェック</li><li><a href="solrinputdocument.getboost.html">SolrInputDocument::getBoost</a> — 文書に対する現行の boost 値を取得</li><li><a href="solrinputdocument.getfield.html">SolrInputDocument::getField</a> — 名前でフィールドを取得</li><li><a href="solrinputdocument.getfieldboost.html">SolrInputDocument::getFieldBoost</a> — 特定のフィールドに対する boost 値を取得</li><li><a href="solrinputdocument.getfieldcount.html">SolrInputDocument::getFieldCount</a> — 文書内のフィールド数を返す</li><li><a href="solrinputdocument.getfieldnames.html">SolrInputDocument::getFieldNames</a> — 文書内のフィールドを全て含む配列を返す</li><li><a href="solrinputdocument.merge.html">SolrInputDocument::merge</a> — Merges one input document into another</li><li><a href="solrinputdocument.reset.html">SolrInputDocument::reset</a> — これは、SolrInputDocument::clear のエイリアスです</li><li><a href="solrinputdocument.setboost.html">SolrInputDocument::setBoost</a> — この文書に対する boost 値を設定</li><li><a href="solrinputdocument.setfieldboost.html">SolrInputDocument::setFieldBoost</a> — フィールドに対するインデキシング時間の boost 値を設定</li><li><a href="solrinputdocument.sort.html">SolrInputDocument::sort</a> — Sorts the fields within the document</li><li><a href="solrinputdocument.toarray.html">SolrInputDocument::toArray</a> — 入力した文書の配列表現を返す</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="solrinputdocument.addchilddocument.html">SolrInputDocument::addChildDocument</a> — Adds a child document for block indexing</li><li><a href="solrinputdocument.addchilddocuments.html">SolrInputDocument::addChildDocuments</a> — Adds an array of child documents</li><li><a href="solrinputdocument.addfield.html">SolrInputDocument::addField</a> — 文書にフィールドを追加</li><li><a href="solrinputdocument.clear.html">SolrInputDocument::clear</a> — 入力した文書をリセット</li><li><a href="solrinputdocument.clone.html">SolrInputDocument::__clone</a> — SolrDocument のコピーを作成</li><li><a href="solrinputdocument.construct.html">SolrInputDocument::__construct</a> — コンストラクタ</li><li><a href="solrinputdocument.deletefield.html">SolrInputDocument::deleteField</a> — 文書からフィールドを除去</li><li><a href="solrinputdocument.destruct.html">SolrInputDocument::__destruct</a> — デストラクタ</li><li><a href="solrinputdocument.fieldexists.html">SolrInputDocument::fieldExists</a> — フィールドが存在するかチェック</li><li><a href="solrinputdocument.getboost.html">SolrInputDocument::getBoost</a> — 文書に対する現行の boost 値を取得</li><li><a href="solrinputdocument.getchilddocuments.html">SolrInputDocument::getChildDocuments</a> — Returns an array of child documents (SolrInputDocument)</li><li><a href="solrinputdocument.getchilddocumentscount.html">SolrInputDocument::getChildDocumentsCount</a> — Returns the number of child documents</li><li><a href="solrinputdocument.getfield.html">SolrInputDocument::getField</a> — 名前でフィールドを取得</li><li><a href="solrinputdocument.getfieldboost.html">SolrInputDocument::getFieldBoost</a> — 特定のフィールドに対する boost 値を取得</li><li><a href="solrinputdocument.getfieldcount.html">SolrInputDocument::getFieldCount</a> — 文書内のフィールド数を返す</li><li><a href="solrinputdocument.getfieldnames.html">SolrInputDocument::getFieldNames</a> — 文書内のフィールドを全て含む配列を返す</li><li><a href="solrinputdocument.haschilddocuments.html">SolrInputDocument::hasChildDocuments</a> — Returns true if the document has any child documents</li><li><a href="solrinputdocument.merge.html">SolrInputDocument::merge</a> — Merges one input document into another</li><li><a href="solrinputdocument.reset.html">SolrInputDocument::reset</a> — これは、SolrInputDocument::clear のエイリアスです</li><li><a href="solrinputdocument.setboost.html">SolrInputDocument::setBoost</a> — この文書に対する boost 値を設定</li><li><a href="solrinputdocument.setfieldboost.html">SolrInputDocument::setFieldBoost</a> — フィールドに対するインデキシング時間の boost 値を設定</li><li><a href="solrinputdocument.sort.html">SolrInputDocument::sort</a> — Sorts the fields within the document</li><li><a href="solrinputdocument.toarray.html">SolrInputDocument::toArray</a> — 入力した文書の配列表現を返す</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="solrutils.queryphrase.html">SolrUtils::queryPhrase</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="solrinputdocument.addfield.html">SolrInputDocument::addField</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="solrinputdocument.addchilddocument.html">SolrInputDocument::addChildDocument</a></div>
  <div class="up"><a href="book.solr.html">Solr</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

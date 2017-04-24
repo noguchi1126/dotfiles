@@ -13,7 +13,7 @@
 </div><hr /><div id="function.imagettfbbox" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">imagettfbbox</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">imagettfbbox</span> &mdash; <span class="dc-title">TypeType フォントを使用したテキストの bounding box を生成する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">imagettfbbox</span> &mdash; <span class="dc-title">TypeType フォントを使用したテキストの bounding box を生成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.imagettfbbox-description">
@@ -171,7 +171,7 @@
  <div class="refsect1 examples" id="refsect1-function.imagettfbbox-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3303">
+   <div class="example" id="example-3611">
     <p><strong>例1 <span class="function"><strong>imagettfbbox()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -186,12 +186,11 @@
 
  <div class="refsect1 notes" id="refsect1-function.imagettfbbox-notes">
   <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: 
-   <p class="para">
-    本関数は GD ライブラリと
-    <a href="http://www.freetype.org/" class="link external">&raquo;&nbsp;FreeType</a> ライブラリの両方が必要です。
-   </p>
-  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は、PHP が FreeType サポート
+(<strong class="option configure">--with-freetype-dir=DIR</strong>
+)
+を有効にしてコンパイルされている場合のみ使用可能です。
+</span></p></blockquote>
  </div>
 
  <div class="refsect1 seealso" id="refsect1-function.imagettfbbox-seealso">
@@ -199,6 +198,7 @@
   <p class="para">
    <ul class="simplelist">
     <li class="member"><span class="function"><a href="function.imagettftext.html" class="function" rel="rdfs-seeAlso">imagettftext()</a> - TrueType フォントを使用してテキストを画像に書き込む</span></li>
+    <li class="member"><span class="function"><a href="function.imageftbbox.html" class="function" rel="rdfs-seeAlso">imageftbbox()</a> - freetype2 によるフォントを用いたテキストを囲む箱を取得する</span></li>
    </ul>
   </p>
  </div>

@@ -14,14 +14,14 @@
  <div class="refnamediv">
   <h1 class="refname">finfo_buffer</h1>
   <h1 class="refname">finfo::buffer</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PECL fileinfo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">finfo_buffer</span> -- <span class="refname">finfo::buffer</span> &mdash; <span class="dc-title">文字列バッファの情報を返す</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7, PECL fileinfo &gt;= 0.1.0)</p><p class="refpurpose"><span class="refname">finfo_buffer</span> -- <span class="refname">finfo::buffer</span> &mdash; <span class="dc-title">文字列バッファの情報を返す</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.finfo-buffer-description">
   <h3 class="title">説明</h3>
   <p class="para">手続き型</p>
   <div class="methodsynopsis dc-description">
-   <span class="type">string</span> <span class="methodname"><strong>finfo_buffer</strong></span>
+   <span class="type">string</span> <span class="methodname"><a href="finfo.buffer.html" class="methodname">finfo_buffer</a></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$finfo</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = FILEINFO_NONE</span></span>
@@ -30,7 +30,7 @@
 
   <p class="para rdfs-comment">オブジェクト指向型</p>
   <div class="methodsynopsis dc-description">
-   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><strong>finfo::buffer</strong></span>
+   <span class="modifier">public</span> <span class="type">string</span> <span class="methodname"><a href="finfo.buffer.html" class="methodname">finfo::buffer</a></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$options</code><span class="initializer"> = FILEINFO_NONE</span></span>
    [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$context</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
@@ -113,8 +113,8 @@
  <div class="refsect1 examples" id="refsect1-function.finfo-buffer-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2361">
-    <p><strong>例1 <span class="function"><strong>finfo_buffer()</strong></span> の例</strong></p>
+   <div class="example" id="example-2597">
+    <p><strong>例1 <span class="function"><a href="finfo.buffer.html" class="function">finfo_buffer()</a></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br />$finfo&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">finfo</span><span style="color: #007700">(</span><span style="color: #0000BB">FILEINFO_MIME</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$finfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">buffer</span><span style="color: #007700">(</span><span style="color: #0000BB">$_POST</span><span style="color: #007700">[</span><span style="color: #DD0000">"script"</span><span style="color: #007700">])&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -138,7 +138,7 @@ application/x-sh; charset=us-ascii
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
-    <li class="member"><span class="function"><a href="function.finfo-file.html" class="function" rel="rdfs-seeAlso">finfo_file()</a> - ファイルについての情報を返す</span></li>
+    <li class="member"><span class="function"><a href="finfo.file.html" class="function" rel="rdfs-seeAlso">finfo_file()</a> - finfo_file() のエイリアス</span></li>
    </ul>
   </p>
  </div>

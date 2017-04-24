@@ -13,7 +13,7 @@
 </div><hr /><div id="function.rename" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">rename</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">rename</span> &mdash; <span class="dc-title">ファイルをリネームする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">rename</span> &mdash; <span class="dc-title">ファイルをリネームする</span></p>
 
  </div>
  
@@ -29,7 +29,9 @@
   <p class="para rdfs-comment">
    <code class="parameter">oldname</code> を
    <code class="parameter">newname</code> にリネームし、必要ならディレクトリを移動しようと試みます。
-   <code class="parameter">newname</code> が存在する場合は、上書きします。
+   ファイル名の変更かつ <code class="parameter">newname</code> が存在する場合、上書きされます。
+   ディレクトリ名の変更かつ <code class="parameter">newname</code> が存在する場合、
+   この関数は警告を発します。
   </p>
  </div>
 
@@ -46,10 +48,10 @@
      <dd>
 
       <p class="para">
+       変更前の名前。
       </p>
       <blockquote class="note"><p><strong class="note">注意</strong>: 
        <p class="para">
-        変更前の名前。
         <code class="parameter">oldname</code> で使用されるラッパーは、
         <code class="parameter">newname</code> で使用するラッパーと適合
         <em class="emphasis">している必要があります</em> 。
@@ -152,7 +154,7 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
  <div class="refsect1 examples" id="refsect1-function.rename-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2446">
+   <div class="example" id="example-2683">
     <p><strong>例1 <span class="function"><strong>rename()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

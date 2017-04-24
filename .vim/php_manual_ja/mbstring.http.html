@@ -20,14 +20,7 @@
  </p>
  <blockquote class="note"><p><strong class="note">注意</strong>: 
   <p class="para">
-   PHP 4.3.2 およびそれ以前のバージョンの場合、
-   HTML フォームの<em>enctype</em> が
-   <em>multipart/form-data</em> に設定された場合、
-   <em>mbstring</em> は、POST データの文字エンコーディングを変換しません。
-   この場合、文字列を内部文字エンコーディングに変換してやる必要があります。
-  </p>
-  <p class="para">
-   PHP 4.3.3 以降、HTML フォームの <em>enctype</em> が
+   HTML フォームの <em>enctype</em> が
    <em>multipart/form-data</em> に設定され、かつ、
    <var class="filename">php.ini</var> において
    <em>mbstring.encoding_translation</em> に On
@@ -47,14 +40,14 @@
      PHP スクリプトで HTTP 入力文字変換を制御する手段はありません。
      HTTP 入力文字変換を無効にするには、<var class="filename">php.ini</var>
      で行う必要があります。
-     <div class="example" id="example-2714">
+     <div class="example" id="example-3012">
       <p><strong>例1 
        <var class="filename">php.ini</var> で HTTP 入力変換を無効にする
       </strong></p>
       <div class="example-contents">
 <div class="php.inicode"><pre class="php.inicode">;; HTTP 入力変換を無効にする
 mbstring.http_input = pass
-;; HTTP 入力変換を無効にする (PHP 4.3.0 以降)
+;; HTTP 入力変換を無効にする
 mbstring.encoding_translation = Off</pre>
 </div>
       </div>
@@ -84,7 +77,7 @@ mbstring.encoding_translation = Off</pre>
   </ul>
  </p>
  <p class="para">
-  <div class="example" id="example-2715">
+  <div class="example" id="example-3013">
    <p><strong>例2 <var class="filename">php.ini</var> の設定例</strong></p>
    <div class="example-contents">
 <div class="cdata"><pre>
@@ -101,7 +94,7 @@ output_handler      = mb_output_handler
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-2716">
+  <div class="example" id="example-3014">
    <p><strong>例3 スクリプトの例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

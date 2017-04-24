@@ -13,10 +13,10 @@
 </div><hr /><div id="function.session-destroy" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">session_destroy</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">session_destroy</span> &mdash; <span class="dc-title">セッションに登録されたデータを全て破棄する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">session_destroy</span> &mdash; <span class="dc-title">セッションに登録されたデータを全て破棄する</span></p>
 
  </div>
- 
+
  <div class="refsect1 description" id="refsect1-function.session-destroy-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -32,13 +32,45 @@
    セッション変数の利用を再開するには <span class="function"><a href="function.session-start.html" class="function">session_start()</a></span>
    をコールする必要があります。
   </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+     You do not have to call <span class="function"><strong>session_destroy()</strong></span> from usual
+     code. Cleanup $_SESSION array rather than destroying session data.
+   </span>
+  </p></blockquote>
   <p class="para">
-   ユーザーがログアウトするときのように、セッションを切断するには、
+   セッションを切断するには、
    セッション ID の割り当ても解除する必要があります。セッション ID の受け渡しに
    クッキーが使用されている場合（デフォルト）には、セッションクッキーも
    削除されなければなりません。
    そのためには <span class="function"><a href="function.setcookie.html" class="function">setcookie()</a></span> が利用できます。
   </p>
+  <p class="para">
+   When <a href="session.configuration.html#ini.session.use-strict-mode" class="link">session.use_strict_mode</a>
+   is enabled. You do not have to remove obsolete session ID cookie because
+   session module will not accept session ID cookie when there is no
+   data associated to the session ID and set new session ID cookie.
+   Enabling <a href="session.configuration.html#ini.session.use-strict-mode" class="link">session.use_strict_mode</a>
+   is recommended for all sites.
+  </p>
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">
+    Immediate session deletion may cause unwanted results. When there is
+    concurrent requests, other connections may see sudden session data
+    loss. e.g. Requests from JavaScript and/or requests from URL links.
+   </p>
+   <p class="para">
+    Although current session module does not accept empty session ID
+    cookie, but immediate session deletion may result in empty session ID
+    cookie due to client(browser) side race condition. This will result
+    that the client creates many session ID needlessly.
+   </p>
+   <p class="para">
+    To avoid these, you must set deletion time-stamp to $_SESSION and
+    reject access while later. Or make sure your application does not
+    have concurrent requests. This applies to <span class="function"><a href="function.session-regenerate-id.html" class="function">session_regenerate_id()</a></span> also.
+   </p>
+  </div>
  </div>
 
 
@@ -53,7 +85,7 @@
  <div class="refsect1 examples" id="refsect1-function.session-destroy-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4781">
+   <div class="example" id="example-5375">
     <p><strong>例1 <var class="varname"><var class="varname"><a href="reserved.variables.session.html" class="classname">$_SESSION</a></var></var>でセッションを破棄する</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -82,6 +114,9 @@
   <h3 class="title">参考</h3>
   <p class="para">
    <ul class="simplelist">
+    <li class="member"><a href="session.configuration.html#ini.session.use-strict-mode" class="link">session.use_strict_mode</a></li>
+    <li class="member"><span class="function"><a href="function.session-reset.html" class="function" rel="rdfs-seeAlso">session_reset()</a> - session 配列を元の値で再初期化します</span></li>
+    <li class="member"><span class="function"><a href="function.session-regenerate-id.html" class="function" rel="rdfs-seeAlso">session_regenerate_id()</a> - 現在のセッションIDを新しく生成したものと置き換える</span></li>
     <li class="member"><span class="function"><a href="function.unset.html" class="function" rel="rdfs-seeAlso">unset()</a> - 指定した変数の割当を解除する</span></li>
     <li class="member"><span class="function"><a href="function.setcookie.html" class="function" rel="rdfs-seeAlso">setcookie()</a> - クッキーを送信する</span></li>
    </ul>

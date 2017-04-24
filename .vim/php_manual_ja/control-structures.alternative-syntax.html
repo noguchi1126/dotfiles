@@ -12,7 +12,7 @@
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="control-structures.alternative-syntax" class="sect1">
  <h2 class="title">制御構造に関する別の構文</h2>
- <p class="verinfo">(PHP 4, PHP 5)</p>
+ <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p>
  <p class="para">
   PHPは、いくつかの制御構造、つまり、<em>if</em>、
   <em>while</em>、<em>for</em>、
@@ -58,6 +58,38 @@
    同じブロック内で別の構文を混ぜて使うことはできません。
   </p>
  </p></blockquote>
+ <div class="warning"><strong class="warning">警告</strong>
+  <p class="para">
+   <em>switch</em> 文と最初の
+   <em>case</em> の間で何か (空白文字も含む) を出力すると、構文エラーになります。
+   たとえば、以下のコードは無効です。
+  </p>
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&nbsp;&nbsp;&nbsp;...<br /><span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">endswitch&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+  <p class="para">
+   一方、以下のコードは有効です。というのも、
+   <em>switch</em> 文の行末の改行文字は終了タグ
+   <em>?&gt;</em> の一部と見なされるため、
+   <em>switch</em> と <em>case</em>
+   の間では何も出力されないからです。
+  </p>
+  <div class="informalexample">
+   <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">switch&nbsp;(</span><span style="color: #0000BB">$foo</span><span style="color: #007700">):&nbsp;</span><span style="color: #0000BB">?&gt;<br />&lt;?php&nbsp;</span><span style="color: #007700">case&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">:&nbsp;</span><span style="color: #0000BB">?&gt;<br /></span>&nbsp;&nbsp;&nbsp;&nbsp;...<br /><span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">endswitch&nbsp;</span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+   </div>
+
+  </div>
+ </div>
  <p class="para">
   <a href="control-structures.while.html" class="link">while</a>、
   <a href="control-structures.for.html" class="link">for</a>、および <a href="control-structures.if.html" class="link">if</a> に、より多くの例があります。

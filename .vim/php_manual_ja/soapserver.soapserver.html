@@ -13,7 +13,7 @@
 </div><hr /><div id="soapserver.soapserver" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">SoapServer::SoapServer</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.0.1)</p><p class="refpurpose"><span class="refname">SoapServer::SoapServer</span> &mdash; <span class="dc-title">SoapServer コンストラクタ</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.0.1, PHP 7)</p><p class="refpurpose"><span class="refname">SoapServer::SoapServer</span> &mdash; <span class="dc-title">SoapServer コンストラクタ</span></p>
 
  </div>
 
@@ -88,6 +88,10 @@
        <strong><code>SOAP_SINGLE_ELEMENT_ARRAYS</code></strong>、
        <strong><code>SOAP_USE_XSI_ARRAY_TYPE</code></strong> を設定することができます。
       </p>
+      <p class="para">
+       <em>send_errors</em> オプションを <strong><code>FALSE</code></strong> にすると、
+       個別のエラーメッセージではなく汎用的なメッセージ (&quot;Internal error&quot;) を送信できます。
+      </p>
      </dd>
 
     
@@ -100,7 +104,7 @@
  <div class="refsect1 examples" id="refsect1-soapserver.soapserver-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5342">
+   <div class="example" id="example-6205">
     <p><strong>例1 <span class="function"><strong>SoapServer::SoapServer()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

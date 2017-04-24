@@ -13,7 +13,7 @@
 </div><hr /><div id="function.odbc-fetch-array" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">odbc_fetch_array</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5)</p><p class="refpurpose"><span class="refname">odbc_fetch_array</span> &mdash; <span class="dc-title">連想配列として結果の行を取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">odbc_fetch_array</span> &mdash; <span class="dc-title">連想配列として結果の行を取得する</span></p>
 
  </div>
 
@@ -26,8 +26,7 @@
   ] )</div>
 
   <p class="para rdfs-comment">
-   ODBC クエリから、連想配列を取得します。この関数が使用可能なバージョンに
-   ついては、以下の更新履歴を参照ください。
+   ODBC クエリから、連想配列を取得します。
   </p>
  </div>
 
@@ -76,48 +75,14 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.odbc-fetch-array-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.3</td>
-       <td>
-        この関数は、IBM DB2 あるいは UnixODBC のサポートを有効にして
-        コンパイルした場合に使用可能です。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.2</td>
-       <td>
-        この関数は、Windows 版で使用可能です。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.2</td>
-       <td>
-        この関数は DBMaker のサポートを有効にしてコンパイルした場合に
-        使用可能です。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
+ <div class="refsect1 notes" id="refsect1-function.odbc-fetch-array-notes">
+  <h3 class="title">注意</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <span class="simpara">
+    この関数は、DBMaker、IBM DB2 あるいは UnixODBC のサポートを有効にして
+    コンパイルした場合に使用可能です。
+   </span>
+  </p></blockquote>
  </div>
 
 

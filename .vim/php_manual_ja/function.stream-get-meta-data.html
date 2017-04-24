@@ -13,7 +13,7 @@
 </div><hr /><div id="function.stream-get-meta-data" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">stream_get_meta_data</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">stream_get_meta_data</span> &mdash; <span class="dc-title">ヘッダーあるいはメタデータをストリームまたはファイルポインタから取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">stream_get_meta_data</span> &mdash; <span class="dc-title">ヘッダーあるいはメタデータをストリームまたはファイルポインタから取得する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.stream-get-meta-data-description">
@@ -141,59 +141,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.stream-get-meta-data-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        次の項目が返り値の配列に追加されました。
-        <em>mode</em>、<em>seekable</em>
-        および <em>uri</em>。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        次の項目が返り値の配列に追加されました。
-        <em>stream_type</em>、<em>wrapper_type</em>、
-        <em>wrapper_data</em> および <em>filters</em>。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        <span class="function"><a href="function.socket-get-status.html" class="function">socket_get_status()</a></span> がこの関数のエイリアスとなりました。
-        PHP 4.3.0 より前のバージョンでは、この関数は最初の 4 つの項目を取得する関数で
-        <em class="emphasis">ソケットベースのストリームでしか使えませんでした。</em>
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.stream-get-meta-data-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4044">
+   <div class="example" id="example-4611">
     <p><strong>例1 <span class="function"><strong>stream_get_meta_data()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -17,7 +17,7 @@
    さらに <em>replicaSet</em> オプションを使います。
    複数のサーバーを指定するときには、カンマで区切ります。
   </p>
-  <div class="example" id="mongo.connecting.rs-example">
+  <div class="example" id="example-1471">
    <p><strong>例1 レプリカセットのシードリスト</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -42,11 +42,16 @@
   </div>
   <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
-    ここで指定したホスト名は、レプリカセットの設定で指定した名前と
+    シードリスとで指定したホスト名は、レプリカセットの設定で指定した名前と
     <em class="emphasis">必ず</em> 一致しなければいけません。
-    ドライバは、レプリカセットの設定で指定した名前を使って内部マッピングをするからです。
-    設定したホスト名ではなく IP アドレスなどを指定すると、
-    ドライバはホスト名に対する接続とその IP アドレスに対する接続を両方維持し続けます。
+    ドライバは、レプリカセットの設定で指定したホスト名だけを使って、
+    持続的接続用のハッシュを作るからです。
+   </p>
+   <p class="para">
+    シードリストでは IP アドレスを使い、レプリカセットの設定にはホスト名を使っていたとすると、
+    レプリカセットの報告するホスト名と違うシードリスト接続はすべて破棄します。
+    事実上、これらのシードリスト接続は、リクエストのたびに作り直されることになり、
+    持続的接続の利点を大きく損ねてしまいます。
    </p>
   </div>
   <div class="warning"><strong class="warning">警告</strong>
@@ -55,7 +60,7 @@
     これは単一のスクリプト内だけの話ではないので、個々のレプリカセットにはそれぞれ別の名前をつけておくようにしましょう。
     これはつまり、次のようなことは<em class="emphasis">できない</em>ということです。
    </p>
-   <div class="example" id="mongo.connecting.rs-example-wrong-replset">
+   <div class="example" id="example-1472">
     <p><strong>例2 レプリカセット名の重複</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -68,7 +73,7 @@
    <p class="para">
     それぞれ、別の名前をつかる必要があります。
    </p>
-   <div class="example" id="mongo.connecting.rs-example-correct-replset">
+   <div class="example" id="example-1473">
     <p><strong>例3 異なるレプリカセットの正しい使いかた</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -84,7 +89,7 @@
    その間は、この接続では一切のデータベース操作ができなくなります
    (セカンダリに接続して読み込みを行うことは可能です)。
    したがって、この間
-   (<a href="http://docs.mongodb.org/manual/faq/replica-sets/#how-long-does-replica-set-failover-take" class="link external">&raquo;&nbsp;20-60 秒</a>)
+   (<a href="https://docs.mongodb.com/manual/faq/replica-sets/#how-long-does-replica-set-failover-take" class="link external">&raquo;&nbsp;20-60 秒</a>)
    に何らかの読み書き操作をすると例外が発生します。
    セカンダリへの接続は可能で、読み込みはできます。
   </p>
@@ -126,7 +131,7 @@
 
   <p class="para">
    レプリカセットについての詳細は、
-   <a href="http://docs.mongodb.org/manual/replication/" class="link external">&raquo;&nbsp;コアドキュメント</a>
+   <a href="https://docs.mongodb.com/manual/replication/" class="link external">&raquo;&nbsp;コアドキュメント</a>
    を参照ください。
   </p>
 

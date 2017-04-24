@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongo.connect.html">Mongo::connect</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mongo.dropdb.html">Mongo::dropDB</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongoclient.dropdb.html">MongoClient::dropDB</a></div>
  <div class="up"><a href="class.mongoclient.html">MongoClient</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="mongoclient.construct" class="refentry">
@@ -17,13 +17,25 @@
 
  </div>
 
+ <div id="mongoclient.construct-soft-deprecation-notice" class="soft-deprecation-notice">
+  <blockquote class="sidebar">
+   <p class="para">このメソッドを定義している拡張モジュールは非推奨です。
+かわりに <a href="set.mongodb.html" class="link">MongoDB</a> 拡張モジュールを使うべきです。
+このメソッドの代替として、以下が使えます。</p>
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="mongodb-driver-manager.construct.html" class="methodname">MongoDB\Driver\Manager::__construct()</a></span></li>
+   </ul>
+  </blockquote>
+ </div>
+
  <div class="refsect1 description" id="refsect1-mongoclient.construct-description">
   <h3 class="title">説明</h3>
   <div class="constructorsynopsis dc-description">
    <span class="modifier">public</span> <span class="methodname"><strong>MongoClient::__construct</strong></span>
     ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$server</code><span class="initializer"> = &quot;mongodb://localhost:27017&quot;</span></span>
    [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$options</code><span class="initializer"> = array(&quot;connect&quot; =&gt; <strong><code>TRUE</code></strong>)</span></span>
-  ]] )</div>
+   [, <span class="methodparam"><span class="type">array</span> <code class="parameter">$driver_options</code></span>
+  ]]] )</div>
 
   <p class="para rdfs-comment">
    パラメータを省略した場合は、&quot;localhost:27017&quot; (あるいは php.ini の
@@ -34,9 +46,8 @@
   <p class="para">
    <code class="parameter">server</code> は次のような形式にしなければなりません。
    <div class="example-contents">
-<div class="cdata"><pre>
-mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
-</pre></div>
+<div class="txtcode"><pre class="txtcode">mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db</pre>
+</div>
    </div>
 
   </p>
@@ -113,6 +124,62 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
        <ul class="itemizedlist">
         <li class="listitem">
          <p class="para">
+          <em>&quot;authMechanism&quot;</em>
+         </p>
+         <p class="para">
+          以下の機構が選べます。
+          <table class="doctable informaltable">
+           
+            <thead>
+             <tr>
+              <th>認証機構</th>
+              <th>説明</th>
+              <th>利用可能</th>
+             </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+             <tr>
+              <td>MONGODB-CR</td>
+              <td>チャレンジレスポンス方式を使った認証。デフォルトです。</td>
+              <td>すべてのバージョンの MongoDB</td>
+             </tr>
+
+             <tr>
+              <td>X509</td>
+              <td>X509 証明書による認証。</td>
+              <td>MongoDB 2.6。<a href="book.openssl.html" class="xref">OpenSSL</a> が有効な場合のみ。</td>
+             </tr>
+
+             <tr>
+              <td>PLAIN</td>
+              <td>暗号化されていないユーザー名とパスワードによる認証。SSL 接続上でのみ使うこと。サードパーティの LDAP サーバー経由での MongoDB へのログインの際に利用する。</td>
+              <td>MongoDB Enterprise 2.4。CyrusSASL2 を使うようにドライバをコンパイルしておく必要がある。</td>
+             </tr>
+
+             <tr>
+              <td>GSSAPI</td>
+              <td>ケルベロス認証</td>
+              <td>MongoDB Enterprise 2.4。CyrusSASL2 を使うようにドライバをコンパイルしておく必要がある。</td>
+             </tr>
+
+            </tbody>
+           
+          </table>
+
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <em>&quot;authSource&quot;</em>
+         </p>
+         <p class="para">
+          ユーザーが定義されているデータベース名を設定します。
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
           <em>&quot;connect&quot;</em>
          </p>
          <p class="para">
@@ -135,6 +202,12 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
          </p>
          <p class="para">
           接続を開こうとしてタイムアウトになるまでの時間の長さ（ミリ秒単位）。
+          デフォルトは <em>60000</em> (60 秒) です。
+         </p>
+         <p class="para">
+          <em>-1</em> を指定すると、接続タイムアウトを適用せず、PHP は
+          <a href="filesystem.configuration.html#ini.default-socket-timeout" class="link">default_socket_timeout</a>
+          を利用します。
          </p>
         </li>
         <li class="listitem">
@@ -151,30 +224,51 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
           <em>&quot;fsync&quot;</em>
          </p>
          <p class="para">
-          <em>fsync</em> を設定すると、データベース上のすべての書き込み操作は、
+          <em>&quot;fsync&quot;</em> を設定すると、データベース上のすべての書き込み操作は、
           その書き込みがディスクに同期されるまでは成功とみなさないようになります。
           書き込み処理の速度は大幅に低下しますが、書き込みがきちんと成功してディスクに書き出されたことを保証できます。
-          MongoDB のジャーナリングを有効にしている (デフォルト) 場合、同期は
-          <em class="emphasis">ジャーナル</em>に対してのみ発生します。ジャーナリングが無効になっている場合は、
-          <em>fsync</em> を使うと完全にディスクにフラッシュすることになります。
          </p>
-         <div class="warning"><strong class="warning">警告</strong>
-          <p class="para">
-           このオプションは<em class="emphasis">使わない</em>ようにして、かわりに
-           <em>journal</em> オプションを使いましょう。これを
-           <em>w</em> と組み合わせて使うことになるでしょう。
-          </p>
-         </div>
+         <p class="para">
+          MongoDB のジャーナリングを有効にしている (デフォルト) 場合、このオプションは
+          <em class="emphasis">&quot;journal&quot;</em> と同じ意味になります。
+          ジャーナリングが無効になっている場合は、このオプションは、
+          書き込み操作がディスク上のデータベースファイルに同期されることを保証します。
+         </p>
+         <blockquote class="note"><p><strong class="note">注意</strong>: 
+          <span class="simpara">
+           ジャーナリングを有効にしている場合は、<em>&quot;fsync&quot;</em> ではなく
+           <em>&quot;journal&quot;</em> を使うことを強く推奨します。
+           <em>&quot;fsync&quot;</em> と
+           <em>&quot;journal&quot;</em> を同時に使わないようにしましょう。
+           同時に使うとエラーが発生します。
+          </span>
+         </p></blockquote>
         </li>
         <li class="listitem">
          <p class="para">
           <em>&quot;journal&quot;</em>
          </p>
          <p class="para">
-          <em>journal</em> を設定すると、データベース上のすべての書き込み操作が、
-          データベースサーバーがジャーナルををディスクにフラッシュするまでブロックされます。
+          <em>&quot;journal&quot;</em> を設定すると、データベース上のすべての書き込み操作が、
+          データベースがジャーナルへの変更をディスクにフラッシュするまでブロックされます。
           書き込み処理の速度は多少低下しますが、書き込みがきちんと成功して、
           万一システムに障害が発生したとしても復旧可能なことを保証できます。
+         </p>
+         <blockquote class="note"><p><strong class="note">注意</strong>: 
+          <span class="simpara">
+           ジャーナリングが無効になっている場合にこのオプションを使うと、
+           MongoDB 2.6+ ではエラーが発生して書き込みが失敗します。
+           それより前のバージョンでは、単純にこのオプションを無視します。
+          </span>
+         </p></blockquote>
+        </li>
+        <li class="listitem">
+         <p class="para">
+          <em>&quot;gssapiServiceName&quot;</em>
+         </p>
+         <p class="para">
+          <a href="https://docs.mongodb.com/manual/core/kerberos/#kerberos-service-principal" class="link external">&raquo;&nbsp;Kerberos サービスプリンシパル</a>
+          を設定します。authMechanism=GSSAPI の場合にのみ用いられるもので、デフォルトは &quot;mongodb&quot; です。
          </p>
         </li>
         <li class="listitem">
@@ -230,18 +324,36 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
         </li>
         <li class="listitem">
          <p class="para">
+          <em>&quot;secondaryAcceptableLatencyMS&quot;</em>
+         </p>
+         <p class="para">
+          セカンダリから (優先読み込みを使って) 読み込むときに、
+          <em>secondaryAcceptableLatencyMS</em> 以上はなれているセカンダリからは読み込みません。
+          デフォルトは <em>15</em> です。
+         </p>
+        </li>
+        <li class="listitem">
+         <p class="para">
           <em>&quot;socketTimeoutMS&quot;</em>
          </p>
          <p class="para">
-          ソケットの送受信がタイムアウトになるまでの時間の長さ。
-          <blockquote class="note"><p><strong class="note">注意</strong>: 
-           <span class="simpara">
-            これはクライアント側のタイムアウトです。
-            <em>insert</em> が <em>&quot;socketTimeoutMS&quot;</em>
-            に達してしまうと、サーバーが実際に書き込みを受信したかどうかを知るすべがなくなります。
-           </span>
-          </p></blockquote>
+          ソケットの操作 (読み書き) がタイムアウトになるまでの時間の長さ。
+          ミリ秒単位で、デフォルトは <em>30000</em> (30 秒) です。
          </p>
+         <p class="para">
+          <em>-1</em> を設定すると、ソケットの操作を永遠にブロックします。
+          このオプションは、操作単位以外でも設定できます。
+          クエリごとに設定するには <span class="methodname"><a href="mongocursor.timeout.html" class="methodname">MongoCursor::timeout()</a></span>、
+          書き込みメソッドごとに設定するには <em>&quot;socketTimeoutMS&quot;</em> オプションを使います。
+         </p>
+         <blockquote class="note"><p><strong class="note">注意</strong>: 
+          <span class="simpara">
+           これはクライアント側のタイムアウトです。書き込み操作がタイムアウトに達してしまうと、
+           サーバーが実際に書き込みを受信したかどうかを知るすべがなくなります。そして、
+           書き込みの結果を返す代わりに
+           <a href="class.mongocursortimeoutexception.html" class="classname">MongoCursorTimeoutException</a> をスローします。
+          </span>
+         </p></blockquote>
         </li>
         <li class="listitem">
          <p class="para">
@@ -288,24 +400,38 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
           <em>&quot;wTimeoutMS&quot;</em>
          </p>
          <p class="para">
-          このオプションは &quot;w&quot; と組み合わせて使います。
-          書き込み操作がうまくいくまでサーバーが何ミリ秒待つのかを制御します。
-          これよりも長い時間がかかると、サーバーからドライバに対して「長すぎる」
-          という通知を出し、ドライバが
+          このオプションは、
+          <a href="mongo.writeconcerns.html" class="link">書き込み確認</a>
+          を待つ制限時間をミリ秒単位で指定します。
+          これが書き込み操作に適用されるのは、
+          <em>&quot;w&quot;</em> が <em>1</em> より大きい場合のみです。
+          というのも、タイムアウトはレプリケーションに関する機能だからです。
+          この時間内に書き込み確認ができなかった場合は
           <a href="class.mongocursorexception.html" class="classname">MongoCursorException</a> をスローします。
+          <em>0</em> を指定すると、永遠にブロックし続けます。
+          デフォルト値は <em>10000</em>
+          (10 秒) です。
          </p>
         </li>
        </ul>
       </p>
       <p class="para">
-       The following options are deprecated and should no longer be used:
+       以下のオプションは廃止予定です。使ってはいけません。
        <ul class="itemizedlist">
+        <li class="listitem">
+         <p class="para">
+          <em>&quot;slaveOkay&quot;</em>
+         </p>
+         <p class="para">
+          非推奨です。<a href="mongo.readpreferences.html" class="link">優先読み込み</a> のオプションを使いましょう。
+         </p>
+        </li>
         <li class="listitem">
          <p class="para">
           <em>&quot;timeout&quot;</em>
          </p>
          <p class="para">
-          &quot;connectTimeoutMS&quot; へのエイリアス。非推奨です。
+          <em>&quot;connectTimeoutMS&quot;</em> へのエイリアス。非推奨です。
          </p>
         </li>
         <li class="listitem">
@@ -313,7 +439,35 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
           <em>&quot;wTimeout&quot;</em>
          </p>
          <p class="para">
-          &quot;wTimeoutMS&quot; へのエイリアス。非推奨です。
+          <em>&quot;wTimeoutMS&quot;</em> へのエイリアス。非推奨です。
+         </p>
+        </li>
+       </ul>
+      </p>
+     </dd>
+
+    
+
+    
+     <dt>
+
+      <code class="parameter">driver_options</code>
+     </dt>
+
+     <dd>
+
+      <p class="para">
+       MongoDB ドライバーへのオプションの配列。<a href="mongo.connecting.ssl.html#mongo.connecting.context.ssl" class="link">SSL 用の接続コンテキストのオプション</a>や、
+       <a href="context.mongodb.html" class="link">ログ出力用のコールバック</a>も含みます。
+       <ul class="itemizedlist">
+        <li class="listitem">
+         <p class="para">
+          <em>&quot;context&quot;</em>
+         </p>
+         <p class="para">
+          新しい接続をアタッチするストリームコンテキスト。このオプションで、SSL 証明書の設定などができます。
+          詳細は <a href="context.ssl.html" class="link">SSL コンテキストオプション</a> を参照ください。
+          詳しい使いかたは <a href="mongo.connecting.ssl.html#mongo.connecting.context.ssl" class="link">SSL 接続</a>のチュートリアルを参照ください。
          </p>
         </li>
        </ul>
@@ -351,7 +505,7 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
 
  <div class="refsect1 examples" id="mongo.mongoclient.construct.examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-1401">
+  <div class="example" id="mongo.connecting.uds-example">
    <p><strong>例1 <span class="function"><strong>MongoClient::__construct()</strong></span> でのレプリカセットの例</strong></p>
    <div class="example-contents"><p>
     この例は、レプリカセットに接続する方法を示します。
@@ -381,11 +535,11 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
    </p></div>
    <div class="example-contents"><p>
     レプリカセットに関する詳細な情報は
-    <a href="http://docs.mongodb.org/manual/replication/" class="link external">&raquo;&nbsp;コアドキュメント</a>
+    <a href="https://docs.mongodb.com/manual/replication/" class="link external">&raquo;&nbsp;コアドキュメント</a>
     を参照ください。
    </p></div>
   </div>
-  <div class="example" id="example-1402">
+  <div class="example" id="mongo.connecting.uds-auth-example">
    <p><strong>例2 ドメインソケットへの接続</strong></p>
    <div class="example-contents"><p>
     バージョン 1.0.9 以降では、ローカルで実行している MongoDB への接続に
@@ -415,15 +569,14 @@ mongodb://[username:password@]host1[:port1][,host2[:port2:],...]/db
    </div>
 
   </div>
-  <div class="example" id="example-1403">
+  <div class="example" id="mongo.connecting.persistent-example">
    <p><strong>例3 <span class="function"><strong>MongoClient::__construct()</strong></span> での認証の例</strong></p>
    <div class="example-contents"><p>
     認証を使うには、admin データベースにユーザーが存在しなければなりません。
     Mongo シェルでユーザーを作るには、次のようにします。
    </p></div>
    <div class="example-contents">
-<div class="cdata"><pre>
-&gt; use admin
+<div class="shellcode"><pre class="shellcode">&gt; use admin
 switched to db admin
 &gt; db.addUser(&quot;testUser&quot;, &quot;testPass&quot;);
 {
@@ -431,8 +584,8 @@ switched to db admin
         &quot;user&quot; : &quot;testUser&quot;,
         &quot;pwd&quot; : &quot;03b9b27e0abf1865e2f6fcbd9845dd59&quot;
 }
-&gt;
-</pre></div>
+&gt;</pre>
+</div>
    </div>
 
    <div class="example-contents"><p>
@@ -447,7 +600,7 @@ switched to db admin
    </div>
 
   </div>
-  <div class="example" id="example-1404">
+  <div class="example" id="mongo.connecting.no-manual-persist-example">
    <p><strong>例4 <span class="function"><strong>MongoClient::__construct()</strong></span> での優先読み込みの例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -462,7 +615,7 @@ switched to db admin
    </p></div>
   </div>
 
-  <div class="example" id="example-1405">
+  <div class="example" id="mongo.connecting.manual-persist-example">
    <p><strong>例5 <span class="function"><strong>MongoClient::__construct()</strong></span> でのオプションの例</strong></p>
    <div class="example-contents"><p>
     オプションは、接続文字列のクエリ文字列で渡すだけでなく、
@@ -473,31 +626,25 @@ switched to db admin
     にする設定を、すべての書き込み操作のデフォルトとします。
    </p></div>
    <div class="example-contents">
-<div class="cdata"><pre>
-&lt;?php
-$m = new MongoClient(&quot;mongodb://localhost/?journal=true&amp;readPreference=secondary&quot;);
-?&gt;
-</pre></div>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost/?journal=true&amp;readPreference=secondary"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
    </div>
 
    <div class="example-contents"><p>
     同じ設定を、このようにすることもできます。
    </p></div>
    <div class="example-contents">
-<div class="cdata"><pre>
-&lt;?php
-$options = array(
-    &#039;journal&#039; =&gt; true,
-    &#039;readPreference&#039; =&gt; &#039;secondary&#039;,
-);
-$m = new MongoClient(&quot;mongodb://localhost/&quot;, $options);
-?&gt;
-</pre></div>
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />$options&nbsp;</span><span style="color: #007700">=&nbsp;array(<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'journal'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'readPreference'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'secondary'</span><span style="color: #007700">,<br />);<br /></span><span style="color: #0000BB">$m&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">MongoClient</span><span style="color: #007700">(</span><span style="color: #DD0000">"mongodb://localhost/"</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$options</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
    </div>
 
   </div>
 
-  <div class="example" id="example-1406">
+  <div class="example" id="mongo.queries.secondaries.inheritence-example">
    <p><strong>例6 <span class="function"><strong>MongoClient::__construct()</strong></span> での優先読み込みの例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -529,11 +676,38 @@ $m = new MongoClient(&quot;mongodb://localhost/&quot;, $options);
 
      <tbody class="tbody">
       <tr>
+       <td>1.5.0</td>
+       <td>
+        <p class="para">
+         <em>&quot;authMechanism&quot;</em>、<em>&quot;gssapiServiceName&quot;</em> および <em>&quot;secondaryAcceptableLatencyMS&quot;</em>
+         が追加されました。
+        </p>
+       </td>
+      </tr>
+
+      <tr>
        <td>1.4.0</td>
        <td>
         <p class="para">
+         <em>&quot;ssl&quot;</em> オプションが追加されました。これは
+         <a href="mongo.connecting.ssl.html" class="link">SSL 接続</a> をサポートするものです。
+        </p>
+        <p class="para">
          <em>&quot;wTimeoutMS&quot;</em> オプションが追加されました。これは
          <em>&quot;wTimeout&quot;</em> の代替です。
+        </p>
+        <p class="para">
+         <em>&quot;slaveOkay&quot;</em> や <em>&quot;timeout&quot;</em> を使うと
+         <strong><code>E_DEPRECATED</code></strong> が発生します。
+        </p>
+       </td>
+      </tr>
+
+      <tr>
+       <td>1.5.0</td>
+       <td>
+        <p class="para">
+         <em>&quot;authSource&quot;</em> が追加されました。
         </p>
        </td>
       </tr>
@@ -687,7 +861,7 @@ $m = new MongoClient(&quot;mongodb://localhost/&quot;, $options);
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="mongo.connect.html">Mongo::connect</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="mongo.dropdb.html">Mongo::dropDB</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="mongoclient.dropdb.html">MongoClient::dropDB</a></div>
  <div class="up"><a href="class.mongoclient.html">MongoClient</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

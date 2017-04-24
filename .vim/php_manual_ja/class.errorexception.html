@@ -14,7 +14,7 @@
  <h1 class="title">ErrorException</h1>
  
  
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p>
  
 
   <div class="section" id="errorexception.intro">
@@ -81,7 +81,7 @@
    <span class="modifier">public</span> <span class="methodname"><a href="errorexception.construct.html" class="methodname">__construct</a></span>
     ([ <span class="methodparam"><span class="type">string</span> <code class="parameter">$message</code><span class="initializer"> = &quot;&quot;</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$code</code><span class="initializer"> = 0</span></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$severity</code><span class="initializer"> = 1</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$severity</code><span class="initializer"> = E_ERROR</span></span>
    [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code><span class="initializer"> = __FILE__</span></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$lineno</code><span class="initializer"> = __LINE__</span></span>
    [, <span class="methodparam"><span class="type"><a href="class.exception.html" class="type Exception">Exception</a></span> <code class="parameter">$previous</code><span class="initializer"> = <strong><code>NULL</code></strong></span></span>
@@ -158,11 +158,11 @@
   <div class="section" id="errorexception.examples">
    <h2 class="title">例</h2>
    <p class="para">
-    <div class="example" id="errorexception.example.error-handler">
+    <div class="example" id="variable.post.basic">
      <p><strong>例1 <span class="function"><a href="function.set-error-handler.html" class="function">set_error_handler()</a></span> を使用した、エラーメッセージから ErrorException への変換</strong></p>
      <div class="example-contents">
  <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">exception_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errstr</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errfile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errline&nbsp;</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">ErrorException</span><span style="color: #007700">(</span><span style="color: #0000BB">$errstr</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errno</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errfile</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$errline</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">set_error_handler</span><span style="color: #007700">(</span><span style="color: #DD0000">"exception_error_handler"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;例外を発生させます&nbsp;*/<br /></span><span style="color: #0000BB">strpos</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">exception_error_handler</span><span style="color: #007700">(</span><span style="color: #0000BB">$severity</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$message</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!(</span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">()&nbsp;&amp;&nbsp;</span><span style="color: #0000BB">$severity</span><span style="color: #007700">))&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;このエラーコードが&nbsp;error_reporting&nbsp;に含まれていない場合<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;</span><span style="color: #0000BB">ErrorException</span><span style="color: #007700">(</span><span style="color: #0000BB">$message</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$severity</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$file</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$line</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">set_error_handler</span><span style="color: #007700">(</span><span style="color: #DD0000">"exception_error_handler"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;例外を発生させます&nbsp;*/<br /></span><span style="color: #0000BB">strpos</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -171,12 +171,12 @@
 たとえば以下のようになります。</p></div>
      <div class="example-contents screen">
 <div class="cdata"><pre>
-Fatal error: Uncaught exception &#039;ErrorException&#039; with message &#039;Wrong parameter count for strpos()&#039; in /home/bjori/tmp/ex.php:8
+Fatal error: Uncaught exception &#039;ErrorException&#039; with message &#039;strpos() expects at least 2 parameters, 0 given&#039; in /home/bjori/tmp/ex.php:12
 Stack trace:
-#0 [internal function]: exception_error_handler(2, &#039;Wrong parameter...&#039;, &#039;/home/bjori/php...&#039;, 8, Array)
-#1 /home/bjori/php/cleandocs/test.php(8): strpos()
+#0 [internal function]: exception_error_handler(2, &#039;strpos() expect...&#039;, &#039;/home/bjori/php...&#039;, 12, Array)
+#1 /home/bjori/php/cleandocs/test.php(12): strpos()
 #2 {main}
-  thrown in /home/bjori/tmp/ex.php on line 8
+  thrown in /home/bjori/tmp/ex.php on line 12
 </pre></div>
      </div>
     </div>

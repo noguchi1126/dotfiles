@@ -45,6 +45,13 @@
     </tr>
 
     <tr>
+     <td><a href="mail.configuration.html#ini.mail.force_extra_parameters" class="link">mail.force_extra_parameters</a></td>
+     <td>NULL</td>
+     <td>PHP_INI_PERDIR</td>
+     <td>PHP 5.0.0 以降で使用可能 (PHP_INI_SYSTEM|PHP_INI_PERDIR)</td>
+    </tr>
+
+    <tr>
      <td><a href="mail.configuration.html#ini.smtp" class="link">SMTP</a></td>
       <td>&quot;localhost&quot;</td>
       <td>PHP_INI_ALL</td>
@@ -120,6 +127,23 @@
 
   
 
+  
+   <dt id="ini.mail.force_extra_parameters">
+    <code class="parameter">mail.force_extra_parameters</code>
+    <span class="type"><a href="language.types.string.html" class="type string">string</a></span>
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     指定したパラメータを、sendmail バイナリへの追加パラメータとして強制的に渡します。
+     これらのパラメータは、たとえセーフモードであっても、常に
+     <span class="function"><a href="function.mail.html" class="function">mail()</a></span> の第 5 パラメータの値を上書きします。
+    </p>
+   </dd>
+
+  
+
    
     <dt id="ini.smtp">
      <code class="parameter">SMTP</code>
@@ -148,7 +172,7 @@
      <p class="para">
       Windows 環境のみで使用されます: 
       <em>SMTP</em> 設定で指定したサーバーに接続するポート番号で、
-      デフォルトは 25 です。PHP 4.3.0 以降でのみ利用可能です。
+      デフォルトは 25 です。
      </p>
     </dd>
 

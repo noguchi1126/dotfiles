@@ -10,9 +10,8 @@
  <div class="next" style="text-align: right; float: right;"><a href="timezones.html">サポートされるタイムゾーンのリスト</a></div>
  <div class="up"><a href="datetime.formats.html">サポートする日付と時刻の書式</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
-</div><hr /><div id="datetime.formats.relative" class="section">
+</div><hr /><div id="datetime.formats.relative" class="sect1">
   <h2 class="title">相対的な書式</h2>
-
   <p class="para">
    このページでは、
    <span class="function"><a href="function.strtotime.html" class="function">strtotime()</a></span> や <a href="class.datetime.html" class="classname">DateTime</a> そして
@@ -36,7 +35,7 @@
       <td><em>dayname</em></td>
       <td>&#039;sunday&#039; | &#039;monday&#039; | &#039;tuesday&#039; | &#039;wednesday&#039; | &#039;thursday&#039; |
       &#039;friday&#039; | &#039;saturday&#039; | &#039;sun&#039; | &#039;mon&#039; | &#039;tue&#039; | &#039;wed&#039; | &#039;thu&#039; | &#039;fri&#039; |
-      &#039;sat&#039; | &#039;sun&#039;</td>
+      &#039;sat&#039;</td>
      </tr>
 
      <tr>
@@ -129,25 +128,25 @@
 
      <tr>
       <td>&#039;back of&#039; <em>hour</em></td>
-      <td>指定された時の15分前</td>
+      <td>指定された時の15分後</td>
       <td>&quot;back of 7pm&quot;, &quot;back of 15&quot;</td>
      </tr>
 
      <tr>
       <td>&#039;front of&#039; <em>hour</em></td>
-      <td>指定された時の15分後</td>
+      <td>指定された時の15分前</td>
       <td>&quot;front of 5am&quot;, &quot;front of 23&quot;</td>
      </tr>
 
      <tr>
-      <td>&#039;first day&#039; &#039; of&#039;?</td>
+      <td>&#039;first day of&#039;</td>
       <td>現在月の最初の日にします。
       この書式に続けて月名を指定する使いかたが最適です。</td>
       <td>&quot;first day of January 2008&quot;</td>
      </tr>
 
      <tr>
-      <td>&#039;last day&#039; &#039; of&#039;?</td>
+      <td>&#039;last day of&#039;</td>
       <td>現在月の最後の日にします。
       この書式に続いて月名を指定する使いかたが最適です。</td>
       <td>&quot;last day of next month&quot;</td>
@@ -180,7 +179,7 @@
      <tr>
       <td>&#039;ago&#039;</td>
       <td>直前に指定された相対的な時間指定について、正負反転します。</td>
-      <td>&quot;2 days ago&quot;, &quot;8 days ago 14:00&quot;, &quot;2 months 5 days ago&quot;, &quot;2 months ago 5 days&quot;, &quot;2 days ago ago&quot;</td>
+      <td>&quot;2 days ago&quot;, &quot;8 days ago 14:00&quot;, &quot;2 months 5 days ago&quot;, &quot;2 months ago 5 days&quot;, &quot;2 days ago&quot;</td>
      </tr>
 
      <tr>
@@ -331,6 +330,43 @@
     その合計である 61 日後となるわけです。
    </p>
   </p></blockquote>
+  
+  <div class="sect2">
+   <h3 class="title">変更履歴</h3>
+   <p class="para">
+    <table class="doctable informaltable">
+     
+      <thead>
+       <tr>
+        <th>バージョン</th>
+        <th>説明</th>
+       </tr>
+
+      </thead>
+
+      <tbody class="tbody">
+       <tr>
+        <td>5.6.23, 7.0.8</td>
+        <td>
+         週の始まりが常に月曜日となりました。
+         これより前のバージョンでは、日曜日も週の始まりとみなされていました。
+        </td>
+       </tr>
+
+       <tr>
+        <td>5.3.3</td>
+        <td>
+         &quot;first day&quot; と &quot;last day&quot; が、それぞれ &quot;+1 day&quot; と &quot;-1 day&quot;
+         のように振る舞うようになりました。以前はそれぞれ &quot;first day of&quot; と &quot;last day of&quot; でした。
+        </td>
+       </tr>
+
+      </tbody>
+     
+    </table>
+
+   </p>
+  </div>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="datetime.formats.compound.html">複合的な書式</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="timezones.html">サポートされるタイムゾーンのリスト</a></div>

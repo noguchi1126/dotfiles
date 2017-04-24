@@ -148,6 +148,12 @@
   ] )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
+   <span class="type">void</span> 
+   <span class="methodname"><a href="eventbase.free.html" class="methodname">free</a></span>
+    ( <span class="methodparam">void</span>
+   )</div>
+<div class="methodsynopsis dc-description">
+   <span class="modifier">public</span>
    <span class="type">int</span> 
    <span class="methodname"><a href="eventbase.getfeatures.html" class="methodname">getFeatures</a></span>
     ( <span class="methodparam">void</span>
@@ -156,11 +162,8 @@
    <span class="modifier">public</span>
    <span class="type">string</span> 
    <span class="methodname"><a href="eventbase.getmethod.html" class="methodname">getMethod</a></span>
-    ([ <span class="methodparam">
-    <span class="type"><a href="class.eventconfig.html" class="type EventConfig">EventConfig</a></span>
-     <code class="parameter">$cfg</code>
-   </span>
-  ] )</div>
+    ( <span class="methodparam">void</span>
+   )</div>
 <div class="methodsynopsis dc-description">
    <span class="modifier">public</span>
    <span class="type">double</span> 
@@ -394,7 +397,12 @@
 
 
 
-<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="eventbase.construct.html">EventBase::__construct</a> — Constructs EventBase object</li><li><a href="eventbase.dispatch.html">EventBase::dispatch</a> — Dispatch pending events</li><li><a href="eventbase.exit.html">EventBase::exit</a> — Stop dispatching events</li><li><a href="eventbase.getfeatures.html">EventBase::getFeatures</a> — Returns bitmask of features supported</li><li><a href="eventbase.getmethod.html">EventBase::getMethod</a> — Returns event method in use</li><li><a href="eventbase.gettimeofdaycached.html">EventBase::getTimeOfDayCached</a> — Returns the current event base time</li><li><a href="eventbase.gotexit.html">EventBase::gotExit</a> — Checks if the event loop was told to exit</li><li><a href="eventbase.gotstop.html">EventBase::gotStop</a> — Checks if the event loop was told to exit</li><li><a href="eventbase.loop.html">EventBase::loop</a> — Dispatch pending events</li><li><a href="eventbase.priorityinit.html">EventBase::priorityInit</a> — Sets number of priorities per event base</li><li><a href="eventbase.reinit.html">EventBase::reInit</a> — Re-initialize event base(after a fork).</li><li><a href="eventbase.stop.html">EventBase::stop</a> — Tells event_base to stop dispatching events</li></ul>
+
+
+
+
+
+<h2>目次</h2><ul class="chunklist chunklist_reference"><li><a href="eventbase.construct.html">EventBase::__construct</a> — Constructs EventBase object</li><li><a href="eventbase.dispatch.html">EventBase::dispatch</a> — Dispatch pending events</li><li><a href="eventbase.exit.html">EventBase::exit</a> — Stop dispatching events</li><li><a href="eventbase.free.html">EventBase::free</a> — Free resources allocated for this event base</li><li><a href="eventbase.getfeatures.html">EventBase::getFeatures</a> — Returns bitmask of features supported</li><li><a href="eventbase.getmethod.html">EventBase::getMethod</a> — Returns event method in use</li><li><a href="eventbase.gettimeofdaycached.html">EventBase::getTimeOfDayCached</a> — Returns the current event base time</li><li><a href="eventbase.gotexit.html">EventBase::gotExit</a> — Checks if the event loop was told to exit</li><li><a href="eventbase.gotstop.html">EventBase::gotStop</a> — Checks if the event loop was told to exit</li><li><a href="eventbase.loop.html">EventBase::loop</a> — Dispatch pending events</li><li><a href="eventbase.priorityinit.html">EventBase::priorityInit</a> — Sets number of priorities per event base</li><li><a href="eventbase.reinit.html">EventBase::reInit</a> — Re-initialize event base(after a fork).</li><li><a href="eventbase.stop.html">EventBase::stop</a> — Tells event_base to stop dispatching events</li></ul>
 </div>
 <hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="event.timer.html">Event::timer</a></div>

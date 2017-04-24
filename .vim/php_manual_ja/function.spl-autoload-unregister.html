@@ -13,7 +13,7 @@
 </div><hr /><div id="function.spl-autoload-unregister" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">spl_autoload_unregister</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.1.2)</p><p class="refpurpose"><span class="refname">spl_autoload_unregister</span> &mdash; <span class="dc-title">指定した関数の、__autoload() の実装としての登録を解除する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.1.2, PHP 7)</p><p class="refpurpose"><span class="refname">spl_autoload_unregister</span> &mdash; <span class="dc-title">指定した関数の、__autoload() の実装としての登録を解除する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.spl-autoload-unregister-description">
@@ -24,12 +24,12 @@
    )</div>
 
   <p class="para rdfs-comment">
-   spl が提供する __autoload スタックから、関数の登録を解除します。
-   スタックがアクティブであり、かつこの関数の実行後にスタックが空になった場合は
-   スタックが非アクティブ化されます。
+   spl が提供する __autoload キューから、関数を削除します。
+   キューがアクティブであり、かつこの関数の削除後にキューが空になった場合は
+   キューが非アクティブ化されます。
   </p>
   <p class="para">
-   この関数の結果として autoload スタックが非アクティブになったとした場合に、
+   この関数の結果として autoload キューが非アクティブになったとした場合に、
    既存の __autoload 関数が再アクティブ化されることはありません。
   </p>
  </div>

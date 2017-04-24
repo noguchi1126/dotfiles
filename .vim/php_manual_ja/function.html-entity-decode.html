@@ -13,7 +13,7 @@
 </div><hr /><div id="function.html-entity-decode" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">html_entity_decode</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">html_entity_decode</span> &mdash; <span class="dc-title">HTML エンティティを適切な文字に変換する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">html_entity_decode</span> &mdash; <span class="dc-title">HTML エンティティを適切な文字に変換する</span></p>
 
  </div>
  
@@ -23,7 +23,7 @@
    <span class="type">string</span> <span class="methodname"><strong>html_entity_decode</strong></span>
     ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$string</code></span>
    [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$flags</code><span class="initializer"> = ENT_COMPAT | ENT_HTML401</span></span>
-   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = &#039;UTF-8&#039;</span></span>
+   [, <span class="methodparam"><span class="type">string</span> <code class="parameter">$encoding</code><span class="initializer"> = ini_get(&quot;default_charset&quot;)</span></span>
   ]] )</div>
 
   <p class="para rdfs-comment">
@@ -137,11 +137,27 @@
 
      <dd>
 
-      <p class="para">
-       使用するエンコーディング。省略した場合のデフォルト値は、
-       PHP 5.4.0 より前のバージョンでは ISO-8859-1、そして
-       PHP 5.4.0 以降では UTF-8 となります。
-      </p>
+      
+ <p class="para">
+  オプションの引数。文字を変換するときに使うエンコーディングを定義します。
+ </p>
+
+ <p class="para">
+  省略した場の <code class="parameter">encoding</code> のデフォルト値は、varies
+  PHP のバージョンによって異なります。
+  PHP 5.6.0 以降では、デフォルト値として <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
+  の値を使います。PHP 5.4 と PHP 5.5 のデフォルト値は、
+  <em>UTF-8</em> で、それより前のバージョンの PHP のデフォルト値は
+  <em>ISO-8859-1</em> でした。
+ </p>
+
+ <p class="para">
+  技術的にはこの引数を省略可能ですが、PHP 5.5 以前のバージョンを使っている場合や、
+  <a href="ini.core.html#ini.default-charset" class="link">default_charset</a>
+  の指定が入力とは違う文字セットになっている場合は、
+  適切な値を指定しておくことを強く推奨します。
+ </p>
+
       
 
 
@@ -331,6 +347,16 @@
      </thead>
 
      <tbody class="tbody">
+      
+ <tr>
+  <td>5.6.0</td>
+  <td>
+   <code class="parameter">encoding</code> パラメータのデフォルト値が、
+   <a href="ini.core.html#ini.default-charset" class="link">default_charset</a> の設定値に変わりました。
+  </td>
+ </tr>
+
+
       <tr>
        <td>5.3.3</td>
        <td>
@@ -346,13 +372,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        マルチバイトエンコーディングをサポートするようになりました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -364,7 +383,7 @@
  <div class="refsect1 examples" id="refsect1-function.html-entity-decode-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4849">
+   <div class="example" id="example-5450">
     <p><strong>例1 HTML エンティティのデコード</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

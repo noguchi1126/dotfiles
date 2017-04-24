@@ -13,7 +13,7 @@
 </div><hr /><div id="function.simplexml-import-dom" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">simplexml_import_dom</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">simplexml_import_dom</span> &mdash; <span class="dc-title">DOM ノードから <em>SimpleXMLElement</em> オブジェクトを取得する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">simplexml_import_dom</span> &mdash; <span class="dc-title">DOM ノードから <em>SimpleXMLElement</em> オブジェクトを取得する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.simplexml-import-dom-description">
@@ -75,13 +75,19 @@
   <p class="para">
    <span class="type"><a href="class.simplexmlelement.html" class="type SimpleXMLElement">SimpleXMLElement</a></span> を返します。失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は論理値
+<strong><code>FALSE</code></strong> を返す可能性がありますが、<strong><code>FALSE</code></strong> として評価される値を返す可能性もあります。
+詳細については <a href="language.types.boolean.html" class="link">論理値</a>の
+セクションを参照してください。この関数の返り値を調べるには
+<a href="language.operators.comparison.html" class="link">===演算子</a> を
+使用してください。</p></div>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.simplexml-import-dom-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5534">
+   <div class="example" id="example-6372">
     <p><strong>例1 DOM のインポート</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

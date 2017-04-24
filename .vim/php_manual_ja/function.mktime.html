@@ -13,7 +13,7 @@
 </div><hr /><div id="function.mktime" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mktime</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mktime</span> &mdash; <span class="dc-title">日付を Unix のタイムスタンプとして取得する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mktime</span> &mdash; <span class="dc-title">日付を Unix のタイムスタンプとして取得する</span></p>
 
  </div>
 
@@ -174,6 +174,11 @@
         新しいタイムゾーン処理機能がかわりに使用されます。
        </p>
       </p></blockquote>
+      <blockquote class="note"><p><strong class="note">注意</strong>: 
+       <p class="para">
+        このパラメータは PHP 7.0.0 で削除されました。
+       </p>
+      </p></blockquote>
      </dd>
 
     
@@ -222,6 +227,13 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">is_dst</code> パラメータが削除されました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.3.0</td>
        <td>
         <span class="function"><strong>mktime()</strong></span> は、
@@ -266,7 +278,7 @@
  <div class="refsect1 examples" id="refsect1-function.mktime-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2333">
+   <div class="example" id="example-2569">
     <p><strong>例1 <span class="function"><strong>mktime()</strong></span> の基本的な例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -278,7 +290,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2334">
+   <div class="example" id="example-2570">
     <p><strong>例2 <span class="function"><strong>mktime()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      <span class="function"><strong>mktime()</strong></span> は入力日付の有効性を確認しており、
@@ -295,7 +307,7 @@
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2335">
+   <div class="example" id="example-2571">
     <p><strong>例3 月の末日</strong></p>
     <div class="example-contents"><p>
      指定した月の最後の日は次の月の -1 番目の日ではなく、&quot;0&quot; 番目の日

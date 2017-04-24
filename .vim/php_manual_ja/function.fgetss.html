@@ -13,7 +13,7 @@
 </div><hr /><div id="function.fgetss" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fgetss</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">fgetss</span> &mdash; <span class="dc-title">ファイルポインタから 1 行取り出し、HTML タグを取り除く</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fgetss</span> &mdash; <span class="dc-title">ファイルポインタから 1 行取り出し、HTML タグを取り除く</span></p>
 
  </div>
  
@@ -73,6 +73,8 @@
       <p class="para">
        オプションの 3 番目の引数を使用して、
        取り除く必要がないタグを指定することができます。
+       See <span class="function"><a href="function.strip-tags.html" class="function">strip_tags()</a></span> for details regarding
+       <code class="parameter">allowable_tags</code>.
       </p>
      </dd>
 
@@ -96,38 +98,9 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.fgetss-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>5.0.0</td>
-       <td>
-        <code class="parameter">length</code> パラメータがオプションとなりました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.fgetss-examples">
   <p class="para">
-   <div class="example" id="example-2381">
+   <div class="example" id="example-2617">
     <p><strong>例1 PHP ファイルの 1 行ごとの読み込み</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

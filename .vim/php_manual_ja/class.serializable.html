@@ -15,7 +15,7 @@
  <h1 class="title">Serializable インターフェイス</h1>
  
 
- <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0)</p>
+ <div class="partintro"><p class="verinfo">(PHP 5 &gt;= 5.1.0, PHP 7)</p>
 
 
   <div class="section" id="serializable.intro">
@@ -34,6 +34,12 @@
     アンシリアライズされるときにはそのクラスが自動的に検知し、__construct()
     メソッドのかわりに適切な unserialize() メソッドがコールされます。
     標準のコンストラクタを実行させたい場合は、unserialize() メソッドの中でそれをコールします。
+   </p>
+   <p class="para">
+    今はこのインターフェイスを実装しているけれどもシリアライズした際には
+    まだこのインターフェイスを実装していなかったオブジェクトをアンシリアライズする際には、
+    serialize メソッドではなく <a href="language.oop5.magic.html#object.wakeup" class="link">__wakeup()</a>
+    が呼ばれます。これは、マイグレーションの際に便利です。
    </p>
   </div>
 
@@ -69,7 +75,7 @@
   </div>
 
   <div class="section" id="serializable.examples">
-   <div class="example" id="serializable.example.basic">
+   <div class="example" id="example-325">
     <p><strong>例1 基本的な使用法</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

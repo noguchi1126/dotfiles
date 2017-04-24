@@ -13,7 +13,7 @@
 </div><hr /><div id="function.pg-get-notify" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_get_notify</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">pg_get_notify</span> &mdash; <span class="dc-title">SQL NOTIFY メッセージを取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_get_notify</span> &mdash; <span class="dc-title">SQL NOTIFY メッセージを取得する</span></p>
 
  </div>
 
@@ -81,8 +81,11 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    <em>NOTIFY</em> メッセージ名とバックエンドの PID を含む
-   配列を返します。もし待ち受ける <em>NOTIFY</em> が存在しない
-   場合は then <strong><code>FALSE</code></strong> を返します。
+   配列を返します。
+   PHP 5.4.0 以降、サーバでサポートされている場合は、
+   配列にはサーバーのバージョンおよびペイロードも含まれます。
+   もし待ち受ける <em>NOTIFY</em> が存在しない場合は、
+   <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 
@@ -90,7 +93,7 @@
  <div class="refsect1 examples" id="refsect1-function.pg-get-notify-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2097">
+   <div class="example" id="example-2321">
     <p><strong>例1 PostgreSQL NOTIFY メッセージ</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

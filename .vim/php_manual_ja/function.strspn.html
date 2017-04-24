@@ -13,7 +13,7 @@
 </div><hr /><div id="function.strspn" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">strspn</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">strspn</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">strspn</span> &mdash; <span class="dc-title">
    指定したマスク内に含まれる文字からなる文字列の最初のセグメントの長さを探す
   </span></p>
 
@@ -150,43 +150,19 @@
    <code class="parameter">subject</code> の中で、全て
    <code class="parameter">mask</code> の中の文字からなる最初のセグメントの長さを返します。
   </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-function.strspn-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        <code class="parameter">start</code> および <code class="parameter">length</code>
-        が追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <code class="parameter">start</code> パラメータを設定した場合は、返される長さはその位置からのものとなります。
+    <code class="parameter">subject</code> の先頭からの長さではありません。
+   </p>
+  </p></blockquote>
  </div>
 
 
  <div class="refsect1 examples" id="refsect1-function.strspn-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4917">
+   <div class="example" id="example-5520">
     <p><strong>例1 <span class="function"><strong>strspn()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

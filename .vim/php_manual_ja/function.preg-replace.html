@@ -13,7 +13,7 @@
 </div><hr /><div id="function.preg-replace" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_replace</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">preg_replace</span> &mdash; <span class="dc-title">正規表現検索および置換を行う</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">preg_replace</span> &mdash; <span class="dc-title">正規表現検索および置換を行う</span></p>
 
  </div>
 
@@ -52,7 +52,7 @@
       </p>
       <p class="para">
        <a href="reference.pcre.pattern.modifiers.html" class="link">PCRE 修飾子</a>
-       も使えます。非推奨の &#039;<em>e</em>&#039; (PREG_REPLACE_EVAL) は、この関数でだけ使える修飾子です。
+       も使えます。
       </p>
      </dd>
 
@@ -78,7 +78,7 @@
        <code class="parameter">replacement</code> では、
        <em>\\<span class="replaceable">n</span></em> 形式または
        <em>$<span class="replaceable">n</span></em>
-       形式（PHP 4.0.4 以降）で参照を指定することができます。
+       形式で参照を指定することができます。
        後者の形式の方が好ましい形式です。各参照は、<span class="replaceable">n</span>
        番目のキャプチャ用サブパターンにマッチしたテキストにより置換されます。
        <span class="replaceable">n</span> は 0 から 99 までとすることができ、
@@ -97,7 +97,7 @@
        <em>1</em> が続くのか、後方参照 <em>\\11</em> で
        その後には何も続かないのかが不明のため、
        <span class="function"><strong>preg_replace()</strong></span> を混乱させる可能性があります。
-       この場合、解決策は、<em>\${1}1</em> を使用することです。
+       この場合、解決策は、<em>${1}1</em> を使用することです。
        こうすることで、<em>1</em> はリテラルとなり、後方参照
        <em>$1</em> を明確に作成できます。
       </p>
@@ -182,8 +182,10 @@
  <div class="refsect1 errors" id="refsect1-function.preg-replace-errors">
   <h3 class="title">エラー / 例外</h3>
   <p class="para">
-   &quot;\e&quot; 修飾子を使うと、
+   PHP 5.5.0 以降で &quot;\e&quot; 修飾子を使うと、
    <strong><code>E_DEPRECATED</code></strong> レベルのエラーが発生します。
+   PHP 7.0.0 以降では
+   <strong><code>E_WARNING</code></strong> レベルのエラーが発生し、 &quot;\e&quot; 修飾子は何の効力も持たなくなります。
   </p>
  </div>
 
@@ -203,6 +205,14 @@
 
      <tbody class="tbody">
       <tr>
+       <td>7.0.0</td>
+       <td>
+        <em>/e</em> 修飾子をサポートしなくなりました。かわりに
+        <span class="function"><a href="function.preg-replace-callback.html" class="function">preg_replace_callback()</a></span> を使いましょう。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.5.0</td>
        <td>
         <em>/e</em> 修飾子が非推奨になりました。かわりに
@@ -220,20 +230,6 @@
        </td>
       </tr>
 
-      <tr>
-       <td>4.0.4</td>
-       <td>
-        <code class="parameter">replacement</code> 引数に &#039;$n&#039; 形式が使用できるようになりました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.2</td>
-       <td>
-        <code class="parameter">limit</code> 引数が追加されました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -245,7 +241,7 @@
  <div class="refsect1 examples" id="refsect1-function.preg-replace-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4811">
+   <div class="example" id="example-5411">
     <p><strong>例1 数字リテラルが後に続く後方参照</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -263,11 +259,11 @@ April1,2003
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4812">
+   <div class="example" id="example-5412">
     <p><strong>例2 添字配列の使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br />$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;jumped&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/quick/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/brown/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/fox/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'bear'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'black'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'slow'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$replacements</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br />$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'The&nbsp;quick&nbsp;brown&nbsp;fox&nbsp;jumps&nbsp;over&nbsp;the&nbsp;lazy&nbsp;dog.'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/quick/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/brown/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$patterns</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'/fox/'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements&nbsp;</span><span style="color: #007700">=&nbsp;array();<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">2</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'bear'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">1</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'black'</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$replacements</span><span style="color: #007700">[</span><span style="color: #0000BB">0</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #DD0000">'slow'</span><span style="color: #007700">;<br />echo&nbsp;</span><span style="color: #0000BB">preg_replace</span><span style="color: #007700">(</span><span style="color: #0000BB">$patterns</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$replacements</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -275,7 +271,7 @@ April1,2003
     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-The bear black slow jumped over the lazy dog.
+The bear black slow jumps over the lazy dog.
 </pre></div>
     </div>
     <div class="example-contents"><p>
@@ -291,13 +287,13 @@ The bear black slow jumped over the lazy dog.
     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
-The slow black bear jumped over the lazy dog.
+The slow black bear jumps over the lazy dog.
 </pre></div>
     </div>
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4813">
+   <div class="example" id="example-5413">
     <p><strong>例3 複数値の置換</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -315,7 +311,7 @@ $startDate = 5/27/1999
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4814">
+   <div class="example" id="example-5414">
     <p><strong>例4 空白の削除</strong></p>
     <div class="example-contents"><p>
      この例は、文字列から余分な空白を取り除きます。
@@ -330,7 +326,7 @@ $startDate = 5/27/1999
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4815">
+   <div class="example" id="example-5415">
     <p><strong>例5 <code class="parameter">count</code> 引数の使用</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -372,6 +368,7 @@ xp***to
   <p class="para">
    <ul class="simplelist">
     <li class="member"><a href="pcre.pattern.html" class="link">PCRE のパターン</a></li>
+    <li class="member"><span class="function"><a href="function.preg-quote.html" class="function" rel="rdfs-seeAlso">preg_quote()</a> - 正規表現文字をクオートする</span></li>
     <li class="member"><span class="function"><a href="function.preg-filter.html" class="function" rel="rdfs-seeAlso">preg_filter()</a> - 正規表現による検索と置換を行う</span></li>
     <li class="member"><span class="function"><a href="function.preg-match.html" class="function" rel="rdfs-seeAlso">preg_match()</a> - 正規表現によるマッチングを行う</span></li>
     <li class="member"><span class="function"><a href="function.preg-replace-callback.html" class="function" rel="rdfs-seeAlso">preg_replace_callback()</a> - 正規表現検索を行い、コールバック関数を使用して置換を行う</span></li>

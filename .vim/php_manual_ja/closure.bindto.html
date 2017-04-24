@@ -7,13 +7,13 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="closure.bind.html">Closure::bind</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="class.generator.html">Generator</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="closure.call.html">Closure::call</a></div>
  <div class="up"><a href="class.closure.html">Closure</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="closure.bindto" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Closure::bindTo</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.4.0)</p><p class="refpurpose"><span class="refname">Closure::bindTo</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5 &gt;= 5.4.0, PHP 7)</p><p class="refpurpose"><span class="refname">Closure::bindTo</span> &mdash; <span class="dc-title">
    新しくバインドしたオブジェクトとクラスのスコープで、クロージャを複製する
   </span></p>
 
@@ -25,7 +25,7 @@
    <span class="modifier">public</span> <span class="type"><a href="class.closure.html" class="type Closure">Closure</a></span> <span class="methodname"><strong>Closure::bindTo</strong></span>
     ( <span class="methodparam"><span class="type">object</span> <code class="parameter">$newthis</code></span>
    [, <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$newscope</code>
-   <span class="initializer"> = &#039;static&#039;</span></span>
+   <span class="initializer"> = &quot;static&quot;</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
@@ -94,6 +94,7 @@
       オブジェクトを渡した場合は、そのオブジェクトの型をその代わりに使います。
       これは、バインドしたオブジェクトの protected メソッドや private
       メソッドの可視性を決めます。
+      It is not allowed to pass (an object of) an internal class as this parameter.
      </p>
     </dd>
 
@@ -112,9 +113,39 @@
  </div>
 
 
+ <div class="refsect1 changelog" id="refsect1-closure.bindto-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        <code class="parameter">newscope</code> can not be (an object of) an internal
+        class anymore, what was possible prior to this version.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-closure.bindto-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-308">
+  <div class="example" id="example-327">
    <p><strong>例1 <span class="function"><strong>Closure::bindTo()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -147,7 +178,7 @@
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="closure.bind.html">Closure::bind</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="class.generator.html">Generator</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="closure.call.html">Closure::call</a></div>
  <div class="up"><a href="class.closure.html">Closure</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

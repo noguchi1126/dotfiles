@@ -13,7 +13,7 @@
 </div><hr /><div id="function.php-ini-scanned-files" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">php_ini_scanned_files</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">php_ini_scanned_files</span> &mdash; <span class="dc-title">追加の ini ディレクトリにある .ini ファイルのリストを取得する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">php_ini_scanned_files</span> &mdash; <span class="dc-title">追加の ini ディレクトリにある .ini ファイルのリストを取得する</span></p>
 
  </div>
  
@@ -27,16 +27,13 @@
   <p class="para rdfs-comment">
    <span class="function"><strong>php_ini_scanned_files()</strong></span>は、<var class="filename">php.ini</var>をパースした
    後で、設定ファイルのリストをカンマ区切りで返します。
-   これらのファイルは、PHPのコンパイル時に
-   <strong class="option configure">--with-config-file-scan-dir</strong>
-
-   オプションを使って指定されたディレクトリから取得されます。
+   ファイルを探すディレクトリは、コンパイル時のオプションで指定します。
+   また、実行時に環境変数で指定することもできます。詳細は
+   <a href="configuration.file.html#configuration.file.scan" class="link">インストールガイド</a>
+   を参照ください。
   </p>
   <p class="para">
-   戻り値のファイル名には
-   <strong class="option configure">--with-config-file-scan-dir</strong>
- オプションで
-   指定されたパスが含まれます。
+   戻り値のファイル名は、フルパス形式となります。
   </p>
  </div>
 
@@ -47,7 +44,8 @@
    成功すると、.iniファイルをカンマ区切りにした文字列が返されます。
    <strong class="option configure">--with-config-file-scan-dir</strong>
 
-   がセットされていなければ、
+   がセットされておらず、かつ環境変数 <var class="varname"><var class="varname">PHP_INI_SCAN_DIR</var></var>
+   も設定されていない場合は
    <strong><code>FALSE</code></strong>を返します。指定されたディレクトリが空であれば、
    空文字列が返されます。ファイルが認識できないものであれば、
    そのファイルは文字列には含まれますが同時にPHPがエラーを起こします。
@@ -60,7 +58,7 @@
  <div class="refsect1 examples" id="refsect1-function.php-ini-scanned-files-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-506">
+   <div class="example" id="example-551">
     <p><strong>例1 返される ini ファイルを一覧する例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

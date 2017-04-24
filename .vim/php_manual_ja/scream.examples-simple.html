@@ -7,7 +7,7 @@
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="scream.examples.html">例</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="book.weakref.html">Weakref</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.uopz.html">uopz</a></div>
  <div class="up"><a href="scream.examples.html">例</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div><hr /><div id="scream.examples-simple" class="section">
@@ -16,11 +16,11 @@
    この例は、scream で PHP のエラーハンドラの挙動を変更するものです。
   </p>
   <p class="para">
-   <div class="example" id="example-546">
+   <div class="example" id="example-592">
     <p><strong>例1 実行時における scream の有効化/無効化</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;エラーが表示されるようにします<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'display_errors'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">(</span><span style="color: #0000BB">E_ALL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;scream&nbsp;を無効&nbsp;(デフォルト)&nbsp;にしてエラーを発生させます<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'scream.enabled'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Opening&nbsp;http://example.com/not-existing-file\n"</span><span style="color: #007700">;<br />@</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.com/not-existing-file'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;それでは&nbsp;scream&nbsp;を有効にしてもう一度<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'scream.enabled'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Opening&nbsp;http://example.com/not-existing-file\n"</span><span style="color: #007700">;<br />@</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.com/another-not-existing-file'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;エラーが表示されるようにします<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'display_errors'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">error_reporting</span><span style="color: #007700">(</span><span style="color: #0000BB">E_ALL</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;scream&nbsp;を無効&nbsp;(デフォルト)&nbsp;にしてエラーを発生させます<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'scream.enabled'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Opening&nbsp;http://example.com/not-existing-file\n"</span><span style="color: #007700">;<br />@</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.com/not-existing-file'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;それでは&nbsp;scream&nbsp;を有効にしてもう一度<br /></span><span style="color: #0000BB">ini_set</span><span style="color: #007700">(</span><span style="color: #DD0000">'scream.enabled'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #DD0000">"Opening&nbsp;http://example.com/not-existing-file\n"</span><span style="color: #007700">;<br />@</span><span style="color: #0000BB">fopen</span><span style="color: #007700">(</span><span style="color: #DD0000">'http://example.com/not-existing-file'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'r'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -32,7 +32,7 @@
 Opening http://example.com/not-existing-file
 Opening http://example.com/not-existing-file
 
-Warning: fopen(http://example.com/another-not-existing-file): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found in example.php on line 14
+Warning: fopen(http://example.com/not-existing-file): failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found in example.php on line 14
 </pre></div>
     </div>
    </div>
@@ -46,7 +46,7 @@ Warning: fopen(http://example.com/another-not-existing-file): failed to open str
   </p></blockquote>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="scream.examples.html">例</a></div>
- <div class="next" style="text-align: right; float: right;"><a href="book.weakref.html">Weakref</a></div>
+ <div class="next" style="text-align: right; float: right;"><a href="book.uopz.html">uopz</a></div>
  <div class="up"><a href="scream.examples.html">例</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
 </div></body></html>

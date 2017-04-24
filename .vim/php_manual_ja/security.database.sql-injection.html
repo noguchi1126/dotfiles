@@ -27,7 +27,7 @@
     </p>
     <p class="para">
      入力のチェックを怠っており、スーパーユーザーもしくはデータベース作成権限を持つユーザー以外のユーザーでデータベースに接続していないために、攻撃者はデータベースにスーパーユーザーを作成することが出来ます。
-     <div class="example" id="example-334">
+     <div class="example" id="example-359">
       <p><strong>例1 
        表示するデータを分割し ... そしてスーパーユーザーを作成します。(PostgreSQLの例)
       </strong></p>
@@ -78,7 +78,7 @@ insert into pg_shadow(usename,usesysid,usesuper,usecatupd,passwd)
     攻撃者は元のクエリに任意のテーブルからパスワードのリストを取得する
     クエリを追加しようとするかもしれません。
     暗号化されたパスワードフィールドを使用することが強く推奨されます。
-     <div class="example" id="example-335">
+     <div class="example" id="example-360">
       <p><strong>例2 
       記事...そして(全てのデータベースサーバーの)いくつかのパスワード
        のリストを表示する
@@ -114,7 +114,7 @@ union select &#039;1&#039;, concat(uname||&#039;-&#039;||passwd) as name, &#039;
      マ情報を保有する必要があります。これは、フォームの変数名や総当た
      り法により調べることができます。パスワードまたはユーザー名を保存す
      るフィールド用の命名記法はそう多くはありません。
-     <div class="example" id="example-336">
+     <div class="example" id="example-361">
      <p><strong>例3 
      パスワードのリセットから ... (全てのデータベースサーバーで)より多
      くの権限を得るまで
@@ -145,7 +145,7 @@ $query&nbsp;=&nbsp;"UPDATE&nbsp;usertable&nbsp;SET&nbsp;pwd='$pwd'&nbsp;WHERE&nb
     <p class="para">
     恐ろしい例として、いくつかのデータベースホストのオペレーティン
     グシステムレベルのコマンドがアクセス可能となる方法を示します。
-     <div class="example" id="example-337">
+     <div class="example" id="example-362">
      <p><strong>例4 データベースホストのオペレーティングシステムを攻撃する
      (MSSQLサーバー)</strong></p>
       <div class="example-contents">
@@ -248,7 +248,7 @@ $query&nbsp;&nbsp;=&nbsp;"SELECT&nbsp;*&nbsp;FROM&nbsp;products<br />&nbsp;&nbsp
        <span class="function"><a href="function.settype.html" class="function">settype()</a></span>により暗黙の型変換を行うか、
        <span class="function"><a href="function.sprintf.html" class="function">sprintf()</a></span>により数値表現を使用することを検討
        してみてください。
-        <div class="example" id="example-338">
+        <div class="example" id="example-363">
          <p><strong>例5 ページング用のクエリを構築するためのより安全な方法</strong></p>
          <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

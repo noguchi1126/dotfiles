@@ -13,9 +13,15 @@
 </div><hr /><div id="function.each" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">each</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">each</span> &mdash; <span class="dc-title">配列から現在のキーと値のペアを返して、カーソルを進める</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">each</span> &mdash; <span class="dc-title">配列から現在のキーと値のペアを返して、カーソルを進める</span></p>
 
  </div>
+
+ <div id="function.each-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong><p class="simpara">この関数は PHP 7.2.0 で
+<em class="emphasis">非推奨</em>になります。この関数に頼らないことを強く推奨します。</p></div>
+ </div>
+
  <div class="refsect1 description" id="refsect1-function.each-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
@@ -76,7 +82,7 @@
  <div class="refsect1 examples" id="refsect1-function.each-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5023">
+   <div class="example" id="example-5630">
     <p><strong>例1 <span class="function"><strong>each()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -130,7 +136,7 @@ Array
    通常 <span class="function"><strong>each()</strong></span> は、配列の走査をするために
    <span class="function"><a href="function.list.html" class="function">list()</a></span> と共に使用します。
    例えばこのようになります。
-   <div class="example" id="example-5024">
+   <div class="example" id="example-5631">
     <p><strong>例2 <span class="function"><strong>each()</strong></span> によって配列を走査する</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -174,7 +180,7 @@ c =&gt; cranberry
     <li class="member"><span class="function"><a href="function.list.html" class="function" rel="rdfs-seeAlso">list()</a> - 配列と同様の形式で、複数の変数への代入を行う</span></li>
     <li class="member"><span class="function"><a href="function.current.html" class="function" rel="rdfs-seeAlso">current()</a> - 配列内の現在の要素を返す</span></li>
     <li class="member"><span class="function"><a href="function.reset.html" class="function" rel="rdfs-seeAlso">reset()</a> - 配列の内部ポインタを先頭の要素にセットする</span></li>
-    <li class="member"><span class="function"><a href="function.next.html" class="function" rel="rdfs-seeAlso">next()</a> - 内部配列ポインタを進める</span></li>
+    <li class="member"><span class="function"><a href="function.next.html" class="function" rel="rdfs-seeAlso">next()</a> - 配列の内部ポインタを進める</span></li>
     <li class="member"><span class="function"><a href="function.prev.html" class="function" rel="rdfs-seeAlso">prev()</a> - 内部の配列ポインタをひとつ前に戻す</span></li>
     <li class="member"><a href="control-structures.foreach.html" class="link">foreach</a></li>
     <li class="member"><a href="language.oop5.iterations.html" class="link">オブジェクトのイタレーション</a></li>

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.pathinfo" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pathinfo</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5)</p><p class="refpurpose"><span class="refname">pathinfo</span> &mdash; <span class="dc-title">ファイルパスに関する情報を返す</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.3, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pathinfo</span> &mdash; <span class="dc-title">ファイルパスに関する情報を返す</span></p>
 
  </div>
 
@@ -98,6 +98,14 @@
     (以下の二番目の例を参照ください)。
    </p>
   </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    <code class="parameter">path</code> の <em>basename</em>
+    がドットで始まる場合は、それに続く文字は
+    <em>extension</em> とみなされます。そして <em>filename</em>
+    は空文字列となります (以下の三番目の例を参照ください)。
+   </p>
+  </p></blockquote>
   <p class="para">
    <code class="parameter">options</code> を指定すると、
    要求した要素を文字列で返します。
@@ -137,7 +145,7 @@
  <div class="refsect1 examples" id="refsect1-function.pathinfo-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2435">
+   <div class="example" id="example-2671">
     <p><strong>例1 <span class="function"><strong>pathinfo()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -158,7 +166,7 @@ lib.inc
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-2436">
+   <div class="example" id="example-2672">
     <p><strong>例2 <span class="function"><strong>pathinfo()</strong></span> での、拡張子を空にしたときと拡張子がないときの違いの例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -175,6 +183,31 @@ string(0) &quot;&quot;
 
 Notice: Undefined index: extension in test.php on line 6
 NULL
+</pre></div>
+    </div>
+   </div>
+  </p>
+  <p class="para">
+   <div class="example" id="example-2673">
+    <p><strong>例3 <span class="function"><strong>pathinfo()</strong></span> での、ドットファイルの例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br />print_r</span><span style="color: #007700">(</span><span style="color: #0000BB">pathinfo</span><span style="color: #007700">(</span><span style="color: #DD0000">'/some/path/.test'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は、
+たとえば以下のようになります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+Array
+(
+    [dirname] =&gt; /some/path
+    [basename] =&gt; .test
+    [extension] =&gt; test
+    [filename] =&gt; 
+)
 </pre></div>
     </div>
    </div>
@@ -208,7 +241,7 @@ NULL
     <li class="member"><span class="function"><a href="function.dirname.html" class="function" rel="rdfs-seeAlso">dirname()</a> - 親ディレクトリのパスを返す</span></li>
     <li class="member"><span class="function"><a href="function.basename.html" class="function" rel="rdfs-seeAlso">basename()</a> - パスの最後にある名前の部分を返す</span></li>
     <li class="member"><span class="function"><a href="function.parse-url.html" class="function" rel="rdfs-seeAlso">parse_url()</a> - URL を解釈し、その構成要素を返す</span></li>
-    <li class="member"><span class="function"><a href="function.realpath.html" class="function" rel="rdfs-seeAlso">realpath()</a> - 絶対パス名を返す</span></li>
+    <li class="member"><span class="function"><a href="function.realpath.html" class="function" rel="rdfs-seeAlso">realpath()</a> - 正規化された絶対パス名を返す</span></li>
    </ul>
   </p>
  </div>

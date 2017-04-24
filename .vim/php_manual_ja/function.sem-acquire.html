@@ -13,7 +13,7 @@
 </div><hr /><div id="function.sem-acquire" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">sem_acquire</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">sem_acquire</span> &mdash; <span class="dc-title">セマフォを得る</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">sem_acquire</span> &mdash; <span class="dc-title">セマフォを得る</span></p>
 
  </div>
  
@@ -22,10 +22,11 @@
   <div class="methodsynopsis dc-description">
    <span class="type">bool</span> <span class="methodname"><strong>sem_acquire</strong></span>
     ( <span class="methodparam"><span class="type">resource</span> <code class="parameter">$sem_identifier</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$nowait</code><span class="initializer"> = false</span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
-   <span class="function"><strong>sem_acquire()</strong></span> は、(必要な場合)
+   <span class="function"><strong>sem_acquire()</strong></span> はデフォルトで、(必要な場合)
    セマフォが確保できるまでブロックします。
    既に確保されているセマフォを得ようとするプロセスは、
    セマフォの獲得により max_aquire 値を超える場合、
@@ -56,6 +57,20 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">nowait</code></dt>
+
+     <dd>
+
+      <p class="para">
+       セマフォが確保できるまでプロセスを待たせたくない場合に指定します。
+       <em>true</em> にすると、セマフォをその場で確保できなかった場合に、
+       この関数は即時に <em>false</em> を返します。
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -66,6 +81,35 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    成功した場合に <strong><code>TRUE</code></strong> を、失敗した場合に <strong><code>FALSE</code></strong> を返します。
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-function.sem-acquire-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>5.6.1</td>
+       <td>
+        <code class="parameter">$nowait</code> パラメータが追加されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

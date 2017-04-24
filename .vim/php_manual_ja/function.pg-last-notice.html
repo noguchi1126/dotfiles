@@ -13,7 +13,7 @@
 </div><hr /><div id="function.pg-last-notice" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">pg_last_notice</h1> 
-  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5)</p><p class="refpurpose"><span class="refname">pg_last_notice</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 4 &gt;= 4.0.6, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">pg_last_notice</span> &mdash; <span class="dc-title">
    PostgreSQL サーバーからの直近の通知メッセージを返す
   </span></p>
 
@@ -82,57 +82,10 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.pg-last-notice-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        この関数の実装が完成しました。
-        以前のバージョンではデータベースの接続パラメータを無視していました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        <var class="filename">php.ini</var> の設定 <em>pgsql.ignore_notice</em> および
-        <em>pgsql.log_notice</em> が追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.6</td>
-       <td>
-        PHP 4.0.6 には通知メッセージ処理の問題があります。
-        <span class="function"><strong>pg_last_notice()</strong></span> を使用しない場合でも
-        PHP 4.0.6 で PostgreSQL モジュールを使用することは推奨されません。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.pg-last-notice-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2103">
+   <div class="example" id="example-2327">
     <p><strong>例1 <span class="function"><strong>pg_last_notice()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

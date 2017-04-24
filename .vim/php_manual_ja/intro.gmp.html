@@ -16,27 +16,35 @@
    以下の関数により、GNU <acronym title="Multiple Precision">MP</acronym> ライブラリを使用して
    任意長の整数を使用することが可能になります。
   </p>
-  <p class="simpara">
-   これらの関数は、PHP 4.0.4 で追加されました。
-  </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <p class="para">
-    多くの GMP 関数は、<em>resource</em> で定義された GMP 数を
-    引数としてとります。しかし、これらの関数の多くは、数値と文字列の
-    両方を引数として指定可能で、後者は数値に変換することが可能です。
+    大半の GMP 関数は、GMP 数を引数としてとります。
+    このマニュアルでは、GMP 数を <a href="class.gmp.html" class="classname">GMP</a> オブジェクトとしています。
+    しかし PHP 5.5 以前のバージョンでは、GMP 数をリソースとして表していました。
+    これらの関数の大半は、数値と文字列も
+    引数として指定可能です。ただし、後者は数値に変換できる場合に限ります。
     また、整数引数を使用して処理を行うより高速な関数がある場合には、
     指定された引数が整数である場合により低速となる関数の代わりに
-    使用されます。これは透過的に行われるため、結果的に、GMP 数値を
-    引数とする全ての関数について整数を使用することが可能です。関数
+    使用されます。これは透過的に行われます。
     <span class="function"><a href="function.gmp-init.html" class="function">gmp_init()</a></span> も参照ください。
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    PHP 5.6 以降は、
+    <span class="function"><a href="function.gmp-init.html" class="function">gmp_init()</a></span> やその他の GMP 関数が返す
+    <a href="class.gmp.html" class="classname">GMP</a> オブジェクトに対して、
+    <a href="language.operators.arithmetic.html" class="link">代数演算子</a>や
+    <a href="language.operators.bitwise.html" class="link">ビット演算子</a>そして
+    <a href="language.operators.comparison.html" class="link">比較演算子</a>
+    が使えるようになります。
    </p>
   </p></blockquote>
   <div class="warning"><strong class="warning">警告</strong>
    <p class="simpara">
-    より大きな整数を明示的に指定するには、文字列として指定してください。
-    そうしない場合、PHP は値ををまず整数リテラルとして解釈し、
-    <em>GMP</em> にわたるまでに精度の劣化を生じる可能性が
-    あります。
+    より大きな整数を明示的に指定するには、文字列として指定する必要があります。
+    さもないと、PHP は値ををまず float として解釈するので、
+    精度が劣化してしまいます。
    </p>
   </div>
   <blockquote class="note"><p><strong class="note">注意</strong>: 

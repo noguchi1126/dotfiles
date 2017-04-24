@@ -13,14 +13,14 @@
 </div><hr /><div id="function.bzopen" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">bzopen</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5)</p><p class="refpurpose"><span class="refname">bzopen</span> &mdash; <span class="dc-title">bzip2 圧縮されたファイルをオープンする</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">bzopen</span> &mdash; <span class="dc-title">bzip2 圧縮されたファイルをオープンする</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.bzopen-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">resource</span> <span class="methodname"><strong>bzopen</strong></span>
-    ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$filename</code></span>
+    ( <span class="methodparam"><span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> <code class="parameter">$file</code></span>
    , <span class="methodparam"><span class="type">string</span> <code class="parameter">$mode</code></span>
    )</div>
 
@@ -37,7 +37,7 @@
 
     
      <dt>
-<code class="parameter">filename</code></dt>
+<code class="parameter">file</code></dt>
 
      <dd>
 
@@ -54,9 +54,8 @@
      <dd>
 
       <p class="para">
-       <span class="function"><a href="function.fopen.html" class="function">fopen()</a></span> 関数と同様ですが、
        &#039;r&#039; (読み込み) と &#039;w&#039; (書き込み) だけをサポートしています。
-       それ以外を指定すると bzopen は <strong><code>FALSE</code></strong> を返します。
+       それ以外を指定すると <span class="function"><strong>bzopen()</strong></span> は <strong><code>FALSE</code></strong> を返します。
       </p>
      </dd>
 
@@ -78,7 +77,7 @@
  <div class="refsect1 examples" id="refsect1-function.bzopen-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-648">
+   <div class="example" id="example-710">
     <p><strong>例1 <span class="function"><strong>bzopen()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

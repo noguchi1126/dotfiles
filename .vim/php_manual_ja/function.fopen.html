@@ -13,7 +13,7 @@
 </div><hr /><div id="function.fopen" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">fopen</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">fopen</span> &mdash; <span class="dc-title">ファイルまたは URL をオープンする</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">fopen</span> &mdash; <span class="dc-title">ファイルまたは URL をオープンする</span></p>
 
  </div>
  
@@ -160,6 +160,8 @@
            <td>
             書き出し用のみでオープンします。ファイルポインタをファイルの終端に置きます。
             ファイルが存在しない場合には、作成を試みます。
+            このモードは、<span class="function"><a href="function.fseek.html" class="function">fseek()</a></span> では何の効果もありません。
+            書き込みは、常に追記となります。
            </td>
           </tr>
 
@@ -169,6 +171,8 @@
             読み込み／書き出し用でオープンします。
             ファイルポインタをファイルの終端に置きます。
             ファイルが存在しない場合には、作成を試みます。
+            このモードは、<span class="function"><a href="function.fseek.html" class="function">fseek()</a></span> では読み込み位置のみに影響します。
+            書き込みは、常に追記となります。
            </td>
           </tr>
 
@@ -213,6 +217,14 @@
            <td>
             読み込み／書き出し用でオープンします。
             それ以外のふるまいは <em>&#039;c&#039;</em> と同じです。
+           </td>
+          </tr>
+
+          <tr>
+           <td><em>&#039;e&#039;</em></td>
+           <td>
+            Set close-on-exec flag on the opened file descriptor. Only
+            available in PHP compiled on POSIX.1-2008 conform systems.
            </td>
           </tr>
 
@@ -341,6 +353,13 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
 
      <tbody class="tbody">
       <tr>
+       <td>7.0.16, 7.1.2</td>
+       <td>
+        <em>&#039;e&#039;</em> が追加されました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.2.6</td>
        <td>
         <em>&#039;c&#039;</em> および <em>&#039;c+&#039;</em>
@@ -359,14 +378,6 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
        </td>
       </tr>
 
-      <tr>
-       <td>4.3.2</td>
-       <td>
-        <em>&#039;x&#039;</em> および <em>&#039;x+&#039;</em>
-        が追加されました。
-       </td>
-      </tr>
-
      </tbody>
     
    </table>
@@ -378,7 +389,7 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
  <div class="refsect1 examples" id="refsect1-function.fopen-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-2403">
+   <div class="example" id="example-2639">
     <p><strong>例1 <span class="function"><strong>fopen()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -398,7 +409,7 @@ PHP 5.0.0 で追加されました。<em>contexts</em> の説明に関しては�
 対応してない Web サーバーは、PHP に警告を発生させるような手順でデータを送信します。
 このようなサーバーを使用する場合は、<a href="errorfunc.configuration.html#ini.error-reporting" class="link">
 error_reporting</a> を警告を発生しないレベルまで小さくする必要があります。
-PHP 4.3.7 以降では、<em>https://</em> ラッパーでストリームをオープンする際に
+PHP では、<em>https://</em> ラッパーでストリームをオープンする際に
 バグがある IIS サーバーソフトウエアを検出することができ、この警告を抑制することができます。
 あなたが <em>ssl://</em> ソケットを作成するために  <span class="function"><a href="function.fsockopen.html" class="function">fsockopen()</a></span> を使用している場合、
 自らこの警告を検出し、抑制する必要があります。</p></div>

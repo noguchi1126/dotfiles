@@ -29,7 +29,7 @@
     独自のラッパー関数を使う必要があります。
    </p> 
    <p class="para">
-    <div class="example" id="example-163">
+    <div class="example" id="example-159">
      <p><strong>例1 可変関数の例</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -42,7 +42,7 @@
    </p>
    <p class="para">
     オブジェクトのメソッドを可変関数を使ってコールすることもできます。
-    <div class="example" id="example-164">
+    <div class="example" id="example-160">
      <p><strong>例2 可変メソッドの例</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -55,11 +55,24 @@
    </p>
    <p class="para">
     静的メソッドをコールするときには、関数呼び出しのほうが静的プロパティ演算子よりも優先されます。
-    <div class="example" id="example-165">
+    <div class="example" id="example-161">
      <p><strong>例3 静的プロパティを含む可変メソッドの例</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;</span><span style="color: #0000BB">$variable&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'static&nbsp;property'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">Variable</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Method&nbsp;Variable&nbsp;called'</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br />echo&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">::</span><span style="color: #0000BB">$variable</span><span style="color: #007700">;&nbsp;</span><span style="color: #FF8000">//&nbsp;これは&nbsp;'static&nbsp;property'&nbsp;を表示します。このスコープにおいて&nbsp;$variable&nbsp;が必要です。<br /></span><span style="color: #0000BB">$variable&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Variable"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">Foo</span><span style="color: #007700">::</span><span style="color: #0000BB">$variable</span><span style="color: #007700">();&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;これは&nbsp;$foo-&gt;Variable()&nbsp;をコールします。このスコープでの&nbsp;$variable&nbsp;の内容を読むからです。<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+     </div>
+
+    </div>
+   </p>
+   <p class="para">
+     PHP 5.4.0 移行では、変数に格納されたあらゆる <span class="type"><a href="language.types.callable.html" class="type callable">callable</a></span> を呼び出せます。
+    <div class="example" id="example-162">
+     <p><strong>例4 複雑な callable</strong></p>
+     <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">class&nbsp;</span><span style="color: #0000BB">Foo<br /></span><span style="color: #007700">{<br />&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;function&nbsp;</span><span style="color: #0000BB">bar</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"bar\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;</span><span style="color: #0000BB">baz</span><span style="color: #007700">()<br />&nbsp;&nbsp;&nbsp;&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"baz\n"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$func&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"Foo"</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"bar"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$func</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;"bar"&nbsp;を表示します<br /></span><span style="color: #0000BB">$func&nbsp;</span><span style="color: #007700">=&nbsp;array(new&nbsp;</span><span style="color: #0000BB">Foo</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">"baz"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$func</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;"baz"&nbsp;を表示します<br /></span><span style="color: #0000BB">$func&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"Foo::bar"</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$func</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;PHP&nbsp;7.0.0&nbsp;以降では&nbsp;"bar"&nbsp;を表示します。それより前のバージョンでは&nbsp;fatal&nbsp;error&nbsp;となっていました<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
      </div>
@@ -73,6 +86,40 @@
     <span class="function"><a href="function.function-exists.html" class="function">function_exists()</a></span>も参照してください。
    </p>
    
+   <div class="sect2">
+    <h3 class="title">変更履歴</h3>
+    <p class="para">
+     <table class="doctable informaltable">
+      
+       <thead>
+        <tr>
+         <th>バージョン</th>
+         <th>説明</th>
+        </tr>
+
+       </thead>
+
+       <tbody class="tbody">
+        <tr>
+         <td>7.0.0</td>
+         <td>
+          &#039;ClassName::methodName&#039; 形式を可変関数として使えるようになりました。
+         </td>
+        </tr>
+
+        <tr>
+         <td>5.4.0</td>
+         <td>
+          callable の配列を、可変関数として使えるようになりました。
+         </td>
+        </tr>
+
+       </tbody>
+      
+     </table>
+
+    </p>
+   </div>
   </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="functions.returning-values.html">返り値</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="functions.internal.html">内部（ビルトイン）関数</a></div>

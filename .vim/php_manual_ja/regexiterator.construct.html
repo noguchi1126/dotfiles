@@ -13,7 +13,7 @@
 </div><hr /><div id="regexiterator.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">RegexIterator::__construct</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.2.0)</p><p class="refpurpose"><span class="refname">RegexIterator::__construct</span> &mdash; <span class="dc-title">新しい RegexIterator を作成する</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.2.0, PHP 7)</p><p class="refpurpose"><span class="refname">RegexIterator::__construct</span> &mdash; <span class="dc-title">新しい RegexIterator を作成する</span></p>
 
  </div>
 
@@ -163,10 +163,18 @@
  </div>
 
 
+<div class="refsect1 errors" id="refsect1-regexiterator.construct-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   引数 <code class="parameter">regex</code> が無効な場合に <a href="class.invalidargumentexception.html" class="classname">InvalidArgumentException</a> をスローします。
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-regexiterator.construct-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-3924">
+   <div class="example" id="example-4488">
     <p><strong>例1 <span class="function"><strong>RegexIterator::__construct()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
       &#039;test&#039; で始まるすべての文字列を取り出す新しい RegexIterator を作成します。

@@ -13,7 +13,7 @@
 </div><hr /><div id="function.serialize" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">serialize</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">serialize</span> &mdash; <span class="dc-title">値の保存可能な表現を生成する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">serialize</span> &mdash; <span class="dc-title">値の保存可能な表現を生成する</span></p>
 
  </div>
  
@@ -97,7 +97,7 @@
  <div class="refsect1 examples" id="refsect1-function.serialize-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5285">
+   <div class="example" id="example-6148">
     <p><strong>例1 <span class="function"><strong>serialize()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -107,35 +107,6 @@
     </div>
 
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-function.serialize-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.0.7</td>
-       <td>
-        オブジェクトのシリアル化処理の問題が修正されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
   </p>
  </div>
 
@@ -161,7 +132,7 @@
   <div class="warning"><strong class="warning">警告</strong>
    <p class="para">
     <span class="function"><strong>serialize()</strong></span> でオブジェクトをシリアル化するときに、
-    名前空間を指定したクラスの名前の先頭にあるスラッシュは含めません。これは互換性を高めるためです。
+    名前空間を指定したクラスの名前の先頭にあるバックスラッシュは含めません。これは互換性を高めるためです。
    </p>
   </div>
  </div>

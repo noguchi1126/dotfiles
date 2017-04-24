@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::store_result</h1>
   <h1 class="refname">mysqli_store_result</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli::store_result</span> -- <span class="refname">mysqli_store_result</span> &mdash; <span class="dc-title">直近のクエリから結果セットを転送する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::store_result</span> -- <span class="refname">mysqli_store_result</span> &mdash; <span class="dc-title">直近のクエリから結果セットを転送する</span></p>
 
  </div>
 
@@ -23,14 +23,15 @@
   <p class="para">オブジェクト指向型</p>
   <div class="methodsynopsis dc-description">
    <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span> <span class="methodname"><strong>mysqli::store_result</strong></span>
-    ( <span class="methodparam">void</span>
-   )</div>
+    ([ <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+  ] )</div>
 
   <p class="para rdfs-comment">手続き型</p>
   <div class="methodsynopsis dc-description">
    <span class="type"><a href="class.mysqli-result.html" class="type mysqli_result">mysqli_result</a></span> <span class="methodname"><strong>mysqli_store_result</strong></span>
     ( <span class="methodparam"><span class="type"><a href="class.mysqli.html" class="type mysqli">mysqli</a></span> <code class="parameter">$link</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$option</code></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    <span class="function"><a href="mysqli-result.data-seek.html" class="function">mysqli_data_seek()</a></span> で使用される、
@@ -45,7 +46,7 @@
   <p class="para">
    <dl>
 
-    <dt>
+   <dt>
 <code class="parameter">
 link</code></dt>
 <dd>
@@ -53,6 +54,45 @@ link</code></dt>
 <span class="function"><a href="function.mysqli-connect.html" class="function">mysqli_connect()</a></span> あるいは <span class="function"><a href="mysqli.init.html" class="function">mysqli_init()</a></span> が返すリンク ID。
 </p></dd>
 
+   
+     <dt>
+<code class="parameter">option</code></dt>
+
+     <dd>
+
+      <p class="para">
+       指定したいオプション。以下のいずれかの値を指定します。
+       <table class="doctable table">
+        <caption><strong>有効なオプション</strong></caption>
+        
+         <thead>
+          <tr>
+           <th>名前</th>
+           <th>説明</th>
+          </tr>
+
+         </thead>
+
+         <tbody class="tbody">
+          <tr>
+           <td><strong><code>MYSQLI_STORE_RESULT_COPY_DATA</code></strong></td>
+           <td>
+           結果を、内部の mysqlnd バッファーから PHP の変数にコピーします。
+           デフォルトでは、mysqlnd は参照を利用しており、メモリ内の結果をコピーしたり複製したりしないようにしています。
+           ある種の結果セット (短めの行を大量に保持する結果セットなど) の場合は、
+           コピーしたほうが、全体的なメモリ使用量を抑えることができます。
+           結果を保持する PHP の変数のほうが、解放されるのが早いからです。
+           これは mysqlnd でのみ利用可能で、PHP 5.6.0 以降で使えます。</td>
+          </tr>
+
+         </tbody>
+        
+       </table>
+
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>

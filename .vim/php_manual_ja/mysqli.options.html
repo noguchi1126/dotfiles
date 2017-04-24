@@ -14,7 +14,7 @@
  <div class="refnamediv">
   <h1 class="refname">mysqli::options</h1>
   <h1 class="refname">mysqli_options</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">mysqli::options</span> -- <span class="refname">mysqli_options</span> &mdash; <span class="dc-title">オプションを設定する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mysqli::options</span> -- <span class="refname">mysqli_options</span> &mdash; <span class="dc-title">オプションを設定する</span></p>
 
  </div>
 
@@ -122,6 +122,36 @@ link</code></dt>
            </td>
           </tr>
 
+          <tr>
+           <td><strong><code>MYSQLI_OPT_NET_CMD_BUFFER_SIZE</code></strong></td>
+           <td>
+             内部のコマンド／ネットワークバッファのサイズ。
+             mysqlnd でのみ有効です。
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_OPT_NET_READ_BUFFER_SIZE</code></strong></td>
+           <td>
+             MySQL コマンドパケットのボディを読み込むときの、読み込みチャンクの最大バイト数。
+             mysqlnd でのみ有効です。
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_OPT_INT_AND_FLOAT_NATIVE</code></strong></td>
+           <td>
+             integer 型と float 型のカラムを PHP の数値に変換します。
+             mysqlnd でのみ有効です。
+           </td>
+          </tr>
+
+          <tr>
+           <td><strong><code>MYSQLI_OPT_SSL_VERIFY_SERVER_CERT</code></strong></td>
+           <td>
+           </td>
+          </tr>
+
          </tbody>
         
        </table>
@@ -174,6 +204,16 @@ link</code></dt>
        <td>5.5.0</td>
        <td>
         <strong><code>MYSQLI_SERVER_PUBLIC_KEY</code></strong> オプションが追加されました。
+       </td>
+      </tr>
+
+      <tr>
+       <td>5.3.0</td>
+       <td>
+        オプション <strong><code>MYSQLI_OPT_INT_AND_FLOAT_NATIVE</code></strong>、
+        <strong><code>MYSQLI_OPT_NET_CMD_BUFFER_SIZE</code></strong>、
+        <strong><code>MYSQLI_OPT_NET_READ_BUFFER_SIZE</code></strong> および
+        <strong><code>MYSQLI_OPT_SSL_VERIFY_SERVER_CERT</code></strong> が追加されました。
        </td>
       </tr>
 

@@ -23,8 +23,15 @@
    <a href="features.commandline.html" class="link">コマンドライン</a>
    から PHP を使用するスクリプトを書く際には有用です。
   </p>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この拡張モジュールは Windows
-環境では利用できません。</span></p></blockquote>
+  <p class="para">
+   PHP 7.1.0 以降、この拡張モジュールは Windows でサポートされます。
+  </p>
+  <div class="caution"><strong class="caution">警告</strong>
+   <p class="para">
+    The readline extension is not thread-safe! Thus, the usage of it with any
+    true thread safe SAPI (like Apache mod_winnt) is strongly discouraged.
+   </p>
+  </div>
  </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="book.readline.html">Readline</a></div>
  <div class="next" style="text-align: right; float: right;"><a href="readline.setup.html">インストール/設定</a></div>

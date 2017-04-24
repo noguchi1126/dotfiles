@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ob-get-flush" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ob_get_flush</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5)</p><p class="refpurpose"><span class="refname">ob_get_flush</span> &mdash; <span class="dc-title">出力バッファをフラッシュし、その内容を文字列として返した後で出力バッファリングを終了する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.3.0, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ob_get_flush</span> &mdash; <span class="dc-title">出力バッファをフラッシュし、その内容を文字列として返した後で出力バッファリングを終了する</span></p>
 
  </div>
  
@@ -28,6 +28,11 @@
    <span class="function"><strong>ob_get_flush()</strong></span> は、
    出力バッファをフラッシュしてその内容を文字列として返した後、
    出力バッファリングを終了します。
+  </p>
+  <p class="para">
+   出力バッファを開始するときに、
+   <span class="function"><a href="function.ob-start.html" class="function">ob_start()</a></span> で <a href="outcontrol.constants.html#constant.php-output-handler-flushable" class="link">PHP_OUTPUT_HANDLER_FLUSHABLE</a>
+   フラグを指定する必要があります。指定しなければ、<span class="function"><strong>ob_get_flush()</strong></span> は動作しません。
   </p>
   <blockquote class="note"><p><strong class="note">注意</strong>: 
    <span class="simpara">
@@ -50,7 +55,7 @@
  <div class="refsect1 examples" id="refsect1-function.ob-get-flush-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-469">
+   <div class="example" id="example-509">
     <p><strong>例1 <span class="function"><strong>ob_get_flush()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

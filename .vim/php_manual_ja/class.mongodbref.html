@@ -17,6 +17,16 @@
 
  <div class="partintro"><p class="verinfo">(PECL mongo &gt;=0.9.0)</p>
 
+  <div class="warning"><strong class="warning">警告</strong>
+   <p class="para">このクラスを定義している拡張モジュールは非推奨です。
+かわりに <a href="set.mongodb.html" class="link">MongoDB</a> 拡張モジュールを使うべきです。
+このクラスの代替は、新しい拡張モジュールには存在しません。</p>
+   <p class="para">
+    The concept of database references, and hence this class, has been
+    deprecated in the database.
+   </p>
+  </div>
+
 
   <div class="section" id="mongodbref.intro">
    <h2 class="title">導入</h2>
@@ -28,7 +38,7 @@
     いちばん簡単な方法は、現在のドキュメントにフィールドを作ることです。
     たとえば、&quot;people&quot; コレクションと &quot;addresses&quot; コレクションがあるときに
     人物のドキュメントと住所のドキュメントをリンクさせたいことがあるでしょう。
-    <div class="example" id="example-1511">
+    <div class="example" id="example-1619">
      <p><strong>例1 ドキュメントのリンク</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -54,7 +64,7 @@
     各個人が「好きなもの」リストを持っており、それはいろいろなコレクション
     (&quot;hobbies&quot;, &quot;sports&quot;, &quot;books&quot; など) にあるとしましょう。
     <strong class="classname">MongoDBRef</strong> を使えば、それぞれがどのコレクションからのものかを管理できます。
-    <div class="example" id="example-1512">
+    <div class="example" id="example-1620">
      <p><strong>例2 MongoDBRef リンクの作成</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -120,7 +130,7 @@
   <div class="section">
    <h2 class="title">参考</h2>
    <p class="para">
-    MongoDB コアドキュメントの <a href="http://docs.mongodb.org/manual/reference/database-references/" class="link external">&raquo;&nbsp;データベース参照</a>
+    MongoDB コアドキュメントの <a href="https://docs.mongodb.com/manual/reference/database-references/" class="link external">&raquo;&nbsp;データベース参照</a>
     を参照ください。
    </p>
   </div>

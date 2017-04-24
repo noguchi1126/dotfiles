@@ -13,7 +13,7 @@
 </div><hr /><div id="exception.getprevious" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Exception::getPrevious</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.3.0)</p><p class="refpurpose"><span class="refname">Exception::getPrevious</span> &mdash; <span class="dc-title">前の例外を返す</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.3.0, PHP 7)</p><p class="refpurpose"><span class="refname">Exception::getPrevious</span> &mdash; <span class="dc-title">前の例外を返す</span></p>
 
  </div>
  
@@ -40,7 +40,36 @@
  <div class="refsect1 returnvalues" id="refsect1-exception.getprevious-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   前に発生した <a href="class.exception.html" class="classname">Exception</a>、あるいはそれが存在しない場合は <strong><code>NULL</code></strong> を返します。
+   前に発生した <a href="class.throwable.html" class="classname">Throwable</a>、あるいはそれが存在しない場合は <strong><code>NULL</code></strong> を返します。
+  </p>
+ </div>
+
+
+ <div class="refsect1 changelog" id="refsect1-exception.getprevious-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        返り値の型宣言が <a href="class.throwable.html" class="classname">Throwable</a> へ変更されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 
@@ -48,7 +77,7 @@
  <div class="refsect1 examples" id="refsect1-exception.getprevious-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-293">
+   <div class="example" id="example-304">
     <p><strong>例1 <span class="methodname"><strong>Exception::getPrevious()</strong></span> の例</strong></p>
     <div class="example-contents"><p>
      例外トレースをループし、表示します。
@@ -73,6 +102,14 @@
  </div>
 
  
+ <div class="refsect1 seealso" id="refsect1-exception.getprevious-seealso">
+  <h3 class="title">参考</h3>
+  <p class="para">
+   <ul class="simplelist">
+    <li class="member"><span class="methodname"><a href="throwable.getprevious.html" class="methodname" rel="rdfs-seeAlso">Throwable::getPrevious()</a> - ひとつ前の Throwable を返す</span></li>
+   </ul>
+  </p>
+ </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="exception.getmessage.html">Exception::getMessage</a></div>

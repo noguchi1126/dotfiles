@@ -48,21 +48,21 @@
       <td><a href="mbstring.configuration.html#ini.mbstring.http-input" class="link">mbstring.http_input</a></td>
      <td>&quot;pass&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>PHP 4.0.6 から利用可能です。</td>
+     <td>PHP 4.0.6 から利用可能です。PHP 5.6.0 で非推奨になりました。</td>
     </tr>
 
     <tr>
       <td><a href="mbstring.configuration.html#ini.mbstring.http-output" class="link">mbstring.http_output</a></td>
      <td>&quot;pass&quot;</td>
      <td>PHP_INI_ALL</td>
-     <td>PHP 4.0.6 から利用可能です。</td>
+     <td>PHP 4.0.6 から利用可能です。PHP 5.6.0 で非推奨になりました。</td>
     </tr>
 
     <tr>
       <td><a href="mbstring.configuration.html#ini.mbstring.internal-encoding" class="link">mbstring.internal_encoding</a></td>
      <td>NULL</td>
      <td>PHP_INI_ALL</td>
-     <td>PHP 4.0.6 から利用可能です。</td>
+     <td>PHP 4.0.6 から利用可能です。PHP 5.6.0 で非推奨になりました。</td>
     </tr>
 
     <tr>
@@ -85,7 +85,7 @@
      <td>PHP_INI_SYSTEM</td>
      <td>
      PHP 4.3 から  PHP 5.2.6 では PHP_INI_PERDIR、それ以外のバージョンでは PHP_INI_SYSTEM。
-     PHP 4.2.0 から利用可能です。</td>
+     PHP 4.2.0 から利用可能です。PHP 7.2.0 で非推奨になりました。</td>
     </tr>
 
     <tr>
@@ -157,8 +157,15 @@
 
     <dd>
 
+     <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は PHP 5.6.0 で
+<em class="emphasis">非推奨</em>になります。この機能に頼らないことを強く推奨します。</p></div>
      <p class="para">
-      内部文字エンコーディングのデフォルト値を定義します。PHP 5.6.0 以降は、もしこの設定が空なら <a href="ini.core.html#ini.default-charset" class="link">default_charset</a> を使います。
+      内部文字エンコーディングのデフォルト値を定義します。
+     </p>
+     <p class="para">
+      PHP 5.6 以降のユーザーは、これを空のままにしておいて、代わりに
+      <a href="ini.core.html#ini.default-charset" class="link"><code class="parameter">default_charset</code></a>
+      を設定すべきです。
      </p>
     </dd>
 
@@ -171,8 +178,15 @@
 
     <dd>
 
+     <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は PHP 5.6.0 で
+<em class="emphasis">非推奨</em>になります。この機能に頼らないことを強く推奨します。</p></div>
      <p class="para">
       HTTP 入力文字エンコーディングのデフォルト値を定義します。
+     </p>
+     <p class="para">
+      PHP 5.6 以降のユーザーは、これを空のままにしておいて、代わりに
+      <a href="ini.core.html#ini.default-charset" class="link"><code class="parameter">default_charset</code></a>
+      を設定すべきです。
      </p>
     </dd>
 
@@ -185,8 +199,16 @@
 
     <dd>
 
+     <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は PHP 5.6.0 で
+<em class="emphasis">非推奨</em>になります。この機能に頼らないことを強く推奨します。</p></div>
      <p class="para">
-      HTTP 出力文字エンコーディングのデフォルト値を定義します。
+      HTTP 出力文字エンコーディングのデフォルト値を定義します
+      (出力は、内部エンコーディングから HTTP 出力エンコーディングに変換された上で出力されます)。
+     </p>
+     <p class="para">
+      PHP 5.6 以降のユーザーは、これを空のままにしておいて、代わりに
+      <a href="ini.core.html#ini.default-charset" class="link"><code class="parameter">default_charset</code></a>
+      を設定すべきです。
      </p>
     </dd>
 
@@ -228,6 +250,8 @@
 
     <dd>
 
+     <div class="warning"><strong class="warning">警告</strong><p class="simpara">この機能は PHP 7.2.0 で
+<em class="emphasis">非推奨</em>になります。この機能に頼らないことを強く推奨します。</p></div>
      <p class="para">
       シングルバイト対応の関数を mbstring 関数の対応する関数でオーバーロード
       (置換)します。詳細は、
@@ -276,7 +300,7 @@
   を設定する方がより良いでしょう。
  </p>
  <p class="para">
-  <div class="example" id="example-2711">
+  <div class="example" id="example-3009">
   <p><strong>例1 <var class="filename">php.ini</var> 設定の例</strong></p>
    <div class="example-contents">
 <div class="cdata"><pre>
@@ -319,7 +343,7 @@ mbstring.substitute_character = long    ; long の例: U+3000,JIS+7E7E
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-2712">
+  <div class="example" id="example-3010">
    <p><strong>例2 <em>EUC-JP</em> ユーザー用の <var class="filename">php.ini</var> の設定</strong></p>
    <div class="example-contents">
 <div class="cdata"><pre>
@@ -352,7 +376,7 @@ mbstring.substitute_character = none
   </div>
  </p>
  <p class="para">
-  <div class="example" id="example-2713">
+  <div class="example" id="example-3011">
    <p><strong>例3 <em>SJIS</em> ユーザー用の <var class="filename">php.ini</var>の 設定</strong></p>
    <div class="example-contents">
 <div class="cdata"><pre>

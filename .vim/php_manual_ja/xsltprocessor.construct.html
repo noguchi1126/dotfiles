@@ -13,7 +13,7 @@
 </div><hr /><div id="xsltprocessor.construct" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">XSLTProcessor::__construct</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">XSLTProcessor::__construct</span> &mdash; <span class="dc-title">新規 XSLTProcessor オブジェクトを生成する</span></p>
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">XSLTProcessor::__construct</span> &mdash; <span class="dc-title">新規 XSLTProcessor オブジェクトを生成する</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-xsltprocessor.construct-description">
@@ -46,11 +46,11 @@
  <div class="refsect1 examples" id="refsect1-xsltprocessor.construct-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5552">
+   <div class="example" id="example-6393">
     <p><strong>例1 <a href="class.xsltprocessor.html" class="classname">XSLTProcessor</a> の生成</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /><br />$doc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$xsl&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">XSLTProcessor</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$xsl_filename</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$xsl</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">importStyleSheet</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$doc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml_filename</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$xsl</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">transformToXML</span><span style="color: #007700">(</span><span style="color: #0000BB">$doc</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /><br />$xsldoc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$xsldoc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$xsl_filename</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$xmldoc&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DOMDocument</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$xmldoc</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">(</span><span style="color: #0000BB">$xml_filename</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$xsl&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">XSLTProcessor</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$xsl</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">importStyleSheet</span><span style="color: #007700">(</span><span style="color: #0000BB">$xsldoc</span><span style="color: #007700">);<br />echo&nbsp;</span><span style="color: #0000BB">$xsl</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">transformToXML</span><span style="color: #007700">(</span><span style="color: #0000BB">$xmldoc</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>

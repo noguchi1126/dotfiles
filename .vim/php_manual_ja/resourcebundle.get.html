@@ -28,7 +28,8 @@
    <span class="type"><a href="language.pseudo-types.html#language.types.mixed" class="type mixed">mixed</a></span> 
    <span class="methodname"><strong>ResourceBundle::get</strong></span>
     ( <span class="methodparam"><span class="type"><span class="type string|int">string|int</span></span> <code class="parameter">$index</code></span>
-   )</div>
+   [, <span class="methodparam"><span class="type">bool</span> <code class="parameter">$fallback</code><span class="initializer"> = <strong><code>TRUE</code></strong></span></span>
+  ] )</div>
 
   <p class="para rdfs-comment">
    手続き型
@@ -75,6 +76,19 @@
      </dd>
 
     
+    
+     <dt>
+<code class="parameter">fallback</code></dt>
+
+     <dd>
+
+      <p class="para">
+       Whether locale should match exactly or fallback to parent locale is allowed.
+       
+      </p>
+     </dd>
+
+    
    </dl>
 
   </p>
@@ -95,7 +109,7 @@
 
  <div class="refsect1 examples" id="refsect1-resourcebundle.get-examples">
   <h3 class="title">例</h3>
-  <div class="example" id="example-2691">
+  <div class="example" id="example-2929">
    <p><strong>例1 <span class="function"><strong>resourcebundle_get()</strong></span> の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -105,7 +119,7 @@
    </div>
 
   </div>
-  <div class="example" id="example-2692">
+  <div class="example" id="example-2930">
    <p><strong>例2 オブジェクト指向の例</strong></p>
    <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

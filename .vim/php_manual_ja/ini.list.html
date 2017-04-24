@@ -47,14 +47,13 @@
         <td>&quot;1&quot;</td>
         <td>PHP_INI_SYSTEM</td>
         <td>PHP &lt;= 4.3.4 で PHP_INI_ALL。</td>
-       
        </tr>
 
       <tr>
        <td><a href="filesystem.configuration.html#ini.allow-url-include" class="link">allow_url_include</a></td>
        <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5 で PHP_INI_SYSTEM。PHP 5.2.0 以降で使用可能。</td>
+       <td>PHP_INI_SYSTEM</td>
+       <td>PHP 5.2.0 以降で使用可能。</td>
       </tr>
 
        <tr>
@@ -275,13 +274,6 @@
       </tr>
 
       <tr>
-       <td>arg_separator</td>
-       <td>&quot;&amp;&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.6 で削除。</td>
-      </tr>
-
-      <tr>
        <td><a href="ini.core.html#ini.arg-separator.input" class="link">arg_separator.input</a></td>
        <td>&quot;&amp;&quot;</td>
        <td>PHP_INI_PERDIR</td>
@@ -321,6 +313,13 @@
        <td>NULL</td>
        <td>PHP_INI_ALL</td>
        <td class="empty">&nbsp;</td>
+      </tr>
+
+      <tr>
+       <td><a href="info.configuration.html#ini.assert.exception" class="link">assert.exception</a></td>
+       <td>&quot;0&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 7.0.0 以降で利用可能。</td>
       </tr>
 
       <tr>
@@ -429,7 +428,7 @@
       </tr>
 
       <tr>
-       <td>cgi.discard_path</td>
+       <td><a href="ini.core.html#ini.cgi.discard-path" class="link">cgi.discard_path</a></td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_SYSTEM</td>
        <td>PHP 5.3.0 以降で利用可能。</td>
@@ -450,7 +449,7 @@
       </tr>
 
       <tr>
-       <td>cgi.nph</td>
+       <td><a href="ini.core.html#ini.cgi.nph" class="link">cgi.nph</a></td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>PHP 4.3.5 以降で利用可能。</td>
@@ -611,13 +610,6 @@
       </tr>
 
       <tr>
-       <td>crack.default_dictionary</td>
-       <td>NULL</td>
-       <td>PHP_INI_PERDIR</td>
-       <td>crack &lt;= 0.2 で PHP_INI_SYSTEM。PHP 4.0.5 以降で利用可能。PHP 5.0.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td><a href="curl.configuration.html#ini.curl.cainfo" class="link">curl.cainfo</a></td>
        <td>NULL</td>
        <td>PHP_INI_SYSTEM</td>
@@ -737,10 +729,10 @@
       </tr>
 
       <tr>
-       <td><a href="ini.core.html#ini.detect-unicode" class="link">detect_unicode</a></td>
+       <td>detect_unicode</td>
        <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
-       <td>PHP 5.1.0 以降で利用可能。PHP 5.4.0 で削除。</td>
+       <td>PHP 5.1.0 以降で利用可能。PHP 5.4.0 では名前を <a href="ini.core.html#ini.zend.detect-unicode" class="link">zend.detect_unicode</a> に変更。</td>
       </tr>
 
       <tr>
@@ -948,13 +940,6 @@
       </tr>
 
       <tr>
-       <td>fbsql.allow_persistant</td>
-       <td>&quot;1&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP 4.0.6 以降で利用可能。PHP 4.2.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td>fbsql.allow_persistent</td>
        <td>&quot;1&quot;</td>
        <td>PHP_INI_SYSTEM</td>
@@ -1053,13 +1038,6 @@
       </tr>
 
       <tr>
-       <td>fbsql.mbatchSize</td>
-       <td>&quot;1000&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP 4.0.6 以降で利用可能。PHP 4.2.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td>fbsql.show_timestamp_decimals</td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_SYSTEM</td>
@@ -1096,7 +1074,7 @@
 
       <tr>
        <td><a href="image.configuration.html#ini.image.jpeg-ignore-warning" class="link">gd.jpeg_ignore_warning</a></td>
-       <td>&quot;0&quot;</td>
+       <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>PHP 5.1.3 以降で利用可能。</td>
       </tr>
@@ -1113,13 +1091,6 @@
        <td>&quot;GeoIP.dat&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>geoip 1.0.1 で削除。</td>
-      </tr>
-
-      <tr>
-       <td><a href="ini.core.html#ini.gpc-order" class="link">gpc_order</a></td>
-       <td>&quot;GPC&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 で削除。</td>
       </tr>
 
       <tr>
@@ -1421,27 +1392,6 @@
        <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>pecl_http 1.0.0 以降で利用可能。</td>
-      </tr>
-
-      <tr>
-       <td>hyerwave.allow_persistent</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP 4.3.2 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>hyperwave.allow_persistent</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP 4.3.2 以降で利用可能。PHP 5.0.0 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>hyperwave.default_port</td>
-       <td>&quot;418&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 で削除。</td>
       </tr>
 
       <tr>
@@ -1830,24 +1780,10 @@
       </tr>
 
       <tr>
-       <td>ldap.base_dn</td>
-       <td>NULL</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.2.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td><a href="ldap.configuration.html#ini.ldap.max_links" class="link">ldap.max_links</a></td>
        <td>&quot;-1&quot;</td>
        <td>PHP_INI_SYSTEM</td>
        <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>log.dbm_dir</td>
-       <td>&quot;&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.1 で削除。</td>
       </tr>
 
       <tr>
@@ -1904,13 +1840,6 @@
        <td>&quot;&quot;</td>
        <td>PHP_INI_PERDIR</td>
        <td>PHP 5.3.0 以降で利用可能 (PHP_INI_SYSTEM|PHP_INI_PERDIR)。</td>
-      </tr>
-
-      <tr>
-       <td>mailparse.def_charset</td>
-       <td>&quot;us-ascii&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.1.0 以降で利用可能。PHP 4.2.0 で削除。</td>
       </tr>
 
       <tr>
@@ -2453,6 +2382,12 @@
       <td>PHP 4.3.5 以降で使用可能です。</td>
      </tr>
 <tr>
+      <td><a href="mysqli.configuration.html#ini.mysqli.rollback-on-cached-plink" class="link">mysqli.rollback_on_cached_plink</a></td>
+      <td>TRUE</td>
+      <td>PHP_INI_SYSTEM</td>
+      <td>PHP 5.6.0 以降で使用可能です。</td>
+     </tr>
+<tr>
       <td><a href="mysqli.configuration.html#ini.mysqli.cache-size" class="link">mysqli.cache_size</a></td>
       <td>&quot;2000&quot;</td>
       <td>PHP_INI_SYSTEM</td>
@@ -2992,6 +2927,13 @@
        <td>PHP 5.2.0 以降で利用可能。</td>
       </tr>
 
+      <tr>
+       <td><a href="pcre.configuration.html#ini.pcre.jit" class="link">pcre.jit</a></td>
+       <td>&quot;1&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 7.0.0 以降で利用可能。</td>
+      </tr>
+
          <tr>
           <td><a href="pdo.configuration.html#ini.pdo.dsn" class="link">pdo.dsn.*</a></td>
           <td class="empty">&nbsp;</td>
@@ -3147,13 +3089,6 @@
       </tr>
 
       <tr>
-       <td>printer.default_printer</td>
-       <td>&quot;&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.6 以降で利用可能。PHP 4.1.1 で削除。</td>
-      </tr>
-
-      <tr>
        <td>python.append_path</td>
        <td>&quot;&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -3295,10 +3230,10 @@
 
       <tr>
        <td><a href="ini.core.html#ini.serialize-precision" class="link">serialize_precision</a></td>
-       <td>&quot;17&quot;</td>
+       <td>&quot;-1&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>
-        PHP 4.3.2 以降で利用可能。PHP 5.3.5 までは、デフォルト値は 100 でした。
+        PHP 7.1.0 までは、デフォルト値は 17 でした。
        </td>
       </tr>
 
@@ -3376,21 +3311,14 @@
        <td><a href="session.configuration.html#ini.session.entropy-file" class="link">session.entropy_file</a></td>
        <td>&quot;&quot;</td>
        <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
+       <td>PHP 7.1.0 で削除。</td>
       </tr>
 
       <tr>
        <td><a href="session.configuration.html#ini.session.entropy-length" class="link">session.entropy_length</a></td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_ALL</td>
-       <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>session.gc_dividend</td>
-       <td>&quot;100&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.3.0 以降で利用可能。PHP 4.3.2 で削除。</td>
+       <td>PHP 7.1.0 で削除。</td>
       </tr>
 
       <tr>
@@ -3415,10 +3343,17 @@
       </tr>
 
       <tr>
-       <td><a href="session.configuration.html#ini.session.hash-bits-per-character" class="link">session.hash_bits_per_character</a></td>
-       <td>&quot;4&quot;</td>
+       <td><a href="session.configuration.html#ini.session.sid-bits-per-character" class="link">session.sid_bits_per_character</a></td>
+       <td>&quot;32&quot;</td>
        <td>PHP_INI_ALL</td>
-       <td>PHP 5.0.0 以降で利用可能。</td>
+       <td>PHP 7.1.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="session.configuration.html#ini.session.hash-bits-per-character" class="link">session.hash_bits_per_character</a></td>
+       <td>&quot;5&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 7.1.0 で削除。</td>
       </tr>
 
       <tr>
@@ -3426,6 +3361,13 @@
        <td>&quot;0&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>PHP 5.0.0 以降で利用可能。</td>
+      </tr>
+
+      <tr>
+       <td><a href="session.configuration.html#ini.session.lazy-write" class="link">session.lazy_write</a></td>
+       <td>&quot;1&quot;</td>
+       <td>PHP_INI_ALL</td>
+       <td>PHP 7.0.0 以降で利用可能。</td>
       </tr>
 
       <tr>
@@ -3680,7 +3622,6 @@
        <td>PHP 5.0.0 以降で利用可能。</td>
       </tr>
 
-      
       <tr>
        <td><a href="sqlite3.configuration.html#ini.sqlite3.extension-dir" class="link">sqlite3.extension_dir</a></td>
        <td>&quot;&quot;</td>
@@ -3696,24 +3637,10 @@
       </tr>
 
       <tr>
-       <td>sybase.hostname</td>
-       <td>NULL</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.2 で削除。</td>
-      </tr>
-
-      <tr>
        <td>sybase.interface_file</td>
        <td>&quot;&quot;</td>
        <td>PHP_INI_ALL</td>
        <td class="empty">&nbsp;</td>
-      </tr>
-
-      <tr>
-       <td>sybase.login_timeout</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.2 で削除。</td>
       </tr>
 
       <tr>
@@ -3731,13 +3658,6 @@
       </tr>
 
       <tr>
-       <td>sybase.min_client_severity</td>
-       <td>&quot;10&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.2 で削除。</td>
-      </tr>
-
-      <tr>
        <td><a href="sybase.configuration.html#ini.sybase.min-error-severity" class="link">sybase.min_error_severity</a></td>
        <td>&quot;10&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -3752,27 +3672,6 @@
       </tr>
 
       <tr>
-       <td>sybase.min_server_severity</td>
-       <td>&quot;10&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.2 で削除。</td>
-      </tr>
-
-      <tr>
-       <td>sybase.timeout</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.2 で削除。</td>
-      </tr>
-
-      <tr>
-       <td><a href="sybase.configuration.html#ini.sybct.allow-persistent" class="link">sybct.allow_persistent</a></td>
-       <td>&quot;1&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP &lt;= 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
-      </tr>
-
-      <tr>
        <td><a href="sybase.configuration.html#ini.sybct.deadlock-retry-count" class="link">sybct.deadlock_retry_count</a></td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_ALL</td>
@@ -3780,45 +3679,10 @@
       </tr>
 
       <tr>
-       <td><a href="sybase.configuration.html#ini.sybct.hostname" class="link">sybct.hostname</a></td>
-       <td>NULL</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.2 以降で利用可能。PHP 4.0.3 で削除。</td>
-      </tr>
-
-      <tr>
        <td><a href="sybase.configuration.html#ini.sybct.login-timeout" class="link">sybct.login_timeout</a></td>
        <td>&quot;-1&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>PHP 4.0.2 以降で利用可能。</td>
-      </tr>
-
-      <tr>
-       <td><a href="sybase.configuration.html#ini.sybct.max-links" class="link">sybct.max_links</a></td>
-       <td>&quot;-1&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP &lt;= 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
-      </tr>
-
-      <tr>
-       <td><a href="sybase.configuration.html#ini.sybct.max-persistent" class="link">sybct.max_persistent</a></td>
-       <td>&quot;-1&quot;</td>
-       <td>PHP_INI_SYSTEM</td>
-       <td>PHP &lt;= 4.0.2 では PHP_INI_ALL、PHP 4.0.2 以降で使用可能。PHP 4.0.3 で削除。</td>
-      </tr>
-
-      <tr>
-       <td><a href="sybase.configuration.html#ini.sybct.min-client-severity" class="link">sybct.min_client_severity</a></td>
-       <td>&quot;10&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.2 以降で利用可能。PHP 4.0.3 で削除。</td>
-      </tr>
-
-      <tr>
-       <td><a href="sybase.configuration.html#ini.sybct.min-server-severity" class="link">sybct.min_server_severity</a></td>
-       <td>&quot;10&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.2 以降で利用可能。PHP 4.0.3 で削除。</td>
       </tr>
 
       <tr>
@@ -3871,14 +3735,6 @@
       </tr>
 
       <tr>
-       <td><a href="ini.core.html#ini.track-vars" class="link">track_vars</a></td>
-       <td>&quot;1&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.0.3 で削除。</td>
-      </tr>
-
-      
-      <tr>
        <td>unserialize_callback_func</td>
        <td>NULL</td>
        <td>PHP_INI_ALL</td>
@@ -3914,7 +3770,7 @@
       </tr>
 
       <tr>
-       <td><a href="session.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a></td>
+       <td><a href="outcontrol.configuration.html#ini.url-rewriter.tags" class="link">url_rewriter.tags</a></td>
        <td>&quot;a=href,area=href,frame=src,form=,fieldset=&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>PHP 4.0.4 以降で利用可能。</td>
@@ -3998,14 +3854,7 @@
       </tr>
 
       <tr>
-       <td>windows.show_crt_warning</td>
-       <td>&quot;0&quot;</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 5.5.0 以降で利用可能。</td>
-      </tr>
-
-      <tr>
-       <td><a href="ini.core.html#ini.windows-show-crt-warning" class="link">windows_show_crt_warning</a></td>
+       <td><a href="ini.core.html#ini.windows-show-crt-warning" class="link">windows.show_crt_warning</a></td>
        <td>&quot;0&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>PHP 5.4.0 以降で利用可能。</td>
@@ -4404,13 +4253,6 @@
       </tr>
 
       <tr>
-       <td>yaz.log_file</td>
-       <td>NULL</td>
-       <td>PHP_INI_ALL</td>
-       <td>PHP 4.3.0 以降で利用可能。PHP 5.0.0 で削除。</td>
-      </tr>
-
-      <tr>
        <td>yaz.log_mask</td>
        <td>NULL</td>
        <td>PHP_INI_ALL</td>
@@ -4418,14 +4260,14 @@
       </tr>
 
       <tr>
-       <td>yaz.max_links</td>
-       <td>&quot;100&quot;</td>
+       <td><a href="ini.core.html#ini.zend.assertions" class="link">zend.assertions</a></td>
+       <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
-       <td>PHP 4.3.0 以降で利用可能。PHP 5.0.0 で削除。</td>
+       <td>PHP 7.0.0 以降で利用可能。</td>
       </tr>
 
       <tr>
-       <td>zend.detect_unicode</td>
+       <td><a href="ini.core.html#ini.zend.detect-unicode" class="link">zend.detect_unicode</a></td>
        <td>&quot;1&quot;</td>
        <td>PHP_INI_ALL</td>
        <td>PHP 5.4.0 以降で利用可能。</td>

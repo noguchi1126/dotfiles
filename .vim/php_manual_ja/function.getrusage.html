@@ -13,7 +13,7 @@
 </div><hr /><div id="function.getrusage" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">getrusage</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">getrusage</span> &mdash; <span class="dc-title">現在のリソース使用状況を取得する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">getrusage</span> &mdash; <span class="dc-title">現在のリソース使用状況を取得する</span></p>
 
  </div>
  
@@ -67,7 +67,7 @@
  <div class="refsect1 examples" id="refsect1-function.getrusage-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-498">
+   <div class="example" id="example-543">
     <p><strong>例1 <span class="function"><strong>getrusage()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -81,12 +81,78 @@
  </div>
 
 
- <div class="refsect1 notes" id="refsect1-function.getrusage-notes">
-  <h3 class="title">注意</h3>
-  <blockquote class="note"><p><strong class="note">注意</strong>: <span class="simpara">この関数は Windows 環境にはまだ実装されていません。
-</span></p></blockquote>
+ <div class="refsect1 changelog" id="refsect1-function.getrusage-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+        This function is now supported on Windows.
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
+  </p>
  </div>
 
+
+ <div class="refsect1 notes" id="refsect1-function.getrusage-notes">
+  <h3 class="title">注意</h3>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    Windows では、<span class="function"><strong>getrusage()</strong></span> は以下のメンバーしか帰しません。
+   </p>
+   <p class="para">
+    <ul class="simplelist">
+     <li class="member"><em>&quot;ru_stime.tv_sec&quot;</em></li>
+     <li class="member"><em>&quot;ru_stime.tv_usec&quot;</em></li>
+     <li class="member"><em>&quot;ru_utime.tv_sec&quot;</em></li>
+     <li class="member"><em>&quot;ru_utime.tv_usec&quot;</em></li>
+     <li class="member">
+      <em>&quot;ru_majflt&quot;</em> (<code class="parameter">who</code> が
+      <strong><code>RUSAGE_SELF</code></strong> である場合のみ)
+     </li>
+     <li class="member">
+      <em>&quot;ru_maxrss&quot;</em> (<code class="parameter">who</code> が
+      <strong><code>RUSAGE_SELF</code></strong> である場合のみ)
+     </li>
+    </ul>
+   </p>
+   <p class="para">
+    <span class="function"><strong>getrusage()</strong></span> を呼び出す際に <code class="parameter">who</code>
+    に <em>1</em> (<strong><code>RUSAGE_CHILDREN</code></strong>) を指定すると、
+    各スレッドのリソース使用状況を収集します (つまり、内部的には
+    <strong><code>RUSAGE_THREAD</code></strong> を指定してこの関数が呼ばれるということです)。
+   </p>
+  </p></blockquote>
+  <blockquote class="note"><p><strong class="note">注意</strong>: 
+   <p class="para">
+    BeOS 2000 では、以下のメンバーしか返しません。
+   </p>
+   <p class="para">
+    <ul class="simplelist">
+     <li class="member"><em>&quot;ru_stime.tv_sec&quot;</em></li>
+     <li class="member"><em>&quot;ru_stime.tv_usec&quot;</em></li>
+     <li class="member"><em>&quot;ru_utime.tv_sec&quot;</em></li>
+     <li class="member"><em>&quot;ru_utime.tv_usec&quot;</em></li>
+    </ul>
+   </p>
+  </p></blockquote>
+ </div>
 
 
  <div class="refsect1 seealso" id="refsect1-function.getrusage-seealso">

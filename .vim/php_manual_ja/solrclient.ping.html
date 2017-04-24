@@ -40,15 +40,26 @@
  <div class="refsect1 returnvalues" id="refsect1-solrclient.ping-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   Returns a SolrPingResponse object on success and throws a SolrClientException on failure.
+   Returns a <span class="type"><a href="class.solrpingresponse.html" class="type SolrPingResponse">SolrPingResponse</a></span> object on success and throws an exception on failure.
   </p>
  </div>
 
+ 
+ <div class="refsect1 errors" id="refsect1-solrclient.ping-errors">
+  <h3 class="title">エラー / 例外</h3>
+  <p class="para">
+   Throws <a href="class.solrclientexception.html" class="classname">SolrClientException</a> if the client had failed, or there was a connection issue.
+  </p>
+  <p class="para">
+    Throws <a href="class.solrserverexception.html" class="classname">SolrServerException</a> if the Solr Server had failed to satisfy the request.
+  </p>
+ </div>
 
+ 
  <div class="refsect1 examples" id="refsect1-solrclient.ping-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4738">
+   <div class="example" id="example-5297">
     <p><strong>例1 <span class="methodname"><strong>SolrClient::ping()</strong></span> example</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

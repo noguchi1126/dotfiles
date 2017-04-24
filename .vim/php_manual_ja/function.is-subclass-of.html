@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>あるオブジェクトが指定したクラスのサブクラスに属するかどうかを調べる</title>
+  <title>あるオブジェクトが指定したクラスのサブクラスに属するか (あるいは指定したインターフェイスを実装しているか) どうかを調べる</title>
 
  </head>
  <body><div class="manualnavbar" style="text-align: center;">
@@ -13,7 +13,7 @@
 </div><hr /><div id="function.is-subclass-of" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">is_subclass_of</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">is_subclass_of</span> &mdash; <span class="dc-title">あるオブジェクトが指定したクラスのサブクラスに属するかどうかを調べる</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">is_subclass_of</span> &mdash; <span class="dc-title">あるオブジェクトが指定したクラスのサブクラスに属するか (あるいは指定したインターフェイスを実装しているか) どうかを調べる</span></p>
 
  </div>
  <div class="refsect1 description" id="refsect1-function.is-subclass-of-description">
@@ -27,7 +27,7 @@
 
   <p class="para rdfs-comment">
    指定した <code class="parameter">object</code> が、その親のひとつに
-   <code class="parameter">class_name</code> を持つかどうかを調べます。
+   <code class="parameter">class_name</code> を持つか (あるいは <code class="parameter">class_name</code> を実装しているか) どうかを調べます。
   </p>
  </div>
 
@@ -44,6 +44,7 @@
 
       <p class="para">
        クラス名あるいはオブジェクトのインスタンス。
+       そのクラスが存在しなくても、エラーにはなりません。
       </p>
      </dd>
 
@@ -134,7 +135,7 @@
  <div class="refsect1 examples" id="refsect1-function.is-subclass-of-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-5074">
+   <div class="example" id="example-5683">
     <p><strong>例1 <span class="function"><strong>is_subclass_of()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -154,7 +155,7 @@ yes, WidgetFactory_Child is a subclass of WidgetFactory
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-5075">
+   <div class="example" id="example-5684">
     <p><strong>例2 <span class="function"><strong>is_subclass_of()</strong></span> でインターフェイスを使う例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

@@ -59,7 +59,7 @@
      <dd>
 
       <p class="para">
-       <strong><code>RUNKIT_IMPORT_*</code></strong> 系の定数の論理和。
+       <a href="runkit.constants.html" class="link"><em>RUNKIT_IMPORT_*</em> 系の定数</a>の論理和。
       </p>
      </dd>
 
@@ -77,6 +77,22 @@
   </p>
  </div>
 
+
+ <div class="refsect1 examples" id="refsect1-function.runkit-import-examples">
+  <h3 class="title">例</h3>
+  <p class="para">
+   <div class="example" id="example-584">
+    <p><strong>例1 <span class="function"><strong>runkit_import()</strong></span> の例</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #FF8000">//&nbsp;クラス全体をインポートします<br /></span><span style="color: #0000BB">runkit_import</span><span style="color: #007700">(</span><span style="color: #DD0000">'myfile.inc'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">RUNKIT_IMPORT_CLASSES</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;クラスをインポートしますが、その&nbsp;static&nbsp;プロパティはインポートしません<br />&nbsp;&nbsp;&nbsp;(RUNKIT_IMPORT_CLASS_STATIC_PROPS&nbsp;は&nbsp;1.0.1&nbsp;以降で使用可能です)&nbsp;*/<br /></span><span style="color: #0000BB">runkit_import</span><span style="color: #007700">(</span><span style="color: #DD0000">'myfile.inc'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">RUNKIT_IMPORT_CLASSES&nbsp;</span><span style="color: #007700">&amp;&nbsp;~</span><span style="color: #0000BB">RUNKIT_IMPORT_CLASS_STATIC_PROPS</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">/*&nbsp;クラスの&nbsp;static&nbsp;プロパティだけをインポートします<br />&nbsp;&nbsp;&nbsp;(RUNKIT_IMPORT_CLASS_STATIC_PROPS&nbsp;は&nbsp;1.0.1&nbsp;以降で使用可能です)&nbsp;*/<br /></span><span style="color: #0000BB">runkit_import</span><span style="color: #007700">(</span><span style="color: #DD0000">'myfile.inc'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">RUNKIT_IMPORT_CLASS_STATIC_PROPS</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+   </div>
+  </p>
+ </div>
 
 </div><hr /><div class="manualnavbar" style="text-align: center;">
  <div class="prev" style="text-align: left; float: left;"><a href="function.runkit-function-rename.html">runkit_function_rename</a></div>

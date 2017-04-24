@@ -48,12 +48,31 @@
 <div class="section" id="ref.pdo-mysql.installation">
  <h2 class="title">インストール手順</h2>
  <p class="para">
+  一般的な Unix ディストリビューションには、バイナリ版の PHP がインストールされています。
+  これらのバイナリ版は、通常は MySQL 拡張モジュールに対応したものになっています。
+  しかし、拡張モジュールライブラリ自身を別パッケージでインストールする必要があるでしょう。
+  使用しているディストリビューションのパッケージマネージャで確認してみましょう。
+ </p>
+ 
+ <p class="para">
+  たとえば Ubuntu なら、<em>php5-mysql</em> パッケージをインストールすれば、
+  ext/mysql、ext/mysqli、そして pdo_mysql をインストールできます。CentOS の場合は
+  <em>php-mysql</em> パッケージを使えば、同じものをインストールできます。
+ </p>
+
+ <p class="para">
+  この拡張モジュールを自分でコンパイルすることもできます。
+  PHP をソースからビルドすれば、使いたい MySQL 拡張モジュールを指定したり
+  各拡張モジュールが使用するクライアントライブラリを選択したりすることができます。
+ </p>
+
+ <p class="para">
   <strong class="option configure">--with-pdo-mysql[=DIR]</strong>
  で
   PDO MySQL 拡張モジュールをインストールします。オプションの <em>[=DIR]</em>
-  には、MySQL の基底インストールディレクトリを指定することができます。
-  <em>[=DIR]</em> に <a href="book.mysqlnd.html" class="link">mysqlnd</a>
-  を指定すると、MySQL ネイティブドライバを使用します。
+  は、MySQL ベースライブラリの場所です。どのライブラリを選べばいいのかについての詳細は
+  <a href="mysqlinfo.library.choosing.html" class="link">MySQL ライブラリの選択</a>
+  を参照ください。
  </p>
  <p class="para">
   オプションの <strong class="option configure">--with-mysql-sock[=DIR]</strong>
@@ -94,6 +113,15 @@ $ ./configure --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
    </thead>
 
    <tbody class="tbody">
+    <tr>
+     <td>5.4.0</td>
+     <td>
+      PDO_MYSQL をコンパイルするときのデフォルトの MySQL ライブラリが
+      <a href="book.mysqlnd.html" class="link">mysqlnd</a> になりました。
+      これまでは libmysqlclient をデフォルトで使っていました。
+     </td>
+    </tr>
+
     <tr>
      <td>5.4.0</td>
      <td>
@@ -154,7 +182,7 @@ $ ./configure --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
      <span class="function"><a href="pdostatement.fetchall.html" class="function">PDOStatement::fetchAll()</a></span> を使用すべきです。
     </span>
     <p class="para">
-     <div class="example" id="example-981"><p><strong>例1 mysql でクエリのバッファリングを強制する</strong></p>
+     <div class="example" id="example-1064"><p><strong>例1 mysql でクエリのバッファリングを強制する</strong></p>
      <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
 <span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">getAttribute</span><span style="color: #007700">(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">ATTR_DRIVER_NAME</span><span style="color: #007700">)&nbsp;==&nbsp;</span><span style="color: #DD0000">'mysql'</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(</span><span style="color: #DD0000">'select&nbsp;*&nbsp;from&nbsp;foo'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #0000BB">PDO</span><span style="color: #007700">::</span><span style="color: #0000BB">MYSQL_ATTR_USE_BUFFERED_QUERY&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">));<br />}&nbsp;else&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">"このアプリケーションは&nbsp;mysql&nbsp;でしか動作しません。代わりに&nbsp;\$stmt-&gt;fetchAll()&nbsp;を使用すべきです"</span><span style="color: #007700">);<br />}<br /></span><span style="color: #0000BB">?&gt;</span>
@@ -306,8 +334,8 @@ $ ./configure --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
    <dd>
 
     <p class="para">
-     ネットワーク通信の圧縮を有効にします。これは、
-     mysqlnd を使ってコンパイルした場合はサポートされていません。
+     ネットワーク通信の圧縮を有効にします。PHP 5.3.11 以降では、
+     mysqlnd を使ってコンパイルした場合でもサポートされています。
     </p>
    </dd>
 
@@ -393,6 +421,29 @@ $ ./configure --with-pdo-mysql --with-mysql-sock=/var/mysql/mysql.sock
     </p>
     <p class="para">
      これが使えるようになった PHP のバージョンは  5.3.7.
+    </p>
+   </dd>
+
+  
+
+  
+   <dt id="pdo.constants.mysql-attr-multi-statements">
+    <strong><code>PDO::MYSQL_ATTR_MULTI_STATEMENTS</code></strong>
+     (<span class="type"><a href="language.types.integer.html" class="type integer">integer</a></span>)
+   </dt>
+
+   <dd>
+
+    <p class="para">
+     <strong><code>FALSE</code></strong> にすると、<span class="function"><a href="pdo.prepare.html" class="function">PDO::prepare()</a></span>
+     や <span class="function"><a href="pdo.query.html" class="function">PDO::query()</a></span> でのマルチクエリの実行を無効にします。
+    </p>
+    <p class="para">
+     この定数が使えるのは、データベースハンドルを新規作成する際の <code class="parameter">driver_options</code>
+     配列内だけであることに注意しましょう。
+    </p>
+    <p class="para">
+     これが使えるようになった PHP のバージョンは  5.5.21 および PHP 5.6.5。
     </p>
    </dd>
 

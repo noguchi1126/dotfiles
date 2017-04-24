@@ -13,7 +13,7 @@
 </div><hr /><div id="domelement.getattributenodens" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">DOMElement::getAttributeNodeNS</h1>
-  <p class="verinfo">(PHP 5)</p><p class="refpurpose"><span class="refname">DOMElement::getAttributeNodeNS</span> &mdash; <span class="dc-title">
+  <p class="verinfo">(PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">DOMElement::getAttributeNodeNS</span> &mdash; <span class="dc-title">
    属性ノードを返す
   </span></p>
 
@@ -70,6 +70,10 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    属性ノードを返します。
+   Note that for XML namespace declarations
+   (<em>xmlns</em> and <em>xmlns:*</em> attributes) an 
+   instance of <strong class="classname">DOMNameSpaceNode</strong> is returned instead of a
+   <a href="class.domattr.html" class="classname">DOMAttr</a>.
   </p>
  </div>
 

@@ -25,9 +25,14 @@
    )</div>
 
   <p class="para rdfs-comment">
-   Use to set a function to be called when a task is completed.  The callback function should
-   accept a single argument, a <a href="class.gearmantask.html" class="classname">GearmanTask</a> oject.
+   Use to set a function to be called when a <a href="class.gearmantask.html" class="classname">GearmanTask</a> is completed, or
+   when <span class="methodname"><a href="gearmanjob.sendcomplete.html" class="methodname">GearmanJob::sendComplete()</a></span> is invoked by a worker (whichever happens
+   first).
   </p>
+  <p class="para">
+   This callback executes only when executing a <a href="class.gearmantask.html" class="classname">GearmanTask</a> using
+   <span class="methodname"><a href="gearmanclient.runtasks.html" class="methodname">GearmanClient::runTasks()</a></span>. It is not used for individual jobs.
+  </p>  
  </div>
 
 

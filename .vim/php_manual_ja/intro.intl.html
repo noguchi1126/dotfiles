@@ -15,8 +15,10 @@
   <p class="para">
    国際化用拡張モジュール (これ以降では Intl と略します)
    は <a href="http://www.icu-project.org/" class="link external">&raquo;&nbsp;ICU</a> ライブラリのラッパーです。
-   PHP プログラマが、<a href="http://www.unicode.org/reports/tr10/" class="link external">&raquo;&nbsp;UCA</a> 準拠の照合順序 (collation)
-   や日付/時刻/数値/通貨のフォーマットを扱えるようにします。
+   PHP プログラマが、ロケール関連のさまざまな操作を行えるようにします。
+   フォーマット、音訳、エンコード変換、カレンダーの処理、
+   <a href="http://www.unicode.org/reports/tr10/" class="link external">&raquo;&nbsp;UCA</a> 準拠の照合順序 (collation)、
+   テキストの区切り、ロケール識別子やタイムゾーンや書記素を用いた操作などが可能です。
   </p>
 
   <p class="para">
@@ -49,6 +51,7 @@
      Message Formatter: メッセージ関連のデータ (数値や日付など)
      をパターンやロケールにあわせて適切にフォーマットしたり、
      メッセージをパースしてデータを取り出したりします。
+     複数形を扱ったり、ロケールごとの数値や通貨や条件などを扱ったりすることもできます。
     </span>
    </li>
    <li class="listitem">
@@ -61,6 +64,25 @@
     <span class="simpara">
      Locale: ロケール識別子を扱うための機能を提供します。
      たとえばロケール識別子のパースや作成、検索などを行います。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Calendar: ロケールにあわせたカレンダーの操作を行うためのクラスを提供します。
+     指定したロケールのタイムゾーンや週の最初の曜日を取得したり、
+     サマータイム中であるか否かを調べたりすることもできます。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Timezone: <a href="http://www.iana.org/time-zones" class="link external">&raquo;&nbsp;&quot;Olson&quot; database</a> のラッパーを提供します。
+     世界中のタイムゾーンに関する情報が含まれています。
+    </span>
+   </li>
+   <li class="listitem">
+    <span class="simpara">
+     Date formatter: ローカライズした書式や指定したパターン、ルールに基づいて日付と時刻を表示できるようにします。
+     また、文字列を日付や時刻としてパースすることもできます。
     </span>
    </li>
   </ul>

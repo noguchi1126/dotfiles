@@ -10,7 +10,7 @@
  <div class="next" style="text-align: right; float: right;"><a href="datetime.formats.relative.html">相対的な書式</a></div>
  <div class="up"><a href="datetime.formats.html">サポートする日付と時刻の書式</a></div>
  <div class="home"><a href="index.html">PHP Manual</a></div>
-</div><hr /><div id="datetime.formats.compound" class="section">
+</div><hr /><div id="datetime.formats.compound" class="sect1">
   <h2 class="title">複合的な書式</h2>
 
   <p class="para">
@@ -42,7 +42,7 @@
      <tr>
       <td><em>doy</em></td>
       <td>&quot;00&quot;[1-9] | &quot;0&quot;[1-9][0-9] | [1-2][0-9][0-9] | &quot;3&quot;[0-5][0-9] | &quot;36&quot;[0-6]</td>
-      <td>&quot;36&quot;[0-6] &quot;000&quot;, &quot;012&quot;, &quot;366&quot;</td>
+      <td>&quot;001&quot;, &quot;012&quot;, &quot;180&quot;, &quot;350&quot;, &quot;366&quot;</td>
      </tr>
 
      <tr>
@@ -89,8 +89,8 @@
 
      <tr>
       <td><em>MM</em></td>
-      <td>[0-5][0-9]</td>
-      <td>&quot;00&quot;, &quot;12&quot;, &quot;59&quot;</td>
+      <td>[0-1][0-9]</td>
+      <td>&quot;00&quot;, &quot;12&quot;</td>
      </tr>
 
      <tr>
@@ -119,7 +119,7 @@
 
      <tr>
       <td><em>tzcorrection</em></td>
-      <td>&quot;GMT&quot;? [+-] <em>hh</em> &quot;:&quot;? <em>MM</em>?</td>
+      <td>&quot;GMT&quot;? [+-] <em>hh</em> &quot;:&quot;? <em>II</em>?</td>
       <td>&quot;+0400&quot;, &quot;GMT-07:00&quot;, &quot;-07:00&quot;</td>
      </tr>
 

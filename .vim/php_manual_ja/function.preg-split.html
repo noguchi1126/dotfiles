@@ -13,7 +13,7 @@
 </div><hr /><div id="function.preg-split" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">preg_split</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">preg_split</span> &mdash; <span class="dc-title">正規表現で文字列を分割する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">preg_split</span> &mdash; <span class="dc-title">正規表現で文字列を分割する</span></p>
 
  </div>
 
@@ -148,43 +148,7 @@
   <h3 class="title">返り値</h3>
   <p class="para">
    <code class="parameter">pattern</code> にマッチした境界で分割した
-   <code class="parameter">subject</code> の部分文字列の配列を返します。
-  </p>
- </div>
-
-
- <div class="refsect1 changelog" id="refsect1-function.preg-split-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.3.0</td>
-       <td>
-        <strong><code>PREG_SPLIT_OFFSET_CAPTURE</code></strong> が追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.5</td>
-       <td>
-        <strong><code>PREG_SPLIT_DELIM_CAPTURE</code></strong> が追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
+   <code class="parameter">subject</code> の部分文字列の配列を返します。失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 
@@ -192,7 +156,7 @@
  <div class="refsect1 examples" id="refsect1-function.preg-split-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4816">
+   <div class="example" id="example-5416">
     <p><strong>例1 <span class="function"><strong>preg_split()</strong></span> の例 : 検索文字列のある部分を取得</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -215,7 +179,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4817">
+   <div class="example" id="example-5417">
     <p><strong>例2 文字列を文字要素に分割</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -241,7 +205,7 @@ Array
    </div>
   </p>
   <p class="para">
-   <div class="example" id="example-4818">
+   <div class="example" id="example-5418">
     <p><strong>例3 文字列をマッチするものとそのオフセットに分割</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -304,6 +268,7 @@ Array
   <p class="para">
    <ul class="simplelist">
     <li class="member"><a href="pcre.pattern.html" class="link">PCRE のパターン</a></li>
+    <li class="member"><span class="function"><a href="function.preg-quote.html" class="function" rel="rdfs-seeAlso">preg_quote()</a> - 正規表現文字をクオートする</span></li>
     <li class="member"><span class="function"><a href="function.implode.html" class="function" rel="rdfs-seeAlso">implode()</a> - 配列要素を文字列により連結する</span></li>
     <li class="member"><span class="function"><a href="function.preg-match.html" class="function" rel="rdfs-seeAlso">preg_match()</a> - 正規表現によるマッチングを行う</span></li>
     <li class="member"><span class="function"><a href="function.preg-match-all.html" class="function" rel="rdfs-seeAlso">preg_match_all()</a> - 繰り返し正規表現検索を行う</span></li>

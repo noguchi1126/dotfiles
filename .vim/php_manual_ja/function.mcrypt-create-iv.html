@@ -13,16 +13,30 @@
 </div><hr /><div id="function.mcrypt-create-iv" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mcrypt_create_iv</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mcrypt_create_iv</span> &mdash; <span class="dc-title">乱数ソースから初期化ベクトル(IV)を生成する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">mcrypt_create_iv</span> &mdash; <span class="dc-title">乱数ソースから初期化ベクトル(IV)を生成する</span></p>
 
  </div>
- 
+ <div id="function.mcrypt-create-iv-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この関数は PHP 7.1.0 で <em class="emphasis">非推奨</em> となりました。
+</p>
+<p class="para">
+ この関数の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.random-bytes.html" class="function">random_bytes()</a></span></li>
+   </ul>
+  </div>
+ </div>
  <div class="refsect1 description" id="refsect1-function.mcrypt-create-iv-description">
   <h3 class="title">説明</h3>
   <div class="methodsynopsis dc-description">
    <span class="type">string</span> <span class="methodname"><strong>mcrypt_create_iv</strong></span>
     ( <span class="methodparam"><span class="type">int</span> <code class="parameter">$size</code></span>
-   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$source</code><span class="initializer"> = MCRYPT_DEV_RANDOM</span></span>
+   [, <span class="methodparam"><span class="type">int</span> <code class="parameter">$source</code><span class="initializer"> = MCRYPT_DEV_URANDOM</span></span>
   ] )</div>
 
   <p class="para rdfs-comment">
@@ -69,13 +83,14 @@
        5.3.0 より前は、 Windows でサポートされているのは <strong><code>MCRYPT_RAND</code></strong>
        のみでした。
       </p>
+      <p class="para">
+       このパラメータのデフォルト値は、PHP 5.6.0 より前のバージョンでは
+       <strong><code>MCRYPT_DEV_RANDOM</code></strong> でした。
+      </p>
       <blockquote class="note"><p><strong class="note">注意</strong>: 
-       <p class="para">
-        <strong><code>MCRYPT_RAND</code></strong> を使用する場合、乱数生成器を初期化するために、
-        必ず <span class="function"><strong>mcrypt_create_iv()</strong></span> の前に <span class="function"><a href="function.srand.html" class="function">srand()</a></span>
-        をコールしてください。<span class="function"><a href="function.rand.html" class="function">rand()</a></span> のように、自動的に
-        初期化されるわけではありません。
-       </p>
+       <span class="simpara">
+        <strong><code>MCRYPT_DEV_RANDOM</code></strong> は、エントロピーが使えるようになるまでブロックする可能性があることに注意しましょう。
+       </span>
       </p></blockquote>
      </dd>
 
@@ -109,6 +124,14 @@
 
      <tbody class="tbody">
       <tr>
+       <td>5.6.0</td>
+       <td>
+        <code class="parameter">source</code> のデフォルト値が
+        <strong><code>MCRYPT_DEV_URANDOM</code></strong> になりました。
+       </td>
+      </tr>
+
+      <tr>
        <td>5.3.0</td>
        <td>
         <strong><code>MCRYPT_DEV_RANDOM</code></strong> 及び
@@ -135,7 +158,7 @@
  <div class="refsect1 examples" id="refsect1-function.mcrypt-create-iv-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-841">
+   <div class="example" id="random-int.example.basic">
     <p><strong>例1 <span class="function"><strong>mcrypt_create_iv()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -156,6 +179,7 @@
     <li class="member"><a href="http://www.ciphersbyritter.com/GLOSSARY.HTM#IV" class="link external">&raquo;&nbsp;http://www.ciphersbyritter.com/GLOSSARY.HTM#IV</a></li>
     <li class="member"><a href="http://www.quadibloc.com/crypto/co0409.htm" class="link external">&raquo;&nbsp;http://www.quadibloc.com/crypto/co0409.htm</a></li>
     <li class="member">Applied Cryptography by Schneier (ISBN 0-471-11709-9) の Chapter 9.3</li>
+    <li class="member"><span class="function"><a href="function.random-bytes.html" class="function" rel="rdfs-seeAlso">random_bytes()</a> - Generates cryptographically secure pseudo-random bytes</span></li>
    </ul>
   </p>
  </div>

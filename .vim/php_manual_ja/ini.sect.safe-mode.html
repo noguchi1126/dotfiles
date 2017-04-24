@@ -38,14 +38,14 @@
         <td><a href="ini.sect.safe-mode.html#ini.safe-mode-gid" class="link">safe_mode_gid</a></td>
         <td>&quot;0&quot;</td>
         <td>PHP_INI_SYSTEM</td>
-        <td>PHP 4.1.0 から利用可能。PHP 5.4.0 で削除されました。</td>
+        <td>PHP 5.4.0 で削除されました。</td>
        </tr>
 
        <tr>
         <td><a href="ini.sect.safe-mode.html#ini.safe-mode-include-dir" class="link">safe_mode_include_dir</a></td>
         <td>NULL</td>
         <td>PHP_INI_SYSTEM</td>
-        <td>PHP 4.1.0 から利用可能。PHP 5.4.0 で削除されました。</td>
+        <td>PHP 5.4.0 で削除されました。</td>
        </tr>
 
        <tr>
@@ -137,7 +137,7 @@ PHP 5.4.0 で<em class="emphasis">削除</em>されました。</p></div>
         あるいはフルパスで記述される必要があります）
        </p>
        <span class="simpara">
-        PHP 4.2.0以降、このディレクティブは
+        このディレクティブは
         <a href="ini.core.html#ini.include-path" class="link">include_path</a>と同様に
         コロン(Windowsではセミコロン)で分けた形式で複数のパスを書くことができます。
        </span>
@@ -150,10 +150,9 @@ PHP 5.4.0 で<em class="emphasis">削除</em>されました。</p></div>
         例：&quot;<em>safe_mode_include_dir = /dir/incl/</em>&quot;
        </span>
        <span class="simpara">
-        PHP 4.2.3 と PHP 4.3.3 以降では、ディレクティブの値が空の場合、
+        ディレクティブの値が空の場合、
         異なる <em>UID</em>/<em>GID</em> を持つファイルを
         インクルードすることはできません。
-        以前のバージョンでは、全てのファイルをインクルード可能でした。
        </span>
       </dd>
 

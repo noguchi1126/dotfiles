@@ -13,7 +13,7 @@
 </div><hr /><div id="function.json-last-error-msg" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">json_last_error_msg</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0)</p><p class="refpurpose"><span class="refname">json_last_error_msg</span> &mdash; <span class="dc-title">直近の json_encode() や json_decode() の呼び出しのエラー文字列を返すl</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">json_last_error_msg</span> &mdash; <span class="dc-title">直近の json_encode() や json_decode() の呼び出しのエラー文字列を返すl</span></p>
 
  </div>
 
@@ -40,7 +40,8 @@
  <div class="refsect1 returnvalues" id="refsect1-function.json-last-error-msg-returnvalues">
   <h3 class="title">返り値</h3>
   <p class="para">
-   成功した場合にエラーメッセージを返します。パラメータが間違っている場合は <strong><code>NULL</code></strong> を返します。
+   成功した場合にエラーメッセージ、エラーが発生しなかった場合は <em>&quot;No Error&quot;</em>、
+   失敗した場合に <strong><code>FALSE</code></strong> を返します。
   </p>
  </div>
 

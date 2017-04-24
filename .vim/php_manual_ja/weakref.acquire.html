@@ -27,6 +27,11 @@
   <p class="para rdfs-comment">
    オブジェクトへの強い参照を確保し、事実上、弱い参照を強い参照に切り替えます。
   </p>
+  <p class="para">
+   <a href="class.weakref.html" class="classname">Weakref</a> は内部的な確保カウンタを管理して、
+   未処理の強い参照を追跡します。
+   <span class="methodname"><strong>Weakref::acquire()</strong></span> の呼び出しが成功すると、このカウンタがひとつ加算されます。
+  </p>
  </div>
 
 
@@ -48,7 +53,7 @@
  <div class="refsect1 examples" id="refsect1-weakref.acquire-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-549">
+   <div class="example" id="example-611">
     <p><strong>例1 <span class="methodname"><strong>Weakref::acquire()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -69,7 +74,7 @@ Destroying object!
   </p>
 
   <p class="para">
-   <div class="example" id="example-550">
+   <div class="example" id="example-612">
     <p><strong>例2 ネストした確保と解放の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

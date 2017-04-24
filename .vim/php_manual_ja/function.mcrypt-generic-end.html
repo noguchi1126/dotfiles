@@ -13,8 +13,25 @@
 </div><hr /><div id="function.mcrypt-generic-end" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">mcrypt_generic_end</h1>
-  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5 &lt;= 5.1.6)</p><p class="refpurpose"><span class="refname">mcrypt_generic_end</span> &mdash; <span class="dc-title">暗号処理を終了する</span></p>
+  <p class="verinfo">(PHP 4 &gt;= 4.0.2, PHP 5)</p><p class="refpurpose"><span class="refname">mcrypt_generic_end</span> &mdash; <span class="dc-title">暗号処理を終了する</span></p>
 
+ </div>
+ 
+ <div id="function.mcrypt-generic-end-refsynopsisdiv">
+  <div class="warning"><strong class="warning">警告</strong>
+   
+<p class="para">
+ この関数は PHP 5.3.0 で <em class="emphasis">非推奨</em> となり、
+ PHP 7.0.0 で <em class="emphasis">削除</em> されました。
+</p>
+<p class="para">
+ この関数の代替として、これらが使えます。
+</p>
+
+   <ul class="simplelist">
+    <li class="member"><span class="function"><a href="function.mcrypt-generic-deinit.html" class="function">mcrypt_generic_deinit()</a></span></li>
+   </ul>
+  </div>
  </div>
  
  <div class="refsect1 description" id="refsect1-function.mcrypt-generic-end-description">
@@ -27,7 +44,6 @@
   <p class="para rdfs-comment">
    <div class="warning"><strong class="warning">警告</strong>
     <p class="para">
-     この関数は非推奨です。かわりに
      <span class="function"><a href="function.mcrypt-generic-deinit.html" class="function">mcrypt_generic_deinit()</a></span> を使用してください。
      <span class="function"><a href="function.mcrypt-module-close.html" class="function">mcrypt_module_close()</a></span> とともに使用すると、
      複数バッファの開放によりクラッシュを引き起こすことがあります。
@@ -38,6 +54,34 @@
    この関数は、暗号化記述子(td) で指定した暗号化処理を終了します。
    この関数は全てのバッファをクリアし、使用した全てのモジュールを
    クローズします。エラーの場合に <strong><code>FALSE</code></strong>、成功時に <strong><code>TRUE</code></strong> を返します。
+  </p>
+ </div>
+
+ <div class="refsect1 changelog" id="refsect1-function.mcrypt-generic-end-changelog">
+  <h3 class="title">変更履歴</h3>
+  <p class="para">
+   <table class="doctable informaltable">
+    
+     <thead>
+      <tr>
+       <th>バージョン</th>
+       <th>説明</th>
+      </tr>
+
+     </thead>
+
+     <tbody class="tbody">
+      <tr>
+       <td>7.0.0</td>
+       <td>
+       mcrypt_generic_end 関数が削除されました。
+       </td>
+      </tr>
+
+     </tbody>
+    
+   </table>
+
   </p>
  </div>
 

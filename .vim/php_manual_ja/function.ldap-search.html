@@ -13,7 +13,7 @@
 </div><hr /><div id="function.ldap-search" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">ldap_search</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">ldap_search</span> &mdash; <span class="dc-title">LDAP ツリーを探索する</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">ldap_search</span> &mdash; <span class="dc-title">LDAP ツリーを探索する</span></p>
 
  </div>
 
@@ -92,7 +92,8 @@
        検索フィルタは、LDAP ドキュメントに記述されたフォーマットの論理
        演算子を用いて、簡単なものまたは高度なものとすることができます
        (フィルタに関する詳細な情報については、
-       <a href="http://www.mozilla.org/directory/csdk-docs/filter.htm" class="link external">&raquo;&nbsp;Netscape Directory SDK</a>
+       <a href="https://wiki.mozilla.org/Mozilla_LDAP_SDK_Programmer%27s_Guide/Searching_the_Directory_With_LDAP_C_SDK" class="link external">&raquo;&nbsp;Netscape Directory SDK</a>
+       あるいは <a href="http://www.faqs.org/rfcs/rfc4515" class="link external">&raquo;&nbsp;RFC4515</a>
        を参照ください)。
       </p>
      </dd>
@@ -227,44 +228,6 @@
  </div>
 
 
- <div class="refsect1 changelog" id="refsect1-function.ldap-search-changelog">
-  <h3 class="title">変更履歴</h3>
-  <p class="para">
-   <table class="doctable informaltable">
-    
-     <thead>
-      <tr>
-       <th>バージョン</th>
-       <th>説明</th>
-      </tr>
-
-     </thead>
-
-     <tbody class="tbody">
-      <tr>
-       <td>4.0.5</td>
-       <td>
-        並列検索のサポートが追加されました。
-       </td>
-      </tr>
-
-      <tr>
-       <td>4.0.2</td>
-       <td>
-        <code class="parameter">attrsonly</code>、<code class="parameter">sizelimit</code>、
-        <code class="parameter">timelimit</code> および <code class="parameter">deref</code>
-        が追加されました。
-       </td>
-      </tr>
-
-     </tbody>
-    
-   </table>
-
-  </p>
- </div>
-
-
  <div class="refsect1 examples" id="refsect1-function.ldap-search-examples">
   <h3 class="title">例</h3>
   <p class="para">
@@ -272,7 +235,7 @@
    <var class="varname"><var class="varname">$person</var></var> を含む人の組織単位、姓、名、電子メールアドレスを取得します。
    この例は、複数の属性に関する情報についてサーバーに検索をかける論理
    フィルタを使用します。
-   <div class="example" id="example-4412">
+   <div class="example" id="example-4955">
     <p><strong>例1 LDAP 検索</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">

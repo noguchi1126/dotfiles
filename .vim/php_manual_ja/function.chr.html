@@ -13,7 +13,7 @@
 </div><hr /><div id="function.chr" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">chr</h1>
-  <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">chr</span> &mdash; <span class="dc-title">特定の文字を返す</span></p>
+  <p class="verinfo">(PHP 4, PHP 5, PHP 7)</p><p class="refpurpose"><span class="refname">chr</span> &mdash; <span class="dc-title">特定の文字を返す</span></p>
 
  </div>
  
@@ -45,7 +45,17 @@
      <dd>
 
       <p class="para">
-       ascii コード。
+       拡張 ASCII コード。
+      </p>
+      <p class="para">
+       妥当な範囲 (0..255) 外の値を渡した場合は、255 とのビット AND を行います。
+       この処理は、以下のコードと同様のアルゴリズムです。
+       <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+while&nbsp;($ascii&nbsp;&lt;&nbsp;0)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;$ascii&nbsp;+=&nbsp;256;<br />}<br />$ascii&nbsp;%=&nbsp;256;</span>
+</code></div>
+       </div>
+
       </p>
      </dd>
 
@@ -63,11 +73,10 @@
   </p>
  </div>
 
-
  <div class="refsect1 examples" id="refsect1-function.chr-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-4832">
+   <div class="example" id="example-5432">
     <p><strong>例1 <span class="function"><strong>chr()</strong></span> の例</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
@@ -76,6 +85,22 @@
 </code></div>
     </div>
 
+   </div>
+   <div class="example" id="example-5433">
+    <p><strong>例2 オーバーフローの挙動</strong></p>
+    <div class="example-contents">
+<div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">echo&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(-</span><span style="color: #0000BB">159</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">chr</span><span style="color: #007700">(</span><span style="color: #0000BB">833</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">?&gt;</span>
+</span>
+</code></div>
+    </div>
+
+    <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
+    <div class="example-contents screen">
+<div class="cdata"><pre>
+aA
+</pre></div>
+    </div>
    </div>
   </p>
  </div>

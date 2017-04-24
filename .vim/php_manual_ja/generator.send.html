@@ -13,7 +13,7 @@
 </div><hr /><div id="generator.send" class="refentry">
  <div class="refnamediv">
   <h1 class="refname">Generator::send</h1>
-  <p class="verinfo">(PHP 5 &gt;= 5.5.0)</p><p class="refpurpose"><span class="refname">Generator::send</span> &mdash; <span class="dc-title">値をジェネレータに送る</span></p>
+  <p class="verinfo">(PHP 5 &gt;= 5.5.0, PHP 7)</p><p class="refpurpose"><span class="refname">Generator::send</span> &mdash; <span class="dc-title">値をジェネレータに送る</span></p>
 
  </div>
 
@@ -58,14 +58,22 @@
  </div>
 
 
+ <div class="refsect1 returnvalues" id="refsect1-generator.send-returnvalues">
+  <h3 class="title">返り値</h3>
+  <p class="para">
+   yield した値を返します。
+  </p>
+ </div>
+
+
  <div class="refsect1 examples" id="refsect1-generator.send-examples">
   <h3 class="title">例</h3>
   <p class="para">
-   <div class="example" id="example-309">
+   <div class="example" id="example-331">
     <p><strong>例1 <span class="methodname"><strong>Generator::send()</strong></span> による値の注入</strong></p>
     <div class="example-contents">
 <div class="phpcode"><code><span style="color: #000000">
-<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">printer</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: #0000BB">true</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">yield</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$printer&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">printer</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$printer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">(</span><span style="color: #DD0000">'Hello&nbsp;world!'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$printer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">(</span><span style="color: #DD0000">'Bye&nbsp;world!'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
+<span style="color: #0000BB">&lt;?php<br /></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">printer</span><span style="color: #007700">()&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">"I'm&nbsp;printer!"</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(</span><span style="color: #0000BB">true</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$string&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">yield</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$string</span><span style="color: #007700">.</span><span style="color: #0000BB">PHP_EOL</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}<br /><br /></span><span style="color: #0000BB">$printer&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">printer</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$printer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">(</span><span style="color: #DD0000">'Hello&nbsp;world!'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$printer</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">send</span><span style="color: #007700">(</span><span style="color: #DD0000">'Bye&nbsp;world!'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">?&gt;</span>
 </span>
 </code></div>
     </div>
@@ -73,19 +81,12 @@
     <div class="example-contents"><p>上の例の出力は以下となります。</p></div>
     <div class="example-contents screen">
 <div class="cdata"><pre>
+I&#039;m printer!
 Hello world!
 Bye world!
 </pre></div>
     </div>
    </div>
-  </p>
- </div>
-
-
- <div class="refsect1 returnvalues" id="refsect1-generator.send-returnvalues">
-  <h3 class="title">返り値</h3>
-  <p class="para">
-   yield した値を返します。
   </p>
  </div>
 
