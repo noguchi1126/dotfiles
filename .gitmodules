@@ -1,6 +1,6 @@
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
-	url = git://github.com/seebi/dircolors-solarized.git
+	url = https://github.com/seebi/dircolors-solarized.git
 [submodule "cdd"]
 	path = cdd
 	url = https://github.com/m4i/cdd
