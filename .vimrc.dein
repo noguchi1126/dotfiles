@@ -58,6 +58,7 @@ set hlsearch
 set incsearch
 set backspace=indent,eol,start
 set history=10000
+set encoding=utf-8
 
 map <F2> :NERDTreeToggle<CR>
 
